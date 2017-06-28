@@ -1,0 +1,16 @@
+Fpp library as of July 23, 2006 -JG
+
+-Contains Mark Jones' 7th order polynomial fit to drift distance
+and Ed brash's new contest (coneteste).
+
+-Newest versions of detmap.config (with fix to fpp_u4,5&6) and db_L.fpp.dat
+ (with 7th order drift distance calculation, demux cuts and time offsets)
+
+-Alignment coefficients still need to calculated, see 
+ /work/halla/ledex/disk2/jglister/fpp-alignment/
+
+
+Modified July 24, 2006 -JG
+
+-All tracking variables (angles, zlcose, etc.) set to kBig (=1e37) for bad tracking, as with
+ ESPACE version

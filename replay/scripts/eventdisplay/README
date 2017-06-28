@@ -1,0 +1,17 @@
+This is event display script for HRS
+
+The main program is the executable "program", run it as: ./program
+
+The path of rootfiles and generated plots are set in the def.h file and if you change the paths, remember to do "make" before running the program
+
+The program can be compiled using the Makefile in the directory
+
+The six pads, from left to right, correspond to VDC1, VDC2, Fpp, S2m, prl1 (or preshower), prl2 (or shower) respectively
+
+In the VDC display, the red lines are U wires while blue for V wires
+
+In the Fpp display, the red lines are V wires while blue for U wires
+
+Coordinate system:
+		   left -- positive y
+		   down -- positive x

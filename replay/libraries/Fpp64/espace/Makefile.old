@@ -1,0 +1,49 @@
+SHELL		= /bin/sh
+
+FOR		= g77 -c -shared
+
+CERN_LIBRARY    = $(CERN_ROOT)/lib
+CERN_LIBS	= -lmathlib -lgraflib -lgrafX11 -lpacklib
+SOURCES		= fpp_align.f fpp_set.f fpp_trackit.f fpp_trk4.f fpp_last.f fpp_align_corr.f
+OBJECTS		= $(SOURCES:.f=.o)
+
+ifeq ($(OSTYPE),linux)
+#
+# use absoft
+# use cernlib/2000
+#
+  CERN_ROOT	= /site/cernlib/x86_64_rhel4/2005/
+#  CERN_ROOT= /apps/cernlib/i386_redhat72_gcc3/2001/
+  CERN_LIBRARY    = $(CERN_ROOT)/lib
+#  FFLAGS	= -q -O -B88 -B108 -B111 -N2 -N22 -N90 -f -W
+  FFLAGS	= -q -B88 -B108 -B111 -N2 -N22 -N90 -f -c
+  LFLAGS	= -B108 -L$(CERN_LIBRARY)/ -L/usr/X11R6/lib -L/usr/lib64 
+  LIBS		= $(CERN_LIBS) $(FLIBS) -lX11 -lm \
+	-L/usr/lib64 -lg2c
+EXE		= fpp_align_linux.o
+#  EXE		= fpp_align_test.exe
+endif
+
+$(EXE)		: $(OBJECTS)	
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_align_corr.o	:	fpp_align_corr.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_align.o	:	fpp_align.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_last.o	:	fpp_last.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_set.o	:	fpp_set.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_trackit.o	: 	fpp_trackit.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+fpp_trk4.o	:	fpp_trk4.f
+	$(FOR) $^ -o $@ $(LFLAGS) $(LIBS)
+
+clean:
+		rm -f *.o

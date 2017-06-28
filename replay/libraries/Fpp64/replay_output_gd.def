@@ -1,0 +1,40 @@
+#Fpp variables
+variable L.fpp.zclose
+variable L.fpp.sclose
+variable L.fpp.th_az
+variable L.fpp.ph_az
+variable L.fpp.conetest
+variable L.fpp.ntrackfu
+variable L.fpp.ntrackfv
+
+#target variables
+variable L.tr.tg_dp
+variable L.tr.tg_th
+variable L.tr.tg_ph
+variable L.tr.tg_y
+variable L.tr.ph
+variable L.tr.th
+variable L.tr.n
+variable ReactPt_L.z
+
+#kinematics
+variable GM.EGamma
+variable GM.angle_cm
+variable L.gold.p
+variable L.gold.x
+variable L.gold.y
+variable L.gold.th
+variable L.gold.ph
+variable SAP.Q2
+variable SAP.q_x
+variable SAP.q_y
+variable SAP.q_z
+
+#beam
+variable Beam.HL.helicity
+formula  L_sv_x  L.gold.x+L.gold.th*1.
+formula  L_sv_y  L.gold.y+L.gold.ph*1.
+
+
+
+

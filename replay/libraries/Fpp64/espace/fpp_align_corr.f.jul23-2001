@@ -1,0 +1,174 @@
+      subroutine fpp_align_corr_front(xfaold,yfaold,tfold,pfold,
+     $     xatz0f,yatz0f,tthetaf,tphif,
+     $     xatz0r,yatz0r,tthetar,tphir)
+c     
+c Written by Ed Brash - March 6, 1997 - to calculate new x,y,theta,
+c and phi for front chambers based on the alignment
+c correction parameters.
+c
+      implicit none
+c
+      include 'fpp_local.h'
+c     
+      integer*4 nn
+      real*8 xatz0f,yatz0f,xatz0r,yatz0r
+      real*8 tthetaf,tphif,tthetar,tphir
+      real*8 xterm,yterm,tterm,pterm,tterm2,pterm2
+      real*8 tfront,pfront,xfaold,yfaold
+      real*8 tfold,pfold,trear,prear
+      real*8 fg,thinitd,phiinitd,thetafd,phifd,rawmat(4)
+c     
+c Alignment corrections for x and y.
+c
+      fg=180.00000/3.141592653589793
+      thinitd=thinit*fg
+      phiinitd=phiinit*fg
+      thetafd=datan(tthetaf)*fg
+      phifd=datan(tphif)*fg
+     
+      rawmat(1)=xinit
+      rawmat(2)=yinit
+      rawmat(3)=dtan(thinit)
+      rawmat(4)=dtan(phiinit)
+
+      xterm=m0front(1)
+      do nn=1,4
+         xterm=xterm+m1front(1,nn)*rawmat(nn)+
+     &        m2front(1,nn)*rawmat(nn)**2
+c             write(*,*)nn,xcoeff(nn),xterm
+      enddo
+      xatz0f=xfaold+xterm
+      xatz0r=xatz0r+xterm
+c     
+      yterm=m0front(2)
+      do nn=1,4
+         yterm=yterm+m1front(2,nn)*rawmat(nn)+
+     &        m2front(2,nn)*rawmat(nn)**2
+c             write(*,*)nn,ycoeff(nn),yterm
+      enddo
+      yatz0f=yfaold+yterm
+      yatz0r=yatz0r+yterm
+c     
+c     Angle alignment corrections
+c     
+      tterm=m0front(3)
+      do nn=1,4
+         tterm=tterm+m1front(3,nn)*rawmat(nn)+
+     &        m2front(3,nn)*rawmat(nn)**2
+c             write(*,*)nn,tcoeff(nn),tterm
+      enddo
+c     
+      pterm=m0front(4)
+      do nn=1,4
+         pterm=pterm+m1front(4,nn)*rawmat(nn)+
+     &        m2front(4,nn)*rawmat(nn)**2
+c             write(*,*)nn,pcoeff(nn),pterm
+      enddo
+c     
+      tfront=datan(tthetaf)*180./pi
+      pfront=datan(tphif)*180./pi
+      trear=datan(tthetar)*180./pi
+      prear=datan(tphir)*180./pi
+      tfront=(tfront-tterm)*pi/180.
+      pfront=(pfront-pterm)*pi/180.
+      trear=(trear-tterm)*pi/180.
+      prear=(prear-pterm)*pi/180.
+      tthetaf=dtan(tfront)
+      tphif=dtan(pfront)
+      tthetar=dtan(trear)
+      tphir=dtan(prear)
+c     
+      return
+      
+      end
+
+      subroutine fpp_align_corr_rear(xfbold,yfbold,tfold,pfold,
+     $     xatz0r,yatz0r,tthetar,tphir)
+c     
+c Written by Ed Brash - March 14, 1997 - to calculate new x,y,theta,
+c and phi for rear chambers based on the alignment
+c correction parameters.
+c
+      implicit none
+c
+      include 'fpp_local.h'
+c     
+      integer*4 nn
+      real*8 xatz0r,yatz0r
+      real*8 tthetar,tphir,ttermr2,ptermr2
+      real*8 xterm,yterm,ttermr,ptermr
+      real*8 xfbold,yfbold,ttermr3,ptermr3
+      real*8 tfold,pfold,prear,trear
+      real*8 fg,thinitd,phiinitd,thetafd,phifd,rawmat(4)
+c     
+c Alignment corrections for x and y.
+c
+      fg=180.00000/3.141592653589793
+      thinitd=thinit*fg
+      phiinitd=phiinit*fg
+      thetafd=datan(tfold)*fg
+      phifd=datan(pfold)*fg
+
+      rawmat(1)=xfbold
+      rawmat(2)=yfbold
+      rawmat(3)=thetafd
+      rawmat(4)=phifd
+
+      xterm=m0rear(1)
+      do nn=1,4
+         xterm=xterm+m1rear(1,nn)*rawmat(nn)+
+     &        m2rear(1,nn)*rawmat(nn)**2
+c             write(*,*)nn,xcoeff(nn),xterm
+      enddo
+      xatz0r=xatz0r+xterm
+c     
+      yterm=m0rear(2)
+      do nn=1,4
+         yterm=yterm+m1rear(2,nn)*rawmat(nn)+
+     &        m2rear(2,nn)*rawmat(nn)**2
+c             write(*,*)nn,ycoeff(nn),yterm
+      enddo
+      yatz0r=yatz0r+yterm
+c     
+c     Angle alignment corrections
+c     
+      ttermr=m0rear(3)
+      do nn=1,4
+         ttermr=ttermr+m1rear(3,nn)*rawmat(nn)+
+     &        m2rear(3,nn)*rawmat(nn)**2
+c             write(*,*)nn,tcoeff(nn),tterm
+      enddo
+c     
+      ptermr=m0rear(4)
+      do nn=1,4
+         ptermr=ptermr+m1rear(4,nn)*rawmat(nn)+
+     &        m2rear(4,nn)*rawmat(nn)**2
+c             write(*,*)nn,pcoeff(nn),pterm
+      enddo
+c     
+      trear=datan(tthetar)*180./pi
+      prear=datan(tphir)*180./pi
+      trear=(trear-ttermr)*pi/180.
+      prear=(prear-ptermr)*pi/180.
+      tthetar=dtan(trear)
+      tphir=dtan(prear)
+c     
+      return
+      end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1311 @@
+      subroutine fpp_track(icode)
+c     
+c Written by Ed Brash - January 13, 1995 - packs data from raw
+c data structures and organizes the calls to the actual tracking
+c routines (trk4.f and associated routines). Fills most FPP
+c related histograms.
+c
+c Modified by Ed Brash - January-February, 1996 - accumulate
+c statistics for time offset and alignment calibration routines.
+c
+c
+      implicit none
+c
+      include 'fpp_local.h'
+c
+      include 'parameter.h'
+      include 'espace_type.h'
+      include 'espace_user.h'
+      include 'detector.h'
+      include 'transport.h'
+      include 'option.h'
+c
+      integer*4 ntrack		!# of tracks
+      integer*4 itrk(5)         !# of tracks found at each tracking interation
+      integer*4 icode           !signal to main code of tracking problem 0=o.k.
+      integer*4 itrcode         !tracking code 
+      integer*4 ntrack_front,ntrack_rear,ntrack_tot
+      integer*4 prev_straw,addextrahit
+      integer*4 nc3uhits,nc3vhits,nc4uhits,nc4vhits
+      real*8 track(40,25)       !track information
+      real*8 zplane,str,ddist,uvx,a,b,c,d,ee,ff,gg,hh,iii,ztr,yw
+      real*8 jjj,dd2by2,dd2,dd,resres,fac
+      real*8 residual,rbig
+      real*8 t1,t2,t3,t4,t5,t6
+      real*8 fg,ueff,veff,zeff
+      real*8 xfaold,xrold,yfaold,yrold,xfbold,yfbold
+      real*8 tfold,trold,pfold,prold
+      real*8 psif,psir,xhatr,yhatr,zhatr,xhatf,yhatf,zhatf
+      real*8 xhat1f,yhat1f,zhat1f,xhat1r,yhat1r,zhat1r
+      real*8 thetasc,phisc,psisc,thetafd,phifd
+      real*8 x_sc,y_sc,z_sc,psi_sc,r_sc
+c
+      real*8 usave(6),zusave(6),dusave(6)
+      integer*4 uplsave(6)
+c
+      real*8 xf3,xf4,yf3,yf4
+      real*8 xr3,xr4,yr3,yr4
+      real*8 dcone3,dcone4
+      real*8 zback,ttheta
+      real*8 r1x3,r2x3,r1y3,r2y3
+      real*8 r1x4,r2x4,r1y4,r2y4
+c
+      integer*4 j,k
+      real*8 xpt3(8),ypt3(8),xpt4(8),ypt4(8)
+      real*8 xpoly3(6),ypoly3(6),xpoly4(8),ypoly4(8)
+      integer*4 nsides3,nsides4,oddnodes3,oddnodes4
+      logical inside3,inside4
+c
+      real*8 xatz0f,yatz0f,xatz0r,yatz0r,xatz0x
+      real*8 xtr(24),ytr(24),uvxtr(24),z(24)
+      real*8 uvx_low,uvx_hi,strw_rad,uvx0
+      integer*4 straw_pred(24),nstraws,itrgood(24)
+      real*8 tthetaf,tphif,tthetaa,tphia,thinitd,phiinitd
+      real*8 tthetar,tphir,theta_sc,phi_sc,theta_az,phi_az
+      real*8 xdiff_front,ydiff_front,xdiff_rear,ydiff_rear,xdiff_x
+      real*8 theta_difff,phi_difff,theta_diffr,phi_diffr
+      integer*4 jj,ii,kk,ntothits,nhinit,ngoodhit
+      real*8 term1,term2,term3,term4,term5,term6,zclose,sclose
+      integer*4 iwiregroup,igroup,itime
+      real*8 letime,tetime,tdiff
+      real*8 diff,rstraw,drdist
+      integer*4 iss_front(8),imark,iss_rear_v3(8)
+      integer*4 iss_rear_x3(8),iss_rear_u3(8),index
+      integer*4 iss_rear_u4(8),iss_rear_v4(8),i,ipl
+      data iss_front  / 1,3,2,4,6,8,5,7 /
+      data iss_rear_v3 / 1,3,2,4,6,8,5,7 /
+      data iss_rear_u3 / 8,6,7,5,3,1,4,2 /
+      data iss_rear_x3 / 1,3,2,4,6,8,5,7 /
+      data iss_rear_u4 / 8,6,7,5,3,1,4,2 /
+      data iss_rear_v4 / 8,6,7,5,3,1,4,2 /
+c
+      data xpoly3 /-110.0,-87.0,110.0,110.0,87.0,-110.0/
+      data ypoly3 /33.0,55.0,55.0,-33.0,-55.0,-55.0/
+      data nsides3 /6/
+      data xpoly4 /-140.0,-72.0,104.0,140.0,140.0,72.0,-104.0,-140.0/
+      data ypoly4 /2.0,70.0,70.0,38.0,-2.0,-70.0,-70.0,-38.0/
+      data nsides4 /8/
+c     
+      if (debug_fpp) then
+c
+c
+c Load VDC tracking variables into local variables - write them out
+c for diagnostics if desired.
+c
+         write(25,*)'ninterupts = ',nr_interrupts
+         write(25,*)'FP_d coordinates'
+         write(25,*)'vdc x in cm =',sptransport.l.particle.fp_d.x*100.
+         write(25,*)'vdc y in cm =',sptransport.l.particle.fp_d.y*100.
+         write(25,*)'vdc ph in rad =',sptransport.l.particle.fp_d.ph
+         write(25,*)'vdc th in rad =',sptransport.l.particle.fp_d.th
+         write(25,*)'FP_H coordinates'
+         write(25,*)'vdc x in cm =',sptransport.l.particle.fp_h.x*100.
+         write(25,*)'vdc y in cm =',sptransport.l.particle.fp_h.y*100.
+         write(25,*)'vdc ph in rad =',sptransport.l.particle.fp_h.ph
+         write(25,*)'vdc th in rad =',sptransport.l.particle.fp_h.th
+         write(25,*)'FP_t coordinates'
+         write(25,*)'vdc x in cm =',sptransport.l.particle.fp_t.x*100.
+         write(25,*)'vdc y in cm =',sptransport.l.particle.fp_t.y*100.
+         write(25,*)'vdc ph in rad =',sptransport.l.particle.fp_t.ph
+         write(25,*)'vdc th in rad =',sptransport.l.particle.fp_t.th
+      endif
+C
+
+      xinit = sptransport.l.particle.fp_h.x*100.0
+      yinit = sptransport.l.particle.fp_h.y*100.0
+      thinit = sptransport.l.particle.fp_h.ph
+      thinit = datan(thinit)
+      phiinit=datan(sptransport.l.particle.fp_h.th)	
+
+
+c
+      if (debug_fpp) then
+         write(25,*) ' Calc vdc quantites'
+         write(25,*) ' x = ',xinit,' y = ',yinit,
+     >        ' dydz = ',dtan(thinit),' dxdz = ',dtan(phiinit)
+      endif
+c
+c Initialize Hit array
+c
+      
+      nevent = nevent + 1
+
+      do kk=1,5
+         do jj=1,35
+            do ii=1,24
+               hit(kk,jj,ii)=0.0
+            enddo
+         enddo
+      enddo
+c     
+c Initialize Track array
+c
+      do ii=1,40
+         do jj=1,25
+            track(ii,jj)=0.0
+         enddo
+      enddo
+c
+c
+c Initialize nhit array
+c	
+      do ii=1,25
+         nhit(ii)=0
+      enddo
+c     
+      do ii=1,24
+         spdetector.l.fpp.plane(ii).nghits=0
+      enddo
+c     
+c
+c       Fill hit and nhit arrays with values from common blocks
+c
+      ntothits=0
+      do jj=1,24
+         if (ch4_only.and.(jj.ge.13.and.jj.le.18)) goto 1567
+         ngoodhit=0
+         nhit(jj)=spdetector.l.fpp.plane(jj).nhits
+         nhinit=nhit(jj)
+         prev_straw = -1
+         do ii=1,nhinit
+            iwiregroup=spdetector.l.fpp.plane(jj).raw.wire(ii)
+            letime=(spdetector.l.fpp.plane(jj).raw.ltdc(ii))/2.0 
+            tetime=(spdetector.l.fpp.plane(jj).raw.ttdc(ii))/2.0
+            tdiff=letime-tetime
+            spdetector.l.fpp.plane(jj).raw.letediff(ii) = tdiff
+            imark=0
+            do kk=1,9
+               if(tdiff.gt.spdetector.l.fpp.plane(jj).
+     >              wiregroup(iwiregroup).cut(kk)) then
+                  imark=imark+1
+               endif
+            enddo
+            if(imark.gt.0.and.imark.le.8) then
+               if(jj.ge.1.and.jj.le.12)   diff=iss_front(imark)
+               if(jj.ge.13.and.jj.le.14)  diff=iss_rear_u3(imark)
+               if(jj.ge.19.and.jj.le.21)  diff=iss_rear_u4(imark)
+               if(jj.ge.15.and.jj.le.16)  diff=iss_rear_v3(imark)
+               if(jj.ge.22.and.jj.le.24)  diff=iss_rear_v4(imark)
+               if(jj.ge.17.and.jj.le.18)  diff=iss_rear_x3(imark)
+            else
+               if(imark.gt.8) then
+                  imark=0
+                  if(jj.ge.1.and.jj.le.12)   diff=iss_front(8)
+                  if(jj.ge.13.and.jj.le.14)  diff=iss_rear_u3(8)
+                  if(jj.ge.19.and.jj.le.21)  diff=iss_rear_u4(8)
+                  if(jj.ge.15.and.jj.le.16)  diff=iss_rear_v3(8)
+                  if(jj.ge.22.and.jj.le.24)  diff=iss_rear_v4(8)
+                  if(jj.ge.17.and.jj.le.18)  diff=iss_rear_x3(8)
+               else
+                  if(jj.ge.1.and.jj.le.12)   diff=iss_front(1)
+                  if(jj.ge.13.and.jj.le.14)  diff=iss_rear_u3(1)
+                  if(jj.ge.19.and.jj.le.21)  diff=iss_rear_u4(1)
+                  if(jj.ge.15.and.jj.le.16)  diff=iss_rear_v3(1)
+                  if(jj.ge.22.and.jj.le.24)  diff=iss_rear_v4(1)
+                  if(jj.ge.17.and.jj.le.18)  diff=iss_rear_x3(1)
+               endif
+            endif
+            
+            rstraw=8.*(iwiregroup-1)+diff
+            istraw=rstraw
+            spdetector.l.fpp.plane(jj).raw.straw(ii) = istraw	      
+c     
+c Calculation of drift distance - changed to just be a call
+c of a subroutine.  One can then put any calculation of the drift
+c distance that one likes in the fortran subroutine fpp_drift_dist
+c 
+c
+            call fpp_drift_dist(letime,toff(jj,iwiregroup),
+     >                             jj,drdist)
+c
+            if(letime.ge.300.and.letime.le.1400) then
+               thits(jj,iwiregroup)=thits(jj,iwiregroup)+1.0
+               tsum(jj,iwiregroup)=tsum(jj,iwiregroup)+
+     >              letime*1.0
+            endif
+            if(tdiff.gt.15.0.and.tdiff.lt.110.) then
+               do kk=1,8
+                  if(icalib.ge.1.and.icalib.le.8) then
+                     if(jj.ge.1.and.jj.le.12) then
+                        if(icalib.eq.iss_front(kk))index=kk
+                     endif
+                     if(jj.ge.13.and.jj.le.14) then
+                        if(icalib.eq.iss_rear_u3(kk))index=kk
+                     endif
+                     if(jj.ge.19.and.jj.le.21) then
+                        if(icalib.eq.iss_rear_u4(kk))index=kk
+                     endif 
+                     if(jj.ge.15.and.jj.le.16) then
+                        if(icalib.eq.iss_rear_v3(kk))index=kk
+                     endif
+                     if(jj.ge.22.and.jj.le.24) then
+                        if(icalib.eq.iss_rear_v4(kk))index=kk
+                     endif 
+                     if(jj.ge.17.and.jj.le.18) then
+                        if(icalib.eq.iss_rear_x3(kk))index=kk
+                     endif
+                  else
+                     if(imark.ge.1.and.imark.le.8) then
+                        index=imark
+                     else
+                        index=1
+                     endif
+                  endif
+               enddo
+c               if(debug_fpp)write(25,*)index
+c
+c Try to decide if it was a reasonable hit or some cross talk - If
+c it is within 15 channels of the "standard" value, then include it.
+c If it is not then do not include it.  15 channels is probably ok
+c because of the ordering in the demuxing.  We will never have cross
+c talk in the adjacent peak - it will always be about 2 peaks away. 
+c
+               if(tdiff.ge.spdetector.l.fpp.plane(jj).
+     >              wiregroup(iwiregroup).cut(index)-10.0.and.
+     >              tdiff.le.spdetector.l.fpp.plane(jj).
+     >              wiregroup(iwiregroup).cut(index)+20.0) then
+                  phits(jj,iwiregroup,index)=
+     >                 phits(jj,iwiregroup,index)+1.0
+                  psum(jj,iwiregroup,index)=
+     >                 psum(jj,iwiregroup,index)+tdiff*1.0
+               endif
+            endif
+            itime=toff(jj,iwiregroup)-letime*1.0+40
+            if(itime.gt.0.and.itime.le.80) then
+               thist(jj,iwiregroup,itime)=
+     >              thist(jj,iwiregroup,itime)+1
+            endif
+            
+            if((drdist.ge.0.0.and.drdist.le.0.522)
+     >           .or.pulser_fpp) then
+               if(imark.eq.0) then
+                  nhit(jj)=nhit(jj)-1
+               else
+                  if(pulser_fpp) then
+                     ntothits=ntothits+1
+                     ngoodhit=ngoodhit+1
+                     spdetector.l.fpp.plane(jj).cor.ltdc(ngoodhit)=
+     >                    toff(jj,iwiregroup)-letime*1.0
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    letediff(ngoodhit)=tdiff
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    straw(ngoodhit)=istraw
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    drdist(ngoodhit)=drdist
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    wg(ngoodhit)=iwiregroup		       
+                     hit(1,ngoodhit,jj)=istraw*1.0 !straw number within plane
+                     hit(2,ngoodhit,jj)=drdist !drift distance in cm
+                     hit(5,ngoodhit,jj)=1.0 !assign this hit to track 1
+                  else
+                     ntothits=ntothits+1
+                     ngoodhit=ngoodhit+1
+		     if ( ngoodhit .ge. 2 .and.
+     >                    prev_straw .eq. istraw) then
+                        ngoodhit= ngoodhit - 1
+                        nhit(jj)=nhit(jj)-1
+                     endif      ! if multi-hit in straw want last hit
+                     spdetector.l.fpp.plane(jj).cor.ltdc(ngoodhit)=
+     >                    toff(jj,iwiregroup)-letime*1.0
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    letediff(ngoodhit)=tdiff
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    straw(ngoodhit)=istraw
+                     prev_straw = istraw
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    drdist(ngoodhit)=drdist
+                     spdetector.l.fpp.plane(jj).cor.
+     >                    wg(ngoodhit)=iwiregroup		       
+                     hit(1,ngoodhit,jj)=istraw*1.0 !straw number within plane
+                     hit(2,ngoodhit,jj)=drdist !drift distance in cm
+                     hit(5,ngoodhit,jj)=1.0 !assign this hit to track 1
+                  endif
+               endif
+            else
+               nhit(jj)=nhit(jj)-1
+            endif
+         enddo
+         spdetector.l.fpp.plane(jj).nghits=ngoodhit
+ 1567 enddo
+
+
+      spdetector.l.fpp.nhits=ntothits
+c
+      if (debug_fpp) then
+         write(*,*) ' Raw hits ' 
+         write(*,*) 'plane  #hit    WG  straw  ttdc  ltdc'
+         do jj=1,24
+            do ii=1,spdetector.l.fpp.plane(jj).nhits
+               write(*,'(3(3x,i3),2x,f5.1,2x,f8.2,2x,f8.2)') jj,ii,
+     1              spdetector.l.fpp.plane(jj).raw.wire(ii),
+     1              spdetector.l.fpp.plane(jj).raw.straw(ii),
+     1              spdetector.l.fpp.plane(jj).raw.ttdc(ii)/2.0,
+     1              spdetector.l.fpp.plane(jj).raw.ltdc(ii)/2.0
+            enddo
+         enddo
+         write(*,*) ' Good hits ' 
+         write(*,*) 'plane  #hit     WG  straw  letediff  drdist'
+         do jj=1,24
+            if (nhit(jj) .ne. spdetector.l.fpp.plane(jj).nghits) then
+               write(*,*) 'nhits .ne. nghits'
+            endif	
+            do ii=1,nhit(jj)
+               write(*,'(3(3x,i3),2x,f5.1,2x,f7.1,2x,f8.2)') jj,ii,
+     1              spdetector.l.fpp.plane(jj).cor.wg(ii),
+     1              spdetector.l.fpp.plane(jj).cor.straw(ii),
+     1              spdetector.l.fpp.plane(jj).cor.letediff(ii),
+     1              spdetector.l.fpp.plane(jj).cor.drdist(ii)
+            enddo
+         enddo
+      endif
+c     
+c     Now calculate the z and y (or x) position of the straw knowing what
+c     plane it is and what straw it is within the plane.
+c
+      do jj=1,12
+      do ii=1,nhit(jj)
+         hit(3,ii,jj)=uvx_zero(jj) + w_spacingf*(hit(1,ii,jj)-1)
+         hit(4,ii,jj)=z_fpp(jj)
+      enddo
+      enddo
+      do jj=13,24
+      do ii=1,nhit(jj)
+         hit(3,ii,jj)=uvx_zero(jj) + w_spacingr*(hit(1,ii,jj)-1)
+         hit(4,ii,jj)=z_fpp(jj)
+      enddo
+      enddo
+c     
+c
+c       Call tracking routine, sending it the nhit and hit arrays.
+c
+c Front U tracking - itrcode = 1
+c Front V tracking - itrcode = 2
+c Rear U tracking - itrcode = 3
+c Rear V tracking - itrcode = 4
+c Rear X tracking - itrcode = 5
+c
+ 100  format(1x,i3,1x,i3,4(1x,f10.5))
+      icode=0
+      if(pulser_fpp) then
+         icode=1
+         do i=1,5
+            itrk(i)=0
+         enddo
+         goto 1324
+      else
+         if(ana_fpp_front) then
+            do itrcode=1,2
+               itrk(itrcode)=0
+               if(fpp_mkjtrack) then
+                  call trk4mkj(itrcode,nhit,hit,ntrack,track,
+     &              usave,zusave,dusave,uplsave)
+               else
+                  call trk4(itrcode,nhit,hit,ntrack,track,
+     +              ueff,veff,zeff,addextrahit)
+               endif
+               itrk(itrcode)=ntrack
+               if (itrcode .eq. 1) then
+                  spdetector.l.fpp.chisqfu = track(12,1)
+               else
+                  spdetector.l.fpp.chisqfv = track(11,1)
+               endif
+               if(ntrack.eq.0) then
+                  icode=1
+                  if (itrcode .eq. 1) then
+                     spdetector.l.fpp.chisqfu = rbig
+                  else
+                     spdetector.l.fpp.chisqfv = rbig
+                  endif
+               endif
+            enddo
+         else
+            itrk(1)=0
+            itrk(2)=0
+         endif
+c
+c EJB:
+c Addition on August 8th, 1997 to include the possibility of only using
+c chamber 4 for the rear tracking.  We will project the front track to the 
+c middle of the carbon block, and use this as a point in the rear tracking.  It
+c will be like a hit with zero drift distance in a fictitious chamber located
+c at the middle of the carbon block. Note that on August 8th,
+c the centre of the carbon blocks was at z=369.0 cm.  This is just put
+c in by hand at this point, but should be cleaned up later to just get the
+c central value from the database. I also note that some of these lines are
+c duplicated later on, but in this way this little piece of the code can be 
+c turned off easily.
+c         
+         zeff=369.0
+
+         xatz0f=(track(1,1)-track(3,1))/1.414213562
+         yatz0f=(track(1,1)+track(3,1))/1.414213562
+         fg=180.00000/3.141592653589793
+         
+         tthetaf=(track(2,1)+track(4,1))/1.414213562
+         tphif=(track(2,1)-track(4,1))/1.414213562
+         xfbold=tphif*zeff+xatz0f
+         yfbold=tthetaf*zeff+yatz0f
+         ueff=(yfbold+xfbold)/1.414213562
+         veff=(yfbold-xfbold)/1.414213562
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+         if(ana_fpp_rear) then
+            do itrcode=3,4
+               itrk(itrcode)=0
+               if(fpp_mkjtrack) then
+                  call trk4mkj(itrcode,nhit,hit,ntrack,track,
+     &              usave,zusave,dusave,uplsave)
+               else
+                  call trk4(itrcode,nhit,hit,ntrack,track,
+     +              ueff,veff,zeff,addextrahit)
+               endif
+               if(addextrahit.eq.1.and.itrcode.eq.3.
+     +              and.ntrack.eq.1.and.ch3_recover) then
+                  spdetector.l.fpp.plane(13).nghits=1
+                  spdetector.l.fpp.nhits=spdetector.l.fpp.nhits+1
+               endif
+               if(addextrahit.eq.1.and.itrcode.eq.4.
+     +              and.ntrack.eq.1.and.ch3_recover) then
+                  spdetector.l.fpp.plane(15).nghits=1
+                  spdetector.l.fpp.nhits=spdetector.l.fpp.nhits+1
+               endif
+               itrk(itrcode)=ntrack
+               if (itrcode .eq. 3) then
+                  spdetector.l.fpp.chisqru = track(14,1)
+               else if (itrcode .eq. 4) then
+                  spdetector.l.fpp.chisqrv = track(13,1)
+               endif
+               if(ntrack.eq.0) then
+                  icode=1
+                  if (itrcode .eq. 3) then
+                     spdetector.l.fpp.chisqru = rbig
+                  else if (itrcode .eq. 4) then
+                     spdetector.l.fpp.chisqrv = rbig
+                  endif
+               endif
+            enddo
+         else
+            itrk(3)=0
+            itrk(4)=0
+            itrk(5)=0
+         endif
+      endif
+ 1324 continue
+      if (debug_fpp) then
+         write(25,*) 
+     +        '# Tracks for Front U  Front V  Rear U  Rear V'
+         write(25,*)
+     +        '              -------  ------    ------  ------'
+         write(25,'(16x,i2,5x,i2,5x,i2,5x,i2)') (itrk   (i),i=1,4)
+         write(25,'(a,10x,4(g12.5))') 'chisq',
+     + track(12,1),track(11,1),track(14,1),track(13,1)
+      endif
+      spdetector.l.fpp.ntrackfu = itrk(1)
+      spdetector.l.fpp.ntrackfv = itrk(2)
+      spdetector.l.fpp.ntrackru = itrk(3)
+      spdetector.l.fpp.ntrackrv = itrk(4)
+      
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c     Write out data for event display purposes !!!!!!!! ccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+      if(evdsp_fpp) then
+c         write(25,*)'Event Number ',nevent
+c         do ipl=1,24
+c            write(25,119)ipl,min(5,nhit(ipl)),
+c     >           (hit(1,jj,ipl),jj=1,min(5,nhit(ipl)))
+c         enddo
+c         do jj=1,4
+c            if(itrk(jj).gt.0) then
+c               write(25,129)itrk(jj),(track(2*(jj-1)+1,ii),
+c     >              track(2*jj,ii),ii=1,min(itrk(jj),25))
+c            else
+c               write(25,*)itrk(jj)
+c            endif
+c         enddo
+c         if ( hit(1,1,20) .ge. 120 
+c     + .and. hit(1,1,20) .le. 127) then
+c           call fpp_plot_tracks(nhit,hit,track,z_fpp,uvx_zero)
+c         endif
+      endif
+ 119  format(1x,i3,1x,i3,5(1x,f5.1))
+ 129  format(1x,i3,1x,25(1x,f17.13,1x,e21.15))
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+      ntrack_front = itrk(1) + itrk(2)
+      ntrack_rear = itrk(3) + itrk(4)
+      ntrack_tot = ntrack_front + ntrack_rear
+c     c
+c     mkj alignment
+      if (ialign .eq. 10 .and. xinit .ne. 1.0d17) then
+         write(35,'(52(f10.4))') 
+     +        sptransport.l.particle.fp_t.x*100.,
+     +        sptransport.l.particle.fp_t.y*100.,
+     +        sptransport.l.particle.fp_t.th,
+     +        sptransport.l.particle.fp_t.ph,
+     +        (hit(1,1,jj),jj=1,24),(hit(2,1,jj),jj=1,24)
+      endif
+      
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c     c
+c     
+      if( (ntrack_front .eq. 2 .and. ialign .eq. 0 .and. alignment) 
+     +     .or. (ntrack_tot .eq. 4 .and. ialign .eq. 1 .and. alignment) 
+     +     .or. ( ntrack_tot .eq. 4  .and. .not. alignment .and.
+     +     ana_fpp_front .and. ana_fpp_rear) 
+     +     .or. ( ntrack_front .eq. 2  .and. .not. alignment .and.
+     +     ana_fpp_front .and. .not. ana_fpp_rear)
+     +     .or. ( ntrack_rear .eq. 2  .and. .not. alignment .and.
+     +     ana_fpp_rear .and. .not. ana_fpp_front) ) then
+c     Position Calculations !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+c     
+c     
+c     Calculate x and y at z_transport=0 for both front and rear 
+c     chambers.
+c     
+         xatz0f=(track(1,1)-track(3,1))/1.414213562
+         yatz0f=(track(1,1)+track(3,1))/1.414213562
+         xatz0r=(track(5,1)-track(7,1))/1.414213562
+         yatz0r=(track(5,1)+track(7,1))/1.414213562
+         xatz0x=track(9,1)
+c
+         if(debug_fpp) then
+            write(25,*) ' U and V ' 
+            write(25,*)'Actual x and y are ',xinit,yinit
+            write(25,*)'Calculated x and y front are ',xatz0f,yatz0f
+            write(25,*)'Calculated x and y rear are ',xatz0r,yatz0r
+         endif
+c
+c
+c Angle Calculations !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+c
+c First, calculate front and rear angle tangents from track array
+c Note that we only do this for one track at the moment.
+c This will be modified later.
+c
+         fg=180.00000/3.141592653589793
+         
+         tthetaf=(track(2,1)+track(4,1))/1.414213562
+         tphif=(track(2,1)-track(4,1))/1.414213562
+         tthetar=(track(6,1)+track(8,1))/1.414213562
+         tphir=(track(6,1)-track(8,1))/1.414213562
+         thetafd=datan(tthetaf)*fg
+         phifd=datan(tphif)*fg
+c
+         tthetaa=dtan(thinit)
+         tphia=dtan(phiinit)
+         thinitd=thinit*fg
+         phiinitd=phiinit*fg
+c
+c
+         if(debug_fpp) then
+            write(25,*)'Actual angle tangents are ',tthetaa,tphia
+            write(25,*)'Calculated front angle tangents are',tthetaf,
+     >           tphif
+            write(25,*)'Calculated rear angle tangents are',tthetar,
+     >           tphir
+         endif
+c     
+c Perform alignment corrections, but first, remember old x,y,theta,phi
+c for residual calculations.
+c
+         xfaold=xatz0f
+         yfaold=yatz0f
+         xfbold=tphif*350.0+xatz0f
+         yfbold=tthetaf*350.0+yatz0f
+         xrold=xatz0r
+         yrold=yatz0r
+         tfold=tthetaf
+         pfold=tphif
+         trold=tthetar
+         prold=tphir
+c
+c Call the routine which calculates the new x,y,theta, and phi based
+c on the alignment correction parameters
+c
+         call fpp_align_corr_front(xfaold,yfaold,tfold,pfold,
+     $        xatz0f,yatz0f,tthetaf,tphif,
+     $        xatz0r,yatz0r,tthetar,tphir)
+         
+         xatz0r=tphir*350.0+xatz0r
+         yatz0r=tthetar*350.0+yatz0r
+
+         if(align_using_ch34) then
+            call fpp_align_corr_rear(xrold,yrold,trold,prold,
+     $        xatz0r,yatz0r,tthetar,tphir)
+         else
+            call fpp_align_corr_rear(xfbold,yfbold,tfold,pfold,
+     $        xatz0r,yatz0r,tthetar,tphir)
+         endif
+
+c
+c
+         if(debug_fpp) then
+            write(25,*)'Corrected front angle tangents are',
+     >           tthetaf,tphif
+            write(25,*)'Corrected rear angle tangents are',
+     >           tthetar,tphir
+         endif
+c     
+c
+c Now, calculate differences compared to VDC tracks
+c
+c Modification of this portion by EJB - December 14, 1996.
+c
+c Want to compare front and rear fpp chambers to each other not at
+c the vdc z=0 plane but at a plane midway between the front and rear
+c chambers, which should be at about z=350 cm.
+c
+         xdiff_front=xinit-xatz0f
+         ydiff_front=yinit-yatz0f
+c
+         spdetector.l.fpp.x_fa=xatz0f
+         spdetector.l.fpp.y_fa=yatz0f
+c
+c Now, calculate differences between front and rear angles and VDC angles
+c Note that these are differences in the angle TANGENTS.
+c
+         theta_difff=tthetaf-tthetaa
+         phi_difff=tphif-tphia
+         theta_diffr=tthetar-tthetaf
+         phi_diffr=tphir-tphif
+c
+         spdetector.l.fpp.th_f=fg*datan(tthetaf)
+         spdetector.l.fpp.ph_f=fg*datan(tphif)
+         spdetector.l.fpp.th_r=fg*datan(tthetar)
+         spdetector.l.fpp.ph_r=fg*datan(tphir)
+c
+         xatz0f=tphif*350.0+xatz0f
+         yatz0f=tthetaf*350.0+yatz0f
+c
+         xdiff_rear=xatz0f-xatz0r
+         ydiff_rear=yatz0f-yatz0r
+         xdiff_x=xatz0f-xatz0x
+c
+         spdetector.l.fpp.x_fb=xatz0f
+         spdetector.l.fpp.y_fb=yatz0f
+         spdetector.l.fpp.x_r=xatz0r
+         spdetector.l.fpp.y_r=yatz0r 
+         spdetector.l.fpp.x_x=xatz0x
+c
+         spdetector.l.fpp.x_diff_f=xdiff_front
+         spdetector.l.fpp.y_diff_f=ydiff_front
+         spdetector.l.fpp.x_diff_r=xdiff_rear
+         spdetector.l.fpp.y_diff_r=ydiff_rear
+         spdetector.l.fpp.x_diff_x=xdiff_x
+         spdetector.l.fpp.th_diff_f=fg*datan(theta_difff)
+         spdetector.l.fpp.ph_diff_f=fg*datan(phi_difff)
+         spdetector.l.fpp.th_diff_r=fg*datan(theta_diffr)
+         spdetector.l.fpp.ph_diff_r=fg*datan(phi_diffr)
+c
+c
+c At this point, we have differences , so lets call the
+c routine which fills the sum arrays for alignment coefficient
+c calculations.
+
+         call fpp_align_sums(xdiff_front,ydiff_front,xdiff_rear,
+     >        ydiff_rear,thinitd,phiinitd,theta_difff,
+     >        phi_difff,theta_diffr,phi_diffr)
+
+
+c
+c Now calculate scattering angles in carbon analyzer - Note that
+c alignment corrections have been made at this point, so we are
+c working with CORRECTED angles and positions.
+c
+c February 12, 1996 - modified to test another scattering angle
+c determination method - by EJB.
+c
+         psif=datan(tphif*dcos(datan(tthetaf)))
+         xhatf=dsin(psif)
+         yhatf=dcos(psif)*dsin(datan(tthetaf))
+         zhatf=dcos(psif)*dcos(datan(tthetaf))
+         psir=datan(tphir*dcos(datan(tthetar)))
+         xhatr=dsin(psir)
+         yhatr=dcos(psir)*dsin(datan(tthetar))
+         zhatr=dcos(psir)*dcos(datan(tthetar))
+c
+c
+         xhat1f=xhatf*dcos(psif)-
+     &        yhatf*dsin(datan(tthetaf))*dsin(psif)-
+     &        zhatf*dcos(datan(tthetaf))*dsin(psif)
+         yhat1f=
+     &        yhatf*dcos(datan(tthetaf))-
+     &        zhatf*dsin(datan(tthetaf))
+         zhat1f=xhatf*dsin(psif)+
+     &        yhatf*dsin(datan(tthetaf))*dcos(psif)+
+     &        zhatf*dcos(datan(tthetaf))*dcos(psif)
+c     
+         xhat1r=xhatr*dcos(psif)-
+     &        yhatr*dsin(datan(tthetaf))*dsin(psif)-
+     &        zhatr*dcos(datan(tthetaf))*dsin(psif)
+         yhat1r=
+     &        yhatr*dcos(datan(tthetaf))-
+     &        zhatr*dsin(datan(tthetaf))
+         zhat1r=xhatr*dsin(psif)+
+     &        yhatr*dsin(datan(tthetaf))*dcos(psif)+
+     &        zhatr*dcos(datan(tthetaf))*dcos(psif)
+c
+c
+c
+         psisc=dasin(xhat1r)
+         if(dcos(psisc).ne.0.) then 
+            thetasc=dasin(yhat1r/dcos(psisc))
+         else
+            write(*,*)'Zero problem with psisc' 
+         endif
+         if(dcos(thetasc).ne.0.) then 
+            phisc=datan(dtan(psisc)/dcos(thetasc))
+         else
+            write(*,*)'Zero problem with thetasc' 
+         endif
+         
+         if (debug_fpp) then
+            if(abs(thetasc).ge.1.0.and.abs(phisc).ge.1.0) then
+               write(25,*)'    '
+               write(25,*)'Scattered angles  are ',fg*thetasc,fg*phisc,
+     &              fg*psisc
+               write(25,*)'Actual initial angles are ',thinitd,phiinitd
+               write(25,*)'Front angles are ',fg*datan(tthetaf),fg
+     &              *datan(tphif),fg*psif
+               write(25,*)'Rear angles are ',fg*datan(tthetar),
+     &              fg*datan(tphir),fg*psir
+               write(25,*)'Actual x and y are ',xinit,yinit
+               write(25,*)'Calculated x and y front are ',xatz0f,yatz0f
+               write(25,*)'Calculated x and y rear are ',xatz0r,yatz0r
+            endif
+         endif
+
+
+         theta_sc=thetasc
+         phi_sc=phisc
+c
+         spdetector.l.fpp.th_sc=fg*theta_sc
+         spdetector.l.fpp.ph_sc=fg*phi_sc
+c     
+         xatz0f=xatz0f-350.0*tphif
+         yatz0f=yatz0f-350.0*tthetaf
+         xatz0r=xatz0r-350.0*tphir
+         yatz0r=yatz0r-350.0*tthetar
+
+         if(abs(theta_sc).le.1.0.and.abs(phi_sc).le.1.0) then
+            term1=(xatz0r-xatz0f)*(tphir-tphif)
+            term2=(yatz0r-yatz0f)*(tthetar-tthetaf)
+            term3=(tphir-tphif)**2
+            term4=(tthetar-tthetaf)**2
+            if((term3+term4).ne.0) then
+               zclose=-(term1+term2)/(term3+term4)
+            else
+               zclose=rbig
+            endif
+            term5=(xatz0r-xatz0f+(tphir-tphif)*zclose)
+            term6=(yatz0r-yatz0f+(tthetar-tthetaf)*zclose)
+            sclose=sqrt(term5**2+term6**2)
+         else
+            zclose=0.
+            sclose=0.
+         endif
+c
+c Another method of changing to spherical coordinates
+c
+         psi_sc=datan(dtan(phi_sc)*dcos(theta_sc))
+         x_sc=dsin(psi_sc)
+         y_sc=dcos(psi_sc)*dsin(theta_sc)
+         z_sc=dcos(psi_sc)*dcos(theta_sc)
+         r_sc=sqrt(x_sc**2+y_sc**2)
+         if(z_sc.ne.0..and.y_sc.ne.0.) then
+            theta_az=datan(r_sc/z_sc)
+            phi_az=datan(x_sc/y_sc)
+         else
+            write(*,*)'Zero problem with zsc or ysc'
+         endif
+         theta_az=theta_az*180./pi
+         phi_az=phi_az*180./pi
+         if(y_sc.lt.0.0) phi_az=phi_az+180.0
+         if(y_sc.ge.0.0.and.x_sc.lt.0.0) phi_az=phi_az+360.0
+c
+c Old calculation -- pretty sure that it is flawed.
+c	   
+c	   phi_az=datan((dtan(theta_sc)/dsin(phi_sc)))
+c	   theta_az=dasin(dcos(phi_az)*dcos(theta_sc)*dsin(phi_sc)+
+c     &               dsin(phi_az)*dsin(theta_sc))
+c
+c	   theta_az=theta_az*180./pi
+c	   phi_az=phi_az*180./pi
+c
+c	   if(phi_sc.lt.0.0) then
+c	      phi_az=phi_az+180.0
+c	   else
+c	      if(theta_sc.lt.0.0) phi_az=phi_az+360.0
+c	   endif
+c
+         theta_sc=theta_sc*180./pi
+         phi_sc=phi_sc*180./pi
+c
+         if (debug_fpp) then
+            write(*,*)'Calculated azimuthal angles are',
+
+     $           theta_az,phi_az
+            write(*,*)'Vertex coordinates zclose sclose =',
+     $           zclose,sclose
+         endif
+c   KW conetest
+c
+         xf3=tphif*z_fpp(18)+xatz0f
+         yf3=tthetaf*z_fpp(18)+yatz0f
+         xr3=tphir*z_fpp(18)+xatz0r
+         yr3=tthetar*z_fpp(18)+yatz0r
+         xf4=tphif*z_fpp(24)+xatz0f
+         yf4=tthetaf*z_fpp(24)+yatz0f
+         xr4=tphir*z_fpp(24)+xatz0r
+         yr4=tthetar*z_fpp(24)+yatz0r
+
+c	write(*,*)'Near Conetest Calculation ...'
+c	write(*,*)'z(18) =',z_fpp(18)
+c	write(*,*)'z(24) =',z_fpp(24)
+
+         dcone3=sqrt((xf3-xr3)**2+(yf3-yr3)**2)
+         dcone4=sqrt((xf4-xr4)**2+(yf4-yr4)**2)
+c
+      ttheta=tan(theta_az*3.14159265/180.0)
+      zback=z_fpp(18)
+      r1x3 = (zback-zclose)*(tphif + (ttheta-tphif)/(1.0+ttheta*tphif))
+      r2x3 = (zback-zclose)*((ttheta+tphif)/(1.0-ttheta*tphif) - tphif)
+      r1y3 = (zback-zclose)*(tthetaf +
+     &           (ttheta-tthetaf)/(1.0+ttheta*tthetaf))
+      r2y3 = (zback-zclose)*((ttheta+tthetaf)/(1.0-ttheta*tthetaf)
+     &           - tthetaf)
+c      write(*,*)'ejb3: ',r1x3,r2x3,r1y3,r2y3
+c      write(*,*)'kw3: ',dcone3
+
+      zback=z_fpp(24)
+      r1x4 = (zback-zclose)*(tphif + (ttheta-tphif)/(1.0+ttheta*tphif))
+      r2x4 = (zback-zclose)*((ttheta+tphif)/(1.0-ttheta*tphif) - tphif)
+      r1y4 = (zback-zclose)*(tthetaf +
+     &           (ttheta-tthetaf)/(1.0+ttheta*tthetaf))
+      r2y4 = (zback-zclose)*((ttheta+tthetaf)/(1.0-ttheta*tthetaf)
+     &           - tthetaf)
+c      write(*,*)'ejb4: ',r1x4,r2x4,r1y4,r2y4
+c      write(*,*)'kw4: ',dcone4
+
+c
+       inside3=.true.
+       inside4=.true.
+       xpt3(1)=xf3+r1x3
+       xpt3(2)=xf3+r1x3/sqrt(2.)
+       xpt3(3)=xf3
+       xpt3(4)=xf3-r2x3/sqrt(2.)
+       xpt3(5)=xf3-r2x3
+       xpt3(6)=xf3-r2x3/sqrt(2.)
+       xpt3(7)=xf3
+       xpt3(8)=xf3+r1y3/sqrt(2.)
+       ypt3(1)=yf3
+       ypt3(2)=yf3+r1y3/sqrt(2.)
+       ypt3(3)=yf3+r1y3
+       ypt3(4)=yf3+r1y3/sqrt(2.)
+       ypt3(5)=yf3
+       ypt3(6)=yf3-r2y3/sqrt(2.)
+       ypt3(7)=yf3-r2y3
+       ypt3(8)=yf3-r2y3/sqrt(2.)
+
+       xpt4(1)=xf4+r1x4
+       xpt4(2)=xf4+r1x4/sqrt(2.)
+       xpt4(3)=xf4
+       xpt4(4)=xf4-r2x4/sqrt(2.)
+       xpt4(5)=xf4-r2x4
+       xpt4(6)=xf4-r2x4/sqrt(2.)
+       xpt4(7)=xf4
+       xpt4(8)=xf4+r1y4/sqrt(2.)
+       ypt4(1)=yf4
+       ypt4(2)=yf4+r1y4/sqrt(2.)
+       ypt4(3)=yf4+r1y4
+       ypt4(4)=yf4+r1y4/sqrt(2.)
+       ypt4(5)=yf4
+       ypt4(6)=yf4-r2y4/sqrt(2.)
+       ypt4(7)=yf4-r2y4
+       ypt4(8)=yf4-r2y4/sqrt(2.)
+c
+       do k=1,8
+       j=1
+       oddnodes3=-1
+                                                                               
+       do i=1,nsides3
+          j=j+1
+          if(j.eq.(nsides3+1))j=1
+          if(((ypoly3(i).lt.ypt3(k)).and.(ypoly3(j).ge.ypt3(k))).or.
+     &     ((ypoly3(j).lt.ypt3(k)).and.(ypoly3(i).ge.ypt3(k)))) then
+                  if((xpoly3(i)+((ypt3(k)-ypoly3(i))/(
+     &     ypoly3(j)-ypoly3(i))*
+     &     (xpoly3(j)-xpoly3(i)))).lt.xpt3(k))then
+                          oddnodes3=-1.0*oddnodes3
+                  endif
+          endif
+       enddo
+                                                                                
+       if(oddnodes3.eq.-1) then
+c        write(*,*)k,xpt3(k),ypt3(k),' is outside chamber3 polygon!'
+        inside3=.false.
+       endif
+       if(oddnodes3.eq.1) then
+c        write(*,*)k,xpt3(k),ypt3(k),' is inside chamber3 polygon!'
+       endif
+
+       j=1
+       oddnodes4=-1
+
+       do i=1,nsides4
+          j=j+1
+          if(j.eq.(nsides4+1))j=1
+          if(((ypoly4(i).lt.ypt4(k)).and.(ypoly4(j).ge.ypt4(k))).or.
+     &     ((ypoly4(j).lt.ypt4(k)).and.(ypoly4(i).ge.ypt4(k)))) then
+                  if((xpoly4(i)+((ypt4(k)-ypoly4(i))/(
+     &     ypoly4(j)-ypoly4(i))*
+     &     (xpoly4(j)-xpoly4(i)))).lt.xpt4(k))then
+                     oddnodes4=-1.0*oddnodes4
+                  endif
+          endif
+       enddo
+                                                                                
+        if(oddnodes4.eq.-1) then
+c          write(*,*)k,xpt4(k),ypt4(k),' is outside chamber4 polygon!'
+	  inside4=.false.
+        endif
+        if(oddnodes4.eq.1) then
+c          write(*,*)k,xpt4(k),ypt4(k),' is inside chamber4 polygon!'
+        endif
+	enddo
+
+c	write(*,*)'Inside 3? ',inside3
+c	write(*,*)'Inside 4? ',inside4
+
+c old numbers were +/- 134 x +/- 62 for chamber 3
+c and +/- 149 x +/- 72 for chamber 4
+c decided to put a 10cm "border" around the outside, to be conservative
+c
+         if (inside3.and.inside4) then
+             spdetector.l.fpp.coneteste = 1
+         else
+            spdetector.l.fpp.coneteste = -1
+         endif
+         if ( (xf3+dcone3).lt.134. .and. (xf3+dcone3).gt.-134. .and.
+     $        (xf4+dcone4).lt.149. .and. (xf4+dcone4).gt.-149.
+     $        .and.(xf3-dcone3).lt.134. .and. (xf3-dcone3).gt.-134.
+     $        .and.(xf4-dcone4).lt.149. .and. (xf4-dcone4).gt.-149.
+     $        .and.(yf3+dcone3).lt.62. .and. (yf3+dcone3).gt.-62.  
+     $        .and.(yf3-dcone3).lt.62. .and. (yf3-dcone3).gt.-62.
+     $        .and.(yf4+dcone4).lt.72. .and. (yf4+dcone4).gt.-72. 
+     $     .and.(yf4-dcone4).lt.72. .and. (yf4-dcone4).gt.-72) then
+             spdetector.l.fpp.conetest = 1
+         else
+            spdetector.l.fpp.conetest = -1
+         endif
+
+	if((spdetector.l.fpp.coneteste).ne.
+     $           (spdetector.l.fpp.conetest)) then
+		write(*,*)'Conetest EJB:',spdetector.l.fpp.coneteste
+		write(*,*)'Conetest KW:',spdetector.l.fpp.conetest
+	endif
+c
+c
+c Residual and Efficiency Calculations !!!!!!!!!!!!
+c
+c Note that all calculations are done with the raw angle and 
+c position values before alignment corrections.
+c
+         do kk=1,24
+            if(kk.eq.1.or.kk.eq.2.or.kk.eq.3) igroup=1
+            if(kk.eq.4.or.kk.eq.5.or.kk.eq.6) igroup=2
+            if(kk.eq.7.or.kk.eq.8.or.kk.eq.9) igroup=1
+            if(kk.eq.10.or.kk.eq.11.or.kk.eq.12) igroup=2
+            if(kk.eq.13.or.kk.eq.14) igroup=2
+            if(kk.eq.15.or.kk.eq.16) igroup=1
+            if(kk.eq.17.or.kk.eq.18) igroup=3
+            if(kk.eq.19.or.kk.eq.20.or.kk.eq.21) igroup=2
+            if(kk.eq.22.or.kk.eq.23.or.kk.eq.24) igroup=1
+            
+            z(kk)=z_fpp(kk)
+            
+            if(kk.le.12) then
+               xtr(kk)=xfaold+z(kk)*pfold
+               ytr(kk)=yfaold+z(kk)*tfold
+               strw_rad=w_spacingf/2.0
+               if(igroup.eq.1) then
+                  uvxtr(kk)=(ytr(kk)-xtr(kk))/1.414213562
+               else
+                  uvxtr(kk)=(ytr(kk)+xtr(kk))/1.414213562
+               endif
+            else
+               xtr(kk)=xrold+(z(kk))*prold
+               ytr(kk)=yrold+(z(kk))*trold
+               strw_rad=w_spacingr/2.0
+               if(igroup.eq.1) then
+                  uvxtr(kk)=(ytr(kk)-xtr(kk))/1.414213562
+               else if(igroup.eq.2) then
+                  uvxtr(kk)=(ytr(kk)+xtr(kk))/1.414213562
+               else
+                  uvxtr(kk)=xtr(kk)
+               endif
+            endif
+
+	      
+            straw_pred(kk)=0
+            nstraws=spdetector.l.fpp.geom.plane(kk).nwire
+            uvx0=spdetector.l.fpp.geom.plane(kk).uvx0*100.
+            do ii=1,nstraws
+               uvx_low=uvx0+2.*(strw_rad)*(ii-1.)-0.522 
+               uvx_hi=uvx0+2.*(strw_rad)*(ii-1.)+0.522 
+               if(uvxtr(kk).ge.uvx_low.and.uvxtr(kk).le.uvx_hi) then
+                  straw_pred(kk)=ii
+               endif
+            enddo
+            
+            itrgood(kk)=0
+            do ii=1,nhit(kk)
+               str=hit(1,ii,kk)
+               if(str.eq.straw_pred(kk)) itrgood(kk)=1
+            enddo
+            
+            if(straw_pred(kk).eq.0) itrgood(kk)=2
+              
+            spdetector.l.fpp.plane(kk).itrgood=itrgood(kk)
+            spdetector.l.fpp.plane(kk).strwgood=straw_pred(kk)
+            spdetector.l.fpp.plane(kk).strwbad=straw_pred(kk)
+            
+            do ii=1,nhit(kk)
+               ddist=hit(2,ii,kk)
+               drdist=ddist
+               str=hit(1,ii,kk)
+               zplane=hit(4,ii,kk)
+               uvx=hit(3,ii,kk)
+               if(igroup.eq.1) then
+                  fac=1.0
+                  if(kk.le.12) then
+                     a=pfold
+                     b=sqrt(2.)*uvx+xfaold
+                     c=tfold
+                     d=yfaold
+                  else
+                     a=prold
+                     b=sqrt(2.)*uvx+xrold
+                     c=trold
+                     d=yrold
+                  endif
+                  ee=zplane
+               endif
+               if(igroup.eq.2) then
+                  fac=1.0
+                  if(kk.le.12) then
+                     a=-1.0*pfold
+                     b=sqrt(2.)*uvx-xfaold
+                     c=tfold
+                     d=yfaold
+                  else
+                     a=-1.0*prold
+                     b=sqrt(2.)*uvx-xrold
+                     c=trold
+                     d=yrold
+                  endif
+                  ee=zplane
+               endif
+               if(igroup.eq.3) then
+                  fac=0.0
+                  a=prold
+                  b=-1.0*uvx+xrold
+                  c=trold
+                  d=yrold
+                  ee=zplane
+               endif
+c
+c
+               if(kk.eq.27) then
+                  write(*,*)'****** Initial Residual Stats *******'
+                  write(*,*)ddist,str,zplane,uvx
+                  write(*,*)tphia,xinit,tthetaa,yinit
+                  write(*,*)xfaold,yfaold,xrold,yrold
+                  write(*,*)a,b,c,d,ee
+                  write(*,*)'*************************************'
+               endif
+               ff=-1.0*fac*b-1.0*d
+               gg=(1.0+a**2+c**2)/2.
+               hh=a*b+c*d-ee
+               iii=-1.0*fac*a-1.0*c
+               jjj=(b**2+d**2+ee**2)/2.
+c 
+c 1st iteration
+c
+               ztr=zplane
+               yw=-1.0*(ff+iii*ztr)/(1.0+fac**2)
+               if(kk.eq.27) write(*,*)'1st pass - ywire =',yw
+               ztr=-0.5*(hh+iii*yw)/gg
+               if(kk.eq.27) write(*,*)'1st pass - ztr =',ztr
+c 
+c 2nd iteration
+c
+               yw=-1.0*(ff+iii*ztr)/(1.0+fac**2)
+               if(kk.eq.27) write(*,*)'2nd pass - ywire =',yw
+               ztr=-0.5*(hh+iii*yw)/gg
+               if(kk.eq.27) write(*,*)'2nd pass - ztr =',ztr
+c     
+c Now calculate distance of closest approach between wire hit
+c and track.
+c
+               t1=0.5*(1.0+fac**2)*yw**2
+               t2=ff*yw
+               t3=gg*ztr**2
+               t4=hh*ztr
+               t5=iii*yw*ztr
+               t6=jjj
+               dd2by2=t1+t2+t3+t4+t5+t6
+               dd2=dd2by2*2.
+               if(kk.eq.27) write(*,*)'Distance squared =',dd2
+               if(dd2.ge.0.) then
+                  dd=sqrt(dd2)
+                  resres=ddist-dd
+               else
+                  dd=0.
+                  resres=0.49
+               endif
+c               if(ddist.le.0.1.and.kk.le.12) then
+c                write(*,*)kk
+c		 write(*,*)xinit,yinit
+c		 write(*,*)xfaold,yfaold
+c		 write(*,*)str,zplane,uvx,ddist
+c		 write(*,*)igroup,fac
+c		 write(*,*)a,b,c,d,ee
+c		 write(*,*)ff,gg,hh,iii,jjj
+c		 write(*,*)ztr,yw
+c		 write(*,*)t1,t2,t3,t4,t5,t6
+c		 write(*,*)dd2by2,dd2,dd,resres
+c		endif
+               residual=resres
+               if(kk.eq.27) write(*,*)
+     &              'P D1 D2 Res=',kk,ddist,dd,resres
+               spdetector.l.fpp.plane(kk).cor.residual(ii)=
+     &              residual
+            enddo
+         enddo
+c     
+c     
+c
+c	   write(*,*)theta_diffr,phi_diffr,theta_sc,phi_sc
+c	   write(*,*)zclose,sclose,residual
+c	   write(*,*)theta_sc,phi_sc
+c
+         spdetector.l.fpp.th_az=theta_az
+         spdetector.l.fpp.ph_az=phi_az
+         spdetector.l.fpp.zclose=zclose
+         spdetector.l.fpp.sclose=sclose
+
+c         if(addextrahit.eq.1) then
+c            write(*,*)'**************************'
+c            write(*,*)'Scattering angle = ',theta_az
+c            write(*,*)'Zclose = ',zclose
+c            write(*,*)'Sclose = ',sclose
+c            write(*,*)'Front Track U = ',spdetector.l.fpp.ntrackfu
+c            write(*,*)'Front Track V = ',spdetector.l.fpp.ntrackfv
+c            write(*,*)'Rear Track U = ',spdetector.l.fpp.ntrackru
+c            write(*,*)'Rear Track V = ',spdetector.l.fpp.ntrackrv
+c            write(*,*)'Total Hits = ',spdetector.l.fpp.nhits
+c            write(*,*)'**************************'
+c          endif
+
+      if(evdsp_fpp) then
+         if ( zclose .gt. 0.0
+     + .and. zclose .lt. 600 .and. theta_az .gt. 0.0
+     + .and. theta_az .lt. 40.0 .and. addextrahit.eq.1) then
+           call fpp_plot_tracks(nhit,hit,track,z_fpp,uvx_zero,
+     +           zeff,ueff,veff)
+         endif
+      endif
+      if (debug_fpp) then
+         if ( zclose .gt. 435
+     +        .and. zclose .lt. 441 .and. theta_az .gt. 4.5
+     +        .and. theta_az .lt. 4.9 ) then
+          write(27,*) ' Raw hits ' 
+          write(27,*) 'plane  #hit    WG  straw  ttdc  ltdc'
+          do jj=1,24
+             do ii=1,spdetector.l.fpp.plane(jj).nhits
+                write(27,'(3(3x,i3),2x,f5.1,2x,f8.2,2x,f8.2)') jj,ii,
+     1                 spdetector.l.fpp.plane(jj).raw.wire(ii),
+     1                 spdetector.l.fpp.plane(jj).raw.straw(ii),
+     1                 spdetector.l.fpp.plane(jj).raw.ttdc(ii)/2.0,
+     1                 spdetector.l.fpp.plane(jj).raw.ltdc(ii)/2.0
+             enddo
+          enddo
+          write(27,*) ' Good hits ' 
+          write(27,*) 'plane  #hit     WG  straw  letediff  drdist'
+          do jj=1,24
+             if (nhit(jj) .ne. spdetector.l.fpp.plane(jj).nghits) then
+                write(27,*) 'nhits .ne. nghits'
+             endif	
+             do ii=1,nhit(jj)
+                write(27,'(3(3x,i3),2x,f5.1,2x,f7.1,2x,f8.2)') jj,ii,
+     1               spdetector.l.fpp.plane(jj).cor.wg(ii),
+     1               spdetector.l.fpp.plane(jj).cor.straw(ii),
+     1               spdetector.l.fpp.plane(jj).cor.letediff(ii),
+     1               spdetector.l.fpp.plane(jj).cor.drdist(ii)
+             enddo
+          enddo
+       endif
+      endif
+      else
+c           write(*,*)'Bad Tracking',ntothits
+         rbig=1.0e15
+         spdetector.l.fpp.x_fa=rbig
+         spdetector.l.fpp.y_fa=rbig
+         spdetector.l.fpp.x_fb=rbig
+         spdetector.l.fpp.y_fb=rbig
+         spdetector.l.fpp.x_r=rbig
+         spdetector.l.fpp.y_r=rbig
+         spdetector.l.fpp.x_x=rbig
+c     
+         spdetector.l.fpp.th_f=rbig
+         spdetector.l.fpp.ph_f=rbig
+         spdetector.l.fpp.th_r=rbig
+         spdetector.l.fpp.ph_r=rbig
+c     
+         spdetector.l.fpp.x_diff_f=rbig
+         spdetector.l.fpp.y_diff_f=rbig
+         spdetector.l.fpp.x_diff_r=rbig
+         spdetector.l.fpp.y_diff_r=rbig
+         spdetector.l.fpp.x_diff_x=rbig
+         spdetector.l.fpp.th_diff_f=rbig
+         spdetector.l.fpp.ph_diff_f=rbig
+         spdetector.l.fpp.th_diff_r=rbig
+         spdetector.l.fpp.ph_diff_r=rbig
+c     
+         spdetector.l.fpp.th_sc=rbig
+         spdetector.l.fpp.ph_sc=rbig
+c     
+         do kk=1,24
+            spdetector.l.fpp.plane(kk).itrgood=10000
+            spdetector.l.fpp.plane(kk).strwgood=10000
+            spdetector.l.fpp.plane(kk).strwbad=10000
+            do ii=1,nhit(kk)
+               spdetector.l.fpp.plane(kk).cor.residual(ii)=
+     &              rbig
+            enddo
+         enddo
+c     
+         spdetector.l.fpp.th_az=rbig
+         spdetector.l.fpp.ph_az=rbig
+         spdetector.l.fpp.zclose=rbig
+         spdetector.l.fpp.sclose=rbig
+c     
+      endif
+c
+      return
+      end
+
+
+
+
+
+
+
+
+
+

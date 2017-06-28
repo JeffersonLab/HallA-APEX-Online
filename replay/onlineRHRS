@@ -1,0 +1,21 @@
+#!/bin/bash
+
+HOST=`hostname -s`
+
+case "$HOST" in
+  aonl[1-4]|adaq1)
+    
+   /adaqfs/home/a-onl/tritium/replay/onlineGUI64/./online -f /adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS.cfg -r $1
+
+   /adaqfs/home/a-onl/tritium/replay/onlineGUI64/./online -f /adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS_phy.cfg -r $1
+
+  ;;
+
+  *)
+
+  /adaqfs/home/a-onl/tritium/replay/onlineGUI64/./online -f /adaqfs/home/a-onl/tritium/replay/onlineGUI/RHRS.cfg -r $1
+
+  /adaqfs/home/a-onl/tritium/replay/onlineGUI64/./online -f /adaqfs/home/a-onl/tritium/replay/onlineGUI/RHRS_phy.cfg -r $1
+
+  ;;
+esac

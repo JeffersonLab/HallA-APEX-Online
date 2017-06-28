@@ -1,0 +1,426 @@
+# Right HRS
+#
+#block R.*
+block R.s2.*
+block R.s0.*
+block R.ps.*
+block R.sh.*
+block R.cer.*
+block R.vdc.*
+block R.tr.*
+block R.fpp.*
+
+#block g.*
+
+block DR.*
+
+# Physics variables
+block R.gold.*
+block rpr.*
+block exR.*
+block EKR.*
+block EKRc.*
+block EKRx.*
+block ElbR.*
+block EltR.*
+block EKRxe.*
+#block PKR.*
+
+# Normalization variables
+block N*
+
+
+
+#BPM/Raster Variables
+FORMULA rbax 1000.*RrbGmp.BPMA.x
+FORMULA rbay 1000.*RrbGmp.BPMA.y
+FORMULA rbbx 1000.*RrbGmp.BPMB.x
+FORMULA rbby 1000.*RrbGmp.BPMB.y
+FORMULA rbx 1000.*RrbGmp.x
+FORMULA rby 1000.*RrbGmp.y
+FORMULA bpmaws RrbGmp.BPMA.rawcur.1+RrbGmp.BPMA.rawcur.2+RrbGmp.BPMA.rawcur.3+RrbGmp.BPMA.rawcur.4
+FORMULA bpmbws RrbGmp.BPMB.rawcur.1+RrbGmp.BPMB.rawcur.2+RrbGmp.BPMB.rawcur.3+RrbGmp.BPMB.rawcur.4
+Variable RrbGmp.Raster.rawcur.x
+Variable RrbGmp.Raster.rawcur.y
+Variable RrbGmp.Raster2.rawcur.x
+Variable RrbGmp.Raster2.rawcur.y
+Variable RrbGmp.dir.x
+Variable RrbGmp.dir.y
+Variable RrbGmp.e
+
+#-------------------------------------------------------------------
+# RIGHT ARM S0
+#
+TH1F Rs0la 'Right arm S0-Top(B) ADC' R.s0.la 2000 0 2000 R.s0.la>0.
+TH1F Rs0ra 'Right arm S0-Bottom(A) ADC' R.s0.ra 2000 0 2000 R.s0.ra>0.
+TH1F Rs0lt 'Right arm S0-Top(B) TDC' R.s0.lt 900 1 2500 R.s0.lt>0.
+TH1F Rs0rt 'Right arm S0-Bottom(A) TDC' R.s0.rt 900 1 2500 R.s0.rt>0.
+TH1F Rs0la_p 'Right arm S0-Top(B) ADC (PedSub)' R.s0.la_p 850 -50 800 R.s0.la_p>-50.
+TH1F Rs0ra_p 'Right arm S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 850 -50 800 R.s0.ra_p>-50.
+
+#-------------------------------------------------------------------
+# RIGHT ARM S2
+#
+TH1F Rs2la 'Right arm S2 L-PMT ADCs' R.s2.la 1000 0 1000 R.s2.la>0.
+TH1F Rs2ra 'Right arm S2 R-PMT ADCs' R.s2.ra 1000 0 1000 R.s2.ra>0.
+TH1F Rs2lt 'Right arm S2 L-PMT TDCs' R.s2.lt 900 1 2500 R.s2.lt>0.
+TH1F Rs2rt 'Right arm S2 R-PMT TDCs' R.s2.rt 900 1 2500 R.s2.rt>0.
+TH1F Rs2la_p 'Right arm S2 L-PMT ADCs (PedSub)' R.s2.la_p 350 -50 300 R.s2.la_p>-50.
+TH1F Rs2ra_p 'Right arm S2 R-PMT ADCs (PedSub)' R.s2.ra_p 350 -50 300 R.s2.ra_p>-50.
+
+# ------------------------------------------------------------------
+# RIGHT ARM GAS CHERENKOV  ADC and TDC :
+#
+TH1F Rcera 'Right arm Cerenkov'  R.cer.a 4100 -99.5 4000.5 R.cer.a>0
+TH1F Rcersum 'Right arm Cerenkov sum (corrected)' R.cer.asum_c 1550 -99.5 3000.5 R.cer.asum_c>-100
+TH1F Rcera_p 'Right arm Cerenkov PMT (PedSub)' R.cer.a_p 550 -50.5 499.5 R.cer.a_p>-50.
+TH1F Rcert 'Right arm Cerenkov TDCs' R.cer.t 900 1 2500 R.cer.t>0
+TH2F Rcer_x  'Right arm Cerenkov sum (corrected) vs. X' R.cer.trx R.cer.asum_c 60 -1.2 1.2 775 -99.5 3000 R.tr.n>0&&R.cer.asum_c>-100
+TH2F Rcer_y  'Right arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c 60 -0.12 0.12 775 -99.5 3000 R.tr.n>0&&R.cer.asum_c>-100
+# ------------------------------------------------------------------
+
+# RIGHT ARM Pion Rejector 1,2 (Preshower/Shower):
+#
+#TH1F Rpsa   'PionRejector1 ADCs' R.ps.a 200 10 2000 R.ps.a>0.
+TH1F Rpsa   'Preshower ADCs' R.ps.a 2000 0.5 2000.5 R.ps.a>0.
+TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 2100 -99.5 2000.5 R.ps.a_p>-50
+TH1F Rpssum 'Preshower sum' R.ps.asum_c 200 1 2000 
+#TH1F Rsha   'Shower ADCs' R.sh.a 200 10 2000 R.sh.a>0.
+TH1F Rsha   'Shower ADCs' R.sh.a 2000 0.5 2000.5 R.sh.a>0.
+TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 2100 -99.5 2000.5 R.sh.a_p>-50
+TH1F Rshsum  'Shower sum' R.sh.asum_c 200 10 2000 
+
+TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 200 1 2500 200 1 2500 
+TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 200 1 2000 R.tr.n>0
+TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 200 1 2000 R.tr.n>0
+TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 200 1 2000 R.tr.n>0
+TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 200 1 2000 R.tr.n>0
+
+# ------------------------------------------------------------------
+# RIGHT ARM VDC wires and timing  :
+#
+TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 250 0 2500
+TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 250 0 2500
+TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 250 0 2500
+TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 250 0 2500
+
+TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
+TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
+TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
+TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
+
+#-------------------------------------------------------------------------------
+#
+### Corrected Straw Number of hit
+TH1F  v1_stn_c  'Straw Number of hit on V1' R.fpp.v1.straw_c 200 0 200
+TH1F  v2_stn_c  'Straw Number of hit on V2' R.fpp.v2.straw_c 200 0 200
+TH1F  v3_stn_c  'Straw Number of hit on V3' R.fpp.v3.straw_c 200 0 200
+TH1F  u1_stn_c  'Straw Number of hit on U1' R.fpp.u1.straw_c 200 0 200
+TH1F  u2_stn_c  'Straw Number of hit on U2' R.fpp.u2.straw_c 200 0 200
+TH1F  u3_stn_c  'Straw Number of hit on U3' R.fpp.u3.straw_c 200 0 200
+
+### Wire group hits
+TH1F  v1_wn  'Number of hits Per WG on V1' R.fpp.v1.wire 250 0 25
+TH1F  v2_wn  'Number of hits Per WG on V2' R.fpp.v2.wire 250 0 25
+TH1F  v3_wn  'Number of hits Per WG on V3' R.fpp.v3.wire 250 0 25
+TH1F  u1_wn  'Number of hits Per WG on U1' R.fpp.u1.wire 250 0 25
+TH1F  u2_wn  'Number of hits Per WG on U2' R.fpp.u2.wire 250 0 25
+TH1F  u3_wn  'Number of hits Per WG on U3' R.fpp.u3.wire 250 0 25
+
+### Wire Vs. Hit Histograms (FPP)
+TH2F  v1_nh_wn  'Number of hits vs. Wire Number on V1'  R.fpp.v1.nhit R.fpp.v1.wire 250 0 10 250 0 20
+TH2F  v2_nh_wn  'Number of hits vs. Wire Number on V2'  R.fpp.v2.nhit R.fpp.v2.wire 250 0 10 250 0 20
+TH2F  v3_nh_wn  'Number of hits vs. Wire Number on V3'  R.fpp.v3.nhit R.fpp.v3.wire 250 0 10 250 0 20
+TH2F  u1_nh_wn  'Number of hits vs. Wire Number on U1'  R.fpp.u1.nhit R.fpp.u1.wire 250 0 10 250 0 22
+TH2F  u2_nh_wn  'Number of hits vs. Wire Number on U2'  R.fpp.u2.nhit R.fpp.u2.wire 250 0 10 250 0 22
+TH2F  u3_nh_wn  'Number of hits vs. Wire Number on U3'  R.fpp.u3.nhit R.fpp.u3.wire 250 0 10 250 0 22
+
+### Track X position Vs. Straw Number (FPP)
+TH2F  v1_X_stn  'Track X vs Straw Number on V1'  R.fpp.v1.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+TH2F  v2_X_stn  'Track X vs Straw Number on V2'  R.fpp.v2.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+TH2F  v3_X_stn  'Track X vs Straw Number on V3'  R.fpp.v3.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+TH2F  u1_X_stn  'Track X vs Straw Number on U1'  R.fpp.u1.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+TH2F  u2_X_stn  'Track X vs Straw Number on U2'  R.fpp.u2.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+TH2F  u3_X_stn  'Track X vs Straw Number on U3'  R.fpp.u3.straw_c R.fpp.trx  200 0 200 200 -2 2 R.tr.n>0
+
+##TDC Width Histograms
+TH1F u1_tdc 'TDC Widths for U1' R.fpp.u1.width 100 0 160
+TH1F u2_tdc 'TDC Widths for U2' R.fpp.u2.width 100 0 160
+TH1F u3_tdc 'TDC Widths for U3' R.fpp.u3.width 100 0 160
+TH1F v1_tdc 'TDC Widths for V1' R.fpp.v1.width 100 0 160
+TH1F v2_tdc 'TDC Widths for V2' R.fpp.v2.width 100 0 160
+TH1F v3_tdc 'TDC Widths for V3' R.fpp.v3.width 100 0 160
+
+##TDC Width Vs. Wire Group hits
+TH2F u1_tdc_wg 'TDC Widths Vs. WG for U1' R.fpp.u1.width R.fpp.u1.wire 100 0 200 250 0 25
+TH2F u2_tdc_wg 'TDC Widths Vs. WG for U2' R.fpp.u2.width R.fpp.u2.wire 100 0 200 250 0 25
+TH2F u3_tdc_wg 'TDC Widths Vs. WG for U3' R.fpp.u3.width R.fpp.u3.wire 100 0 200 250 0 25
+TH2F v1_tdc_wg 'TDC Widths Vs. WG for V1' R.fpp.v1.width R.fpp.v1.wire 100 0 200 250 0 25
+TH2F v2_tdc_wg 'TDC Widths Vs. WG for V2' R.fpp.v2.width R.fpp.v2.wire 100 0 200 250 0 25
+TH2F v3_tdc_wg 'TDC Widths Vs. WG for V3' R.fpp.v3.width R.fpp.v3.wire 100 0 200 250 0 25
+
+### Leading Edge TDC Histograms
+TH1F u1_ltdc 'Leading Edge TDC for U1' R.fpp.u1.ltdc 100 1100 1800
+TH1F u2_ltdc 'Leading Edge TDC for U2' R.fpp.u2.ltdc 100 1100 1800
+TH1F u3_ltdc 'Leading Edge TDC for U3' R.fpp.u3.ltdc 100 1100 1800
+TH1F v1_ltdc 'Leading Edge TDC for V1' R.fpp.v1.ltdc 100 1100 1800
+TH1F v2_ltdc 'Leading Edge TDC for V2' R.fpp.v2.ltdc 100 1100 1800
+TH1F v3_ltdc 'Leading Edge TDC for V3' R.fpp.v3.ltdc 100 1100 1800
+
+### Leading Edge TDC Histograms (corrected)
+TH1F u1_ltdc_c 'Leading Edge TDC for U1(Corrected)' R.fpp.u1.ltdc_c 80 -40 240
+TH1F u2_ltdc_c 'Leading Edge TDC for U2(Corrected)' R.fpp.u2.ltdc_c 80 -40 240
+TH1F u3_ltdc_c 'Leading Edge TDC for U3(Corrected)' R.fpp.u3.ltdc_c 80 -40 240
+TH1F v1_ltdc_c 'Leading Edge TDC for V1(Corrected)' R.fpp.v1.ltdc_c 80 -40 240
+TH1F v2_ltdc_c 'Leading Edge TDC for V2(Corrected)' R.fpp.v2.ltdc_c 80 -40 240
+TH1F v3_ltdc_c 'Leading Edge TDC for V3(Corrected)' R.fpp.v3.ltdc_c 80 -40 240
+
+### Leading Edge Drift distance Histograms (corrected)
+TH1F u1_dd_c 'Drift Distance for U1(Corrected)' R.fpp.u1.drfdst 70 -0.1 0.6
+TH1F u2_dd_c 'Drift Distance for U2(Corrected)' R.fpp.u2.drfdst 70 -0.1 0.6
+TH1F u3_dd_c 'Drift Distance for U3(Corrected)' R.fpp.u3.drfdst 70 -0.1 0.6
+TH1F v1_dd_c 'Drift Distance for V1(Corrected)' R.fpp.v1.drfdst 70 -0.1 0.6
+TH1F v2_dd_c 'Drift Distance for V2(Corrected)' R.fpp.v2.drfdst 70 -0.1 0.6
+TH1F v3_dd_c 'Drift Distance for V3(Corrected)' R.fpp.v3.drfdst 70 -0.1 0.6
+
+### Number of Hits Spectra
+TH1F fpp_nhit 'Total number of hits Spectra' R.fpp.u1.nhit+R.fpp.u2.nhit+R.fpp.u3.nhit+R.fpp.v1.nhit+R.fpp.v2.nhit+R.fpp.v3.nhit 40 0 40
+TH1F fpp_ufront 'U chamber hits' R.fpp.u1.nhit+R.fpp.u2.nhit+R.fpp.u3.nhit 20 0 20
+TH1F fpp_vfront 'V chamber hits' R.fpp.v1.nhit+R.fpp.v2.nhit+R.fpp.v3.nhit 20 0 20	
+
+#--------------------------------------------------------------------------------
+# RIGHT Arm Tracking & Reconstruction Histograms  :
+#
+
+TH1F Rtry 'R-arm FP Transport y' R.tr.y 200 -.2 .2
+TH1F Rtrx 'R-arm FP Transport x' R.tr.x 200 -1.5 1.5
+TH1F Rtrph 'R-arm FP Transport phi' R.tr.ph 200 -.2 .2
+TH1F Rtrth 'R-arm FP Transport theta' R.tr.th 200 -.8 .8
+
+TH1F Rtryd 'R-arm FP Detector y' R.tr.d_y 200 -.2 .2
+TH1F Rtrxd 'R-arm FP Detector x' R.tr.d_x 200 -1.5 1.5
+TH1F Rtrphd 'R-arm FP Detector phi' R.tr.d_ph 200 -.3 .3
+TH1F Rtrthd 'R-arm FP Detector theta' R.tr.d_th 200 0. 2.
+
+TH1F Rtryr 'R-arm FP Rotated y' R.tr.r_y 200 -.2 .2
+TH1F Rtrxr 'R-arm FP Rotated x' R.tr.r_x 200 -1.5 1.5
+TH1F Rtrphr 'R-arm FP Rotated phi' R.tr.r_ph 200 -.2 .2
+TH1F Rtrthr 'R-arm FP Rotated theta' R.tr.r_th 200 -.8 .8
+
+TH2F R_tfpa 'R-arm FP Transport x vs. y' R.tr.y R.tr.x 200 -.2 .2 200 -1.5 1.5 
+TH2F R_tfpb 'R-arm FP Transport theta vs. phi' R.tr.ph R.tr.th 200 -.075 .075 200 -.2 .2
+TH2F R_tfpc 'R-arm FP Rotated x vs. y' R.tr.r_y R.tr.r_x 200 -.2 .2 200 -1.5 1.5
+TH2F R_tfpd 'R-arm FP Rotated theta vs. phi' R.tr.r_ph R.tr.r_th 200 -.075 .075 200 -.2 .2 
+
+TH1F R_dp 'R-arm delta' R.tr.tg_dp 200 -.1 .1
+TH1F R_tgth 'R-arm target theta' R.tr.tg_th 200 -.2 .2
+TH1F R_tgph 'R-arm target phi' R.tr.tg_ph 200 -.1 .1
+TH1F R_tgy 'R-arm target y' R.tr.tg_y 200 -.1 .1
+
+TH1F Rtrn  'R-arm number of tracks' R.tr.n 20 -0.5 10.5
+
+TH1F R_tr_beta  'R-arm Track Beta' R.tr.beta 100 -2 2 R.tr.n>0  
+TH2F R_tr_betax 'R-arm Track Beta vs. Track X' R.tr.x R.tr.beta 100 -1 1 100 -2 2 R.tr.n>0
+TH2F R_tr_betay 'R-arm Track Beta vs. Track Y' R.tr.y R.tr.beta 100 -.1 .1 100 -2 2 R.tr.n>0
+
+TH2F R_tga  'R-arm tgt theta vs. phi' R.tr.tg_ph R.tr.tg_th 200 -0.1 0.1 200 -0.2 0.2
+TH2F R_tgb  'R-arm tgt delta vs. phi' R.tr.tg_ph R.tr.tg_dp 200 -0.1 0.1 1000 -0.1 0.1
+TH2F R_tgc  'R-arm tgt phi vs. y' R.tr.tg_y R.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
+
+#-------------------------------------------------------------------------------
+# RIGHT Arm Physics Histograms:
+#
+TH1F R_pmiss 'Missing Momentum' PKR.pmiss 1000 0 1
+TH1F R_emiss 'Missing Energy' PKR.emiss 1000 -0.5 0.5
+TH1F R_KE 'Proton Kinetic Energy (GeV)' PKR.tx 1000 0 1
+TH1F R_KECM 'Proton Kinetic Energy in CM (GeV)' PKR.tx_cm 1000 0 1
+TH1F R_tot_KECM 'Total Center of Mass Kinetic Energy' PKR.t_tot_cm 100 0 1
+TH1F R_thpq 'Polar Angle between q and detected particle' PKR.th_xq*180/3.1415 200 0 100
+TH1F R_diffangle 'Angle between electron and detected particle' PKR.xangle*180/3.1415 100 30 80
+
+
+#-------------------------------------------------------------------------------
+# RIGHT Arm Reaction Vertex Histograms  :
+#
+TH1F reactx 'R-arm Reaction X vertex' rpr.x 200 -.1 .1
+TH1F reacty 'R-arm Reaction Y vertex' rpr.y 200 -.1 .1
+TH1F reactz 'R-arm Reaction Z vertex' rpr.z 200 -.15 .15
+
+#-------------------------------------------------------------------------------
+#Beam Information
+#
+TH1F bpma_x 'BPMA x [mm]' rbax 4000 -15. 15.
+TH1F bpma_y 'BPMA y [mm]' rbay 4000 -15. 15.
+TH1F bpmb_x 'BPMB x [mm]' rbbx 4000 -15. 15.
+TH1F bpmb_y 'BPMB y [mm]' rbby 4000 -15. 15.
+TH1F beam_rasterx 'x at target (from Rasters) [mm]' rbx 4000  -15. 15.
+TH1F beam_rastery 'y at target (from Rasters) [mm]' rby 4000  -15. 15.
+
+
+TH2F bpma_xy 'BPMA y vs x'  rbax rbay 2000 -15. 15. 2000 -15. 15.
+TH2F bpmb_xy 'BPMB y vs x'  rbbx rbby 2000 -15. 15. 2000 -15. 15.
+TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 200 -15. 15.  200 -15. 15.
+
+#Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
+#This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
+TH1F rastx1 'Fast Raster 1 X current' RrbGmp.Raster.rawcur.x 500 4000 9000
+TH1F rasty1 'Fast Raster 1 Y current' RrbGmp.Raster.rawcur.y 500 4000 9000
+TH1F rastx2 'Fast Raster 2 X current' RrbGmp.Raster2.rawcur.x 500 4000 9000
+TH1F rasty2 'Fast Raster 2 Y current' RrbGmp.Raster2.rawcur.y 500 4000 9000
+
+TH2F rastxy1 'Fast Raster 1 X vs Y (current)' RrbGmp.Raster.rawcur.x RrbGmp.Raster.rawcur.y 300 0 9000 300 0 9000
+TH2F rastxy2 'Fast Raster 2 X vs Y (current)' RrbGmp.Raster2.rawcur.x RrbGmp.Raster2.rawcur.y 300 0 9000 300 0 9000
+TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' RrbGmp.Raster2.rawcur.x RrbGmp.Raster.rawcur.x 300 0 9000 300 0 9000
+TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' RrbGmp.Raster2.rawcur.y RrbGmp.Raster.rawcur.y 300 0 9000 300 0 9000
+TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' RrbGmp.Raster2.rawcur.y RrbGmp.Raster.rawcur.x 300 0 9000 300 0 9000
+TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' RrbGmp.Raster.rawcur.y RrbGmp.Raster2.rawcur.x 300 0 9000 300 0 9000
+
+TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' RrbGmp.Raster.rawcur.x rbax 500 4000 9000 200 -5. 5.
+TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' RrbGmp.Raster.rawcur.y rbay 500 4000 9000 200 -5. 5.
+TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' RrbGmp.Raster.rawcur.x rbbx 500 4000 9000 200 -5. 5.
+TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' RrbGmp.Raster.rawcur.y rbby 500 4000 9000 200 -5. 5.
+
+TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' RrbGmp.Raster.rawcur.y rbax 500 4000 9000 200 -5. 5.
+TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' RrbGmp.Raster.rawcur.x rbay 500 4000 9000 200 -5. 5.
+TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' RrbGmp.Raster.rawcur.y rbbx 500 4000 9000 200 -5. 5.
+TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' RrbGmp.Raster.rawcur.x rbby 500 4000 9000 200 -5. 5.
+
+TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' RrbGmp.Raster2.rawcur.x rbax 500 4000 9000 200 -5. 5.
+TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' RrbGmp.Raster2.rawcur.y rbay 500 4000 9000 200 -5. 5.
+TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' RrbGmp.Raster2.rawcur.x rbbx 500 4000 9000 200 -5. 5.
+TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' RrbGmp.Raster2.rawcur.y rbby 500 4000 9000 200 -5. 5.
+
+TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' RrbGmp.Raster2.rawcur.y rbax 500 4000 9000 200 -5. 5.
+TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' RrbGmp.Raster2.rawcur.x rbay 500 4000 9000 200 -5. 5.
+TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' RrbGmp.Raster2.rawcur.y rbbx 500 4000 9000 200 -5. 5.
+TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' RrbGmp.Raster2.rawcur.x rbby 500 4000 9000 200 -5. 5.
+
+#-------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+# Event type 140 
+
+begin scalers Right
+# 1024 Hz clock
+  clkcount 1 7 counts
+# 103700 Hz clock
+  fastclkcount 1 9 counts
+
+# counts in triggers, BCM, etc.
+  clkcountr 1 7
+  fastclkcountr 1 9      
+
+  t1c 1 0 counts
+  t2c 1 1 counts
+  t3c 1 2 counts
+  t4c 1 3 counts
+  t5c 1 4 counts
+  t6c 1 5 counts
+  t7c 1 6 counts
+  t8c 1 7 counts
+  l1ac 1 12 counts
+
+  t1r 1 0
+  t2r 1 1
+  t3r 1 2
+  t4r 1 3
+  t5r 1 4
+  t6r 1 5
+  t7r 1 6
+  t8r 1 7
+  l1ar 1 12
+ 
+  bcm_unewc  4 9  counts
+  bcm_dnewc  4 10 counts
+  unser_c    4 11 counts
+  bcm_u1c    4 12 counts
+  bcm_d1c    4 13 counts
+  bcm_d3c    4 14 counts
+  bcm_d10c   4 15 counts
+
+  bcm_unewr 4 9
+  bcm_dnewr 4 10
+  unser_r   4 11
+  bcm_u1r   4 12
+  bcm_d1r   4 13
+  bcm_d3r   4 14
+  bcm_d10r  4 15
+  
+end scalers
+
+# ------------------------------------------------------------------
+# Crate 10 scalers
+begin scalers evright
+# 1024 Hz clock
+  clkcount 1 7 counts
+# 103700 Hz clock
+  fastclkcount 1 9 counts
+
+# counts in triggers, BCM, etc.
+  clkcountr 1 7	      
+  fastclkcountr 1 9	      
+
+  t1c 1 0 counts
+  t2c 1 1 counts
+  t3c 1 2 counts
+  t4c 1 3 counts
+  t5c 1 4 counts
+  t6c 1 5 counts
+  t7c 1 6 counts
+  t8c 1 7 counts
+  l1ac 1 12 counts
+
+  t1r 1 0
+  t2r 1 1
+  t3r 1 2
+  t4r 1 3
+  t5r 1 4
+  t6r 1 5
+  t7r 1 6
+  t8r 1 7
+  l1ar 1 12
+
+  bcm_unewc  4 9  counts
+  bcm_dnewc  4 10 counts
+  unser_c    4 11 counts
+  bcm_u1c    4 12 counts
+  bcm_d1c    4 13 counts
+  bcm_d3c    4 14 counts
+  bcm_d10c   4 15 counts
+
+  bcm_unewr 4 9
+  bcm_dnewr 4 10
+  unser_r   4 11
+  bcm_u1r   4 12
+  bcm_d1r   4 13
+  bcm_d3r   4 14
+  bcm_d10r  4 15
+
+end scalers
+
+
+
+begin epics
+  hac_bcm_average
+  hac_bcm_dvm1_read
+  hac_bcm_dvm2_read
+  hac_unser_read
+  hac_unser_current
+  hac_bcm_dvm1_current
+  hac_bcm_dvm2_current
+  IBC0L02Current 
+  IBC3H00CRCUR4
+  HA:K224:Current
+  IPM1H05XPM1HZ
+  IPM1H05YPM1HZ
+  IPM1C12.XPOS
+  IPM1C12.YPOS
+
+  IPM1H04A.XPOS
+  IPM1H04A.YPOS
+  IPM1H04E.XPOS
+  IPM1H04E.YPOS
+  IPM1H04.XPOS
+  IPM1H04.YPOS
+  FCupsCORRECTED.VAL
+end epics

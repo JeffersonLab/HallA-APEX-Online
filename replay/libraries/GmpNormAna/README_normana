@@ -1,0 +1,35 @@
+
+ GmpNormAna is a class to help normalize the experiment.
+ 
+ The data contained by the class are
+
+        -- prescale factors fetched from analyzer
+        -- scaler data from event type 140  
+        -- scaler data from ROC10/11 (trigge supervisor)  
+                        there better synhronized to events than ev140
+        -- trigger supervisor on-board scalers
+        -- trigger latch TDC -- provides evtypebits (bit pattern of concurrent triggers)
+
+  From scalers one can obtain
+
+       -- number of triggers in run
+       -- integrated charge
+       
+  There are various ways to compute the deadtime, e.g. using event 140 scalers.
+  The best way is to analyze the event type bit pattern (from trigger latch TDC)
+  and the scalers from TS0 or TS1
+
+  An alternative way to obtain deadtime is from the TS on-board scalers.
+
+ GmpNormAna is put in the online script like this:
+
+          GmpNormAna* norm = 
+               new GmpNormAna("N","Normalization Analysis");
+          gHaPhysics->Add(norm);
+
+  And variables   N.*   are added to the output tree, and an an
+  end-of-run printout summarizing the analysis is printed.
+
+  To compile, type "make".  You need to control the variable
+  ANALYZER in the Makefile, to point to the valid analyzer path.
+

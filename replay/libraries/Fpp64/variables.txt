@@ -1,0 +1,68 @@
+
+Per plane variables: L.fpp.plane.name (i.e. L.fpp.u1.nhit), where planes are u1-11, v1-11, x1-2
+
+        ROOT NAME    DESCRIPTION                         ANALYZER NAME
+
+        { "nhit",   "Number of hits",                    "GetNHits()" },
+        { "wire",   "Raw wire group number",             "fHits.THaFppHit.fWire" },
+        { "ltdc",  "Raw leading edge time",              "fHits.THaFppHit.fLtdc" },
+        { "ttdc",   "Raw trailing edge time",            "fHits.THaFppHit.fTtdc" },
+        { "straw",  "Raw straw number of hit",           "fHits.THaFppHit.fStraw" },
+        { "width", "Raw pulse width",                    "fHits.THaFppHit.fWidth" },
+        { "drfdst","Uncorrected drift distance of hit",  "fHits.THaFppHit.fDist"},
+        { "ngoodhit", "Number of good hits",              "GetNGHits()"          },
+        { "ltdc_c", "Corrected le time",                 "fGHits.THaFppHit.fLtdc"},
+        { "ttdc_c", "Corrected te time",                 "fGHits.THaFppHit.fTtdc"},
+        { "width_c","Corrected pulse width",             "fGHits.THaFppHit.fWidth"},
+        { "drfdst_c","Corrected drift distance",         "fGHits.THaFppHit.fDist"},
+        { "straw_c", "Corrected straw number",           "fGHits.THaFppHit.fStraw"},
+        { "wire_c"   , "Corrected wire group number",      "fGHits.THaFppHit.fWire"},
+        { "resid_c" , "Corrected residual",              "fGHits.THaFppHit.fResidual"},
+        { "efficiency" , "efficiency measure (=1 for good hit)","itrgood"},
+        { "strwgood" , "predicted straw hit for good hit",       "strwgood"},
+        { "strwbad" , "predicted straw hit for no hit",         "strwbad"},
+
+Global fpp variables: L.fpp.name (i.e. L.fpp.THits)
+      
+         ROOT NAME   DESCRIPTION                     ANALYZER NAME
+
+         {"THits", "Total number of hits per event", "fTNHits"},
+         {"TGHits", "Total number of good hits per event", "fTNGHits"},
+         {"ntrackfu","# of tracks for front U ch.","ntrackfu"},
+         {"ntrackfv","# of tracks for front V ch.","ntrackfv"},
+         {"ntrackrv","# of tracks for rear V ch.","ntrackfv"},
+         {"ntrackru","# of tracks for rear U ch.","ntrackru"},
+         {"conetest","+1 if passed -1 if failed conetest","conetest"},
+         {"coneteste","E. Brash's new conetest, +1 pass, -1 fail","coneteste"},
+         {"x_fa",    "x at z=0 from FPP front chambers", "x_fa"},
+         {"y_fa",    "y at z=0 from FPP front chambers", "y_fa"},
+         {"x_fb",    "x at z=.350 from FPP front chambers", "x_fb"},
+         {"y_fb",    "y at z=.350 from FPP front chambers", "y_fb"},
+         {"th_f",    "theta from FPP front chambers"      , "th_f"},
+         {"ph_f",    " phi from FPP front chambers "      , "ph_f"},
+         {"x_r",     "x at z=.350 from FPP rear chambers" , "x_r"},
+         {"y_r",     "y at z=.350 from FPP rear chambers" , "y_r"},
+         {"th_r",    "theta from FPP rear chambers"       , "th_r"},
+         {"ph_r",    "phi from FPP rear chambers"         , "ph_r"},
+         {"x_x",     "x at z=.350 from FPP X-Straws"      , "x_x"},
+         {"x_diff_f","diff in X (VDC vs. FPP Front Chs.)" , "x_diff_f"},
+         {"y_diff_f","diff in Y (VDC vs. FPP Front Chs.)" , "y_diff_f"},
+         {"x_diff_r","diff in X (FPP Front vs. FPP Rear Chs.)", "x_diff_r"},
+         {"y_diff_r","diff in Y (FPP Front vs. FPP Rear Chs.)", "y_diff_r"},
+         {"x_diff_x","diff in X (FPP Front vs. FPP X straws)", "x_diff_x"},
+         {"th_diff_f","diff in Theta (VDC vs. FPP Front Chs.)", "th_diff_f"},
+         {"ph_diff_f","diff in Phi (VDC vs. FPP Front Chs.)",  "ph_diff_f"},
+         {"th_diff_r","diff in Theta (FPP Front vs. FPP Rear Chs.)","th_diff_r"},
+         {"ph_diff_r","diff in Phi (FPP Front vs. FPP Rear Chs.)","ph_diff_r"},
+         {"th_sc",    "Theta scattered"                    , "th_sc"},
+         {"ph_sc",    "Phi scattered"                      , "ph_sc"},
+         {"th_az",    "Theta scattered (polar coordinates)", "th_az"},
+         {"ph_az",    "Phi scattered (polar coordinates)"  , "ph_az"},
+         {"zclose",   "Z of closest approach of front/rear tracks", "zclose"},
+         {"sclose",   "distance of closest approach of f/r tracks", "sclose"},
+         {"chisqfu",  "chisq for front chamber u track"           , "chisqfu"},
+         {"chisqfv",  "chisq for front chamber v track"           , "chisqfv"},
+         {"chisqru",  "chisq for rear  chamber u track"           , "chisqru"},
+         {"chisqrv",  "chisq for rear  chamber v track"           , "chisqrv"},
+
+
