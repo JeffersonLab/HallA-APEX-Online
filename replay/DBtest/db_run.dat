@@ -1,0 +1,9901 @@
+
+--------[ 2017-01-23 16:17:11 ]
+# parameters from EPICS run 15120
+ebeam = 8.49775
+L.theta = 25.0003
+L.pcentral = 0.00227737
+R.theta = -0.197
+R.pcentral = 0.00433843
+MA = 0.93827
+
+
+--------[ 2017-01-25 17:06:11 ]
+# parameters from EPICS run 15121
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.0022757
+R.theta = -29.9999
+R.pcentral = 0.00434688
+MA = 0.93827
+
+
+--------[ 2017-01-26 11:01:41 ]
+# parameters from EPICS run 15122
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227264
+R.theta = -29.9999
+R.pcentral = 0.00433625
+MA = 0.93827
+
+
+--------[ 2017-01-26 17:08:37 ]
+# parameters from EPICS run 15123
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227264
+R.theta = -29.9999
+R.pcentral = 0.00436623
+MA = 0.93827
+
+
+--------[ 2017-01-26 17:33:15 ]
+# parameters from EPICS run 23780
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227542
+R.theta = -29.9999
+R.pcentral = 0.00433489
+MA = 0.93827
+
+
+--------[ 2017-01-27 17:38:34 ]
+# parameters from EPICS run 15124
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227487
+R.theta = -29.9999
+R.pcentral = 0.0043338
+MA = 0.93827
+
+
+--------[ 2017-01-27 17:43:28 ]
+# parameters from EPICS run 15125
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00226985
+R.theta = -29.9999
+R.pcentral = 0.00434579
+MA = 0.93827
+
+
+--------[ 2017-01-30 14:22:47 ]
+# parameters from EPICS run 15126
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227264
+R.theta = -29.9999
+R.pcentral = 0.00432944
+MA = 0.93827
+
+
+--------[ 2017-01-30 14:42:09 ]
+# parameters from EPICS run 15127
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227375
+R.theta = -29.9999
+R.pcentral = 0.00436405
+MA = 0.93827
+
+
+--------[ 2017-01-30 14:53:14 ]
+# parameters from EPICS run 23781
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227403
+R.theta = -29.9999
+R.pcentral = 0.00434061
+MA = 0.93827
+
+
+--------[ 2017-01-30 14:56:08 ]
+# parameters from EPICS run 23782
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227487
+R.theta = -29.9999
+R.pcentral = 0.00436241
+MA = 0.93827
+
+
+--------[ 2017-01-30 15:03:39 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227375
+R.theta = -29.9999
+R.pcentral = 0.0043357
+MA = 0.93827
+
+
+--------[ 2017-01-30 16:01:44 ]
+# parameters from EPICS run 23787
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227431
+R.theta = -29.9999
+R.pcentral = 0.00435533
+MA = 0.93827
+
+
+--------[ 2017-01-30 16:06:54 ]
+# parameters from EPICS run 23788
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227292
+R.theta = -29.9999
+R.pcentral = 0.00433816
+MA = 0.93827
+
+
+--------[ 2017-01-30 16:58:18 ]
+# parameters from EPICS run 23789
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227375
+R.theta = -29.9999
+R.pcentral = 0.0043338
+MA = 0.93827
+
+
+--------[ 2017-02-01 15:30:31 ]
+# parameters from EPICS run 23790
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227236
+R.theta = -29.9999
+R.pcentral = 0.00433489
+MA = 0.93827
+
+
+--------[ 2017-02-01 16:07:23 ]
+# parameters from EPICS run 23791
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227097
+R.theta = -29.9999
+R.pcentral = 0.00433107
+MA = 0.93827
+
+
+--------[ 2017-02-01 16:18:39 ]
+# parameters from EPICS run 23792
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227153
+R.theta = -29.9999
+R.pcentral = 0.00434388
+MA = 0.93827
+
+
+--------[ 2017-02-01 17:05:43 ]
+# parameters from EPICS run 23793
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227236
+R.theta = -29.9999
+R.pcentral = 0.00433625
+MA = 0.93827
+
+
+--------[ 2017-02-03 14:35:09 ]
+# parameters from EPICS run 23794
+ebeam = 2.21626
+L.theta = 20.0003
+L.pcentral = 0.00227375
+R.theta = -29.9999
+R.pcentral = 0.00435069
+MA = 0.93827
+
+
+--------[ 2017-02-07 11:32:26 ]
+# parameters from EPICS run 23795
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227542
+R.theta = -47.9999
+R.pcentral = 0.00433216
+MA = 0.93827
+
+
+--------[ 2017-02-10 18:51:51 ]
+# parameters from EPICS run 23796
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227654
+R.theta = -47.9999
+R.pcentral = 0.00434034
+MA = 0.93827
+
+
+--------[ 2017-02-10 18:58:23 ]
+# parameters from EPICS run 23797
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227097
+R.theta = -47.9999
+R.pcentral = 0.00432153
+MA = 0.93827
+
+
+--------[ 2017-02-11 13:24:35 ]
+# parameters from EPICS run 23798
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.0022732
+R.theta = -47.9999
+R.pcentral = 0.00432044
+MA = 0.93827
+
+
+--------[ 2017-02-12 13:48:22 ]
+# parameters from EPICS run 23799
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00228043
+R.theta = -0.197
+R.pcentral = 0.0043357
+MA = 0.93827
+
+
+--------[ 2017-02-13 14:50:36 ]
+# parameters from EPICS run 2
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00226846
+R.theta = -0.197
+R.pcentral = 0.00431935
+MA = 0.93827
+
+
+--------[ 2017-02-13 22:44:45 ]
+# parameters from EPICS run 3
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227626
+R.theta = -0.197
+R.pcentral = 0.00435097
+MA = 0.93827
+
+
+--------[ 2017-02-14 10:41:40 ]
+# parameters from EPICS run 5
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227737
+R.theta = -0.197
+R.pcentral = 0.00434143
+MA = 0.93827
+
+
+--------[ 2017-02-14 12:08:48 ]
+# parameters from EPICS run 6
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227737
+R.theta = -0.197
+R.pcentral = 0.00432208
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:02:18 ]
+# parameters from EPICS run 7
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227375
+R.theta = -0.197
+R.pcentral = 0.00432753
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:03:38 ]
+# parameters from EPICS run 8
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00228377
+R.theta = -0.197
+R.pcentral = 0.0043477
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:12:08 ]
+# parameters from EPICS run 9
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227431
+R.theta = -0.197
+R.pcentral = 0.00431826
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:13:18 ]
+# parameters from EPICS run 10
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.0022718
+R.theta = -0.197
+R.pcentral = 0.00434497
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:48:50 ]
+# parameters from EPICS run 11
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227153
+R.theta = -0.197
+R.pcentral = 0.00434988
+MA = 0.93827
+
+
+--------[ 2017-02-14 23:56:36 ]
+# parameters from EPICS run 12
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227626
+R.theta = -0.197
+R.pcentral = 0.00435015
+MA = 0.93827
+
+
+--------[ 2017-02-15 00:40:24 ]
+# parameters from EPICS run 13
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227765
+R.theta = -0.197
+R.pcentral = 0.00432044
+MA = 0.93827
+
+
+--------[ 2017-02-15 09:09:05 ]
+# parameters from EPICS run 14
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00227709
+R.theta = -0.197
+R.pcentral = 0.0043199
+MA = 0.93827
+
+
+--------[ 2017-02-15 10:02:18 ]
+# parameters from EPICS run 15
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00228155
+R.theta = -0.197
+R.pcentral = 0.00433053
+MA = 0.93827
+
+
+--------[ 2017-02-15 10:10:54 ]
+# parameters from EPICS run 16
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.0022718
+R.theta = -0.197
+R.pcentral = 0.00434306
+MA = 0.93827
+
+
+--------[ 2017-02-15 11:32:09 ]
+# parameters from EPICS run 17
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00228099
+R.theta = -0.197
+R.pcentral = 0.00434988
+MA = 0.93827
+
+
+--------[ 2017-02-15 13:29:04 ]
+# parameters from EPICS run 18
+ebeam = 2.21626
+L.theta = 25.2003
+L.pcentral = 0.00228377
+R.theta = -0.197
+R.pcentral = 0.00434006
+MA = 0.93827
+
+
+--------[ 2017-02-15 14:25:03 ]
+# parameters from EPICS run 19
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00432726
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:28:02 ]
+# parameters from EPICS run 19
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227208
+R.theta = -49.9999
+R.pcentral = 0.0043387
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:28:29 ]
+# parameters from EPICS run 20
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227598
+R.theta = -49.9999
+R.pcentral = 0.0043278
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:28:48 ]
+# parameters from EPICS run 20
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227848
+R.theta = -49.9999
+R.pcentral = 0.00432235
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:31:34 ]
+# parameters from EPICS run 20
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022835
+R.theta = -49.9999
+R.pcentral = 0.00432262
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:37:23 ]
+# parameters from EPICS run 20
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227431
+R.theta = -49.9999
+R.pcentral = 0.00432753
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:37:47 ]
+# parameters from EPICS run 20
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.00434906
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:48:21 ]
+# parameters from EPICS run 21
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227459
+R.theta = -49.9999
+R.pcentral = 0.00435206
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:55:11 ]
+# parameters from EPICS run 22
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.00434742
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:56:56 ]
+# parameters from EPICS run 22
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022693
+R.theta = -49.9999
+R.pcentral = 0.00433625
+MA = 0.93827
+
+
+--------[ 2017-02-15 15:58:12 ]
+# parameters from EPICS run 22
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227125
+R.theta = -49.9999
+R.pcentral = 0.00432399
+MA = 0.93827
+
+
+--------[ 2017-02-15 16:05:37 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228155
+R.theta = -49.9999
+R.pcentral = 0.00434633
+MA = 0.93827
+
+
+--------[ 2017-02-15 16:12:32 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227041
+R.theta = -49.9999
+R.pcentral = 0.00433216
+MA = 0.93827
+
+
+--------[ 2017-02-15 16:42:54 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228155
+R.theta = -49.9999
+R.pcentral = 0.00433489
+MA = 0.93827
+
+
+--------[ 2017-02-15 17:28:56 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022718
+R.theta = -49.9999
+R.pcentral = 0.00434606
+MA = 0.93827
+
+
+--------[ 2017-02-15 17:30:53 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00226123
+R.theta = -49.9999
+R.pcentral = 0.00434306
+MA = 0.93827
+
+
+--------[ 2017-02-15 17:31:33 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227375
+R.theta = -49.9999
+R.pcentral = 0.00434988
+MA = 0.93827
+
+
+--------[ 2017-02-15 17:35:20 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022821
+R.theta = -49.9999
+R.pcentral = 0.00433162
+MA = 0.93827
+
+
+--------[ 2017-02-15 18:18:51 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227514
+R.theta = -49.9999
+R.pcentral = 0.0043526
+MA = 0.93827
+
+
+--------[ 2017-02-15 18:31:26 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227264
+R.theta = -49.9999
+R.pcentral = 0.00435069
+MA = 0.93827
+
+
+--------[ 2017-02-15 18:37:50 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227041
+R.theta = -49.9999
+R.pcentral = 0.0043526
+MA = 0.93827
+
+
+--------[ 2017-02-15 18:41:39 ]
+# parameters from EPICS run 23
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228322
+R.theta = -49.9999
+R.pcentral = 0.00432181
+MA = 0.93827
+
+
+--------[ 2017-02-16 00:12:11 ]
+# parameters from EPICS run 24
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227487
+R.theta = -49.9999
+R.pcentral = 0.00434988
+MA = 0.93827
+
+
+--------[ 2017-02-16 00:25:25 ]
+# parameters from EPICS run 25
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022718
+R.theta = -49.9999
+R.pcentral = 0.00432181
+MA = 0.93827
+
+
+--------[ 2017-02-16 02:09:59 ]
+# parameters from EPICS run 26
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227514
+R.theta = -49.9999
+R.pcentral = 0.0043477
+MA = 0.93827
+
+
+--------[ 2017-02-16 02:21:01 ]
+# parameters from EPICS run 27
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00229185
+R.theta = -49.9999
+R.pcentral = 0.00432835
+MA = 0.93827
+
+
+--------[ 2017-02-16 04:26:27 ]
+# parameters from EPICS run 28
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00432535
+MA = 0.93827
+
+
+--------[ 2017-02-16 06:19:13 ]
+# parameters from EPICS run 30
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228433
+R.theta = -49.9999
+R.pcentral = 0.00433652
+MA = 0.93827
+
+
+--------[ 2017-02-16 06:30:47 ]
+# parameters from EPICS run 31
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227459
+R.theta = -49.9999
+R.pcentral = 0.00432944
+MA = 0.93827
+
+
+--------[ 2017-02-16 06:36:29 ]
+# parameters from EPICS run 32
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00434688
+MA = 0.93827
+
+
+--------[ 2017-02-16 09:19:22 ]
+# parameters from EPICS run 33
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228377
+R.theta = -49.9999
+R.pcentral = 0.00432862
+MA = 0.93827
+
+
+--------[ 2017-02-16 09:29:52 ]
+# parameters from EPICS run 34
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00434879
+MA = 0.93827
+
+
+--------[ 2017-02-16 11:53:29 ]
+# parameters from EPICS run 35
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227876
+R.theta = -49.9999
+R.pcentral = 0.00434715
+MA = 0.93827
+
+
+--------[ 2017-02-16 11:55:25 ]
+# parameters from EPICS run 36
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227153
+R.theta = -49.9999
+R.pcentral = 0.00434824
+MA = 0.93827
+
+
+--------[ 2017-02-16 12:13:27 ]
+# parameters from EPICS run 37
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227375
+R.theta = -49.9999
+R.pcentral = 0.00435151
+MA = 0.93827
+
+
+--------[ 2017-02-16 12:18:45 ]
+# parameters from EPICS run 38
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022718
+R.theta = -49.9999
+R.pcentral = 0.00434306
+MA = 0.93827
+
+
+--------[ 2017-02-16 12:20:15 ]
+# parameters from EPICS run 39
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228099
+R.theta = -49.9999
+R.pcentral = 0.00435206
+MA = 0.93827
+
+
+--------[ 2017-02-16 12:21:49 ]
+# parameters from EPICS run 40
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228238
+R.theta = -49.9999
+R.pcentral = 0.00432753
+MA = 0.93827
+
+
+--------[ 2017-02-16 12:59:37 ]
+# parameters from EPICS run 41
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00443981
+MA = 0.93827
+
+
+--------[ 2017-02-16 13:00:29 ]
+# parameters from EPICS run 42
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227848
+R.theta = -49.9999
+R.pcentral = 0.00443382
+MA = 0.93827
+
+
+--------[ 2017-02-16 14:11:58 ]
+# parameters from EPICS run 43
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228322
+R.theta = -49.9999
+R.pcentral = 0.336249
+MA = 0.93827
+
+
+--------[ 2017-02-16 14:18:01 ]
+# parameters from EPICS run 44
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228099
+R.theta = -49.9999
+R.pcentral = 0.421525
+MA = 0.93827
+
+
+--------[ 2017-02-16 14:31:56 ]
+# parameters from EPICS run 45
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227904
+R.theta = -49.9999
+R.pcentral = 0
+MA = 0.93827
+
+
+--------[ 2017-02-16 16:27:16 ]
+# parameters from EPICS run 46
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.0520263
+MA = 0.93827
+
+
+--------[ 2017-02-16 17:34:07 ]
+# parameters from EPICS run 47
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228266
+R.theta = -49.9999
+R.pcentral = 0.0326111
+MA = 0.93827
+
+
+--------[ 2017-02-16 17:50:39 ]
+# parameters from EPICS run 48
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227375
+R.theta = -49.9999
+R.pcentral = 0.0315183
+MA = 0.93827
+
+
+--------[ 2017-02-16 18:15:16 ]
+# parameters from EPICS run 49
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228127
+R.theta = -49.9999
+R.pcentral = 0.0298122
+MA = 0.93827
+
+
+--------[ 2017-02-16 21:38:25 ]
+# parameters from EPICS run 50
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228795
+R.theta = -49.9999
+R.pcentral = 0.0205489
+MA = 0.93827
+
+
+--------[ 2017-02-16 21:53:20 ]
+# parameters from EPICS run 51
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227848
+R.theta = -49.9999
+R.pcentral = 0.0200747
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:02:30 ]
+# parameters from EPICS run 52
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228739
+R.theta = -49.9999
+R.pcentral = 0.019794
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:14:32 ]
+# parameters from EPICS run 53
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228461
+R.theta = -49.9999
+R.pcentral = 0.0194479
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:27:24 ]
+# parameters from EPICS run 54
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227821
+R.theta = -49.9999
+R.pcentral = 0.0191045
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:34:44 ]
+# parameters from EPICS run 55
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00226902
+R.theta = -49.9999
+R.pcentral = 0.0189137
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:47:22 ]
+# parameters from EPICS run 56
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227375
+R.theta = -49.9999
+R.pcentral = 0.0185621
+MA = 0.93827
+
+
+--------[ 2017-02-16 22:49:52 ]
+# parameters from EPICS run 57
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227709
+R.theta = -49.9999
+R.pcentral = 0.0185294
+MA = 0.93827
+
+
+--------[ 2017-02-16 23:02:00 ]
+# parameters from EPICS run 58
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00226651
+R.theta = -49.9999
+R.pcentral = 0.0182078
+MA = 0.93827
+
+
+--------[ 2017-02-16 23:15:00 ]
+# parameters from EPICS run 59
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00226846
+R.theta = -49.9999
+R.pcentral = 0.0178917
+MA = 0.93827
+
+
+--------[ 2017-02-16 23:20:59 ]
+# parameters from EPICS run 60
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227097
+R.theta = -49.9999
+R.pcentral = 0.0177663
+MA = 0.93827
+
+
+--------[ 2017-02-16 23:23:11 ]
+# parameters from EPICS run 61
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227041
+R.theta = -49.9999
+R.pcentral = 0.0177009
+MA = 0.93827
+
+
+--------[ 2017-02-16 23:28:19 ]
+# parameters from EPICS run 62
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227932
+R.theta = -49.9999
+R.pcentral = 0.0175919
+MA = 0.93827
+
+
+--------[ 2017-02-17 02:14:13 ]
+# parameters from EPICS run 63
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.0144305
+MA = 0.93827
+
+
+--------[ 2017-02-17 05:27:12 ]
+# parameters from EPICS run 64
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227514
+R.theta = -49.9999
+R.pcentral = 0.0120132
+MA = 0.93827
+
+
+--------[ 2017-02-17 06:07:35 ]
+# parameters from EPICS run 65
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227932
+R.theta = -49.9999
+R.pcentral = 0.0116017
+MA = 0.93827
+
+
+--------[ 2017-02-17 06:18:21 ]
+# parameters from EPICS run 66
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227793
+R.theta = -49.9999
+R.pcentral = 0.0114981
+MA = 0.93827
+
+
+--------[ 2017-02-17 07:13:19 ]
+# parameters from EPICS run 67
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227208
+R.theta = -49.9999
+R.pcentral = 0.0110103
+MA = 0.93827
+
+
+--------[ 2017-02-17 07:54:20 ]
+# parameters from EPICS run 68
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.010686
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:15:40 ]
+# parameters from EPICS run 69
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227041
+R.theta = -49.9999
+R.pcentral = 0.0105197
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:23:05 ]
+# parameters from EPICS run 70
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022693
+R.theta = -49.9999
+R.pcentral = 0.0104925
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:24:02 ]
+# parameters from EPICS run 71
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227347
+R.theta = -49.9999
+R.pcentral = 0.0104543
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:25:42 ]
+# parameters from EPICS run 72
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227097
+R.theta = -49.9999
+R.pcentral = 0.0104761
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:27:00 ]
+# parameters from EPICS run 73
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227793
+R.theta = -49.9999
+R.pcentral = 0.0104489
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:28:10 ]
+# parameters from EPICS run 74
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227542
+R.theta = -49.9999
+R.pcentral = 0.0104243
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:45:56 ]
+# parameters from EPICS run 75
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227542
+R.theta = -49.9999
+R.pcentral = 0.0103235
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:53:31 ]
+# parameters from EPICS run 76
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228517
+R.theta = -49.9999
+R.pcentral = 0.0102635
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:56:01 ]
+# parameters from EPICS run 77
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227403
+R.theta = -49.9999
+R.pcentral = 0.0102554
+MA = 0.93827
+
+
+--------[ 2017-02-17 08:59:51 ]
+# parameters from EPICS run 78
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.0102308
+MA = 0.93827
+
+
+--------[ 2017-02-17 09:36:59 ]
+# parameters from EPICS run 79
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228572
+R.theta = -49.9999
+R.pcentral = 0.00995558
+MA = 0.93827
+
+
+--------[ 2017-02-17 09:39:31 ]
+# parameters from EPICS run 80
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022718
+R.theta = -49.9999
+R.pcentral = 0.0099365
+MA = 0.93827
+
+
+--------[ 2017-02-17 09:42:09 ]
+# parameters from EPICS run 81
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022796
+R.theta = -49.9999
+R.pcentral = 0.0099474
+MA = 0.93827
+
+
+--------[ 2017-02-17 09:44:51 ]
+# parameters from EPICS run 82
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227598
+R.theta = -49.9999
+R.pcentral = 0.00990107
+MA = 0.93827
+
+
+--------[ 2017-02-17 09:53:17 ]
+# parameters from EPICS run 83
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228656
+R.theta = -49.9999
+R.pcentral = 0.00987109
+MA = 0.93827
+
+
+--------[ 2017-02-17 10:12:12 ]
+# parameters from EPICS run 84
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228043
+R.theta = -49.9999
+R.pcentral = 0.00975935
+MA = 0.93827
+
+
+--------[ 2017-02-17 10:20:32 ]
+# parameters from EPICS run 85
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227821
+R.theta = -49.9999
+R.pcentral = 0.0096776
+MA = 0.93827
+
+
+--------[ 2017-02-17 10:40:26 ]
+# parameters from EPICS run 86
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022718
+R.theta = -49.9999
+R.pcentral = 0.00956313
+MA = 0.93827
+
+
+--------[ 2017-02-17 10:48:42 ]
+# parameters from EPICS run 87
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228155
+R.theta = -49.9999
+R.pcentral = 0.00952498
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:07:42 ]
+# parameters from EPICS run 88
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228183
+R.theta = -49.9999
+R.pcentral = 0.00910528
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:09:26 ]
+# parameters from EPICS run 89
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227264
+R.theta = -49.9999
+R.pcentral = 0.00908893
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:10:48 ]
+# parameters from EPICS run 90
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0022732
+R.theta = -49.9999
+R.pcentral = 0.0090644
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:15:22 ]
+# parameters from EPICS run 91
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228099
+R.theta = -49.9999
+R.pcentral = 0.00903442
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:16:30 ]
+# parameters from EPICS run 92
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00228238
+R.theta = -49.9999
+R.pcentral = 0.00905077
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:17:30 ]
+# parameters from EPICS run 93
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00227904
+R.theta = -49.9999
+R.pcentral = 0.00905077
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:37:40 ]
+# parameters from EPICS run 94
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0023233
+R.theta = -49.9999
+R.pcentral = 0.00896084
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:47:14 ]
+# parameters from EPICS run 95
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00232581
+R.theta = -49.9999
+R.pcentral = 0.0088818
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:49:56 ]
+# parameters from EPICS run 96
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00232525
+R.theta = -49.9999
+R.pcentral = 0.00886818
+MA = 0.93827
+
+
+--------[ 2017-02-17 12:54:38 ]
+# parameters from EPICS run 97
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0081786
+R.theta = -49.9999
+R.pcentral = 0.00886273
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:04:08 ]
+# parameters from EPICS run 98
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.142583
+R.theta = -49.9999
+R.pcentral = 0.00880277
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:07:32 ]
+# parameters from EPICS run 99
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.107647
+R.theta = -49.9999
+R.pcentral = 0.00881094
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:08:22 ]
+# parameters from EPICS run 100
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.175097
+R.theta = -49.9999
+R.pcentral = 0.00879187
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:09:10 ]
+# parameters from EPICS run 101
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.138129
+R.theta = -49.9999
+R.pcentral = 0.00878914
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:10:50 ]
+# parameters from EPICS run 102
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.150127
+R.theta = -49.9999
+R.pcentral = 0.00878914
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:11:30 ]
+# parameters from EPICS run 103
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.150182
+R.theta = -49.9999
+R.pcentral = 0.00876461
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:12:18 ]
+# parameters from EPICS run 104
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.150238
+R.theta = -49.9999
+R.pcentral = 0.00878097
+MA = 0.93827
+
+
+--------[ 2017-02-17 13:33:35 ]
+# parameters from EPICS run 105
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0
+R.theta = -49.9999
+R.pcentral = 0.00866378
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:13:53 ]
+# parameters from EPICS run 106
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00281714
+R.theta = -49.9999
+R.pcentral = 0.00851116
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:15:21 ]
+# parameters from EPICS run 107
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00279459
+R.theta = -49.9999
+R.pcentral = 0.00849208
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:16:19 ]
+# parameters from EPICS run 108
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00278568
+R.theta = -49.9999
+R.pcentral = 0.00847573
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:17:15 ]
+# parameters from EPICS run 109
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00276397
+R.theta = -49.9999
+R.pcentral = 0.00849481
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:17:38 ]
+# parameters from EPICS run 109
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00276759
+R.theta = -49.9999
+R.pcentral = 0.00848663
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:18:29 ]
+# parameters from EPICS run 110
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.002752
+R.theta = -49.9999
+R.pcentral = 0.00846756
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:20:49 ]
+# parameters from EPICS run 111
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00274671
+R.theta = -49.9999
+R.pcentral = 0.00847846
+MA = 0.93827
+
+
+--------[ 2017-02-17 14:21:45 ]
+# parameters from EPICS run 112
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.00272472
+R.theta = -49.9999
+R.pcentral = 0.00845938
+MA = 0.93827
+
+
+--------[ 2017-02-17 15:11:05 ]
+# parameters from EPICS run 113
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.387106
+R.theta = -49.9999
+R.pcentral = 0.00825771
+MA = 0.93827
+
+
+--------[ 2017-02-17 15:46:18 ]
+# parameters from EPICS run 113
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.00813507
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:27:19 ]
+# parameters from EPICS run 114
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00797155
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:28:58 ]
+# parameters from EPICS run 115
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.007977
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:29:22 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.0079661
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:29:50 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.007977
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:33:40 ]
+# parameters from EPICS run 116
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.007977
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:34:32 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00796337
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:35:38 ]
+# parameters from EPICS run 117
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00797155
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:36:30 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00795792
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:37:14 ]
+# parameters from EPICS run 118
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00795247
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:38:17 ]
+# parameters from EPICS run 15128
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.244941
+R.theta = -49.9999
+R.pcentral = 0.00794429
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:40:00 ]
+# parameters from EPICS run 119
+ebeam = 2.21626
+L.theta = 21.5003
+L.pcentral = 0.0260557
+R.theta = -49.9999
+R.pcentral = 0.0079552
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:41:57 ]
+# parameters from EPICS run 119
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 0.00840687
+R.theta = -49.9999
+R.pcentral = 0.00794702
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:42:39 ]
+# parameters from EPICS run 119
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 0.00669487
+R.theta = -49.9999
+R.pcentral = 0.00792522
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:43:31 ]
+# parameters from EPICS run 15128
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 0.00542104
+R.theta = -49.9999
+R.pcentral = 0.00791704
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:44:28 ]
+# parameters from EPICS run 120
+ebeam = 2.2176
+L.theta = 21.5003
+L.pcentral = 0.00450129
+R.theta = -49.9999
+R.pcentral = 0.00793067
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:45:22 ]
+# parameters from EPICS run 15128
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 0.0038808
+R.theta = -49.9999
+R.pcentral = 0.00791704
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:48:58 ]
+# parameters from EPICS run 121
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.0025936
+R.theta = -49.9999
+R.pcentral = 0.00791977
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:49:50 ]
+# parameters from EPICS run 15128
+ebeam = 2.21747
+L.theta = 21.5003
+L.pcentral = 0.00241878
+R.theta = -49.9999
+R.pcentral = 0.00790614
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:54:52 ]
+# parameters from EPICS run 122
+ebeam = 2.21749
+L.theta = 21.5003
+L.pcentral = 0.00183838
+R.theta = -49.9999
+R.pcentral = 0.00790614
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:55:45 ]
+# parameters from EPICS run 15128
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 0.00177045
+R.theta = -49.9999
+R.pcentral = 0.00787344
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:57:14 ]
+# parameters from EPICS run 123
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.00167915
+R.theta = -49.9999
+R.pcentral = 0.00789251
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:58:05 ]
+# parameters from EPICS run 15128
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 0.00164017
+R.theta = -49.9999
+R.pcentral = 0.00788434
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:58:42 ]
+# parameters from EPICS run 124
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 0.00160788
+R.theta = -49.9999
+R.pcentral = 0.00787071
+MA = 0.93827
+
+
+--------[ 2017-02-17 16:59:54 ]
+# parameters from EPICS run 15128
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.00157086
+R.theta = -49.9999
+R.pcentral = 0.00787071
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:06:44 ]
+# parameters from EPICS run 125
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 0.00140328
+R.theta = -49.9999
+R.pcentral = 0.00786526
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:07:39 ]
+# parameters from EPICS run 15128
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.00138658
+R.theta = -49.9999
+R.pcentral = 0.00783801
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:10:14 ]
+# parameters from EPICS run 126
+ebeam = 0
+L.theta = 21.5003
+L.pcentral = 0.0013412
+R.theta = -49.9999
+R.pcentral = 0.00782438
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:11:16 ]
+# parameters from EPICS run 15128
+ebeam = 0
+L.theta = 21.5003
+L.pcentral = 0.00133536
+R.theta = -49.9999
+R.pcentral = 0.00784891
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:11:22 ]
+# parameters from EPICS run 127
+ebeam = 0
+L.theta = 21.5003
+L.pcentral = 0.00133257
+R.theta = -49.9999
+R.pcentral = 0.00783801
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:12:28 ]
+# parameters from EPICS run 128
+ebeam = 0
+L.theta = 21.5003
+L.pcentral = 0.00132645
+R.theta = -49.9999
+R.pcentral = 0.00783528
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:14:53 ]
+# parameters from EPICS run 129
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 0.0013103
+R.theta = -49.9999
+R.pcentral = 0.00782438
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:16:45 ]
+# parameters from EPICS run 130
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 0.00129694
+R.theta = -49.9999
+R.pcentral = 0.00780258
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:18:41 ]
+# parameters from EPICS run 131
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 0.00128915
+R.theta = -49.9999
+R.pcentral = 0.00781893
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:21:13 ]
+# parameters from EPICS run 132
+ebeam = 2.21743
+L.theta = 21.5003
+L.pcentral = 0.00127801
+R.theta = -49.9999
+R.pcentral = 0.00778623
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:23:37 ]
+# parameters from EPICS run 133
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 0.00125908
+R.theta = -49.9999
+R.pcentral = 0.00777805
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:26:33 ]
+# parameters from EPICS run 133
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 0.00127662
+R.theta = -49.9999
+R.pcentral = 0.0077944
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:28:19 ]
+# parameters from EPICS run 134
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 0.00124962
+R.theta = -49.9999
+R.pcentral = 0.00779168
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:30:55 ]
+# parameters from EPICS run 135
+ebeam = 2.21727
+L.theta = 21.5003
+L.pcentral = 0.00125713
+R.theta = -49.9999
+R.pcentral = 0.00778623
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:46:35 ]
+# parameters from EPICS run 136
+ebeam = 2.21743
+L.theta = 21.5003
+L.pcentral = 0.00123347
+R.theta = -49.9999
+R.pcentral = 0.00773444
+MA = 0.93827
+
+
+--------[ 2017-02-17 17:48:45 ]
+# parameters from EPICS run 137
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 0.00124015
+R.theta = -49.9999
+R.pcentral = 0.00771809
+MA = 0.93827
+
+
+--------[ 2017-02-17 18:02:27 ]
+# parameters from EPICS run 138
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.00122289
+R.theta = -49.9999
+R.pcentral = 0.00765814
+MA = 0.93827
+
+
+--------[ 2017-02-17 18:27:09 ]
+# parameters from EPICS run 139
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.0013
+R.theta = -49.9999
+R.pcentral = 0.00759
+MA = 0.93827
+
+
+--------[ 2017-02-17 18:40:46 ]
+# parameters from EPICS run 140
+ebeam = 2.21748
+L.theta = 21.5003
+L.pcentral = 1.72525
+R.theta = -49.9999
+R.pcentral = 0.00755185
+MA = 0.93827
+
+
+--------[ 2017-02-17 18:52:38 ]
+# parameters from EPICS run 141
+ebeam = 2.21747
+L.theta = 21.5003
+L.pcentral = 1.77707
+R.theta = -49.9999
+R.pcentral = 0.00753277
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:02:34 ]
+# parameters from EPICS run 142
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00749734
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:17:30 ]
+# parameters from EPICS run 143
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.00746464
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:25:04 ]
+# parameters from EPICS run 144
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00744284
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:36:34 ]
+# parameters from EPICS run 145
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.00811054
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:44:34 ]
+# parameters from EPICS run 146
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00807238
+MA = 0.93827
+
+
+--------[ 2017-02-17 19:52:46 ]
+# parameters from EPICS run 147
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.00756002
+MA = 0.93827
+
+
+--------[ 2017-02-17 20:06:12 ]
+# parameters from EPICS run 148
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.000938326
+MA = 0.93827
+
+
+--------[ 2017-02-17 20:14:42 ]
+# parameters from EPICS run 149
+ebeam = 2.21756
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.0470253
+MA = 0.93827
+
+
+--------[ 2017-02-17 20:24:46 ]
+# parameters from EPICS run 150
+ebeam = 2.21725
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.144115
+MA = 0.93827
+
+
+--------[ 2017-02-17 20:30:26 ]
+# parameters from EPICS run 151
+ebeam = 2.21716
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.216008
+MA = 0.93827
+
+
+--------[ 2017-02-17 20:44:20 ]
+# parameters from EPICS run 152
+ebeam = 2.2172
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.425612
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:07:48 ]
+# parameters from EPICS run 153
+ebeam = 2.2175
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.826091
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:16:26 ]
+# parameters from EPICS run 154
+ebeam = 2.21716
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.929951
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:25:12 ]
+# parameters from EPICS run 155
+ebeam = 2.21714
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.933491
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:35:48 ]
+# parameters from EPICS run 156
+ebeam = 2.21716
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914724
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:42:35 ]
+# parameters from EPICS run 157
+ebeam = 2.21724
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.913106
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:47:26 ]
+# parameters from EPICS run 158
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.913699
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:51:06 ]
+# parameters from EPICS run 159
+ebeam = 2.21747
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.914373
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:55:41 ]
+# parameters from EPICS run 160
+ebeam = 2.21748
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.914866
+MA = 0.93827
+
+
+--------[ 2017-02-17 21:59:59 ]
+# parameters from EPICS run 161
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.915082
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:23:45 ]
+# parameters from EPICS run 162
+ebeam = 2.2175
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.915008
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:27:23 ]
+# parameters from EPICS run 163
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.915004
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:33:57 ]
+# parameters from EPICS run 164
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914996
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:37:45 ]
+# parameters from EPICS run 165
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914992
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:40:57 ]
+# parameters from EPICS run 166
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:50:51 ]
+# parameters from EPICS run 167
+ebeam = 2.21722
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:53:53 ]
+# parameters from EPICS run 168
+ebeam = 2.21727
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-02-17 22:58:09 ]
+# parameters from EPICS run 169
+ebeam = 2.21728
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-02-17 23:03:03 ]
+# parameters from EPICS run 170
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.914977
+MA = 0.93827
+
+
+--------[ 2017-02-17 23:44:37 ]
+# parameters from EPICS run 171
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914975
+MA = 0.93827
+
+
+--------[ 2017-02-17 23:56:07 ]
+# parameters from EPICS run 172
+ebeam = 2.21718
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-02-18 00:04:13 ]
+# parameters from EPICS run 173
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-02-18 00:46:06 ]
+# parameters from EPICS run 174
+ebeam = 2.2172
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-18 01:02:26 ]
+# parameters from EPICS run 175
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-18 01:10:04 ]
+# parameters from EPICS run 176
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77705
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-18 01:18:52 ]
+# parameters from EPICS run 177
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77706
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 01:36:44 ]
+# parameters from EPICS run 178
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 01:54:22 ]
+# parameters from EPICS run 179
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 02:13:20 ]
+# parameters from EPICS run 180
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 02:55:46 ]
+# parameters from EPICS run 181
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 03:03:18 ]
+# parameters from EPICS run 182
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 03:48:13 ]
+# parameters from EPICS run 183
+ebeam = 2.21749
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:24:59 ]
+# parameters from EPICS run 184
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:28:49 ]
+# parameters from EPICS run 185
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:34:59 ]
+# parameters from EPICS run 186
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:38:02 ]
+# parameters from EPICS run 187
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:49:30 ]
+# parameters from EPICS run 188
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:53:45 ]
+# parameters from EPICS run 189
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:55:13 ]
+# parameters from EPICS run 190
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:58:03 ]
+# parameters from EPICS run 191
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 05:59:33 ]
+# parameters from EPICS run 192
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:00:25 ]
+# parameters from EPICS run 193
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:03:09 ]
+# parameters from EPICS run 194
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:05:27 ]
+# parameters from EPICS run 195
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:06:53 ]
+# parameters from EPICS run 196
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:09:13 ]
+# parameters from EPICS run 197
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:15:36 ]
+# parameters from EPICS run 198
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 06:20:16 ]
+# parameters from EPICS run 199
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 08:44:09 ]
+# parameters from EPICS run 200
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 08:53:23 ]
+# parameters from EPICS run 201
+ebeam = 2.21766
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 08:55:19 ]
+# parameters from EPICS run 202
+ebeam = 2.21762
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:08:14 ]
+# parameters from EPICS run 203
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:32:48 ]
+# parameters from EPICS run 204
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:35:48 ]
+# parameters from EPICS run 205
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:37:52 ]
+# parameters from EPICS run 206
+ebeam = 2.21743
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:41:44 ]
+# parameters from EPICS run 207
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:43:16 ]
+# parameters from EPICS run 208
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:45:18 ]
+# parameters from EPICS run 209
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 10:50:22 ]
+# parameters from EPICS run 210
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 11:43:28 ]
+# parameters from EPICS run 211
+ebeam = 2.21761
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 11:48:40 ]
+# parameters from EPICS run 212
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-18 11:53:02 ]
+# parameters from EPICS run 213
+ebeam = 2.21815
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:28:38 ]
+# parameters from EPICS run 214
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:34:08 ]
+# parameters from EPICS run 215
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:37:14 ]
+# parameters from EPICS run 216
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:42:38 ]
+# parameters from EPICS run 217
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:45:18 ]
+# parameters from EPICS run 218
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:46:18 ]
+# parameters from EPICS run 219
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:50:04 ]
+# parameters from EPICS run 220
+ebeam = 2.21681
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:51:18 ]
+# parameters from EPICS run 221
+ebeam = 2.21671
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:53:12 ]
+# parameters from EPICS run 222
+ebeam = 2.21674
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:55:48 ]
+# parameters from EPICS run 223
+ebeam = 2.2168
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:57:54 ]
+# parameters from EPICS run 224
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-18 12:58:56 ]
+# parameters from EPICS run 225
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:13:08 ]
+# parameters from EPICS run 228
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:18:24 ]
+# parameters from EPICS run 229
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:23:47 ]
+# parameters from EPICS run 230
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:39:33 ]
+# parameters from EPICS run 231
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:42:55 ]
+# parameters from EPICS run 232
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 13:51:27 ]
+# parameters from EPICS run 233
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:01:27 ]
+# parameters from EPICS run 234
+ebeam = 2.21732
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:04:33 ]
+# parameters from EPICS run 235
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:11:07 ]
+# parameters from EPICS run 236
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:13:03 ]
+# parameters from EPICS run 237
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:16:31 ]
+# parameters from EPICS run 238
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:55:09 ]
+# parameters from EPICS run 239
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 14:59:47 ]
+# parameters from EPICS run 240
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 15:05:17 ]
+# parameters from EPICS run 241
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 15:23:02 ]
+# parameters from EPICS run 242
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 15:51:43 ]
+# parameters from EPICS run 243
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:00:04 ]
+# parameters from EPICS run 244
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:02:04 ]
+# parameters from EPICS run 245
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:04:40 ]
+# parameters from EPICS run 246
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:26:32 ]
+# parameters from EPICS run 247
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:30:12 ]
+# parameters from EPICS run 248
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:32:20 ]
+# parameters from EPICS run 249
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:49:40 ]
+# parameters from EPICS run 250
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:51:02 ]
+# parameters from EPICS run 251
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:53:14 ]
+# parameters from EPICS run 252
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:53:56 ]
+# parameters from EPICS run 253
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 16:56:22 ]
+# parameters from EPICS run 254
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 17:01:48 ]
+# parameters from EPICS run 255
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 17:06:00 ]
+# parameters from EPICS run 256
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 17:17:40 ]
+# parameters from EPICS run 257
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 17:37:16 ]
+# parameters from EPICS run 258
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:03:34 ]
+# parameters from EPICS run 259
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:18:03 ]
+# parameters from EPICS run 260
+ebeam = 2.21714
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:37:03 ]
+# parameters from EPICS run 261
+ebeam = 2.21716
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:41:25 ]
+# parameters from EPICS run 262
+ebeam = 2.21711
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:44:17 ]
+# parameters from EPICS run 263
+ebeam = 2.2171
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:48:19 ]
+# parameters from EPICS run 264
+ebeam = 2.21713
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:52:47 ]
+# parameters from EPICS run 265
+ebeam = 2.21727
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 18:56:05 ]
+# parameters from EPICS run 266
+ebeam = 2.21711
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 20:04:18 ]
+# parameters from EPICS run 267
+ebeam = 2.21701
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 20:15:56 ]
+# parameters from EPICS run 268
+ebeam = 2.21721
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 21:17:03 ]
+# parameters from EPICS run 269
+ebeam = 2.21704
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-18 22:27:01 ]
+# parameters from EPICS run 270
+ebeam = 2.21721
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-18 22:35:35 ]
+# parameters from EPICS run 271
+ebeam = 2.21726
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-18 23:07:51 ]
+# parameters from EPICS run 272
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-18 23:22:05 ]
+# parameters from EPICS run 273
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 00:38:50 ]
+# parameters from EPICS run 274
+ebeam = 2.21712
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 01:23:06 ]
+# parameters from EPICS run 275
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 01:40:56 ]
+# parameters from EPICS run 276
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 02:22:36 ]
+# parameters from EPICS run 277
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 03:18:06 ]
+# parameters from EPICS run 278
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 03:28:28 ]
+# parameters from EPICS run 279
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 03:38:47 ]
+# parameters from EPICS run 280
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 03:50:51 ]
+# parameters from EPICS run 281
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 04:55:22 ]
+# parameters from EPICS run 282
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 04:57:54 ]
+# parameters from EPICS run 283
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 04:59:08 ]
+# parameters from EPICS run 284
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:03:46 ]
+# parameters from EPICS run 285
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:07:00 ]
+# parameters from EPICS run 286
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:20:49 ]
+# parameters from EPICS run 287
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:32:33 ]
+# parameters from EPICS run 288
+ebeam = 2.21747
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:36:55 ]
+# parameters from EPICS run 289
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:39:21 ]
+# parameters from EPICS run 290
+ebeam = 2.21718
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:46:09 ]
+# parameters from EPICS run 291
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:54:25 ]
+# parameters from EPICS run 292
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 05:58:57 ]
+# parameters from EPICS run 293
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 06:17:27 ]
+# parameters from EPICS run 294
+ebeam = 2.21743
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 07:13:12 ]
+# parameters from EPICS run 295
+ebeam = 2.21739
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 07:25:02 ]
+# parameters from EPICS run 296
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 07:38:38 ]
+# parameters from EPICS run 297
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 08:13:36 ]
+# parameters from EPICS run 298
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 08:31:44 ]
+# parameters from EPICS run 299
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 08:43:14 ]
+# parameters from EPICS run 300
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 08:57:02 ]
+# parameters from EPICS run 301
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 09:55:33 ]
+# parameters from EPICS run 302
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 10:55:09 ]
+# parameters from EPICS run 303
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 11:41:05 ]
+# parameters from EPICS run 304
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 11:48:51 ]
+# parameters from EPICS run 305
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 11:58:21 ]
+# parameters from EPICS run 306
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:07:19 ]
+# parameters from EPICS run 307
+ebeam = 2.21741
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:14:17 ]
+# parameters from EPICS run 308
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:17:57 ]
+# parameters from EPICS run 309
+ebeam = 2.21745
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:23:53 ]
+# parameters from EPICS run 310
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:29:57 ]
+# parameters from EPICS run 311
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:36:39 ]
+# parameters from EPICS run 312
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:43:25 ]
+# parameters from EPICS run 313
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:50:48 ]
+# parameters from EPICS run 314
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 12:51:54 ]
+# parameters from EPICS run 315
+ebeam = 2.218
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 13:52:03 ]
+# parameters from EPICS run 316
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:01:23 ]
+# parameters from EPICS run 317
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:16:19 ]
+# parameters from EPICS run 318
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:24:13 ]
+# parameters from EPICS run 319
+ebeam = 2.21742
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:27:12 ]
+# parameters from EPICS run 320
+ebeam = 2.21728
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:31:16 ]
+# parameters from EPICS run 321
+ebeam = 2.21725
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 14:34:42 ]
+# parameters from EPICS run 322
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 15:03:29 ]
+# parameters from EPICS run 323
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 15:09:18 ]
+# parameters from EPICS run 324
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 15:14:59 ]
+# parameters from EPICS run 325
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 15:27:02 ]
+# parameters from EPICS run 326
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:05:23 ]
+# parameters from EPICS run 327
+ebeam = 2.21704
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:11:20 ]
+# parameters from EPICS run 328
+ebeam = 2.21751
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:13:21 ]
+# parameters from EPICS run 329
+ebeam = 2.21754
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:16:09 ]
+# parameters from EPICS run 330
+ebeam = 2.21773
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:19:29 ]
+# parameters from EPICS run 331
+ebeam = 2.21774
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:27:27 ]
+# parameters from EPICS run 332
+ebeam = 2.21783
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 16:29:03 ]
+# parameters from EPICS run 333
+ebeam = 2.21781
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 17:30:35 ]
+# parameters from EPICS run 334
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 17:47:31 ]
+# parameters from EPICS run 335
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 18:58:43 ]
+# parameters from EPICS run 336
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 19:01:53 ]
+# parameters from EPICS run 337
+ebeam = 2.21758
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-19 20:03:15 ]
+# parameters from EPICS run 338
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 20:45:45 ]
+# parameters from EPICS run 339
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.777
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 20:50:49 ]
+# parameters from EPICS run 340
+ebeam = 2.21739
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-19 20:55:59 ]
+# parameters from EPICS run 341
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 21:56:54 ]
+# parameters from EPICS run 342
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.777
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-19 22:27:52 ]
+# parameters from EPICS run 343
+ebeam = 2.21734
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 22:30:00 ]
+# parameters from EPICS run 344
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 22:37:32 ]
+# parameters from EPICS run 346
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-19 22:39:20 ]
+# parameters from EPICS run 347
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 22:42:40 ]
+# parameters from EPICS run 348
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-19 23:43:48 ]
+# parameters from EPICS run 349
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-20 00:44:15 ]
+# parameters from EPICS run 350
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-20 01:48:21 ]
+# parameters from EPICS run 351
+ebeam = 2.21739
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-20 02:52:29 ]
+# parameters from EPICS run 352
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 03:52:35 ]
+# parameters from EPICS run 353
+ebeam = 2.21732
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-20 04:54:22 ]
+# parameters from EPICS run 354
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-20 05:51:50 ]
+# parameters from EPICS run 355
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 06:52:10 ]
+# parameters from EPICS run 356
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 07:52:51 ]
+# parameters from EPICS run 357
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 09:10:43 ]
+# parameters from EPICS run 359
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 10:14:31 ]
+# parameters from EPICS run 360
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77702
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-20 10:21:25 ]
+# parameters from EPICS run 361
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-20 10:42:15 ]
+# parameters from EPICS run 362
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 11:05:43 ]
+# parameters from EPICS run 363
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 11:11:37 ]
+# parameters from EPICS run 364
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77701
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-20 11:46:25 ]
+# parameters from EPICS run 365
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 0.102525
+R.theta = -49.9999
+R.pcentral = 0
+MA = 0.93827
+
+
+--------[ 2017-02-20 14:55:10 ]
+# parameters from EPICS run 366
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.915057
+MA = 0.93827
+
+
+--------[ 2017-02-20 15:15:30 ]
+# parameters from EPICS run 367
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914994
+MA = 0.93827
+
+
+--------[ 2017-02-20 15:39:07 ]
+# parameters from EPICS run 368
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-02-20 15:52:04 ]
+# parameters from EPICS run 369
+ebeam = 2.21729
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-02-20 16:20:57 ]
+# parameters from EPICS run 370
+ebeam = 2.21735
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 17:17:51 ]
+# parameters from EPICS run 371
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 17:57:56 ]
+# parameters from EPICS run 371
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-20 18:21:41 ]
+# parameters from EPICS run 372
+ebeam = 2.21743
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 18:53:37 ]
+# parameters from EPICS run 373
+ebeam = 2.21726
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-20 19:22:06 ]
+# parameters from EPICS run 374
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 19:51:54 ]
+# parameters from EPICS run 375
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-20 20:22:54 ]
+# parameters from EPICS run 376
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-20 21:22:50 ]
+# parameters from EPICS run 377
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-20 22:26:15 ]
+# parameters from EPICS run 378
+ebeam = 2.21733
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-20 23:28:11 ]
+# parameters from EPICS run 379
+ebeam = 2.21731
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 00:28:29 ]
+# parameters from EPICS run 380
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 00:31:55 ]
+# parameters from EPICS run 381
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 01:26:43 ]
+# parameters from EPICS run 382
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 02:28:04 ]
+# parameters from EPICS run 383
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 02:39:30 ]
+# parameters from EPICS run 384
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 02:51:24 ]
+# parameters from EPICS run 385
+ebeam = 2.21725
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 02:58:32 ]
+# parameters from EPICS run 386
+ebeam = 2.21724
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 03:27:28 ]
+# parameters from EPICS run 387
+ebeam = 2.21723
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-21 04:14:33 ]
+# parameters from EPICS run 388
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-21 05:15:15 ]
+# parameters from EPICS run 389
+ebeam = 2.21721
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-21 06:13:53 ]
+# parameters from EPICS run 390
+ebeam = 2.21725
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 07:06:23 ]
+# parameters from EPICS run 391
+ebeam = 2.21728
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 08:05:32 ]
+# parameters from EPICS run 392
+ebeam = 2.21724
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-21 09:45:46 ]
+# parameters from EPICS run 393
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-21 10:56:03 ]
+# parameters from EPICS run 394
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-21 11:56:53 ]
+# parameters from EPICS run 395
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-21 13:01:13 ]
+# parameters from EPICS run 396
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 14:27:26 ]
+# parameters from EPICS run 397
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-21 15:40:30 ]
+# parameters from EPICS run 398
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 16:04:53 ]
+# parameters from EPICS run 399
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 16:44:41 ]
+# parameters from EPICS run 400
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 17:22:29 ]
+# parameters from EPICS run 401
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-21 18:31:01 ]
+# parameters from EPICS run 402
+ebeam = 2.2173
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-21 19:10:41 ]
+# parameters from EPICS run 403
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-21 20:09:56 ]
+# parameters from EPICS run 404
+ebeam = 2.21746
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-21 20:35:50 ]
+# parameters from EPICS run 405
+ebeam = 2.21754
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-21 21:43:42 ]
+# parameters from EPICS run 406
+ebeam = 2.21738
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-02-21 22:54:01 ]
+# parameters from EPICS run 407
+ebeam = 2.21759
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-21 23:59:15 ]
+# parameters from EPICS run 408
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 00:47:59 ]
+# parameters from EPICS run 409
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-22 01:15:54 ]
+# parameters from EPICS run 410
+ebeam = 2.21739
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 02:06:10 ]
+# parameters from EPICS run 411
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 03:00:58 ]
+# parameters from EPICS run 412
+ebeam = 2.2174
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 04:01:36 ]
+# parameters from EPICS run 413
+ebeam = 2.21736
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 05:06:59 ]
+# parameters from EPICS run 414
+ebeam = 2.21747
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 05:52:57 ]
+# parameters from EPICS run 415
+ebeam = 2.21744
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 06:40:25 ]
+# parameters from EPICS run 416
+ebeam = 2.21737
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:30:50 ]
+# parameters from EPICS run 417
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77704
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:34:16 ]
+# parameters from EPICS run 418
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:37:28 ]
+# parameters from EPICS run 419
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:38:28 ]
+# parameters from EPICS run 420
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:56:30 ]
+# parameters from EPICS run 421
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 07:59:46 ]
+# parameters from EPICS run 422
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 08:09:30 ]
+# parameters from EPICS run 423
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.77703
+R.theta = -49.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-22 09:13:10 ]
+# parameters from EPICS run 424
+ebeam = 2.21786
+L.theta = 21.5003
+L.pcentral = 1.79903
+R.theta = -49.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 10:17:51 ]
+# parameters from EPICS run 425
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -50.3941
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 11:07:45 ]
+# parameters from EPICS run 426
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 11:40:35 ]
+# parameters from EPICS run 427
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 11:45:53 ]
+# parameters from EPICS run 428
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 12:01:20 ]
+# parameters from EPICS run 429
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 12:11:45 ]
+# parameters from EPICS run 430
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 12:26:26 ]
+# parameters from EPICS run 431
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 12:50:36 ]
+# parameters from EPICS run 432
+ebeam = 2.21751
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 12:57:04 ]
+# parameters from EPICS run 433
+ebeam = 2.21753
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:02:54 ]
+# parameters from EPICS run 434
+ebeam = 2.21748
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:08:40 ]
+# parameters from EPICS run 435
+ebeam = 2.21744
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:14:32 ]
+# parameters from EPICS run 436
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:17:32 ]
+# parameters from EPICS run 437
+ebeam = 2.21747
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:22:46 ]
+# parameters from EPICS run 438
+ebeam = 2.21744
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:29:14 ]
+# parameters from EPICS run 439
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:33:46 ]
+# parameters from EPICS run 440
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:40:14 ]
+# parameters from EPICS run 441
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:45:42 ]
+# parameters from EPICS run 442
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:49:18 ]
+# parameters from EPICS run 443
+ebeam = 2.2175
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 13:55:46 ]
+# parameters from EPICS run 444
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 14:07:32 ]
+# parameters from EPICS run 445
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 14:34:55 ]
+# parameters from EPICS run 446
+ebeam = 2.21738
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 15:17:03 ]
+# parameters from EPICS run 447
+ebeam = 2.21748
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 16:31:07 ]
+# parameters from EPICS run 448
+ebeam = 2.21734
+L.theta = 17.5003
+L.pcentral = 1.79904
+R.theta = -46.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-22 18:34:34 ]
+# parameters from EPICS run 449
+ebeam = 2.21735
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-22 19:45:12 ]
+# parameters from EPICS run 450
+ebeam = 2.21738
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-22 20:48:27 ]
+# parameters from EPICS run 451
+ebeam = 2.21734
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-22 21:46:34 ]
+# parameters from EPICS run 452
+ebeam = 2.21746
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-22 22:41:40 ]
+# parameters from EPICS run 453
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-22 22:50:36 ]
+# parameters from EPICS run 454
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-02-22 23:51:49 ]
+# parameters from EPICS run 455
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 00:45:45 ]
+# parameters from EPICS run 456
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 01:22:39 ]
+# parameters from EPICS run 457
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-02-23 02:01:11 ]
+# parameters from EPICS run 458
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 02:32:55 ]
+# parameters from EPICS run 459
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 02:47:19 ]
+# parameters from EPICS run 460
+ebeam = 2.21743
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-02-23 03:06:48 ]
+# parameters from EPICS run 461
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 03:34:34 ]
+# parameters from EPICS run 462
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 03:40:30 ]
+# parameters from EPICS run 463
+ebeam = 2.21746
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 04:03:12 ]
+# parameters from EPICS run 464
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 04:12:42 ]
+# parameters from EPICS run 465
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 04:37:06 ]
+# parameters from EPICS run 466
+ebeam = 2.21745
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 04:47:12 ]
+# parameters from EPICS run 467
+ebeam = 2.21746
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 05:23:42 ]
+# parameters from EPICS run 468
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 05:28:22 ]
+# parameters from EPICS run 469
+ebeam = 2.21745
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 06:03:45 ]
+# parameters from EPICS run 470
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 06:33:25 ]
+# parameters from EPICS run 471
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 07:12:31 ]
+# parameters from EPICS run 472
+ebeam = 2.21742
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 07:45:00 ]
+# parameters from EPICS run 473
+ebeam = 2.21746
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 07:56:59 ]
+# parameters from EPICS run 474
+ebeam = 2.21736
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:11:57 ]
+# parameters from EPICS run 475
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:25:03 ]
+# parameters from EPICS run 476
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:33:05 ]
+# parameters from EPICS run 477
+ebeam = 2.21801
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:42:19 ]
+# parameters from EPICS run 478
+ebeam = 2.21822
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:50:01 ]
+# parameters from EPICS run 479
+ebeam = 2.21837
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:52:29 ]
+# parameters from EPICS run 480
+ebeam = 2.21849
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 09:54:27 ]
+# parameters from EPICS run 481
+ebeam = 2.21855
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:03:37 ]
+# parameters from EPICS run 482
+ebeam = 2.21861
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:07:17 ]
+# parameters from EPICS run 483
+ebeam = 2.21868
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:30:02 ]
+# parameters from EPICS run 484
+ebeam = 2.21916
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:36:12 ]
+# parameters from EPICS run 485
+ebeam = 2.21915
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:46:16 ]
+# parameters from EPICS run 486
+ebeam = 2.21914
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 10:59:18 ]
+# parameters from EPICS run 487
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 11:05:48 ]
+# parameters from EPICS run 488
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 11:11:06 ]
+# parameters from EPICS run 489
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 11:24:12 ]
+# parameters from EPICS run 490
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 11:53:26 ]
+# parameters from EPICS run 491
+ebeam = 2.21757
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:08:44 ]
+# parameters from EPICS run 492
+ebeam = 2.21757
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:16:54 ]
+# parameters from EPICS run 493
+ebeam = 2.21743
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:26:52 ]
+# parameters from EPICS run 494
+ebeam = 2.21737
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:32:46 ]
+# parameters from EPICS run 495
+ebeam = 2.21736
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:38:52 ]
+# parameters from EPICS run 496
+ebeam = 2.21746
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 12:47:24 ]
+# parameters from EPICS run 497
+ebeam = 2.21724
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:00:50 ]
+# parameters from EPICS run 498
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:02:44 ]
+# parameters from EPICS run 499
+ebeam = 2.21737
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:07:20 ]
+# parameters from EPICS run 500
+ebeam = 2.21737
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:23:47 ]
+# parameters from EPICS run 501
+ebeam = 2.21733
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:48:19 ]
+# parameters from EPICS run 502
+ebeam = 2.21739
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:55:12 ]
+# parameters from EPICS run 503
+ebeam = 2.21736
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-23 13:57:45 ]
+# parameters from EPICS run 504
+ebeam = 2.21736
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-23 14:18:29 ]
+# parameters from EPICS run 505
+ebeam = 2.21742
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 14:58:33 ]
+# parameters from EPICS run 506
+ebeam = 2.21735
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 15:57:01 ]
+# parameters from EPICS run 507
+ebeam = 2.21727
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 16:07:24 ]
+# parameters from EPICS run 508
+ebeam = 2.21732
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-23 17:06:58 ]
+# parameters from EPICS run 509
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-23 18:07:16 ]
+# parameters from EPICS run 510
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 19:11:28 ]
+# parameters from EPICS run 511
+ebeam = 2.21744
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 19:50:20 ]
+# parameters from EPICS run 512
+ebeam = 2.21737
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 19:59:26 ]
+# parameters from EPICS run 513
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-23 20:59:40 ]
+# parameters from EPICS run 514
+ebeam = 2.21738
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 21:41:22 ]
+# parameters from EPICS run 515
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-23 22:06:45 ]
+# parameters from EPICS run 516
+ebeam = 2.2174
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-23 23:07:59 ]
+# parameters from EPICS run 517
+ebeam = 2.21737
+L.theta = 17.5003
+L.pcentral = 1.79906
+R.theta = -46.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 00:09:49 ]
+# parameters from EPICS run 518
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 01:09:24 ]
+# parameters from EPICS run 519
+ebeam = 2.2174
+L.theta = 17.5003
+L.pcentral = 1.79905
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 02:09:44 ]
+# parameters from EPICS run 520
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.799
+R.theta = -46.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 03:18:57 ]
+# parameters from EPICS run 521
+ebeam = 2.21741
+L.theta = 17.5003
+L.pcentral = 1.799
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-24 04:06:55 ]
+# parameters from EPICS run 522
+ebeam = 2.21743
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 05:12:15 ]
+# parameters from EPICS run 523
+ebeam = 2.21743
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 06:14:36 ]
+# parameters from EPICS run 524
+ebeam = 2.21742
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-24 07:10:52 ]
+# parameters from EPICS run 525
+ebeam = 2.2174
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-24 07:49:23 ]
+# parameters from EPICS run 526
+ebeam = 2.21742
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-24 09:07:46 ]
+# parameters from EPICS run 528
+ebeam = 2.21738
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 09:21:42 ]
+# parameters from EPICS run 529
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 09:43:55 ]
+# parameters from EPICS run 530
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 09:48:41 ]
+# parameters from EPICS run 531
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-24 11:04:31 ]
+# parameters from EPICS run 532
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 11:14:09 ]
+# parameters from EPICS run 533
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 12:21:58 ]
+# parameters from EPICS run 534
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -46.9999
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 13:37:18 ]
+# parameters from EPICS run 535
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 13:38:32 ]
+# parameters from EPICS run 536
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 13:39:52 ]
+# parameters from EPICS run 537
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 13:41:20 ]
+# parameters from EPICS run 538
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-24 13:44:00 ]
+# parameters from EPICS run 539
+ebeam = 2.21786
+L.theta = 17.5003
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 14:00:00 ]
+# parameters from EPICS run 540
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-24 14:01:20 ]
+# parameters from EPICS run 541
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-24 14:07:56 ]
+# parameters from EPICS run 542
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -41.001
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-24 14:40:15 ]
+# parameters from EPICS run 543
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -41.001
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 15:11:35 ]
+# parameters from EPICS run 544
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -41.001
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 15:55:32 ]
+# parameters from EPICS run 545
+ebeam = 2.21744
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 16:06:46 ]
+# parameters from EPICS run 546
+ebeam = 2.21741
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-24 16:36:26 ]
+# parameters from EPICS run 547
+ebeam = 2.2175
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 16:50:28 ]
+# parameters from EPICS run 548
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 16:54:30 ]
+# parameters from EPICS run 549
+ebeam = 2.21738
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914991
+MA = 0.93827
+
+
+--------[ 2017-02-24 16:55:54 ]
+# parameters from EPICS run 550
+ebeam = 2.21741
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 17:01:24 ]
+# parameters from EPICS run 551
+ebeam = 2.2174
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 17:14:44 ]
+# parameters from EPICS run 552
+ebeam = 2.2174
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 17:56:17 ]
+# parameters from EPICS run 553
+ebeam = 2.21745
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-24 19:00:41 ]
+# parameters from EPICS run 554
+ebeam = 2.21738
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-24 19:36:23 ]
+# parameters from EPICS run 555
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-24 20:08:05 ]
+# parameters from EPICS run 556
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-24 22:42:36 ]
+# parameters from EPICS run 557
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914992
+MA = 0.93827
+
+
+--------[ 2017-02-24 23:34:57 ]
+# parameters from EPICS run 558
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 00:17:20 ]
+# parameters from EPICS run 559
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-25 00:23:58 ]
+# parameters from EPICS run 560
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 00:38:10 ]
+# parameters from EPICS run 561
+ebeam = 2.2172
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 01:46:23 ]
+# parameters from EPICS run 562
+ebeam = 2.21721
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 02:53:05 ]
+# parameters from EPICS run 563
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 03:53:25 ]
+# parameters from EPICS run 564
+ebeam = 2.21729
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 05:01:30 ]
+# parameters from EPICS run 565
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 05:47:26 ]
+# parameters from EPICS run 566
+ebeam = 2.21728
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-25 06:03:38 ]
+# parameters from EPICS run 567
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 06:36:20 ]
+# parameters from EPICS run 568
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 07:31:09 ]
+# parameters from EPICS run 569
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 08:51:01 ]
+# parameters from EPICS run 570
+ebeam = 2.21728
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914992
+MA = 0.93827
+
+
+--------[ 2017-02-25 09:57:56 ]
+# parameters from EPICS run 571
+ebeam = 2.21727
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914995
+MA = 0.93827
+
+
+--------[ 2017-02-25 10:53:30 ]
+# parameters from EPICS run 572
+ebeam = 2.21717
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 12:00:58 ]
+# parameters from EPICS run 573
+ebeam = 2.21724
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 12:45:05 ]
+# parameters from EPICS run 574
+ebeam = 2.21723
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 13:31:46 ]
+# parameters from EPICS run 575
+ebeam = 2.21722
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 14:07:12 ]
+# parameters from EPICS run 576
+ebeam = 2.21751
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 15:06:48 ]
+# parameters from EPICS run 577
+ebeam = 2.21728
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-25 16:08:56 ]
+# parameters from EPICS run 578
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914991
+MA = 0.93827
+
+
+--------[ 2017-02-25 17:10:59 ]
+# parameters from EPICS run 579
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-25 19:12:10 ]
+# parameters from EPICS run 580
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914991
+MA = 0.93827
+
+
+--------[ 2017-02-25 19:14:36 ]
+# parameters from EPICS run 581
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914992
+MA = 0.93827
+
+
+--------[ 2017-02-25 19:58:58 ]
+# parameters from EPICS run 582
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 21:04:30 ]
+# parameters from EPICS run 583
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914991
+MA = 0.93827
+
+
+--------[ 2017-02-25 22:15:13 ]
+# parameters from EPICS run 584
+ebeam = 2.21734
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914991
+MA = 0.93827
+
+
+--------[ 2017-02-25 22:50:13 ]
+# parameters from EPICS run 585
+ebeam = 2.21734
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-25 23:49:37 ]
+# parameters from EPICS run 586
+ebeam = 2.21728
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.91499
+MA = 0.93827
+
+
+--------[ 2017-02-26 00:49:40 ]
+# parameters from EPICS run 587
+ebeam = 2.21725
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 01:52:02 ]
+# parameters from EPICS run 588
+ebeam = 2.21728
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-26 01:59:07 ]
+# parameters from EPICS run 589
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-26 02:59:45 ]
+# parameters from EPICS run 590
+ebeam = 2.21725
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 03:59:39 ]
+# parameters from EPICS run 591
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 04:59:14 ]
+# parameters from EPICS run 592
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 06:00:32 ]
+# parameters from EPICS run 593
+ebeam = 2.21752
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-26 07:00:22 ]
+# parameters from EPICS run 594
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-26 07:49:09 ]
+# parameters from EPICS run 595
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-26 08:09:35 ]
+# parameters from EPICS run 596
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-26 09:17:30 ]
+# parameters from EPICS run 597
+ebeam = 2.21735
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-26 09:58:04 ]
+# parameters from EPICS run 598
+ebeam = 2.21734
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-26 10:57:51 ]
+# parameters from EPICS run 599
+ebeam = 2.21737
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-26 11:59:19 ]
+# parameters from EPICS run 600
+ebeam = 2.21736
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-26 13:01:11 ]
+# parameters from EPICS run 601
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-26 13:48:57 ]
+# parameters from EPICS run 602
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-26 14:48:53 ]
+# parameters from EPICS run 603
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 15:56:15 ]
+# parameters from EPICS run 604
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 16:57:34 ]
+# parameters from EPICS run 605
+ebeam = 2.21736
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 18:08:28 ]
+# parameters from EPICS run 606
+ebeam = 2.21736
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 18:46:11 ]
+# parameters from EPICS run 607
+ebeam = 2.21736
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-26 19:46:42 ]
+# parameters from EPICS run 608
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-26 20:49:06 ]
+# parameters from EPICS run 609
+ebeam = 2.21737
+L.theta = 15.5285
+L.pcentral = 1.79899
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-26 21:54:54 ]
+# parameters from EPICS run 610
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 22:49:44 ]
+# parameters from EPICS run 611
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-26 23:48:26 ]
+# parameters from EPICS run 612
+ebeam = 2.21734
+L.theta = 15.5285
+L.pcentral = 1.799
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 00:52:11 ]
+# parameters from EPICS run 613
+ebeam = 2.21736
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-27 01:30:49 ]
+# parameters from EPICS run 614
+ebeam = 2.21729
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-27 02:03:50 ]
+# parameters from EPICS run 615
+ebeam = 2.21735
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-27 03:13:31 ]
+# parameters from EPICS run 617
+ebeam = 2.21735
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 04:17:21 ]
+# parameters from EPICS run 618
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-27 05:23:12 ]
+# parameters from EPICS run 619
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-27 06:26:06 ]
+# parameters from EPICS run 620
+ebeam = 2.21726
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-27 07:24:39 ]
+# parameters from EPICS run 621
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 07:38:05 ]
+# parameters from EPICS run 622
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 07:52:27 ]
+# parameters from EPICS run 623
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 08:06:33 ]
+# parameters from EPICS run 624
+ebeam = 2.21741
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 09:09:09 ]
+# parameters from EPICS run 625
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 10:10:14 ]
+# parameters from EPICS run 626
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 11:13:36 ]
+# parameters from EPICS run 627
+ebeam = 2.21732
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 12:13:58 ]
+# parameters from EPICS run 628
+ebeam = 2.21731
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 13:31:27 ]
+# parameters from EPICS run 629
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 14:18:25 ]
+# parameters from EPICS run 630
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914989
+MA = 0.93827
+
+
+--------[ 2017-02-27 15:52:44 ]
+# parameters from EPICS run 631
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914988
+MA = 0.93827
+
+
+--------[ 2017-02-27 16:08:22 ]
+# parameters from EPICS run 632
+ebeam = 2.21729
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 16:22:02 ]
+# parameters from EPICS run 633
+ebeam = 2.21722
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 17:22:46 ]
+# parameters from EPICS run 634
+ebeam = 2.2173
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 18:33:25 ]
+# parameters from EPICS run 635
+ebeam = 2.21695
+L.theta = 15.5285
+L.pcentral = 1.79898
+R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 19:35:39 ]
+# parameters from EPICS run 636
+ebeam = 2.21768
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 19:50:41 ]
+# parameters from EPICS run 637
+ebeam = 2.21764
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-27 20:48:47 ]
+# parameters from EPICS run 638
+ebeam = 2.21766
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914987
+MA = 0.93827
+
+
+--------[ 2017-02-27 21:56:29 ]
+# parameters from EPICS run 639
+ebeam = 2.21751
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-27 22:54:46 ]
+# parameters from EPICS run 640
+ebeam = 2.21784
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-27 23:54:18 ]
+# parameters from EPICS run 641
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914986
+MA = 0.93827
+
+
+--------[ 2017-02-28 00:53:38 ]
+# parameters from EPICS run 642
+ebeam = 2.21737
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-28 01:53:25 ]
+# parameters from EPICS run 643
+ebeam = 2.21737
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-28 02:55:45 ]
+# parameters from EPICS run 644
+ebeam = 2.21738
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-28 03:54:47 ]
+# parameters from EPICS run 645
+ebeam = 2.21735
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-28 04:54:18 ]
+# parameters from EPICS run 646
+ebeam = 2.21724
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-02-28 05:52:10 ]
+# parameters from EPICS run 647
+ebeam = 2.21733
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-28 06:58:17 ]
+# parameters from EPICS run 648
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914985
+MA = 0.93827
+
+
+--------[ 2017-02-28 07:57:39 ]
+# parameters from EPICS run 649
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914984
+MA = 0.93827
+
+
+--------[ 2017-02-28 08:58:14 ]
+# parameters from EPICS run 650
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.79898
+#R.theta = -44.501
+R.pcentral = 0.914983
+MA = 0.93827
+
+
+--------[ 2017-02-28 10:52:00 ]
+# parameters from EPICS run 651
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.02992
+MA = 0.93827
+
+
+--------[ 2017-02-28 10:55:44 ]
+# parameters from EPICS run 652
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.02998
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:06:30 ]
+# parameters from EPICS run 653
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:13:08 ]
+# parameters from EPICS run 654
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:16:16 ]
+# parameters from EPICS run 655
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:18:10 ]
+# parameters from EPICS run 656
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:41:48 ]
+# parameters from EPICS run 657
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71603
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-02-28 11:57:43 ]
+# parameters from EPICS run 658
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 12:36:55 ]
+# parameters from EPICS run 659
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 12:40:49 ]
+# parameters from EPICS run 660
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 13:02:13 ]
+# parameters from EPICS run 661
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 16:03:37 ]
+# parameters from EPICS run 662
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 20:15:16 ]
+# parameters from EPICS run 663
+ebeam = 2.21786
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 22:01:00 ]
+# parameters from EPICS run 664
+ebeam = 2.21816
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-02-28 22:15:06 ]
+# parameters from EPICS run 665
+ebeam = 2.21787
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 00:01:17 ]
+# parameters from EPICS run 666
+ebeam = 2.21807
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 00:03:55 ]
+# parameters from EPICS run 667
+ebeam = 2.21793
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 00:59:54 ]
+# parameters from EPICS run 668
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 02:25:00 ]
+# parameters from EPICS run 669
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 02:45:12 ]
+# parameters from EPICS run 670
+ebeam = 2.21814
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 02:57:42 ]
+# parameters from EPICS run 671
+ebeam = 2.21813
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 03:05:14 ]
+# parameters from EPICS run 672
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 03:19:16 ]
+# parameters from EPICS run 673
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 03:29:10 ]
+# parameters from EPICS run 674
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 04:04:59 ]
+# parameters from EPICS run 675
+ebeam = 2.21856
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 04:38:35 ]
+# parameters from EPICS run 676
+ebeam = 2.21795
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 05:24:09 ]
+# parameters from EPICS run 677
+ebeam = 2.2182
+L.theta = 15.5285
+L.pcentral = 1.71603
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 05:55:01 ]
+# parameters from EPICS run 678
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71603
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 06:25:12 ]
+# parameters from EPICS run 679
+ebeam = 2.21787
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 07:30:56 ]
+# parameters from EPICS run 680
+ebeam = 2.21813
+L.theta = 15.5285
+L.pcentral = 1.71603
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 07:41:14 ]
+# parameters from EPICS run 681
+ebeam = 2.21811
+L.theta = 15.5285
+L.pcentral = 1.71602
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 08:41:34 ]
+# parameters from EPICS run 682
+ebeam = 2.21809
+L.theta = 15.5285
+L.pcentral = 1.71603
+#R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 09:40:19 ]
+# parameters from EPICS run 683
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 10:49:13 ]
+# parameters from EPICS run 684
+ebeam = 2.21775
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 12:04:10 ]
+# parameters from EPICS run 685
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 12:41:28 ]
+# parameters from EPICS run 686
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 13:25:18 ]
+# parameters from EPICS run 687
+ebeam = 2.21807
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 13:48:52 ]
+# parameters from EPICS run 688
+ebeam = 2.21808
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 13:58:06 ]
+# parameters from EPICS run 689
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 14:13:57 ]
+# parameters from EPICS run 690
+ebeam = 2.21814
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 14:20:33 ]
+# parameters from EPICS run 691
+ebeam = 2.21807
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 14:55:27 ]
+# parameters from EPICS run 692
+ebeam = 2.21807
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 15:12:41 ]
+# parameters from EPICS run 693
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 15:26:51 ]
+# parameters from EPICS run 694
+ebeam = 2.21804
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 15:43:39 ]
+# parameters from EPICS run 695
+ebeam = 2.21812
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 15:49:01 ]
+# parameters from EPICS run 696
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 15:51:43 ]
+# parameters from EPICS run 697
+ebeam = 2.21806
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 17:47:24 ]
+# parameters from EPICS run 698
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 17:49:00 ]
+# parameters from EPICS run 699
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 18:00:56 ]
+# parameters from EPICS run 700
+ebeam = 2.21808
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 18:15:22 ]
+# parameters from EPICS run 701
+ebeam = 2.21806
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 18:34:40 ]
+# parameters from EPICS run 702
+ebeam = 2.218
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 18:57:44 ]
+# parameters from EPICS run 703
+ebeam = 2.21802
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 19:07:14 ]
+# parameters from EPICS run 704
+ebeam = 2.21787
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-01 19:37:58 ]
+# parameters from EPICS run 705
+ebeam = 2.21804
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 20:42:51 ]
+# parameters from EPICS run 706
+ebeam = 2.218
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 22:01:25 ]
+# parameters from EPICS run 707
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 22:41:45 ]
+# parameters from EPICS run 708
+ebeam = 2.21804
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-01 23:42:54 ]
+# parameters from EPICS run 709
+ebeam = 2.21814
+L.theta = 15.5285
+L.pcentral = 1.71603
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 00:42:58 ]
+# parameters from EPICS run 710
+ebeam = 2.2181
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 01:45:16 ]
+# parameters from EPICS run 711
+ebeam = 2.21803
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 02:33:29 ]
+# parameters from EPICS run 712
+ebeam = 2.21794
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 03:00:07 ]
+# parameters from EPICS run 713
+ebeam = 2.21805
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 04:03:15 ]
+# parameters from EPICS run 714
+ebeam = 2.21801
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 05:12:14 ]
+# parameters from EPICS run 715
+ebeam = 2.21804
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 06:14:26 ]
+# parameters from EPICS run 716
+ebeam = 2.21798
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 07:14:06 ]
+# parameters from EPICS run 717
+ebeam = 2.21803
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 08:13:55 ]
+# parameters from EPICS run 718
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 08:45:53 ]
+# parameters from EPICS run 719
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 09:49:35 ]
+# parameters from EPICS run 720
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 10:51:13 ]
+# parameters from EPICS run 721
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 12:09:08 ]
+# parameters from EPICS run 722
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 2.15998
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 15:50:31 ]
+# parameters from EPICS run 723
+ebeam = 0
+L.theta = 15.5285
+L.pcentral = 2.15997
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:11:59 ]
+# parameters from EPICS run 724
+ebeam = 2.21818
+L.theta = 15.5285
+L.pcentral = 2.15997
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:21:29 ]
+# parameters from EPICS run 725
+ebeam = 2.218
+L.theta = 15.5285
+L.pcentral = 2.15997
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:30:33 ]
+# parameters from EPICS run 726
+ebeam = 2.21814
+L.theta = 15.5285
+L.pcentral = 2.15997
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:39:33 ]
+# parameters from EPICS run 727
+ebeam = 2.21891
+L.theta = 15.5285
+L.pcentral = 2.15998
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:40:37 ]
+# parameters from EPICS run 728
+ebeam = 2.21874
+L.theta = 15.5285
+L.pcentral = 2.15998
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 16:50:43 ]
+# parameters from EPICS run 729
+ebeam = 2.21822
+L.theta = 15.5285
+L.pcentral = 2.15998
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:02:32 ]
+# parameters from EPICS run 730
+ebeam = 2.21823
+L.theta = 15.5285
+L.pcentral = 2.15998
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:17:12 ]
+# parameters from EPICS run 731
+ebeam = 2.21811
+L.theta = 15.5285
+L.pcentral = 2.02997
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:26:32 ]
+# parameters from EPICS run 732
+ebeam = 2.21808
+L.theta = 15.5285
+L.pcentral = 2.02996
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:34:32 ]
+# parameters from EPICS run 733
+ebeam = 2.21796
+L.theta = 15.5285
+L.pcentral = 2.02996
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:43:26 ]
+# parameters from EPICS run 734
+ebeam = 2.21769
+L.theta = 15.5285
+L.pcentral = 2.02996
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 17:57:18 ]
+# parameters from EPICS run 735
+ebeam = 2.21791
+L.theta = 15.5285
+L.pcentral = 1.90892
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 18:07:16 ]
+# parameters from EPICS run 736
+ebeam = 2.21893
+L.theta = 15.5285
+L.pcentral = 1.90895
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 18:17:04 ]
+# parameters from EPICS run 737
+ebeam = 2.21897
+L.theta = 15.5285
+L.pcentral = 1.90894
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 18:46:18 ]
+# parameters from EPICS run 738
+ebeam = 2.2187
+L.theta = 15.5285
+L.pcentral = 1.90899
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 19:37:32 ]
+# parameters from EPICS run 739
+ebeam = 2.2182
+L.theta = 15.5285
+L.pcentral = 1.90899
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 19:51:31 ]
+# parameters from EPICS run 740
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.79393
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 20:09:36 ]
+# parameters from EPICS run 741
+ebeam = 2.21819
+L.theta = 15.5285
+L.pcentral = 1.79398
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 20:21:21 ]
+# parameters from EPICS run 742
+ebeam = 2.21821
+L.theta = 15.5285
+L.pcentral = 1.79398
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 20:30:39 ]
+# parameters from EPICS run 743
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.79398
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 20:47:37 ]
+# parameters from EPICS run 744
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.68595
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 20:57:59 ]
+# parameters from EPICS run 745
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.68598
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 21:06:31 ]
+# parameters from EPICS run 746
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.68596
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 21:15:45 ]
+# parameters from EPICS run 747
+ebeam = 2.21816
+L.theta = 15.5285
+L.pcentral = 1.68596
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 21:30:33 ]
+# parameters from EPICS run 748
+ebeam = 2.2182
+L.theta = 15.5285
+L.pcentral = 1.58498
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 21:39:33 ]
+# parameters from EPICS run 749
+ebeam = 2.21816
+L.theta = 15.5285
+L.pcentral = 1.58499
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 21:48:51 ]
+# parameters from EPICS run 750
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.58497
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:03:47 ]
+# parameters from EPICS run 751
+ebeam = 2.21814
+L.theta = 15.5285
+L.pcentral = 1.58497
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:16:09 ]
+# parameters from EPICS run 752
+ebeam = 2.21817
+L.theta = 15.5285
+L.pcentral = 1.48997
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:24:53 ]
+# parameters from EPICS run 753
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.48995
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:33:31 ]
+# parameters from EPICS run 754
+ebeam = 2.21822
+L.theta = 15.5285
+L.pcentral = 1.48996
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:44:31 ]
+# parameters from EPICS run 755
+ebeam = 2.21816
+L.theta = 15.5285
+L.pcentral = 1.48996
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 22:57:15 ]
+# parameters from EPICS run 756
+ebeam = 2.21821
+L.theta = 15.5285
+L.pcentral = 1.40097
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 23:06:57 ]
+# parameters from EPICS run 757
+ebeam = 2.21819
+L.theta = 15.5285
+L.pcentral = 1.40097
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 23:17:20 ]
+# parameters from EPICS run 758
+ebeam = 2.21819
+L.theta = 15.5285
+L.pcentral = 1.40098
+R.theta = -38.9999
+R.pcentral = 1.03003
+MA = 0.93827
+
+
+--------[ 2017-03-02 23:25:38 ]
+# parameters from EPICS run 759
+ebeam = 2.21818
+L.theta = 15.5285
+L.pcentral = 1.40097
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 23:38:14 ]
+# parameters from EPICS run 760
+ebeam = 2.21817
+L.theta = 15.5285
+L.pcentral = 1.31696
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-02 23:48:08 ]
+# parameters from EPICS run 761
+ebeam = 2.2182
+L.theta = 15.5285
+L.pcentral = 1.31697
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 00:02:40 ]
+# parameters from EPICS run 762
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.31696
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 00:12:20 ]
+# parameters from EPICS run 763
+ebeam = 2.21819
+L.theta = 15.5285
+L.pcentral = 1.31696
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 00:33:38 ]
+# parameters from EPICS run 764
+ebeam = 2.21813
+L.theta = 15.5285
+L.pcentral = 1.71604
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 01:20:58 ]
+# parameters from EPICS run 765
+ebeam = 2.21818
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 02:16:17 ]
+# parameters from EPICS run 766
+ebeam = 2.21812
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 03:17:35 ]
+# parameters from EPICS run 767
+ebeam = 2.21815
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 04:16:47 ]
+# parameters from EPICS run 768
+ebeam = 2.21821
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 05:21:22 ]
+# parameters from EPICS run 769
+ebeam = 2.2182
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 06:31:26 ]
+# parameters from EPICS run 770
+ebeam = 2.21818
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 07:30:46 ]
+# parameters from EPICS run 771
+ebeam = 2.21823
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 08:26:13 ]
+# parameters from EPICS run 772
+ebeam = 2.21825
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 10:50:48 ]
+# parameters from EPICS run 773
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 11:15:15 ]
+# parameters from EPICS run 774
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 11:31:04 ]
+# parameters from EPICS run 775
+ebeam = 2.21866
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 13:05:06 ]
+# parameters from EPICS run 776
+ebeam = 2.21988
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 13:20:24 ]
+# parameters from EPICS run 777
+ebeam = 2.2198
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 13:38:46 ]
+# parameters from EPICS run 778
+ebeam = 2.22013
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 14:29:13 ]
+# parameters from EPICS run 779
+ebeam = 2.21998
+L.theta = 15.5285
+L.pcentral = 1.71601
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 15:03:23 ]
+# parameters from EPICS run 780
+ebeam = 2.21999
+L.theta = 15.5285
+L.pcentral = 1.71602
+R.theta = -38.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 16:02:17 ]
+# parameters from EPICS run 781
+ebeam = 2.21999
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 17:12:29 ]
+# parameters from EPICS run 782
+ebeam = 2.21981
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 17:47:54 ]
+# parameters from EPICS run 783
+ebeam = 2.21982
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 18:54:16 ]
+# parameters from EPICS run 784
+ebeam = 2.21976
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 20:03:20 ]
+# parameters from EPICS run 785
+ebeam = 2.21976
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 20:41:02 ]
+# parameters from EPICS run 786
+ebeam = 2.21978
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 21:39:44 ]
+# parameters from EPICS run 787
+ebeam = 2.2198
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 22:46:19 ]
+# parameters from EPICS run 788
+ebeam = 2.21977
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-03 23:24:55 ]
+# parameters from EPICS run 789
+ebeam = 2.2198
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 00:26:31 ]
+# parameters from EPICS run 790
+ebeam = 2.21988
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 01:29:10 ]
+# parameters from EPICS run 791
+ebeam = 2.21975
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 02:34:52 ]
+# parameters from EPICS run 792
+ebeam = 2.21976
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 03:38:20 ]
+# parameters from EPICS run 793
+ebeam = 2.2197
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 04:14:12 ]
+# parameters from EPICS run 794
+ebeam = 2.21981
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 05:15:05 ]
+# parameters from EPICS run 795
+ebeam = 2.2198
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 06:14:33 ]
+# parameters from EPICS run 796
+ebeam = 2.21984
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 07:15:27 ]
+# parameters from EPICS run 797
+ebeam = 2.21987
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 08:13:58 ]
+# parameters from EPICS run 798
+ebeam = 2.21983
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 08:16:49 ]
+# parameters from EPICS run 799
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 09:22:03 ]
+# parameters from EPICS run 800
+ebeam = 2.21986
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 10:23:33 ]
+# parameters from EPICS run 801
+ebeam = 2.21983
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 11:44:28 ]
+# parameters from EPICS run 802
+ebeam = 2.21993
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 13:26:30 ]
+# parameters from EPICS run 803
+ebeam = 2.21981
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 14:03:34 ]
+# parameters from EPICS run 804
+ebeam = 2.21984
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 15:25:07 ]
+# parameters from EPICS run 805
+ebeam = 2.21984
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 16:27:33 ]
+# parameters from EPICS run 806
+ebeam = 2.21979
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 17:29:24 ]
+# parameters from EPICS run 807
+ebeam = 2.21983
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 18:31:02 ]
+# parameters from EPICS run 808
+ebeam = 2.21983
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 19:30:56 ]
+# parameters from EPICS run 809
+ebeam = 2.21981
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 20:06:16 ]
+# parameters from EPICS run 810
+ebeam = 2.21988
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 21:05:37 ]
+# parameters from EPICS run 811
+ebeam = 2.21986
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 22:05:49 ]
+# parameters from EPICS run 812
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-04 23:11:43 ]
+# parameters from EPICS run 813
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 00:13:22 ]
+# parameters from EPICS run 814
+ebeam = 2.21986
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 01:13:48 ]
+# parameters from EPICS run 815
+ebeam = 2.21989
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 02:19:23 ]
+# parameters from EPICS run 816
+ebeam = 2.21987
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 02:54:21 ]
+# parameters from EPICS run 817
+ebeam = 2.22034
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 03:54:57 ]
+# parameters from EPICS run 818
+ebeam = 2.22016
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 04:55:13 ]
+# parameters from EPICS run 819
+ebeam = 2.22021
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 05:56:02 ]
+# parameters from EPICS run 820
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:09:39 ]
+# parameters from EPICS run 821
+ebeam = 2.22005
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:22:06 ]
+# parameters from EPICS run 822
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:24:02 ]
+# parameters from EPICS run 823
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:28:04 ]
+# parameters from EPICS run 825
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:35:59 ]
+# parameters from EPICS run 826
+ebeam = 2.22029
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:37:23 ]
+# parameters from EPICS run 827
+ebeam = 2.22017
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 06:42:19 ]
+# parameters from EPICS run 828
+ebeam = 2.22014
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 07:43:17 ]
+# parameters from EPICS run 829
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 08:50:27 ]
+# parameters from EPICS run 830
+ebeam = 2.22006
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 09:56:52 ]
+# parameters from EPICS run 831
+ebeam = 2.22009
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 11:02:12 ]
+# parameters from EPICS run 832
+ebeam = 2.22008
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 12:03:58 ]
+# parameters from EPICS run 833
+ebeam = 2.2199
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 12:10:14 ]
+# parameters from EPICS run 834
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 13:15:19 ]
+# parameters from EPICS run 835
+ebeam = 2.2198
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 13:57:45 ]
+# parameters from EPICS run 837
+ebeam = 2.21987
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 13:58:43 ]
+# parameters from EPICS run 838
+ebeam = 2.21979
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 14:01:57 ]
+# parameters from EPICS run 839
+ebeam = 2.21988
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 15:05:55 ]
+# parameters from EPICS run 840
+ebeam = 2.21981
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 16:17:32 ]
+# parameters from EPICS run 841
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 17:20:12 ]
+# parameters from EPICS run 842
+ebeam = 2.21988
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 18:20:46 ]
+# parameters from EPICS run 843
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 19:23:17 ]
+# parameters from EPICS run 844
+ebeam = 2.21982
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 20:20:05 ]
+# parameters from EPICS run 845
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 21:17:49 ]
+# parameters from EPICS run 846
+ebeam = 2.21986
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 22:19:12 ]
+# parameters from EPICS run 847
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-05 23:36:11 ]
+# parameters from EPICS run 848
+ebeam = 2.21989
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 00:37:47 ]
+# parameters from EPICS run 849
+ebeam = 2.21994
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 01:38:45 ]
+# parameters from EPICS run 850
+ebeam = 2.21988
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 02:05:51 ]
+# parameters from EPICS run 851
+ebeam = 2.21992
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 03:07:36 ]
+# parameters from EPICS run 852
+ebeam = 2.21985
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 04:09:10 ]
+# parameters from EPICS run 853
+ebeam = 2.21987
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 05:09:44 ]
+# parameters from EPICS run 854
+ebeam = 2.21994
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 06:38:11 ]
+# parameters from EPICS run 855
+ebeam = 2.21989
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 07:25:48 ]
+# parameters from EPICS run 856
+ebeam = 2.21986
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 07:31:04 ]
+# parameters from EPICS run 857
+ebeam = 2.21982
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 09:04:19 ]
+# parameters from EPICS run 858
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 11:36:01 ]
+# parameters from EPICS run 859
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 19:14:00 ]
+# parameters from EPICS run 860
+ebeam = 2.2181
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 19:31:00 ]
+# parameters from EPICS run 861
+ebeam = 2.21781
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 20:04:26 ]
+# parameters from EPICS run 862
+ebeam = 2.21826
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 20:18:28 ]
+# parameters from EPICS run 863
+ebeam = 2.21815
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 20:36:36 ]
+# parameters from EPICS run 864
+ebeam = 2.21827
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 21:23:37 ]
+# parameters from EPICS run 865
+ebeam = 2.21835
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 21:29:47 ]
+# parameters from EPICS run 866
+ebeam = 2.21841
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 22:00:57 ]
+# parameters from EPICS run 867
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 22:25:35 ]
+# parameters from EPICS run 868
+ebeam = 2.21864
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-06 22:57:37 ]
+# parameters from EPICS run 869
+ebeam = 2.2186
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 04:14:11 ]
+# parameters from EPICS run 870
+ebeam = 2.21878
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 04:27:49 ]
+# parameters from EPICS run 871
+ebeam = 2.2187
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 05:33:24 ]
+# parameters from EPICS run 872
+ebeam = 2.21893
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:07:18 ]
+# parameters from EPICS run 873
+ebeam = 2.21881
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:28:26 ]
+# parameters from EPICS run 874
+ebeam = 2.21857
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:34:28 ]
+# parameters from EPICS run 875
+ebeam = 2.21858
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:40:36 ]
+# parameters from EPICS run 876
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:46:30 ]
+# parameters from EPICS run 877
+ebeam = 2.21845
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 06:52:20 ]
+# parameters from EPICS run 878
+ebeam = 2.21836
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 07:10:32 ]
+# parameters from EPICS run 879
+ebeam = 2.21827
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 08:13:58 ]
+# parameters from EPICS run 880
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 08:39:03 ]
+# parameters from EPICS run 881
+ebeam = 2.21852
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 08:44:49 ]
+# parameters from EPICS run 882
+ebeam = 2.21856
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 08:50:17 ]
+# parameters from EPICS run 883
+ebeam = 2.21869
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 08:55:31 ]
+# parameters from EPICS run 884
+ebeam = 2.21893
+L.theta = 19.9997
+L.pcentral = 1.71601
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 09:19:19 ]
+# parameters from EPICS run 885
+ebeam = 2.21866
+L.theta = 19.9997
+L.pcentral = 1.71602
+R.theta = -44.001
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 10:22:23 ]
+# parameters from EPICS run 886
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.71602
+R.theta = -49.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-07 11:18:42 ]
+# parameters from EPICS run 887
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.71601
+R.theta = -49.9999
+R.pcentral = 1.03002
+MA = 0.93827
+
+
+--------[ 2017-03-08 14:37:57 ]
+# parameters from EPICS run 888
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-09 09:52:19 ]
+# parameters from EPICS run 889
+ebeam = 2.21829
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-09 10:40:23 ]
+# parameters from EPICS run 890
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 11:23:33 ]
+# parameters from EPICS run 891
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79874
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 12:07:33 ]
+# parameters from EPICS run 892
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-09 13:11:30 ]
+# parameters from EPICS run 893
+ebeam = 2.21847
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-09 14:24:18 ]
+# parameters from EPICS run 894
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79875
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-09 15:15:27 ]
+# parameters from EPICS run 895
+ebeam = 2.21835
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 16:15:13 ]
+# parameters from EPICS run 896
+ebeam = 2.21837
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-09 17:02:11 ]
+# parameters from EPICS run 897
+ebeam = 2.21832
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-03-09 17:05:51 ]
+# parameters from EPICS run 898
+ebeam = 2.2183
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-03-09 18:01:19 ]
+# parameters from EPICS run 899
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 18:19:19 ]
+# parameters from EPICS run 900
+ebeam = 2.21815
+L.theta = 21.5003
+L.pcentral = 1.79905
+R.theta = -49.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-09 18:54:12 ]
+# parameters from EPICS run 901
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-09 18:55:23 ]
+# parameters from EPICS run 901
+ebeam = 2.21834
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-09 18:56:02 ]
+# parameters from EPICS run 901
+ebeam = 2.21829
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-09 19:00:33 ]
+# parameters from EPICS run 902
+ebeam = 2.21831
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 19:03:49 ]
+# parameters from EPICS run 903
+ebeam = 2.21829
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 20:10:53 ]
+# parameters from EPICS run 904
+ebeam = 2.21849
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-09 20:44:49 ]
+# parameters from EPICS run 905
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79905
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-09 21:18:42 ]
+# parameters from EPICS run 906
+ebeam = 2.21836
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-09 22:21:06 ]
+# parameters from EPICS run 907
+ebeam = 2.21827
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-10 07:35:10 ]
+# parameters from EPICS run 908
+ebeam = 2.21866
+L.theta = 21.5003
+L.pcentral = 1.79904
+R.theta = -49.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:09:40 ]
+# parameters from EPICS run 909
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:14:42 ]
+# parameters from EPICS run 910
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914982
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:20:24 ]
+# parameters from EPICS run 911
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:33:10 ]
+# parameters from EPICS run 912
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:34:42 ]
+# parameters from EPICS run 913
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:38:52 ]
+# parameters from EPICS run 914
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:44:30 ]
+# parameters from EPICS run 915
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:46:24 ]
+# parameters from EPICS run 916
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:50:18 ]
+# parameters from EPICS run 917
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-10 11:58:23 ]
+# parameters from EPICS run 918
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-10 14:56:50 ]
+# parameters from EPICS run 919
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-10 15:04:44 ]
+# parameters from EPICS run 920
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-10 15:09:36 ]
+# parameters from EPICS run 921
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-10 16:15:42 ]
+# parameters from EPICS run 922
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79903
+R.theta = -52.9999
+R.pcentral = 0.914978
+MA = 0.93827
+
+
+--------[ 2017-03-10 16:44:04 ]
+# parameters from EPICS run 923
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-10 17:08:49 ]
+# parameters from EPICS run 924
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-10 17:34:02 ]
+# parameters from EPICS run 925
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914979
+MA = 0.93827
+
+
+--------[ 2017-03-10 17:38:08 ]
+# parameters from EPICS run 926
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.91498
+MA = 0.93827
+
+
+--------[ 2017-03-10 17:49:58 ]
+# parameters from EPICS run 927
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 1.79904
+R.theta = -52.9999
+R.pcentral = 0.914981
+MA = 0.93827
+
+
+--------[ 2017-03-13 11:20:51 ]
+# parameters from EPICS run 928
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00274003
+R.theta = -52.9999
+R.pcentral = 0.0353855
+MA = 0.93827
+
+
+--------[ 2017-03-13 11:25:16 ]
+# parameters from EPICS run 929
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273362
+R.theta = -52.9999
+R.pcentral = 0.0349031
+MA = 0.93827
+
+
+--------[ 2017-03-15 09:41:42 ]
+# parameters from EPICS run 930
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273362
+R.theta = -52.9999
+R.pcentral = 0.00424304
+MA = 0.93827
+
+
+--------[ 2017-03-15 10:11:02 ]
+# parameters from EPICS run 931
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00272834
+R.theta = -52.9999
+R.pcentral = 0.00423269
+MA = 0.93827
+
+
+--------[ 2017-03-15 10:37:18 ]
+# parameters from EPICS run 932
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273307
+R.theta = -52.9999
+R.pcentral = 0.00421225
+MA = 0.93827
+
+
+--------[ 2017-03-15 11:06:28 ]
+# parameters from EPICS run 933
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00274225
+R.theta = -52.9999
+R.pcentral = 0.00417191
+MA = 0.93827
+
+
+--------[ 2017-03-15 11:19:48 ]
+# parameters from EPICS run 934
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273641
+R.theta = -52.9999
+R.pcentral = 0.00417954
+MA = 0.93827
+
+
+--------[ 2017-03-16 11:38:00 ]
+# parameters from EPICS run 935
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.0027314
+R.theta = -52.9999
+R.pcentral = 0.00354591
+MA = 0.93827
+
+
+--------[ 2017-03-16 12:59:27 ]
+# parameters from EPICS run 936
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273223
+R.theta = -52.9999
+R.pcentral = 0.00353337
+MA = 0.93827
+
+
+--------[ 2017-03-16 14:29:13 ]
+# parameters from EPICS run 937
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273641
+R.theta = -52.9999
+R.pcentral = 0.00352165
+MA = 0.93827
+
+
+--------[ 2017-03-16 14:38:21 ]
+# parameters from EPICS run 938
+ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273557
+R.theta = -52.9999
+R.pcentral = 0.0035162
+MA = 0.93827
+
+

@@ -1,0 +1,182 @@
+# -*- mode: Text -*-
+#-----------------------------------------------------------
+#  Chamber configuration
+#-----------------------------------------------------------
+
+# Plane configuration. One string of the all plane names.
+
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+L.gem.planeconfig = x1 y1 u1 v1 x2 y2 u2 v2 x3 y3 u3 v3
+
+# Wire angles. Specify the angle of the _normal_ to the wires, pointing
+# along the direction of increasing wire number. Positive angles mean 
+# rotation from x towards y (so the y-axis is at +90deg).
+L.gem.x.angle = 0.0
+L.gem.y.angle = 90.0
+L.gem.u.angle = 45.0
+L.gem.v.angle = -45.0
+
+# "Crate map". Specifies DAQ module configuration.
+# Since usually a range of slots is filled with identical modules, we define
+# slot ranges. If individual modules within a range are different, append 
+# their definition at the end; they will override earlier definitions.
+#
+# Each row is:   crate slot_lo slot_hi model# nchan
+#
+L.gem.cratemap =  6     1         20   550    480
+
+# Dummy detector maps
+L.gem.x1.detmap = 6  1  479 240
+L.gem.y1.detmap = 6  1  239 0
+L.gem.u1.detmap = 6  2  479 240
+L.gem.v1.detmap = 6  2  239 0
+L.gem.x2.detmap = 6  3  479 240
+L.gem.y2.detmap = 6  3  239 0
+L.gem.u2.detmap = 6  4  479 240
+L.gem.v2.detmap = 6  4  239 0
+
+# dummy
+L.gem.x3.detmap = 6  5  479 240
+L.gem.y3.detmap = 6  5  239 0
+L.gem.u3.detmap = 6  4  0   239
+L.gem.v3.detmap = 6  4  479 240
+
+# Use the channel mapping for the INFN GEM->Gassiplex adapters
+# provided by Guido
+#L.gem.mapping = gassiplex-adapter-1
+
+#-----------------------------------------------------------
+# Feature configuration
+#-----------------------------------------------------------
+
+L.gem.search_depth = 6
+
+# Maximum number of threads to run
+L.gem.maxthreads = 1
+
+# Support for event display
+L.gem.event_display = 0
+
+# Disable tracking for checkout
+L.gem.disable_tracking = 1
+
+#-----------------------------------------------------------
+#  Global reconstruction parameters
+#-----------------------------------------------------------
+
+L.gem.do_adc_cut = 1
+
+# 3D track cuts
+L.gem.3d_chi2_conflevel = 1e-6
+L.gem.3d_maxmiss = 6
+
+
+#-----------------------------------------------------------
+#  Global projection parameters
+#    - can be overridden for individual projections
+#-----------------------------------------------------------
+
+L.gem.maxmiss = 0
+L.gem.chi2_conflevel = 1e-4
+L.gem.maxpat  = 500
+L.gem.maxslope = 0.5
+
+#-----------------------------------------------------------
+#  Global plane parameters
+#    - can be overridden for individual planes
+#-----------------------------------------------------------
+
+L.gem.nstrips      = 240
+L.gem.strip.pitch  = 4e-4
+L.gem.xp.res       = 2e-4
+L.gem.maxclustsiz  = 7
+L.gem.adc.min      = 15.0
+L.gem.split.frac   = 0.1
+L.gem.maxhits      = 30
+
+#-----------------------------------------------------------
+#   Plane-specific data
+#   Detector maps are above
+#-----------------------------------------------------------
+L.gem.x1.description = X1 plane
+L.gem.x1.position  = 0.0 0.0 0.0
+L.gem.x1.size      = 0.1 0.1 0.0
+L.gem.x1.strip.pos = -0.048
+L.gem.x1.do_histos = 1
+L.gem.x1.mapping = gassiplex-adapter-2
+L.gem.x1.pedestal = 135.9 0 126.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 108.2 0 120.5
+
+L.gem.y1.description = Y1 plane
+L.gem.y1.position  = 0.0 0.0 0.00001
+L.gem.y1.size      = 0.1 0.1 0.0
+L.gem.y1.strip.pos = -0.048
+L.gem.y1.mapping = gassiplex-adapter-1
+L.gem.y1.pedestal = 0 125.7 0 107.8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 124.6 0 152.4 0
+
+
+L.gem.u1.description = U1 plane
+L.gem.u1.position  = 0.0 0.0 0.045
+L.gem.u1.size      = 0.1 0.1 0.0
+L.gem.u1.strip.pos = -0.048
+L.gem.u1.mapping = gassiplex-adapter-2
+L.gem.u1.pedestal = 135.2 0 135.5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 136.4 0 145.8
+
+L.gem.v1.description = V1 plane
+L.gem.v1.position  = 0.0 0.0 0.04501
+L.gem.v1.size      = 0.1 0.1 0.0
+L.gem.v1.strip.pos = -0.048
+L.gem.v1.mapping = gassiplex-adapter-1
+L.gem.v1.pedestal =  0 142.7 0 150.5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 129.9 0 142.1 0
+
+L.gem.x2.description = X2 plane
+L.gem.x2.position  = 0.0 0.0 0.3016
+L.gem.x2.size      = 0.1 0.1 0.0
+L.gem.x2.strip.pos = -0.048
+L.gem.x2.mapping = gassiplex-adapter-2
+L.gem.x2.pedestal  =  118.6 0 119.0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 105.9 0 111.7
+
+L.gem.y2.description = Y2 plane
+L.gem.y2.position  = 0.0 0.0 0.30161
+L.gem.y2.size      = 0.1 0.1 0.0
+L.gem.y2.strip.pos = -0.048
+L.gem.y2.mapping = gassiplex-adapter-1
+L.gem.y2.pedestal  = 0 117.4 0 117.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 125.8 0 112.9 0
+
+L.gem.u2.description = U2 plane
+L.gem.u2.position  = 0.0 0.0 0.3466
+L.gem.u2.size      = 0.1 0.1 0.0
+L.gem.u2.strip.pos = -0.048
+L.gem.u2.mapping = gassiplex-adapter-2
+L.gem.u2.pedestal  = 105.9 0 95.9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 106.7 0 85.2
+
+L.gem.v2.description = V2 plane
+L.gem.v2.position  = 0.0 0.0 0.34661
+L.gem.v2.size      = 0.1 0.1 0.0
+L.gem.v2.strip.pos = -0.048
+L.gem.v2.mapping = gassiplex-adapter-1
+L.gem.v2.pedestal  = 0 94.5 0 103.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 85.8 0 86.9 0
+
+L.gem.x3.description = X3 plane
+L.gem.x3.position  = 0.0 0.0 0.25
+L.gem.x3.size      = 0.1 0.1 0.0
+L.gem.x3.strip.pos = -0.048
+L.gem.x3.mapping = one-to-one
+
+L.gem.y3.description = Y3 plane
+L.gem.y3.position  = 0.0 0.0 0.25001
+L.gem.y3.size      = 0.1 0.1 0.0
+L.gem.y3.strip.pos = -0.048
+L.gem.y3.mapping = one-to-one
+
+L.gem.u3.description = U3 plane
+L.gem.u3.position  = 0.0 0.0 0.295
+L.gem.u3.size      = 0.1 0.1 0.0
+L.gem.u3.strip.pos = -0.048
+L.gem.u3.mapping = one-to-one
+
+L.gem.v3.description = V3 plane
+L.gem.v3.position  = 0.0 0.0 0.29501
+L.gem.v3.size      = 0.1 0.1 0.0
+L.gem.v3.strip.pos = -0.048
+L.gem.v3.mapping = one-to-one

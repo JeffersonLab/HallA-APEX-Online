@@ -1,0 +1,9 @@
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+CT.RbyL.detmap = 4 25 48 48 0 1877
+CT.RbyL.tdc_res = 5e-10
+CT.RbyL.tdc_offset = 0
+CT.LbyR.detmap = 2 16 32 32 1 1877
+CT.LbyR.tdc_res = 5e-10
+CT.LbyR.tdc_offset = 0
+
