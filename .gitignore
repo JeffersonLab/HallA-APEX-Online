@@ -1,0 +1,27 @@
+# ignore patterns
+
+
+*~
+*.o
+*.a
+*.so
+*.d
+*.root
+*root_hist
+
+
+replay/DB/*
+replay/RootFiles
+replay/ScratchRootFiles
+
+scaler/xscaler
+scaler/hana_scaler/tscalasy
+scaler/hana_scaler/tscaldtime
+scaler/hana_scaler/tscalevt
+scaler/hana_scaler/tscalfile
+scaler/hana_scaler/tscalhist
+scaler/hana_scaler/tscalntup
+scaler/hana_scaler/tscalonl
+scaler/hana_scaler/tscalring
+scaler/hana_scaler/tscalroc11
+scaler/hana_scaler/xscaler
