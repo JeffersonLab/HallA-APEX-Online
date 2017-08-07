@@ -8,6 +8,7 @@
 *.d
 *.root
 *root_hist
+*.xpm
 
 
 replay/DB/*
