@@ -88,9 +88,9 @@ void ReplayCore(
 		Int_t runnumber=0,            //run #
 		Int_t all=0,                  //-1=replay all;0=ask for a number
 		Int_t DefReplayNum=-1,        //default replay event num
-		char* OutFileFormat="%s/left_gmp_%d.root", //output file format
-		char* OutDefineFile="HRS.odef",       //out define
-		char* CutDefineFile="HRS.cdef",       //cut define
+		const char* OutFileFormat="%s/left_gmp_%d.root", //output file format
+		const char* OutDefineFile="HRS.odef",       //out define
+		const char* CutDefineFile="HRS.cdef",       //cut define
 		Bool_t EnableScalar=false,                    //Enable Scalar?
 		Bool_t EnableHelicity=false,                  //Enable Helicity?
 		Int_t FirstEventNum=0,         //First Event To Replay
@@ -151,10 +151,10 @@ void ReplayCore(
     else    nrun=runnumber;
 
     path=PATHS;
-    //   if (nrun < 15000) RAW_DATA_FORMAT="%s/dvcs14_%d.dat.%d";
+
     while ( path && *path ) {
       sprintf(filename,RAW_DATA_FORMAT,*path,nrun,0);
-      //if (nrun < 15000) sprintf(filename,"%s/dvcs14_%d.dat.%d",*path,nrun,0);
+      
       cout<<"replay: Try file "<<filename<<endl;
       if (IsFileExist(filename)) {
 	found = 1;
@@ -171,7 +171,7 @@ void ReplayCore(
   if(nrun<=0) {
     gHaApps->Delete();
     gHaPhysics->Delete();
-    gHaScalers->Delete();
+    gHaEvtHandlers->Delete();
     analyzer->Close();
     return;
   }
@@ -310,8 +310,6 @@ void ReplayCore(
   char sumname[300];
   sprintf(sumname,SUMMARY_PHYSICS_FORMAT,nrun);
   analyzer->SetSummaryFile(sumname); // optional
-  //  analyzer->SetEvent( new THaEvent );  // no longer needed
-  //analyzer->SetMarkInterval(ANA_MARK_INTERVAL);
 
   //correct the offset on the last event if first event is above 0
   if (nev>=0) nev+=FirstEventNum;
@@ -322,7 +320,7 @@ void ReplayCore(
   TString oldfilename="";
   THaRun *oldrun=0, *run, *runlist[30]={0};Int_t runidx=0;
   Bool_t exit=false;
-  //UInt_t  NeveAna=0;
+  
   for (Int_t nsplit=0;!exit;nsplit++)
     {
 
@@ -342,7 +340,6 @@ void ReplayCore(
 	path++;
       }
 
-      //cout<<"======================\n"<<oldfilename<<endl<<filename<<endl;
       if ( ((!path || !*path) && !found) || oldfilename==filename) {
 	cout << "replay: no more raw data file to analyze"<<endl;
 	exit=true;
@@ -361,7 +358,6 @@ void ReplayCore(
 	if(nev>=0) run->SetLastEvent(nev);
 	run->SetFirstEvent(FirstEventNum);
 
-	//run->Print();
 	try {
 	  analyzer->Process(run); 
 	}
@@ -371,13 +367,9 @@ void ReplayCore(
 	  run->Close();
 	  break;
 	}
-	//NeveAna=run->GetNumAnalyzed();
-	//cout << "replay: "<<NeveAna<<"events were analyzed."<<endl;
-
-	//if (NeveAna-1>=(UInt_t)nev) exit=true;
+	
 	run->Close();
 	if (!oldrun) oldrun = run;
-	//else delete run;
       }
     }
 
@@ -391,7 +383,7 @@ void ReplayCore(
   }
   gHaApps->Delete();
   gHaPhysics->Delete();
-  gHaScalers->Delete();
+  gHaEvtHandlers->Delete();
   analyzer->Close();
 
   cout<<"replay: YOU JUST ANALYZED RUN number "<<nrun<<"."<<endl;

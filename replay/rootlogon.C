@@ -20,21 +20,14 @@
   if(Arch==Arch32){
     printf("\nrootlogon.C: Loading Replay Core Library..."); 
   //  gSystem->Load("/adaqfs/home/a-onl/tritium/replay/old/ReplayCore_C.so");
-    gSystem->Load("libraries/Fpp/libFpp.so");
   }
 
   else if(Arch==Arch64){
     printf("\nrootlogon.C: Loading Replay Core Library..."); 
     gSystem->Load("/adaqfs/home/a-onl/tritium/replay/ReplayCore64_C.so");
-    gSystem->Load("libraries/Fpp64/libFpp.so");
-    gSystem->Load("libraries/GmpNormAna/libGmpNormAna.so");
-    gSystem->Load("libraries/lukebeam/libBeam.so");
-    gSystem->Load("libraries/Gmp_Rastered_Beam/libGmp_Rastered_Beam.so");
-    gSystem->Load("libraries/GmpShower/libGmpShower.so");
-    gSystem->Load("libraries/Gmp_Beam_Eloss/libGmp_Beam_Eloss.so");
-    gSystem->Load("libraries/Gmp_Track_Eloss/libGmp_Track_Eloss.so");
-    gSystem->Load("libraries/Gmp_HRS/libGmp_HRS.so");
-    gSystem->Load("libraries/Gmp_Xscin/libGmp_Xscin.so");
+    //gSystem->Load("libraries/Gmp_Beam_Eloss/libGmp_Beam_Eloss.so");
+    //gSystem->Load("libraries/Gmp_Track_Eloss/libGmp_Track_Eloss.so");
+    //gSystem->Load("libraries/Gmp_Xscin/libGmp_Xscin.so");
   }
 
     //Load more libs here, if necessary. 

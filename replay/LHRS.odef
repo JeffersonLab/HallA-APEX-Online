@@ -7,10 +7,6 @@ block L.prl2.*
 block L.cer.*
 block L.vdc.*
 block L.tr.*
-block L.fpp.*
-
-#block hel.*
-#block g.*
 
 block DL.*
 
@@ -24,12 +20,6 @@ block EKLx.*
 block ElbL.*
 block EltL.*
 block EKLxe.*
-#block PKL.*
-
-# Normalization variables
-block N.*
-
-
 
 #BPM/Raster Variables
 FORMULA rbax 1000.*LrbGmp.BPMA.x
@@ -297,20 +287,6 @@ TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' LrbGmp.Raster2.raw
 TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' LrbGmp.Raster2.rawcur.x rbay 500 0 5000 200 -5. 5.
 TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' LrbGmp.Raster2.rawcur.y rbbx 500 0 5000 200 -5. 5.
 TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' LrbGmp.Raster2.rawcur.x rbby 500 0 5000 200 -5. 5.
-
-#-------------------------------------------------------------------------------
-#Helicity Information
-#
-#TH1F hel.hel.tir.rep 'Reported helicity in LHRS  TIR' hel.L.hel_rep 26 -0.5 1.5
-#TH1F hel.hel.tir.act 'Actual helicity in LHRS TIR' hel.L.hel 27 -1.5 1.5
-#TH1F hel.qrt.tir 'QRT signal in LHRS TIR' hel.L.qrt 27 -1.5 1.5
-#TH1F hel.hel.ring.rep 'Reported helicity in LHRS gated scaler' hel.L.hel_ring_rep 26 -0.5 1.5
-#TH1F hel.hel.ring.act 'Actual helicity in LHRS gated scaler' hel.L.hel_ring 27 -1.5 1.5
-#TH1F hel.qrt.ring 'QRT signal in LHRS gated scaler' hel.L.qrt_ring 27 -1.5 1.5
-#TH1F hel.error 'Decode error message' hel.L.error 80 -0.5 15.5
-#TH1F hel.hel.happex.rep 'Reported helicity in HAPPEX' hel.L.hel.happex_rep 26 -0.5 1.5
-#TH1F hel.hel.happex.act 'Actual helicity in HAPPEX' hel.L.hel.happex 27 -1.5 1.5
-#TH1F hel.qrt.happex 'QRT in HAPPEX' hel.L.qrt.happex 27 -1.5 1.5
 
 # ------------------------------------------------------------------
 # Event type 140 
