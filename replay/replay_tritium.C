@@ -19,7 +19,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION run>=20000
 #define LEFT_ARM_CONDITION run<20000
 
-void replay_coinc(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -42,14 +42,16 @@ void replay_coinc(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietR
  
 
   char* RNAME="%s/tritium_%d.root";
+  TString ODEF;
+  TString CUTS;
 
   //==================================
   //  Right Arm Detectors
   //==================================
   
   if(RIGHT_ARM_CONDITION){
-    char* ODEF="/adaqfs/home/a-onl/tritium/replay/RHRS.odef";
-    char* CUTS="/adaqfs/home/a-onl/tritium/replay/RHRS.cuts";
+    ODEF="/adaqfs/home/a-onl/tritium/replay/RHRS.odef";
+    CUTS="/adaqfs/home/a-onl/tritium/replay/RHRS.cuts";
     //==================================
     //  Detectors
     //==================================
@@ -152,8 +154,8 @@ void replay_coinc(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietR
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    char* ODEF="/adaqfs/home/a-onl/tritium/replay/LHRS.odef";
-    char* CUTS="/adaqfs/home/a-onl/tritium/replay/LHRS.cuts";
+    ODEF="/adaqfs/home/a-onl/tritium/replay/LHRS.odef";
+    CUTS="/adaqfs/home/a-onl/tritium/replay/LHRS.cuts";
     //==================================
     //  Detectors
     //==================================
@@ -259,8 +261,8 @@ void replay_coinc(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietR
 	     0,                //-1=replay all;0=ask for a number
 	     all,              //default replay event num
 	     RNAME,            //output file format
-	     ODEF,	       //out define
-	     CUTS, 	       //empty cut define
+	     ODEF.c_str(),	       //out define
+	     CUTS.c_str(), 	       //empty cut define
 	     bScaler,          //replay scalar?
 	     bHelicity,        //repaly helicity
 	     fstEvt,	       //First Event To Replay
