@@ -16,8 +16,8 @@
 #include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
 using namespace std;
 
-#define RIGHT_ARM_CONDITION run>=20000
-#define LEFT_ARM_CONDITION run<20000
+#define RIGHT_ARM_CONDITION nrun>=20000
+#define LEFT_ARM_CONDITION nrun<20000
 
 void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
@@ -28,7 +28,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 	    cout << "\nreplay: Please enter a Run Number (-1 to exit):";
 	    cin >> nrun;
 	    fgets(buf,300,stdin);//get the extra '\n' from stdin
-	    if( nrun<=0 ) break;
+	    if( nrun<=0 ) return;
 	    runnumber = nrun;
   }
 
@@ -41,7 +41,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   Bool_t bEloss=kFALSE;
  
 
-  char* RNAME="%s/tritium_%d.root";
+  const char* RNAME="%s/tritium_%d.root";
   TString ODEF;
   TString CUTS;
 
@@ -110,16 +110,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaPhysicsModule *EKR = new THaPrimaryKine("EKR","Electron kinematics in HRS-R","R","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKR);
 
-      THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R",beamchoice,mass_tg);
+      THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
       gHaPhysics->Add(EKRc);
 
-      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R",beamchoice);
+      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
       gHaPhysics->Add(rpr);
 
       THaExtTarCor *exR =  new THaExtTarCor("exR","Corrected for extended target, HRS-R","R","rpr");
       gHaPhysics->Add(exR);
 
-      THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR",beamchoice,mass_tg);
+      THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
 
       /*if(bEloss){
@@ -214,16 +214,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaPhysicsModule *EKL = new THaPrimaryKine("EKL","Electron kinematics in HRS-L","L","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKL);
 
-      THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L",beamchoice,mass_tg);
+      THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
       gHaPhysics->Add(EKLc);
 
-      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L",beamchoice);
+      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
       gHaPhysics->Add(rpl);
 
       THaExtTarCor *exL =  new THaExtTarCor("exL","Corrected for extended target, HRS-L","L","rpl");
       gHaPhysics->Add(exL);
 
-      THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL",beamchoice,mass_tg);
+      THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
       
       /*if(bEloss){
@@ -261,8 +261,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 	     0,                //-1=replay all;0=ask for a number
 	     all,              //default replay event num
 	     RNAME,            //output file format
-	     ODEF.c_str(),	       //out define
-	     CUTS.c_str(), 	       //empty cut define
+	     ODEF.Data(),	       //out define
+	     CUTS.Data(), 	       //empty cut define
 	     bScaler,          //replay scalar?
 	     bHelicity,        //repaly helicity
 	     fstEvt,	       //First Event To Replay
@@ -306,7 +306,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       gSystem->Exec(Form("ln -s left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
     }
   }
-  exit();
+  exit(0);
 }
  
 
