@@ -50,8 +50,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   
   if(RIGHT_ARM_CONDITION){
-    ODEF="/adaqfs/home/a-onl/tritium/replay/RHRS.odef";
-    CUTS="/adaqfs/home/a-onl/tritium/replay/RHRS.cuts";
+    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
     //==================================
@@ -154,8 +154,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    ODEF="/adaqfs/home/a-onl/tritium/replay/LHRS.odef";
-    CUTS="/adaqfs/home/a-onl/tritium/replay/LHRS.cuts";
+    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
+    CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
     //==================================
@@ -273,35 +273,37 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //Generate online plots
   //=====================================
   if(bPlots){
+  const char* GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
+  const char* SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
     if(RIGHT_ARM_CONDITION){
-      char* CONFIGFILE="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS.cfg";
-      char* CONFIGFILEPHYS="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS_phy.cfg";
+      const char* CONFIGFILE=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS.cfg");
+      const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
       
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILE,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_latest.pdf");
-      gSystem->Exec(Form("ln -s right_detectors_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
       
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILEPHYS,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_latest.pdf");
-      gSystem->Exec(Form("ln -s right_physics_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
     }
     else if(LEFT_ARM_CONDITION){ 
-      char* CONFIGFILE_L="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/LHRS.cfg";
-      char* CONFIGFILEPHYS_L="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/LHRS_phy.cfg";
+      const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
+      const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILE_L,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_latest.pdf");
-      gSystem->Exec(Form("ln -s left_detectors_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILEPHYS_L,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_latest.pdf");
-      gSystem->Exec(Form("ln -s left_physics_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
     }
   }
   exit();
