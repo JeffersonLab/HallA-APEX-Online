@@ -32,6 +32,11 @@
 //////////////////////////////////////////////////////////////////
 
 #include "TObject.h" //trick to avoid error: `Int_t' does not name a type
+#include "TString.h"
+
+//Used for setting paths. %s is necessary so that it can be used to Form the paths.
+//This allows changing the directory in fewer places for ease of portability.
+const char* REPLAY_DIR_PREFIX = "/adaqfs/home/a-onl/tritium/replay/%s";
 
 typedef struct _sReplaySetUp
 {
@@ -64,10 +69,10 @@ static const char* PATHS[] = {
 static const char* RAW_DATA_FORMAT="%s/gmp_%d.dat.%d";
 //static const char* RAW_DATA_FORMAT="%s/dvcs14_%d.dat.%d";
 
-static const char* STD_REPLAY_OUTPUT_DIR="/adaqfs/home/a-onl/tritium/replay/RootFiles";
-static const char* CUSTOM_REPLAY_OUTPUT_DIR="/adaqfs/home/a-onl/tritium/replay/ScratchROOTfiles";
+static const char* STD_REPLAY_OUTPUT_DIR=Form(REPLAY_DIR_PREFIX,"RootFiles");
+static const char* CUSTOM_REPLAY_OUTPUT_DIR=Form(REPLAY_DIR_PREFIX,"ScratchROOTfiles");
 
-static const char* SUMMARY_PHYSICS_FORMAT="/adaqfs/home/a-onl/tritium/replay/summaryfiles/summaryphy_%d.log";
+static const char* SUMMARY_PHYSICS_FORMAT=Form(REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
 
 //not used since Nov 15, 2008
 static const Int_t ANA_MARK_INTERVAL=1000;
