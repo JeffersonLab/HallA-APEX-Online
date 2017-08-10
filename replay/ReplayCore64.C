@@ -53,7 +53,7 @@
 #define ROOT_REPLAY_CORE
 
 
-#include "def_coinc.h"
+#include "def_tritium.h"
 
 #include <cstdio>
 #include <cstdlib>
