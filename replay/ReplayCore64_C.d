@@ -1,7 +1,8 @@
 
 # DO NOT DELETE
 
-./ReplayCore64_C.so: def_coinc.h /usr/include/root/TObject.h
+./ReplayCore64_C.so: def_tritium.h /usr/include/root/TObject.h
+./ReplayCore64_C.so: /usr/include/root/TString.h
 ./ReplayCore64_C.so: /usr/include/c++/4.8.5/cstdio
 ./ReplayCore64_C.so: /usr/include/c++/4.8.5/cstdlib
 ./ReplayCore64_C.so: /usr/include/c++/4.8.5/iostream
@@ -18,7 +19,6 @@
 ./ReplayCore64_C.so: /home/me/analyzer/hana_decode/Decoder.h
 ./ReplayCore64_C.so: /usr/include/root/Rtypes.h
 ./ReplayCore64_C.so: /home/me/analyzer/src/THaAnalyzer.h
-./ReplayCore64_C.so: /usr/include/root/TString.h
 ./ReplayCore64_C.so: /home/me/analyzer/src/THaGlobals.h
 ./ReplayCore64_C.so: /usr/include/root/DllImport.h
 ./ReplayCore64_C.so: /home/me/analyzer/src/THaCutList.h

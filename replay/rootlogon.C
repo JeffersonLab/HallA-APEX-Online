@@ -14,20 +14,24 @@
 //////////////////////////////////////////////////////////////////////////
 
 {
+  //Used for setting paths. %s is necessary so that it can be used to Form the paths.
+  //This allows changing the directory in only one place for ease of portability.
+  static const char* replay_dir_prefix = "/adaqfs/home/a-onl/tritium/replay/%s";
+
   TString Arch(gSystem->GetBuildArch());
   TString Arch32("linux");
   TString Arch64("linuxx8664gcc");
   if(Arch==Arch32){
     printf("\nrootlogon.C: Loading Replay Core Library..."); 
-  //  gSystem->Load("/adaqfs/home/a-onl/tritium/replay/old/ReplayCore_C.so");
+  //  gSystem->Load(Form(replay_dir_prefix,"old/ReplayCore_C.so"));
   }
 
   else if(Arch==Arch64){
     printf("\nrootlogon.C: Loading Replay Core Library..."); 
-    gSystem->Load("/adaqfs/home/a-onl/tritium/replay/ReplayCore64_C.so");
-    //gSystem->Load("libraries/Gmp_Beam_Eloss/libGmp_Beam_Eloss.so");
-    //gSystem->Load("libraries/Gmp_Track_Eloss/libGmp_Track_Eloss.so");
-    //gSystem->Load("libraries/Gmp_Xscin/libGmp_Xscin.so");
+    gSystem->Load(Form(replay_dir_prefix,"ReplayCore64_C.so"));
+    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Beam_Eloss.so"));
+    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Track_Eloss.so"));
+    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Xscin.so"));
   }
 
     //Load more libs here, if necessary. 

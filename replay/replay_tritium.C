@@ -16,8 +16,8 @@
 #include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
 using namespace std;
 
-#define RIGHT_ARM_CONDITION run>=20000
-#define LEFT_ARM_CONDITION run<20000
+#define RIGHT_ARM_CONDITION nrun>=20000
+#define LEFT_ARM_CONDITION nrun<20000
 
 void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
@@ -28,7 +28,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 	    cout << "\nreplay: Please enter a Run Number (-1 to exit):";
 	    cin >> nrun;
 	    fgets(buf,300,stdin);//get the extra '\n' from stdin
-	    if( nrun<=0 ) break;
+	    if( nrun<=0 ) return;
 	    runnumber = nrun;
   }
 
@@ -41,7 +41,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   Bool_t bEloss=kFALSE;
  
 
-  char* RNAME="%s/tritium_%d.root";
+  const char* RNAME="%s/tritium_%d.root";
   TString ODEF;
   TString CUTS;
 
@@ -50,8 +50,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   
   if(RIGHT_ARM_CONDITION){
-    ODEF="/adaqfs/home/a-onl/tritium/replay/RHRS.odef";
-    CUTS="/adaqfs/home/a-onl/tritium/replay/RHRS.cuts";
+    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
     //==================================
@@ -102,7 +102,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_argon; //default target 
+      Double_t mass_tg = mass_H3; //default target 
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
@@ -110,16 +110,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaPhysicsModule *EKR = new THaPrimaryKine("EKR","Electron kinematics in HRS-R","R","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKR);
 
-      THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R",beamchoice,mass_tg);
+      THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
       gHaPhysics->Add(EKRc);
 
-      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R",beamchoice);
+      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
       gHaPhysics->Add(rpr);
 
       THaExtTarCor *exR =  new THaExtTarCor("exR","Corrected for extended target, HRS-R","R","rpr");
       gHaPhysics->Add(exR);
 
-      THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR",beamchoice,mass_tg);
+      THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
 
       /*if(bEloss){
@@ -154,8 +154,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    ODEF="/adaqfs/home/a-onl/tritium/replay/LHRS.odef";
-    CUTS="/adaqfs/home/a-onl/tritium/replay/LHRS.cuts";
+    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
+    CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
     //==================================
@@ -206,7 +206,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_argon; //default target 
+      Double_t mass_tg = mass_H3; //default target 
   
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
@@ -214,16 +214,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaPhysicsModule *EKL = new THaPrimaryKine("EKL","Electron kinematics in HRS-L","L","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKL);
 
-      THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L",beamchoice,mass_tg);
+      THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
       gHaPhysics->Add(EKLc);
 
-      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L",beamchoice);
+      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
       gHaPhysics->Add(rpl);
 
       THaExtTarCor *exL =  new THaExtTarCor("exL","Corrected for extended target, HRS-L","L","rpl");
       gHaPhysics->Add(exL);
 
-      THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL",beamchoice,mass_tg);
+      THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
       
       /*if(bEloss){
@@ -261,8 +261,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 	     0,                //-1=replay all;0=ask for a number
 	     all,              //default replay event num
 	     RNAME,            //output file format
-	     ODEF.c_str(),	       //out define
-	     CUTS.c_str(), 	       //empty cut define
+	     ODEF.Data(),	       //out define
+	     CUTS.Data(), 	       //empty cut define
 	     bScaler,          //replay scalar?
 	     bHelicity,        //repaly helicity
 	     fstEvt,	       //First Event To Replay
@@ -273,38 +273,40 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //Generate online plots
   //=====================================
   if(bPlots){
+  const char* GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
+  const char* SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
     if(RIGHT_ARM_CONDITION){
-      char* CONFIGFILE="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS.cfg";
-      char* CONFIGFILEPHYS="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/RHRS_phy.cfg";
+      const char* CONFIGFILE=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS.cfg");
+      const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
       
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILE,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_latest.pdf");
-      gSystem->Exec(Form("ln -s right_detectors_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_detectors_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
       
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILEPHYS,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_latest.pdf");
-      gSystem->Exec(Form("ln -s right_physics_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/right_physics_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
     }
     else if(LEFT_ARM_CONDITION){ 
-      char* CONFIGFILE_L="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/LHRS.cfg";
-      char* CONFIGFILEPHYS_L="/adaqfs/home/a-onl/tritium/replay/onlineGUI64/LHRS_phy.cfg";
+      const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
+      const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILE_L,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_latest.pdf");
-      gSystem->Exec(Form("ln -s left_detectors_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_detectors_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
 
-      gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", CONFIGFILEPHYS_L,runnumber));
-      gSystem->Exec(Form("mv /adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_%d.pdf",runnumber,runnumber));
-      gSystem->Exec("unlink /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_latest.pdf");
-      gSystem->Exec(Form("ln -s left_physics_%d.pdf /adaqfs/home/a-onl/tritium/replay/summaryfiles/left_physics_latest.pdf",runnumber));
+      gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
     }
   }
-  exit();
+  exit(0);
 }
  
 
