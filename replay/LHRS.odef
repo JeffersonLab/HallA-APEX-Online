@@ -22,21 +22,21 @@ block EltL.*
 block EKLxe.*
 
 #BPM/Raster Variables
-FORMULA rbax 1000.*LrbGmp.BPMA.x
-FORMULA rbay 1000.*LrbGmp.BPMA.y
-FORMULA rbbx 1000.*LrbGmp.BPMB.x
-FORMULA rbby 1000.*LrbGmp.BPMB.y
-FORMULA rbx 1000.*LrbGmp.x
-FORMULA rby 1000.*LrbGmp.y
-FORMULA bpmaws LrbGmp.BPMA.rawcur.1+LrbGmp.BPMA.rawcur.2+LrbGmp.BPMA.rawcur.3+LrbGmp.BPMA.rawcur.4
-FORMULA bpmbws LrbGmp.BPMB.rawcur.1+LrbGmp.BPMB.rawcur.2+LrbGmp.BPMB.rawcur.3+LrbGmp.BPMB.rawcur.4
-Variable LrbGmp.Raster.rawcur.x
-Variable LrbGmp.Raster.rawcur.y
-Variable LrbGmp.Raster2.rawcur.x
-Variable LrbGmp.Raster2.rawcur.y
-Variable LrbGmp.dir.x
-Variable LrbGmp.dir.y
-Variable LrbGmp.e
+FORMULA rbax 1000.*Lrb.BPMA.x
+FORMULA rbay 1000.*Lrb.BPMA.y
+FORMULA rbbx 1000.*Lrb.BPMB.x
+FORMULA rbby 1000.*Lrb.BPMB.y
+FORMULA rbx 1000.*Lrb.x
+FORMULA rby 1000.*Lrb.y
+FORMULA bpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
+FORMULA bpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
+Variable Lrb.Raster.rawcur.x
+Variable Lrb.Raster.rawcur.y
+Variable Lrb.Raster2.rawcur.x
+Variable Lrb.Raster2.rawcur.y
+Variable Lrb.dir.x
+Variable Lrb.dir.y
+Variable Lrb.e
 
 #-------------------------------------------------------------------
 # LEFT ARM S0
