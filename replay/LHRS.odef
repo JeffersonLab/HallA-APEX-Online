@@ -102,82 +102,28 @@ TH1F Lvv2w 'L-arm VDC v2 wires' L.vdc.v2.wire 400 0 400
 #-------------------------------------------------------------------------------
 #
 ### Corrected Straw Number of hit
-TH1F  v1_stn_c  'Straw Number of hit on V1' L.fpp.v1.straw_c 200 0 200
-TH1F  v2_stn_c  'Straw Number of hit on V2' L.fpp.v2.straw_c 200 0 200
-TH1F  v3_stn_c  'Straw Number of hit on V3' L.fpp.v3.straw_c 200 0 200
-TH1F  u1_stn_c  'Straw Number of hit on U1' L.fpp.u1.straw_c 200 0 200
-TH1F  u2_stn_c  'Straw Number of hit on U2' L.fpp.u2.straw_c 200 0 200
-TH1F  u3_stn_c  'Straw Number of hit on U3' L.fpp.u3.straw_c 200 0 200
 
 ### Wire group hits
-TH1F  v1_wn  'Number of hits Per WG on V1' L.fpp.v1.wire 250 0 25
-TH1F  v2_wn  'Number of hits Per WG on V2' L.fpp.v2.wire 250 0 25
-TH1F  v3_wn  'Number of hits Per WG on V3' L.fpp.v3.wire 250 0 25
-TH1F  u1_wn  'Number of hits Per WG on U1' L.fpp.u1.wire 250 0 25
-TH1F  u2_wn  'Number of hits Per WG on U2' L.fpp.u2.wire 250 0 25
-TH1F  u3_wn  'Number of hits Per WG on U3' L.fpp.u3.wire 250 0 25
+
 
 ### Wire Vs. Hit Histograms (FPP)
-TH2F  v1_nh_wn  'Number of hits vs. Wire Number on V1'  L.fpp.v1.nhit L.fpp.v1.wire 250 0 10 250 0 20
-TH2F  v2_nh_wn  'Number of hits vs. Wire Number on V2'  L.fpp.v2.nhit L.fpp.v2.wire 250 0 10 250 0 20
-TH2F  v3_nh_wn  'Number of hits vs. Wire Number on V3'  L.fpp.v3.nhit L.fpp.v3.wire 250 0 10 250 0 20
-TH2F  u1_nh_wn  'Number of hits vs. Wire Number on U1'  L.fpp.u1.nhit L.fpp.u1.wire 250 0 10 250 0 22
-TH2F  u2_nh_wn  'Number of hits vs. Wire Number on U2'  L.fpp.u2.nhit L.fpp.u2.wire 250 0 10 250 0 22
-TH2F  u3_nh_wn  'Number of hits vs. Wire Number on U3'  L.fpp.u3.nhit L.fpp.u3.wire 250 0 10 250 0 22
+
 
 ### Track X position Vs. Straw Number (FPP)
-TH2F  v1_X_stn  'Track X vs Straw Number on V1'  L.fpp.v1.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
-TH2F  v2_X_stn  'Track X vs Straw Number on V2'  L.fpp.v2.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
-TH2F  v3_X_stn  'Track X vs Straw Number on V3'  L.fpp.v3.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
-TH2F  u1_X_stn  'Track X vs Straw Number on U1'  L.fpp.u1.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
-TH2F  u2_X_stn  'Track X vs Straw Number on U2'  L.fpp.u2.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
-TH2F  u3_X_stn  'Track X vs Straw Number on U3'  L.fpp.u3.straw_c L.fpp.trx  200 0 200 200 -2 2 L.tr.n>0
 
 ##TDC Width Histograms
-TH1F u1_tdc 'TDC Widths for U1' L.fpp.u1.width 100 0 160
-TH1F u2_tdc 'TDC Widths for U2' L.fpp.u2.width 100 0 160
-TH1F u3_tdc 'TDC Widths for U3' L.fpp.u3.width 100 0 160
-TH1F v1_tdc 'TDC Widths for V1' L.fpp.v1.width 100 0 160
-TH1F v2_tdc 'TDC Widths for V2' L.fpp.v2.width 100 0 160
-TH1F v3_tdc 'TDC Widths for V3' L.fpp.v3.width 100 0 160
+
 
 ##TDC Width Vs. Wire Group hits
-TH2F u1_tdc_wg 'TDC Widths Vs. WG for U1' L.fpp.u1.width L.fpp.u1.wire 100 0 200 250 0 25
-TH2F u2_tdc_wg 'TDC Widths Vs. WG for U2' L.fpp.u2.width L.fpp.u2.wire 100 0 200 250 0 25
-TH2F u3_tdc_wg 'TDC Widths Vs. WG for U3' L.fpp.u3.width L.fpp.u3.wire 100 0 200 250 0 25
-TH2F v1_tdc_wg 'TDC Widths Vs. WG for V1' L.fpp.v1.width L.fpp.v1.wire 100 0 200 250 0 25
-TH2F v2_tdc_wg 'TDC Widths Vs. WG for V2' L.fpp.v2.width L.fpp.v2.wire 100 0 200 250 0 25
-TH2F v3_tdc_wg 'TDC Widths Vs. WG for V3' L.fpp.v3.width L.fpp.v3.wire 100 0 200 250 0 25
 
 ### Leading Edge TDC Histograms
-TH1F u1_ltdc 'Leading Edge TDC for U1' L.fpp.u1.ltdc 100 1100 1800
-TH1F u2_ltdc 'Leading Edge TDC for U2' L.fpp.u2.ltdc 100 1100 1800
-TH1F u3_ltdc 'Leading Edge TDC for U3' L.fpp.u3.ltdc 100 1100 1800
-TH1F v1_ltdc 'Leading Edge TDC for V1' L.fpp.v1.ltdc 100 1100 1800
-TH1F v2_ltdc 'Leading Edge TDC for V2' L.fpp.v2.ltdc 100 1100 1800
-TH1F v3_ltdc 'Leading Edge TDC for V3' L.fpp.v3.ltdc 100 1100 1800
 
 ### Leading Edge TDC Histograms (corrected)
-TH1F u1_ltdc_c 'Leading Edge TDC for U1(Corrected)' L.fpp.u1.ltdc_c 80 -40 240
-TH1F u2_ltdc_c 'Leading Edge TDC for U2(Corrected)' L.fpp.u2.ltdc_c 80 -40 240
-TH1F u3_ltdc_c 'Leading Edge TDC for U3(Corrected)' L.fpp.u3.ltdc_c 80 -40 240
-TH1F v1_ltdc_c 'Leading Edge TDC for V1(Corrected)' L.fpp.v1.ltdc_c 80 -40 240
-TH1F v2_ltdc_c 'Leading Edge TDC for V2(Corrected)' L.fpp.v2.ltdc_c 80 -40 240
-TH1F v3_ltdc_c 'Leading Edge TDC for V3(Corrected)' L.fpp.v3.ltdc_c 80 -40 240
 
 ### Leading Edge Drift distance Histograms (corrected)
-TH1F u1_dd_c 'Drift Distance for U1(Corrected)' L.fpp.u1.drfdst 100 -0.05 0.55
-TH1F u2_dd_c 'Drift Distance for U2(Corrected)' L.fpp.u2.drfdst 100 -0.05 0.55
-TH1F u3_dd_c 'Drift Distance for U3(Corrected)' L.fpp.u3.drfdst 100 -0.05 0.55
-TH1F v1_dd_c 'Drift Distance for V1(Corrected)' L.fpp.v1.drfdst 100 -0.05 0.55
-TH1F v2_dd_c 'Drift Distance for V2(Corrected)' L.fpp.v2.drfdst 100 -0.05 0.55
-TH1F v3_dd_c 'Drift Distance for V3(Corrected)' L.fpp.v3.drfdst 100 -0.05 0.55
 
 
 ### Number of Hits Spectra
-TH1F fpp_nhit 'Total number of hits Spectra' L.fpp.u1.nhit+L.fpp.u2.nhit+L.fpp.u3.nhit+L.fpp.v1.nhit+L.fpp.v2.nhit+L.fpp.v3.nhit 40 0 40
-TH1F fpp_ufront 'U chamber hits' L.fpp.u1.nhit+L.fpp.u2.nhit+L.fpp.u3.nhit 20 0 20
-TH1F fpp_vfront 'V chamber hits' L.fpp.v1.nhit+L.fpp.v2.nhit+L.fpp.v3.nhit 20 0 20	
 
 #-------------------------------------------------------------------------------
 # LEFT Arm Tracking & Reconstruction Histograms  :
@@ -256,37 +202,37 @@ TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 800 -15. 15. 
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
 #This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
-TH1F rastx1 'Fast Raster 1 X current' LrbGmp.Raster.rawcur.x 500 1500 5500
-TH1F rasty1 'Fast Raster 1 Y current' LrbGmp.Raster.rawcur.y 500 1500 5500
-TH1F rastx2 'Fast Raster 2 X current' LrbGmp.Raster2.rawcur.x 500 1500 5500
-TH1F rasty2 'Fast Raster 2 Y current' LrbGmp.Raster2.rawcur.y 500 1500 5500
+TH1F rastx1 'Fast Raster 1 X current' Lrb.Raster.rawcur.x 500 1500 5500
+TH1F rasty1 'Fast Raster 1 Y current' Lrb.Raster.rawcur.y 500 1500 5500
+TH1F rastx2 'Fast Raster 2 X current' Lrb.Raster2.rawcur.x 500 1500 5500
+TH1F rasty2 'Fast Raster 2 Y current' Lrb.Raster2.rawcur.y 500 1500 5500
 
-TH2F rastxy1 'Fast Raster 1 X vs Y (current)' LrbGmp.Raster.rawcur.x LrbGmp.Raster.rawcur.y 300 0 8000 300 0 8000
-TH2F rastxy2 'Fast Raster 2 X vs Y (current)' LrbGmp.Raster2.rawcur.x LrbGmp.Raster2.rawcur.y 300 0 8000 300 0 8000
-TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' LrbGmp.Raster2.rawcur.x LrbGmp.Raster.rawcur.x 300 0 8000 300 0 8000
-TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' LrbGmp.Raster2.rawcur.y LrbGmp.Raster.rawcur.y 300 0 8000 300 0 8000
-TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' LrbGmp.Raster2.rawcur.y LrbGmp.Raster.rawcur.x 300 0 8000 300 0 8000
-TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' LrbGmp.Raster.rawcur.y LrbGmp.Raster2.rawcur.x 300 0 8000 300 0 8000
+TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.x Lrb.Raster.rawcur.y 300 0 8000 300 0 8000
+TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.x Lrb.Raster2.rawcur.y 300 0 8000 300 0 8000
+TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 300 0 8000 300 0 8000
+TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 300 0 8000 300 0 8000
+TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 300 0 8000 300 0 8000
+TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 300 0 8000 300 0 8000
 
-TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' LrbGmp.Raster.rawcur.x rbax 500 0 5000 200 -5. 5.
-TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' LrbGmp.Raster.rawcur.y rbay 500 0 5000 200 -5. 5.
-TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' LrbGmp.Raster.rawcur.x rbbx 500 0 5000 200 -5. 5.
-TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' LrbGmp.Raster.rawcur.y rbby 500 0 5000 200 -5. 5.
+TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Lrb.Raster.rawcur.x rbax 500 0 5000 200 -5. 5.
+TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Lrb.Raster.rawcur.y rbay 500 0 5000 200 -5. 5.
+TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' Lrb.Raster.rawcur.x rbbx 500 0 5000 200 -5. 5.
+TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' Lrb.Raster.rawcur.y rbby 500 0 5000 200 -5. 5.
 
-TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' LrbGmp.Raster.rawcur.y rbax 500 0 5000 200 -5. 5.
-TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' LrbGmp.Raster.rawcur.x rbay 500 0 5000 200 -5. 5.
-TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' LrbGmp.Raster.rawcur.y rbbx 500 0 5000 200 -5. 5.
-TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' LrbGmp.Raster.rawcur.x rbby 500 0 5000 200 -5. 5.
+TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' Lrb.Raster.rawcur.y rbax 500 0 5000 200 -5. 5.
+TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.x rbay 500 0 5000 200 -5. 5.
+TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.y rbbx 500 0 5000 200 -5. 5.
+TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.x rbby 500 0 5000 200 -5. 5.
 
-TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' LrbGmp.Raster2.rawcur.x rbax 500 0 5000 200 -5. 5.
-TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' LrbGmp.Raster2.rawcur.y rbay 500 0 5000 200 -5. 5.
-TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' LrbGmp.Raster2.rawcur.x rbbx 500 0 5000 200 -5. 5.
-TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' LrbGmp.Raster2.rawcur.y rbby 500 0 5000 200 -5. 5.
+TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x rbax 500 0 5000 200 -5. 5.
+TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y rbay 500 0 5000 200 -5. 5.
+TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x rbbx 500 0 5000 200 -5. 5.
+TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y rbby 500 0 5000 200 -5. 5.
 
-TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' LrbGmp.Raster2.rawcur.y rbax 500 0 5000 200 -5. 5.
-TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' LrbGmp.Raster2.rawcur.x rbay 500 0 5000 200 -5. 5.
-TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' LrbGmp.Raster2.rawcur.y rbbx 500 0 5000 200 -5. 5.
-TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' LrbGmp.Raster2.rawcur.x rbby 500 0 5000 200 -5. 5.
+TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.y rbax 500 0 5000 200 -5. 5.
+TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.x rbay 500 0 5000 200 -5. 5.
+TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Lrb.Raster2.rawcur.y rbbx 500 0 5000 200 -5. 5.
+TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Lrb.Raster2.rawcur.x rbby 500 0 5000 200 -5. 5.
 
 # ------------------------------------------------------------------
 # Event type 140 
@@ -383,7 +329,7 @@ begin scalers Left
   sh_sum 5 30
   sh_sumc 5 30 counts
 
-end scalers
+end scalers left
 
 # ------------------------------------------------------------------
 # Crate 11 scalers
@@ -432,7 +378,7 @@ begin scalers evleft
   bcm_unewc 7 6 counts
   bcm_dnewc 7 7 counts
 
-end scalers
+end scalers evleft
 
 #--------------------------------------------
 begin epics
