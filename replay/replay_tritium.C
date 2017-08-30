@@ -56,10 +56,12 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Detectors
     //==================================
     THaHRS* HRSR = new THaHRS("R","Right arm HRS");
-    //HRSR->SetDebug(1);
+    HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
     //HRSR->AddDetector( new Gmp_Xscin("s0","s0 scintillator",kTRUE) );
+    HRSR->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
     HRSR->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter" ));
+    HRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator" ));
     HRSR->AddDetector( new THaShower("ps", "Pre-shower pion rej." ));
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
 
@@ -160,9 +162,12 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Detectors
     //==================================
     THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     //HRSL->AddDetector( new Gmp_Xscin("s0","s0 scintillator",kFALSE) );
+    HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter" ));
+    HRSL->AddDetector( new THaScintillator("s2", "S2 Scintillator" ));
     HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
     HRSL->AddDetector( new THaShower("prl2", "Show pion rej." ));
 
