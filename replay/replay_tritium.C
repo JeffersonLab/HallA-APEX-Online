@@ -10,7 +10,6 @@
  * - Make work for coincidence as well? Or use separate script?
  * - Do we use GMP S0 Class or stock? GMP class needs to be updated to be 1.6 compatible
  * - Are we using energy loss classes? Need to be made 1.6 compatible
- * - Scaler code is not 1.6 correct. Needs a new DB file before correct code would work.
  */
 
 #include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
@@ -68,14 +67,10 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //==================================
     //  Scalers
     //==================================
-    /*if(bScaler){
-      THaScalerGroup* RightScalers = new THaScalerGroup("Right");
-      RightScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(RightScalers); 
-      THaScalerGroup* EvRightScalers = new THaScalerGroup("evright");
-      EvRightScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(EvRightScalers);
-    }*/
+    if(bScaler){
+      THaScalerEvtHandler* rscaler = new THaScalerEvtHandler("Right ","HA scaler event type 140 on R-HRS");
+      gHaEvtHandlers->Add(rscaler);
+    }
 
     //==================================
     //  Decoder Data
@@ -174,14 +169,10 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //==================================
     //  Scaler
     //==================================
-    /*if(bScaler){
-      THaScalerGroup* LeftScalers = new THaScalerGroup("Left");
-      THaScalerGroup* EvLeftScalers = new THaScalerGroup("evleft");
-      LeftScalers->GetScalerObj()->SetClockRate(103700);
-      EvLeftScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(LeftScalers);
-      gHaScalers->Add(EvLeftScalers);
-    }*/
+    if(bScaler){
+      THaScalerEvtHandler* lscaler = new THaScalerEvtHandler("Left","HA scaler event type 140 on L-HRS");
+      gHaEvtHandlers->Add(lscaler);
+    }
 
     //==================================
     //  Decoder Data
