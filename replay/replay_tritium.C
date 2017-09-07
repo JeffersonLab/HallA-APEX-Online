@@ -10,7 +10,6 @@
  * - Make work for coincidence as well? Or use separate script?
  * - Do we use GMP S0 Class or stock? GMP class needs to be updated to be 1.6 compatible
  * - Are we using energy loss classes? Need to be made 1.6 compatible
- * - Scaler code is not 1.6 correct. Needs a new DB file before correct code would work.
  */
 
 #include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
@@ -56,24 +55,22 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Detectors
     //==================================
     THaHRS* HRSR = new THaHRS("R","Right arm HRS");
-    //HRSR->SetDebug(1);
+    HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
     //HRSR->AddDetector( new Gmp_Xscin("s0","s0 scintillator",kTRUE) );
+    HRSR->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
     HRSR->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter" ));
+    HRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator" ));
     HRSR->AddDetector( new THaShower("ps", "Pre-shower pion rej." ));
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
 
     //==================================
     //  Scalers
     //==================================
-    /*if(bScaler){
-      THaScalerGroup* RightScalers = new THaScalerGroup("Right");
-      RightScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(RightScalers); 
-      THaScalerGroup* EvRightScalers = new THaScalerGroup("evright");
-      EvRightScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(EvRightScalers);
-    }*/
+    if(bScaler){
+      THaScalerEvtHandler* rscaler = new THaScalerEvtHandler("Right ","HA scaler event type 140 on R-HRS");
+      gHaEvtHandlers->Add(rscaler);
+    }
 
     //==================================
     //  Decoder Data
@@ -160,23 +157,22 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Detectors
     //==================================
     THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     //HRSL->AddDetector( new Gmp_Xscin("s0","s0 scintillator",kFALSE) );
+    HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter" ));
+    HRSL->AddDetector( new THaScintillator("s2", "S2 Scintillator" ));
     HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
     HRSL->AddDetector( new THaShower("prl2", "Show pion rej." ));
 
     //==================================
     //  Scaler
     //==================================
-    /*if(bScaler){
-      THaScalerGroup* LeftScalers = new THaScalerGroup("Left");
-      THaScalerGroup* EvLeftScalers = new THaScalerGroup("evleft");
-      LeftScalers->GetScalerObj()->SetClockRate(103700);
-      EvLeftScalers->GetScalerObj()->SetClockRate(103700);
-      gHaScalers->Add(LeftScalers);
-      gHaScalers->Add(EvLeftScalers);
-    }*/
+    if(bScaler){
+      THaScalerEvtHandler* lscaler = new THaScalerEvtHandler("Left","HA scaler event type 140 on L-HRS");
+      gHaEvtHandlers->Add(lscaler);
+    }
 
     //==================================
     //  Decoder Data
