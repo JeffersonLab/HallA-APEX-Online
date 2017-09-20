@@ -1,0 +1,79 @@
+clang++ -O -Wall -Woverloaded-virtual -fPIC -pthread -stdlib=libc++ -m64 -I/Users/tong/apps/root/install/5.34.36-clang/include -I/Users/tong/apps/analyzer-Release-150/src -I/Users/tong/apps/analyzer-Release-150/hana_decode -I/Users/tong/apps/analyzer-Release-150/hana_scaler -I/Users/tong/Ar_replay/libraries/Gmp_Xscin   -c -o Gmp_Xscin.o Gmp_Xscin.C
+Generating dictionary Gmp_XscinDict...
+/Users/tong/apps/root/install/5.34.36-clang/bin/rootcint -f Gmp_XscinDict.cxx -c -pthread -stdlib=libc++ -m64 -I/Users/tong/apps/root/install/5.34.36-clang/include -I/Users/tong/apps/analyzer-Release-150/src -I/Users/tong/apps/analyzer-Release-150/hana_decode -I/Users/tong/apps/analyzer-Release-150/hana_scaler -I/Users/tong/Ar_replay/libraries/Gmp_Xscin -DMACVERS Gmp_Xscin.h Gmp_Xscin_LinkDef.h
+ -s : Step into function/loop mode
+
+!!!Calling default constructor (G__CINT_ENDL()) 0x7fe3cbe05210 for declaration of endl  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2785
+
+!!!Calling default constructor (G__CINT_ENDS()) 0x7fe3cbe05770 for declaration of ends  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2785
+
+!!!Calling default constructor (G__CINT_FLUSH()) 0x7fe3cbe05cd0 for declaration of flush  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2785
+
+!!!Calling default constructor (G__CINT_ws()) 0x7fe3cbe06230 for declaration of ws  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2785
+
+!!!Calling default constructor (G__CINT_WS()) 0x7fe3cbe06790 for declaration of WS  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2785
+;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::hex,ios_base::basefield)) 0x7fe3cbe06890 for declaration of hex  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::oct,ios_base::basefield)) 0x7fe3cbe06a50 for declaration of oct  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::dec,ios_base::basefield)) 0x7fe3cbe06aa0 for declaration of dec  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::scientific,ios_base::floatfield)) 0x7fe3cbe06ac0 for declaration of scientific  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::fixed,ios_base::floatfield)) 0x7fe3cbf00160 for declaration of fixed  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::boolalpha,ios_base::boolalpha)) 0x7fe3cbf00240 for declaration of boolalpha  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::showbase,ios_base::showbase)) 0x7fe3cbf003b0 for declaration of showbase  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::showpoint,ios_base::showpoint)) 0x7fe3cbf006e0 for declaration of showpoint  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::showpos,ios_base::showpos)) 0x7fe3cbf00880 for declaration of showpos  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::skipws,ios_base::skipws)) 0x7fe3cbf00a20 for declaration of skipws  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::unitbuf,ios_base::unitbuf)) 0x7fe3cbf00bc0 for declaration of unitbuf  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   ;
+!!!Calling constructor (G__CINT_IOFLAGS(ios_base::uppercase,ios_base::uppercase)) 0x7fe3cbf00d60 for declaration of uppercase  /Users/tong/apps/root/root-5.34.36/cint/cint/src/decl.cxx:2218
+
+# iostream.h
+463  G__CINT_IOFLAGS::G__CINT_IOFLAGS(int f = 0, int m = 0): flag(f), mask(m) {}
+# iostream.h   
+  Bye... (try 'qqq' if still running)
+rootcint> clang++ -O -Wall -Woverloaded-virtual -fPIC -pthread -stdlib=libc++ -m64 -I/Users/tong/apps/root/install/5.34.36-clang/include -I/Users/tong/apps/analyzer-Release-150/src -I/Users/tong/apps/analyzer-Release-150/hana_decode -I/Users/tong/apps/analyzer-Release-150/hana_scaler -I/Users/tong/Ar_replay/libraries/Gmp_Xscin -o Gmp_XscinDict.o -c Gmp_XscinDict.cxx
+g++ -O -shared -Wl,-undefined,dynamic_lookup -o libGmp_Xscin.so Gmp_Xscin.o Gmp_XscinDict.o
+libGmp_Xscin.so done

@@ -29,9 +29,13 @@
   else if(Arch==Arch64){
     printf("\nrootlogon.C: Loading Replay Core Library..."); 
     gSystem->Load(Form(replay_dir_prefix,"ReplayCore64_C.so"));
-    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Beam_Eloss.so"));
-    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Track_Eloss.so"));
-    //gSystem->Load(Form(replay_dir_prefix,"libGmp_Xscin.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Xscin/libTritium_Xscin.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Hanjie_Scin/libTriFadcScin.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Hanjie_Scin/libTriFadcCherenkov.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_TSScaler/libTritium_TSScaler.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Evt100/libTritium_THaScalerEvt100Handler.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Beam_Eloss/libTritium_Beam_Eloss.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Track_Eloss/libTritium_Track_Eloss.so"));
   }
 
     //Load more libs here, if necessary. 
