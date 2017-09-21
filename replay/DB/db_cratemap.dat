@@ -8,6 +8,7 @@
 	20	1881	1	0x0	0x0	64	64
 	21	1881	1	0x0	0x0	64	64
 	22	1881	1	0x0	0x0	64	64
+	31	1881	1	0x0	0x0	64	64
 ==== Crate 4 type fastbus
 #	slot	model	clear	header	mask	nchan	ndata
 	3	1877	1	0x0	0x0	96	672
@@ -21,6 +22,8 @@
 	11	1877	1	0x0	0x0	96	672
 	17	1877	1	0x0	0x0	96	672
 	18	1877	1	0x0	0x0	96	672
+	22	1877	1	0x0	0x0	96	672
+	31	1877	1	0x0	0x0	96	672
 ==== Crate 5 type fastbus
 #	slot	model	clear	header	mask	nchan	ndata
 	16	1877	1	0x0	0x0	96	672
@@ -32,6 +35,7 @@
 	22	1877	1	0x0	0x0	96	672
 	23	1877	1	0x0	0x0	96	672
 	24	1877	1	0x0	0x0	96	672
+	31	1877	1	0x0	0x0	96	672
 ==== Crate 2 type fastbus
 #	slot	model	clear	header	mask	nchan	ndata
 	3	1877	1	0x0	0x0	96	672
@@ -68,16 +72,16 @@
 	23	1881	1	0x0	0x0	64	64	
 ==== Crate 11 type scaler "evleft" 
 #      slot	model	clear	header	mask	nchan	ndata
-        1	3801	1	0xabc10000	0xffff0000	32	32
-        2	3801	1	0xabc20000	0xffff0000	32	32
-        3	3800	1	0xabc30000	0xffff0000	32	32
+   	1	3801	1	0xabc10000	0xffff0000	32	32
+    2	3801	1	0xabc20000	0xffff0000	32	32
+    3	3800	1	0xabc30000	0xffff0000	32	32
 	4	3800	1	0xabc40000	0xffff0000	32	32
 	5	3800	1	0xabc50000	0xffff0000	32	32
 	6	3800	1	0xabc60000	0xffff0000	32	32
-        7	3800	1	0xabc70000	0xffff0000	32	32
+    7	3800	1	0xabc70000	0xffff0000	32	32
 ==== Crate 10 type scaler "evright" 
 #      slot	model	clear	header	mask	nchan	ndata  
-        1	3800	1	0xceb10000	0xffff0000	32	32
+    1	3800	1	0xceb10000	0xffff0000	32	32
 	2	3800	1	0xceb20000	0xffff0000	32	32
 	3	1151	1	0xceb30000	0xffff0000	16	16
 	4	1151	1	0xceb40000	0xffff0000	16	16
