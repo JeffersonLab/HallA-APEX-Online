@@ -10,13 +10,14 @@
 //          Chao Gu         Update for g2p use      Mar 2012
 //          Kalyan Allada   Update for GMp expt.    Dec 2013
 //	    Florian Hauenstein   Update for Tritum expt.    Feb 2017
+//          Tyler Hague     1.6 compatability update Sep 2017
 //
 //////////////////////////////////////////////////////////////////////////
 
 {
   //Used for setting paths. %s is necessary so that it can be used to Form the paths.
   //This allows changing the directory in only one place for ease of portability.
-  static const char* replay_dir_prefix = "/home/jbane/tritium/triton/HallA-Online-Tritium/replay/%s";
+  static const char* replay_dir_prefix = "/adaqfs/home/a-onl/tritium/replay/%s";
   TString Arch(gSystem->GetBuildArch());
   TString Arch32("linux");
   TString Arch64("linuxx8664gcc");
