@@ -7,11 +7,6 @@ Rrb.Raster2.detmap =
 Rrb.Raster2.zpos = -7.345  -2.214  0
 Rrb.Raster2.freqs = 18.3  18.3
 Rrb.Raster2.slope_peds = 1633  1643
-Rrb.Raster2.raw2posA = -0.00188229 -0.00433176 2.90304e-07 1.05392e-06 0. 0.
-Rrb.Raster2.raw2posB = -0.0019523 -0.0045559 3.51153e-07 8.12287e-07 0. 0.
-Rrb.Raster2.raw2posT = -0.00196878 -0.00698268 4.06196e-07 1.48163e-06 0. 0.
-
-
-
-
-
+Rrb.Raster2.raw2posA =-0.00318573 0.00658359 4.99637e-07 -1.96628e-06 0. 0.
+Rrb.Raster2.raw2posB = -0.00347578 0.00241823 5.94911e-07 -1.26552e-06 0. 0.
+Rrb.Raster2.raw2posT = -0.00372615 0.00154953 6.65365e-07 -1.24428e-06 0. 0.

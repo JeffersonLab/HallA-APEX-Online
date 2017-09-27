@@ -9,7 +9,10 @@
 *.root
 *root_hist
 *.xpm
-
+replay/*.0
+replay/*.so
+replay/*.d
+replay/.pcm
 
 replay/DB/*
 replay/RootFiles
@@ -26,3 +29,5 @@ scaler/hana_scaler/tscalonl
 scaler/hana_scaler/tscalring
 scaler/hana_scaler/tscalroc11
 scaler/hana_scaler/xscaler
+
+replay/libs/*
