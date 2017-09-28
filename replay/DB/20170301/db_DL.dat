@@ -3,7 +3,7 @@
 # Taken from December 2012 online replay database
 # See THaDecData.C for documentation.
 
-D.word =
+DL.word =
 # event number
 evtroc3           3    fabc0008   4
 evtroc4           4    fabc0008   4
@@ -45,7 +45,7 @@ scalLive2         11    fed00017   21
 trigCount         11    fed00017   22
 trigData          11    fed00017   23
 
-D. =crate
+DL.crate =
 # L-HRS triggers in TDC
 t1		4	11	48
 t2		4	11	49
@@ -56,13 +56,6 @@ t6		4	11	53
 t7		4	11	54
 t8		4	11	55
 l1a		4	11	62
-
-# These need to be modified
-# fastclk 	 4	11	56
-# adcgate 	 4	11	57
-# l1a_L	  	 4	11	58
-# strobe  	 4	11	59
-# edtpl   	 4	11	62
 
 # Sync ADC (may need to be modified)
 ADCsync3     3  1  0
@@ -132,3 +125,11 @@ lbit9             5    16      24
 lbit10            5    16      25 
 lbit11            5    16      26 
 lbit12            5    16      27 
+
+D.old =
+/////////# These need to be modified
+# fastclk 	 4	11	56
+# adcgate 	 4	11	57
+# l1a_L	  	 4	11	58
+# strobe  	 4	11	59
+# edtpl   	 4	11	62
