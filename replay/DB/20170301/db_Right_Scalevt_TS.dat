@@ -1,15 +1,15 @@
 --------[ 2017-03-01 00:00:00 -0500 ]
-# scaler.map file for Right HRS event type 250
+# scaler.map file for Right HRS event type 1-14
 # comments start with #
 
 # map syntax
 # scaler, type, crate, slot, header, mask, norm slot#
 # after the norm slot#:  clock chan# and clock frequency
 
-map 3800 7 1 ceb10000 ffff0000 1
-map 3800 7 2 ceb20000 ffff0000 1 9 103700
-map 1151 7 3 ceb30000 ffff0000 1
-map 1151 7 4 ceb40000 ffff0000 1
+map 3800 7 1 ceb10000 ffff0000 1 9 103700
+map 3800 7 2 ceb20000 ffff0000 1 9 
+#map 1151 7 3 ceb30000 ffff0000 1
+#map 1151 7 4 ceb40000 ffff0000 1
 
 
 # variable syntax
@@ -28,8 +28,11 @@ variable 1 7 1  T8_c trigger 8 on Right Arm
 variable 1 8 1 bcm_d1_copy_c copy of the bcm_d1
 variable 1 9 1 Fast_clock_c  1038KHZ clock
 variable 1 10 1 TDC_gate_c   TDC gate
+variable 1 11 1 empty1
 variable 1 12 1 L1A_c level one acceptance 
 variable 1 13 1 L1A_copy_c copy of the L1A 
+variable 1 14 1 empty2
+variable 1 15 1 empty3
 variable 1 16 1 cer_1_c 1st channel of cerenkov
 variable 1 17 1 cer_2_c 2nd channel of cerenkov
 variable 1 18 1 cer_3_c 3rd channel of cerenkov
@@ -59,8 +62,11 @@ variable 1 7 2  T8_r trigger 8 on Right Arm
 variable 1 8 2 bcm_d1_copy_r copy of the bcm_d1
 variable 1 9 2 Fast_clock_r  1038KHZ clock
 variable 1 10 2 TDC_gate_r   TDC gate
+variable 1 11 2 empty1
 variable 1 12 2 L1A_r level one acceptance 
 variable 1 13 2 L1A_copy_r copy of the L1A 
+variable 1 14 1 empty2
+variable 1 15 1 empty3
 variable 1 16 2 cer_1_r 1st channel of cerenkov
 variable 1 17 2 cer_2_r 2nd channel of cerenkov
 variable 1 18 2 cer_3_r 3rd channel of cerenkov
@@ -145,18 +151,28 @@ variable 2 29 2 s2mR_14_r 14th pmt on right side of s2 R_HRS
 variable 2 30 2 s2mR_15_r 15th pmt on right side of s2 R_HRS
 variable 2 31 2 s2mR_16_r 16th pmt on right side of s2 R_HRS
 
-variable 4 9 1 bcm_unew_c new bcm upstream count
-variable 4 10 1 bcm_dnew_c new bcm downstream count
-variable 4 11 1 unser_c unser count
-variable 4 12 1 bcm_u1_c bcm x1 upstream count
-variable 4 13 1 bcm_d1_c bcm x1 downstream count
-variable 4 14 1 bcm_d3_c bcm x3 downstream count
-variable 4 15 1 bcm_d10_c bcm x10 downstream count
+#variable 4 9 1 bcm_unew_c new bcm upstream count
+#variable 4 10 1 bcm_dnew_c new bcm downstream count
+#variable 4 11 1 unser_c unser count
+#variable 4 12 1 bcm_u1_c bcm x1 upstream count
+#variable 4 13 1 bcm_d1_c bcm x1 downstream count
+#variable 4 14 1 bcm_d3_c bcm x3 downstream count
+#variable 4 15 1 bcm_d10_c bcm x10 downstream count
 
-variable 4 9 2 bcm_unew_c new bcm upstream rate
-variable 4 10 2 bcm_dnew_c new bcm downstream rate
-variable 4 11 2 unser_c unser rate
-variable 4 12 2 bcm_u1_c bcm x1 upstream rate
-variable 4 13 2 bcm_d1_c bcm x1 downstream rate
-variable 4 14 2 bcm_d3_c bcm x3 downstream rate
-variable 4 15 2 bcm_d10_c bcm x10 downstream rate 
+#variable 4 9 2 bcm_unew_c new bcm upstream rate
+#variable 4 10 2 bcm_dnew_c new bcm downstream rate
+#variable 4 11 2 unser_c unser rate
+#variable 4 12 2 bcm_u1_c bcm x1 upstream rate
+#variable 4 13 2 bcm_d1_c bcm x1 downstream rate
+#variable 4 14 2 bcm_d3_c bcm x3 downstream rate
+#variable 4 15 2 bcm_d10_c bcm x10 downstream rate 
+
+
+
+ 
+
+
+
+
+
+     
