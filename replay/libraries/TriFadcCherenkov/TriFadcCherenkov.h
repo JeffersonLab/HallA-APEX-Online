@@ -9,7 +9,7 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "THaPidDetector.h"
+#include "/home/me/analyzer/src/THaPidDetector.h"
 
 class TClonesArray;
 

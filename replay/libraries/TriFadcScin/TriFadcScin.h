@@ -11,7 +11,7 @@
 
 class THaScCalib;
 class TClonesArray;
-
+class THaDetectorBase;
 class TriFadcScin : public THaNonTrackingDetector {
 
 public:
