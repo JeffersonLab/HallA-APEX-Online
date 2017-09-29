@@ -96,7 +96,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     err = kInitError;  // Error already printed by FillDetMap
   }
 
-  if( !err && (nelem = fDetMap2->GetTotNumChan()) != 2*fNelem ) {
+  if( !err && (nelem = fDetMap->GetTotNumChan()) != 2*fNelem ) {
     Error( Here(here), "Number of detector map channels (%d) "
 	   "inconsistent with 2*number of PMTs (%d)", nelem, 2*fNelem );
     err = kInitError;
@@ -235,9 +235,9 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
   // entries corresponds to ADCs, and the second half, to TDCs.
 
   // Loop over all modules defined for Cherenkov detector
-  for( Int_t i = 0; i < fDetMap2->GetSize(); i++ ) {
-    THaDetMap::Module* d = fDetMap2->GetModule( i );
-    bool adc = (d->model ? fDetMap2->IsADC(d) : i < fDetMap2->GetSize()/2 );
+  for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
+    THaDetMap::Module* d = fDetMap->GetModule( i );
+    bool adc = (d->model ? fDetMap->IsADC(d) : i < fDetMap->GetSize()/2 );
 
     // Loop over all channels that have a hit.
     for( Int_t j = 0; j < evdata.GetNumChan( d->crate, d->slot ); j++) {
