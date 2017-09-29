@@ -52,7 +52,7 @@ typedef struct _sReplaySetUp
 //////////////////////////////////////////////////////////////////
 
 static const char* PATHS[] = {
-  "/home/jbane/raw",
+  "./raw",
   "/adaq1/data1",
   "/adaql2/data1",
   "/adaql2/data2",
