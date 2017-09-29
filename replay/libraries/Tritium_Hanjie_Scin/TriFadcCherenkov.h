@@ -9,11 +9,11 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "TritiumPidDetector.h"
+#include "THaPidDetector.h"
 
 class TClonesArray;
 
-class TriFadcCherenkov : public TritiumPidDetector {
+class TriFadcCherenkov : public THaPidDetector {
 
 public:
   TriFadcCherenkov( const char* name, const char* description = "",

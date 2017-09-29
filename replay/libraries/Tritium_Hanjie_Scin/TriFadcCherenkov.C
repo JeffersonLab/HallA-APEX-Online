@@ -8,7 +8,7 @@
 
 #include "TriFadcCherenkov.h"
 #include "THaEvData.h"
-#include "TritiumDetMap.h"
+#include "THaDetMap.h"
 #include "VarDef.h"
 #include "VarType.h"
 #include "THaTrack.h"
@@ -26,7 +26,7 @@ using namespace std;
 //_____________________________________________________________________________
 TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 			    THaApparatus* apparatus )
-  : TritiumPidDetector(name,description,apparatus), fOff(0), fPed(0), fGain(0),
+  : THaPidDetector(name,description,apparatus), fOff(0), fPed(0), fGain(0),
     fNThit(0), fT(0), fT_c(0), fNAhit(0), fA(0), fA_p(0), fA_c(0)
 {
   // Constructor
@@ -34,7 +34,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 
 //_____________________________________________________________________________
 TriFadcCherenkov::TriFadcCherenkov()
-  : TritiumPidDetector(), fOff(0), fPed(0), fGain(0), fT(0), fT_c(0),
+  : THaPidDetector(), fOff(0), fPed(0), fGain(0), fT(0), fT_c(0),
     fA(0), fA_p(0), fA_c(0)
 {
   // Default constructor (for ROOT I/O)
@@ -90,7 +90,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
       fNelem = nelem;
   }
  
-  UInt_t flags = TritiumDetMap::kFillLogicalChannel;
+  UInt_t flags = THaDetMap::kFillLogicalChannel;
   cout<<"!!!: "<<detmap.size()<<" "<<flags<<endl;
   if( !err && FillDetMap(detmap, flags, here) <= 0 ) {
     err = kInitError;  // Error already printed by FillDetMap
@@ -236,7 +236,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
 
   // Loop over all modules defined for Cherenkov detector
   for( Int_t i = 0; i < fDetMap2->GetSize(); i++ ) {
-    TritiumDetMap::Module* d = fDetMap2->GetModule( i );
+    THaDetMap::Module* d = fDetMap2->GetModule( i );
     bool adc = (d->model ? fDetMap2->IsADC(d) : i < fDetMap2->GetSize()/2 );
 
     // Loop over all channels that have a hit.

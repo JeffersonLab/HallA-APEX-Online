@@ -7,10 +7,10 @@
 # List only the implementation files (*.cxx). For every implementation file
 # there must be a corresponding header file (*.h).
 
-SRC  =TritiumDetMap.cxx TritiumDetectorBase.cxx TritiumDetector.cxx TritiumSpectrometerDetector.cxx TritiumNonTrackingDetector.cxx  TriFadcScin.cxx
+SRC  =TriFadcCherenkov.cxx
 # Name of your package. 
 # The shared library that will be built will get the name lib$(PACKAGE).so
-PACKAGE = TriFadcScin
+PACKAGE = TriFadcCherenkov
 
 # Name of the LinkDef file
 LINKDEF = $(PACKAGE)_LinkDef.h
