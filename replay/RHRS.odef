@@ -99,29 +99,6 @@ TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
 TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
 TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
 
-#-------------------------------------------------------------------------------
-#
-
-
-### Wire group hits
-
-
-### Wire Vs. Hit Histograms (FPP)
-
-### Track X position Vs. Straw Number (FPP)
-
-##TDC Width Histograms
-
-##TDC Width Vs. Wire Group hits
-
-### Leading Edge TDC Histograms
-
-### Leading Edge TDC Histograms (corrected)
-
-### Leading Edge Drift distance Histograms (corrected)
-
-### Number of Hits Spectra
-
 #--------------------------------------------------------------------------------
 # RIGHT Arm Tracking & Reconstruction Histograms  :
 #
