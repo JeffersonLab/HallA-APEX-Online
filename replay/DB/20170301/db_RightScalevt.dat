@@ -1,9 +1,0 @@
---------[ 2017-03-01 00:00:00 -0500 ]
-# map line starts with "map".  Then model#, crate, slot, header, mask, norm slot
-# If >7 fields it's a norm slot and last 2 are clock chan#, clock frequency
-map 1151 1 0 abc00000 ffff0000 1
-map 3800 1 2 abc10000 ffff0000 1 7 1024
-# variables become global variables and appear in an output tree
-# "variable" slot, chan, (1=cnt, 2=rate), variable name, description
-variable 2 4 1  TSbcmu1  BCM x1 counts
-variable 2 4 2  TSbcmu1r  BCM x1 rate

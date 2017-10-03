@@ -35,7 +35,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //Enable modules
   Bool_t bScaler=kTRUE;
   Bool_t bHelicity=kFALSE;
-  Bool_t bPhysics=kTRUE;
+  Bool_t bBeam=kFALSE;
+  Bool_t bPhysics=kFALSE;
   Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
  
@@ -75,7 +76,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Scalers
     //==================================
     if(bScaler){
-      THaScalerEvtHandler* rscaler = new THaScalerEvtHandler("Right ","HA scaler event type 140 on R-HRS");
+      THaScalerEvtHandler* rscaler = new THaScalerEvtHandler("Right","HA scaler event type 140 on R-HRS");
       gHaEvtHandlers->Add(rscaler);
     }
 
@@ -88,14 +89,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //==================================
     //  Beam
     //==================================
-    THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
-    gHaApps->Add(ib);
+    if(bBeam){
+      THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
+      gHaApps->Add(ib);
 
-    THaRasteredBeam* Rrb = new THaRasteredBeam("Rrb", "Rastered beam to R-HRS");
-    Rrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-    Rrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-    Rrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-    gHaApps->Add(Rrb);
+      THaRasteredBeam* Rrb = new THaRasteredBeam("Rrb", "Rastered beam to R-HRS");
+      Rrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      Rrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      Rrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(Rrb);
+    }
     
     //==================================
     //  Physics
@@ -197,14 +200,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //==================================
     //  Beam
     //==================================
-    THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
-    gHaApps->Add(ib);
+    if(bBeam){
+      THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
+      gHaApps->Add(ib);
 
-    THaRasteredBeam* Lrb = new THaRasteredBeam("Lrb", "Rastered beam to L-HRS");
-    Lrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-    Lrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-    Lrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-    gHaApps->Add(Lrb);
+      THaRasteredBeam* Lrb = new THaRasteredBeam("Lrb", "Rastered beam to L-HRS");
+      Lrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      Lrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      Lrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(Lrb);
+    }
     
     //==================================
     //  Physics 
