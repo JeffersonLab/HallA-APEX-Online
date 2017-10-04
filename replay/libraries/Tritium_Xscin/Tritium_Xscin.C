@@ -72,7 +72,7 @@ THaAnalysisObject::EStatus Tritium_Xscin::Init( const TDatime& date )
 }
 
 //_____________________________________________________________________________
-Int_t Tritium_Xscin::ReadDatabase( const TDatime& date )
+/*Int_t Tritium_Xscin::ReadDatabase( const TDatime& date )
 {
   // Read this detector's parameters from the database file 'fi'.
   // This function is called by THaDetectorBase::Init() once at the
@@ -355,6 +355,177 @@ Int_t Tritium_Xscin::ReadDatabase( const TDatime& date )
   
   return kOK;
 }
+*/
+Int_t Tritium_Xscin::ReadDatabase( const TDatime& date )
+{
+  // Read this detector's parameters from the database
+
+  const char* const here = "ReadDatabase";
+
+  FILE* file = OpenFile( date );
+  if( !file ) return kFileError;
+
+  // Read fOrigin and fSize (required!)
+  Int_t err = ReadGeometry( file, date, true );
+  if( err ) {
+    fclose(file);
+    return err;
+  }
+
+  vector<Int_t> detmap;
+  Int_t nelem;
+  Double_t angle = 0.0;
+
+  // Read configuration parameters
+  DBRequest config_request[] = {
+    { "detmap",    &detmap,  kIntV },
+    { "npaddles",  &nelem,   kInt },
+    { "angle",     &angle,   kDouble, 0, 1 },
+    { 0 }
+  };
+  err = LoadDB( file, date, config_request, fPrefix );
+
+  // Sanity checks
+  if( !err && nelem <= 0 ) {
+    Error( Here(here), "Invalid number of paddles: %d", nelem );
+    err = kInitError;
+  }
+
+  // Reinitialization only possible for same basic configuration
+  if( !err ) {
+    if( fIsInit && nelem != fNelem ) {
+      Error( Here(here), "Cannot re-initalize with different number of paddles. "
+	     "(was: %d, now: %d). Detector not re-initialized.", fNelem, nelem );
+      err = kInitError;
+    } else
+      fNelem = nelem;
+  }
+
+  UInt_t flags = THaDetMap::kFillLogicalChannel | THaDetMap::kFillModel;
+  if( !err && FillDetMap(detmap, flags, here) <= 0 ) {
+    err = kInitError;  // Error already printed by FillDetMap
+  }
+
+  if( !err && (nelem = fDetMap->GetTotNumChan()) != 4*fNelem ) {
+    Error( Here(here), "Number of detector map channels (%d) "
+	   "inconsistent with 4*number of paddles (%d)", nelem, 4*fNelem );
+    err = kInitError;
+  }
+
+  if( err ) {
+    fclose(file);
+    return err;
+  }
+
+  DefineAxes( angle*TMath::DegToRad() );
+
+  // Dimension arrays
+  //FIXME: use a structure!
+  UInt_t nval = fNelem, nval_twalk = 2*nval;
+  if( !fIsInit ) {
+    fNTWalkPar = nval_twalk;
+    // Calibration data
+    fLOff  = new Double_t[ nval ];
+    fROff  = new Double_t[ nval ];
+    fLPed  = new Double_t[ nval ];
+    fRPed  = new Double_t[ nval ];
+    fLGain = new Double_t[ nval ];
+    fRGain = new Double_t[ nval ];
+
+    fTrigOff = new Double_t[ nval ];
+
+    // Per-event data
+    fLT   = new Double_t[ nval ];
+    fLT_c = new Double_t[ nval ];
+    fRT   = new Double_t[ nval ];
+    fRT_c = new Double_t[ nval ];
+    fLA   = new Double_t[ nval ];
+    fLA_p = new Double_t[ nval ];
+    fLA_c = new Double_t[ nval ];
+    fRA   = new Double_t[ nval ];
+    fRA_p = new Double_t[ nval ];
+    fRA_c = new Double_t[ nval ];
+
+    fTWalkPar = new Double_t[ nval_twalk ];
+
+    fHitPad = new Int_t[ nval ];
+    fTime   = new Double_t[ nval ]; // analysis indexed by paddle (yes, inefficient)
+    fdTime  = new Double_t[ nval ];
+    fAmpl   = new Double_t[ nval ];
+
+    fXt     = new Double_t[ nval ];
+    fXa     = new Double_t[ nval ];
+
+    fIsInit = true;
+  }
+
+ // Read calibration parameters
+
+  // Set DEFAULT values here
+  // TDC resolution (s/channel)
+  fTdc2T = 0.1e-9;      // seconds/channel
+  fResolution = kBig;   // actual timing resolution
+  // Speed of light in the scintillator material
+  fCn = 1.7e+8;    // meters/second
+  // Attenuation length
+  fAttenuation = 0.7; // inverse meters
+  // Time-walk correction parameters
+  fAdcMIP = 1.e10;    // large number for offset, so reference is effectively disabled
+  // timewalk coefficients for tw = coeff*(1./sqrt(ADC-Ped)-1./sqrt(ADCMip))
+  memset( fTWalkPar, 0, nval_twalk*sizeof(fTWalkPar[0]) );
+  // trigger-timing offsets (s)
+  memset( fTrigOff, 0, nval*sizeof(fTrigOff[0]) );
+
+  // Default TDC offsets (0), ADC pedestals (0) and ADC gains (1)
+  memset( fLOff, 0, nval*sizeof(fLOff[0]) );
+  memset( fROff, 0, nval*sizeof(fROff[0]) );
+  memset( fLPed, 0, nval*sizeof(fLPed[0]) );
+  memset( fRPed, 0, nval*sizeof(fRPed[0]) );
+  for( UInt_t i=0; i<nval; ++i ) { fLGain[i] = 1.0; fRGain[i] = 1.0; }
+
+  DBRequest calib_request[] = {
+    { "L.off",            fLOff,         kDouble, nval, 1 },
+    { "R.off",            fROff,         kDouble, nval, 1 },
+    { "L.ped",            fLPed,         kDouble, nval, 1 },
+    { "R.ped",            fRPed,         kDouble, nval, 1 },
+    { "L.gain",           fLGain,        kDouble, nval, 1 },
+    { "R.gain",           fRGain,        kDouble, nval, 1 },
+    { "tdc.res",          &fTdc2T,       kDouble },
+    { "Cn",               &fCn,          kDouble },
+    { "MIP",              &fAdcMIP,      kDouble, 0, 1 },
+    { "timewalk_params",  fTWalkPar,     kDouble, nval_twalk, 1 },
+    { "retiming_offsets", fTrigOff,      kDouble, nval, 1 },
+    { "avgres",           &fResolution,  kDouble, 0, 1 },
+    { "atten",            &fAttenuation, kDouble, 0, 1 },
+    { 0 }
+  };
+  err = LoadDB( file, date, calib_request, fPrefix );
+  fclose(file);
+  if( err )
+    return err;
+
+  if( fResolution == kBig )
+    fResolution = fTdc2T;
+
+  // If doing debugging, print the calibration parameters we've just read
+  if ( fDebug > 1 ) {
+    cout << '\n' << GetPrefix() << " calibration parameters: " << endl;;
+    for ( DBRequest *li = calib_request; li->name; li++ ) {
+      cout << "  " << li->name;
+      UInt_t maxc = li->nelem;
+      if (maxc==0)maxc=1;
+      for (UInt_t i=0; i<maxc; i++) {
+	if (li->type==kDouble) cout << "  " << ((Double_t*)li->var)[i];
+	if (li->type==kInt) cout << "  " << ((Int_t*)li->var)[i];
+      }
+      cout << endl;
+    }
+  }
+
+  return kOK;
+}
+
+
 
 //_____________________________________________________________________________
 Int_t Tritium_Xscin::DefineVariables( EMode mode )
