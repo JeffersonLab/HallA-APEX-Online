@@ -58,7 +58,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     THaHRS* HRSR = new THaHRS("R","Right arm HRS");
     HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
-    HRSR->AddDetector( new TriFadcXscin("s0","s0 scintillator") );
+    HRSR->AddDetector( new TriFadcXscin("s0","s0 scintillator",kTRUE) );
     HRSR->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
     HRSR->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter - FADC" ));
     HRSR->AddDetector( new TriFadcScin("s2", "S2 Scintillator - FADC" ));
@@ -169,7 +169,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
     HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
-    HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator") );
+    HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator",kFALSE) );
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
@@ -181,7 +181,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     gHaApps->Add(FbusHRSL);
     FbusHRSL->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter - Fastbus"));
     FbusHRSL->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
-    FbusHRSL->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kTRUE));
+    FbusHRSL->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kFALSE));
 
     //==================================
     //  Scaler
