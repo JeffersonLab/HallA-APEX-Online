@@ -9,7 +9,7 @@ This repo currently contains currently contains stripped-down copies of the scal
 # How To Make Replay Code Work on local system
 
 There are four lines of code that should be changed to make the replay code work on your machine:
-1. rootlogin.C
+1. rootlogon.C
     - Change *const char\* replay_dir_prefix* to reflect where your local replay code lives.
 2. replay_tritium.C
     - Change the *#include* directive to reflect where *def_tritium.h* lives.
