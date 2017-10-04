@@ -1,0 +1,149 @@
+#-----------------------------------------------------------
+#  Database for Hall A helicity decoders
+#
+#  Note that you can set validity time periods in the
+#  usual way by starting sections with time stamps like
+#--------[ 2005-06-20 14:30:35 -0400 ]
+--------[ 2017-03-01 00:00:00 -0500 ]
+#-----------------------------------------------------------
+
+#---- Overall helicity sign (from Moller)
+helicity_sign = 1
+
+#---- Overall status for half-wave plate
+hel.hwpin = 1
+
+#---- Helicity ROC info
+hel.L.helroc = 11 0 3
+hel.L.timeroc = 11 0 4
+hel.L.ringroc = 11 -82116608 0
+
+hel.R.helroc = 10 0 3
+hel.R.timeroc = 10 0 4
+hel.R.ringroc = 10 -82116608 0
+
+hel.TA.helroc  = 12 0 3 
+hel.TA.timeroc = 12 0 4 
+hel.TA.ringroc = 12 -82116608 0
+
+#---- TIR inverse
+hel.TA.negtir = 1
+hel.L.negtir = 0
+hel.R.negtir = 3
+
+#---- Helicity parameters
+hel.MAXBIT = 30
+hel.delay = 8
+hel.npattern = 4
+hel.pattern = 1 -1 -1 1
+hel.missedqrt = 300
+hel.ringdepth = 50
+
+hel.freq = 960.02
+hel.TA.clock = 103700.00
+hel.L.clock = 103700.00
+hel.R.clock = 103700.00
+
+#---- Variable Name
+hel.TA.d1switch=1
+hel.TA.d2switch=1
+hel.TA.d3switch=1
+hel.TA.d4switch=1
+hel.TA.d5switch=1
+hel.TA.d6switch=0
+hel.TA.d7switch=0
+hel.TA.d8switch=0
+hel.TA.d1name=bcm_up
+hel.TA.d2name=bcm_down
+hel.TA.d3name=L1A
+hel.TA.d4name=trigger
+hel.TA.d5name=heldata
+hel.TA.d6name=D6
+hel.TA.d7name=D7
+hel.TA.d8name=D8
+
+hel.L.d1switch=1
+hel.L.d2switch=1
+hel.L.d3switch=1
+hel.L.d4switch=1
+hel.L.d5switch=1
+hel.L.d6switch=1
+hel.L.d7switch=0
+hel.L.d8switch=0
+hel.L.d1name=bcm_up
+hel.L.d2name=bcm_down
+hel.L.d3name=L1A
+hel.L.d4name=T3
+hel.L.d5name=T4
+hel.L.d6name=heldata
+hel.L.d7name=D7
+hel.L.d8name=D8
+
+hel.R.d1switch=1
+hel.R.d2switch=1
+hel.R.d3switch=1
+hel.R.d4switch=1
+hel.R.d5switch=1
+hel.R.d6switch=1
+hel.R.d7switch=0
+hel.R.d8switch=0
+hel.R.d1name=bcm_up
+hel.R.d2name=bcm_down
+hel.R.d3name=L1A
+hel.R.d4name=T1
+hel.R.d5name=T2
+hel.R.d6name=heldata
+hel.R.d7name=D7
+hel.R.d8name=D8
+
+#---- Happex Variable
+hel.L.happexroc = 25
+#hel.L.happexroc = 0
+hel.R.happexroc = 26
+hel.TA.happexroc = 0
+
+hel.happexdepth = 50
+
+hel.L.happex_bpmchan = 0 1 2 3 8 9 10 11
+hel.L.happex_bcmchan = 4 5 6
+hel.L.happex_rasterchan = 12 13 14 15
+
+hel.R.happex_bpmchan = 0 1 2 3 8 9 10 11
+hel.R.happex_bcmchan = 4 5 6
+hel.R.happex_rasterchan = 12 13 14 15
+
+hel.TA.happex_bpmchan = 0 0 0 0 0 0 0 0
+hel.TA.happex_bcmchan = 0 0 0
+hel.TA.happex_rasterchan = 0 0 0 0
+
+#position for bpmA, bpmA, target
+hel.L.happex_bpmpos = -1.817 -1.572 -0.87693
+#calib-const for bpmA and bpmB
+hel.L.happex_bpmacalot = 1
+hel.L.happex_bpmbcalrot = 1
+#4 bpmA pedestal
+hel.L.happex_bpmaped = 723  1266  993  655
+#4 bpmA rot matrix, bpmA x and y offset
+hel.L.happex_bpmarot = 9.75103 -10.041 9.80838 9.8268 0.482197 0.209825 
+hel.L.happex_bpmbped = 220  522  291  521
+hel.L.happex_bpmbrot = 9.44238 -9.35853 9.39748 9.30841 0.286139 -0.290041
+#upstream bcm slope,offset, downstream bcm slope offset
+hel.L.happex_bcmcal = 0.00462123 -12.1578 0.00489354 -9.45418
+
+hel.R.happex_bpmpos = -1.817 -1.572 -0.87693
+hel.R.happex_bpmacalrot = 1
+hel.R.happex_bpmbcalrot = 1
+hel.R.happex_bpmaped = 723  1266  993  655
+hel.R.happex_bpmarot = 9.75103 -10.041 9.80838 9.8268 0.482197 0.209825 
+hel.R.happex_bpmbped = 220  522  291  521
+hel.R.happex_bpmbrot = 9.44238 -9.35853 9.39748 9.30841 0.286139 -0.290041
+hel.R.happex_bcmcal = 0.00462123 -12.1578 0.00489354 -9.45418
+
+hel.TA.happex_bpmpos = 0 0 0
+hel.TA.happex_bpmacalrot = 0
+hel.TA.happex_bpmbcalrot = 0
+hel.TA.happex_bpmaped = 0 0 0 0
+hel.TA.happex_bpmarot = 0 0 0 0 0 0
+hel.TA.happex_bpmbped = 0 0 0 0
+hel.TA.happex_bpmbrot = 0 0 0 0 0 0
+hel.TA.happex_bcmcal = 0 0 0 0

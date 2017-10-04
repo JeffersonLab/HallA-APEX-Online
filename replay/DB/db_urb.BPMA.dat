@@ -1,0 +1,9 @@
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+urb.BPMA.detmap =
+      3    21     0     3     1  1881
+urb.BPMA.position = 1.43766e-03  -6.81262e-06  -7.34500e+00
+urb.BPMA.calib_rot = 0.01887
+urb.BPMA.pedestals = 3674  3499  3468  3478
+urb.BPMA.rotmatrix = -0.750796  0.723848  0.77656  0.72107
+

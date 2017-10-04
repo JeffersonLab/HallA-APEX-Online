@@ -1,0 +1,23 @@
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+FbusR.s0.detmap =
+       1      20     43      44      1    1881     
+       2      11     43      44      1    1877
+       -1     0	     0	     0	     0
+FbusR.s0.npaddles = 1
+FbusR.s0.position = -0.08    -0.008   1.741
+FbusR.s0.size =  0.85    0.125     0.01
+FbusR.s0.L.off = 1679.96
+FbusR.s0.R.off = 1700
+FbusR.s0.L.ped = 628.1
+FbusR.s0.R.ped = 396.2
+FbusR.s0.L.gain = 1.02
+FbusR.s0.R.gain = 0.87
+FbusR.s0.avgres = -0.5e-9
+FbusR.s0.atten = 0.7
+FbusR.s0.Cn = 1.34186e+08
+FbusR.s0.MIP = 1e+10
+FbusR.s0.tdc.res = 5e-10
+FbusR.s0.timewalk_params = 0  0
+FbusR.s0.retiming_offsets = 0  
+

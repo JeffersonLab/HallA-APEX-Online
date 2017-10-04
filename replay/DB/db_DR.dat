@@ -1,0 +1,154 @@
+# This must be on the first line:  Version: 2
+# Example decoder data definition file
+# Taken from December 2012 online replay database
+# See THaDecData.C for documentation.
+
+DR.word =
+# event type
+	evtyperoc5           5    fabc0009   6
+	evtyperoc8           8    fabc0008   5
+	evtyperoc9           9    fabc0008   5
+	evtyperoc10         10    fabc0008   5
+# event count
+	evtcntroc5           5    fabc0009   7
+	evtcntroc8           8    fabc0008   6
+	evtcntroc9           9    fabc0008   6
+	evtcntroc10         10    fabc0008   6
+# vxclock
+	vxroc5           5    fabc0009   8
+	vxroc8           8    fabc0008   7
+	vxroc9           9    fabc0008   7
+	vxroc10         10    fabc0008   7
+# syncclock
+	syncroc1           1    fabc0008   8
+	syncroc2           2    fabc0008   8
+	syncroc3           3    fabc0008   8
+	syncroc4           4    fabc0008   8
+	syncroc5           5    fabc0008   8
+	syncroc6           6    fabc0008   8
+	syncroc8           8    fabc0008   8
+	syncroc9           9    fabc0008   8
+	syncroc10         10    fabc0008   8
+# Deadtime Calculations
+        R1start	1	0xdeaddead	1
+        R1stop	1	0xdeaddead	2
+        R2start	2	0xdeaddead	1
+        R2stop	2	0xdeaddead	2
+	R3start	3	0xdeaddead	1
+	R3stop	3	0xdeaddead	2
+	R4start	4	0xdeaddead	1
+	R4stop	4	0xdeaddead	2
+	BBTSstart	29	0xdeaddead	1
+	BBTSstop	29	0xdeaddead	2
+	R10start	10	0xdeaddead	1
+	R10stop	10	0xdeaddead	2
+	5time2	5	0xfaaa0001	-1
+	10time2	10	0xfaaa0001	-1
+	evtroc5           5    fabc0009   5
+	evtroc8           8    fabc0008   4
+	evtroc9           9    fabc0008   4
+	evtroc10         10    fabc0008   4
+#
+
+
+DR.multi =
+# L-HRS, R-HRS, BB & HAND trigger inputs (1877) left arm copy
+	 lt1	     	 4	23	64
+	 lt2		 4	23	65
+	 lt3		 4	23	66
+	 lt4		 4	23	67
+	 lt5		 4	23	68
+	 lt6		 4	23	69
+	 lt7		 4	23	70
+	 lt8		 4	23	71
+	 lfastclk	 4	23	73
+	 adcgate	 4	23	75
+	 l1a_L		 4	23	76
+	 strobe		 4	23	77
+	 s1or		 4	23	78
+	 s2or		 4	23	79
+# Electronic deadtime
+	 edtpl		 4	23	74
+	 edtpr   	 2	11	58
+# Coincidence time
+	 ctimel  	 4	23	72
+	 ctimer  	 2	11	56
+DR.crate =
+# R-HRS trigger inputs (1877)
+	t1		2	11	48
+	t2		2	11	49
+	t3		2	11	50
+	t4		2	11	51
+	t5		2	11	52
+	t6		2	11	53
+	t7		2	11	54
+	t8		2	11	55
+	l1a		2	11	60
+	tdcgate 	2	11	61
+	t12       	2       11      59
+# L-HRS trigger bits
+	left1		4	11	48
+	left2		4	11	49
+	left3		4	11	50
+	left4		4	11	51
+	left5		4	11	52
+	left6		4	11	53
+	left7		4	11	54
+	left8		4	11	55
+	leftl1a		4	11	62
+# BPM and raster on right arm  ROC1
+	# bpmaxp             1    22       0
+	# bpmaxm             1    22       1
+	# bpmayp             1    22       2
+	# bpmaym             1    22       3
+	# bpmbxp             1    22       4
+	# bpmbxm             1    22       5
+	# bpmbyp             1    22       6
+	# bpmbym             1    22       7
+	# rasterx            1    22       8
+	# rastery            1    22       9
+# Sync ADC
+	ADCsync1   1 18  1
+	ADCsync2   2 16  0
+	ADCsync6   6 20  0
+# Shower sum , GC Sum and s0 coin
+	s0coin_t      2  11  45
+	ShSum_t       2  11  46
+	ShSum_a       1  20  45
+	GCsum_a       1  20  42
+	GCsum_t       2  11  42
+# Individual Channels
+	Cer1  2 11 32
+	Cer5  2 11 36
+	Cer6  2 11 37
+	s0_A  2 11 43
+	s0_B  2 11 44
+# Retiming from the LHRS on the right side
+	Retiming_L  2 11 47
+# RHRS trigger bit pattern (prescaled)
+	bit1             6    16       48
+	bit2             6    16       49
+	bit3             6    16       50
+	bit4             6    16       51
+	bit5             6    16       52
+	bit6             6    16       53
+	bit7             6    16       54
+	bit8             6    16       55
+	bit9             6    16       56
+	bit10            6    16       57
+	bit11            6    16       58
+	bit12            6    16       59
+# No Connection attached to slot 60
+# RHRS trigger latch pattern
+	lbit1            6     16      64 
+	lbit2            6     16      65
+	lbit3            6     16      66
+	lbit4            6     16      67
+	lbit5            6     16      68
+	lbit6            6     16      69
+	lbit7            6     16      70
+	lbit8            6     16      71
+	lbit9            6     16      72
+	lbit10           6     16      73
+	lbit11           6     16      74
+	lbit12           6     16      75
