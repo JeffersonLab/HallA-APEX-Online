@@ -1,6 +1,22 @@
 --------[ 2017-03-16 14:38:21 -0400 ]
 # parameters from EPICS run 938
 ebeam = 2.21866
+L.ebeam = 2.21866
+R.ebeam = 2.21866
+L.theta = 27.5003
+L.pcentral = 0.00273557
+R.theta = -52.9999
+R.pcentral = 0.0035162
+FbusL.theta = 27.5003
+FbusL.pcentral = 0.00273557
+FbusR.theta = -52.9999
+FbusR.pcentral = 0.0035162
+MA = 0.93827
+--------[ 2017-01-16 14:38:21 -0400 ]
+# parameters from EPICS run 938
+ebeam = 2.21866
+L.ebeam = 2.21866
+R.ebeam = 2.21866
 L.theta = 27.5003
 L.pcentral = 0.00273557
 R.theta = -52.9999
