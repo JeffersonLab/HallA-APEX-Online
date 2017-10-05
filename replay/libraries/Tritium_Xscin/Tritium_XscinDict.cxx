@@ -54,7 +54,7 @@ namespace ROOT {
       ::Tritium_Xscin *ptr = 0;
       static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::Tritium_Xscin >(0);
       static ::ROOT::TGenericClassInfo 
-         instance("Tritium_Xscin", ::Tritium_Xscin::Class_Version(), "Tritium_Xscin.h", 15,
+         instance("Tritium_Xscin", ::Tritium_Xscin::Class_Version(), "Tritium_Xscin.h", 23,
                   typeid(::Tritium_Xscin), ::ROOT::Internal::DefineBehavior(ptr, ptr),
                   &::Tritium_Xscin::Dictionary, isa_proxy, 4,
                   sizeof(::Tritium_Xscin) );
