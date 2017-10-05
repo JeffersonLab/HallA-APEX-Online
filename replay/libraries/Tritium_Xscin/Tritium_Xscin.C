@@ -1,11 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// Tritium_Xscin                                                                 //
+// Tritium_Xscin                                                             //
 //                                                                           //
 // Class for a generic X-direction scintillator (hodoscope) consisting       //
 // of multiple paddles with phototubes on both ends.                         //
 //                                                                           //
 // Barak Schmookler, May 2016                                                // 
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+// The s0 orientation is set by the flip argument.                           //
+//     kFALSE - LHRS orientation                                             //
+//     kTRUE  - RHRS orientation                                             //
+//                                                                           //
+// The argument will default to kFALSE if one is not provided.               //
+//                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Tritium_Xscin.h"

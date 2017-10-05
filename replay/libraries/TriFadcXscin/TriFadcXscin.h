@@ -3,7 +3,15 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// TriFadcXscin                                                           //
+// TriFadcXscin                                                              //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+// The s0 orientation is set by the flip argument.                           //
+//     kFALSE - LHRS orientation                                             //
+//     kTRUE  - RHRS orientation                                             //
+//                                                                           //
+// The argument will default to kFALSE if one is not provided.               //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 

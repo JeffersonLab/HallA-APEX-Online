@@ -1,14 +1,22 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// TriFadcXscin                                                                 //
+// TriFadcXscin                                                              //
 //                                                                           //
 // Class for a generic X-direction scintillator (hodoscope) consisting       //
 // of multiple paddles with phototubes on both ends.                         //
 //                                                                           //
-// inherited from gmp_Xscin Barak Schmookler, May 2016 
-// ReadDatabase is modified to read new DB for analyzer 1.6;
-// ADC readout is modified to read out FADC data 
-// 
+// inherited from gmp_Xscin Barak Schmookler, May 2016                       //
+// ReadDatabase is modified to read new DB for analyzer 1.6;                 //
+// ADC readout is modified to read out FADC data                             //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+// The s0 orientation is set by the flip argument.                           //
+//     kFALSE - LHRS orientation                                             //
+//     kTRUE  - RHRS orientation                                             //
+//                                                                           //
+// The argument will default to kFALSE if one is not provided.               //
+//                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "TriFadcXscin.h"

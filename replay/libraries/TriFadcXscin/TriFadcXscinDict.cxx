@@ -54,7 +54,7 @@ namespace ROOT {
       ::TriFadcXscin *ptr = 0;
       static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::TriFadcXscin >(0);
       static ::ROOT::TGenericClassInfo 
-         instance("TriFadcXscin", ::TriFadcXscin::Class_Version(), "TriFadcXscin.h", 15,
+         instance("TriFadcXscin", ::TriFadcXscin::Class_Version(), "TriFadcXscin.h", 23,
                   typeid(::TriFadcXscin), ::ROOT::Internal::DefineBehavior(ptr, ptr),
                   &::TriFadcXscin::Dictionary, isa_proxy, 4,
                   sizeof(::TriFadcXscin) );
