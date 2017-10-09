@@ -15,8 +15,8 @@
 #include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
 using namespace std;
 
-#define RIGHT_ARM_CONDITION nrun>=20000
-#define LEFT_ARM_CONDITION nrun<20000
+#define RIGHT_ARM_CONDITION runnumber>=20000
+#define LEFT_ARM_CONDITION runnumber<20000
 
 void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
