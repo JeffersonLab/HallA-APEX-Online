@@ -7,6 +7,10 @@ block R.cer.*
 block R.vdc.*
 block R.tr.*
 
+block FbusR.s0.*
+block FbusR.s2.*
+block FbusR.cer.*
+
 block DR.*
 
 # Physics variables

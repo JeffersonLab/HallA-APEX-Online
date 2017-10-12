@@ -18,7 +18,7 @@ GLIBS         = $(ROOTGLIBS) -L/usr/lib64/libXpm.so.4 -L/usr/lib64 -lX11
 LIBS          = $(GLIBS) $(ROOTLIBS) $(ROOTGLIBS)
 
 CXX           = $(GCC)
-CXXFLAGS      = -Wall -fno-exceptions -fPIC $(INCLUDES) -fpermissive
+CXXFLAGS      = -Wall -fno-exceptions -fPIC $(INCLUDES) -fpermissive -std=c++11
 LD            = $(GLD)
 LDFLAGS       = 
 MAKEDEPEND    = $(GCC)
@@ -30,7 +30,7 @@ ifdef ANALYZER
     INCLUDES     += $(addprefix -I, $(INCDIRS) )
   endif
   ifneq ($(strip $(LIBS)),)
-    LIBS         += $(addprefix -L, $(LIBDIRS) ) -lHallA -ldc -lscaler
+    LIBS         += $(addprefix -L, $(LIBDIRS) )
   endif
 endif
 
@@ -93,7 +93,7 @@ realclean:  clean
 
 %.d:	%.C
 	@echo Creating dependencies for $<
-	@$(SHELL) -ec '$(MAKEDEPEND) -MM $(INCLUDES) -c $< \
+	@$(SHELL) -ec '$(MAKEDEPEND) -std=c++11 -MM $(INCLUDES) -c $< \
 	      | sed '\''s%^.*\.o%$*\.o%g'\'' \
 	      | sed '\''s%\($*\)\.o[ :]*%\1.o $@ : %g'\'' > $@; \
 	      [ -s $@ ] || rm -f $@'
