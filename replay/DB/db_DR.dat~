@@ -3,7 +3,7 @@
 # Taken from December 2012 online replay database
 # See THaDecData.C for documentation.
 
-DR.word =
+rhrs.word =
 # syncclock
           syncroc1   5    fabc0009   5
           syncroc2   8    fabc0008   4
@@ -25,7 +25,7 @@ DR.word =
 	  5time2	5	0xfaaa0001	-1
 	  10time2	10	0xfaaa0001	-1
 
-DR.multi =
+rhrs.multi =
 # L-HRS, R-HRS, BB & HAND trigger inputs (1877) left arm copy
 	 t1	     	 2	11	48
 	 t2		 2	11	49
@@ -35,7 +35,7 @@ DR.multi =
 	 t6		 2	11	53
 	 t7		 2	11	54
 	 t8		 2	11	55
-DR.bit =
+rhrs.bit =
          bit1          6    16    48    0  2000
          bit2          6    16    49    0  2000  
          bit3          6    16    50    0  2000
