@@ -1,0 +1,135 @@
+# This must be on the first line:  Version: 2
+# Example decoder data definition file
+# Taken from December 2012 online replay database
+# See THaDecData.C for documentation.
+
+DL.word =
+# event number
+evtroc3           3    fabc0008   4
+evtroc4           4    fabc0008   4
+evtroc5           5    fabc0008   4
+evttsroc          11   cafe0000   1
+# evtroc31         31    fabc0008   4 // didn't check
+#
+# event type
+evtyperoc3           3    fabc0008   5
+evtyperoc4           4    fabc0008   5
+evtyperoc5           5    fabc0008   5
+evtypetsroc          11   cafe0000   -8
+# evtyperoc31         31    fabc0008   5 // didn't check
+#
+# event count
+evtcntroc3           3    fabc0008   6
+evtcntroc4           4    fabc0008   6
+evtcntroc5           5    fabc0008   6
+# evtcntroc31         31    fabc0008   6 // didn't check
+#
+# vxclock
+vxroc3           3    fabc0008   7
+vxroc4           4    fabc0008   7
+vxroc5           5    fabc0008   7
+vxtsroc          11   cafe0000   -4
+# vxroc31         31    fabc0008   7 // didn't check
+#
+# syncclock
+syncroc3           3    fabc0008   8
+syncroc4           4    fabc0008   8
+syncroc5           5    fabc0008   8
+synctsroc          11   cafe0000   -2
+# syncroc31         31    fabc0008   8 // didn't check
+#
+#
+# On-Board Trigger Supervisor Bits
+scalLive1         11    fed00017   20
+scalLive2         11    fed00017   21
+trigCount         11    fed00017   22
+trigData          11    fed00017   23
+
+DL.crate =
+# L-HRS triggers in TDC
+t1		4	11	48
+t2		4	11	49
+t3		4	11	50
+t4		4	11	51
+t5		4	11	52
+t6		4	11	53
+t7		4	11	54
+t8		4	11	55
+l1a		4	11	62
+
+# Sync ADC (may need to be modified)
+ADCsync3     3  1  0
+ADCsync4     4 16  0
+ADCsync5     5 19  0   
+
+# Shower sum, s0 coin, GC Sum
+s0coin_t    4  11  45
+ShSum_t	    4  11  46
+ShSum_a	    3  20  38
+Sum_1L_a    3  20  36
+Sum_2L_a    3  20  37
+GCSum_a     3  19  10
+GCSum_t	    4  11  42
+
+# Individual Signals
+Cer1	 	  4 11 32
+Cer5	 	  4 11 36
+Cer6	 	  4 11 37
+S2m_9l	 	  4 11 8
+S2m_15r	 	  4 11 30
+S2m_16r	 	  4 11 31
+s0_A	 	  4 11 43
+s0_B	 	  4 11 44
+vdc_ch1	 	  4 8  0
+vdc_ch2	 	  4 8  1
+vdc_ch3	 	  4 8  2
+vdc_ch4	 	  4 8  3
+vdc_ch5	 	  4 8  4
+vdc_ch6	 	  4 8  5
+vdc_ch7	 	  4 8  6
+vdc_ch8	 	  4 8  7
+vdc_ch9	 	  4 8  8
+vdc_ch10 	  4 8  9
+vdc_ch11 	  4 8  10
+vdc_ch12 	  4 8  11
+vdc_ch13 	  4 8  12
+vdc_ch14 	  4 8  13
+vdc_ch15 	  4 8  14
+vdc_ch16 	  4 8  15
+
+# LHRS trigger bit pattern (prescaled)
+bit1             5    16        0 
+bit2             5    16        1
+bit3             5    16        2
+bit4             5    16        3
+bit5             5    16        4
+bit6             5    16        5
+bit7             5    16        6
+bit8             5    16        7
+bit9             5    16        8
+bit10            5    16        9 
+bit11            5    16        10 
+bit12            5    16        11
+#
+# No Connection attached to slot 12
+# LHRS trigger latch pattern
+lbit1             5    16      16 
+lbit2             5    16      17 
+lbit3             5    16      18
+lbit4             5    16      19 
+lbit5             5    16      20 
+lbit6             5    16      21 
+lbit7             5    16      22 
+lbit8             5    16      23 
+lbit9             5    16      24 
+lbit10            5    16      25 
+lbit11            5    16      26 
+lbit12            5    16      27 
+
+D.old =
+/////////# These need to be modified
+# fastclk 	 4	11	56
+# adcgate 	 4	11	57
+# l1a_L	  	 4	11	58
+# strobe  	 4	11	59
+# edtpl   	 4	11	62

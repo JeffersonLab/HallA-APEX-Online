@@ -28,9 +28,8 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 	    cin >> nrun;
 	    fgets(buf,300,stdin);//get the extra '\n' from stdin
 	    if( nrun<=0 ) return;
-	    runnumber = nrun;
   }
-
+  runnumber = nrun;
   
   //Enable modules
   Bool_t bScaler=kTRUE;
