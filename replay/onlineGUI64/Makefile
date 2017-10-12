@@ -30,7 +30,7 @@ ifdef ANALYZER
     INCLUDES     += $(addprefix -I, $(INCDIRS) )
   endif
   ifneq ($(strip $(LIBS)),)
-    LIBS         += $(addprefix -L, $(LIBDIRS) ) -lHallA -ldc -lscaler
+    LIBS         += $(addprefix -L, $(LIBDIRS) )
   endif
 endif
 
