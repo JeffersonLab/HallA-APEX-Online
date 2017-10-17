@@ -11,22 +11,51 @@ DL.word =
 
 DL.crate =
 # L-HRS, R-HRS, BB & HAND trigger inputs (1877) left arm copy
-         T1             5      16      0
-         T2             5      16      1
-         T3             5      16      2
-         T4             5      16      3
-         T5             5      16      4
-         T6             5      16      5
-         T7             5      16      6
-         T8             5      16      7
-	 	lt1	     		4		11		48
-	 	lt2		 		4		11		49
-	 	lt3			 	4		11		50
-	 	lt4		 		4		11		51
-	 	lt5			 	4		11		52
-	 	lt6			 	4		11		53
-	 	lt7			 	4		11		54
-	 	lttt8		 	4		11		55
+# L-HRS trigger inputs (1877) 
+	T1             5      16      0
+	T2             5      16      1
+    T3             5      16      2
+    T4             5      16      3
+    T5             5      16      4
+    T6             5      16      5
+    T7             5      16      6
+    T8             5      16      7	                          
+    lrawT1	 	 4	11	48
+	lrawt2		 4	11	49
+	lrawt3		 4	11	50
+	lrawt4		 4	11	51
+	lrawt5		 4	11	52
+	lrawt6		 4	11	53
+	lrawt7		 4	11	54
+	lrawt8		 4	11	55
+    lrawt9             4      11      56
+    lrawt10             4      11      57
+    lrawt11             4      11      58
+    lrawt12             4      11      59
+    lrawt13             4      11      60
+    lrawt14             4      11      61
+    lrawt15             4      11      62
+    lrawt16             4      11      63
+         ltClockRHRS      4       11      54
+         ltClockLHRS      4       11      55
+         ltL1ARemote      4       11      53    
+         ltS0orS2          4      11      57
+         ltS2L             4      11      58
+         ltS2R             4      11      59
+         ltS0orS2_RHRS     4      11      60
+         ltadcgate         4      11      61
+         ltL1A             4      11      62
+         tGCSum  	   4      11      42
+         tS0coinc          4      11      45
+         tShSum	           4      11      46
+         tS2coinc          4      11      47
+#Extra ADC information
+         aShSum     3  20  38
+	 aSum_1L    3  20  36
+	 aSum_2L    3  20  37
+	 aGCSum     3  19  10
+
+     
 DL.bit =
 # BIT PATTERN         
 bit1            5    16      0   0  20000
@@ -37,11 +66,4 @@ bit5            5    16      4   0  20000
 bit6            5    16      5   0  20000
 bit7            5    16      6   0  20000
 bit8            5    16      7   0  20000
-#         bit1            4    11      48   0  2000
-#         bit2            4    11      49   0  2000
-#         bit3            4    11      50   0  2000
-#         bit4            4    11      51   0  2000
-#         bit5            4    11      52   0  2000
-#         bit6            4    11      53   0  2000
-#         bit7            4    11      54   0  2000
-#         bit8            4    11      55   0  2000
+
