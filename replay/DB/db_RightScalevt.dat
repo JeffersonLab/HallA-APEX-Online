@@ -1,9 +1,171 @@
---------[ 2017-03-01 00:00:00 -0500 ]
-# map line starts with "map".  Then model#, crate, slot, header, mask, norm slot
-# If >7 fields it's a norm slot and last 2 are clock chan#, clock frequency
-map 1151 1 0 abc00000 ffff0000 1
-map 3800 1 2 abc10000 ffff0000 1 7 1024
-# variables become global variables and appear in an output tree
-# "variable" slot, chan, (1=cnt, 2=rate), variable name, description
-variable 2 4 1  TSbcmu1  BCM x1 counts
-variable 2 4 2  TSbcmu1r  BCM x1 rate
+# scaler.map file for Right HRS event type 250
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
+map 3800 7 1 ceb10000 ffff0000 1
+map 3800 7 2 ceb20000 ffff0000 1 9 103700
+map 1151 7 3 ceb30000 ffff0000 1
+map 1151 7 4 ceb40000 ffff0000 1
+
+
+# variable syntax
+# scaler#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+# for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+
+variable 1 0 1  T1_c trigger 1 on Right Arm
+variable 1 1 1  T2_c trigger 2 on Right Arm
+variable 1 2 1  T3_c trigger 3 on Right Arm
+variable 1 3 1  T4_c trigger 4 on Right Arm
+variable 1 4 1  T5_c trigger 5 on Right Arm
+variable 1 5 1  T6_c trigger 6 on Right Arm
+variable 1 6 1  T7_c trigger 7 on Right Arm
+variable 1 7 1  T8_c trigger 8 on Right Arm
+variable 1 8 1 bcm_d1_copy_c copy of the bcm_d1
+variable 1 9 1 Fast_clock_c  1038KHZ clock
+variable 1 10 1 TDC_gate_c   TDC gate
+variable 1 12 1 L1A_c level one acceptance 
+variable 1 13 1 L1A_copy_c copy of the L1A 
+variable 1 16 1 cer_1_c 1st channel of cerenkov
+variable 1 17 1 cer_2_c 2nd channel of cerenkov
+variable 1 18 1 cer_3_c 3rd channel of cerenkov
+variable 1 19 1 cer_4_c 4th channel of cerenkov
+variable 1 20 1 cer_5_c 5th channel of cerenkov
+variable 1 21 1 cer_6_c 6th channel of cerenkov
+variable 1 22 1 cer_7_c 7th channel of cerenkov
+variable 1 23 1 cer_8_c 8th channel of cerenkov
+variable 1 24 1 cer_9_c 9th channel of cerenkov
+variable 1 25 1 cer_10_c 10th channel of cerenkov
+variable 1 26 1 cer_sum_c sum of the GC
+variable 1 27 1 s0_A_c s0 A count
+variable 1 28 1 s0_B_c s0 B count
+variable 1 29 1 s0_Coin_c con of s0
+variable 1 30 1 sh _sum_c sum of the shower or empty??
+variable 1 31 1 RT_LatR_c empty??
+
+
+variable 1 0 2  T1_r trigger 1 on Right Arm
+variable 1 1 2  T2_r trigger 2 on Right Arm
+variable 1 2 2  T3_r trigger 3 on Right Arm
+variable 1 3 2  T4_r trigger 4 on Right Arm
+variable 1 4 2  T5_r trigger 5 on Right Arm
+variable 1 5 2  T6_r trigger 6 on Right Arm
+variable 1 6 2  T7_r trigger 7 on Right Arm
+variable 1 7 2  T8_r trigger 8 on Right Arm
+variable 1 8 2 bcm_d1_copy_r copy of the bcm_d1
+variable 1 9 2 Fast_clock_r  1038KHZ clock
+variable 1 10 2 TDC_gate_r   TDC gate
+variable 1 12 2 L1A_r level one acceptance 
+variable 1 13 2 L1A_copy_r copy of the L1A 
+variable 1 16 2 cer_1_r 1st channel of cerenkov
+variable 1 17 2 cer_2_r 2nd channel of cerenkov
+variable 1 18 2 cer_3_r 3rd channel of cerenkov
+variable 1 19 2 cer_4_r 4th channel of cerenkov
+variable 1 20 2 cer_5_r 5th channel of cerenkov
+variable 1 21 2 cer_6_r 6th channel of cerenkov
+variable 1 22 2 cer_7_r 7th channel of cerenkov
+variable 1 23 2 cer_8_r 8th channel of cerenkov
+variable 1 24 2 cer_9_r 9th channel of cerenkov
+variable 1 25 2 cer_10_r 10th channel of cerenkov
+variable 1 26 2 cer_sum_r sum of the GC
+variable 1 27 2 s0_A_r s0 A count
+variable 1 28 2 s0_B_r s0 B count
+variable 1 29 2 s0_Coin_r con of s0
+variable 1 30 2 sh _sum_r sum of the shower or empty??
+variable 1 31 2 RT_LatR_r empty??
+
+
+variable 2 0 1 s2mL_1_c   1st pmt on left side of s2 R_HRS
+variable 2 1 1 s2mL_2_c   2nd pmt on left side of s2 R_HRS
+variable 2 2 1 s2mL_3_c   3rd pmt on left side of s2 R_HRS
+variable 2 3 1 s2mL_4_c   4th pmt on left side of s2 R_HRS
+variable 2 4 1 s2mL_5_c   5th pmt on left side of s2 R_HRS
+variable 2 5 1 s2mL_6_c   6th pmt on left side of s2 R_HRS
+variable 2 6 1 s2mL_7_c   7th pmt on left side of s2 R_HRS
+variable 2 7 1 s2mL_8_c   8th pmt on left side of s2 R_HRS
+variable 2 8 1 s2mL_9_c   9th pmt on left side of s2 R_HRS
+variable 2 9 1 s2mL_10_c  10th pmt on left side of s2 R_HRS
+variable 2 10 1 s2mL_11_c 11th pmt on left side of s2 R_HRS
+variable 2 11 1 s2mL_12_c 12th pmt on left side of s2 R_HRS
+variable 2 12 1 s2mL_13_c 13th pmt on left side of s2 R_HRS
+variable 2 13 1 s2mL_14_c 14th pmt on left side of s2 R_HRS
+variable 2 14 1 s2mL_15_c 15th pmt on left side of s2 R_HRS
+variable 2 15 1 s2mL_16_c 16th pmt on left side of s2 R_HRS
+variable 2 16 1 s2mR_1_c   1st pmt on right side of s2 R_HRS
+variable 2 17 1 s2mR_2_c   2nd pmt on right side of s2 R_HRS
+variable 2 18 1 s2mR_3_c   3rd pmt on right side of s2 R_HRS
+variable 2 19 1 s2mR_4_c   4th pmt on right side of s2 R_HRS
+variable 2 20 1 s2mR_5_c   5th pmt on right side of s2 R_HRS
+variable 2 21 1 s2mR_6_c   6th pmt on right side of s2 R_HRS
+variable 2 22 1 s2mR_7_c   7th pmt on right side of s2 R_HRS
+variable 2 23 1 s2mR_8_c   8th pmt on right side of s2 R_HRS
+variable 2 24 1 s2mR_9_c   9th pmt on right side of s2 R_HRS
+variable 2 25 1 s2mR_10_c  10th pmt on right side of s2 R_HRS
+variable 2 26 1 s2mR_11_c 11th pmt on right side of s2 R_HRS
+variable 2 27 1 s2mR_12_c 12th pmt on right side of s2 R_HRS
+variable 2 28 1 s2mR_13_c 13th pmt on right side of s2 R_HRS
+variable 2 29 1 s2mR_14_c 14th pmt on right side of s2 R_HRS
+variable 2 30 1 s2mR_15_c 15th pmt on right side of s2 R_HRS
+variable 2 31 1 s2mR_16_c 16th pmt on right side of s2 R_HRS
+
+variable 2 0 2 s2mL_1_r   1st pmt on left side of s2 R_HRS
+variable 2 1 2 s2mL_2_r   2nd pmt on left side of s2 R_HRS
+variable 2 2 2 s2mL_3_r   3rd pmt on left side of s2 R_HRS
+variable 2 3 2 s2mL_4_r   4th pmt on left side of s2 R_HRS
+variable 2 4 2 s2mL_5_r   5th pmt on left side of s2 R_HRS
+variable 2 5 2 s2mL_6_r   6th pmt on left side of s2 R_HRS
+variable 2 6 2 s2mL_7_r   7th pmt on left side of s2 R_HRS
+variable 2 7 2 s2mL_8_r   8th pmt on left side of s2 R_HRS
+variable 2 8 2 s2mL_9_r   9th pmt on left side of s2 R_HRS
+variable 2 9 2 s2mL_10_r  10th pmt on left side of s2 R_HRS
+variable 2 10 2 s2mL_11_r 11th pmt on left side of s2 R_HRS
+variable 2 11 2 s2mL_12_r 12th pmt on left side of s2 R_HRS
+variable 2 12 2 s2mL_13_r 13th pmt on left side of s2 R_HRS
+variable 2 13 2 s2mL_14_r 14th pmt on left side of s2 R_HRS
+variable 2 14 2 s2mL_15_r 15th pmt on left side of s2 R_HRS
+variable 2 15 2 s2mL_16_r 16th pmt on left side of s2 R_HRS
+variable 2 16 2 s2mR_1_r   1st pmt on right side of s2 R_HRS
+variable 2 17 2 s2mR_2_r   2nd pmt on right side of s2 R_HRS
+variable 2 18 2 s2mR_3_r   3rd pmt on right side of s2 R_HRS
+variable 2 19 2 s2mR_4_r   4th pmt on right side of s2 R_HRS
+variable 2 20 2 s2mR_5_r   5th pmt on right side of s2 R_HRS
+variable 2 21 2 s2mR_6_r   6th pmt on right side of s2 R_HRS
+variable 2 22 2 s2mR_7_r   7th pmt on right side of s2 R_HRS
+variable 2 23 2 s2mR_8_r   8th pmt on right side of s2 R_HRS
+variable 2 24 2 s2mR_9_r   9th pmt on right side of s2 R_HRS
+variable 2 25 2 s2mR_10_r  10th pmt on right side of s2 R_HRS
+variable 2 26 2 s2mR_11_r 11th pmt on right side of s2 R_HRS
+variable 2 27 2 s2mR_12_r 12th pmt on right side of s2 R_HRS
+variable 2 28 2 s2mR_13_r 13th pmt on right side of s2 R_HRS
+variable 2 29 2 s2mR_14_r 14th pmt on right side of s2 R_HRS
+variable 2 30 2 s2mR_15_r 15th pmt on right side of s2 R_HRS
+variable 2 31 2 s2mR_16_r 16th pmt on right side of s2 R_HRS
+
+variable 4 9 1 bcm_unew_c new bcm upstream count
+variable 4 10 1 bcm_dnew_c new bcm downstream count
+variable 4 11 1 unser_c unser count
+variable 4 12 1 bcm_u1_c bcm x1 upstream count
+variable 4 13 1 bcm_d1_c bcm x1 downstream count
+variable 4 14 1 bcm_d3_c bcm x3 downstream count
+variable 4 15 1 bcm_d10_c bcm x10 downstream count
+
+variable 4 9 2 bcm_unew_c new bcm upstream rate
+variable 4 10 2 bcm_dnew_c new bcm downstream rate
+variable 4 11 2 unser_c unser rate
+variable 4 12 2 bcm_u1_c bcm x1 upstream rate
+variable 4 13 2 bcm_d1_c bcm x1 downstream rate
+variable 4 14 2 bcm_d3_c bcm x3 downstream rate
+variable 4 15 2 bcm_d10_c bcm x10 downstream rate 
+
+
+
+ 
+
+
+
+
+
+     
