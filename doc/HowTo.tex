@@ -1,0 +1,34 @@
+\documentclass{report}
+\begin{document}
+
+\title{How To Set Up and Use The Tritium Replay Code}
+\author{Tyler Hague}
+\maketitle
+
+\chapter{Introduction}
+The official replay code for the tritium family of experiments lives in GitHub. This decision was made to allow better version control in a large collaboration. The main repository will have everything set up for working on the \textit{aonl} machines. This document will walk you through setting up your fork of this repository to work in your personal workspace.
+
+This document assumes that you already have ROOT 6 and the Hall A Analyzer version 1.6 installed in your personal workspace.
+
+\chapter{Setting Up The Code}
+
+\section{Directory Structure}
+The code has been set up so that the number of lines that need to be changed to reflect your directory structure can be kept to a minimum.
+\\\\
+\noindent In rootlogon.C:
+\begin{enumerate}
+\item Set \textit{char* replay\_dir\_prefix} to the directory where your code lives. There must be a trailing \textit{/\%s}.
+\end{enumerate}
+In def\_tritium.h:
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Set \textit{char* REPLAY\_DIR\_PREFIX} to the directory where your code lives. There must be a trailing \textit{/\%s}.
+\item Set \textit{char* ROOTFILE\_DIR\_PREFIX} to the directory where your root files will be stored. There must be a trailing \textit{/\%s}.
+\item Add the location of your raw data folder to the \textit{static const char* PATHS[]} array if you do not have access to the standard directories.
+\end{enumerate}
+
+For example, these are the values of the prefix variables in def\_tritium.h:
+\\\\\noindent\texttt{const char* REPLAY\_DIR\_PREFIX = "/adaqfs/home/a-onl/tritium/HallA-Online-Tritium/replay/\%s";
+const char* ROOTFILE\_DIR\_PREFIX = "/chafs1/work1/tritium/\%s";}
+
+\end{document}
