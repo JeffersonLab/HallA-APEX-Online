@@ -91,7 +91,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
   }
  
   UInt_t flags = THaDetMap::kFillLogicalChannel;
-  cout<<"!!!: "<<detmap.size()<<" "<<flags<<endl;
+
   if( !err && FillDetMap(detmap, flags, here) <= 0 ) {
     err = kInitError;  // Error already printed by FillDetMap
   }
@@ -261,9 +261,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
 #endif
 
       if(adc){
-          Double_t ftime = evdata.GetData(Decoder::kPulseTime,d->crate,d->slot,chan,0);//0.0625ns/count
-          if(ftime>((NPed+3)*4*64))  //in case that the pulse is at the beignning of the window
-             fPed[k]=(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/NPed;
+          fPed[k]=WIN_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/NPed;
       }
 
       // Copy the data to the local variables.
