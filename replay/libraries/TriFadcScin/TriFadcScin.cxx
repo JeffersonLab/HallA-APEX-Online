@@ -213,7 +213,7 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
-  fclose(file);
+  fclose(file); 
   if( err )
     return err;
 
@@ -391,7 +391,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
       Int_t data;
       if(adc)data = evdata.GetData(Decoder::kPulseIntegral,d->crate,d->slot,chan,0);
       else data = evdata.GetData( d->crate, d->slot, chan, 0 );
-      
+    
       // Get the detector channel number, starting at 0
       Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo) - 1;
 
@@ -401,27 +401,26 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
 	Warning( Here("Decode()"), "Illegal detector channel: %d", k );
 	continue;
       }
-//        cout << "adc,j,k = " <<adc<<","<<j<< ","<<k<< endl;
 #endif
       // Copy the data to the local variables.
       DataDest* dest = fDataDest + k/fNelem;
       //decide wether use event by event pedestal
-      if(adc){
-          Double_t ftime = evdata.GetData(Decoder::kPulseTime,d->crate,d->slot,chan,0);//0.0625ns/count
-          if(ftime>(Nped*4*64+10))  //in case that the pulse is at the beignning of the window
-             dest->ped[k]=(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/Nped;
+      k = k % fNelem; 
+      
+      if(adc){ 
+          dest->ped[k]=Win_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/Nped;
       }
-      k = k % fNelem;
+
       if( adc ) {
 	dest->adc[k]   = static_cast<Double_t>( data );
-	dest->adc_p[k] = data - dest->ped[k];
+	dest->adc_p[k] = data - dest->ped[k];  
 	dest->adc_c[k] = dest->adc_p[k] * dest->gain[k];
 	(*dest->nahit)++;
       } else {
 	dest->tdc[k]   = static_cast<Double_t>( data );
 	dest->tdc_c[k] = (data - dest->offset[k])*fTdc2T;
 	(*dest->nthit)++;
-      }
+      }  
     }
   }
   if ( fDebug > 3 ) {
@@ -433,6 +432,8 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
 	     i+1,fLT[i],fLA[i],fLA_p[i],fRT[i],fRA[i],fRA_p[i]);
     }
   }
+
+
 
   return fLTNhit+fRTNhit;
 }

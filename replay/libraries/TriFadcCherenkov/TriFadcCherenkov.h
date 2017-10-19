@@ -46,8 +46,8 @@ protected:
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
 
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int NPed=4;
-
+  static const int NPed=15;
+  static const int WIN_size = 75;
   virtual Int_t  DefineVariables( EMode mode = kDefine );
           void   DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
