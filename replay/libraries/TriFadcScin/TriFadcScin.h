@@ -11,7 +11,7 @@
 
 class THaScCalib;
 class TClonesArray;
-class THaDetectorBase;
+
 class TriFadcScin : public THaNonTrackingDetector {
 
 public:
@@ -104,7 +104,8 @@ protected:
   Double_t*   fYa;         // [fNelem] y-position of hit in paddle from ADC (m)
 
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int Nped=4;  
+  static const int Nped=15;  
+  static const int Win_size = 75;
 
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
