@@ -12,6 +12,23 @@ This document assumes that you already have ROOT 6 and the Hall A Analyzer versi
 
 \chapter{Setting Up The Code}
 
+\section{Set Up Environmental Variables}
+
+There are four environmental variables that need to be set in order for the replay to work.
+
+\begin{enumerate}
+\item ANALYZER - Set to the directory where the analyzer lives.
+\item PATH - Add the directory where the analyzer lives.
+\item LD\_LIBRARY\_PATH - Add the directory where the analyzer lives
+\item DB\_DIR - Set to the directory of the replay database
+\end{enumerate}
+
+If you are using the official replay, a script is provided to do this for you. In the replay directory, run:
+\\\\
+\texttt{source sourceme.sh}
+\\\\
+This script can serve as an example for setting up your own installation as well. If you are using \texttt{csh} instead of \texttt{bash} be sure to replace \texttt{export} with \texttt{setenv} and \texttt{=} with a space.
+
 \section{Directory Structure}
 The code has been set up so that the number of lines that need to be changed to reflect your directory structure can be kept to a minimum.
 \\\\
@@ -27,8 +44,15 @@ In def\_tritium.h:
 \item Add the location of your raw data folder to the \textit{static const char* PATHS[]} array if you do not have access to the standard directories.
 \end{enumerate}
 
-For example, these are the values of the prefix variables in def\_tritium.h:
-\\\\\noindent\texttt{const char* REPLAY\_DIR\_PREFIX = "/adaqfs/home/a-onl/tritium/HallA-Online-Tritium/replay/\%s";
-const char* ROOTFILE\_DIR\_PREFIX = "/chafs1/work1/tritium/\%s";}
+Now you must compile the ReplayCore. To do this, type the following commands into a terminal in the replay directory.
+\\\\
+\texttt{analyzer\\
+.L ReplayCore.C+\\
+.q}
+
+\section{Compiling The Libraries}
+
+To compile all of the libraries, a script has been provided. Go into the \textit{replay/libraries/} directory. From there, run the command:\\\\
+\texttt{./libs.sh}
 
 \end{document}
