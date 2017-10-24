@@ -14,13 +14,13 @@ This document assumes that you already have ROOT 6 and the Hall A Analyzer versi
 
 \section{Set Up Environmental Variables}
 
-There are four environmental variables that need to be set in order for the replay to work.
+There are four environmental variables that need to be set in order for the replay to work on your machine. When working on the \textit{aonl} machines, can omit the all but \textit{DB\_DIR}.
 
 \begin{enumerate}
-\item ANALYZER - Set to the directory where the analyzer lives.
-\item PATH - Add the directory where the analyzer lives.
-\item LD\_LIBRARY\_PATH - Add the directory where the analyzer lives
-\item DB\_DIR - Set to the directory of the replay database
+\item ANALYZER - Set to the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item PATH - Add the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item LD\_LIBRARY\_PATH - Add the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item DB\_DIR - Set to the directory of the replay database.
 \end{enumerate}
 
 If you are using the official replay, a script is provided to do this for you. In the replay directory, run:
