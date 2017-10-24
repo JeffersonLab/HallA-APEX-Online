@@ -1,0 +1,32 @@
+
+This is how to compile and run the scaler event handler
+using the SDK.
+
+I'm not sure but you might need to rename the class since
+it's already in the Podd library.  At least try printing a
+few things from the class to make sure the software is using
+your version.  Also, in order to make it work with the Makefile
+example from the SDK (software development kit) I had to 
+rename *.C to be *.cxx
+
+Need these files:
+
+   THaScalerEvtHandler.h
+   THaScalerEvtHandler.cxx
+   Scaler_LinkDef.h
+   MakeScalerHandler
+
+To compile :
+
+   make
+
+To run:
+
+  Put libscaler.so where it can be loaded, then in the analysis
+  script do this:
+
+    gSystem->Load("libScaler.so");
+
+    THaScalerEvtHandler *lscaler = new THaScalerEvtHandler("Left","HA scaler event type 140");
+
+    gHaEvtHandlers->Add (lscaler);
