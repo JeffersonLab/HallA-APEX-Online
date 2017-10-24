@@ -8,7 +8,7 @@
 //
 //   To decode evtype 100 enent for tritium
 //   Modified by Tong Su Sept 2017 
-/
+//
 //   This class does the following
 //      For a particular set of event types (here, event type 100)
 //      decode the scalers and put some variables into global variables.
