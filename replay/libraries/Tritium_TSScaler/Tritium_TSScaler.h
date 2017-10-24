@@ -23,6 +23,7 @@ class ScalerLoc4 { // Utility class used by Tritium_TSScaler
   ~ScalerLoc4();
   TString name, description;
   UInt_t index, islot, ichan, ivar, ikind;
+  Bool_t found;
 };
 
 class Tritium_TSScaler : public THaEvtTypeHandler {

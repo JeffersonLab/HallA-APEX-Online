@@ -23,6 +23,7 @@ class ScalerLoc5 { // Utility class used by Tritium_THaScaler100EvtHandler
   ~ScalerLoc5();
   TString name, description;
   UInt_t index, islot, ichan, ivar, ikind;
+  Bool_t found;
 };
 
 class Tritium_THaScaler100EvtHandler : public THaEvtTypeHandler {

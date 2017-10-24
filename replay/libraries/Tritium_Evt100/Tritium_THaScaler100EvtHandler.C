@@ -5,6 +5,10 @@
 //   Event handler for Hall A scalers.
 //   R. Michaels,  Sept, 2014
 //
+//
+//   To decode evtype 100 enent for tritium
+//   Modified by Tong Su Sept 2017 
+/
 //   This class does the following
 //      For a particular set of event types (here, event type 100)
 //      decode the scalers and put some variables into global variables.
@@ -144,26 +148,34 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
   int j=0;
 
   Int_t ifound = 0;
-
-  while (p < pstop && j < ndata) {
+while (p < pstop && j < ndata) {
     if (fDebugFile) {
       *fDebugFile << "p  and  pstop  "<<j++<<"   "<<p<<"   "<<pstop<<"   "<<hex<<*p<<"   "<<dec<<endl;
     }
     nskip = 1;
+   Int_t itimeout=0;
     for (UInt_t j=0; j<scalers.size(); j++) {
+     if(scalerloc[j]->found) continue;
+     if(fDebugFile) *fDebugFile<<"Slot"<<j<<"  "<<scalers[j]->GetSlot()<<endl;
+     while(p<pstop)
+       {if (scalers[j]->IsSlot(*p)==kTRUE)
+         {scalerloc[j]->found=kTRUE;
+          ifound=1;
+      goto found1;}
+        p++;
+       if(itimeout++>5000)
+      {cout<<"Tritium_THaScaler100EvtHandler:: Cannot find a slot"<<endl;
+       goto giveup1;}}
+found1:
+     if (p==pstop&&ifound==0) break;
       nskip = scalers[j]->Decode(p);
       if (fDebugFile && nskip > 1) {
-	*fDebugFile << "\n===== Scaler # "<<j<<"     fName = "<<fName<<"   nskip = "<<nskip<<endl;
-	scalers[j]->DebugPrint(fDebugFile);
-      }
-      if (nskip > 1) {
-	ifound = 1;
-	break;
-      }
-    }
-    p = p + nskip;
-  }
-
+        *fDebugFile << "\n===== Scaler # "<<j<<"     fName = "<<fName<<"   nskip = "<<nskip<<endl;
+        scalers[j]->DebugPrint(fDebugFile); }
+      if (nskip > 1) goto continue1; }
+continue1:
+    p = p + nskip; }
+giveup1:
   if (fDebugFile) {
     *fDebugFile << "Finished with decoding.  "<<endl;
     *fDebugFile << "   Found flag   =  "<<ifound<<endl;
@@ -392,6 +404,11 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
       scalers[i]->DebugPrint(fDebugFile);
     }
   }
+
+for (size_t j=0;j<scalers.size();j++)
+ { scalers[j]->Clear("");
+ scalerloc[j]->found=kFALSE;}
+
 
 
   return kOK;
