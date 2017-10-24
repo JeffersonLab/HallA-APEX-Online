@@ -126,8 +126,8 @@ Int_t THaScalerGui::InitPlots() {
   char string_ntup[]="UpdateNum:Count:Rate";
   iloop = 0;  lastsize = YBOXSMALL;
   showselect = SHOWRATE;
-  TGTab *fTab = new TGTab(this, 600, 800);
-  // TGTab *fTab = new TGTab(this, 1000, 1000);
+  //TGTab *fTab = new TGTab(this, 600, 800);
+  TGTab *fTab = new TGTab(this, 1000, 1000);
   TGLayoutHints *fLayout = new TGLayoutHints(kLHintsCenterX | kLHintsExpandX, 10, 10, 10, 10);
   TGLayoutHints *fLayout2 = new TGLayoutHints(kLHintsNormal ,10, 10, 10, 10);
   if (!scaler->GetDataBase()) {
@@ -212,7 +212,7 @@ Int_t THaScalerGui::InitPlots() {
           fButton1 = new TGTextButton(fr,new TGHotString(cbutton),
                    SCAL_NUMBANK*SCAL_NUMCHAN + OFFSET_HIST + index);
 
-	  const TGFont *bfont = gClient->GetFont("-*-times-medium-r-normal-*-34-*-*-*-*-*-*-*");
+	  const TGFont *bfont = gClient->GetFont("-*-times-medium-r-normal-*-20-*-*-*-*-*-*-*"); //Change font size to change button size.
 	  if (!bfont)
 	    bfont = gClient->GetResourcePool()->GetDefaultFont();
 	  FontStruct_t buttonfont = bfont->GetFontStruct();
@@ -225,7 +225,7 @@ Int_t THaScalerGui::InitPlots() {
           txtpair.first = index;
           txtpair.second = new TGTextEntry(fr,&fDataBuff[index]);
 	  txtpair.second->SetFont(buttonfont);
-	  txtpair.second->Resize(45,45);
+	  txtpair.second->Resize(30,30);        //Change size of data boxes.
           fDataEntry.insert(txtpair);
 	  fr->AddFrame(fDataEntry[index],fLayout);
  	  chan++;

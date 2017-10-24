@@ -1,10 +1,10 @@
-#ifndef Tritium_TSScaler_
-#define Tritium_TSScaler_
+#ifndef TriScalerEvtHandler_
+#define TriScalerEvtHandler_
 
 /////////////////////////////////////////////////////////////////////
 //
-//   Tritium_TSScaler
-//   Class to handle Hall A scaler events (type 1-14)
+//   TriScalerEvtHandler
+//   Class to handle Hall A scaler events (type 140)
 //   author  Robert Michaels (rom@jlab.org)
 //
 /////////////////////////////////////////////////////////////////////
@@ -16,22 +16,22 @@
 #include "TTree.h"
 #include "TString.h"  
 
-class ScalerLoc4 { // Utility class used by Tritium_TSScaler
+class ScalerVar { // Utility class used by TriScalerEvtHandler
  public:
- ScalerLoc4(TString nm, TString desc, Int_t idx, Int_t sl, Int_t ich, Int_t iki) :
+ ScalerVar(TString nm, TString desc, Int_t idx, Int_t sl, Int_t ich, Int_t iki) :
   name(nm), description(desc), index(idx), islot(sl), ichan(ich), ikind(iki) { };
-  ~ScalerLoc4();
+  ~ScalerVar();
   TString name, description;
   UInt_t index, islot, ichan, ivar, ikind;
   Bool_t found;
 };
 
-class Tritium_TSScaler : public THaEvtTypeHandler {
+class TriScalerEvtHandler : public THaEvtTypeHandler {
 
 public:
 
-   Tritium_TSScaler(const char* name, const char* description);
-   virtual ~Tritium_TSScaler();
+   TriScalerEvtHandler(const char* name, const char* description);
+   virtual ~TriScalerEvtHandler();
 
    virtual Int_t Analyze(THaEvData *evdata);
    virtual EStatus Init( const TDatime& run_time);
@@ -44,17 +44,17 @@ private:
    void DefVars();
 
    std::vector<Decoder::GenScaler*> scalers;
-   std::vector<ScalerLoc4*> scalerloc;
+   std::vector<ScalerVar*> scalerloc;
    Double_t evcount;
    UInt_t *rdata;
    Int_t fNormIdx, fNormSlot;
    Double_t *dvars;
    TTree *fScalerTree;
 
-   Tritium_TSScaler(const Tritium_TSScaler& fh);
-   Tritium_TSScaler& operator=(const Tritium_TSScaler& fh);
+   TriScalerEvtHandler(const TriScalerEvtHandler& fh);
+   TriScalerEvtHandler& operator=(const TriScalerEvtHandler& fh);
 
-   ClassDef(Tritium_TSScaler,0)  // Scaler Event handler
+   ClassDef(TriScalerEvtHandler,0)  // Scaler Event handler
 
 };
 

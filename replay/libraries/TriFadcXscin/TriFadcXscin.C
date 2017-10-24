@@ -1,22 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// TriFadcXscin                                                              //
+// TriFadcXscin                                                                 //
 //                                                                           //
 // Class for a generic X-direction scintillator (hodoscope) consisting       //
 // of multiple paddles with phototubes on both ends.                         //
 //                                                                           //
-// inherited from gmp_Xscin Barak Schmookler, May 2016                       //
-// ReadDatabase is modified to read new DB for analyzer 1.6;                 //
-// ADC readout is modified to read out FADC data                             //
-//                                                                           //
-///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
-// The s0 orientation is set by the flip argument.                           //
-//     kFALSE - LHRS orientation                                             //
-//     kTRUE  - RHRS orientation                                             //
-//                                                                           //
-// The argument will default to kFALSE if one is not provided.               //
-//                                                                           //
+// inherited from gmp_Xscin Barak Schmookler, May 2016 
+// ReadDatabase is modified to read new DB for analyzer 1.6;
+// ADC readout is modified to read out FADC data 
+// 
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "TriFadcXscin.h"
@@ -77,6 +69,8 @@ THaAnalysisObject::EStatus TriFadcXscin::Init( const TDatime& date )
     { &fRTNhit, &fRANhit, fRT, fRT_c, fRA, fRA_p, fRA_c, fROff, fRPed, fRGain },
     { &fLTNhit, &fLANhit, fLT, fLT_c, fLA, fLA_p, fLA_c, fLOff, fLPed, fLGain }
   };
+
+
   memcpy( fDataDest, tmp, NDEST*sizeof(DataDest) );
 
   return fStatus = kOK;
@@ -91,7 +85,7 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
   // 'date' contains the date/time of the run being analyzed.
 
   // Read this detector's parameters from the database
-
+ 
   const char* const here = "ReadDatabase";
 
   FILE* file = OpenFile( date );
@@ -430,27 +424,25 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
       }
 //        cout << "adc,j,k = " <<adc<<","<<j<< ","<<k<< endl;
 #endif
-      
+     
       // Copy the data to the local variables.
       DataDest* dest = fDataDest + k/fNelem;
       //decide wether use event by event pedestal
-      if(adc){
-          Double_t ftime = evdata.GetData(Decoder::kPulseTime,d->crate,d->slot,chan,0);//0.0625ns/count
-          if(ftime>((nped+6)*64))  //in case that the pulse is at the beignning of the window
-             dest->ped[k]=win_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/nped;
-      }
-
       k = k % fNelem;
+      if(adc){
+          dest->ped[k]=win_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/nped;
+      }
+     
       if( adc ) {
 	dest->adc[k]   = static_cast<Double_t>( data );
-	dest->adc_p[k] = data - dest->ped[k];
+	dest->adc_p[k] = data - dest->ped[k]; 
 	dest->adc_c[k] = dest->adc_p[k] * dest->gain[k];
 	(*dest->nahit)++;
       } else {
 	dest->tdc[k]   = static_cast<Double_t>( data );
 	dest->tdc_c[k] = (data - dest->offset[k])*fTdc2T;
 	(*dest->nthit)++;
-      }
+      }  
     }
   }
   if ( fDebug > 3 ) {

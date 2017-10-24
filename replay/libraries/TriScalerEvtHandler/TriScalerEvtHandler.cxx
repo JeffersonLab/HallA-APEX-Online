@@ -1,16 +1,12 @@
 ////////////////////////////////////////////////////////////////////
 //
-//   Tritium_Tritium_THaScaler100EvtHandler
+//   TriScalerEvtHandler
 //
 //   Event handler for Hall A scalers.
 //   R. Michaels,  Sept, 2014
 //
-//
-//   To decode evtype 100 enent for tritium
-//   Modified by Tong Su Sept 2017 
-/
 //   This class does the following
-//      For a particular set of event types (here, event type 100)
+//      For a particular set of event types (here, event type 140)
 //      decode the scalers and put some variables into global variables.
 //      The global variables can then appear in the Podd output tree T.
 //      In addition, a tree "TS" is created by this class; it contains
@@ -24,18 +20,18 @@
 //      there will be no variable output to the Trees.
 //
 //   To use in the analyzer, your setup script needs something like this
-//       gHaEvtHandlers->Add (new Tritium_THaScaler100EvtHandler("Left","HA scaler event type 1-14"));
+//       gHaEvtHandlers->Add (new TriScalerEvtHandler("Left","HA scaler event type 140"));
 //
 //   To enable debugging you may try this in the setup script
 // 
-//     Tritium_THaScaler100EvtHandler *lscaler = new Tritium_THaScaler100EvtHandler("Left","HA scaler event type 1-14");
+//     TriScalerEvtHandler *lscaler = new TriScalerEvtHandler("Left","HA scaler event type 140");
 //     lscaler->SetDebugFile("LeftScaler.txt");
 //     gHaEvtHandlers->Add (lscaler);
 //
 /////////////////////////////////////////////////////////////////////
 
 #include "THaEvtTypeHandler.h"
-#include "Tritium_THaScaler100EvtHandler.h"
+#include "TriScalerEvtHandler.h"
 #include "GenScaler.h"
 #include "Scaler3800.h"
 #include "Scaler3801.h"
@@ -64,14 +60,14 @@ static const UInt_t MAXCHAN   = 32;
 static const UInt_t MAXTEVT   = 5000;
 static const UInt_t defaultDT = 4;
 
-Tritium_THaScaler100EvtHandler::Tritium_THaScaler100EvtHandler(const char *name, const char* description)
+TriScalerEvtHandler::TriScalerEvtHandler(const char *name, const char* description)
   : THaEvtTypeHandler(name,description), evcount(0), fNormIdx(-1), fNormSlot(-1),
     dvars(0), fScalerTree(0)
 {
   rdata = new UInt_t[MAXTEVT];
 }
 
-Tritium_THaScaler100EvtHandler::~Tritium_THaScaler100EvtHandler()
+TriScalerEvtHandler::~TriScalerEvtHandler()
 {
   delete [] rdata;
   if (fScalerTree) {
@@ -79,13 +75,13 @@ Tritium_THaScaler100EvtHandler::~Tritium_THaScaler100EvtHandler()
   }
 }
 
-Int_t Tritium_THaScaler100EvtHandler::End( THaRunBase* r)
+Int_t TriScalerEvtHandler::End( THaRunBase* r)
 {
   if (fScalerTree) fScalerTree->Write();
   return 0;
 }
 
-Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
+Int_t TriScalerEvtHandler::Analyze(THaEvData *evdata)
 {
   Int_t lfirst=1;
 
@@ -93,7 +89,7 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
 
   if (fDebugFile) {
     *fDebugFile << endl << "---------------------------------- "<<endl<<endl;
-    *fDebugFile << "\nEnter Tritium_THaScaler100EvtHandler  for fName = "<<fName<<endl;
+    *fDebugFile << "\nEnter TriScalerEvtHandler  for fName = "<<fName<<endl;
     EvDump(evdata);
   }
 
@@ -101,7 +97,7 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
 
     lfirst = 0; // Can't do this in Init for some reason
 
-    TString sname1 = "TS100";
+    TString sname1 = "TS";
     TString sname2 = sname1 + fName;
     TString sname3 = fName + "  Scaler Data";
 
@@ -118,9 +114,9 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
     name = "evcount";
     tinfo = name + "/D";
     fScalerTree->Branch(name.Data(), &evcount, tinfo.Data(), 4000);
-
+    
     for (UInt_t i = 0; i < scalerloc.size(); i++) {
-      name = scalerloc[i]->name;
+      name = scalerloc[i]->name; 
       tinfo = name + "/D";
       fScalerTree->Branch(name.Data(), &dvars[i], tinfo.Data(), 4000);
     }
@@ -132,11 +128,11 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
 
   Int_t ndata = evdata->GetEvLength();
   if (ndata >= static_cast<Int_t>(MAXTEVT)) {
-    cout << "Tritium_THaScaler100EvtHandler:: ERROR: Event length crazy "<<endl;
+    cout << "TriScalerEvtHandler:: ERROR: Event length crazy "<<endl;
     ndata = MAXTEVT-1;
   }
 
-  if (fDebugFile) *fDebugFile<<"\n\nTritium_THaScaler100EvtHandler :: Debugging event type "<<dec<<evdata->GetEvType()<<endl<<endl;
+  if (fDebugFile) *fDebugFile<<"\n\nTriScalerEvtHandler :: Debugging event type "<<dec<<evdata->GetEvType()<<endl<<endl;
 
   // local copy of data
 
@@ -148,34 +144,44 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
   int j=0;
 
   Int_t ifound = 0;
-while (p < pstop && j < ndata) {
+
+  while (p < pstop && j < ndata) {
     if (fDebugFile) {
       *fDebugFile << "p  and  pstop  "<<j++<<"   "<<p<<"   "<<pstop<<"   "<<hex<<*p<<"   "<<dec<<endl;
     }
     nskip = 1;
-   Int_t itimeout=0;
+    Int_t itimeout=0;
     for (UInt_t j=0; j<scalers.size(); j++) {
-     if(scalerloc[j]->found) continue;
-     if(fDebugFile) *fDebugFile<<"Slot"<<j<<"  "<<scalers[j]->GetSlot()<<endl;
-     while(p<pstop)
-       {if (scalers[j]->IsSlot(*p)==kTRUE)
-         {scalerloc[j]->found=kTRUE;
-          ifound=1;
-      goto found1;}
+    // bump pointer until scaler found, and don't decode if already found for this event.
+      if (scalerloc[j]->found) continue;
+      if (fDebugFile) *fDebugFile << "Slot "<<j<<"   "<<scalers[j]->GetSlot()<<endl;
+      while (p < pstop) {
+        if (scalers[j]->IsSlot(*p) == kTRUE) {
+            scalerloc[j]->found=kTRUE;
+            ifound = 1;
+            goto found1;
+	}
         p++;
-       if(itimeout++>5000)
-      {cout<<"Tritium_THaScaler100EvtHandler:: Cannot find a slot"<<endl;
-       goto giveup1;}}
+        if (itimeout++ > 5000) { // avoid infinite loop
+	  cout << "TriScalerEvtHandler:: cannot find a slot "<<endl;
+          goto giveup1;
+	}
+      }
 found1:
-     if (p==pstop&&ifound==0) break;
+      if(p==pstop && ifound==0)break;
       nskip = scalers[j]->Decode(p);
       if (fDebugFile && nskip > 1) {
-        *fDebugFile << "\n===== Scaler # "<<j<<"     fName = "<<fName<<"   nskip = "<<nskip<<endl;
-        scalers[j]->DebugPrint(fDebugFile); }
-      if (nskip > 1) goto continue1; }
+	*fDebugFile << "\n===== Scaler # "<<j<<"     fName = "<<fName<<"   nskip = "<<nskip<<endl;
+	scalers[j]->DebugPrint(fDebugFile);
+      }
+      if (nskip > 1) goto continue1;
+    }
 continue1:
-    p = p + nskip; }
+    p = p + nskip;
+  }
+
 giveup1:
+
   if (fDebugFile) {
     *fDebugFile << "Finished with decoding.  "<<endl;
     *fDebugFile << "   Found flag   =  "<<ifound<<endl;
@@ -200,13 +206,16 @@ giveup1:
       if (scalerloc[ivar]->ikind == IRATE)  dvars[ivar] = scalers[idx]->GetRate(ichan);
       if (fDebugFile) *fDebugFile << "   dvars  "<<scalerloc[ivar]->ikind<<"  "<<dvars[ivar]<<endl;
     } else {
-      cout << "Tritium_THaScaler100EvtHandler:: ERROR:: incorrect index "<<ivar<<"  "<<idx<<"  "<<ichan<<endl;
+      cout << "TriScalerEvtHandler:: ERROR:: incorrect index "<<ivar<<"  "<<idx<<"  "<<ichan<<endl;
     }
   }
 
   evcount = evcount + 1.0;
 
-  for (size_t j=0; j<scalers.size(); j++) scalers[j]->Clear("");
+  for (size_t j=0; j<scalers.size(); j++) {
+     scalers[j]->Clear("");
+     scalerloc[j]->found=kFALSE;
+  }
 
   if (fDebugFile) *fDebugFile << "scaler tree ptr  "<<fScalerTree<<endl;
 
@@ -215,7 +224,7 @@ giveup1:
   return 1;
 }
 
-THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& date)
+THaAnalysisObject::EStatus TriScalerEvtHandler::Init(const TDatime& date)
 {
   const int LEN = 200;
   char cbuf[LEN];
@@ -223,20 +232,17 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
   fStatus = kOK;
   fNormIdx = -1;
 
-  // cout << "Howdy !  We are initializing Tritium_THaScaler100EvtHandler !!   name =   "
-  //      << fName << endl;
+   cout << "Howdy !  We are initializing TriScalerEvtHandler !!   name =   "
+        << fName << endl;
 
-  eventtypes.push_back(100);  // what events to look for
-  
-    
-    
+  eventtypes.push_back(140);  // what events to look for
 
   TString dfile;
-  dfile = fName + "_scaler_100.txt";
+  dfile = fName + "scaler.txt";
 
 // Parse the map file which defines what scalers exist and the global variables.
 
-  TString sname0 = "_Scalevt_TS";
+  TString sname0 = "Scalevt";
   TString sname;
   sname = fName+sname0;
 
@@ -279,7 +285,7 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
 	UInt_t header, mask;
 	char cdum[20];
 	sscanf(sinput.c_str(),"%s %d %d %d %x %x %d \n",cdum,&imodel,&icrate,&islot, &header, &mask, &inorm);
-        if (fNormSlot >= 0 && fNormSlot != inorm) cout << "Tritium_THaScaler100EvtHandler:: WARN: contradictory norm slot "<<inorm<<endl;
+        if (fNormSlot >= 0 && fNormSlot != inorm) cout << "TriScalerEvtHandler:: WARN: contradictory norm slot "<<inorm<<endl;
         fNormSlot = inorm;  // slot number used for normalization.  This variable is not used but is checked.
 	Int_t clkchan = -1;
 	Double_t clkfreq = 1;
@@ -314,7 +320,7 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
 	  if (clkchan >= 0) {  
              scalers[idx]->SetClock(defaultDT, clkchan, clkfreq);
              fNormIdx = idx;
-             if (islot != fNormSlot) cout << "Tritium_THaScaler100EvtHandler:: WARN: contradictory norm slot ! "<<islot<<endl;  
+             if (islot != fNormSlot) cout << "TriScalerEvtHandler:: WARN: contradictory norm slot ! "<<islot<<endl;  
  	     if (fDebugFile) *fDebugFile <<"Setting scaler clock ... channel = "<<clkchan<<" ... freq = "<<clkfreq<<"   fNormIdx = "<<fNormIdx<<"  fNormSlot = "<<fNormSlot<<"  slot = "<<islot<<endl;
 	  }
 	}
@@ -384,7 +390,7 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
   for (UInt_t i1=0; i1 < scalers.size()-1; i1++) {
     for (UInt_t i2=i1+1; i2 < scalers.size(); i2++) {
       if (scalers[i1]->GetSlot()==scalers[i2]->GetSlot())
-	cout << "Tritium_THaScaler100EvtHandler:: WARN:  same slot defined twice"<<endl;
+	cout << "TriScalerEvtHandler:: WARN:  same slot defined twice"<<endl;
     }
   }
 // Identify indices of scalers[] vector to variables.
@@ -397,24 +403,23 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
 
 
   if(fDebugFile) {
-    *fDebugFile << "Tritium_THaScaler100EvtHandler:: Name of scaler bank "<<fName<<endl;
+    *fDebugFile << "TriScalerEvtHandler:: Name of scaler bank "<<fName<<endl;
     for (UInt_t i=0; i<scalers.size(); i++) {
       *fDebugFile << "Scaler  #  "<<i<<endl;
       scalers[i]->SetDebugFile(fDebugFile);
       scalers[i]->DebugPrint(fDebugFile);
     }
   }
-
-for (size_t j=0;j<scalers.size();j++)
- { scalers[j]->Clear("");
- scalerloc[j]->found=kFALSE;}
-
+  for (size_t j=0; j<scalers.size(); j++) {
+     scalers[j]->Clear("");
+     scalerloc[j]->found=kFALSE;
+  }
 
 
   return kOK;
 }
 
-void Tritium_THaScaler100EvtHandler::AddVars(TString name, TString desc, Int_t islot,
+void TriScalerEvtHandler::AddVars(TString name, TString desc, Int_t islot,
 				  Int_t ichan, Int_t ikind)
 {
   // need to add fName here to make it a unique variable.  (Left vs Right HRS, for example)
@@ -422,12 +427,12 @@ void Tritium_THaScaler100EvtHandler::AddVars(TString name, TString desc, Int_t i
   TString desc1 = fName + desc;
 // We don't yet know the correspondence between index of scalers[] and slots.
 // Will put that in later.
-  ScalerLoc5 *loc = new ScalerLoc5(name1, desc1, 0, islot, ichan, ikind);
+  ScalerVar *loc = new ScalerVar(name1, desc1, 0, islot, ichan, ikind);
   loc->ivar = scalerloc.size();  // ivar will be the pointer to the dvars array.
   scalerloc.push_back(loc);
 }
 
-void Tritium_THaScaler100EvtHandler::DefVars()
+void TriScalerEvtHandler::DefVars()
 {
   // called after AddVars has finished being called.
   Int_t Nvars = scalerloc.size();
@@ -440,7 +445,7 @@ void Tritium_THaScaler100EvtHandler::DefVars()
     cout << "No gHaVars ?!  Well, that's a problem !!"<<endl;
     return;
   }
-  if(fDebugFile) *fDebugFile << "Tritium_THaScaler100EvtHandler:: scalerloc size "<<scalerloc.size()<<endl;
+  if(fDebugFile) *fDebugFile << "TriScalerEvtHandler:: scalerloc size "<<scalerloc.size()<<endl;
   const Int_t* count = 0;
   for (UInt_t i = 0; i < scalerloc.size(); i++) {
     gHaVars->DefineByType(scalerloc[i]->name.Data(), scalerloc[i]->description.Data(),
@@ -448,4 +453,4 @@ void Tritium_THaScaler100EvtHandler::DefVars()
   }
 }
 
-ClassImp(Tritium_THaScaler100EvtHandler)
+ClassImp(TriScalerEvtHandler)

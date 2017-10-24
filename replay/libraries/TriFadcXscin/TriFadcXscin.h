@@ -3,15 +3,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// TriFadcXscin                                                              //
-//                                                                           //
-///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
-// The s0 orientation is set by the flip argument.                           //
-//     kFALSE - LHRS orientation                                             //
-//     kTRUE  - RHRS orientation                                             //
-//                                                                           //
-// The argument will default to kFALSE if one is not provided.               //
+// TriFadcXscin                                                           //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -109,7 +101,7 @@ protected:
   Bool_t fFlip;
  
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int nped=4;
+  static const int nped=15;
   static const int win_size = 75;
  
   static const char NDEST = 2;

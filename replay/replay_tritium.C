@@ -75,7 +75,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Scalers
     //==================================
     if(bScaler){
-      THaScalerEvtHandler* rscaler = new THaScalerEvtHandler("Right","HA scaler event type 140 on R-HRS");
+      TriScalerEvtHandler* rscaler = new TriScalerEvtHandler("Right","HA scaler event type 140 on R-HRS");
       gHaEvtHandlers->Add(rscaler);
     }
 
@@ -186,7 +186,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     //  Scaler
     //==================================
     if(bScaler){
-    THaScalerEvtHandler* lscaler = new THaScalerEvtHandler("Left","HA scaler event type 140 on R-HRS");
+    TriScalerEvtHandler* lscaler = new TriScalerEvtHandler("Left","HA scaler event type 140 on R-HRS");
     gHaEvtHandlers->Add(lscaler);
     }
 
