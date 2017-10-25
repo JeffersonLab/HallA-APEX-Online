@@ -80,6 +80,8 @@
 #include "TString.h"
 #endif//#ifdef __CINT__
 
+#define ALLOW_ROOTFILE_OVERWRITE false
+
 Bool_t IsFileExist(const Char_t * fname);
 
 using namespace std;
@@ -88,7 +90,7 @@ void ReplayCore(
 		Int_t runnumber=0,            //run #
 		Int_t all=0,                  //-1=replay all;0=ask for a number
 		Int_t DefReplayNum=-1,        //default replay event num
-		const char* OutFileFormat="%s/left_gmp_%d.root", //output file format
+		const char* OutFileFormat="%s/tritium_%d.root", //output file format
 		const char* OutDefineFile="HRS.odef",       //out define
 		const char* CutDefineFile="HRS.cdef",       //cut define
 		Bool_t EnableScalar=false,                    //Enable Scalar?
@@ -235,7 +237,7 @@ void ReplayCore(
 	    cout << "replay: "<<outname<<", which contains "<<NEnt
 		 <<" events, already exists. ";
 	  }
-
+#if ALLOW_ROOTFILE_OVERWRITE
 	  cout<<"Do you want to overwrite it? "
 	      <<"(default="<<DefOverWriting.Data()<<"; enter \"c\" means exit):";
 
@@ -284,11 +286,20 @@ void ReplayCore(
 		<<s.Data()
 		<<"is not a valid input; Exiting."
 		<<endl;
+#else
+cout << endl 
+     << endl << "------------------------------------------"
+     << endl << "Rootfile Overwriting is currently disabled." 
+     << endl << "If you need to create this replay, please communicate with whoever created the current replay to determine if you may delete it."
+     << endl << "------------------------------------------" << endl << endl;
+#endif
 	    gHaApps->Delete();
 	    gHaPhysics->Delete();
 	    analyzer->Close();
 	    return;
+#if ALLOW_ROOTFILE_OVERWRITE
 	  }
+#endif
 	}
     }
 
