@@ -12,7 +12,7 @@
 replay/*.0
 replay/*.so
 replay/*.d
-replay/.pcm
+replay/*.pcm
 
 replay/DB/*
 replay/RootFiles
