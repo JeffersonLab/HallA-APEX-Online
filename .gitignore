@@ -11,6 +11,8 @@
 **/*.xpm
 **/*.pcm
 **/*.dat.*
+**/*Dict.*
+**/*_LinkDef.*
 #replay/*.0
 #replay/*.so
 #replay/*.d
