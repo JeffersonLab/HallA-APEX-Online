@@ -9,7 +9,7 @@
 **/*.root
 **/root_hist
 **/*.xpm
-**/.pcm
+**/*.pcm
 **/*.dat.*
 #replay/*.0
 #replay/*.so
