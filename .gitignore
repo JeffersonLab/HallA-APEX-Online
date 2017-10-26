@@ -12,7 +12,7 @@
 **/*.pcm
 **/*.dat.*
 **/*Dict.*
-**/*_LinkDef.*
+**/*LinkDef.*
 #replay/*.0
 #replay/*.so
 #replay/*.d
