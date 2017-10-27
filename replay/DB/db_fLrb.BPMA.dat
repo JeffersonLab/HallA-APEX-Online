@@ -1,0 +1,10 @@
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+fLrb.BPMA.detmap =
+      31   9     4     7     1  250
+fLrb.BPMA.position = 0.0 0.0  -7.34500e+00
+fLrb.BPMA.calib_rot = 0.01887
+fLrb.BPMA.pedestals = 3764  3501  3472  3485
+fLrb.BPMA.rotmatrix = -0.750796  0.723848 0.77656  0.72107
+fLrb.BPMA.offsets =  0.00143766 -6.81262e-06
+

@@ -208,6 +208,10 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       Lrb->AddDetector(new THaBPM("BPMA", "First BPM"));
       Lrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
       gHaApps->Add(Lrb);
+
+      TriFadcRasteredBeam* fLrb = new TriFadcRasteredBeam("fLrb", "Rastered beam to L-HRS");
+      gHaApps->Add(fLrb);
+
     }
     
     //==================================
