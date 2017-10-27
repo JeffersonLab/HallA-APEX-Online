@@ -1,18 +1,22 @@
 # ignore patterns
 
 
-*~
-*.o
-*.a
-*.so
-*.d
-*.root
-*root_hist
-*.xpm
-replay/*.0
-replay/*.so
-replay/*.d
-replay/.pcm
+**/*~
+**/*.o
+**/*.a
+**/*.so
+**/*.d
+**/*.root
+**/root_hist
+**/*.xpm
+**/*.pcm
+**/*.dat.*
+**/*Dict.*
+**/*LinkDef.*
+#replay/*.0
+#replay/*.so
+#replay/*.d
+#replay/*.pcm
 
 replay/DB/*
 replay/RootFiles
