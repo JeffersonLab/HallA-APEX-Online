@@ -42,6 +42,14 @@ Variable Rrb.dir.x
 Variable Rrb.dir.y
 Variable Rrb.e
 
+Variable FbusRrb.Raster.rawcur.x
+Variable FbusRrb.Raster.rawcur.y
+Variable FbusRrb.Raster2.rawcur.x
+Variable FbusRrb.Raster2.rawcur.y
+Variable FbusRrb.dir.x
+Variable FbusRrb.dir.y
+Variable FbusRrb.e
+
 #-------------------------------------------------------------------
 # RIGHT ARM S0
 #
