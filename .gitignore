@@ -12,7 +12,8 @@
 **/*.pcm
 **/*.dat.*
 **/*Dict.*
-**/*LinkDef.*
+#**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
+**/.nfs*
 #replay/*.0
 #replay/*.so
 #replay/*.d
