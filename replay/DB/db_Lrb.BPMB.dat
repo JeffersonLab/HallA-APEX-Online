@@ -1,7 +1,7 @@
 --------[ 2017-03-01 00:00:00 -0500 ]
 
 Lrb.BPMB.detmap =
-      3    21     7    10     1  1881
+      31    9     8    11     1  250
 Lrb.BPMB.position = 0.0 0.0   -2.21400e+00
 Lrb.BPMB.calib_rot = 0.01887
 Lrb.BPMB.pedestals = 3801  3695  3601  3438
