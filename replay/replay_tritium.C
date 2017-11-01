@@ -22,14 +22,16 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
 
   char buf[300];
   Int_t nrun=0;
+
   if (runnumber<=0)
   {
 	    cout << "\nreplay: Please enter a Run Number (-1 to exit):";
 	    cin >> nrun;
 	    fgets(buf,300,stdin);//get the extra '\n' from stdin
 	    if( nrun<=0 ) return;
+	    runnumber = nrun;
   }
-  runnumber = nrun;
+
   
   //Enable modules
   Bool_t bScaler=kTRUE;
@@ -47,7 +49,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   //  Right Arm Detectors
   //==================================
-  
+
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
@@ -154,7 +156,6 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       }*/
     }
   }
-
   //==================================
   //  Left Arm
   //==================================
@@ -270,6 +271,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       }*/
     }
   }
+  
   
   //=====================================
   //  Set up Analyzer and replay data
