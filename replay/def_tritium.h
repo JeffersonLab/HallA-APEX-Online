@@ -70,14 +70,10 @@ static const char* PATHS[] = {
 static const char* RAW_DATA_FORMAT="%s/triton_%d.dat.%d";
 //static const char* RAW_DATA_FORMAT="%s/dvcs14_%d.dat.%d";
 
-char STD_REPLAY_OUTPUT_DIR[300];
-int m = sprintf(STD_REPLAY_OUTPUT_DIR,ROOTFILE_DIR_PREFIX,"Rootfiles");
-char CUSTOM_REPLAY_OUTPUT_DIR[300];
-int n = sprintf(CUSTOM_REPLAY_OUTPUT_DIR,ROOTFILE_DIR_PREFIX,"ScratchROOTfiles");
-char SUMMARY_PHYSICS_FORMAT[300];
-int o = sprintf(SUMMARY_PHYSICS_FORMAT,REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
-
 //Previously used:
+TString STD_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"Rootfiles");
+TString CUSTOM_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"ScratchROOTfiles");
+TString SUMMARY_PHYSICS_FORMAT= TString::Format(REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
 //static const char* STD_REPLAY_OUTPUT_DIR=Form(ROOTFILE_DIR_PREFIX,"Rootfiles");
 //static const char* CUSTOM_REPLAY_OUTPUT_DIR=Form(ROOTFILE_DIR_PREFIX,"ScratchROOTfiles");
 //static const char* SUMMARY_PHYSICS_FORMAT=Form(REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
