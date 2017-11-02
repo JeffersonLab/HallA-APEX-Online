@@ -12,13 +12,13 @@
  * - Are we using energy loss classes? Need to be made 1.6 compatible
  */
 
-#include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
+#include "./def_tritium.h"
 using namespace std;
 
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -278,11 +278,11 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //=====================================
   ReplayCore(
 	     runnumber,        //run #
-	     0,                //-1=replay all;0=ask for a number
-	     all,              //default replay event num
+	     numevents,        //-1=replay all;0=ask for a number
+	     50000,            //default replay event num
 	     RNAME,            //output file format
-	     ODEF.Data(),	       //out define
-	     CUTS.Data(), 	       //empty cut define
+	     ODEF.Data(),	   //out define
+	     CUTS.Data(), 	   //empty cut define
 	     bScaler,          //replay scalar?
 	     bHelicity,        //repaly helicity
 	     fstEvt,	       //First Event To Replay
