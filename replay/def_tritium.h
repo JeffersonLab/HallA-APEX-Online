@@ -36,7 +36,7 @@
 
 //Used for setting paths. %s is necessary so that it can be used to Form the paths.
 //This allows changing the directory in fewer places for ease of portability.
-const char* REPLAY_DIR_PREFIX = "/adaqfs/home/a-onl/tritium_work/Bane/HallA-Online-Tritium/replay/%s";
+const char* REPLAY_DIR_PREFIX = "/adaqfs/home/a-onl/tritium/replay/%s";
 const char* ROOTFILE_DIR_PREFIX = "/chafs1/work1/tritium/%s";
 
 typedef struct _sReplaySetUp
@@ -77,6 +77,7 @@ int n = sprintf(CUSTOM_REPLAY_OUTPUT_DIR,ROOTFILE_DIR_PREFIX,"ScratchROOTfiles")
 char SUMMARY_PHYSICS_FORMAT[300];
 int o = sprintf(SUMMARY_PHYSICS_FORMAT,REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
 
+//Previously used:
 //static const char* STD_REPLAY_OUTPUT_DIR=Form(ROOTFILE_DIR_PREFIX,"Rootfiles");
 //static const char* CUSTOM_REPLAY_OUTPUT_DIR=Form(ROOTFILE_DIR_PREFIX,"ScratchROOTfiles");
 //static const char* SUMMARY_PHYSICS_FORMAT=Form(REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
