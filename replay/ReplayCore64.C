@@ -55,6 +55,7 @@
 
 #include "def_tritium.h"
 
+
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
@@ -105,6 +106,9 @@ void ReplayCore(
   //
   // it's also convenient to load detector manually in analyzer 
   // command line then call me
+
+	int	output_Debug =0; //Flag for debuging the location of the output rootfile. 
+
 
   // step 1: Init analyzer
   cout<<"replay: Init analyzer ..."<<endl;
@@ -204,9 +208,17 @@ void ReplayCore(
     nev=all;
 
   char outname[300];
-  sprintf(outname,OutFileFormat,STD_REPLAY_OUTPUT_DIR,nrun);
-  found=0;    
 
+  sprintf(outname,OutFileFormat,STD_REPLAY_OUTPUT_DIR.Data(),nrun);
+	
+	if(output_Debug==1){		
+  		cout << "OutFileFormat =    " << OutFileFormat << endl;
+  		cout << "ROOTFILE_DIR_PREFIX =   " << ROOTFILE_DIR_PREFIX << endl;
+  		cout << "STD_REPLAY_OUTPUT_DIR =   " << STD_REPLAY_OUTPUT_DIR.Data() << endl;
+  		cout << "nrun =    " << nrun << endl;
+  		cout << "outname 1:   " << outname << endl;
+	}
+  found=0;    
   //rootfile overwrite proof
   while (found==0 && !QuietRun)
     {
@@ -266,7 +278,7 @@ void ReplayCore(
 	  }
 	  else if (s=="n" || s=="no"){
 	    sprintf(outname,OutFileFormat,
-		    CUSTOM_REPLAY_OUTPUT_DIR,nrun);
+		    CUSTOM_REPLAY_OUTPUT_DIR.Data(),nrun);
 	    cout<<endl
 		<<"replay: please enter the output root file name. "<<endl
 		<<"        leave blank = "<<outname<<endl
@@ -319,7 +331,7 @@ cout << endl
   analyzer->SetOdefFile(OutDefineFile);
   analyzer->SetCutFile(CutDefineFile);  
   char sumname[300];
-  sprintf(sumname,SUMMARY_PHYSICS_FORMAT,nrun);
+  sprintf(sumname,SUMMARY_PHYSICS_FORMAT.Data(),nrun);
   analyzer->SetSummaryFile(sumname); // optional
 
   //correct the offset on the last event if first event is above 0
