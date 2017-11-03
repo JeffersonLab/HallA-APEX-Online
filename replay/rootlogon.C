@@ -17,7 +17,7 @@
 {
   //Used for setting paths. %s is necessary so that it can be used to Form the paths.
   //This allows changing the directory in only one place for ease of portability.
-  static const char* replay_dir_prefix = "./replay/%s";
+  static const char* replay_dir_prefix = "./%s";
   TString Arch(gSystem->GetBuildArch());
   TString Arch32("linux");
   TString Arch64("linuxx8664gcc");
