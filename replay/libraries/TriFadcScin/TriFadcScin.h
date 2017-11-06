@@ -105,7 +105,7 @@ protected:
 
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
   static const int Nped=15;  
-  static const int Win_size = 75;
+  static const int Win_size = 50;
 
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );

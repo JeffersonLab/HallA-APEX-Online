@@ -102,7 +102,7 @@ protected:
  
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
   static const int nped=15;
-  static const int win_size = 75;
+  static const int win_size = 50;
  
   static const char NDEST = 2;
   struct DataDest {

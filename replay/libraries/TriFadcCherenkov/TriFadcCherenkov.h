@@ -47,7 +47,7 @@ protected:
 
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
   static const int NPed=15;
-  static const int WIN_size = 75;
+  static const int WIN_size = 50;
   virtual Int_t  DefineVariables( EMode mode = kDefine );
           void   DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
