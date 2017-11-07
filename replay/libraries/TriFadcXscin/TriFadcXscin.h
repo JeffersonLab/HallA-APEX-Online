@@ -65,6 +65,9 @@ protected:
   Double_t    fAttenuation; // in m^-1: attenuation length of material
   Double_t    fResolution;  // average time resolution per PMT (s)
 
+  Int_t    fNPED;        //number of samples included in FADC pedestal sum
+  Int_t    fWin;         //number of samples that FADC make integration
+
   // Per-event data
   Int_t       fLTNhit;     // Number of Left paddles TDC times
   Double_t*   fLT;         // [fNelem] Array of Left paddles TDC times (channels)
@@ -99,10 +102,6 @@ protected:
 
   // Added by Barak (May 2016)
   Bool_t fFlip;
- 
-  //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int nped=15;
-  static const int win_size = 50;
  
   static const char NDEST = 2;
   struct DataDest {
