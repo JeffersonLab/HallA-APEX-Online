@@ -26,7 +26,7 @@ variable 1 28 2  d3r  BCM d3 rate
 variable 1 7  1  TSClock   Clock counts
 variable 1 7  2  TSClockr   Clock rate
 variable 1 14 1  TSL1A   L1A counts
-variable 1 14 2  TSL1A   L1A rate
+variable 1 14 2  TSL1Ar   L1A rate
 variable 1 20 1  dnew    dnew counts
 variable 1 20 2  dnewr   dnew rate
 variable 1 18 1  unew    unew counts
