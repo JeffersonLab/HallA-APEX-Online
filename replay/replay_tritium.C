@@ -94,11 +94,14 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      THaRasteredBeam* Rrb = new THaRasteredBeam("Rrb", "Rastered beam to R-HRS");
-      Rrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      Rrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      Rrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      TriFadcRasteredBeam* Rrb = new TriFadcRasteredBeam("Rrb", "Rastered beam to the R-HRS");
       gHaApps->Add(Rrb);
+
+      THaRasteredBeam* FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+      FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(FbusRrb);
     }
     
     //==================================
@@ -204,15 +207,14 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      THaRasteredBeam* Lrb = new THaRasteredBeam("Lrb", "Rastered beam to L-HRS");
-      Lrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      Lrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      Lrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      TriFadcRasteredBeam* Lrb = new TriFadcRasteredBeam("Lrb", "Rastered beam to L-HRS");
       gHaApps->Add(Lrb);
 
-      TriFadcRasteredBeam* fLrb = new TriFadcRasteredBeam("fLrb", "Rastered beam to L-HRS");
-      gHaApps->Add(fLrb);
-
+      THaRasteredBeam* FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
+      FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      FbusLrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      FbusLrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(FbusLrb);  
     }
     
     //==================================
