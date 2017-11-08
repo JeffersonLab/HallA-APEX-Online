@@ -76,6 +76,9 @@ protected:
   Double_t    fAttenuation; // in m^-1: attenuation length of material
   Double_t    fResolution;  // average time resolution per PMT (s)
 
+  Int_t       fNPED;        //number of samples included in FADC pedestal sum
+  Int_t       fWin;         //number of samples that FADC make integration
+
   // Per-event data
   Int_t       fLTNhit;     // Number of Left paddles TDC times
   Double_t*   fLT;         // [fNelem] Array of Left paddles TDC times (channels)
@@ -102,10 +105,6 @@ protected:
   Double_t*   fAmpl;       // [fNelem] overall amplitude for the paddle
   Double_t*   fYt;         // [fNelem] y-position of hit in paddle from TDC (m)
   Double_t*   fYa;         // [fNelem] y-position of hit in paddle from ADC (m)
-
-  //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int Nped=15;  
-  static const int Win_size = 75;
 
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );

@@ -1,0 +1,11 @@
+
+
+
+
+1 To run: ./spot_L runNo
+2 all the plots save in the local dir named Tritium_RunNo.pdf
+3 same DB dir with the replay script
+4 FADC BPM and Raster also included in the script
+
+
+Please test the code and email bugs to: tongsu@jlab.org

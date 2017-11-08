@@ -1,9 +1,48 @@
---------[ 2017-03-01 00:00:00 -0500 ]
-# map line starts with "map".  Then model#, crate, slot, header, mask, norm slot
-# If >7 fields it's a norm slot and last 2 are clock chan#, clock frequency
+# scaler.map file for Left HRS event type 140
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
 map 1151 1 0 abc00000 ffff0000 1
-map 3800 1 2 abc10000 ffff0000 1 7 1024
-# variables become global variables and appear in an output tree
-# "variable" slot, chan, (1=cnt, 2=rate), variable name, description
-variable 2 4 1  TSbcmu1  BCM x1 counts
-variable 2 4 2  TSbcmu1r  BCM x1 rate
+map 3800 1 1 abc10000 ffff0000 1 7 103700 
+map 3800 1 2 abc20000 ffff0000 1
+map 3800 1 3 abc30000 ffff0000 1
+map 3800 1 4 abc40000 ffff0000 1
+map 3800 1 5 abc50000 ffff0000 1
+map 3800 1 6 abc60000 ffff0000 1
+
+
+# variable syntax
+# slot#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+# for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+
+variable 1 24 1  u1   BCM u1 counts
+variable 1 24 2  u1r  BCM u1 rate
+variable 1 28 1  d3   BCMd3 counts
+variable 1 28 2  d3r  BCM d3 rate
+variable 1 7  1  TSClock   Clock counts
+variable 1 7  2  TSClockr   Clock rate
+variable 1 14 1  TSL1A   L1A counts
+variable 1 14 2  TSL1Ar   L1A rate
+variable 1 20 1  dnew    dnew counts
+variable 1 20 2  dnewr   dnew rate
+variable 1 18 1  unew    unew counts
+variable 1 18 2  unewr   unew rate
+
+
+
+variable 1 22 1  unser   unser counts
+variable 1 22 2  unserr  unser rate
+
+variable 1 26 1  d1      BCM d1 counts
+variable 1 26 2  d1r     BCM d1 rate
+
+variable 1 30 1  d10   BCM d10 counts
+variable 1 30 2  d10r  BCM d10 rate
+
+
+
+ 
