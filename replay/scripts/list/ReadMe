@@ -1,6 +1,8 @@
 This is a Readme for the Run list!
 
 In order to make a new runlist:
+
+This currently needs to be done from the aonl4 machine.
 Please change  the #  in \setcounter{run}{#} on line 25, to the last run number. 
 
 Then use "pdflatex runlist.tex"
