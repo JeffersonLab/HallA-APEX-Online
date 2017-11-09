@@ -7,7 +7,7 @@ then
 else
 	RUNNUM=$1
 fi
-if [ $RUNNUM -le 20000 ]
+if [ $RUNNUM -le 90000 ]
 then
 	
 	HOST=`hostname -s`
