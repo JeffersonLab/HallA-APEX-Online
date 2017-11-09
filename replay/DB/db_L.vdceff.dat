@@ -1,0 +1,20 @@
+--------[ 2017-03-01 00:00:00 -0500 ]
+# Example VDC efficiency module (VDCeff) database file.
+# The definitions here match what was hardcoded in the original THaDecData.
+# Ole Hansen 7-Apr-2014
+
+# Definitions of wire spectra to analyze
+# Format:  global_variable_name  histogram_name_prefix  max_number_wires
+
+L.vdceff.vdcvars =
+# Left arm wire planes
+  L.vdc.u1.wire   Lu1   400
+  L.vdc.u2.wire   Lu2   400
+  L.vdc.v1.wire   Lv1   400
+  L.vdc.v2.wire   Lv2   400
+
+
+L.vdceff.cycle  = 500    # Number of events between recalculations
+L.vdceff.maxocc = 0.25   # Maximum anticipated occupancy (sets histogram range)
+
+
