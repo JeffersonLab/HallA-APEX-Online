@@ -84,18 +84,18 @@ TH2F Lcer_y  'Left arm Cerenkov sum (corrected) vs. Y' L.cer.try L.cer.asum_c 60
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
 #
 #TH1F Lpsa  'PionRejector1 ADCs' L.prl1.a 200 10 2000 L.prl1.a>0.
-TH1F Lpsa   'PionRejector1 ADCs' L.prl1.a 2000 0.5 2000.5 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADCs (PedSub)' L.prl1.a_p 2100 -99.5 2000.5 L.prl1.a_p>=-50.
-TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 200 1 2000 
-TH1F Lsha   'PionRejector2 ADCs' L.prl2.a 2000 0.5 2000.5 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADCs (PedS1ub)' L.prl2.a_p 2100 -99.5 2000.5 L.prl2.a_p>=-50.
-TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 200 10 2000
+TH1F Lpsa   'PionRejector1 ADCs' L.prl1.a 1000 0.5 1000.5 L.prl1.a>0.
+TH1F Lpsa_p 'PionRejector1 ADCs (PedSub)' L.prl1.a_p 1100 -99.5 1000.5 L.prl1.a_p>=-50.
+TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 100 1 1000 
+TH1F Lsha   'PionRejector2 ADCs' L.prl2.a 1000 0.5 1000.5 L.prl2.a>0.
+TH1F Lsha_p 'PionRejector2 ADCs (PedS1ub)' L.prl2.a_p 1100 -99.5 1000.5 L.prl2.a_p>=-50.
+TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
 
-TH2F Lpr1_2 'Pion Rejector_1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 1 2500 200 1 2500
-TH2F Lp1sumx 'Pion Rejector_1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 501 2500 L.tr.n>0
-TH2F Lp2sumx 'Pion Rejector_2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 501 2500 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 501 2500 L.tr.n>0
-TH2F Lp2sumy 'Pion Rejector_2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 501 2500 L.tr.n>0
+TH2F Lpr1_2 'Pion Rejector_1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 100 1 1500 100 1 1500
+TH2F Lp1sumx 'Pion Rejector_1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
+TH2F Lp2sumx 'Pion Rejector_2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 11000 L.tr.n>0
+TH2F Lp2sumy 'Pion Rejector_2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
 
 
 # ------------------------------------------------------------------
