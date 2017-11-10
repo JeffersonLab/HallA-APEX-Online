@@ -36,8 +36,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //Enable modules
   Bool_t bScaler=kTRUE;
   Bool_t bHelicity=kFALSE;
-  Bool_t bBeam=kFALSE;
-  Bool_t bPhysics=kFALSE;
+  Bool_t bBeam=kTRUE;
+  Bool_t bPhysics=kTRUE;
   Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
  
@@ -117,6 +117,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
+
+      THaPhysicsModule *Rvdceff = new VDCeff( "R.vdceff", "Reft vdc efficiency");
+      gHaPhysics->Add(Rvdceff);
 
       THaPhysicsModule *EKR = new THaPrimaryKine("EKR","Electron kinematics in HRS-R","R","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKR);
@@ -231,6 +234,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
+      
+      THaPhysicsModule *Lvdceff = new VDCeff( "L.vdceff", "Left vdc efficiency");
+      gHaPhysics->Add(Lvdceff);
 
       THaPhysicsModule *EKL = new THaPrimaryKine("EKL","Electron kinematics in HRS-L","L","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKL);
