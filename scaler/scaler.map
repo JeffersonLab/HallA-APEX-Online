@@ -74,8 +74,8 @@ xscaler-clock Right slot:1 chan:9 rate:1024
 T1              0   8     1     0     1      Trigger 1   
 T2              0   8     1     1     1      Trigger 2
 T3              0   8     1     2     1      Trigger 3
-4               0   8     1     3     1      
-5               0   8     1     4     1      
+ch4             0   8     1     3     1      
+EDTM_S2         0   8     1     4     1      EDTM S2 
 L1A_Remote      0   8     1     5     1      L1A remote signal from RHRS
 Clock_RHRS      0   8     1     6     1      
 Clock_LHRS      0   8     1     7     1      
@@ -84,7 +84,7 @@ empty           0   8     1     8     1
 S2L             0   8     1     10    1      LHRS S2L signal
 S2R             0   8     1     11    1      LHRS S2R signal
 (s0||s2)R       0   8     1     12    1      Retiming signal from RHRS
-ADC gate        0   8     1     13    1      
+ADC_gate        0   8     1     13    1      
 L1A             0   8     1     14    1      LHRS L1A
 empty           0   8     1     15    1
 unew            0   8     1     18    1      
@@ -165,8 +165,8 @@ S2mR-16         0   8     3     31    1
 T1              0   8     4     0     1      Trigger 1
 T2              0   8     4     1     1      Trigger 2
 T3              0   8     4     2     1      Trigger 3
-4               0   8     4     3     1
-5               0   8     4     4     1
+ch4             0   8     4     3     1
+EDTM_S2         0   8     4     4     1      EDTM S2
 L1A_Remote      0   8     4     5     1      L1A remote signal from RHRS
 Clock_RHRS      0   8     4     6     1
 Clock_LHRS      0   8     4     7     1
@@ -175,7 +175,7 @@ empty           0   8     4     8     1
 S2L             0   8     4     10    1      LHRS S2L signal
 S2R             0   8     4     11    1      LHRS S2R signal
 (s0||s2)R       0   8     4     12    1      Retiming signal from RHRS
-ADC gate        0   8     4     13    1      
+ADC_gate        0   8     4     13    1      
 L1A             0   8     4     14    1      LHRS L1A
 empty           0   8     4     15    1
 cer1            0   8     4     16    1
