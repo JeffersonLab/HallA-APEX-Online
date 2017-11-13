@@ -24,6 +24,7 @@ block EKLx.*
 block ElbL.*
 block EltL.*
 block EKLxe.*
+block L.vdceff*
 
 #BPM/Raster Variables
 FORMULA rbax 1000.*Lrb.BPMA.x
@@ -34,6 +35,8 @@ FORMULA rbx 1000.*Lrb.x
 FORMULA rby 1000.*Lrb.y
 FORMULA bpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
 FORMULA bpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
+FORMULA bpmawsFbus FbusLrb.BPMA.rawcur.1+FbusLrb.BPMA.rawcur.2+FbusLrb.BPMA.rawcur.3+FbusLrb.BPMA.rawcur.4
+FORMULA bpmbwsFbus FbusLrb.BPMB.rawcur.1+FbusLrb.BPMB.rawcur.2+FbusLrb.BPMB.rawcur.3+FbusLrb.BPMB.rawcur.4
 Variable Lrb.Raster.rawcur.x
 Variable Lrb.Raster.rawcur.y
 Variable Lrb.Raster2.rawcur.x
