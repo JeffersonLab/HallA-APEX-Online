@@ -59,6 +59,8 @@ TH1F Ls0lt 'Left arm S0-Bottom(B) TDC' L.s0.lt 600 1 3000 L.s0.lt>0.
 TH1F Ls0rt 'Left arm S0-Top(A) TDC' L.s0.rt 600 1 3000 L.s0.rt>0.
 TH1F Ls0la_p 'Left arm S0-Bottom(B) ADC (PedSub)' L.s0.la_p 850 -50 800 L.s0.la_p>-50.
 TH1F Ls0ra_p 'Left arm S0-Top(A) ADC (PedSub)' L.s0.ra_p 850 -50 800 L.s0.ra_p>-50.
+TH2F Ls0Afadcvfbus 'Left Arm S0-Top(A) fADC vs Fastbus (PedSub)' L.s0.la_p FbusL.s0.la_p 2000 0 2000 850 -50 800 L.s0.la_p>0
+TH2F Ls0Bfadcvfbus 'Left Arm S0-Bottom(B) fADC vs Fastbus (PedSub)' L.s0.ra_p FbusL.s0.ra_p 2000 0 2000 850 -50 800 L.s0.ra_p>0
 
 #-------------------------------------------------------------------
 # LEFT ARM S2
