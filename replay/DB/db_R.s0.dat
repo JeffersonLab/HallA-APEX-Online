@@ -20,4 +20,5 @@ R.s0.tdc.res = 5e-10
 R.s0.timewalk_params =
    0  0
 R.s0.retiming_offsets = 0  
-
+R.s0.NPED = 15
+R.s0.Win = 75
