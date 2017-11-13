@@ -162,7 +162,7 @@ TH1F EKLTH_E 'L-arm Electron Angle of scattering (deg)' EKL.angle*180./3.14159 1
 TH1F EKLXBJ 'L-arm x Bjorken (GeV)' EKL.x_bj 100 -0.5 1.5
 TH1F EKLTH_Q 'L-arm Virtual photon angle (deg)' EKL.th_q*180./3.14159 60 0 60
 
-#TH2F L_thqQ2 'L-arm Q2 vs theta q'  PKL.th_q PKL.Q2  100 0 1 100 0 0flexioNew.5
+#TH2F L_thqQ2 'L-arm Q2 vs theta q'  PKL.th_q PKL.Q2  100 0 1 100 0 0.5
 #TH2F L_W2Q2  'L-arm Q2 vs W2'       PKL.W2 PKL.Q2    100 0 2 100 0 0.5
 #TH2F L_thqW2 'L-arm W2 vs theta_q'  PKL.th_q PKL.Q2  100 0 2 100 0 0.5
 
