@@ -24,4 +24,4 @@ R.s2.timewalk_params =
    0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 R.s2.retiming_offsets = 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 R.s2.NPED = 15
-R.s2.Win = 75
+R.s2.Win = 55
