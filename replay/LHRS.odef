@@ -62,8 +62,8 @@ TH1F Ls0lt 'Left arm S0-Bottom(B) TDC' L.s0.lt 600 1 3000 L.s0.lt>0.
 TH1F Ls0rt 'Left arm S0-Top(A) TDC' L.s0.rt 600 1 3000 L.s0.rt>0.
 TH1F Ls0la_p 'Left arm S0-Bottom(B) ADC (PedSub)' L.s0.la_p 850 -50 800 L.s0.la_p>-50.
 TH1F Ls0ra_p 'Left arm S0-Top(A) ADC (PedSub)' L.s0.ra_p 850 -50 800 L.s0.ra_p>-50.
-TH2F Ls0Afadcvfbus 'Left Arm S0-Top(A) fADC vs Fastbus (PedSub)' L.s0.la_p FbusL.s0.la_p 2000 0 2000 850 -50 800 L.s0.la_p>0
-TH2F Ls0Bfadcvfbus 'Left Arm S0-Bottom(B) fADC vs Fastbus (PedSub)' L.s0.ra_p FbusL.s0.ra_p 2000 0 2000 850 -50 800 L.s0.ra_p>0
+TH2F Ls0Afadcvfbus 'Left Arm S0-Top(A) fADC vs Fastbus (PedSub)' L.s0.la_p FbusL.s0.la_p 1050 -50 1000 850 -50 800 L.s0.la_p>-50
+TH2F Ls0Bfadcvfbus 'Left Arm S0-Bottom(B) fADC vs Fastbus (PedSub)' L.s0.ra_p FbusL.s0.ra_p 1050 -50 1000 850 -50 800 L.s0.ra_p>-50
 
 #-------------------------------------------------------------------
 # LEFT ARM S2
@@ -74,6 +74,8 @@ TH1F Ls2lt 'Left arm S2 L-PMT TDCs' L.s2.lt 800 1 4000 L.s2.lt>0.
 TH1F Ls2rt 'Left arm S2 R-PMT TDCs' L.s2.rt 800 1 4000 L.s2.rt>0.
 TH1F Ls2la_p 'Left arm S2 L-PMT ADCs (PedSub)' L.s2.la_p 350 -50 300 L.s2.la_p>-50.
 TH1F Ls2ra_p 'Left arm S2 R-PMT ADCs (PedSub)' L.s2.ra_p 350 -50 300 L.s2.ra_p>-50.
+TH2F Ls2lfadcvfbus 'Left arm S2 L-PMT ADCs fADC vs Fastbus (PedSub)' L.s2.la_p FbusL.s2.la_p 1050 -50 1000 350 -50 300 L.s2.la_p>-50
+TH2F Ls2rfadcvfbus 'Left arm S2 R-PMT ADCs fADC vs Fastbus (PedSub)' L.s2.ra_p FbusL.s2.ra_p 1050 -50 1000 350 -50 300 L.s2.ra_p>-50
 
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
@@ -84,6 +86,7 @@ TH1F Lcera_p 'Left arm Cerenkov PMT (PedSub)' L.cer.a_p 550 -50.5 499.5 L.cer.a_
 TH1F Lcert   'Left arm Cerenkov TDCs' L.cer.t 800 1 4000 L.cer.t>0
 TH2F Lcer_x  'Left arm Cerenkov sum (corrected) vs. X' L.cer.trx L.cer.asum_c 60 -1.2 1.2 775 -99.5 3000 L.tr.n>0&&L.cer.asum_c>-100
 TH2F Lcer_y  'Left arm Cerenkov sum (corrected) vs. Y' L.cer.try L.cer.asum_c 60 -0.12 0.12 775 -99.5 3000 L.tr.n>0&&L.cer.asum_c>-100
+TH2F Lcerfadcvfbus 'Left arm Cerenkov PMT ADCs fADC vs Fastbus (PedSub)' L.cer.a_p FbusL.cer.a_p 4100 -99.5 4000.5 550 -50.5 500.5 L.cer.a_p>-100
 # ------------------------------------------------------------------
 
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
