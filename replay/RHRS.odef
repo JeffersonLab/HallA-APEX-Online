@@ -61,6 +61,8 @@ TH1F Rs0lt 'Right arm S0-Top(B) TDC' R.s0.lt 900 1 2500 R.s0.lt>0.
 TH1F Rs0rt 'Right arm S0-Bottom(A) TDC' R.s0.rt 900 1 2500 R.s0.rt>0.
 TH1F Rs0la_p 'Right arm S0-Top(B) ADC (PedSub)' R.s0.la_p 850 -50 800 R.s0.la_p>-50.
 TH1F Rs0ra_p 'Right arm S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 850 -50 800 R.s0.ra_p>-50.
+TH2F Rs0Bfadcvfbus 'Right Arm S0-Top(B) fADC vs Fastbus (PedSub)' R.s0.la_p FbusR.s0.la_p 2000 0 2000 850 -50 800 R.s0.la_p>0
+TH2F Rs0Afadcvfbus 'Right Arm S0-Bottom(A) fADC vs Fastbus (PedSub)' R.s0.ra_p FbusR.s0.ra_p 2000 0 2000 850 -50 800 R.s0.ra_p>0
 
 #-------------------------------------------------------------------
 # RIGHT ARM S2
@@ -86,19 +88,19 @@ TH2F Rcer_y  'Right arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c 6
 # RIGHT ARM Pion Rejector 1,2 (Preshower/Shower):
 #
 #TH1F Rpsa   'PionRejector1 ADCs' R.ps.a 200 10 2000 R.ps.a>0.
-TH1F Rpsa   'Preshower ADCs' R.ps.a 2000 0.5 2000.5 R.ps.a>0.
-TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 2100 -99.5 2000.5 R.ps.a_p>-50
-TH1F Rpssum 'Preshower sum' R.ps.asum_c 200 1 2000 
+TH1F Rpsa   'Preshower ADCs' R.ps.a 1000 0.5 1000.5 R.ps.a>0.
+TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 1100 -99.5 1000.5 R.ps.a_p>-50
+TH1F Rpssum 'Preshower sum' R.ps.asum_c 100 1 1000 
 #TH1F Rsha   'Shower ADCs' R.sh.a 200 10 2000 R.sh.a>0.
-TH1F Rsha   'Shower ADCs' R.sh.a 2000 0.5 2000.5 R.sh.a>0.
-TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 2100 -99.5 2000.5 R.sh.a_p>-50
-TH1F Rshsum  'Shower sum' R.sh.asum_c 200 10 2000 
+TH1F Rsha   'Shower ADCs' R.sh.a 1000 0.5 1000.5 R.sh.a>0.
+TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 1100 -99.5 1000.5 R.sh.a_p>-50
+TH1F Rshsum  'Shower sum' R.sh.asum_c 100 10 1000 
 
-TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 200 1 2500 200 1 2500 
-TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 200 1 2000 R.tr.n>0
-TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 200 1 2000 R.tr.n>0
-TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 200 1 2000 R.tr.n>0
-TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 200 1 2000 R.tr.n>0
+TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 100 1 1500 100 1 1500 
+TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
 
 # ------------------------------------------------------------------
 # RIGHT ARM VDC wires and timing  :
