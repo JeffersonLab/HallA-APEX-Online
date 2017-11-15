@@ -95,6 +95,9 @@ TH1F Rcera 'Right arm Cerenkov'  R.cer.a 4100 -99.5 4000.5 R.cer.a>0
 TH1F Rcersum 'Right arm Cerenkov sum (corrected)' R.cer.asum_c 1550 -99.5 3000.5 R.cer.asum_c>-100
 TH1F Rcera_p 'Right arm Cerenkov PMT (PedSub)' R.cer.a_p 550 -50.5 499.5 R.cer.a_p>-50.
 TH1F Rcert 'Right arm Cerenkov TDCs' R.cer.t 900 1 2500 R.cer.t>0
+TH1F RcertT1   'Right arm Cerenkov TDCs - Trigger 1' R.cer.t 800 1 4000 R.cer.t>0&&(DR.evtypebits>>1)
+TH1F RcertT2   'Right arm Cerenkov TDCs - Trigger 2' R.cer.t 800 1 4000 R.cer.t>0&&(DR.evtypebits>>2)
+TH1F RcertT3   'Right arm Cerenkov TDCs - Trigger 3' R.cer.t 800 1 4000 R.cer.t>0&&(DR.evtypebits>>3)
 TH2F Rcer_x  'Right arm Cerenkov sum (corrected) vs. X' R.cer.trx R.cer.asum_c 60 -1.2 1.2 775 -99.5 3000 R.tr.n>0&&R.cer.asum_c>-100
 TH2F Rcer_y  'Right arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c 60 -0.12 0.12 775 -99.5 3000 R.tr.n>0&&R.cer.asum_c>-100
 TH2F Rcerfadcvfbus 'Right arm Cerenkov PMT ADCs fADC vs Fastbus (PedSub)' R.cer.a_p FbusR.cer.a_p 4100 -99.5 4000.5 550 -50.5 500.5 R.cer.a_p>-100
