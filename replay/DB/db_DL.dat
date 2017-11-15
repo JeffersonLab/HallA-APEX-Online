@@ -7,7 +7,12 @@ DL.word =
           syncroc1   3    fabc0008   4
           syncroc2   4    fabc0008   4
           syncroc3   5    fabc0008   4
-          sycroc4   11    cafe0000   11
+          syncroc4   11    cafe0000   11
+          # On-Board Trigger Supervisor Bits
+		scalLive1        11    fed00017   20
+		scalLive2        11    fed00017   21
+		trigCount        11    fed00017   22
+		trigData         11    fed00017   23
 
 DL.crate =
 # L-HRS, R-HRS, BB & HAND trigger inputs (1877) left arm copy
@@ -20,7 +25,7 @@ DL.crate =
     T6             5      16      5
     T7             5      16      6
     T8             5      16      7	                          
-    lrawT1	 	 4	11	48
+    lrawt1	 	 4	11	48
 	lrawt2		 4	11	49
 	lrawt3		 4	11	50
 	lrawt4		 4	11	51

@@ -40,6 +40,7 @@
 
 //TString guiDirectory = "onlineGUI_v1.2.1/";
 TString guiDirectory = "onlineGUI64";
+TString sum_dir = std::getenv("PWD");
 
 #ifdef INTERNALSTYLE
   TStyle Style1 = *gStyle;
@@ -909,7 +910,7 @@ void OnlineGUI::CreateGUI(const TGWindow *p, UInt_t w, UInt_t h)
   if(!fConfig->IsMonitor()) {
     wile = 
       new TGPictureButton(vframe,
-			  gClient->GetPicture(guiDirectory+"/defaultPic.xpm"));
+			  gClient->GetPicture(guiDirectory+"/awe.jpg"));
     wile->Connect("Pressed()","OnlineGUI", this,"DoDraw()");
   } else {
     wile = 
@@ -1950,7 +1951,9 @@ void OnlineGUI::PrintPages() {
   Bool_t useJPG = kFALSE;
   if(!plotsdir.IsNull()) useJPG = kTRUE;
 
-  TString filename = "/adaqfs/home/a-onl/tritium/replay/summaryfiles/temp";
+  TString filename = TString::Format("%s/summaryfiles/temp",sum_dir.Data());
+
+      
   if(runNumber!=0) {
     filename += "_";
     filename += runNumber;
@@ -1976,6 +1979,7 @@ void OnlineGUI::PrintPages() {
   gStyle->SetPadBorderMode(0);
   gStyle->SetHistLineColor(1);
   gStyle->SetHistFillColor(1);
+
   if(!useJPG) fCanvas->Print(filename+"[");
   TString origFilename = filename;
   for(UInt_t i=0; i<fConfig->GetPageCount(); i++) {
@@ -1991,25 +1995,33 @@ void OnlineGUI::PrintPages() {
       cout << "Printing page " << current_page 
 	   << " to file = " << filename << endl;
     }
+    
+
+  
+    
     fCanvas->Print(filename);
+  
+      
   }
   if(!useJPG) fCanvas->Print(filename+"]");
 /*
   cout << "\n\n" << "**********************************************************************************************" << endl;
-  cout << "\n\nDear shift crew," << "\n  The printed online plots can now be found in the \"onlineplots\" directory on the Desktop of adaq2 machine." << endl;
+  cout << "\n\nDear shift crew," << "\n  The printed online plots can now be found in the "\summaryfiles\" directory." << endl;
   cout << "  Please post the file summaryplots_" << runNumber << ".pdf onto halog. :)\n";
   cout << "\nThanks," << endl;
-  cout << "GMp/DVCS team" << endl;
+  cout << "Tritium team" << endl;
   cout << "\n\n" << "**********************************************************************************************" << endl << endl << endl;
-*/  
+*/
 #ifdef STANDALONE
   gApplication->Terminate();
 #endif
-}
 
+}
+//*******************************************************
 void OnlineGUI::PrintAll()
 {
-  static TString dir1("~/tritium/replay/summaryfiles");
+  static TString dir1(TString::Format("%s/summaryfiles",sum_dir.Data() ));
+
   TGFileInfo fi;
   const char *myfiletypes[] =
     { "PDF files","*.pdf",
@@ -2022,12 +2034,15 @@ void OnlineGUI::PrintAll()
     TString filename = fi.fFilename;
     if (!filename.EndsWith(".pdf")) filename += ".pdf";
 
-    gSystem->Exec(Form("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/online -P -f %s -r %d", fConfig->GetConfigFile().Data(),runNumber));
+
+	gSystem->Exec(Form("onlineGUI64/online -P -f %s -r %d", fConfig->GetConfigFile().Data(),runNumber));
+
+
 
     cout << "\n\n";
     cout << "****************************************************************************************\n";
-    if (filename!=Form("/adaqfs/home/a-onl/tritium/replay/summaryfiles/temp_%d.pdf",runNumber)) {
-      if ( gSystem->Exec(Form("mv ~/tritium/replay/summaryfiles/temp_%d.pdf %s",runNumber,filename.Data()))==0 ) {
+    if (filename!=TString::Format("%s/summaryfiles/temp_%d.pdf",sum_dir.Data(),runNumber)) {
+      if ( gSystem->Exec(Form("mv %s/summaryfiles/temp_%d.pdf %s",sum_dir.Data(),runNumber,filename.Data()))==0 ) {
 
         cout << "  File " << filename << " is generated.\n";
       } else {
