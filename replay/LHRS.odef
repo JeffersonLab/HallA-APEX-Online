@@ -60,6 +60,12 @@ TH1F Ls0la 'Left arm S0-Bottom(B) ADC' L.s0.la 2000 0 2000 L.s0.la>0.
 TH1F Ls0ra 'Left arm S0-Top(A) ADC' L.s0.ra 2000 0 2000 L.s0.ra>0.
 TH1F Ls0lt 'Left arm S0-Bottom(B) TDC' L.s0.lt 600 1 3000 L.s0.lt>0.
 TH1F Ls0rt 'Left arm S0-Top(A) TDC' L.s0.rt 600 1 3000 L.s0.rt>0.
+TH1F Ls0ltT1 'Left arm S0-Bottom(B) TDC - Trigger 1' L.s0.lt 600 1 3000 L.s0.lt>0.&&(DL.evtypebits>>1)
+TH1F Ls0ltT2 'Left arm S0-Bottom(B) TDC - Trigger 2' L.s0.lt 600 1 3000 L.s0.lt>0.&&(DL.evtypebits>>2)
+TH1F Ls0ltT3 'Left arm S0-Bottom(B) TDC - Trigger 3' L.s0.lt 600 1 3000 L.s0.lt>0.&&(DL.evtypebits>>3)
+TH1F Ls0rtT1 'Left arm S0-Top(A) TDC - Trigger 1' L.s0.rt 600 1 3000 L.s0.rt>0.&&(DL.evtypebits>>1)
+TH1F Ls0rtT2 'Left arm S0-Top(A) TDC - Trigger 2' L.s0.rt 600 1 3000 L.s0.rt>0.&&(DL.evtypebits>>2)
+TH1F Ls0rtT3 'Left arm S0-Top(A) TDC - Trigger 3' L.s0.rt 600 1 3000 L.s0.rt>0.&&(DL.evtypebits>>3)
 TH1F Ls0la_p 'Left arm S0-Bottom(B) ADC (PedSub)' L.s0.la_p 850 -50 800 L.s0.la_p>-50.
 TH1F Ls0ra_p 'Left arm S0-Top(A) ADC (PedSub)' L.s0.ra_p 850 -50 800 L.s0.ra_p>-50.
 TH2F Ls0Afadcvfbus 'Left Arm S0-Top(A) fADC vs Fastbus (PedSub)' L.s0.la_p FbusL.s0.la_p 1050 -50 1000 850 -50 800 L.s0.la_p>-50
