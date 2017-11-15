@@ -80,10 +80,10 @@ TH1F Ls2lt 'Left arm S2 L-PMT TDCs' L.s2.lt 800 1 4000 L.s2.lt>0.
 TH1F Ls2rt 'Left arm S2 R-PMT TDCs' L.s2.rt 800 1 4000 L.s2.rt>0.
 TH1F Ls2ltT1 'Left arm S2 L-PMT TDCs - Trigger 1' L.s2.lt 800 1 4000 L.s2.lt>0.&&(DL.evtypebits>>1)
 TH1F Ls2ltT2 'Left arm S2 L-PMT TDCs - Trigger 2' L.s2.lt 800 1 4000 L.s2.lt>0.&&(DL.evtypebits>>2)
-TH1F Ls2ltT2 'Left arm S2 L-PMT TDCs - Trigger 3' L.s2.lt 800 1 4000 L.s2.lt>0.&&(DL.evtypebits>>3)
+TH1F Ls2ltT3 'Left arm S2 L-PMT TDCs - Trigger 3' L.s2.lt 800 1 4000 L.s2.lt>0.&&(DL.evtypebits>>3)
 TH1F Ls2rtT1 'Left arm S2 R-PMT TDCs - Trigger 1' L.s2.rt 800 1 4000 L.s2.rt>0.&&(DL.evtypebits>>1)
 TH1F Ls2rtT2 'Left arm S2 R-PMT TDCs - Trigger 2' L.s2.rt 800 1 4000 L.s2.rt>0.&&(DL.evtypebits>>2)
-TH1F Ls2rtT2 'Left arm S2 R-PMT TDCs - Trigger 3' L.s2.rt 800 1 4000 L.s2.rt>0.&&(DL.evtypebits>>3)
+TH1F Ls2rtT3 'Left arm S2 R-PMT TDCs - Trigger 3' L.s2.rt 800 1 4000 L.s2.rt>0.&&(DL.evtypebits>>3)
 TH1F Ls2la_p 'Left arm S2 L-PMT ADCs (PedSub)' L.s2.la_p 350 -50 300 L.s2.la_p>-50.
 TH1F Ls2ra_p 'Left arm S2 R-PMT ADCs (PedSub)' L.s2.ra_p 350 -50 300 L.s2.ra_p>-50.
 TH2F Ls2lfadcvfbus 'Left arm S2 L-PMT ADCs fADC vs Fastbus (PedSub)' L.s2.la_p FbusL.s2.la_p 1050 -50 1000 350 -50 300 L.s2.la_p>-50

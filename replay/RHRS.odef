@@ -79,10 +79,10 @@ TH1F Rs2lt 'Right arm S2 L-PMT TDCs' R.s2.lt 900 1 2500 R.s2.lt>0.
 TH1F Rs2rt 'Right arm S2 R-PMT TDCs' R.s2.rt 900 1 2500 R.s2.rt>0.
 TH1F Rs2ltT1 'Right arm S2 L-PMT TDCs - Trigger 1' R.s2.lt 800 1 4000 R.s2.lt>0.&&(DR.evtypebits>>1)
 TH1F Rs2ltT2 'Right arm S2 L-PMT TDCs - Trigger 2' R.s2.lt 800 1 4000 R.s2.lt>0.&&(DR.evtypebits>>2)
-TH1F Rs2ltT2 'Right arm S2 L-PMT TDCs - Trigger 3' R.s2.lt 800 1 4000 R.s2.lt>0.&&(DR.evtypebits>>3)
+TH1F Rs2ltT3 'Right arm S2 L-PMT TDCs - Trigger 3' R.s2.lt 800 1 4000 R.s2.lt>0.&&(DR.evtypebits>>3)
 TH1F Rs2rtT1 'Right arm S2 R-PMT TDCs - Trigger 1' R.s2.rt 800 1 4000 R.s2.rt>0.&&(DR.evtypebits>>1)
 TH1F Rs2rtT2 'Right arm S2 R-PMT TDCs - Trigger 2' R.s2.rt 800 1 4000 R.s2.rt>0.&&(DR.evtypebits>>2)
-TH1F Rs2rtT2 'Right arm S2 R-PMT TDCs - Trigger 3' R.s2.rt 800 1 4000 R.s2.rt>0.&&(DR.evtypebits>>3)
+TH1F Rs2rtT3 'Right arm S2 R-PMT TDCs - Trigger 3' R.s2.rt 800 1 4000 R.s2.rt>0.&&(DR.evtypebits>>3)
 TH1F Rs2la_p 'Right arm S2 L-PMT ADCs (PedSub)' R.s2.la_p 350 -50 300 R.s2.la_p>-50.
 TH1F Rs2ra_p 'Right arm S2 R-PMT ADCs (PedSub)' R.s2.ra_p 350 -50 300 R.s2.ra_p>-50.
 TH2F Rs2lfadcvfbus 'Right arm S2 L-PMT ADCs fADC vs Fastbus (PedSub)' R.s2.la_p FbusR.s2.la_p 1050 -50 1000 350 -50 300 R.s2.la_p>-50
