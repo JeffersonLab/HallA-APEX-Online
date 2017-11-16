@@ -1,6 +1,6 @@
 //Check if Signal is inside Gate
 //Barak Schmookler, Feb 2016
-void gate_check_right(Int_t flag, Char_t *drawoption){
+void gate_check_right(Int_t flag, TString drawoption){
 
   gStyle->SetOptStat(0);
   
@@ -67,7 +67,7 @@ void gate_check_right(Int_t flag, Char_t *drawoption){
     ht6->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht6->GetYaxis()->CenterTitle();
     //ht6->SetMarkerStyle(3);ht6->SetMarkerSize(0.75);
 
-    tree->Draw("DR.ShSum_a:DR.ShSum_t[Ndata.DR.ShSum_t-1]>>ht6","Ndata.DR.ShSum_t>0",drawoption);
+    tree->Draw("DR.aShSum:DR.tShSum[Ndata.DR.tShSum-1]>>ht6","Ndata.DR.tShSum>0",drawoption);
     
   }
 
@@ -79,7 +79,7 @@ void gate_check_right(Int_t flag, Char_t *drawoption){
     ht7->SetMarkerStyle(3);//ht7->SetMarkerSize(0.75);
 
     //tree->Draw("DR.GCsum_a:DR.GCsum_t[Ndata.DR.GCsum_t-1]>>ht7","Ndata.DR.GCsum_t>0",drawoption);
-    tree->Draw("DR.GCsum_a:DR.GCsum_t>>ht7","",drawoption);
+    tree->Draw("DR.aGCSum:DR.tGCSum>>ht7","",drawoption);
 
   }
   
