@@ -16,8 +16,8 @@ then
   
 else
 
-  	onlineGUI64/online -f onlineGUI64/RHRS.cfg -r $1
+  	onlineGUI64/online -f onlineGUI64/RHRS.cfg -r $RUNNUM
 
-  	onlineGUI64/online -f onlineGUI64/RHRS_phy.cfg -r $1
+  	onlineGUI64/online -f onlineGUI64/RHRS_phy.cfg -r $RUNNUM
 
 fi
