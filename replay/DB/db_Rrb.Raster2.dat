@@ -3,7 +3,7 @@
 Rrb.Raster2.detmap =
       20   16    1     1      1  250
       20   16    0     0      1  250
-      3    21    17    18     1  1881
+      1    22    12    13     1  1881
 Rrb.Raster2.zpos = -7.345  -2.214  0
 Rrb.Raster2.freqs = 18.3  18.3
 Rrb.Raster2.slope_peds = 1633  1643
