@@ -19,6 +19,8 @@
 #replay/*.d
 #replay/*.pcm
 
+replay/onlineGUI64/online
+
 replay/DB/*
 replay/RootFiles
 replay/ScratchRootFiles

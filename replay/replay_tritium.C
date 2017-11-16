@@ -70,7 +70,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     FbusHRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add(FbusHRSR);
     FbusHRSR->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter - Fastbus"));
-    FbusHRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
+    //FbusHRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
     FbusHRSR->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kTRUE));
 
     //==================================
