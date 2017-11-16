@@ -10,44 +10,14 @@ fi
 if [ $RUNNUM -le 90000 ]
 then
 	
-	HOST=`hostname -s`
+  	onlineGUI64/online -f onlineGUI64/LHRS.cfg -r $RUNNUM
 
-	case "$HOST" in
-	  aonl[1-4]| adaq1)
-
-   	onlineGUI64/./online -f onlineGUI64/LHRS.cfg -r $RUNNUM
-
-   	onlineGUI64/./online -f onlineGUI64/LHRS_phy.cfg -r $RUNNUM
-
-  	;;
-
-  	*)
-
-  	onlineGUI64/./online -f onlineGUI64/LHRS.cfg -r $RUNNUM
-
-  	onlineGUI64/./online -f onlineGUI64/LHRS_phy.cfg -r $RUNNUM
-  	;;
-	esac
-
+  	onlineGUI64/online -f onlineGUI64/LHRS_phy.cfg -r $RUNNUM
+  
 else
 
-	HOST=`hostname -s`
+  	onlineGUI64/online -f onlineGUI64/RHRS.cfg -r $1
 
-	case "$HOST" in
-	  aonl[1-4]|adaq1)
-    
-   	onlineGUI64/./online -f onlineGUI64/RHRS.cfg -r $RUNNUM
+  	onlineGUI64/online -f onlineGUI64/RHRS_phy.cfg -r $1
 
-   	onlineGUI64/./online -f onlineGUI64/RHRS_phy.cfg -r $RUNNUM
-
-  	;;
-
-  	*)
-
-  	onlineGUI64/./online -f onlineGUI64/RHRS.cfg -r $1
-
-  	onlineGUI64/./online -f onlineGUI64/RHRS_phy.cfg -r $1
-
-  	;;
-	esac
 fi
