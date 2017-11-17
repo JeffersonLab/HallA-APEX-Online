@@ -2,7 +2,7 @@
 //Barak Schmookler, Feb 2016
 void gate_check_right(Int_t flag, TString drawoption){
 
-  gStyle->SetOptStat(0);
+ gStyle->SetOptStat(0);
   
   TTree *tree = (TTree*)gDirectory->Get("T");
 
@@ -43,9 +43,11 @@ void gate_check_right(Int_t flag, TString drawoption){
     TH2F *ht4 = new TH2F("ht4","S0-Top(B): Amplitude vs. Time",1000,1000,2000,2000,0,2000);
     ht4->GetXaxis()->SetTitle("Time [TDC Channel]");ht4->GetXaxis()->CenterTitle();
     ht4->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht4->GetYaxis()->CenterTitle();
+    tree->Draw("R.s0.la_p:R.s0.lt>>ht4","",drawoption);
+    ht4->GetXaxis()->SetRangeUser(ht4->GetMean()-400,ht4->GetMean()+400);
     //ht4->SetMarkerStyle(3);ht4->SetMarkerSize(0.75);
 
-    tree->Draw("R.s0.la_p:R.s0.lt>>ht4","",drawoption);
+    
     
   }
 
@@ -62,13 +64,13 @@ void gate_check_right(Int_t flag, TString drawoption){
 
   if(flag==6){
     
-    TH2F *ht6 = new TH2F("ht6","Calorimeter Hardware Sum: Amplitude vs. Time",1000,800,1800,1500,0,3000);
+    TH2F *ht6 = new TH2F("ht6","Calorimeter Hardware Sum: Amplitude vs. Time",1000,800,3800,1500,0,3000);
     ht6->GetXaxis()->SetTitle("Time [TDC Channel]");ht6->GetXaxis()->CenterTitle();
     ht6->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht6->GetYaxis()->CenterTitle();
     //ht6->SetMarkerStyle(3);ht6->SetMarkerSize(0.75);
-
+	ht6->GetYaxis()->SetTitleOffset(1.5);
     tree->Draw("DR.aShSum:DR.tShSum[Ndata.DR.tShSum-1]>>ht6","Ndata.DR.tShSum>0",drawoption);
-    
+        ht6->GetXaxis()->SetRangeUser(ht6->GetMean()-400,ht6->GetMean()+400);
   }
 
   if(flag==7){
@@ -77,10 +79,10 @@ void gate_check_right(Int_t flag, TString drawoption){
     ht7->GetXaxis()->SetTitle("Time [TDC Channel]");ht7->GetXaxis()->CenterTitle();
     ht7->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht7->GetYaxis()->CenterTitle();
     ht7->SetMarkerStyle(3);//ht7->SetMarkerSize(0.75);
-
+	ht7->GetYaxis()->SetTitleOffset(1.5);
     //tree->Draw("DR.GCsum_a:DR.GCsum_t[Ndata.DR.GCsum_t-1]>>ht7","Ndata.DR.GCsum_t>0",drawoption);
     tree->Draw("DR.aGCSum:DR.tGCSum>>ht7","",drawoption);
-
+    ht7->GetXaxis()->SetRangeUser(ht7->GetMean()-400,ht7->GetMean()+400);
   }
   
 
