@@ -49,6 +49,7 @@
 	11	1877	1	0x0	0x0	96	672
 	17	1877	1	0x0	0x0	96	672
 	18	1877	1	0x0	0x0	96	672
+	31	1877	1	0x0	0x0	96	672
 ==== Crate 6 type fastbus
 #	slot	model	clear	header	mask	nchan	ndata
 	16	1877	1	0x0	0x0	96	672
@@ -60,6 +61,7 @@
 	22	1877	1	0x0	0x0	96	672
 	23	1877	1	0x0	0x0	96	672
 	24	1877	1	0x0	0x0	96	672
+	31	1877	1	0x0	0x0	96	672
 ==== Crate 1 type fastbus
 #	slot	model	clear	header	mask	nchan	ndata
 	16	1881	1	0x0	0x0	64	64
@@ -69,7 +71,8 @@
 	20	1881	1	0x0	0x0	64	64
 	21	1881	1	0x0	0x0	64	64
 	22	1881	1	0x0	0x0	64	64
-	23	1881	1	0x0	0x0	64	64	
+	23	1881	1	0x0	0x0	64	64
+	31	1881	1	0x0	0x0	64	64	
 ==== Crate 31 type vme 
 #      slot     model   bank
        6      250      250

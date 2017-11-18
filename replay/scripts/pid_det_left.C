@@ -1,6 +1,6 @@
 //Display info from the pid detectors
 //Barak Schmookler, Sep 2015
-void pid_det_left(Int_t flag, Char_t *drawoption){
+void pid_det_left(Int_t flag, TString drawoption){
   
   gStyle->SetOptStat(0);
   
