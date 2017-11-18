@@ -27,7 +27,9 @@ void deadtime(){
     TChain *T =new TChain("T");
     TFile *file = new TFile(Form("%stritium_%d.root",rootfilePath.Data(),irun),"read");
     if(file->IsZombie()){
-    cout<<" this rootfile doest not exist: "<<endl;
+       	cout<<" this rootfile doest not exist: "<<endl;
+	cout<<"Please try again with a new run. "<<endl;
+	return;
   }
 
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
