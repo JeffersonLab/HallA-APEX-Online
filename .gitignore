@@ -24,6 +24,7 @@
 
 replay/onlineGUI64/online
 replay/onlineGUI64/*.pdf
+replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
