@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] 
+then
+	echo "Please enter run number"
+	read RUNNUM
+else
+	RUNNUM=$1
+fi
+if [ $RUNNUM -le 90000 ]
+then
+
+	onlineGUI64/online -f onlineGUI64/timeL.cfg -r $RUNNUM
+
+
+else
+
+	onlineGUI64/online -f onlineGUI64/timeR.cfg -r $RUNNUM
+
+fi
+
+

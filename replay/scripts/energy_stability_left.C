@@ -15,7 +15,7 @@ void energy_stability_left(Int_t flag){
   }else{
     etemp1 = new TH1F("etemp1","",200,0,20);
   }
-  ttree->Project("etemp1","LrbGmp.e");
+  ttree->Project("etemp1","Lrb.e");
 
   //1d X Histogram (to find mean)
   TH1F *etemp2 = (TH1F*)gROOT->FindObject("etemp2");

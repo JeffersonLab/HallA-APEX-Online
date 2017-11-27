@@ -55,6 +55,7 @@
 
 #include "def_tritium.h"
 
+
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
@@ -80,6 +81,8 @@
 #include "TString.h"
 #endif//#ifdef __CINT__
 
+#define ALLOW_ROOTFILE_OVERWRITE false
+
 Bool_t IsFileExist(const Char_t * fname);
 
 using namespace std;
@@ -88,7 +91,7 @@ void ReplayCore(
 		Int_t runnumber=0,            //run #
 		Int_t all=0,                  //-1=replay all;0=ask for a number
 		Int_t DefReplayNum=-1,        //default replay event num
-		const char* OutFileFormat="%s/left_gmp_%d.root", //output file format
+		const char* OutFileFormat="%s/tritium_%d.root", //output file format
 		const char* OutDefineFile="HRS.odef",       //out define
 		const char* CutDefineFile="HRS.cdef",       //cut define
 		Bool_t EnableScalar=false,                    //Enable Scalar?
@@ -103,6 +106,9 @@ void ReplayCore(
   //
   // it's also convenient to load detector manually in analyzer 
   // command line then call me
+
+	int	output_Debug =0; //Flag for debuging the location of the output rootfile. 
+
 
   // step 1: Init analyzer
   cout<<"replay: Init analyzer ..."<<endl;
@@ -202,9 +208,17 @@ void ReplayCore(
     nev=all;
 
   char outname[300];
-  sprintf(outname,OutFileFormat,STD_REPLAY_OUTPUT_DIR,nrun);
-  found=0;    
 
+  sprintf(outname,OutFileFormat,STD_REPLAY_OUTPUT_DIR.Data(),nrun);
+	
+	if(output_Debug==1){		
+  		cout << "OutFileFormat =    " << OutFileFormat << endl;
+  		cout << "ROOTFILE_DIR_PREFIX =   " << ROOTFILE_DIR_PREFIX << endl;
+  		cout << "STD_REPLAY_OUTPUT_DIR =   " << STD_REPLAY_OUTPUT_DIR.Data() << endl;
+  		cout << "nrun =    " << nrun << endl;
+  		cout << "outname 1:   " << outname << endl;
+	}
+  found=0;    
   //rootfile overwrite proof
   while (found==0 && !QuietRun)
     {
@@ -235,7 +249,7 @@ void ReplayCore(
 	    cout << "replay: "<<outname<<", which contains "<<NEnt
 		 <<" events, already exists. ";
 	  }
-
+#if ALLOW_ROOTFILE_OVERWRITE
 	  cout<<"Do you want to overwrite it? "
 	      <<"(default="<<DefOverWriting.Data()<<"; enter \"c\" means exit):";
 
@@ -264,7 +278,7 @@ void ReplayCore(
 	  }
 	  else if (s=="n" || s=="no"){
 	    sprintf(outname,OutFileFormat,
-		    CUSTOM_REPLAY_OUTPUT_DIR,nrun);
+		    CUSTOM_REPLAY_OUTPUT_DIR.Data(),nrun);
 	    cout<<endl
 		<<"replay: please enter the output root file name. "<<endl
 		<<"        leave blank = "<<outname<<endl
@@ -284,11 +298,20 @@ void ReplayCore(
 		<<s.Data()
 		<<"is not a valid input; Exiting."
 		<<endl;
+#else
+cout << endl 
+     << endl << "------------------------------------------"
+     << endl << "Rootfile Overwriting is currently disabled." 
+     << endl << "If you need to create this replay, please communicate with whoever created the current replay to determine if you may delete it."
+     << endl << "------------------------------------------" << endl << endl;
+#endif
 	    gHaApps->Delete();
 	    gHaPhysics->Delete();
 	    analyzer->Close();
 	    return;
+#if ALLOW_ROOTFILE_OVERWRITE
 	  }
+#endif
 	}
     }
 
@@ -308,7 +331,7 @@ void ReplayCore(
   analyzer->SetOdefFile(OutDefineFile);
   analyzer->SetCutFile(CutDefineFile);  
   char sumname[300];
-  sprintf(sumname,SUMMARY_PHYSICS_FORMAT,nrun);
+  sprintf(sumname,SUMMARY_PHYSICS_FORMAT.Data(),nrun);
   analyzer->SetSummaryFile(sumname); // optional
 
   //correct the offset on the last event if first event is above 0

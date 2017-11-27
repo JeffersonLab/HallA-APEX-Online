@@ -137,6 +137,10 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
   // Default TDC offsets (0), ADC pedestals (0) and ADC gains (1)
   memset( fOff, 0, nval*sizeof(fOff[0]) );
   memset( fPed, 0, nval*sizeof(fPed[0]) );
+
+  fNPED = 1; //number of samples included in FADC pedestal sum
+  fWin = 1;  //number of samples included in FADC integration
+
   for( UInt_t i=0; i<nval; ++i ) { fGain[i] = 1.0; }
 
   DBRequest calib_request[] = {
@@ -144,6 +148,8 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     { "adc.pedestals",    fPed,         kFloat, nval, 1 },
     { "adc.gains",        fGain,        kFloat, nval, 1 },
     //    { "tdc.res",          &fTdc2T,      kDouble },
+    { "NPED",             &fNPED,        kInt},
+    { "Win",              &fWin,         kInt},
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
@@ -261,7 +267,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
 #endif
 
       if(adc){
-          fPed[k]=WIN_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/NPed;
+          fPed[k]=fWin*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
       }
 
       // Copy the data to the local variables.

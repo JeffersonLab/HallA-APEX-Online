@@ -1,7 +1,7 @@
 --------[ 2017-03-01 00:00:00 -0500 ]
 
 Rrb.BPMA.detmap =
-      1    22     0     3     1  1881
+      20   16     4     7     1  250
 Rrb.BPMA.position = 0.0 0.0  -7.345
 Rrb.BPMA.calib_rot = 0.01887
 Rrb.BPMA.pedestals = 3453  3422  3527  3608

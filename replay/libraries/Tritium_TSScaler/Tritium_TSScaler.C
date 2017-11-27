@@ -137,19 +137,36 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
       *fDebugFile << "p  and  pstop  "<<j++<<"   "<<p<<"   "<<pstop<<"   "<<hex<<*p<<"   "<<dec<<endl;
     }
     nskip = 1;
+    Int_t itimeout=0;
     for (UInt_t j=0; j<scalers.size(); j++) {
+     if(scalerloc[j]->found) continue;
+     if(fDebugFile) *fDebugFile<<"Slot"<<j<<"  "<<scalers[j]->GetSlot()<<endl;
+     while(p<pstop)
+       {if (scalers[j]->IsSlot(*p)==kTRUE)
+         {scalerloc[j]->found=kTRUE;
+          ifound=1;
+      goto found1;}
+        p++;
+       if(itimeout++>5000)
+      {cout<<"THa_TS_Scaler:: Cannot find a slot"<<endl;
+       goto giveup1;
+
+}
+}
+found1:   
+     if (p==pstop&&ifound==0) break;
       nskip = scalers[j]->Decode(p);
       if (fDebugFile && nskip > 1) {
 	*fDebugFile << "\n===== Scaler # "<<j<<"     fName = "<<fName<<"   nskip = "<<nskip<<endl;
 	scalers[j]->DebugPrint(fDebugFile);
       }
-      if (nskip > 1) {
-	ifound = 1;
-	break;
-      }
+      if (nskip > 1) goto continue1;
     }
+continue1:
     p = p + nskip;
   }
+
+giveup1:
 
   if (fDebugFile) {
     *fDebugFile << "Finished with decoding.  "<<endl;
@@ -181,7 +198,10 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
 
   evcount = evcount + 1.0;
 
-  for (size_t j=0; j<scalers.size(); j++) scalers[j]->Clear("");
+  for (size_t j=0; j<scalers.size(); j++) 
+
+{scalers[j]->Clear("");
+scalerloc[j]->found=kFALSE;}
 
   if (fDebugFile) *fDebugFile << "scaler tree ptr  "<<fScalerTree<<endl;
 
@@ -391,6 +411,9 @@ THaAnalysisObject::EStatus Tritium_TSScaler::Init(const TDatime& date)
     }
   }
 
+for (size_t j=0;j<scalers.size();j++)
+ { scalers[j]->Clear("");
+ scalerloc[j]->found=kFALSE;}
 
   return kOK;
 }

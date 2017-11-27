@@ -1,0 +1,78 @@
+\documentclass{report}
+\begin{document}
+
+\title{How To Set Up and Use The Tritium Replay Code}
+\author{Tyler Hague}
+\maketitle
+
+\chapter{Introduction}
+The official replay code for the tritium family of experiments lives in GitHub. This decision was made to allow better version control in a large collaboration. The main repository will have everything set up for working on the \textit{aonl} machines. This document will walk you through setting up your fork of this repository to work in your personal workspace.
+
+This document assumes that you already have ROOT 6 and the Hall A Analyzer version 1.6 installed in your personal workspace.
+
+\chapter{Setting Up The Code}
+
+\section{Set Up Environmental Variables}
+
+There are four environmental variables that need to be set in order for the replay to work on your machine. When working on the \textit{aonl} machines, can omit the all but \textit{DB\_DIR}.
+
+\begin{enumerate}
+\item ANALYZER - Set to the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item PATH - Add the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item LD\_LIBRARY\_PATH - Add the directory where the analyzer lives. Can omit on \textit{aonl} machines.
+\item DB\_DIR - Set to the directory of the replay database.
+\end{enumerate}
+
+If you are using the official replay, a script is provided to do this for you. In the replay directory, run:
+\\\\
+\texttt{source sourceme.sh}
+\\\\
+This script can serve as an example for setting up your own installation as well. If you are using \texttt{csh} instead of \texttt{bash} be sure to replace \texttt{export} with \texttt{setenv} and \texttt{=} with a space.
+
+\section{Directory Structure}
+The code has been set up so that the number of lines that need to be changed to reflect your directory structure can be kept to a minimum.
+\\\\
+\noindent In rootlogon.C:
+\begin{enumerate}
+\item Set \textit{char* replay\_dir\_prefix} to the directory where your code lives. There must be a trailing \textit{/\%s}. In most setups, leaving it as \textit{./\%s} should suffice.
+\end{enumerate}
+In def\_tritium.h:
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Set \textit{char* REPLAY\_DIR\_PREFIX} to the directory where your code lives. There must be a trailing \textit{/\%s}. In most setups, leaving it as \textit{./\%s} should suffice.
+\item Set \textit{char* ROOTFILE\_DIR\_PREFIX} to the directory where your root files will be stored. There must be a trailing \textit{/\%s}.
+\item Add the location of your raw data folder to the \textit{static const char* PATHS[]} array if you do not have access to the standard directories.
+\end{enumerate}
+
+Now you must compile the ReplayCore. To do this, type the following commands into a terminal in the replay directory.
+\\\\
+\texttt{analyzer\\
+.L ReplayCore64.C+\\
+.q}
+
+\section{Compiling The Libraries}
+
+To compile all of the libraries, a script has been provided. Go into the \textit{replay/libraries/} directory. From there, run the command:\\\\
+\texttt{./libs.sh}
+
+\chapter{Running The Replay Code}
+
+To run the replay code, navigate to the replay directory. Once there, type:
+\\\\
+\texttt{analyzer replay\_tritium.C}
+\\
+
+The analyzer will then prompt you for a run number, followed by the number of events to replay. The output root file will be stored wherever you defined \textit{char* ROOTFILE\_DIR\_PREFIX} in def\_tritium.h. In the official replay installation, this location is \textit{/chafs1/work1/tritium/Rootfiles/}.
+\\
+
+To load the contents of the root file into an analyzer session:
+\\\\
+\texttt{analyzer [path\_to\_root\_file]}
+\\
+
+To view the online plots:
+\\\\
+\texttt{onlineTritium [run\_number]}
+\\\\
+
+\end{document}

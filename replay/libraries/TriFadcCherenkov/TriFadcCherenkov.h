@@ -34,6 +34,10 @@ protected:
   Float_t*   fPed;        // [fNelem] ADC pedestals (chan)
   Float_t*   fGain;       // [fNelem] ADC gains
 
+  Int_t    fNPED;        //number of samples included in FADC pedestal sum
+  Int_t    fWin;         //number of samples that FADC make integration
+
+
   // Per-event data
   Int_t      fNThit;      // Number of mirrors with non zero TDC times
   Float_t*   fT;          // [fNelem] Array of TDC times of channels
@@ -46,8 +50,6 @@ protected:
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
 
   //NPED: number of samples to sum for pedestal (set in fadc readout list)
-  static const int NPed=15;
-  static const int WIN_size = 75;
   virtual Int_t  DefineVariables( EMode mode = kDefine );
           void   DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );

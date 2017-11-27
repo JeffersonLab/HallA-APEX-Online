@@ -189,6 +189,9 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
   // trigger-timing offsets (s)
   memset( fTrigOff, 0, nval*sizeof(fTrigOff[0]) );
 
+  fNPED = 1; //number of samples included in FADC pedestal sum
+  fWin = 1;  //number of samples included in FADC integration
+
   // Default TDC offsets (0), ADC pedestals (0) and ADC gains (1)
   memset( fLOff, 0, nval*sizeof(fLOff[0]) );
   memset( fROff, 0, nval*sizeof(fROff[0]) );
@@ -210,6 +213,8 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     { "retiming_offsets", fTrigOff,      kDouble, nval, 1 },
     { "avgres",           &fResolution,  kDouble, 0, 1 },
     { "atten",            &fAttenuation, kDouble, 0, 1 },
+    { "NPED",             &fNPED,        kInt},
+    { "Win",              &fWin,         kInt},
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
@@ -408,7 +413,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
       k = k % fNelem; 
       
       if(adc){ 
-          dest->ped[k]=Win_size*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/Nped;
+          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
       }
 
       if( adc ) {

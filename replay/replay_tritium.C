@@ -12,30 +12,32 @@
  * - Are we using energy loss classes? Need to be made 1.6 compatible
  */
 
-#include "/adaqfs/home/a-onl/tritium/replay/def_tritium.h"
+#include "def_tritium.h"
 using namespace std;
 
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
+
   if (runnumber<=0)
   {
 	    cout << "\nreplay: Please enter a Run Number (-1 to exit):";
 	    cin >> nrun;
 	    fgets(buf,300,stdin);//get the extra '\n' from stdin
 	    if( nrun<=0 ) return;
+	    runnumber = nrun;
   }
-  runnumber = nrun;
+
   
   //Enable modules
   Bool_t bScaler=kTRUE;
   Bool_t bHelicity=kFALSE;
-  Bool_t bBeam=kFALSE;
-  Bool_t bPhysics=kFALSE;
+  Bool_t bBeam=kTRUE;
+  Bool_t bPhysics=kTRUE;
   Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
  
@@ -47,7 +49,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   //==================================
   //  Right Arm Detectors
   //==================================
-  
+
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
@@ -68,7 +70,7 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     FbusHRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add(FbusHRSR);
     FbusHRSR->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter - Fastbus"));
-    FbusHRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
+    //FbusHRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
     FbusHRSR->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kTRUE));
 
     //==================================
@@ -92,11 +94,14 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      THaRasteredBeam* Rrb = new THaRasteredBeam("Rrb", "Rastered beam to R-HRS");
-      Rrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      Rrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      Rrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      TriFadcRasteredBeam* Rrb = new TriFadcRasteredBeam("Rrb", "Rastered beam to the R-HRS");
       gHaApps->Add(Rrb);
+
+      THaRasteredBeam* FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+      FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(FbusRrb);
     }
     
     //==================================
@@ -112,6 +117,9 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
+
+      THaPhysicsModule *Rvdceff = new TriVDCeff( "R.vdceff", "Reft vdc efficiency");
+      gHaPhysics->Add(Rvdceff);
 
       THaPhysicsModule *EKR = new THaPrimaryKine("EKR","Electron kinematics in HRS-R","R","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKR);
@@ -154,7 +162,6 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       }*/
     }
   }
-
   //==================================
   //  Left Arm
   //==================================
@@ -203,15 +210,14 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      THaRasteredBeam* Lrb = new THaRasteredBeam("Lrb", "Rastered beam to L-HRS");
-      Lrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      Lrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      Lrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      TriFadcRasteredBeam* Lrb = new TriFadcRasteredBeam("Lrb", "Rastered beam to L-HRS");
       gHaApps->Add(Lrb);
 
-      TriFadcRasteredBeam* fLrb = new TriFadcRasteredBeam("fLrb", "Rastered beam to L-HRS");
-      gHaApps->Add(fLrb);
-
+      THaRasteredBeam* FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
+      FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      FbusLrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      FbusLrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      gHaApps->Add(FbusLrb);  
     }
     
     //==================================
@@ -228,6 +234,9 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
   
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
+      
+      THaPhysicsModule *Lvdceff = new TriVDCeff( "L.vdceff", "Left vdc efficiency");
+      gHaPhysics->Add(Lvdceff);
 
       THaPhysicsModule *EKL = new THaPrimaryKine("EKL","Electron kinematics in HRS-L","L","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKL);
@@ -271,16 +280,17 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
     }
   }
   
+  
   //=====================================
   //  Set up Analyzer and replay data
   //=====================================
   ReplayCore(
 	     runnumber,        //run #
-	     0,                //-1=replay all;0=ask for a number
-	     all,              //default replay event num
+	     numevents,        //-1=replay all;0=ask for a number
+	     50000,            //default replay event num
 	     RNAME,            //output file format
-	     ODEF.Data(),	       //out define
-	     CUTS.Data(), 	       //empty cut define
+	     ODEF.Data(),	   //out define
+	     CUTS.Data(), 	   //empty cut define
 	     bScaler,          //replay scalar?
 	     bHelicity,        //repaly helicity
 	     fstEvt,	       //First Event To Replay
@@ -299,29 +309,29 @@ void replay_tritium(Int_t runnumber=0,Int_t all=50000,Int_t fstEvt=0,Bool_t Quie
       
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
-      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
       
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
-      gSystem->Exec(Form("mv %stemp_%d.pdf %sright_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
     }
     else if(LEFT_ARM_CONDITION){ 
       const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
       const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
-      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_detectors_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
-      gSystem->Exec(Form("mv %stemp_%d.pdf %sleft_physics_%d.pdf",SUM_DIR,runnumber,SUM_DIR,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
     }
   }
   exit(0);

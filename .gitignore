@@ -1,22 +1,35 @@
 # ignore patterns
 
 
-*~
-*.o
-*.a
-*.so
-*.d
-*.root
-*root_hist
-*.xpm
-replay/*.0
-replay/*.so
-replay/*.d
-replay/.pcm
+**/*~
+**/*.o
+**/*.a
+**/*.so
+**/*.d
+**/*.root
+**/root_hist
+**/*.xpm
+**/*.pcm
+**/*.dat.*
+**/*Dict.*
+**/*.aux
+**/*.log
+**/*.out
+#**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
+**/.nfs*
+#replay/*.0
+#replay/*.so
+#replay/*.d
+#replay/*.pcm
+
+replay/onlineGUI64/online
+replay/onlineGUI64/*.pdf
+replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
 replay/ScratchRootFiles
+replay/summaryfiles/*
 
 scaler/xscaler
 scaler/hana_scaler/tscalasy

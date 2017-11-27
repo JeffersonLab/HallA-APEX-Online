@@ -1,0 +1,116 @@
+#!/bin/bash
+currentdir=`pwd`
+
+
+
+case $1 in 
+"" | "last")
+    runnum=`cat ~adaq/datafile/rcRunNumberL`
+    CFILE=/adaq1/data1/triton_$runnum.dat.0
+    if [ ! -f $CFILE ]
+    then  CFILE=/adaq1/data1/triton_$runnum.dat.0
+	 fi
+	 if [ ! -f $CFILE ]
+	 then CFILE=/chafs2/work1/Ar40/raw/triton_$runnum.dat.0
+	 fi
+    if [ "$CFILE" = "" ] 
+    then
+	echo "ERROR: no CODA files"
+	exit
+    fi
+    
+    if [ -s $CFILE ] 
+    then
+	echo "opening $CFILE"
+    else
+        echo "ERROR: $CFILE does not exist or is empty"
+        exit
+    fi
+        
+    if [ -z $2 ]
+    then
+      FIRST=1
+      LAST=5000
+    else
+	if [ -z $3 ]
+            then
+              FIRST=1
+              LAST=$2
+            else
+              FIRST=$2
+              LAST=$3
+        fi
+    fi    
+    ;;
+"help" | "HELP" )
+    echo "Usage:"
+    echo "raster++ "
+    echo "->   standard plots from the last coda run"
+    echo "raster++ help "
+    echo "->   prints this message"
+    echo "raster++ #### "
+    echo "->   standard plots from run ####"
+    echo "raster++ last #1 #2 "
+    echo "->   plots from last coda run, using events from #1 to #2"
+    echo "raster++ #### #1 #2 "
+    echo "->   plots from coda run ####, using events from #1 to #2"
+    echo "in all cases a new root file is generated, overwriting "
+    echo "the previous one."
+    echo "please communicate comments to reitz@jlab.org"
+    echo " "
+    exit;;
+* )
+
+    CFILE=/adaq1/data1/triton_$1.dat.0
+    if [ ! -f $CFILE ]
+    then  CFILE=/adaq1/data1/triton_$1.dat.0
+    fi
+	 if [ ! -f $CFILE ]
+	 then CFILE=/chafs2/work1/Ar40/raw/triton_$1.dat.0
+	 fi
+    if [ "$CFILE" = "" ] 
+    then
+       echo "ERROR: no CODA files"
+       exit
+    fi
+
+    if [ -s $CFILE ] 
+    then
+	echo "opening $CFILE"
+    else
+        echo "ERROR: $CFILE does not exist or is empty"
+        exit
+    fi
+
+    if [ -z $2 ]
+    then
+      FIRST=1
+      LAST=5000
+    else
+	if [ -z $3 ]
+            then
+              FIRST=1
+              LAST=$2
+            else
+              FIRST=$2
+              LAST=$3
+        fi
+    fi    
+    ;;   
+
+esac
+
+#cd /adaqfs/home/a-onl/tritium/HallA-Online-Tritium/replay/scripts/SPOT/LeftHRS_Tritium
+
+
+export DB_DIR="/adaqfs/home/a-onl/tritium/replay/DB"
+
+#rm -f rastersize.root
+
+analyzer 'get_rastersize.C("'$CFILE'","'$1'",'$FIRST','$LAST',"rastersize.root")'
+
+RootFILE=L$1".root"
+
+#mv rastersize.root $RootFILE
+
+cd $currentdir
