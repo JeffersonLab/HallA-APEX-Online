@@ -12,6 +12,9 @@
 **/*.pcm
 **/*.dat.*
 **/*Dict.*
+**/*.aux
+**/*.log
+**/*.out
 #**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
 **/.nfs*
 #replay/*.0
@@ -20,10 +23,13 @@
 #replay/*.pcm
 
 replay/onlineGUI64/online
+replay/onlineGUI64/*.pdf
+replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
 replay/ScratchRootFiles
+replay/summaryfiles/*
 
 scaler/xscaler
 scaler/hana_scaler/tscalasy
