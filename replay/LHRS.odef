@@ -120,7 +120,7 @@ TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
 TH2F Lpr1_2 'Pion Rejector_1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 100 1 1500 100 1 1500
 TH2F Lp1sumx 'Pion Rejector_1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
 TH2F Lp2sumx 'Pion Rejector_2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 11000 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
 TH2F Lp2sumy 'Pion Rejector_2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
 
 
