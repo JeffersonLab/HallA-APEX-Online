@@ -39,6 +39,10 @@ Variable Rrb.Raster.rawcur.x
 Variable Rrb.Raster.rawcur.y
 Variable Rrb.Raster2.rawcur.x
 Variable Rrb.Raster2.rawcur.y
+Variable Rrb.BPMA.x
+Variable Rrb.BPMA.y
+Variable Rrb.BPMB.x
+Variable Rrb.BPMB.y
 Variable Rrb.dir.x
 Variable Rrb.dir.y
 Variable Rrb.e
@@ -47,6 +51,10 @@ Variable FbusRrb.Raster.rawcur.x
 Variable FbusRrb.Raster.rawcur.y
 Variable FbusRrb.Raster2.rawcur.x
 Variable FbusRrb.Raster2.rawcur.y
+Variable FbusRrb.BPMA.x
+Variable FbusRrb.BPMA.y
+Variable FbusRrb.BPMB.x
+Variable FbusRrb.BPMB.y
 Variable FbusRrb.dir.x
 Variable FbusRrb.dir.y
 Variable FbusRrb.e

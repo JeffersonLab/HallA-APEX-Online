@@ -11,7 +11,7 @@
 
 #include "TString.h"
 
-void raster_calib(){
+void fbus_raster_calib(){
 
   Int_t run = 0;
   cout << "What run number would you like to calibrate with?    ";
@@ -42,7 +42,7 @@ void raster_calib(){
 
   while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i),kFileExists)){
     rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i));
-    cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
+    cout << "Added file: coinc_test_" << run << "_" << i << ".root" << endl;
     i=i+1;
   }                      
 
@@ -51,9 +51,9 @@ void raster_calib(){
   
   TString arm;
   if(RIGHT_ARM_CONDITION){
-    arm="Rrb";
+    arm="FbusRrb";
   }else if(LEFT_ARM_CONDITION){
-    arm="Lrb";
+    arm="FbusLrb";
   }
 
 
@@ -66,10 +66,10 @@ void raster_calib(){
   //Also get the Mean and RMS of each plot
   
   //Plot X and Y Currents for both Rasters
-  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 62000, 68000);
+  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 4000, 9000);
+  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 4000, 9000);
+  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 4000, 9000);
+  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 4000, 9000);
 
   //Plot X and Y Position for both BPMs
   TH1F *bpmaxpos = new TH1F("bpmaxpos", "BPM A-X Position (m)", 400, -0.02, 0.02);
