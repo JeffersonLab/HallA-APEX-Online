@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "THaNonTrackingDetector.h"
+#include "Fadc250Module.h"
 
 class THaScCalib;
 class TClonesArray;
@@ -105,6 +106,17 @@ protected:
   Double_t*   fAmpl;       // [fNelem] overall amplitude for the paddle
   Double_t*   fYt;         // [fNelem] y-position of hit in paddle from TDC (m)
   Double_t*   fYa;         // [fNelem] y-position of hit in paddle from ADC (m)
+
+  //FADC
+  Int_t* floverflow;         //[fNelem] FADC overflowbit
+  Int_t* flunderflow;        //[fNelem] FADC underflowbit
+  Int_t* flpedq;             //[fNelem] FADC pedestal quality bit
+
+  Int_t* froverflow;         //[fNelem] FADC overflowbit
+  Int_t* frunderflow;        //[fNelem] FADC underflowbit
+  Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
+
+  Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
 
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
