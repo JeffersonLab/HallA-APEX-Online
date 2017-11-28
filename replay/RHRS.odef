@@ -254,7 +254,7 @@ variable RightLclock_r
 variable RightL1A_R
 variable RightL1A_R_r
 variable RightRclock2
-variable RightRclcok2_r
+variable RightRclock2_r
 variable Rights2L
 variable Rights2L_r
 variable Rights2R
