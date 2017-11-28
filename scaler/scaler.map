@@ -31,7 +31,7 @@ xscaler-pagename Left 5:'L-HRS '
 xscaler-pagename Left 6:'L-HRS '
 
 xscaler-server Left IP:129.57.192.30 port:5022
-xscaler-clock Left slot:1 chan:7 rate:103700
+xscaler-clock Left slot:4 chan:7 rate:103700
 
 #
 # directives for Right HRS

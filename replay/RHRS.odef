@@ -233,6 +233,55 @@ TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Rrb.Raster2.rawcur
 TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Rrb.Raster2.rawcur.x rbby 500 4000 9000 200 -5. 5.
 
 #-------------------------------------------------------------------------------
+#Event type 140 scaler
+
+variable RightT1
+variable RightT1_r
+variable RightT2
+variable RightT2_r
+variable RightT3
+variable RightT3_r
+variable RightT4
+variable RightT4_r
+variable RightT5
+variable RightT5_r
+variable RightT6
+variable RightT6_r
+variable RightRclock
+variable RightRclock_r
+variable RightLclock
+variable RightLclock_r
+variable RightL1A_R
+variable RightL1A_R_r
+variable RightRclock2
+variable RightRclcok2_r
+variable Rights2L
+variable Rights2L_r
+variable Rights2R
+variable Rights2R_r
+variable RightRs0ors2
+variable RightRs0ors2_r
+variable RightADC_gate
+variable RightADC_gate_r
+variable RightL1A
+variable RightL1A_r
+variable RightFB_remote
+variable RightFB_remote_r
+
+variable Rightunew
+variable Rightunew_r
+variable Rightdnew
+variable Rightdnew_r
+variable Rightunser
+variable Rightunser_r
+variable Rightu1
+variable Rightu1_r
+variable Rightd1
+variable Rightd1_r
+variable Rightd3
+variable Rightd3_r
+variable Rightd10
+variable Rightd10_r
 
 begin epics
   hac_bcm_average
