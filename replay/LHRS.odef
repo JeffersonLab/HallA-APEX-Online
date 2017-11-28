@@ -72,8 +72,8 @@ TH1F Ls0ltTAll 'Left arm S0-Bottom(B) TDC - All Triggers' L.s0.lt 500 0 2500 L.s
 TH1F Ls0ltT3 'Left arm S0-Bottom(B) TDC - Trigger 3 only' L.s0.lt 500 0 2500 L.s0.lt>0.&&(DL.evtypebits==8)
 TH1F Ls0rtTAll 'Left arm S0-Top(A) TDC - All Triggers' L.s0.rt 500 0 2500 L.s0.rt>0.&&(DL.evtypebits>>1)
 TH1F Ls0rtT3 'Left arm S0-Top(A) TDC - Trigger 3 only' L.s0.rt 500 0 2500 L.s0.rt>0.&&(DL.evtypebits>>2)
-TH1F Ls0la_p 'Left arm S0-Bottom(B) ADC (PedSub)' L.s0.la_p 80000 -6000 74000 L.s0.la_p>-6000.
-TH1F Ls0ra_p 'Left arm S0-Top(A) ADC (PedSub)' L.s0.ra_p 80000 -6000 74000 L.s0.ra_p>-6000.
+TH1F Ls0la_p 'Left arm S0-Bottom(B) ADC (PedSub)' L.s0.la_p 5000 -500 4500 L.s0.la_p>-500.
+TH1F Ls0ra_p 'Left arm S0-Top(A) ADC (PedSub)' L.s0.ra_p 5000 -500 4500 L.s0.ra_p>-500.
 TH2F Ls0Afadcvfbus 'Left Arm S0-Top(A) fADC vs Fastbus (PedSub)' L.s0.la_p FbusL.s0.la_p 10000 0 10000 10000 0 10000 L.s0.la_p>0
 TH2F Ls0Bfadcvfbus 'Left Arm S0-Bottom(B) fADC vs Fastbus (PedSub)' L.s0.ra_p FbusL.s0.ra_p 10000 0 10000 10000 0 10000 L.s0.ra_p>0
 
@@ -88,20 +88,22 @@ TH1F Ls2ltTAll_ 'Left arm S2 L-PMT TDCs - All Triggers' L.s2.lt 500 0 2500 L.s2.
 TH1F Ls2ltT3_ 'Left arm S2 L-PMT TDCs - Trigger 3' L.s2.lt 500 0 2500 L.s2.lt>0.&&(DL.evtypebits==8)
 TH1F Ls2rtTAll_ 'Left arm S2 R-PMT TDCs - All Triggers' L.s2.rt 500 0 2500 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2rtT3_ 'Left arm S2 R-PMT TDCs - Trigger 3' L.s2.rt 500 0 2500 L.s2.rt>0.&&(DL.evtypebits==8)
-TH1F Ls2la_p 'Left arm S2 L-PMT ADCs (PedSub)' L.s2.la_p 40000 -6000 34000 L.s2.la_p>-6000.
-TH1F Ls2ra_p 'Left arm S2 R-PMT ADCs (PedSub)' L.s2.ra_p 40000 -6000 34000 L.s2.ra_p>-6000.
+TH1F Ls2la_p 'Left arm S2 L-PMT ADCs (PedSub)' L.s2.la_p 2500 -500 2000 L.s2.la_p>-6000.
+TH1F Ls2ra_p 'Left arm S2 R-PMT ADCs (PedSub)' L.s2.ra_p 2500 -500 2000 L.s2.ra_p>-6000.
 
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
 TH1F Lcera   'Left arm Cerenkov'  L.cer.a 150000 0 150000 L.cer.a>0
-TH1F Lcersum 'Left arm Cerenkov sum (corrected)' L.cer.asum_c 501000 -1000 500000 L.cer.asum_c>-1000
-TH1F Lcera_p 'Left arm Cerenkov PMT (PedSub)' L.cer.a_p 150000 -6000 144000 L.cer.a_p>-6000.
+TH1F Lcersum 'Left arm Cerenkov sum (corrected)' L.cer.asum_c 10100 -500 50000  L.cer.asum_c>-1000
+TH1F Lcera_p 'Left arm Cerenkov PMT (PedSub)' L.cer.a_p 4000 -500 3500 L.cer.a_p>-6000.
 TH1F Lcert   'Left arm Cerenkov TDCs' L.cer.t 700 0 3500 L.cer.t>0
 TH1F LcertTAll_   'Left arm Cerenkov TDCs - All Triggers' L.cer.t 700 0 3500 L.cer.t>0&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F LcertT3_   'Left arm Cerenkov TDCs - Trigger 3' L.cer.t 700 0 3500 L.cer.t>0&&(DL.evtypebits==8)
-TH2F Lcer_x  'Left arm Cerenkov sum (corrected) vs. X' L.cer.trx L.cer.asum_c 501000 -1000 500000 60 -1.2 1.2 L.tr.n>0&&L.cer.asum_c>-1000
-TH2F Lcer_y  'Left arm Cerenkov sum (corrected) vs. Y' L.cer.try L.cer.asum_c 501000 -1000 500000 60 -0.12 0.12 L.tr.n>0&&L.cer.asum_c>-1000
+TH2F Lcer_x  'Left arm Cerenkov sum (corrected) vs. X' L.cer.trx L.cer.asum_c  60 -1.2 1.2 10100 -500 50000 L.tr.n>0&&L.cer.asum_c>-1000
+TH2F Lcer_y  'Left arm Cerenkov sum (corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -500 50000 L.tr.n>0&&L.cer.asum_c>-1000
+
+
 TH2F Lcerfadcvfbus_ 'Left arm Cerenkov PMT ADCs fADC vs Fastbus (PedSub)' L.cer.a_p FbusL.cer.a_p 10000 0 10000 10000 0 10000 L.cer.a_p>0
 # ------------------------------------------------------------------
 
@@ -118,7 +120,7 @@ TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
 TH2F Lpr1_2 'Pion Rejector_1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 100 1 1500 100 1 1500
 TH2F Lp1sumx 'Pion Rejector_1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
 TH2F Lp2sumx 'Pion Rejector_2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 11000 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector_1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
 TH2F Lp2sumy 'Pion Rejector_2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
 
 
