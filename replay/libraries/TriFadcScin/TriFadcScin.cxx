@@ -1,11 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
-// TriFadcScin (09142017 Hanjie Liu)                                 //
-// Using FADC read out scintillator PMT
-//
+// TriFadcScin (11202017 Hanjie Liu hanjie@jlab.org)                         //
+// Using FADC read out scintillator PMT                                      //
+// inherited from THaScintillator with some special FADC variabled added;    //
+//                                                                           //
 // Class for a scintillator (hodoscope) consisting of multiple               //
 // paddles with phototubes on both ends.                                     //
-//          
+//									     //          
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "TriFadcScin.h"
@@ -25,7 +26,7 @@
 #include <cassert>
 
 using namespace std;
-
+using namespace Decoder;
 //_____________________________________________________________________________
 TriFadcScin::TriFadcScin( const char* name, const char* description,
 				  THaApparatus* apparatus )
@@ -34,9 +35,11 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
     fNTWalkPar(0), fTWalkPar(0), fTrigOff(0),
     fLTNhit(0), fLT(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_c(0),
     fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
-    fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0)
+    fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0), 
+    floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0)
 {
   // Constructor
+  fFADC = NULL;
 }
 
 //_____________________________________________________________________________
@@ -45,7 +48,7 @@ TriFadcScin::TriFadcScin()
     fLGain(0), fRGain(0), fTWalkPar(0), fAdcMIP(0), fTrigOff(0),
     fLT(0), fLT_c(0), fRT(0), fRT_c(0), fLA(0), fLA_p(0), fLA_c(0),
     fRA(0), fRA_p(0), fRA_c(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0),
-    fYt(0), fYa(0)
+    fYt(0), fYa(0),floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0)
 {
   // Default constructor (for ROOT I/O)
 
@@ -169,6 +172,14 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     fYt     = new Double_t[ nval ];
     fYa     = new Double_t[ nval ];
 
+    floverflow  = new Int_t[ nval ];
+    flunderflow = new Int_t[ nval ];
+    flpedq      = new Int_t[ nval ];
+
+    froverflow  = new Int_t[ nval ];
+    frunderflow = new Int_t[ nval ];
+    frpedq      = new Int_t[ nval ];
+
     fIsInit = true;
   }
 
@@ -282,6 +293,12 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
     { "trdx",   "track deviation in x-position (m)", "fTrackProj.THaTrackProj.fdX" },
     { "trpad",  "paddle-hit associated with track",  "fTrackProj.THaTrackProj.fChannel" },
+    { "loverflow",  "overflow bit of FADC pulse",    "floverflow" },
+    { "lunderflow",  "underflow bit of FADC pulse",  "flunderflow" },
+    { "lbadped",  "pedestal quality bit of FADC pulse",   "flpedq" },
+    { "roverflow",  "overflow bit of FADC pulse",    "froverflow" },
+    { "runderflow",  "underflow bit of FADC pulse",  "frunderflow" },
+    { "rbadped",  "pedestal quality bit of FADC pulse",   "frpedq" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -329,6 +346,13 @@ void TriFadcScin::DeleteArrays()
   delete [] fAmpl;    fAmpl    = NULL;
   delete [] fYt;      fYt      = NULL;
   delete [] fYa;      fYa      = NULL;
+
+  delete [] floverflow;  floverflow  = NULL;
+  delete [] flunderflow; flunderflow = NULL;
+  delete [] flpedq;      flpedq      = NULL;
+  delete [] froverflow;  froverflow  = NULL;
+  delete [] frunderflow; frunderflow = NULL;
+  delete [] frpedq;      frpedq      = NULL;
 }
 
 //_____________________________________________________________________________
@@ -359,6 +383,14 @@ void TriFadcScin::Clear( Option_t* opt )
     memset( fdTime, 0, lf );
     memset( fYt, 0, lf );
     memset( fYa, 0, lf );
+
+    memset( floverflow, 0, fNelem*sizeof(floverflow[0]) );
+    memset( flunderflow, 0, fNelem*sizeof(flunderflow[0]) );
+    memset( flpedq, 0, fNelem*sizeof(flpedq[0]) );
+    memset( froverflow, 0, fNelem*sizeof(froverflow[0]) );
+    memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
+    memset( frpedq, 0, fNelem*sizeof(frpedq[0]) );
+
   }
 }
 
@@ -380,6 +412,8 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
     THaDetMap::Module* d = fDetMap->GetModule( i );
     bool adc = ( d->model ? fDetMap->IsADC(d) : (i < fDetMap->GetSize()/2) );
     
+    if(adc) fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
+   
     // Loop over all channels that have a hit.
     for( Int_t j = 0; j < evdata.GetNumChan( d->crate, d->slot ); j++) {
      
@@ -394,7 +428,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
 #endif
       // Get the data. Scintillators are assumed to have only single hit (hit=0)
       Int_t data;
-      if(adc)data = evdata.GetData(Decoder::kPulseIntegral,d->crate,d->slot,chan,0);
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
       else data = evdata.GetData( d->crate, d->slot, chan, 0 );
     
       // Get the detector channel number, starting at 0
@@ -410,10 +444,28 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
       // Copy the data to the local variables.
       DataDest* dest = fDataDest + k/fNelem;
       //decide wether use event by event pedestal
+      int jj=k/fNelem; 
       k = k % fNelem; 
       
       if(adc){ 
-          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+          if(fFADC!=NULL){
+             if(jj==1){
+                  floverflow[k] = fFADC->GetOverflowBit(chan,0);
+                  flunderflow[k] = fFADC->GetUnderflowBit(chan,0);
+                  flpedq[k] = fFADC->GetPedestalQuality(chan,0);
+              }
+             else {
+                  froverflow[k]=fFADC->GetOverflowBit(chan,0);
+                  frunderflow[k]=fFADC->GetUnderflowBit(chan,0);
+                  frpedq[k]=fFADC->GetPedestalQuality(chan,0);
+             }
+          }
+
+         if(jj==1 && flpedq[k]==0)
+           dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+        
+         if(jj==0 && frpedq[k]==0)
+           dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
       }
 
       if( adc ) {

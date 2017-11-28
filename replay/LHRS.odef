@@ -275,16 +275,18 @@ variable LeftL1A
 variable LeftL1A_r
 variable LeftEDTM_s2
 variable LeftEDTM_s2_r
-variable Leftu1
-variable Leftu1_r
-variable Leftd3
-variable Leftd3_r
+variable Leftunew
+variable Leftunew_r
 variable Leftdnew
 variable Leftdnew_r
-variable Leftdunser
-variable Leftdunser_r
+variable Leftunser
+variable Leftunser_r
+variable Leftu1
+variable Leftu1_r
 variable Leftd1
 variable Leftd1_r
+variable Leftd3
+variable Leftd3_r
 variable Leftd10
 variable Leftd10_r
 
