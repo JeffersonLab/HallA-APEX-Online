@@ -1,0 +1,6 @@
+cal_left.f  //NaI energy calibration for left arm
+cal_right.f //for right arm
+T_left.C  // generate electron sample for left arm
+T_right.C  //for right arm
+electrSampL,electrSampR // for left and right arm respectively
+fort.10,fort.20 // energy calibration coefficient for left and right respectively
