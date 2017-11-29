@@ -9,6 +9,7 @@
 
 #include "TClonesArray.h"
 #include "THaNonTrackingDetector.h"
+#include "Fadc250Module.h"
 
 class THaScCalib;
 
@@ -99,6 +100,18 @@ protected:
   
   Int_t      fNhit;       // Number of paddles with complete TDC hits (l&r)
   Int_t*     fHitPad;     // [fNhit] list of paddles with complete TDC hits
+
+  //FADC
+  Int_t* floverflow;         //[fNelem] FADC overflowbit
+  Int_t* flunderflow;        //[fNelem] FADC underflowbit
+  Int_t* flpedq;             //[fNelem] FADC pedestal quality bit
+
+  Int_t* froverflow;         //[fNelem] FADC overflowbit
+  Int_t* frunderflow;        //[fNelem] FADC underflowbit
+  Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
+
+  Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
+
 
   // could be done on a per-hit basis instead
   Double_t*   fTime;       // [fNelem] corrected time for the paddle (s)

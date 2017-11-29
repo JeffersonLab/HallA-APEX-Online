@@ -1,18 +1,18 @@
 
 
 
-FORMULA rbax 1000.*Lrb.BPMA.x
-FORMULA rbay 1000.*Lrb.BPMA.y
-FORMULA rbbx 1000.*Lrb.BPMB.x
-FORMULA rbby 1000.*Lrb.BPMB.y
-FORMULA rbx 1000.*Lrb.x
-FORMULA rby 1000.*Lrb.y
-FORMULA rawcurx1 1000.*Lrb.Raster.rawcur.x
-FORMULA rawcury1 1000.*Lrb.Raster.rawcur.y
-FORMULA rawcurx2 1000.*Lrb.Raster2.rawcur.x
-FORMULA rawcury2 1000.*Lrb.Raster2.rawcur.y
-FORMULA bpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
-FORMULA bpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
+FORMULA rbax 1000.*FbusLrb.BPMA.x
+FORMULA rbay 1000.*FbusLrb.BPMA.y
+FORMULA rbbx 1000.*FbusLrb.BPMB.x
+FORMULA rbby 1000.*FbusLrb.BPMB.y
+FORMULA rbx 1000.*FbusLrb.x
+FORMULA rby 1000.*FbusLrb.y
+FORMULA rawcurx1 1000.*FbusLrb.Raster.rawcur.x
+FORMULA rawcury1 1000.*FbusLrb.Raster.rawcur.y
+FORMULA rawcurx2 1000.*FbusLrb.Raster2.rawcur.x
+FORMULA rawcury2 1000.*FbusLrb.Raster2.rawcur.y
+FORMULA bpmaws FbusLrb.BPMA.rawcur.1+FbusLrb.BPMA.rawcur.2+FbusLrb.BPMA.rawcur.3+FbusLrb.BPMA.rawcur.4
+FORMULA bpmbws FbusLrb.BPMB.rawcur.1+FbusLrb.BPMB.rawcur.2+FbusLrb.BPMB.rawcur.3+FbusLrb.BPMB.rawcur.4
 
 TH1F bpma_x 'BPMA x [mm]' rbax 4000 -15. 15.
 TH1F bpma_y 'BPMA y [mm]' rbay 4000 -15. 15.
@@ -27,67 +27,67 @@ TH2F bpma_xy 'BPMA y vs x'  rbax rbay 2000 -15. 15. 2000 -15. 15.
 TH2F bpmb_xy 'BPMB y vs x'  rbbx rbby 2000 -15. 15. 2000 -15. 15.
 TH2F beam_xy 'beam at target y vs x'  rbx rby 200 -15. 15.  200 -15. 15.
 
-TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.y Lrb.Raster.rawcur.x     400 0 8000 400 0 8000
-TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster2.rawcur.x   400 0 8000 400 0 8000
-TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 400 0 8000 400 0 8000
-TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 400 0 8000 400 0 8000
-TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 400 0 8000 400 0 8000
-TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 400 0 8000 400 0 8000
+TH2F rastxy1 'Fast Raster 1 X vs Y (current)' FbusLrb.Raster.rawcur.y FbusLrb.Raster.rawcur.x     400 0 8000 400 0 8000
+TH2F rastxy2 'Fast Raster 2 X vs Y (current)' FbusLrb.Raster2.rawcur.y FbusLrb.Raster2.rawcur.x   400 0 8000 400 0 8000
+TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' FbusLrb.Raster2.rawcur.x FbusLrb.Raster.rawcur.x 400 0 8000 400 0 8000
+TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' FbusLrb.Raster2.rawcur.y FbusLrb.Raster.rawcur.y 400 0 8000 400 0 8000
+TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' FbusLrb.Raster.rawcur.y FbusLrb.Raster2.rawcur.x 400 0 8000 400 0 8000
+TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' FbusLrb.Raster2.rawcur.y FbusLrb.Raster.rawcur.x 400 0 8000 400 0 8000
 
-TH1F bpmaraw1 'BPMA Antenna 1' Lrb.BPMA.rawcur.1 5000 0 10000
-TH1F bpmaraw2 'BPMA Antenna 2' Lrb.BPMA.rawcur.2 5000 0 10000
-TH1F bpmaraw3 'BPMA Antenna 3' Lrb.BPMA.rawcur.3 5000 0 10000
-TH1F bpmaraw4 'BPMA Antenna 4' Lrb.BPMA.rawcur.4 5000 0 10000
-TH1F bpmbraw1 'BPMB Antenna 1' Lrb.BPMB.rawcur.1 5000 0 10000
-TH1F bpmbraw2 'BPMB Antenna 2' Lrb.BPMB.rawcur.2 5000 0 10000
-TH1F bpmbraw3 'BPMB Antenna 3' Lrb.BPMB.rawcur.3 5000 0 10000
-TH1F bpmbraw4 'BPMB Antenna 4' Lrb.BPMB.rawcur.4 5000 0 10000
+TH1F bpmaraw1 'BPMA Antenna 1' FbusLrb.BPMA.rawcur.1 5000 0 10000
+TH1F bpmaraw2 'BPMA Antenna 2' FbusLrb.BPMA.rawcur.2 5000 0 10000
+TH1F bpmaraw3 'BPMA Antenna 3' FbusLrb.BPMA.rawcur.3 5000 0 10000
+TH1F bpmaraw4 'BPMA Antenna 4' FbusLrb.BPMA.rawcur.4 5000 0 10000
+TH1F bpmbraw1 'BPMB Antenna 1' FbusLrb.BPMB.rawcur.1 5000 0 10000
+TH1F bpmbraw2 'BPMB Antenna 2' FbusLrb.BPMB.rawcur.2 5000 0 10000
+TH1F bpmbraw3 'BPMB Antenna 3' FbusLrb.BPMB.rawcur.3 5000 0 10000
+TH1F bpmbraw4 'BPMB Antenna 4' FbusLrb.BPMB.rawcur.4 5000 0 10000
 
 TH1F bpmaraws 'BPMA Raw Sum' bpmaws 5000 0 40000
 TH1F bpmbraws 'BPMA Raw Sum' bpmbws 5000 0 40000
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
-TH1F URastX 'Upstream Raster X' Lrb.Raster.rawcur.y 2500 0 5000
-TH1F URastY 'Upstream Raster Y' Lrb.Raster.rawcur.x 2500 0 5000
-TH1F DRastX 'Downstream Raster X' Lrb.Raster2.rawcur.y 2500 0 5000
-TH1F DRastY 'Downstream Raster Y' Lrb.Raster2.rawcur.x 2500 0 5000
+TH1F URastX 'Upstream Raster X' FbusLrb.Raster.rawcur.y 2500 0 5000
+TH1F URastY 'Upstream Raster Y' FbusLrb.Raster.rawcur.x 2500 0 5000
+TH1F DRastX 'Downstream Raster X' FbusLrb.Raster2.rawcur.y 2500 0 5000
+TH1F DRastY 'Downstream Raster Y' FbusLrb.Raster2.rawcur.x 2500 0 5000
 
 
-TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Lrb.Raster.rawcur.y rbax 500 0 6000 200 -5. 5.
-TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Lrb.Raster.rawcur.x rbay 500 0 6000 200 -5. 5.
-TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' Lrb.Raster.rawcur.y rbbx 500 0 6000 200 -5. 5.
-TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' Lrb.Raster.rawcur.x rbby 500 0 6000 200 -5. 5.
+TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' FbusLrb.Raster.rawcur.y rbax 500 0 6000 200 -5. 5.
+TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' FbusLrb.Raster.rawcur.x rbay 500 0 6000 200 -5. 5.
+TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' FbusLrb.Raster.rawcur.y rbbx 500 0 6000 200 -5. 5.
+TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' FbusLrb.Raster.rawcur.x rbby 500 0 6000 200 -5. 5.
 
-TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' Lrb.Raster.rawcur.x rbax 500 0 6000 200 -5. 5.
-TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.y rbay 500 0 6000 200 -5. 5.
-TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.x rbbx 500 0 6000 200 -5. 5.
-TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.y rbby 500 0 6000 200 -5. 5.
+TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' FbusLrb.Raster.rawcur.x rbax 500 0 6000 200 -5. 5.
+TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' FbusLrb.Raster.rawcur.y rbay 500 0 6000 200 -5. 5.
+TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' FbusLrb.Raster.rawcur.x rbbx 500 0 6000 200 -5. 5.
+TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' FbusLrb.Raster.rawcur.y rbby 500 0 6000 200 -5. 5.
 
-TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.y rbax 500 0 6000 200 -5. 5.
-TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.x rbay 500 0 6000 200 -5. 5.
-TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.y rbbx 500 0 6000 200 -5. 5.
-TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.x rbby 500 0 6000 200 -5. 5.
+TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' FbusLrb.Raster2.rawcur.y rbax 500 0 6000 200 -5. 5.
+TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' FbusLrb.Raster2.rawcur.x rbay 500 0 6000 200 -5. 5.
+TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' FbusLrb.Raster2.rawcur.y rbbx 500 0 6000 200 -5. 5.
+TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' FbusLrb.Raster2.rawcur.x rbby 500 0 6000 200 -5. 5.
 
-TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.x rbax 500 0 6000 200 -5. 5.
-TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.y rbay 500 0 6000 200 -5. 5.
-TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Lrb.Raster2.rawcur.x rbbx 500 0 6000 200 -5. 5.
-TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Lrb.Raster2.rawcur.y rbby 500 0 6000 200 -5. 5.
+TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' FbusLrb.Raster2.rawcur.x rbax 500 0 6000 200 -5. 5.
+TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' FbusLrb.Raster2.rawcur.y rbay 500 0 6000 200 -5. 5.
+TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' FbusLrb.Raster2.rawcur.x rbbx 500 0 6000 200 -5. 5.
+TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' FbusLrb.Raster2.rawcur.y rbby 500 0 6000 200 -5. 5.
 
 
 # BELOW IS FOR FADC FADC FADC --THREE TIMES FOR SOMETHING IMPORTANT
 
-FORMULA frbax 1000.*fLrb.BPMA.x
-FORMULA frbay 1000.*fLrb.BPMA.y
-FORMULA frbbx 1000.*fLrb.BPMB.x
-FORMULA frbby 1000.*fLrb.BPMB.y
-FORMULA frbx 1000.*fLrb.x
-FORMULA frby 1000.*fLrb.y
-FORMULA frawcurx1 1000.*fLrb.Raster.rawcur.x
-FORMULA frawcury1 1000.*fLrb.Raster.rawcur.y
-FORMULA frawcurx2 1000.*fLrb.Raster2.rawcur.x
-FORMULA frawcury2 1000.*fLrb.Raster2.rawcur.y
-FORMULA fbpmaws fLrb.BPMA.rawcur.1+fLrb.BPMA.rawcur.2+fLrb.BPMA.rawcur.3+fLrb.BPMA.rawcur.4
-FORMULA fbpmbws fLrb.BPMB.rawcur.1+fLrb.BPMB.rawcur.2+fLrb.BPMB.rawcur.3+fLrb.BPMB.rawcur.4
+FORMULA frbax 1000.*Lrb.BPMA.x
+FORMULA frbay 1000.*Lrb.BPMA.y
+FORMULA frbbx 1000.*Lrb.BPMB.x
+FORMULA frbby 1000.*Lrb.BPMB.y
+FORMULA frbx 1000.*Lrb.x
+FORMULA frby 1000.*Lrb.y
+FORMULA frawcurx1 1000.*Lrb.Raster.rawcur.x
+FORMULA frawcury1 1000.*Lrb.Raster.rawcur.y
+FORMULA frawcurx2 1000.*Lrb.Raster2.rawcur.x
+FORMULA frawcury2 1000.*Lrb.Raster2.rawcur.y
+FORMULA fbpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
+FORMULA fbpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
 
 TH1F fbpma_x 'BPMA x [mm]' frbax 4000 -15. 15.
 TH1F fbpma_y 'BPMA y [mm]' frbay 4000 -15. 15.
@@ -102,49 +102,49 @@ TH2F fbpma_xy 'BPMA y vs x'  frbax frbay 2000 -15. 15. 2000 -15. 15.
 TH2F fbpmb_xy 'BPMB y vs x'  frbbx frbby 2000 -15. 15. 2000 -15. 15.
 TH2F fbeam_xy 'beam at target y vs x'  frbx frby 200 -15. 15.  200 -15. 15.
 
-TH2F frastxy1 'Fast Raster 1 X vs Y (current)' fLrb.Raster.rawcur.y fLrb.Raster.rawcur.x     400 0 8000 400 0 8000
-TH2F frastxy2 'Fast Raster 2 X vs Y (current)' fLrb.Raster2.rawcur.y fLrb.Raster2.rawcur.x   400 0 8000 400 0 8000
-TH2F frastx1x2 'Fast Raster 1 X vs 2 X (current)' fLrb.Raster2.rawcur.x fLrb.Raster.rawcur.x 400 0 8000 400 0 8000
-TH2F frasty1y2 'Fast Raster 1 Y vs 2 Y (current)' fLrb.Raster2.rawcur.y fLrb.Raster.rawcur.y 400 0 8000 400 0 8000
-TH2F frastx1y2 'Fast Raster 1 X vs 2 Y (current)' fLrb.Raster.rawcur.y fLrb.Raster2.rawcur.x 400 0 8000 400 0 8000
-TH2F frastx2y1 'Fast Raster 2 X vs 1 Y (current)' fLrb.Raster2.rawcur.y fLrb.Raster.rawcur.x 400 0 8000 400 0 8000
+TH2F frastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.y Lrb.Raster.rawcur.x     400 0 8000 400 0 8000
+TH2F frastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster2.rawcur.x   400 0 8000 400 0 8000
+TH2F frastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 400 0 8000 400 0 8000
+TH2F frasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 400 0 8000 400 0 8000
+TH2F frastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 400 0 8000 400 0 8000
+TH2F frastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 400 0 8000 400 0 8000
 
-TH1F fbpmaraw1 'BPMA Antenna 1' fLrb.BPMA.rawcur.1 5000 0 10000
-TH1F fbpmaraw2 'BPMA Antenna 2' fLrb.BPMA.rawcur.2 5000 0 10000
-TH1F fbpmaraw3 'BPMA Antenna 3' fLrb.BPMA.rawcur.3 5000 0 10000
-TH1F fbpmaraw4 'BPMA Antenna 4' fLrb.BPMA.rawcur.4 5000 0 10000
-TH1F fbpmbraw1 'BPMB Antenna 1' fLrb.BPMB.rawcur.1 5000 0 10000
-TH1F fbpmbraw2 'BPMB Antenna 2' fLrb.BPMB.rawcur.2 5000 0 10000
-TH1F fbpmbraw3 'BPMB Antenna 3' fLrb.BPMB.rawcur.3 5000 0 10000
-TH1F fbpmbraw4 'BPMB Antenna 4' fLrb.BPMB.rawcur.4 5000 0 10000
+TH1F fbpmaraw1 'BPMA Antenna 1' Lrb.BPMA.rawcur.1 5000 0 10000
+TH1F fbpmaraw2 'BPMA Antenna 2' Lrb.BPMA.rawcur.2 5000 0 10000
+TH1F fbpmaraw3 'BPMA Antenna 3' Lrb.BPMA.rawcur.3 5000 0 10000
+TH1F fbpmaraw4 'BPMA Antenna 4' Lrb.BPMA.rawcur.4 5000 0 10000
+TH1F fbpmbraw1 'BPMB Antenna 1' Lrb.BPMB.rawcur.1 5000 0 10000
+TH1F fbpmbraw2 'BPMB Antenna 2' Lrb.BPMB.rawcur.2 5000 0 10000
+TH1F fbpmbraw3 'BPMB Antenna 3' Lrb.BPMB.rawcur.3 5000 0 10000
+TH1F fbpmbraw4 'BPMB Antenna 4' Lrb.BPMB.rawcur.4 5000 0 10000
 
 TH1F fbpmaraws 'BPMA Raw Sum' fbpmaws 5000 0 40000
 TH1F fbpmbraws 'BPMA Raw Sum' fbpmbws 5000 0 40000
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
-TH1F fURastX 'Upstream Raster X' fLrb.Raster.rawcur.y 2500 0 5000
-TH1F fURastY 'Upstream Raster Y' fLrb.Raster.rawcur.x 2500 0 5000
-TH1F fDRastX 'Downstream Raster X' fLrb.Raster2.rawcur.y 2500 0 5000
-TH1F fDRastY 'Downstream Raster Y' fLrb.Raster2.rawcur.x 2500 0 5000
+TH1F fURastX 'Upstream Raster X' Lrb.Raster.rawcur.y 2500 0 5000
+TH1F fURastY 'Upstream Raster Y' Lrb.Raster.rawcur.x 2500 0 5000
+TH1F fDRastX 'Downstream Raster X' Lrb.Raster2.rawcur.y 2500 0 5000
+TH1F fDRastY 'Downstream Raster Y' Lrb.Raster2.rawcur.x 2500 0 5000
 
 
-TH2F furastraw_bpma_x 'Up Fast Raster Current vs BPMA X' fLrb.Raster.rawcur.y frbax 500 0 6000 200 -5. 5.
-TH2F furastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' fLrb.Raster.rawcur.x frbay 500 0 6000 200 -5. 5.
-TH2F furastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' fLrb.Raster.rawcur.y frbbx 500 0 6000 200 -5. 5.
-TH2F furastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' fLrb.Raster.rawcur.x frbby 500 0 6000 200 -5. 5.
+TH2F furastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Lrb.Raster.rawcur.y frbax 500 0 6000 200 -5. 5.
+TH2F furastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Lrb.Raster.rawcur.x frbay 500 0 6000 200 -5. 5.
+TH2F furastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' Lrb.Raster.rawcur.y frbbx 500 0 6000 200 -5. 5.
+TH2F furastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' Lrb.Raster.rawcur.x frbby 500 0 6000 200 -5. 5.
 
-TH2F furastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' fLrb.Raster.rawcur.x frbax 500 0 6000 200 -5. 5.
-TH2F furastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' fLrb.Raster.rawcur.y frbay 500 0 6000 200 -5. 5.
-TH2F furastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' fLrb.Raster.rawcur.x frbbx 500 0 6000 200 -5. 5.
-TH2F furastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' fLrb.Raster.rawcur.y frbby 500 0 6000 200 -5. 5.
+TH2F furastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' Lrb.Raster.rawcur.x frbax 500 0 6000 200 -5. 5.
+TH2F furastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.y frbay 500 0 6000 200 -5. 5.
+TH2F furastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.x frbbx 500 0 6000 200 -5. 5.
+TH2F furastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.y frbby 500 0 6000 200 -5. 5.
 
-TH2F fdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' fLrb.Raster2.rawcur.y frbax 500 0 6000 200 -5. 5.
-TH2F fdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' fLrb.Raster2.rawcur.x frbay 500 0 6000 200 -5. 5.
-TH2F fdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' fLrb.Raster2.rawcur.y frbbx 500 0 6000 200 -5. 5.
-TH2F fdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' fLrb.Raster2.rawcur.x frbby 500 0 6000 200 -5. 5.
+TH2F fdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.y frbax 500 0 6000 200 -5. 5.
+TH2F fdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.x frbay 500 0 6000 200 -5. 5.
+TH2F fdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.y frbbx 500 0 6000 200 -5. 5.
+TH2F fdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.x frbby 500 0 6000 200 -5. 5.
 
-TH2F fdrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' fLrb.Raster2.rawcur.x frbax 500 0 6000 200 -5. 5.
-TH2F fdrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' fLrb.Raster2.rawcur.y frbay 500 0 6000 200 -5. 5.
-TH2F fdrastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' fLrb.Raster2.rawcur.x frbbx 500 0 6000 200 -5. 5.
-TH2F fdrastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' fLrb.Raster2.rawcur.y frbby 500 0 6000 200 -5. 5.
+TH2F fdrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.x frbax 500 0 6000 200 -5. 5.
+TH2F fdrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.y frbay 500 0 6000 200 -5. 5.
+TH2F fdrastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Lrb.Raster2.rawcur.x frbbx 500 0 6000 200 -5. 5.
+TH2F fdrastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Lrb.Raster2.rawcur.y frbby 500 0 6000 200 -5. 5.
 
