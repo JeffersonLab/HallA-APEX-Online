@@ -66,12 +66,13 @@ TH1F Rs0la 'Right arm S0-Top(B) ADC' R.s0.la 120000 0 120000 R.s0.la>0.
 TH1F Rs0ra 'Right arm S0-Bottom(A) ADC' R.s0.ra 120000 0 120000 R.s0.ra>0.
 TH1F Rs0lt 'Right arm S0-Top(B) TDC' R.s0.lt 600 0 3000 R.s0.lt>0.
 TH1F Rs0rt 'Right arm S0-Bottom(A) TDC' R.s0.rt 600 0 3000 R.s0.rt>0.
-TH1F Rs0ltTAll 'Right arm S0-Top(B) TDC - Trigger 1' R.s0.lt 600 0 3000 R.s0.lt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
-TH1F Rs0ltT6 'Right arm S0-Top(B) TDC - Trigger 3' R.s0.lt 600 0 3000 R.s0.lt>0.&&(DR.evtypebits==64)
-TH1F Rs0rtTAll 'Right arm S0-Bottom(A) TDC - Trigger 1' R.s0.rt 600 0 3000 R.s0.rt>0.&&((DR.evtypebits==112)||DR.evtypebits==96))
-TH1F Rs0rtT6 'Right arm S0-Bottom(A) TDC - Trigger 3' R.s0.rt 600 0 3000 R.s0.rt>0.&&(DR.evtypebits==64)
-TH1F Rs0la_p 'Right arm S0-Top(B) ADC (PedSub)' R.s0.la_p 120000 -6000 114000 R.s0.la_p>-6000.
-TH1F Rs0ra_p 'Right arm S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 120000 -6000 114000 R.s0.ra_p>-6000.
+TH1F Rs0ltT4_ 'Right arm S0-Top(B) TDC - Trigger 1 PMT' R.s0.lt 600 0 3000 R.s0.lt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Rs0ltT6_ 'Right arm S0-Top(B) TDC - Trigger 3 PMT' R.s0.lt 600 0 3000 R.s0.lt>0.&&(DR.evtypebits==64)
+TH1F Rs0rtT4_ 'Right arm S0-Bottom(A) TDC - Trigger 1 PMT' R.s0.rt 600 0 3000 R.s0.rt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Rs0rtT6_ 'Right arm S0-Bottom(A) TDC - Trigger 3 PMT' R.s0.rt 600 0 3000 R.s0.rt>0.&&(DR.evtypebits==64)
+
+TH1F Rs0la_p 'Right arm S0-Top(B) ADC (PedSub)' R.s0.la_p 5000 -500 4500 R.s0.la_p>-6000.
+TH1F Rs0ra_p 'Right arm S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 5000 -500 4500 R.s0.ra_p>-6000.
 TH2F Rs0Bfadcvfbus 'Right Arm S0-Top(B) fADC vs Fastbus (PedSub)' R.s0.la_p FbusR.s0.la_p 10000 0 10000 10000 0 10000 R.s0.la_p>0
 TH2F Rs0Afadcvfbus 'Right Arm S0-Bottom(A) fADC vs Fastbus (PedSub)' R.s0.ra_p FbusR.s0.ra_p 10000 0 10000 10000 0 10000 R.s0.ra_p>0
 
@@ -82,25 +83,25 @@ TH1F Rs2la 'Right arm S2 L-PMT ADCs' R.s2.la 40000 0 40000 R.s2.la>0.
 TH1F Rs2ra 'Right arm S2 R-PMT ADCs' R.s2.ra 40000 0 40000 R.s2.ra>0.
 TH1F Rs2lt 'Right arm S2 L-PMT TDCs' R.s2.lt 600 0 3000 R.s2.lt>0.
 TH1F Rs2rt 'Right arm S2 R-PMT TDCs' R.s2.rt 600 0 3000 R.s2.rt>0.
-TH1F Rs2ltT1 'Right arm S2 L-PMT TDCs - Trigger 1' R.s2.lt 600 0 3000 R.s2.lt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
-TH1F Rs2ltT3 'Right arm S2 L-PMT TDCs - Trigger 3' R.s2.lt 600 0 3000 R.s2.lt>0.&&(DR.evtypebits==64)
-TH1F Rs2rtT1 'Right arm S2 R-PMT TDCs - Trigger 1' R.s2.rt 600 0 3000 R.s2.rt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
-TH1F Rs2rtT3 'Right arm S2 R-PMT TDCs - Trigger 3' R.s2.rt 600 0 3000 R.s2.rt>0.&&(DR.evtypebits==64)
-TH1F Rs2la_p 'Right arm S2 L-PMT ADCs (PedSub)' R.s2.la_p 40000 -6000 34000 R.s2.la_p>-6000.
-TH1F Rs2ra_p 'Right arm S2 R-PMT ADCs (PedSub)' R.s2.ra_p 40000 -6000 34000 R.s2.ra_p>-6000.
+TH1F Rs2ltT4_ 'Right arm S2 L-PMT TDCs - Trigger 1 PMT' R.s2.lt 600 1500 2500 R.s2.lt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Rs2ltT6_ 'Right arm S2 L-PMT TDCs - Trigger 3 PMT' R.s2.lt 600 1500 2500 R.s2.lt>0.&&(DR.evtypebits==64)
+TH1F Rs2rtT4_ 'Right arm S2 R-PMT TDCs - Trigger 1 PMT' R.s2.rt 600 1500 2500 R.s2.rt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Rs2rtT6_ 'Right arm S2 R-PMT TDCs - Trigger 3 PMT' R.s2.rt 600 1500 2500 R.s2.rt>0.&&(DR.evtypebits==64)
+TH1F Rs2la_p 'Right arm S2 L-PMT ADCs (PedSub)' R.s2.la_p 2500 -500 2000 R.s2.la_p>-6000.
+TH1F Rs2ra_p 'Right arm S2 R-PMT ADCs (PedSub)' R.s2.ra_p 2500 -500 2000 R.s2.ra_p>-6000.
 
 
 # ------------------------------------------------------------------
 # RIGHT ARM GAS CHERENKOV  ADC and TDC :
 #
 TH1F Rcera 'Right arm Cerenkov'  R.cer.a 150000 0 150000 R.cer.a>0
-TH1F Rcersum 'Right arm Cerenkov sum (corrected)' R.cer.asum_c 220000 0 220000 R.cer.asum_c>0
-TH1F Rcera_p 'Right arm Cerenkov PMT (PedSub)' R.cer.a_p 150000 0 150000 R.cer.a_p>0
+TH1F Rcersum 'Right arm Cerenkov sum (corrected)' R.cer.asum_c 10100 -500 50000 R.cer.asum_c>0
+TH1F Rcera_p 'Right arm Cerenkov PMT (PedSub)' R.cer.a_p 4000 -500 3500 R.cer.a_p>0
 TH1F Rcert 'Right arm Cerenkov TDCs' R.cer.t 600 0 3000 R.cer.t>0
-TH1F RcertT1   'Right arm Cerenkov TDCs - Trigger 1' R.cer.t 600 0 3000 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
-TH1F RcertT3   'Right arm Cerenkov TDCs - Trigger 3' R.cer.t 600 0 3000 R.cer.t>0&&(DR.evtypebits==64)
-TH2F Rcer_x  'Right arm Cerenkov sum (corrected) vs. X' R.cer.trx R.cer.asum_c 220000 0 220000 60 -1.2 1.2 R.tr.n>0&&R.cer.asum_c>0
-TH2F Rcer_y  'Right arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c 220000 0 220000 60 -0.12 0.12 R.tr.n>0&&R.cer.asum_c>0
+TH1F RcertT4_   'Right arm Cerenkov TDCs - Trigger 1 PMT' R.cer.t 600 0 3000 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F RcertT6_   'Right arm Cerenkov TDCs - Trigger 3 PMT' R.cer.t 600 0 3000 R.cer.t>0&&(DR.evtypebits==64)
+TH2F Rcer_x  'Right arm Cerenkov sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 220000 0 220000R.tr.n>0&&R.cer.asum_c>0
+TH2F Rcer_y  'Right arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c  60 -0.12 0.12 220000 0 220000 R.tr.n>0&&R.cer.asum_c>0
 TH2F Rcerfadcvfbus 'Right arm Cerenkov PMT ADCs fADC vs Fastbus (PedSub)' R.cer.a_p FbusR.cer.a_p 10000 0 10000 10000 0 10000 R.cer.a_p>0
 # ------------------------------------------------------------------
 

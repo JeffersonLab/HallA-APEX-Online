@@ -66,15 +66,15 @@ Int_t get_rastersize(TString codafname,TString runNo, Int_t firsteve, Int_t last
   cout << "Loading spot's private libBeam ..."<<endl;
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
-  THaApparatus* Rrb = new THaRasteredBeam("Rrb","Raster Beamline"); 
-  Rrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
-  Rrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
-  Rrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
-  THaApparatus* fRrb = new TriFadcRasteredBeam("fRrb","Raster Beamline for FADC ");
+  THaApparatus* FbusRrb = new THaRasteredBeam("FbusRrb","Raster Beamline"); 
+  FbusRrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
+  FbusRrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
+  FbusRrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
+  THaApparatus* Rrb = new TriFadcRasteredBeam("Rrb","Raster Beamline for FADC ");
 
 
-  gHaApps->Add( Rrb );
-  gHaApps->Add(fRrb);
+  gHaApps->Add( FbusRrb );
+  gHaApps->Add(Rrb);
 
   analyzer->SetEvent( event );
   analyzer->SetOutFile( rootfname );

@@ -6,11 +6,5 @@
 
 
 #pragma link C++ class TriFadcCherenkov+;
-#pragma link C++ class TritiumDetMap+;
-#pragma link C++ class TritiumDetectorBase+;
-#pragma link C++ class TritiumDetector+;
-#pragma link C++ class TritiumSpectrometerDetector+;
-#pragma link C++ class TritiumNonTrackingDetector+;
-#pragma link C++ class TritiumPidDetector+;
 
 #endif

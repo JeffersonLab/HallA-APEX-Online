@@ -9,6 +9,7 @@
 
 #include "TClonesArray.h"
 #include "THaNonTrackingDetector.h"
+#include "Fadc250Module.h"
 
 class THaScCalib;
 
@@ -83,10 +84,34 @@ protected:
   Double_t*   fRA;         // [fNelem] Array of Right paddles ADC amplitudes
   Double_t*   fRA_p;       // [fNelem] Array of Right paddles ADC minus ped values
   Double_t*   fRA_c;       // [fNelem] Array of Right paddles corrected ADC ampl-s
+  
 
+	// Per event data for s0 A-B strangness
+  Double_t*   fUpT;         // [fNelem] Array of Left paddles TDC times (channels)
+  Double_t*   fUpT_c;       // [fNelem] Array of Left PMT corrected TDC times (s)
+  Double_t*   fDownT;         // [fNelem] Array of Right paddles TDC times (channels)
+  Double_t*   fDownT_c;       // [fNelem] Array of Right PMT corrected TDC times (s)
+  Double_t*   fUpA;         // [fNelem] Array of Left paddles ADC amplitudes
+  Double_t*   fUpA_p;       // [fNelem] Array of Left paddles ADC minus ped values
+  Double_t*   fUpA_c;       // [fNelem] Array of Left paddles corrected ADC ampl-s
+  Double_t*   fDownA;         // [fNelem] Array of Right paddles ADC amplitudes
+  Double_t*   fDownA_p;       // [fNelem] Array of Right paddles ADC minus ped values
+  Double_t*   fDownA_c;       // [fNelem] Array of Right paddles corrected ADC ampl-s  
   
   Int_t      fNhit;       // Number of paddles with complete TDC hits (l&r)
   Int_t*     fHitPad;     // [fNhit] list of paddles with complete TDC hits
+
+  //FADC
+  Int_t* floverflow;         //[fNelem] FADC overflowbit
+  Int_t* flunderflow;        //[fNelem] FADC underflowbit
+  Int_t* flpedq;             //[fNelem] FADC pedestal quality bit
+
+  Int_t* froverflow;         //[fNelem] FADC overflowbit
+  Int_t* frunderflow;        //[fNelem] FADC underflowbit
+  Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
+
+  Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
+
 
   // could be done on a per-hit basis instead
   Double_t*   fTime;       // [fNelem] corrected time for the paddle (s)
