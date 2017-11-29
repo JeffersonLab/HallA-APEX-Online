@@ -28,7 +28,7 @@
 #include <iostream>
 
 using namespace std;
-
+using namespace Decoder;
 //_____________________________________________________________________________
 TriFadcXscin::TriFadcXscin( const char* name,
 		      const char* description,
@@ -41,6 +41,7 @@ TriFadcXscin::TriFadcXscin( const char* name,
   fTWalkPar = 0;
 
   fTrackProj = new TClonesArray( "THaTrackProj", 5 );
+  fFADC = NULL;
 }
 
 //_____________________________________________________________________________
@@ -55,6 +56,16 @@ TriFadcXscin::TriFadcXscin( ) :
   fRGain = fLGain = fRPed = fLPed = fROff = fLOff = NULL;
   fTrigOff = fTime = fdTime = fXt = fXa = NULL;
   fHitPad = NULL;
+  fFADC = NULL;
+
+  floverflow = NULL;
+  flunderflow = NULL;
+  flpedq = NULL;
+  froverflow = NULL;
+  frunderflow = NULL;
+  frpedq = NULL;
+
+
 }
 
 //_____________________________________________________________________________
@@ -182,6 +193,14 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
     fXt     = new Double_t[ nval ];
     fXa     = new Double_t[ nval ];
 
+    floverflow = new Int_t[ nval ];
+    flunderflow = new Int_t[ nval ];
+    flpedq = new Int_t[ nval ];
+
+    froverflow = new Int_t[ nval ];
+    frunderflow = new Int_t[ nval ];
+    frpedq = new Int_t[ nval ];
+
     fIsInit = true;
   }
 
@@ -296,6 +315,12 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
     { "trdy",   "track deviation in y-position (m)", "fTrackProj.THaTrackProj.fdX" }, //Does not have a 'fdY' variable...but not a big deal
     { "trpad",  "paddle-hit associated with track",  "fTrackProj.THaTrackProj.fChannel" },
+    { "loverflow",  "overflow bit of FADC pulse left side",         "floverflow" },
+    { "lunderflow", "underflow bit of FADC pulse left side",        "flunderflow" },
+    { "lbadped",    "pedestal quality bit of FADC pulse left side", "flpedq" },
+    { "roverflow",  "overflow bit of FADC pulse right side",        "froverflow" },
+    { "runderflow", "underflow bit of FADC pulse right side",       "frunderflow" },
+    { "rbadped",    "pedestal quality bit of FADC pulse right side","frpedq" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -346,6 +371,14 @@ void TriFadcXscin::DeleteArrays()
   delete [] fdTime;   fdTime   = NULL;
   delete [] fXt;      fXt      = NULL;
   delete [] fXa;      fXa      = NULL;
+  delete [] floverflow;  floverflow  = NULL;
+  delete [] flunderflow; flunderflow = NULL;
+  delete [] flpedq;      flpedq      = NULL;
+
+  delete [] froverflow;  froverflow  = NULL;
+  delete [] frunderflow; frunderflow = NULL;
+  delete [] frpedq;      frpedq      = NULL;
+
 }
 
 //_____________________________________________________________________________
@@ -376,7 +409,15 @@ void TriFadcXscin::ClearEvent()
   memset( fdTime, 0, lf );
   memset( fXt, 0, lf );
   memset( fXa, 0, lf );
+
+  memset( floverflow,  0, fNelem*sizeof(floverflow[0]) );
+  memset( flunderflow, 0, fNelem*sizeof(flunderflow[0]) );
+  memset( flpedq,      0, fNelem*sizeof(flpedq[0]) );
   
+  memset( froverflow,  0, fNelem*sizeof(froverflow[0]) );
+  memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
+  memset( frpedq,      0, fNelem*sizeof(frpedq[0]) );
+
   fTrackProj->Clear();
 }
 
@@ -400,6 +441,8 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
     THaDetMap::Module* d = fDetMap->GetModule( i );
     bool adc = ( d->model ? fDetMap->IsADC(d) : (i < fDetMap->GetSize()/2) );
 
+    if(adc) fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
+
     // Loop over all channels that have a hit.
     for( Int_t j = 0; j < evdata.GetNumChan( d->crate, d->slot ); j++) {
 
@@ -415,7 +458,7 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
 #endif
       // Get the data. Scintillators are assumed to have only single hit (hit=0)
       Int_t data;
-      if(adc)data = evdata.GetData(Decoder::kPulseIntegral,d->crate,d->slot,chan,0);
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
       else data = evdata.GetData( d->crate, d->slot, chan, 0 );
 
       // Get the detector channel number, starting at 0
@@ -433,9 +476,28 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
       // Copy the data to the local variables.
       DataDest* dest = fDataDest + k/fNelem;
       //decide wether use event by event pedestal
+      int jj=0;
+      jj = k/fNelem; 
       k = k % fNelem;
       if(adc){
-          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+          if(fFADC!=NULL){
+            if(jj==1){   
+		floverflow[k] = fFADC->GetOverflowBit(chan,0);
+                flunderflow[k] = fFADC->GetUnderflowBit(chan,0);
+                flpedq[k] = fFADC->GetPedestalQuality(chan,0);
+              }
+            else {
+                froverflow[k] = fFADC->GetOverflowBit(chan,0);
+                frunderflow[k] = fFADC->GetUnderflowBit(chan,0);
+                frpedq[k] = fFADC->GetPedestalQuality(chan,0);
+            }
+          }
+        if(jj==1 && flpedq[k]==0)
+          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+
+        if(jj==0 && frpedq[k]==0)         
+          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+
       }
      
       if( adc ) {
