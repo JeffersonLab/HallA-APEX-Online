@@ -28,7 +28,7 @@
 #include <iostream>
 
 using namespace std;
-
+using namespace Decoder;
 //_____________________________________________________________________________
 TriFadcXscin::TriFadcXscin( const char* name,
 		      const char* description,
@@ -41,6 +41,7 @@ TriFadcXscin::TriFadcXscin( const char* name,
   fTWalkPar = 0;
 
   fTrackProj = new TClonesArray( "THaTrackProj", 5 );
+  fFADC = NULL;
 }
 
 //_____________________________________________________________________________
@@ -50,11 +51,21 @@ TriFadcXscin::TriFadcXscin( ) :
   // Constructor
   fTWalkPar = NULL;
   fTrackProj = NULL;
-  fRA_c = fRA_p = fRA = fLA_c = fLA_p = fLA = NULL;
-  fRT_c = fRT = fLT_c = fLT = NULL;
+  fRA_c = fRA_p = fRA = fLA_c = fLA_p = fLA = fDownA_c = fDownA_p = fDownA = fUpA_c = fUpA_p = fUpA = NULL;
+  fRT_c = fRT = fLT_c = fLT = fDownT_c = fDownT = fUpT_c = fUpT = NULL;
   fRGain = fLGain = fRPed = fLPed = fROff = fLOff = NULL;
   fTrigOff = fTime = fdTime = fXt = fXa = NULL;
   fHitPad = NULL;
+  fFADC = NULL;
+
+  floverflow = NULL;
+  flunderflow = NULL;
+  flpedq = NULL;
+  froverflow = NULL;
+  frunderflow = NULL;
+  frpedq = NULL;
+
+
 }
 
 //_____________________________________________________________________________
@@ -64,7 +75,7 @@ THaAnalysisObject::EStatus TriFadcXscin::Init( const TDatime& date )
 
   if( THaNonTrackingDetector::Init( date ) )
     return fStatus;
-
+//fDownT, fDownT_c, fDownA, fDownA_p, fDownA_c , fUpT, fUpT_c, fUpA, fUpA_p, fUpA_c 
   const DataDest tmp[NDEST] = {
     { &fRTNhit, &fRANhit, fRT, fRT_c, fRA, fRA_p, fRA_c, fROff, fRPed, fRGain },
     { &fLTNhit, &fLANhit, fLT, fLT_c, fLA, fLA_p, fLA_c, fLOff, fLPed, fLGain }
@@ -171,6 +182,18 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
     fRA   = new Double_t[ nval ];
     fRA_p = new Double_t[ nval ];
     fRA_c = new Double_t[ nval ];
+    // A/B strangness
+    fUpT   = new Double_t[ nval ];
+    fUpT_c = new Double_t[ nval ];
+    fUpA_p = new Double_t[ nval ];
+    fUpA_c = new Double_t[ nval ];
+    fUpA   = new Double_t[ nval ];
+    
+    fDownT   = new Double_t[ nval ];
+    fDownT_c = new Double_t[ nval ];
+    fDownA   = new Double_t[ nval ];
+    fDownA_p = new Double_t[ nval ];
+    fDownA_c = new Double_t[ nval ];
 
     fTWalkPar = new Double_t[ nval_twalk ];
 
@@ -181,6 +204,14 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
 
     fXt     = new Double_t[ nval ];
     fXa     = new Double_t[ nval ];
+
+    floverflow = new Int_t[ nval ];
+    flunderflow = new Int_t[ nval ];
+    flpedq = new Int_t[ nval ];
+
+    froverflow = new Int_t[ nval ];
+    frunderflow = new Int_t[ nval ];
+    frpedq = new Int_t[ nval ];
 
     fIsInit = true;
   }
@@ -282,6 +313,16 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "ra",     "ADC values right side",             "fRA" },
     { "ra_p",   "Corrected ADC values right side",   "fRA_p" },
     { "ra_c",   "Corrected ADC values right side",   "fRA_c" },
+    { "ut",     "TDC values top side",               "fUpT" },
+    { "ut_c",   "Corrected times top side",          "fUpT_c" },
+    { "dt",     "TDC values bottom side",            "fDownT" },
+    { "dt_c",   "Corrected times bottom side",       "fDownT_c" },
+    { "ua",     "ADC values top side",               "fUpA" },
+    { "ua_p",   "Corrected ADC values top side",     "fUpA_p" },
+    { "ua_c",   "Corrected ADC values top side",     "fUpA_c" },
+    { "da",     "ADC values bottom side",            "fDownA" },
+    { "da_p",   "Corrected ADC values bottom side",  "fDownA_p" },
+    { "da_c",   "Corrected ADC values bottom side",  "fDownA_c" },
     { "nthit",  "Number of paddles with l&r TDCs",   "fNhit" },
     { "t_pads", "Paddles with l&r coincidence TDCs", "fHitPad" },
     { "x_t",    "x-position from timing (m)",        "fXt" },
@@ -296,6 +337,12 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
     { "trdy",   "track deviation in y-position (m)", "fTrackProj.THaTrackProj.fdX" }, //Does not have a 'fdY' variable...but not a big deal
     { "trpad",  "paddle-hit associated with track",  "fTrackProj.THaTrackProj.fChannel" },
+    { "loverflow",  "overflow bit of FADC pulse left side",         "floverflow" },
+    { "lunderflow", "underflow bit of FADC pulse left side",        "flunderflow" },
+    { "lbadped",    "pedestal quality bit of FADC pulse left side", "flpedq" },
+    { "roverflow",  "overflow bit of FADC pulse right side",        "froverflow" },
+    { "runderflow", "underflow bit of FADC pulse right side",       "frunderflow" },
+    { "rbadped",    "pedestal quality bit of FADC pulse right side","frpedq" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -331,6 +378,16 @@ void TriFadcXscin::DeleteArrays()
   delete [] fRT;      fRT      = NULL;
   delete [] fLT_c;    fLT_c    = NULL;
   delete [] fLT;      fLT      = NULL;
+  delete [] fDownA_c;    fDownA_c    = NULL;
+  delete [] fDownA_p;    fDownA_p    = NULL;
+  delete [] fDownA;      fDownA      = NULL;
+  delete [] fUpA_c;    fUpA_c    = NULL;
+  delete [] fUpA_p;    fUpA_p    = NULL;
+  delete [] fUpA;      fUpA      = NULL;
+  delete [] fDownT_c;    fDownT_c    = NULL;
+  delete [] fDownT;      fDownT      = NULL;
+  delete [] fUpT_c;    fUpT_c    = NULL;
+  delete [] fUpT;      fUpT      = NULL;
   
   delete [] fRGain;   fRGain   = NULL;
   delete [] fLGain;   fLGain   = NULL;
@@ -346,6 +403,14 @@ void TriFadcXscin::DeleteArrays()
   delete [] fdTime;   fdTime   = NULL;
   delete [] fXt;      fXt      = NULL;
   delete [] fXa;      fXa      = NULL;
+  delete [] floverflow;  floverflow  = NULL;
+  delete [] flunderflow; flunderflow = NULL;
+  delete [] flpedq;      flpedq      = NULL;
+
+  delete [] froverflow;  froverflow  = NULL;
+  delete [] frunderflow; frunderflow = NULL;
+  delete [] frpedq;      frpedq      = NULL;
+
 }
 
 //_____________________________________________________________________________
@@ -370,13 +435,33 @@ void TriFadcXscin::ClearEvent()
   memset( fRA_p, 0, lf );                 // Right paddles ADC minus pedestal
   memset( fRA_c, 0, lf );                 // Right paddles corrected ADCs
   
+  memset( fDownA, 0, lf );                   // Right paddles ADCs
+  memset( fDownA_p, 0, lf );                 // Right paddles ADC minus pedestal
+  memset( fDownA_c, 0, lf );                 // Right paddles corrected ADCs
+  memset( fDownT, 0, lf );                   // Right paddles TDCs
+  memset( fDownT_c, 0, lf );                 // Right paddles corrected times
+  
+  memset( fUpT, 0, lf );                   // Left paddles TDCs
+  memset( fUpT_c, 0, lf );                 // Left paddles corrected times
+  memset( fUpA, 0, lf );                   // Left paddles ADCs
+  memset( fUpA_p, 0, lf );                 // Left paddles ADC minus pedestal
+  memset( fUpA_c, 0, lf );                 // Left paddles corrected ADCs
+
   fNhit = 0;
   memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
   memset( fTime, 0, lf );
   memset( fdTime, 0, lf );
   memset( fXt, 0, lf );
   memset( fXa, 0, lf );
+
+  memset( floverflow,  0, fNelem*sizeof(floverflow[0]) );
+  memset( flunderflow, 0, fNelem*sizeof(flunderflow[0]) );
+  memset( flpedq,      0, fNelem*sizeof(flpedq[0]) );
   
+  memset( froverflow,  0, fNelem*sizeof(froverflow[0]) );
+  memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
+  memset( frpedq,      0, fNelem*sizeof(frpedq[0]) );
+
   fTrackProj->Clear();
 }
 
@@ -400,6 +485,8 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
     THaDetMap::Module* d = fDetMap->GetModule( i );
     bool adc = ( d->model ? fDetMap->IsADC(d) : (i < fDetMap->GetSize()/2) );
 
+    if(adc) fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
+
     // Loop over all channels that have a hit.
     for( Int_t j = 0; j < evdata.GetNumChan( d->crate, d->slot ); j++) {
 
@@ -415,7 +502,7 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
 #endif
       // Get the data. Scintillators are assumed to have only single hit (hit=0)
       Int_t data;
-      if(adc)data = evdata.GetData(Decoder::kPulseIntegral,d->crate,d->slot,chan,0);
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
       else data = evdata.GetData( d->crate, d->slot, chan, 0 );
 
       // Get the detector channel number, starting at 0
@@ -433,9 +520,28 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
       // Copy the data to the local variables.
       DataDest* dest = fDataDest + k/fNelem;
       //decide wether use event by event pedestal
+      int jj=0;
+      jj = k/fNelem; 
       k = k % fNelem;
       if(adc){
-          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(Decoder::kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+          if(fFADC!=NULL){
+            if(jj==1){   
+		floverflow[k] = fFADC->GetOverflowBit(chan,0);
+                flunderflow[k] = fFADC->GetUnderflowBit(chan,0);
+                flpedq[k] = fFADC->GetPedestalQuality(chan,0);
+              }
+            else {
+                froverflow[k] = fFADC->GetOverflowBit(chan,0);
+                frunderflow[k] = fFADC->GetUnderflowBit(chan,0);
+                frpedq[k] = fFADC->GetPedestalQuality(chan,0);
+            }
+          }
+        if(jj==1 && flpedq[k]==0)
+          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+
+        if(jj==0 && frpedq[k]==0)         
+          dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+
       }
      
       if( adc ) {
@@ -493,9 +599,35 @@ Int_t TriFadcXscin::ApplyCorrections( void )
       fRT_c[i] = (fRT[i] - fROff[i])*fTdc2T - TimeWalkCorrection(i,kRight);
       nrt++;
     }
+ 
+  	if(fFlip){
+  		fUpT[i] = fLT[i];
+ 	 	fUpT_c[i] = fLT_c[i];
+  		fUpA[i] = fLA[i];
+  		fUpA_p[i] = fLA_p[i];
+  		fUpA_c[i] = fLA_c[i];
+  		fDownT[i] = fRT[i];
+  		fDownT_c[i] = fRT_c[i];
+  		fDownA[i] = fRA[i];
+  		fDownA_p[i] = fRA_p[i];
+  		fDownA_c[i] = fRA_c[i];  		
+    	}
+    else{
+  		fUpT[i] = fRT[i];
+ 	 	fUpT_c[i] = fRT_c[i];
+  		fUpA[i] = fRA[i];
+  		fUpA_p[i] = fRA_p[i];
+  		fUpA_c[i] = fRA_c[i];
+  		fDownT[i] = fLT[i];
+  		fDownT_c[i] = fLT_c[i];
+  		fDownA[i] = fLA[i];
+  		fDownA_p[i] = fLA_p[i];
+ 		fDownA_c[i] = fLA_c[i];
+		}
   }
   // returns FALSE (0) if all matches up
   return !(fLTNhit==nlt && fLANhit==nla && fRTNhit==nrt && fRANhit==nra );
+ 
 }
 
 //_____________________________________________________________________________

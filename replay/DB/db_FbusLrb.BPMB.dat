@@ -4,6 +4,6 @@ FbusLrb.BPMB.detmap =
       3    21     7    10     1  1881
 FbusLrb.BPMB.position = 0.0 0.0   -2.21400e+00
 FbusLrb.BPMB.calib_rot = 0.01887
-FbusLrb.BPMB.pedestals = 3801  3695  3601  3438
+FbusLrb.BPMB.pedestals = 4886  4719  4622  4415
 FbusLrb.BPMB.rotmatrix =-0.624004  0.761298 0.659681 0.708074
 FbusLrb.BPMB.offsets = 0.000601645 -0.000985787
