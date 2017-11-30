@@ -1,0 +1,29 @@
+######################### RIGHT SCINTILLATOR PLANE 0 ## High Res TDCs ###########
+Number of Right Scintillator 0 paddles ------------------------------------------
+       1
+Crate,Slot,1st,Last ADC chans,Beg S0 chan, Model -------------------------------
+       1      20     43      44      1    1881      - ADCs A and B
+       2      11     43      44      1    1877      - TDCs A and B 
+      -1       0       0     0       0
+X,Y,Z coords (in m) of S0 front plane in spectrom cs: --------------------------
+    -0.08    -0.008   1.741                             - Meters
+Half of X, half of Y, full Z sizes (in m) of S0 --------------------------------
+    0.85    0.125     0.01                           - Meters
+Rotation angle of the S0 plane -- pmts are top and bottom, but in plane --------
+    0.0                                              - Degrees
+TDC time offsets of S0 TDC channels --------------------------------------------
+   1679.96
+   1700
+Pedestal values of S0 ADC channels ---------------------------------------------
+   628.1  
+   396.2
+Amplitude transformation coefficients of S0 ADC channels -----------------------
+   1.02  
+   0.87
+TDC setting in sec/channel -----------------------------------------------------
+  -0.500e-9
+Speed of light in the scintillator ---------------------------------------------
+     1.34186e+08
+Attenuation length in inverse meters (carried over) ----------------------------
+  0.7
+################################################################################
