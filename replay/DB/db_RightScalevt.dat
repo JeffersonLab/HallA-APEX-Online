@@ -34,7 +34,7 @@ variable 3 7  2  Lclock_r LHRS Clock rate
 variable 3 8  1  L1A_R    L1A remote to LHRS
 variable 3 8  2  L1A_R_r  L1A remote to LHRS rate
 variable 3 9  1  Rclock2  2nd RHRS Clock 
-variable 3 9  2  Rclock2r  2nd RHRS Clock rate
+variable 3 9  2  Rclock2_r  2nd RHRS Clock rate
 variable 3 10 1  s2L   RHRS s2L signal
 variable 3 10 2  s2L_r RHRS s2L signal rate
 variable 3 11 1  s2R   RHRS s2R signal
