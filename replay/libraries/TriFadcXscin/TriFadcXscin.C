@@ -51,8 +51,8 @@ TriFadcXscin::TriFadcXscin( ) :
   // Constructor
   fTWalkPar = NULL;
   fTrackProj = NULL;
-  fRA_c = fRA_p = fRA = fLA_c = fLA_p = fLA = NULL;
-  fRT_c = fRT = fLT_c = fLT = NULL;
+  fRA_c = fRA_p = fRA = fLA_c = fLA_p = fLA = fDownA_c = fDownA_p = fDownA = fUpA_c = fUpA_p = fUpA = NULL;
+  fRT_c = fRT = fLT_c = fLT = fDownT_c = fDownT = fUpT_c = fUpT = NULL;
   fRGain = fLGain = fRPed = fLPed = fROff = fLOff = NULL;
   fTrigOff = fTime = fdTime = fXt = fXa = NULL;
   fHitPad = NULL;
@@ -75,7 +75,7 @@ THaAnalysisObject::EStatus TriFadcXscin::Init( const TDatime& date )
 
   if( THaNonTrackingDetector::Init( date ) )
     return fStatus;
-
+//fDownT, fDownT_c, fDownA, fDownA_p, fDownA_c , fUpT, fUpT_c, fUpA, fUpA_p, fUpA_c 
   const DataDest tmp[NDEST] = {
     { &fRTNhit, &fRANhit, fRT, fRT_c, fRA, fRA_p, fRA_c, fROff, fRPed, fRGain },
     { &fLTNhit, &fLANhit, fLT, fLT_c, fLA, fLA_p, fLA_c, fLOff, fLPed, fLGain }
@@ -182,6 +182,18 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
     fRA   = new Double_t[ nval ];
     fRA_p = new Double_t[ nval ];
     fRA_c = new Double_t[ nval ];
+    // A/B strangness
+    fUpT   = new Double_t[ nval ];
+    fUpT_c = new Double_t[ nval ];
+    fUpA_p = new Double_t[ nval ];
+    fUpA_c = new Double_t[ nval ];
+    fUpA   = new Double_t[ nval ];
+    
+    fDownT   = new Double_t[ nval ];
+    fDownT_c = new Double_t[ nval ];
+    fDownA   = new Double_t[ nval ];
+    fDownA_p = new Double_t[ nval ];
+    fDownA_c = new Double_t[ nval ];
 
     fTWalkPar = new Double_t[ nval_twalk ];
 
@@ -301,6 +313,16 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "ra",     "ADC values right side",             "fRA" },
     { "ra_p",   "Corrected ADC values right side",   "fRA_p" },
     { "ra_c",   "Corrected ADC values right side",   "fRA_c" },
+    { "ut",     "TDC values top side",               "fUpT" },
+    { "ut_c",   "Corrected times top side",          "fUpT_c" },
+    { "dt",     "TDC values bottom side",            "fDownT" },
+    { "dt_c",   "Corrected times bottom side",       "fDownT_c" },
+    { "ua",     "ADC values top side",               "fUpA" },
+    { "ua_p",   "Corrected ADC values top side",     "fUpA_p" },
+    { "ua_c",   "Corrected ADC values top side",     "fUpA_c" },
+    { "da",     "ADC values bottom side",            "fDownA" },
+    { "da_p",   "Corrected ADC values bottom side",  "fDownA_p" },
+    { "da_c",   "Corrected ADC values bottom side",  "fDownA_c" },
     { "nthit",  "Number of paddles with l&r TDCs",   "fNhit" },
     { "t_pads", "Paddles with l&r coincidence TDCs", "fHitPad" },
     { "x_t",    "x-position from timing (m)",        "fXt" },
@@ -356,6 +378,16 @@ void TriFadcXscin::DeleteArrays()
   delete [] fRT;      fRT      = NULL;
   delete [] fLT_c;    fLT_c    = NULL;
   delete [] fLT;      fLT      = NULL;
+  delete [] fDownA_c;    fDownA_c    = NULL;
+  delete [] fDownA_p;    fDownA_p    = NULL;
+  delete [] fDownA;      fDownA      = NULL;
+  delete [] fUpA_c;    fUpA_c    = NULL;
+  delete [] fUpA_p;    fUpA_p    = NULL;
+  delete [] fUpA;      fUpA      = NULL;
+  delete [] fDownT_c;    fDownT_c    = NULL;
+  delete [] fDownT;      fDownT      = NULL;
+  delete [] fUpT_c;    fUpT_c    = NULL;
+  delete [] fUpT;      fUpT      = NULL;
   
   delete [] fRGain;   fRGain   = NULL;
   delete [] fLGain;   fLGain   = NULL;
@@ -403,6 +435,18 @@ void TriFadcXscin::ClearEvent()
   memset( fRA_p, 0, lf );                 // Right paddles ADC minus pedestal
   memset( fRA_c, 0, lf );                 // Right paddles corrected ADCs
   
+  memset( fDownA, 0, lf );                   // Right paddles ADCs
+  memset( fDownA_p, 0, lf );                 // Right paddles ADC minus pedestal
+  memset( fDownA_c, 0, lf );                 // Right paddles corrected ADCs
+  memset( fDownT, 0, lf );                   // Right paddles TDCs
+  memset( fDownT_c, 0, lf );                 // Right paddles corrected times
+  
+  memset( fUpT, 0, lf );                   // Left paddles TDCs
+  memset( fUpT_c, 0, lf );                 // Left paddles corrected times
+  memset( fUpA, 0, lf );                   // Left paddles ADCs
+  memset( fUpA_p, 0, lf );                 // Left paddles ADC minus pedestal
+  memset( fUpA_c, 0, lf );                 // Left paddles corrected ADCs
+
   fNhit = 0;
   memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
   memset( fTime, 0, lf );
@@ -555,9 +599,35 @@ Int_t TriFadcXscin::ApplyCorrections( void )
       fRT_c[i] = (fRT[i] - fROff[i])*fTdc2T - TimeWalkCorrection(i,kRight);
       nrt++;
     }
+ 
+  	if(fFlip){
+  		fUpT[i] = fLT[i];
+ 	 	fUpT_c[i] = fLT_c[i];
+  		fUpA[i] = fLA[i];
+  		fUpA_p[i] = fLA_p[i];
+  		fUpA_c[i] = fLA_c[i];
+  		fDownT[i] = fRT[i];
+  		fDownT_c[i] = fRT_c[i];
+  		fDownA[i] = fRA[i];
+  		fDownA_p[i] = fRA_p[i];
+  		fDownA_c[i] = fRA_c[i];  		
+    	}
+    else{
+  		fUpT[i] = fRT[i];
+ 	 	fUpT_c[i] = fRT_c[i];
+  		fUpA[i] = fRA[i];
+  		fUpA_p[i] = fRA_p[i];
+  		fUpA_c[i] = fRA_c[i];
+  		fDownT[i] = fLT[i];
+  		fDownT_c[i] = fLT_c[i];
+  		fDownA[i] = fLA[i];
+  		fDownA_p[i] = fLA_p[i];
+ 		fDownA_c[i] = fLA_c[i];
+		}
   }
   // returns FALSE (0) if all matches up
   return !(fLTNhit==nlt && fLANhit==nla && fRTNhit==nrt && fRANhit==nra );
+ 
 }
 
 //_____________________________________________________________________________

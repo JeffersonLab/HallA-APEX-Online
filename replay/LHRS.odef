@@ -84,10 +84,10 @@ TH1F Ls2la 'Left arm S2 L-PMT ADCs' L.s2.la 40000 0 40000 L.s2.la>0.
 TH1F Ls2ra 'Left arm S2 R-PMT ADCs' L.s2.ra 40000 0 40000 L.s2.ra>0.
 TH1F Ls2lt 'Left arm S2 L-PMT TDCs' L.s2.lt 500 0 2500 L.s2.lt>0.
 TH1F Ls2rt 'Left arm S2 R-PMT TDCs' L.s2.rt 500 0 2500 L.s2.rt>0.
-TH1F Ls2ltTAll_ 'Left arm S2 L-PMT TDCs - All Triggers' L.s2.lt 500 0 2500 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
-TH1F Ls2ltT3_ 'Left arm S2 L-PMT TDCs - Trigger 3' L.s2.lt 500 0 2500 L.s2.lt>0.&&(DL.evtypebits==8)
-TH1F Ls2rtTAll_ 'Left arm S2 R-PMT TDCs - All Triggers' L.s2.rt 500 0 2500 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
-TH1F Ls2rtT3_ 'Left arm S2 R-PMT TDCs - Trigger 3' L.s2.rt 500 0 2500 L.s2.rt>0.&&(DL.evtypebits==8)
+TH1F Ls2ltTAll_ 'Left arm S2 L-PMT TDCs - All Triggers' L.s2.lt 500 1500 2500 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
+TH1F Ls2ltT3_ 'Left arm S2 L-PMT TDCs - Trigger 3' L.s2.lt 500 1500 2500 L.s2.lt>0.&&(DL.evtypebits==8)
+TH1F Ls2rtTAll_ 'Left arm S2 R-PMT TDCs - All Triggers' L.s2.rt 500 1500 2500 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
+TH1F Ls2rtT3_ 'Left arm S2 R-PMT TDCs - Trigger 3' L.s2.rt 500 1500 2500 L.s2.rt>0.&&(DL.evtypebits==8)
 TH1F Ls2la_p 'Left arm S2 L-PMT ADCs (PedSub)' L.s2.la_p 2500 -500 2000 L.s2.la_p>-6000.
 TH1F Ls2ra_p 'Left arm S2 R-PMT ADCs (PedSub)' L.s2.ra_p 2500 -500 2000 L.s2.ra_p>-6000.
 
