@@ -293,6 +293,54 @@ variable Rightd3_r
 variable Rightd10
 variable Rightd10_r
 
+variable evRightT1
+variable evRightT1_r
+variable evRightT2
+variable evRightT2_r
+variable evRightT3
+variable evRightT3_r
+variable evRightT4
+variable evRightT4_r
+variable evRightT5
+variable evRightT5_r
+variable evRightT6
+variable evRightT6_r
+variable evRightRclock
+variable evRightRclock_r
+variable evRightLclock
+variable evRightLclock_r
+variable evRightL1A_R
+variable evRightL1A_R_r
+variable evRightRclock2
+variable evRightRclock2_r
+variable evRights2L
+variable evRights2L_r
+variable evRights2R
+variable evRights2R_r
+variable evRightRs0ors2
+variable evRightRs0ors2_r
+variable evRightADC_gate
+variable evRightADC_gate_r
+variable evRightL1A
+variable evRightL1A_r
+variable evRightFB_remote
+variable evRightFB_remote_r
+
+variable evRightunew
+variable evRightunew_r
+variable evRightdnew
+variable evRightdnew_r
+variable evRightunser
+variable evRightunser_r
+variable evRightu1
+variable evRightu1_r
+variable evRightd1
+variable evRightd1_r
+variable evRightd3
+variable evRightd3_r
+variable evRightd10
+variable evRightd10_r
+
 begin epics
   hac_bcm_average
   hac_bcm_dvm1_read

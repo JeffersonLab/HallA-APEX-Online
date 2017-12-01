@@ -293,6 +293,49 @@ variable Leftd3_r
 variable Leftd10
 variable Leftd10_r
 
+variable evLeftT1
+variable evLeftT1_r
+variable evLeftT2
+variable evLeftT2_r
+variable evLeftT3
+variable evLeftT3_r
+
+variable evLeftL1A_R
+variable evLeftL1A_R_r
+variable evLeftRclock
+variable evLeftRclock_r
+variable evLeftLclock
+variable evLeftLclock_r
+variable evLeftLs0ors2
+variable evLeftLs0ors2_r
+variable evLefts2L
+variable evLefts2L_r
+variable evLefts2R
+variable evLefts2R_r
+variable evLeftRs0ors2
+variable evLeftRs0ors2_r
+variable evLeftADC_gate
+variable evLeftADC_gate_r
+variable evLeftL1A
+variable evLeftL1A_r
+variable evLeftEDTM_s2
+variable evLeftEDTM_s2_r
+variable evLeftunew
+variable evLeftunew_r
+variable evLeftdnew
+variable evLeftdnew_r
+variable evLeftunser
+variable evLeftunser_r
+variable evLeftu1
+variable evLeftu1_r
+variable evLeftd1
+variable evLeftd1_r
+variable evLeftd3
+variable evLeftd3_r
+variable evLeftd10
+variable evLeftd10_r
+
+
 
 #end scalers left
 
