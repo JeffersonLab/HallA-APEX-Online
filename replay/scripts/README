@@ -1,0 +1,12 @@
+README for HallA-Online-Tritium scripts dir.
+
+Please imput a quick description of any scripts you have developed or modified to this readme
+
+
+check_electrons, coinc_plots, compact_count, energy_stability, gate_check, pid_det, sync_check
+THese scripts are all used by the online gui!
+
+timing_check(BANE)
+A small plotting script to plot TDC info for timing analysis. This uses the online gui.
+
+
