@@ -219,7 +219,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     TriScalerEvtHandler* lscaler = new TriScalerEvtHandler("Left","HA scaler event type 140 on L-HRS");
     gHaEvtHandlers->Add(lscaler);
 
-    Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLight","HA scaler event type 1-14 on L-HRS");
+    Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
     gHaEvtHandlers->Add(levscaler);
     }
 
