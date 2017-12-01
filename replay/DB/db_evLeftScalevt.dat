@@ -5,7 +5,7 @@
 # scaler, type, crate, slot, header, mask, norm slot#
 # after the norm slot#:  clock chan# and clock frequency
 
-map 3800 1 1 abc10000 ffff0000 1 7 103700 
+map 3800 1 1 abc10020 ffffffff 1 7 103700 
 
 
 # variable syntax
