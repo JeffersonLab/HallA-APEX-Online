@@ -40,6 +40,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bPhysics=kTRUE;
   Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
+  Bool_t bOldTrack=kFALSE;
   
   TString rootname;
   if(OnlineReplay){
@@ -77,6 +78,12 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     FbusHRSR->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter - Fastbus"));
     //FbusHRSR->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
     FbusHRSR->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kTRUE));
+
+    if(bOldTrack){
+       THaApparatus* OldTrackR = new TriHRS("OldTrackR","old analyzer track");
+       OldTrackR->AddDetector( new TriXscin("s0","s0 sintillator",kTRUE) );
+       gHaApps->Add( OldTrackR );
+     }
 
     //==================================
     //  Scalers
@@ -193,6 +200,13 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     FbusHRSL->AddDetector( new THaCherenkov("cer", "Gas Cherenkov counter - Fastbus"));
     FbusHRSL->AddDetector( new THaScintillator("s2", "S2 Scintillator - Fastbus"));
     FbusHRSL->AddDetector( new Tritium_Xscin("s0", "S0 Scintillator - Fastbus", kFALSE));
+
+    if(bOldTrack){
+       THaApparatus* OldTrackL = new TriHRS("OldTrackL","old analyzer track");
+       OldTrackL->AddDetector( new TriXscin("s0","s0 sintillator",kFALSE) );
+       gHaApps->Add( OldTrackL );
+     }
+
 
     //==================================
     //  Scaler

@@ -265,8 +265,8 @@ S2L           0   7     1     10   1
 S2R	      0   7     1     11   1 
 (S0||S2)R     0   7     1     12   1 
 ADC_gate      0   7     1     13   1
-L1A           0   7     1     14   1
-FastBus_remote  0   7     1     15   1 
+FastBus_remote  0   7     1     14   1   
+L1A             0   7     1     15   1 
 Cher-1          0   7     1    16    1      1st chan of cerenkov
 Cher-2          0   7     1    17    1
 Cher-3          0   7     1    18    1      Right HRS
@@ -342,8 +342,8 @@ S2L           0   7     3     10   1
 S2R           0   7     3     11   1
 (S0||S2)R     0   7     3     12   1
 ADC_gate      0   7     3     13   1
-L1A           0   7     3     14   1
-FastBus_remote  0   7     3     15   1
+Broken        0   7     3     14   1      Currently broken. Will was FastBus_remote
+L1A           0   7     3     15   1
 unew          0   7     3     18    1
 dnew          0   7     3     20    1
 unser         0   7     3     22    1
