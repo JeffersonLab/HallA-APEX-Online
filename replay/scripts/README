@@ -10,3 +10,5 @@ timing_check(BANE)
 A small plotting script to plot TDC info for timing analysis. This uses the online gui.
 
 
+FADCcom (in FADC_decode)(Hanjie)
+Decode FADC raw mode and calculate how many pulses are overflow, underflow and have bad pedestals
