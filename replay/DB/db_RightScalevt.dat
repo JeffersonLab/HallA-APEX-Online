@@ -43,10 +43,10 @@ variable 3 12 1  Rs0ors2 RHRS s0||s2
 variable 3 12 2  Rs0ors2_r RHRS s0||s2 rate
 variable 3 13 1  ADC_gate    RHRS ADC gate
 variable 3 13 2  ADC_gate_r  RHRS ADC gate rate
-variable 3 14 1  L1A   RHRS L1A
-variable 3 14 2  L1A_r RHRS L1A rate
-variable 3 15 1  FB_remote  FastBus Remote from LHRS
-variable 3 15 2  FB_remote_r  FastBus Remote from LHRS rate
+variable 3 15 1  L1A   RHRS L1A
+variable 3 15 2  L1A_r RHRS L1A rate
+variable 3 14 1  FB_remote  FastBus Remote from LHRS
+variable 3 14 2  FB_remote_r  FastBus Remote from LHRS rate
 
 variable 3 18 1 unew   new bcm upstream count
 variable 3 18 2 unew_r new bcm upstream rate
