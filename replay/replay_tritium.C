@@ -18,7 +18,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE, Bool_t bPlots = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -38,14 +38,12 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bHelicity=kFALSE;
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
-  Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
   Bool_t bOldTrack=kFALSE;
   
   TString rootname;
   if(OnlineReplay){
     rootname = "%s/tritium_online_%d.root";
-    bPlots=kTRUE;
   }else{
     rootname = "%s/tritium_%d.root";
   }
