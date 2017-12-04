@@ -1,0 +1,3 @@
+FADCcom is a standalone FADC decode file;
+It can plot raw mode FADC plots and calculate how many percent pulses are overflow or underflow;
+The root file is saved in ROOTfiles and the overflow results are saved in results/*.txt;
