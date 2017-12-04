@@ -34,7 +34,7 @@ variable 3 7  2  Lclock_r LHRS Clock rate
 variable 3 8  1  L1A_R    L1A remote to LHRS
 variable 3 8  2  L1A_R_r  L1A remote to LHRS rate
 variable 3 9  1  Rclock2  2nd RHRS Clock 
-variable 3 9  2  Rclock2r  2nd RHRS Clock rate
+variable 3 9  2  Rclock2_r  2nd RHRS Clock rate
 variable 3 10 1  s2L   RHRS s2L signal
 variable 3 10 2  s2L_r RHRS s2L signal rate
 variable 3 11 1  s2R   RHRS s2R signal
@@ -43,10 +43,10 @@ variable 3 12 1  Rs0ors2 RHRS s0||s2
 variable 3 12 2  Rs0ors2_r RHRS s0||s2 rate
 variable 3 13 1  ADC_gate    RHRS ADC gate
 variable 3 13 2  ADC_gate_r  RHRS ADC gate rate
-variable 3 14 1  L1A   RHRS L1A
-variable 3 14 2  L1A_r RHRS L1A rate
-variable 3 15 1  FB_remote  FastBus Remote from LHRS
-variable 3 15 2  FB_remote_r  FastBus Remote from LHRS rate
+variable 3 15 1  L1A   RHRS L1A
+variable 3 15 2  L1A_r RHRS L1A rate
+variable 3 14 1  FB_remote  FastBus Remote from LHRS
+variable 3 14 2  FB_remote_r  FastBus Remote from LHRS rate
 
 variable 3 18 1 unew   new bcm upstream count
 variable 3 18 2 unew_r new bcm upstream rate

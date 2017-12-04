@@ -1,0 +1,534 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+// TriVDCPlane                                                               //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+// Here:                                                                     //
+//        Units of measurements:                                             //
+//        For cluster position (center) and size  -  wires;                  //
+//        For X, Y, and Z coordinates of track    -  meters;                 //
+//        For Theta and Phi angles of track       -  in tangents.            //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+#include "TriVDC.h"
+#include "TriVDCPlane.h"
+#include "TriVDCWire.h"
+#include "TriVDCUVPlane.h"
+#include "TriVDCCluster.h"
+#include "TriVDCHit.h"
+#include "THaDetMap.h"
+#include "TriVDCAnalyticTTDConv.h"
+#include "THaEvData.h"
+#include "TString.h"
+#include "TClass.h"
+#include "TMath.h"
+#include "VarDef.h"
+#include "THaApparatus.h"
+#include "TriTriggerTime.h"
+
+#include <cstring>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+
+//_____________________________________________________________________________
+TriVDCPlane::TriVDCPlane( const char* name, const char* description,
+			  THaDetectorBase* parent )
+  : THaSubDetector(name,description,parent), /*fTable(NULL),*/ fTTDConv(NULL),
+    fVDC(NULL), fglTrg(NULL)
+{
+  // Constructor
+
+  // Since TCloneArrays can resize, the size here is fairly unimportant
+  fHits     = new TClonesArray("TriVDCHit", 20 );
+  fClusters = new TClonesArray("TriVDCCluster", 5 );
+  fWires    = new TClonesArray("TriVDCWire", 368 );
+
+  fVDC = GetMainDetector();
+}
+
+//_____________________________________________________________________________
+void TriVDCPlane::MakePrefix()
+{
+  // Special treatment of the prefix for VDC planes: We don't want variable
+  // names such as "R.vdc.uv1.u.x", but rather "R.vdc.u1.x".
+
+  TString basename;
+  THaDetectorBase* uv_plane = GetParent();
+
+  if( fVDC )
+    basename = fVDC->GetPrefix();
+  if( fName.Contains("u") )
+    basename.Append("u");
+  else if ( fName.Contains("v") )
+    basename.Append("v");
+  if( uv_plane && strstr( uv_plane->GetName(), "uv1" ))
+    basename.Append("1.");
+  else if( uv_plane && strstr( uv_plane->GetName(), "uv2" ))
+    basename.Append("2.");
+  if( basename.Length() == 0 )
+    basename = fName + ".";
+
+  delete [] fPrefix;
+  fPrefix = new char[ basename.Length()+1 ];
+  strcpy( fPrefix, basename.Data() );
+}
+
+//_____________________________________________________________________________
+Int_t TriVDCPlane::ReadDatabase( const TDatime& date )
+{
+  // Allocate TClonesArray objects and load plane parameters from database
+
+  FILE* file = OpenFile( date );
+  if( !file ) return kFileError;
+
+  // Use default values until ready to read from database
+  
+  static const char* const here = "ReadDatabase";
+  const int LEN = 100;
+  char buff[LEN];
+  
+  // Build the search tag and find it in the file. Search tags
+  // are of form [ <prefix> ], e.g. [ R.vdc.u1 ].
+  TString tag(fPrefix); tag.Chop(); // delete trailing dot of prefix
+  tag.Prepend("["); tag.Append("]"); 
+  TString line;
+  bool found = false;
+  while (!found && fgets (buff, LEN, file) != NULL) {
+    char* buf = ::Compress(buff);  //strip blanks
+    line = buf;
+    delete [] buf;
+    if( line.EndsWith("\n") ) line.Chop();  //delete trailing newline
+    if ( tag == line ) 
+      found = true;
+  }
+  if( !found ) {
+    Error(Here(here), "Database entry \"%s\" not found!", tag.Data() );
+    fclose(file);
+    return kInitError;
+  }
+  
+  //Found the entry for this plane, so read data
+  Int_t nWires = 0;    // Number of wires to create
+  Int_t prev_first = 0, prev_nwires = 0;
+  // Set up the detector map
+  fDetMap->Clear();
+  do {
+    fgets( buff, LEN, file );
+    // bad kludge to allow a variable number of detector map lines
+    if( strchr(buff, '.') ) // any floating point number indicates end of map
+      break;
+    // Get crate, slot, low channel and high channel from file
+    Int_t crate, slot, lo, hi;
+    if( sscanf( buff, "%d%d%d%d", &crate, &slot, &lo, &hi ) != 4 ) {
+      if( *buff ) buff[strlen(buff)-1] = 0; //delete trailing newline
+      Error( Here(here), "Error reading detector map line: %s", buff );
+      fclose(file);
+      return kInitError;
+    }
+    Int_t first = prev_first + prev_nwires;
+    // Add module to the detector map
+    fDetMap->AddModule(crate, slot, lo, hi, first);
+    prev_first = first;
+    prev_nwires = (hi - lo + 1);
+    nWires += prev_nwires;
+  } while( *buff );  // sanity escape
+  // Load z, wire beginning postion, wire spacing, and wire angle
+  sscanf( buff, "%lf%lf%lf%lf", &fZ, &fWBeg, &fWSpac, &fWAngle );
+  fWAngle *= TMath::Pi()/180.0; // Convert to radians
+  // FIXME: Read from file
+  fTDCRes = 5.0e-10;  // 0.5 ns/chan = 5e-10 s /chan
+
+  // Load drift velocity (will be used to initialize Crude Time to Distance
+  // converter)
+  fscanf(file, "%lf", &fDriftVel);
+  fgets(buff, LEN, file); // Read to end of line
+  fgets(buff, LEN, file); // Skip line
+
+  fNWiresHit = 0;
+  
+  // Values are the same for each plane
+  fNMaxGap = 1;
+  fMinTime = 800;
+  fMaxTime = 2200;
+
+  // first read in the time offsets for the wires
+  float* wire_offsets = new float[nWires];
+  int*   wire_nums    = new int[nWires];
+
+  for (int i = 0; i < nWires; i++) {
+    int wnum = 0;
+    float offset = 0.0;
+    fscanf(file, " %d %f", &wnum, &offset);
+    wire_nums[i] = wnum-1; // Wire numbers in file start at 1
+    wire_offsets[i] = offset;
+  }
+
+  // now read in the time-to-drift-distance lookup table
+  // data (if it exists)
+//   fgets(buff, LEN, file); // read to the end of line
+//   fgets(buff, LEN, file);
+//   if(strncmp(buff, "TTD Lookup Table", 16) == 0) {
+//     // if it exists, read the data in
+//     fscanf(file, "%le", &fT0);
+//     fscanf(file, "%d", &fNumBins);
+    
+//     // this object is responsible for the memory management 
+//     // of the lookup table
+//     delete [] fTable;
+//     fTable = new Float_t[fNumBins];
+//     for(int i=0; i<fNumBins; i++) {
+//       fscanf(file, "%e", &(fTable[i]));
+//     }
+//   } else {
+//     // if not, set some reasonable defaults and rewind the file
+//     fT0 = 0.0;
+//     fNumBins = 0;
+//     fTable = NULL;
+//     cout<<"Could not find lookup table header: "<<buff<<endl;
+//     fseek(file, -strlen(buff), SEEK_CUR);
+//   }
+
+  // Define time-to-drift-distance converter
+  // Currently, we use the analytic converter. 
+  // FIXME: Let user choose this via a parameter
+  delete fTTDConv;
+  fTTDConv = new TriVDCAnalyticTTDConv(fDriftVel);
+
+  //TriVDCLookupTTDConv* ttdConv = new TriVDCLookupTTDConv(fT0, fNumBins, fTable);
+
+  // Now initialize wires (those wires... too lazy to initialize themselves!)
+  // Caution: This may not correspond at all to actual wire channels!
+  for (int i = 0; i < nWires; i++) {
+    TriVDCWire* wire = new((*fWires)[i]) 
+      TriVDCWire( i, fWBeg+i*fWSpac, wire_offsets[i], fTTDConv );
+    if( wire_nums[i] < 0 )
+      wire->SetFlag(1);
+  }
+  delete [] wire_offsets;
+  delete [] wire_nums;
+
+  fOrigin.SetXYZ( 0.0, 0.0, fZ );
+
+  THaDetectorBase *sdet = GetParent();
+  if( sdet )
+    fOrigin += sdet->GetOrigin();
+
+  // finally, find the timing-offset to apply on an event-by-event basis
+  //FIXME: time offset handling should go into the enclosing apparatus -
+  //since not doing so leads to exactly this kind of mess:
+  THaApparatus* app = GetApparatus();
+  const char* nm = "trg"; // inside an apparatus, the apparatus name is assumed
+  if( !app || 
+      !(fglTrg = dynamic_cast<TriTriggerTime*>(app->GetDetector(nm))) ) {
+    Warning(Here(here),"Trigger-time detector \"%s\" not found. "
+	    "Event-by-event time offsets will NOT be used!!",nm);
+  }
+
+  fIsInit = true;
+  fclose(file);
+
+  return kOK;
+}
+
+//_____________________________________________________________________________
+Int_t TriVDCPlane::DefineVariables( EMode mode )
+{
+  // initialize global variables
+
+  if( mode == kDefine && fIsSetup ) return kOK;
+  fIsSetup = ( mode == kDefine );
+
+  // Register variables in global list
+
+  RVarDef vars[] = {
+    { "nhit",   "Number of hits",             "GetNHits()" },
+    { "wire",   "Active wire numbers",        "fHits.TriVDCHit.GetWireNum()" },
+    { "rawtime","Raw TDC values of wires",    "fHits.TriVDCHit.fRawTime" },
+    { "time",   "TDC values of active wires", "fHits.TriVDCHit.fTime" },
+    { "dist",   "Drift distances",            "fHits.TriVDCHit.fDist" },
+    { "ddist",  "Drft dist uncertainty",      "fHits.TriVDCHit.fdDist" },
+    { "trdist", "Dist. from track",           "fHits.TriVDCHit.ftrDist" },
+    { "nclust", "Number of clusters",         "GetNClusters()" },
+    { "clsiz",  "Cluster sizes",              "fClusters.TriVDCCluster.fSize" },
+    { "clpivot","Cluster pivot wire num",     "fClusters.TriVDCCluster.GetPivotWireNum()" },
+    { "clpos",  "Cluster intercepts (m)",     "fClusters.TriVDCCluster.fInt" },
+    { "slope",  "Cluster best slope",         "fClusters.TriVDCCluster.fSlope" },
+    { "lslope", "Cluster local (fitted) slope","fClusters.TriVDCCluster.fLocalSlope" },
+    { "t0",     "Timing offset (s)",          "fClusters.TriVDCCluster.fT0" },
+    { "sigsl",  "Cluster slope error",        "fClusters.TriVDCCluster.fSigmaSlope" },
+    { "sigpos", "Cluster position error (m)", "fClusters.TriVDCCluster.fSigmaInt" },
+    { "sigt0",  "Timing offset error (s)",    "fClusters.TriVDCCluster.fSigmaT0" },
+    { "clchi2", "Cluster chi2",               "fClusters.TriVDCCluster.fChi2" },
+    { "clndof", "Cluster NDoF",               "fClusters.TriVDCCluster.fNDoF" },
+    { "cltcor", "Cluster Time correction",    "fClusters.TriVDCCluster.fTimeCorrection" },
+    { 0 }
+  };
+  return DefineVarsFromList( vars, mode );
+
+}
+
+//_____________________________________________________________________________
+TriVDCPlane::~TriVDCPlane()
+{
+  // Destructor.
+
+  if( fIsSetup )
+    RemoveVariables();
+  delete fWires;
+  delete fHits;
+  delete fClusters;
+  delete fTTDConv;
+//   delete [] fTable;
+}
+
+//_____________________________________________________________________________
+void TriVDCPlane::Clear( Option_t* )
+{    
+  // Clears the contents of the and hits and clusters
+  fNWiresHit = 0;
+  fHits->Clear();
+  fClusters->Clear();
+}
+
+//_____________________________________________________________________________
+Int_t TriVDCPlane::Decode( const THaEvData& evData)
+{    
+  // Converts the raw data into hit information
+  // Assumes channels & wires  are numbered in order
+  // TODO: Make sure the wires are numbered in order, even if the channels
+  //       aren't
+              
+  if (!evData.IsPhysicsTrigger()) return -1;
+
+  // the event's T0-shift, due to the trigger-type
+  // only an issue when adding in un-retimed trigger types
+  Double_t evtT0=0;
+  if ( fglTrg && fglTrg->Decode(evData)==kOK ) evtT0 = fglTrg->TimeOffset();
+  
+  Int_t nextHit = 0;
+
+  bool only_fastest_hit, no_negative;
+  if( fVDC ) {
+    // If true, add only the first (earliest) hit for each wire
+    only_fastest_hit = fVDC->TestBit(TriVDC::kOnlyFastest);
+    // If true, ignore negativ drift times completely
+    no_negative      = fVDC->TestBit(TriVDC::kIgnoreNegDrift);
+  } else
+    only_fastest_hit = no_negative = false;
+
+  // Loop over all detector modules for this wire plane
+  for (Int_t i = 0; i < fDetMap->GetSize(); i++) {
+    THaDetMap::Module * d = fDetMap->GetModule(i);
+    
+    // Get number of channels with hits
+    Int_t nChan = evData.GetNumChan(d->crate, d->slot);
+    for (Int_t chNdx = 0; chNdx < nChan; chNdx++) {
+      // Use channel index to loop through channels that have hits
+
+      Int_t chan = evData.GetNextChan(d->crate, d->slot, chNdx);
+      if (chan < d->lo || chan > d->hi) 
+	continue; //Not part of this detector
+
+      // Wire numbers and channels go in the same order ... 
+      Int_t wireNum  = d->first + chan - d->lo;
+      TriVDCWire* wire = GetWire(wireNum);
+      if( !wire || wire->GetFlag() != 0 ) continue;
+
+      // Get number of hits for this channel and loop through hits
+      Int_t nHits = evData.GetNumHits(d->crate, d->slot, chan);
+   
+      Int_t max_data = -1;
+      Double_t toff = wire->GetTOffset();
+
+      for (Int_t hit = 0; hit < nHits; hit++) {
+	
+	// Now get the TDC data for this hit
+	Int_t data = evData.GetData(d->crate, d->slot, chan, hit);
+
+	// Convert the TDC value to the drift time.
+	// Being perfectionist, we apply a 1/2 channel correction to the raw 
+	// TDC data to compensate for the fact that the TDC truncates, not
+	// rounds, the data.
+	Double_t xdata = static_cast<Double_t>(data) + 0.5;
+	Double_t time = fTDCRes * (toff - xdata) - evtT0;
+
+	// If requested, ignore hits with negative drift times 
+	// (due to noise or miscalibration). Use with care.
+	// If only fastest hit requested, find maximum TDC value and record the
+	// hit after the hit loop is done (see below). 
+	// Otherwise just record all hits.
+	if( !no_negative || time > 0.0 ) {	  
+	  if( only_fastest_hit ) {
+	    if( data > max_data )
+	      max_data = data;
+	  } else
+	    new( (*fHits)[nextHit++] )  TriVDCHit( wire, data, time );
+	}
+	  
+      } // End hit loop
+
+      // If we are only interested in the hit with the largest TDC value 
+      // (shortest drift time), it is recorded here.
+      if( only_fastest_hit && max_data>0 ) {
+	Double_t xdata = static_cast<Double_t>(max_data) + 0.5;
+	Double_t time = fTDCRes * (toff - xdata) - evtT0;
+	new( (*fHits)[nextHit++] ) TriVDCHit( wire, max_data, time );
+      }
+    } // End channel index loop
+  } // End slot loop
+
+  // Sort the hits in order of increasing wire number and (for the same wire
+  // number) increasing time (NOT rawtime)
+
+  fHits->Sort();
+
+  if ( fDebug > 3 ) {
+    printf("\nVDC %s:\n",GetPrefix());
+    int ncol=4;
+    for (int i=0; i<ncol; i++) {
+      printf("     Wire    TDC  ");
+    }
+    printf("\n");
+    
+    for (int i=0; i<(nextHit+ncol-1)/ncol; i++ ) {
+      for (int c=0; c<ncol; c++) {
+	int ind = c*nextHit/ncol+i;
+	if (ind < nextHit) {
+	  TriVDCHit* hit = static_cast<TriVDCHit*>(fHits->At(ind));
+	  printf("     %3d    %5d ",hit->GetWireNum(),hit->GetRawTime());
+	} else {
+	  //	  printf("\n");
+	  break;
+	}
+      }
+      printf("\n");
+    }
+  }
+
+  return 0;
+
+}
+
+
+//_____________________________________________________________________________
+Int_t TriVDCPlane::FindClusters()
+{
+  // Reconstruct clusters in a VDC plane
+  // Assumes that the wires are numbered such that increasing wire numbers
+  // correspond to decreasing physical position.
+  // Ignores possibility of overlapping clusters
+
+  bool hard_cut = false, soft_cut = false;
+  if( fVDC ) {
+    hard_cut = fVDC->TestBit(TriVDC::kHardTDCcut);
+    soft_cut = fVDC->TestBit(TriVDC::kSoftTDCcut);
+  }
+  Double_t maxdist = 0.0;
+  if( soft_cut ) {
+    maxdist = 0.5*static_cast<TriVDCUVPlane*>(GetParent())->GetSpacing();
+    if( maxdist == 0.0 )
+      soft_cut = false;
+  }
+
+  Int_t pwireNum = -10;         // Previous wire number
+  Int_t wireNum  =   0;         // Current wire number
+  Int_t ndif     =   0;         // Difference between wire numbers
+  Int_t nHits    = GetNHits();  // Number of hits in the plane
+  TriVDCCluster* clust = NULL;  // Current cluster
+  TriVDCHit* hit;               // current hit
+
+//    Int_t minTime = 0;        // Smallest TDC time for a given cluster
+//    TriVDCHit * minHit = NULL; // Hit with the smallest TDC time for 
+                             // a given cluster
+  //  const Double_t sqrt2 = 0.707106781186547462;
+
+  Int_t nextClust = GetNClusters();  // Should be zero
+
+  for ( int i = 0; i < nHits; i++ ) {
+    //Loop through all TDC  hits
+    if( !(hit = GetHit(i)))
+      continue;
+
+    // Time within sanity cuts?
+    if( hard_cut ) {
+      Double_t rawtime = hit->GetRawTime();
+      if( rawtime < fMinTime || rawtime > fMaxTime) 
+	continue;
+    }
+    if( soft_cut ) {
+      Double_t ratio = hit->GetTime() * fDriftVel / maxdist;
+      if( ratio < -0.5 || ratio > 1.5 )
+	continue;
+    }
+
+    wireNum = hit->GetWire()->GetNum();  
+
+    // Ignore multiple hits per wire
+    if ( wireNum == pwireNum )
+      continue;
+
+    // Keep track of how many wire were hit
+    fNWiresHit++;
+    ndif = wireNum - pwireNum;
+    if (ndif < 0) {
+      // Scream Bloody Murder
+      Error(Here("FindCluster"),"Wire ordering error at wire numbers %d %d. "
+	    "Call expert.", pwireNum, wireNum );
+      fClusters->Remove(clust);
+      return GetNClusters();
+    }
+
+    pwireNum = wireNum;
+    if ( ndif > fNMaxGap+1 ) {
+      // Found a new cluster
+      if (clust) 
+	// Estimate the track parameters for this cluster
+	// (Pivot, intercept, and slope)
+	clust->EstTrackParameters();
+
+      // Make a new TriVDCCluster (using space from fCluster array)  
+      clust = new ( (*fClusters)[nextClust++] ) TriVDCCluster(this);
+    } 
+    //Add hit to the cluster
+    clust->AddHit(hit);
+
+  } // End looping through hits
+
+  // Estimate track parameters for the last cluster found
+  if (clust)
+    clust->EstTrackParameters(); 
+
+  return GetNClusters();  // return the number of clusters found
+}
+
+//_____________________________________________________________________________
+Int_t TriVDCPlane::FitTracks()
+{    
+  // Fit tracks to cluster positions and drift distances.
+  
+  TriVDCCluster* clust;
+  Int_t nClust = GetNClusters();
+  for (int i = 0; i < nClust; i++) {
+    if( !(clust = static_cast<TriVDCCluster*>( (*fClusters)[i] )))
+      continue;
+
+    // Convert drift times to distances. 
+    // The conversion algorithm is determined at wire initialization time,
+    // i.e. currently in the ReadDatabase() function of this class.
+    // Current best estimates of the track parameters will be passed to
+    // the converter.
+    clust->ConvertTimeToDist();
+
+    // Fit drift distances to get intercept, slope.
+    clust->FitTrack();
+  }
+  return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+ClassImp(TriVDCPlane)
