@@ -43,6 +43,8 @@ void get_bpm_pedestals(int run=0, char side='i'){
 	if(run==0){cout << "Please enter the run number of your BPM pedestal run: \n"; 
 		cin >> run;}
 
+	if(run < 90000 ){side = 'L';}
+	else{side = 'R';}
 	if(side=='i'){cout << "Please enter the letter L or R to choose which HRS to use: \n";
 		cin >>side;}
 
@@ -57,31 +59,44 @@ void get_bpm_pedestals(int run=0, char side='i'){
 
 	TVector pedestal(8);
 
-	TCanvas* c1 = new TCanvas("c1","BPM Pedestals");
-	TCanvas* c2 = new TCanvas("c2","BPM Pedestals");
+	TCanvas* c1 = new TCanvas("c1","BPMA Pedestals");
+	TCanvas* c2 = new TCanvas("c2","BPMB Pedestals");
 	c1->Divide(2,2);
 	c2->Divide(2,2);
 	TH1F *H[8];
 	TF1 *f[8];
 
 	int counts[8];
+	TString name[4] = {"xp","xm","yp","ym"};
 
 
 ///// BPM wire loop!
 	for(int i =0; i<8;i++){
-		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA %d",i+1),100,3200,4000);
+		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA %d - %s",i+1,name[i].Data()),10000,0,100000);
 			c1->cd(i+1); t->Draw(Form("%crb.BPMA.rawcur.%d>>h%d",side,i+1,i));}
-		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB %d",i-4),100,3200,4000);
+			
+		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB %d- %s",i-3,name[i-4].Data()),10000,0,100000);
 			c2->cd(i-3); t->Draw(Form("%crb.BPMB.rawcur.%d>>h%d",side,i-3,i));}
 			counts[i]=H[i]->GetEntries();
 			if(counts[i]<=0){cout << "There are zero counts in the first histogram. \n";
 				cout << "Please double check the name of the tree branches. \n";
 				cout <<endl<<endl;exit(1);return; }
-		f[i]= new TF1(Form("f%d",i), "gaus",3200,4000);	
-		H[i]->Fit(Form("f%d",i),"Q","",3200,4000);
+		f[i]= new TF1(Form("f%d",i), "gaus",0,100000);	
+		H[i]->Fit(Form("f%d",i),"Q","",0,100000);
 		pedestal(i)=f[i]->GetParameter("Mean");
-		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-100,4000);
-		c1->Update();}
+		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-2500,pedestal(i)+2500);
+		c1->Update();
+		}
+		/*double peak_avg=0;
+		for(int i = 0;i<4;i++){peak_avg+=pedestal(i);}
+		peak_avg=peak_avg/4.0;
+		for(int i = 0;i<4;i++){H[i]->GetXaxis()->SetRangeUser(peak_avg-5000,pedestal(i)+5000);}
+		c1->Update();
+		peak_avg=0;
+		for(int i=4 ;i<8;i++){peak_avg+=pedestal(i);}
+		peak_avg=peak_avg/4.0;
+		for(int i=4;i<8;i++){H[i]->GetXaxis()->SetRangeUser(peak_avg-5000,pedestal(i)+5000);}
+		c2->Update();		*/
 ///////////////////////////////////////////////////////////////////////////////
 
 //Output statments for Peds.
@@ -96,15 +111,15 @@ void get_bpm_pedestals(int run=0, char side='i'){
 //Saving pedestals to file:
 //Keeping all ped values in one file.
 	char output_file[100];
-	int n = sprintf(output_file, "%BPM_Pedestals.txt");
+	int n = sprintf(output_file, "BPM_Pedestals.txt");
 	ifstream ifile(output_file);
 	if (ifile) {ofstream myfile; 
-		myfile.open("BPM_Pedestals.txt",std::fstream::in|std::fstream::out|td::fstream::app);
+		myfile.open("BPM_Pedestals.txt",std::fstream::in|std::fstream::out|std::fstream::app);
 		myfile<<Run<<"  ";
 		for (Int_t i=0; i<8; i++){myfile << pedestal(i) <<" ";}
 		myfile<< endl;}
 	else{ofstream myfile; 
-		myfile.open("BPM_Pedestals.txt",std::fstream::in|std::fstream::out|td::fstream::app);
+		myfile.open("BPM_Pedestals.txt",std::fstream::in|std::fstream::out|std::fstream::app);
 		myfile <<"Run     ";		
 		for (Int_t i=0; i<4; i++){myfile <<"BPMA " << i+1<<"  ";}
 		for (Int_t i=0; i<4; i++){myfile <<"BPMB " << i+1<<"  ";}	
@@ -113,6 +128,6 @@ void get_bpm_pedestals(int run=0, char side='i'){
 		myfile<< endl;}
 
 
-cout <<endl<<endl;exit(1);
+cout <<endl<<endl;//exit(1);
 }
 
