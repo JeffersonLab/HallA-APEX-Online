@@ -28,6 +28,7 @@ replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
+replay/RootFiles_chafs
 replay/ScratchRootFiles
 replay/summaryfiles/*
 

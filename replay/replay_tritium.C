@@ -332,7 +332,6 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     if(RIGHT_ARM_CONDITION){
       const char* CONFIGFILE=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS.cfg");
       const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
-      gSystem->Exec("rm -f /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_*.pdf");
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
@@ -342,22 +341,12 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
-    
-    
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_%d.pdf", runnumber,runnumber));
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_%d.pdf", runnumber,runnumber));
-    
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_lastest.pdf",runnumber));
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_lastest.pdf",runnumber));
-    
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));    
     }
     else if(LEFT_ARM_CONDITION){ 
       const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
       const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
-
-	  gSystem->Exec("rm -f /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_*.pdf");	
-				
+	    
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
@@ -367,12 +356,6 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
-      
-          gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_%d.pdf", runnumber,runnumber));
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_%d.pdf", runnumber,runnumber));
-      
-       gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_lastest.pdf",runnumber));
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_lastest.pdf",runnumber));   
     }
   }
   exit(0);
