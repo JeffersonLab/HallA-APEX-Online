@@ -1,0 +1,9 @@
+README for calibration dir in Halla-Online-Tritium
+
+A few guidelines when entering your calibration scripts:
+
+1.) Make sure to add a Reamed that describes in detail how to use the software, and what data files are needed. 
+
+2.) This code needs to work easily on the a-onl machines, using root 6 and analyzer 1.6.
+
+3.) Please do not add generated files to the git repo!

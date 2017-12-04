@@ -84,7 +84,7 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
 
     lfirst = 0; // Can't do this in Init for some reason
 
-    TString sname1 = "Tong";
+    TString sname1 = "";
     TString sname2 = sname1 + fName;
     TString sname3 = fName + "  Scaler Data";
 
@@ -119,15 +119,14 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
     ndata = MAXTEVT-1;
   }
 
-  if (fDebugFile) *fDebugFile<<"\n\nTritium_TSScaler :: Debugging event type "<<dec<<evdata->GetEvType()<<endl<<endl;
-
+  if (fDebugFile) *fDebugFile<<"\n\nTritium_TSScaler :: Debugging event type "<<dec<<evdata->GetEvType()<<endl;
   // local copy of data
 
   for (Int_t i=0; i<ndata; i++) rdata[i] = evdata->GetRawData(i);
 
   Int_t nskip=0;
   UInt_t *p = rdata;
-  UInt_t *pstop = rdata+ndata;
+  UInt_t *pstop = rdata+ndata; 
   int j=0;
 
   Int_t ifound = 0;
@@ -137,22 +136,22 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
       *fDebugFile << "p  and  pstop  "<<j++<<"   "<<p<<"   "<<pstop<<"   "<<hex<<*p<<"   "<<dec<<endl;
     }
     nskip = 1;
-    Int_t itimeout=0;
+    Int_t itimeout=0; 
     for (UInt_t j=0; j<scalers.size(); j++) {
-     if(scalerloc[j]->found) continue;
+     if(scalerloc[j]->found) continue; 
      if(fDebugFile) *fDebugFile<<"Slot"<<j<<"  "<<scalers[j]->GetSlot()<<endl;
      while(p<pstop)
        {if (scalers[j]->IsSlot(*p)==kTRUE)
          {scalerloc[j]->found=kTRUE;
           ifound=1;
       goto found1;}
-        p++;
+        p++; 
        if(itimeout++>5000)
       {cout<<"THa_TS_Scaler:: Cannot find a slot"<<endl;
        goto giveup1;
 
-}
-}
+      }
+    }
 found1:   
      if (p==pstop&&ifound==0) break;
       nskip = scalers[j]->Decode(p);
@@ -218,8 +217,8 @@ THaAnalysisObject::EStatus Tritium_TSScaler::Init(const TDatime& date)
   fStatus = kOK;
   fNormIdx = -1;
 
-  // cout << "Howdy !  We are initializing Tritium_TSScaler !!   name =   "
-  //      << fName << endl;
+   cout << "Howdy !  We are initializing Tritium_TSScaler !!   name =   "
+        << fName << endl;
 
   eventtypes.push_back(1);  // what events to look for
   eventtypes.push_back(2);
@@ -238,11 +237,11 @@ THaAnalysisObject::EStatus Tritium_TSScaler::Init(const TDatime& date)
     
 
   TString dfile;
-  dfile = fName + "_scaler_TS.txt";
+  dfile = fName + "scaler.txt";
 
 // Parse the map file which defines what scalers exist and the global variables.
 
-  TString sname0 = "_Scalevt_TS";
+  TString sname0 = "Scalevt";
   TString sname;
   sname = fName+sname0;
 
