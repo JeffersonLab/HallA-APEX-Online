@@ -18,8 +18,8 @@ void timing_check(Int_t flag, TString arm, TString side, Int_t options=0, Int_t 
 	switch (flag){
 	
 		case 1: {
-			TH1F *h1 = new TH1F("h1",Form(" Difference in S2 Coinc. and the total s2%s tdc.",side.Data()),500,-500,2500);
-			TH1F *h1_1 = new TH1F("h1_1",Form(" Difference in S2 Coinc. and the total s2%s tdc .",side.Data() ) ,500 ,-500,2500);
+			TH1F *h1 = new TH1F("h1",Form(" Difference in S2 Coinc. and the total s2%s tdc.",side.Data()),1500,-500,2500);
+			TH1F *h1_1 = new TH1F("h1_1",Form(" Difference in S2 Coinc. and the total s2%s tdc .",side.Data() ) ,1500 ,-500,2500);
 			T->Draw(Form("D%s.tS2coinc-%s.s2.%st>>h1",arm.Data(),arm.Data(),side.Data()),Form("D%s.evtypebits&(1<<%d)",arm.Data(),trig));
 			h1->SetLineColor(2);//h1->SetFillStyle(3001);h1->SetFillColor(2);
 			h1->GetXaxis()->SetTitle("TDC channel diff.");
@@ -62,6 +62,7 @@ void timing_check(Int_t flag, TString arm, TString side, Int_t options=0, Int_t 
 			 s0B= new TH1F("s0B",Form("S0B for s2 pmt %d", options),400,1600,2000);
 			 }
 			TCut pmt = Form("%s.s2.lt[%d]>=100&&%s.s2.rt[%d]>=100",arm.Data(),options,arm.Data(),options);	
+
 			TCut oneT = Form("%s.tr.n==1",arm.Data());
 			s0B->SetLineColor(2);
 			s0A->SetFillStyle(3001);
@@ -82,7 +83,8 @@ void timing_check(Int_t flag, TString arm, TString side, Int_t options=0, Int_t 
 			
 			if(s0A->GetEntries()<=3||s0B->GetEntries()<=3){
 				TImage *img = TImage::Open("/adaqfs/home/a-onl/tritium/replay/onlineGUI64/awe.jpg");
-					img->Draw();}	
+					//img->Draw();
+					}	
 			
 			break;
 				}	
