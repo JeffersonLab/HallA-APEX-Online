@@ -58,21 +58,21 @@ void get_bpm_pedestals_Fbus(int run=0, char side='i'){
 
 	TVector pedestal(8);
 
-	TCanvas* c1 = new TCanvas("c1","BPM Pedestals");
-	TCanvas* c2 = new TCanvas("c2","BPM Pedestals");
+	TCanvas* c1 = new TCanvas("c1","BPMA(Fbus) Pedestals");
+	TCanvas* c2 = new TCanvas("c2","BPMB(Fbus) Pedestals");
 	c1->Divide(2,2);
 	c2->Divide(2,2);
 	TH1F *H[8];
 	TF1 *f[8];
 
 	int counts[8];
-
+	TString name[4] = {"xp","xm","yp","ym"};
 
 ///// BPM wire loop!
 	for(int i =0; i<8;i++){
-		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA %d",i+1),5000,0,10000);
+		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA(Fbus) %d - %s",i-4,name[i].Data()),10000,0,10000);
 			c1->cd(i+1); t->Draw(Form("Fbus%crb.BPMA.rawcur.%d>>h%d",side,i+1,i));}
-		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB %d",i-4),5000,0,10000);
+		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB(Fbus) %d - %s",i-4,name[i-4].Data()),10000,0,10000);
 			c2->cd(i-3); t->Draw(Form("Fbus%crb.BPMB.rawcur.%d>>h%d",side,i-3,i));}
 			counts[i]=H[i]->GetEntries();
 			if(counts[i]<=0){cout << "There are zero counts in the first histogram. \n";
@@ -81,8 +81,20 @@ void get_bpm_pedestals_Fbus(int run=0, char side='i'){
 		f[i]= new TF1(Form("f%d",i), "gaus",0,10000);	
 		H[i]->Fit(Form("f%d",i),"Q","",0,10000);
 		pedestal(i)=f[i]->GetParameter("Mean");
-		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-250,pedestal(i)+250);
+		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-150,pedestal(i)+150);
 		c1->Update();}
+		/*
+		double peak_avg=0;
+		for(int i = 0;i<4;i++){peak_avg+=pedestal(i);}
+		peak_avg=peak_avg/4.0;
+		for(int i = 0;i<4;i++){H[i]->GetXaxis()->SetRangeUser(peak_avg-300,pedestal(i)+250);}
+		c1->Update();
+		peak_avg=0;
+		for(int i = 4;i<8;i++){peak_avg+=pedestal(i);}
+		peak_avg=peak_avg/4.0;
+		for(int i = 4;i<8;i++){H[i]->GetXaxis()->SetRangeUser(peak_avg-300,pedestal(i)+250);}
+		c2->Update();		
+		*/	
 ///////////////////////////////////////////////////////////////////////////////
 
 //Output statments for Peds.

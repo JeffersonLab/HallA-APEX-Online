@@ -4,6 +4,6 @@ Rrb.BPMA.detmap =
       20   16     4     7     1  250
 Rrb.BPMA.position = 0.0 0.0  -7.345
 Rrb.BPMA.calib_rot = 0.01887
-Rrb.BPMA.pedestals = 3453  3422  3527  3608
+Rrb.BPMA.pedestals = 70792  70856  70353  70771
 Rrb.BPMA.rotmatrix = -0.776076  0.728423  0.795095  0.719106
 Rrb.BPMA.offsets = 0.00108179 0.0017538
