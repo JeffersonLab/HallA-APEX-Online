@@ -18,7 +18,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE, Bool_t bPlots = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -38,7 +38,6 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bHelicity=kFALSE;
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
-  Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
   Bool_t bOldTrack=kFALSE;
   
@@ -91,6 +90,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     if(bScaler){
       TriScalerEvtHandler* rscaler = new TriScalerEvtHandler("Right","HA scaler event type 140 on R-HRS");
       gHaEvtHandlers->Add(rscaler);
+
+      Tritium_TSScaler* revscaler = new Tritium_TSScaler("evRight","HA scaler event type 1-14 on R-HRS");
+      gHaEvtHandlers->Add(revscaler);
+
     }
 
     //==================================
@@ -212,8 +215,11 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //  Scaler
     //==================================
     if(bScaler){
-    TriScalerEvtHandler* lscaler = new TriScalerEvtHandler("Left","HA scaler event type 140 on R-HRS");
+    TriScalerEvtHandler* lscaler = new TriScalerEvtHandler("Left","HA scaler event type 140 on L-HRS");
     gHaEvtHandlers->Add(lscaler);
+
+    Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
+    gHaEvtHandlers->Add(levscaler);
     }
 
     //==================================
@@ -320,28 +326,27 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //Generate online plots
   //=====================================
   if(bPlots){
+
   const char* GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
   const char* SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
     if(RIGHT_ARM_CONDITION){
       const char* CONFIGFILE=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS.cfg");
       const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
-      
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
-      
-
+              
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));    
     }
     else if(LEFT_ARM_CONDITION){ 
       const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
       const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
-
+	    
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
