@@ -88,13 +88,13 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	double xp, xm, yp, ym;
 //BMP pedestals
 	//char side = 'L';
-	double pedestal[9] = {0,70792,  70856,  70352,  70771, 75086, 75308, 72259, 72773 };//Right
-	double pedestalL[9] ={0,64117,  65152,  65122,  65745, 69276, 67783, 64835, 63954};//Left
+	double pedestal[9] = {0, 4137,  4107,  4230,  4324, 4504,  4381,  4084,  4096};//Right
+	double pedestalL[9] ={0,4728,  4511 , 4485 , 4488, 4886,  4719 , 4622,  4415};//Left
 	
 	if(side=='L'){for(int i=0;i<9;i++){pedestal[i]=pedestalL[i];}}
 	
 	double BCMcuts[5][2]={{61e6,120E6},{0,10E10},{6E6,42E6},{0,10E10},{45E6,140E6}};
-	double cur[5] ={0.02,3.5,3.5,3.5,3.5};
+	double cur[5] = 0;//{0.02,3.5,3.5,3.5,3.5};
 
 //These arrays stand for the 8 wires of the BPMs 4 for A and 4 for B
 // {blank, A Xp, A Xm, A yp, Aym, B Xp, B Xm, B yp, B ym}
@@ -159,13 +159,13 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	
 //Setting up the BPM histograms and tree varibles!!
 	//For BPMA
-	for(int A=1;A<5;A++){T->SetBranchAddress(Form("%crb.BPMA.rawcur.%d",side,A),&peak[A]);
-			H[A] = new TH1F(Form("H%d",A),Form("%c BPMA_%d",side,A),10000,0,100000);
-			HH[A]= new TH1F(Form("HH%d",A),Form("%c BPMA_%d",side,A),25000,pedestal[A]+200,10000);}
+	for(int A=1;A<5;A++){T->SetBranchAddress(Form("Fbus%crb.BPMA.rawcur.%d",side,A),&peak[A]);
+			H[A] = new TH1F(Form("H%d",A),Form("%c BPMA_%d",side,A),5000,0,10000);
+			HH[A]= new TH1F(Form("HH%d",A),Form("%c BPMA_%d",side,A),2500,pedestal[A]+200,10000);}
 	//For BPMB			
-	for(int B=1;B<5;B++){T->SetBranchAddress(Form("%crb.BPMB.rawcur.%d",side,B),&peak[B+4]);
-			H[B+4] = new TH1F(Form("H%d",B+4),Form("%c BPMB_%d",side,B),10000,0,100000);
-			HH[B+4]= new TH1F(Form("HH%d",B+4),Form("%c BPMA_%d",side,B),25000,pedestal[B+4]+200,10000);}
+	for(int B=1;B<5;B++){T->SetBranchAddress(Form("Fbus%crb.BPMB.rawcur.%d",side,B),&peak[B+4]);
+			H[B+4] = new TH1F(Form("H%d",B+4),Form("%c BPMB_%d",side,B),5000,0,10000);
+			HH[B+4]= new TH1F(Form("HH%d",B+4),Form("%c BPMA_%d",side,B),2500,pedestal[B+4]+200,10000);}
 	c1[numofscans]->cd(1);
 
 	//Event[numofscans]="right_clkcount>=%f&&right_clkcount<=%f",BCMcuts[numofscans][0],BCMcuts[numofscans][1];
@@ -176,7 +176,7 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 		for(int m=1;m<9;m++){c1[numofscans]->cd(m);
 			
 			//M<5 means BPMA				
-			if(m<5){T->Draw(Form("%crb.BPMA.rawcur.%d>>H%d",side,m,m),current);
+			if(m<5){T->Draw(Form("Fbus%crb.BPMA.rawcur.%d>>H%d",side,m,m),current);
 				peak[m] = H[m]->GetBinCenter(H[m]->GetMaximumBin());
 			
 			//If the pedestal is high, this will make sure we do not fit it.
@@ -185,19 +185,19 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 				}
 			////////////////////////////////////////////////////////////////////////
 			//M>=5 means BPMB
-			if(m>=5){T->Draw(Form("%crb.BPMB.rawcur.%d>>H%d",side,m-4,m),current);
+			if(m>=5){T->Draw(Form("Fbus%crb.BPMB.rawcur.%d>>H%d",side,m-4,m),current);
 				peak[m] = H[m]->GetBinCenter(H[m]->GetMaximumBin());
 				
 			//If the pedestal is high, this will make sure we do not fit it.
 				//if(peak[m] - pedestal[m]-200 <=0){T->Draw(Form("rb.BPMB.rawcur.%d>>HH%d",m-4,m));
 				//			peak[m] = HH[m]->GetBinCenter(HH[m]->GetMaximumBin());}
 				}
-			H[m]->GetXaxis()->SetRangeUser(pedestal[m]-2500,peak[m]+2500);
+			H[m]->GetXaxis()->SetRangeUser(pedestal[m]-20,peak[m]+200);
 			
 			H[m]->SetLineWidth(4);
 	
 	//Fit the raw BPM signal with a gausian to extract a value for the peak. 						
-			H[m]->Fit("gaus","Q","",peak[m]-600, peak[m]+600);
+			H[m]->Fit("gaus","Q","",peak[m]-60, peak[m]+60);
         	Sigma[m] = H[m]->GetFunction("gaus")->GetParameter(2);
 			H[m]->Fit("gaus","Q","",peak[m]-2.5*Sigma[m], peak[m]+2.5*Sigma[m]);
 			peak[m] = H[m]->GetFunction("gaus")->GetParameter(1);
