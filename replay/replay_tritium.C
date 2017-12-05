@@ -327,6 +327,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //=====================================
   if(bPlots){
 
+
   const char* GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
   const char* SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
     if(RIGHT_ARM_CONDITION){
@@ -337,11 +338,13 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_latest.pdf",runnumber));
               
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));    
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_latest.pdf",runnumber));
     }
     else if(LEFT_ARM_CONDITION){ 
       const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
@@ -351,11 +354,13 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_latest.pdf",runnumber));
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_latest.pdf",runnumber));
     }
   }
   exit(0);
