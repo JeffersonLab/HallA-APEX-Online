@@ -100,7 +100,7 @@ TH1F Rcert 'Cerenkov TDC PMT ' R.cer.t 500 0 2500 R.cer.t>0
 TH1F RcertT4_   'Cerenkov TDC w/ T5,T6: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F RcertT6_   'Cerenkov TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(DR.evtypebits==64)
 
-TH1F Rcera 'Cerenkov'  R.cer.a 15000 0 150000 R.cer.a>0
+TH1F Rcera 'Cerenkov'  R.cer.a 10100 -100 10000 R.cer.a>0
 TH1F Rcersum 'Cerenkov FADC sum (corrected)' R.cer.asum_c 10100 -100 10000 R.cer.asum_c>-1000
 TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 4000 -200 7800 R.cer.a_p>-200
 TH2F Rcer_x  'Cerenkov FADC sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
