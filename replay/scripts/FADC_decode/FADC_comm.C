@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
     runFile = Form("/adaq1/data1/triton_%d.dat.0", runNumber);
   if (spectrometer == "RHRS")
     runFile = Form("/adaq1/data1/triton_%d.dat.0", runNumber);
-  rootFile = Form("./ROOTfiles/fadc_%d.root", runNumber);
+  rootFile = Form("/chafs1/work1/tritium/FADC_rootfiles/fadc_%d.root", runNumber);
 
   // Initialize raw samples index array
   memset(raw_samp_index, 0, sizeof(raw_samp_index));
