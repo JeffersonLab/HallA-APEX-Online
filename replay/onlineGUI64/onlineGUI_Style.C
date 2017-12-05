@@ -7,7 +7,6 @@ void onlineGUI_Style() {
   gStyle->SetOptStat(1110);
   gStyle->SetPalette(1);
   gStyle->SetNdivisions(505);
-nlineGUI_Style.C
   
   gStyle->SetCanvasColor(10);
   gStyle->SetPadTopMargin(.01);
@@ -39,12 +38,12 @@ nlineGUI_Style.C
   gStyle->SetLineStyleString(6,"[15 12 4 12 4 12]");
   gStyle->SetLabelSize(0.08,"X");
   gStyle->SetLabelSize(0.08,"Y");
-  gStyle->SetNdivisions(505,"Y");
+  gStyle->SetNdivisions(101,"Y");
   gStyle->SetOptDate(0);
   gStyle->SetDateY(.98);
   gStyle->SetStripDecimals(kFALSE);
 
   gStyle->SetTitleSize(0.08,"T");
 
-  gStyle->SetStatW(0.45);
+  gStyle->SetStatW(0.6);
 }
