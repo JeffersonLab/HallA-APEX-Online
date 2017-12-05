@@ -18,7 +18,7 @@ void gate_check_left(Int_t flag, TString drawoption){
 
   if(flag==2){
     
-    TH2F *ht2 = new TH2F("ht2","All Left S2 PMTs: Amplitude vs. Time",1000,1500,2500,200,0,200);
+    TH2F *ht2 = new TH2F("ht2","All Left S2 PMTs: Amplitude vs. Time",1000,1200,2200,200,0,200);
     ht2->GetXaxis()->SetTitle("Time [TDC Channel]");ht2->GetXaxis()->CenterTitle();
     ht2->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht2->GetYaxis()->CenterTitle();
     //ht2->SetMarkerStyle(3);ht2->SetMarkerSize(0.75);
@@ -29,7 +29,7 @@ void gate_check_left(Int_t flag, TString drawoption){
 
   if(flag==3){
     
-    TH2F *ht3 = new TH2F("ht3","All Right S2 PMTs: Amplitude vs. Time",1000,1500,2500,200,0,200);
+    TH2F *ht3 = new TH2F("ht3","All Right S2 PMTs: Amplitude vs. Time",1000,1200,2200,200,0,200);
     ht3->GetXaxis()->SetTitle("Time [TDC Channel]");ht3->GetXaxis()->CenterTitle();
     ht3->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht3->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);
@@ -40,7 +40,7 @@ void gate_check_left(Int_t flag, TString drawoption){
 
   if(flag==4){
     
-    TH2F *ht4 = new TH2F("ht4","S0-Top(A): Amplitude vs. Time",1000,1500,2500,1000,0,1000);
+    TH2F *ht4 = new TH2F("ht4","S0-Top(A): Amplitude vs. Time",500,1200,2200,2000,0,4000);
     ht4->GetXaxis()->SetTitle("Time [TDC Channel]");ht4->GetXaxis()->CenterTitle();
     ht4->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht4->GetYaxis()->CenterTitle();
     //ht4->SetMarkerStyle(3);ht4->SetMarkerSize(0.75);
@@ -51,7 +51,7 @@ void gate_check_left(Int_t flag, TString drawoption){
 
   if(flag==5){
     
-    TH2F *ht5 = new TH2F("ht5","S0-Bottom(B): Amplitude vs. Time",1000,1500,2500,1000,0,1000);
+    TH2F *ht5 = new TH2F("ht5","S0-Bottom(B): Amplitude vs. Time",1000,1200,2200,1000,0,4000);
     ht5->GetXaxis()->SetTitle("Time [TDC Channel]");ht5->GetXaxis()->CenterTitle();
     ht5->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht5->GetYaxis()->CenterTitle();
     //ht5->SetMarkerStyle(3);ht5->SetMarkerSize(0.75);
