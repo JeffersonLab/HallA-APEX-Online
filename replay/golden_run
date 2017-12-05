@@ -1,0 +1,35 @@
+#/bin/bash
+
+if [ $# -eq 0 ] 
+then
+	echo "Please enter the run number you would like to make the new golden run?"
+	read RUNNUM
+else
+	RUNNUM=$1
+fi
+echo
+echo
+
+if [ $RUNNUM -le 90000 ]
+then
+
+echo "Changing the left golden run to $RUNNUM"
+
+	unlink /chafs1/work1/tritium/Rootfiles/tritium_Left_golden.root
+	ln -s /chafs1/work1/tritium/Rootfiles/tritium_online_$RUNNUM.root /chafs1/work1/tritium/Rootfiles/tritium_Left_golden.root
+
+
+else
+
+echo "Changing the right golden run to $RUNNUM"
+
+	unlink /chafs1/work1/tritium/Rootfiles/tritium_Right_golden.root
+	ln -s /chafs1/work1/tritium/Rootfiles/tritium_online_$RUNNUM.root /chafs1/work1/tritium/Rootfiles/tritium_Right_golden.root
+	
+fi
+
+echo
+echo "The Current Golden Runs are: "
+echo
+ls -l /chafs1/work1/tritium/Rootfiles/ | grep golden
+echo
