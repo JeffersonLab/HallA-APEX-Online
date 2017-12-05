@@ -6,7 +6,7 @@ then
 	
 	git fetch origin master
 	
-	git merge fetch FETCH_HEAD
+	git merge FETCH_HEAD
 	
 
 else 

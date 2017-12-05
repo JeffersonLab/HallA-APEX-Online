@@ -83,6 +83,7 @@ TH2F Ls0Bfadcvfbus 'S0-Bottom(B) Fastbus(PedSub) vs FADC' L.s0.ra_p FbusL.s0.ra_
 #-------------------------------------------------------------------
 # LEFT ARM S2
 #
+
 TH1F Ls2lt 'S2 TDC L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.
 TH1F Ls2rt 'S2 TDC R-PMT ' L.s2.rt 500 1300 2300 L.s2.rt>0.
 TH1F Ls2ltTAll_ 'S2 TDC w/ T2,T3: L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
@@ -94,6 +95,7 @@ TH1F Ls2la 'S2 ADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
 TH1F Ls2ra 'S2 ADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
 TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1800 L.s2.la_p>-6000.
 TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1800 L.s2.ra_p>-6000.
+
 
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
