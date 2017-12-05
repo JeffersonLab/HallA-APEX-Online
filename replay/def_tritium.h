@@ -37,7 +37,7 @@
 //Used for setting paths. %s is necessary so that it can be used to Form the paths.
 //This allows changing the directory in fewer places for ease of portability.
 const char* REPLAY_DIR_PREFIX = "./%s";
-const char* ROOTFILE_DIR_PREFIX = "/chafs1/work1/tritium/%s";
+const char* ROOTFILE_DIR_PREFIX = "/volatile/halla/triton/shujie/%s";
 
 typedef struct _sReplaySetUp
 {
@@ -63,16 +63,15 @@ static const char* PATHS[] = {
   "/adaql1/data2",
   "/adaql1/data3",
   "/adaql1/data4",
-  "/chafs2/work1/Ar40/raw",
    0
 };
 
 static const char* RAW_DATA_FORMAT="%s/triton_%d.dat.%d";
 //static const char* RAW_DATA_FORMAT="%s/dvcs14_%d.dat.%d";
 
-TString STD_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"Rootfiles");
+TString STD_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"rootfiles");
 TString CUSTOM_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"ScratchROOTfiles");
-TString SUMMARY_PHYSICS_FORMAT= TString::Format(REPLAY_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
+TString SUMMARY_PHYSICS_FORMAT= TString::Format(ROOTFILE_DIR_PREFIX,"summaryfiles/summaryphy_%d.log");
 
 //Previously used:
 //static const char* STD_REPLAY_OUTPUT_DIR=Form(ROOTFILE_DIR_PREFIX,"Rootfiles");

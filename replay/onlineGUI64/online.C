@@ -711,6 +711,8 @@ void OnlineConfig::OverrideRootFile(UInt_t runnumber)
   // protorootfile is used, construct filename using it, otherwise
   // uses a helper macro "GetRootFileName.C(UInt_t runnumber)
 
+  //
+
   if(!protorootfile.IsNull()) {
     TString rn = "";
     rn += runnumber;
@@ -801,6 +803,7 @@ void OnlineGUI::CreateGUI(const TGWindow *p, UInt_t w, UInt_t h)
 
   }
   TString goldenfilename=fConfig->GetGoldenFile();
+ 
   if(!goldenfilename.IsNull()) {
     // Similar to rootfilename, if the run is split, use the last segment
 
@@ -2179,19 +2182,19 @@ void UseMyStyle()
   Style2.SetPalette(1);
   Style3.SetPalette(1);
 
-  Style2.SetTitleH(0.24);
-  Style2.SetTitleW(0.50);
-  Style2.SetTitleX(0.5);
-  Style2.SetTitleY(0.88);
+  Style2.SetTitleH(0.2);
+  Style2.SetTitleW(0.45);
+  Style2.SetTitleX(0.4);
+  Style2.SetTitleY(0.9);
   Style2.SetLabelSize(0.10,"X");
   Style2.SetLabelSize(0.10,"Y");
   Style2.SetLabelOffset(0.020,"X");
-  Style2.SetStatW(0.2);
-  Style2.SetStatH(0.4);
+  Style1.SetStatW(0.3);
+  Style2.SetStatW(0.25);
+  //Style2.SetStatH(0.25);
   Style2.SetStatFontSize(0.15);
   Style2.SetStatX(0.95);
   Style2.SetStatY(0.95);
-
   Style3.SetTitleX(0.5);
   Style3.SetTitleY(0.9);
   Style3.SetTitleH(0.20);
