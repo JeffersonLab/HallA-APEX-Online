@@ -711,7 +711,7 @@ void OnlineConfig::OverrideRootFile(UInt_t runnumber)
   // protorootfile is used, construct filename using it, otherwise
   // uses a helper macro "GetRootFileName.C(UInt_t runnumber)
 
-  // protorootfile = "/volatile/halla/triton/shujie/rootfiles/tritium_online_XXXXX.root";
+ 
 
   if(!protorootfile.IsNull()) {
     TString rn = "";
