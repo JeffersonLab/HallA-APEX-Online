@@ -288,7 +288,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   c2->Divide(3,1);
   c2->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *haxis = new TH2F("haxis","Fast Raster 1 X vs.Y",20,0,8000,20,0,8000);
+  TH2F *haxis = new TH2F("haxis","Fast Raster 1 X vs.Y",200,3000,5000,200,3000,5000);
   haxis->Draw();
   rastxy1->Draw("same colz");
   gStyle->SetOptStat(1);
@@ -301,7 +301,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   c2A->Divide(3,1);
   c2A->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *haxis2 = new TH2F("haxis","Fast Raster 2 X vs.Y",20,0,8000,20,0,8000);
+  TH2F *haxis2 = new TH2F("haxis","Fast Raster 2 X vs.Y",200,3000,5000,200,3000,5000);
   haxis2->Draw();
   rastxy2->Draw("same colz");
   gStyle->SetOptStat(1);
@@ -410,7 +410,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2->Divide(3,1);
   fc2->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *fhaxis = new TH2F("fhaxis","FADC Fast Raster 1 X vs.Y",20,0,8000,20,0,8000);
+  TH2F *fhaxis = new TH2F("fhaxis","FADC Fast Raster 1 X vs.Y",500,60000,70000,500,60000,70000);
   fhaxis->Draw();
   frastxy1->Draw("same colz");
   gStyle->SetOptStat(1);
@@ -423,7 +423,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2A->Divide(3,1);
   fc2A->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *fhaxis2 = new TH2F("fhaxis","FADC Fast Raster 2 X vs.Y",20,0,8000,20,0,8000);
+  TH2F *fhaxis2 = new TH2F("fhaxis","FADC Fast Raster 2 X vs.Y",500,60000,70000,500,60000,70000);
   fhaxis2->Draw();
   frastxy2->Draw("same colz");
   gStyle->SetOptStat(1);
