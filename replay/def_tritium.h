@@ -37,7 +37,7 @@
 //Used for setting paths. %s is necessary so that it can be used to Form the paths.
 //This allows changing the directory in fewer places for ease of portability.
 const char* REPLAY_DIR_PREFIX = "./%s";
-const char* ROOTFILE_DIR_PREFIX = "/chafs1/work1/tritium/%s";
+const char* ROOTFILE_DIR_PREFIX = "./t2root/%s";
 
 typedef struct _sReplaySetUp
 {
@@ -53,17 +53,7 @@ typedef struct _sReplaySetUp
 //////////////////////////////////////////////////////////////////
 
 static const char* PATHS[] = {
-  "./raw",
   "/adaq1/data1",
-  "/adaql2/data1",
-  "/adaql2/data2",
-  "/adaql2/data3",
-  "/adaql2/data4",
-  "/adaql1/data1",
-  "/adaql1/data2",
-  "/adaql1/data3",
-  "/adaql1/data4",
-  "/chafs2/work1/Ar40/raw",
    0
 };
 

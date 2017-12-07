@@ -26,6 +26,8 @@ variable 1 6  1  Rclock    RHRS clock
 variable 1 6  2  Rclock_r  RHRS clcok rate
 variable 1 7  1  Lclock    LHRS clock
 variable 1 7  2  Lclock_r  LHRS clcok rate
+variable 1 8  1  Sh_sum    shower sum
+variable 1 8  2  Sh_sum_r  shower sum rate
 variable 1 9  1  Ls0ors2    LHRS s0||s2
 variable 1 9  2  Ls0ors2_r  LHRS s0||s2 rate
 variable 1 10  1  s2L    LHRS s2l signal
