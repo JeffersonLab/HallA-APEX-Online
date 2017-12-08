@@ -25,6 +25,10 @@ FbusL.theta = 27.5003
 FbusL.pcentral = 0.00273557
 FbusR.theta = -52.9999
 FbusR.pcentral = 0.0035162
+OldTrackL.theta = 27.5003
+OldTrackR.theta = -52.9999
+OldTrackL.pcentral = 0.00273557
+OldTrackR.pcentral = 0.0035162
 MA = 0.93827
 
 
