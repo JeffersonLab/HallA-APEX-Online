@@ -100,6 +100,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	fi
 #    let counter=counter+1
 	#    echo $counter
+    runnum=`cat ~adaq/datafile/rcRunNumberR`
     done
  
 else
