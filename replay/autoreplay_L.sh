@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# run full replay automatically for RHRS
+# run full replay automatically for LHRS
 # bash autorepaly_L.sh <runnumber> 
 
 # Shujie Li, Dec 2017
@@ -100,6 +100,8 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	fi
 #    let counter=counter+1
 	#    echo $counter
+    runnum=`cat ~adaq/datafile/rcRunNumberL`
+
     done
  
 else

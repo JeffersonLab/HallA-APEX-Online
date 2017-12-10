@@ -76,10 +76,11 @@ void Check_R_Time()
     cout<<"Please enter a run unmber:"<<endl;
     cin>>run_no;
     t->Add(Form("/chafs1/work1/tritium/Rootfiles/tritium_%d*.root",run_no));     
-     TH2F *S2_Pad =new TH2F("S2_Pad","S2_Pad",16,-0.5,15.5,400,-2,2);
     
-    
-    
+
+
+
+      TH2F *S2_Pad =new TH2F("S2_Pad","S2_Pad",16,-0.5,15.5,400,-2,2);
      S2_Pad->GetYaxis()->SetTitle("x_s2[m]");
      S2_Pad->GetXaxis()->SetTitle("Pad No");
      S2_Pad->GetYaxis()->CenterTitle();
@@ -164,7 +165,7 @@ void Check_R_Time()
     Double_t R_s2_lt[16],R_s2_rt[16];
     Double_t R_s2_nthit;
     Double_t R_s2_t_pads[16];
-    Double_t evtypebits;
+    Int_t evtypebits;
     Double_t R_s0_trpath[100],R_s2_trpath[100];
     Double_t R_s0_lt[10],R_s0_rt[10];
     Double_t R_s0_nthit;
@@ -250,12 +251,12 @@ void Check_R_Time()
         
     t->GetEntry(i);
     for(Int_t j=0;j<16;j++){
-        if(R_tr_n==1/*&&R_s0_nthit==1*/&&(int)evtypebits==2&&R_s2_t_pads[0]==j)
+      if(R_tr_n==1&&R_s2_t_pads[0]==j&&((int)evtypebits>>4&1))
             
         {
            
            
-            S2_Pad_check->Fill(R_s2_t_pads[0]);
+           S2_Pad_check->Fill(R_s2_t_pads[0]);
            S2_Pad->Fill(R_s2_t_pads[0],R_s2_trx[0]);
            S0_Pad->Fill(R_s2_t_pads[0],R_s0_trx[0]);
             S2_lt_Time[j]->Fill(R_s2_try[0],R_s2_lt[j]);
