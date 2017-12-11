@@ -1,0 +1,62 @@
+BPM ReadME
+
+Works in root 5 as of Summer 17
+Works on aonl. Need the enviromental variable "EXPERIMENT"
+Would also be nice to have root file directory eviromental variable.
+
+/*     get_bpm_pedestals.c
+Using a bpm pedestal run, this code will produce the pedestal locations of the BPMs for both A and B!
+In order to use this code, you must add the location and file name of the pedestal run's root file!*/
+
+/*
+get_harp_pos.c+
+ In order update this code, you must change the date of the Harp scan and the time stamp of each position change.
+ These can be found on line 49 and 67!
+  
+ Also update the CODA run numbers and log book entry numbers for the harp scans. 
+  These can be found on line 54 and 55!
+  
+ Please store the harpscans in the dir HarpScans.  
+
+This is currently limited to running five runs for two harps. This code does have some flaws.
+	1. If the harp signals are out of the pre defined bounds, results are incorrect.  These bounds can be 
+		manually adjusted by changing the 2D array "HarpLimits". 
+	
+	2. If the data is too noisy and has many fluctuations, this can cause the fits to be incorrect.
+		One might like to un comment the canvas delete line in order to investigate 
+		the Fit Functions for each run. This may be found on line 326
+*/
+
+/*
+BPM_calibration
+ In order to update this code, please do the following
+	-Update the pedestals
+	-Update the harp results file name and location.
+	-Update the root file location for the rootfiles from the harp scans. 
+	-Make sure to double check the name of the BPM raw current branches. This currently
+		uses Lrb and Rrb. 
+*/
+
+How to calibrate the BPMs!!
+
+1. Using a BPM pedestal run, Run get_bpm_pedestals.c in root with the command 
+'.x get_bpm_pedestals.c'. You may also pass the run number and side as an argument.
+.x get_bpm_pedestals.c(run#, 'L/R') ' 
+
+2.Use the new pedestal values to update the pedestals in the BPM_calibration.c script.
+	(currently on line 86)
+
+3. Update get_harp_pos.c, with the date, time stamp, CODA run#, accelerator run# and location of the harp scan txt files.
+
+4. Run get_harp_pos.c in root with the command '.x get_harp_pos.c'
+
+5. Update BPM_calibration.c, with new file name and location of harp results, and file location of the root files associated to the harp runs. 
+
+6. Run BPM_calibration.c in root with the command '.x BPM_calibration.c' 
+	You can run with the arguments for which HRS (L/R) and quite mode (0/1). 
+	.x BPM_calibration.c('L/R' , 0/1) defalts are R and quite. 
+
+7. Enter the new BPM calibration constant into the DB at 
+	/adaqfs/home/a-onl/rastersize/RightHRS/DB/db_rb.beamline.dat
+
+ 

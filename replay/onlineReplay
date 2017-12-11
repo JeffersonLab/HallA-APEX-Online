@@ -7,4 +7,4 @@ then
 else
 	RUNNUM=$1
 fi
-analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE)'
+analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE)'

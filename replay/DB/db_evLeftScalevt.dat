@@ -1,0 +1,63 @@
+# scaler.map file for Left HRS event type 140
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
+map 3800 1 1 abc10020 ffffffff 1 7 103700 
+
+
+# variable syntax
+# slot#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+# for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+
+
+variable 1 0  1  T1    LHRS T1 trigger
+variable 1 0  2  T1_r  LHRS T1 trigger rate
+variable 1 1  1  T2    LHRS T2 trigger
+variable 1 1  2  T2_r  LHRS T2 trigger rate
+variable 1 2  1  T3    LHRS T3 trigger
+variable 1 2  2  T3_r  LHRS T3 trigger rate
+variable 1 5  1  L1A_R    L1A remote from RHRS
+variable 1 5  2  L1A_R_r  L1A remote from RHRS rate
+variable 1 6  1  Rclock    RHRS clock
+variable 1 6  2  Rclock_r  RHRS clcok rate
+variable 1 7  1  Lclock    LHRS clock
+variable 1 7  2  Lclock_r  LHRS clcok rate
+variable 1 8  1  Sh_sum    shower sum
+variable 1 8  2  Sh_sum_r  shower sum rate
+variable 1 9  1  Ls0ors2    LHRS s0||s2
+variable 1 9  2  Ls0ors2_r  LHRS s0||s2 rate
+variable 1 10  1  s2L    LHRS s2l signal
+variable 1 10  2  s2L_r  LHRS s2l signal rate
+variable 1 11  1  s2R    LHRS s2r signal
+variable 1 11  2  s2R_r  LHRS s2r signal rate
+variable 1 12  1  Rs0ors2    RHRS s0||s2
+variable 1 12  2  Rs0ors2_r  RHRS s0||s2 rate
+variable 1 13  1  ADC_gate    LHRS s0||s2
+variable 1 13  2  ADC_gate_r  LHRS s0||s2 rate
+variable 1 14  1  L1A    L1A LHRS
+variable 1 14  2  L1A_r  L1A LHRS rate
+variable 1 15  1  EDTM_s2     EDTM s2
+variable 1 15  2  EDTM_s2_r  EDTM s2
+
+variable 1 18 1  unew    new bcm upstream count
+variable 1 18 2  unew_r  new bcm upstream rate
+variable 1 20 1  dnew    new bcm downstream count
+variable 1 20 2  dnew_r  new bcm downstream rate
+variable 1 22 1  unser   unser counts
+variable 1 22 2  unser_r unser rate
+variable 1 24 1  u1      bcm x1 upstream count
+variable 1 24 2  u1_r    bcm x1 upstream rate
+variable 1 26 1  d1      bcm x1 downstream count
+variable 1 26 2  d1_r    bcm x1 downstream rate
+variable 1 28 1  d3      bcm x3 downstream count
+variable 1 28 2  d3_r    bcm x3 downstream rate
+variable 1 30 1  d10     bcm x10 downstream count
+variable 1 30 2  d10_r   bcm x10 downstream rate
+
+
+
+ 
