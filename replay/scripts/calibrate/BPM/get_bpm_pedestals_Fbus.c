@@ -70,9 +70,9 @@ void get_bpm_pedestals_Fbus(int run=0, char side='i'){
 
 ///// BPM wire loop!
 	for(int i =0; i<8;i++){
-		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA(Fbus) %d - %s",i-4,name[i].Data()),10000,0,10000);
+		if(i<4){H[i] = new TH1F(Form("h%d",i),Form("BPMA(Fbus) %d - %s",i+1,name[i].Data()),10000,0,10000);
 			c1->cd(i+1); t->Draw(Form("Fbus%crb.BPMA.rawcur.%d>>h%d",side,i+1,i));}
-		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB(Fbus) %d - %s",i-4,name[i-4].Data()),10000,0,10000);
+		else{H[i] = new TH1F(Form("h%d",i),Form("BPMB(Fbus) %d - %s",i-3,name[i-4].Data()),10000,0,10000);
 			c2->cd(i-3); t->Draw(Form("Fbus%crb.BPMB.rawcur.%d>>h%d",side,i-3,i));}
 			counts[i]=H[i]->GetEntries();
 			if(counts[i]<=0){cout << "There are zero counts in the first histogram. \n";
@@ -81,7 +81,7 @@ void get_bpm_pedestals_Fbus(int run=0, char side='i'){
 		f[i]= new TF1(Form("f%d",i), "gaus",0,10000);	
 		H[i]->Fit(Form("f%d",i),"Q","",0,10000);
 		pedestal(i)=f[i]->GetParameter("Mean");
-		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-150,pedestal(i)+150);
+		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-200,pedestal(i)+200);
 		c1->Update();}
 		/*
 		double peak_avg=0;
