@@ -16,7 +16,7 @@ void scin_hit_L(){
    
 
   Double_t s2la[16],s2ra[16],s2lt[16],s2rt[16];
-  Double_t s0la,s0ra,s0lt,s0rt;
+  Double_t s0la,s0ra,s0lt,s0rt,prl1,prl2;
 
   T->SetBranchAddress(arm+".s0.la_p",&s0la);
   T->SetBranchAddress(arm+".s0.ra_p",&s0ra);
@@ -27,6 +27,10 @@ void scin_hit_L(){
   T->SetBranchAddress(arm+".s2.ra_p",s2ra);
   T->SetBranchAddress(arm+".s2.lt",s2lt);
   T->SetBranchAddress(arm+".s2.rt",s2rt);
+
+  T->SetBranchAddress(arm+".prl1.asum_p",&prl1);
+  T->SetBranchAddress(arm+".prl2.asum_p",&prl2);
+
 
   Double_t scale2=1;//0.937; // tdc fired but adc<50
   Double_t scale0=1;
@@ -56,16 +60,18 @@ void scin_hit_L(){
 
     if(i%100000==0) cout << " events processed = " << i << endl;
     T->GetEntry(i);
-    if (s0la>thres) ns0la->Fill(1);
-    if (s0ra>thres) ns0ra->Fill(1);
-    if (s0lt>100) ns0lt->Fill(1,scale0);
-    if (s0rt>100) ns0rt->Fill(1,scale0);
-     
-    for(Int_t j=0;j<16;j++){
-      if (s2la[j]>50) ns2la->Fill(j);
-      if (s2ra[j]>50) ns2ra->Fill(j);
-      if (s2lt[j]>100) ns2lt->Fill(j,scale2);
-      if (s2rt[j]>100) ns2rt->Fill(j,scale2);
+    if (prl1>400 && prl2>400){
+      if (s0la>thres) ns0la->Fill(1);
+      if (s0ra>thres) ns0ra->Fill(1);
+      if (s0lt>100) ns0lt->Fill(1,scale0);
+      if (s0rt>100) ns0rt->Fill(1,scale0);
+      
+      for(Int_t j=0;j<16;j++){
+	if (s2la[j]>50) ns2la->Fill(j);
+	if (s2ra[j]>50) ns2ra->Fill(j);
+	if (s2lt[j]>100) ns2lt->Fill(j,scale2);
+	if (s2rt[j]>100) ns2rt->Fill(j,scale2);
+      }
     }
   }
 
