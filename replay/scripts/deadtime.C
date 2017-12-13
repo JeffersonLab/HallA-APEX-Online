@@ -55,7 +55,7 @@ void deadtime(Int_t run=0){
    	
     for (i=4; i<7; i++){
       TCut t_cut = Form("DR.evtypebits&(1<<%i)",i);
-      sprintf(rate,"RightT%i", i);
+      sprintf(rate,"evRightT%i", i);
       icount[i] = tree->GetMaximum(rate);
       sprintf(hname[i],"t%i",i);
       sprintf(h,"DR.evtypebits>>%s", hname[i]);
@@ -75,7 +75,7 @@ void deadtime(Int_t run=0){
     //================
     TCut t8_cut = Form("DR.evtypebits&(1<<8)");
     i=8;
-    sprintf(clkrate,"RightLclock");     
+    sprintf(clkrate,"evRightLclock");     
     icount[8] = tree->GetMaximum(clkrate);
     sprintf(hname[8],"t8");
     sprintf(h,"DR.evtypebits>>%s", hname[8]);
@@ -95,7 +95,7 @@ void deadtime(Int_t run=0){
   
     for (i=1; i<4; i++){
       TCut t_cut = Form("DL.evtypebits&(1<<%i)",i);
-      sprintf(rate,"LeftT%i", i);
+      sprintf(rate,"evLeftT%i", i);
       icount[i] = tree->GetMaximum(rate);
       sprintf(hname[i],"t%i",i);
       sprintf(h,"DL.evtypebits>>%s", hname[i]);
@@ -113,7 +113,7 @@ void deadtime(Int_t run=0){
     //================
     TCut t8_cut = Form("DL.evtypebits&(1<<8)");
     i=8;
-    sprintf(clkrate,"LeftLclock");     
+    sprintf(clkrate,"evLeftLclock");     
     icount[8] = tree->GetMaximum(clkrate);
     sprintf(hname[8],"t8");
     sprintf(h,"DL.evtypebits>>%s", hname[8]);
