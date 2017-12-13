@@ -5,7 +5,7 @@
 //======================================
 
 
-void deadtime(){
+void deadtime(Int_t run=0){
 
 
   Int_t irun;
@@ -21,8 +21,12 @@ void deadtime(){
   TH1F *his[10];
   TTree *tree;
 
-  cout << "\nreplay: Please enter a Run Number (-1 to exit):";
-  cin >> irun;
+  if(run==0){
+	  cout << "\nreplay: Please enter a Run Number (-1 to exit):";
+  	  cin >> irun;
+  	  }
+  else{irun=run;}
+  
   if(irun==-1) return;
 
   
@@ -45,10 +49,11 @@ void deadtime(){
   cout<<"Run # "<<"   "<<irun<<endl; 
   cout<<"     |  Trigger |   Prescale |  Recorded Trigger |  Raw Trigger |   Deadtime (%)\n";
   
-
-  if (irun>80000){
+  int i=0;
   
-    for (int i=4; i<7; i++){
+  if (irun>80000){
+   	
+    for (i=4; i<7; i++){
       TCut t_cut = Form("DR.evtypebits&(1<<%i)",i);
       sprintf(rate,"RightT%i", i);
       icount[i] = tree->GetMaximum(rate);
@@ -88,7 +93,7 @@ void deadtime(){
 
   else{
   
-    for (int i=1; i<4; i++){
+    for (i=1; i<4; i++){
       TCut t_cut = Form("DL.evtypebits&(1<<%i)",i);
       sprintf(rate,"LeftT%i", i);
       icount[i] = tree->GetMaximum(rate);
