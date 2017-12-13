@@ -126,4 +126,5 @@ void deadtime(Int_t run=0){
       cout<<setw(12)<<i<<setw(12)<<PS[i-1]<<setw(18)<<daqcount[i]<<setw(18)<<icount[i]<<setw(18)<<DT[i]<<endl;
     }	   
   }
+  exit(1);
 }
