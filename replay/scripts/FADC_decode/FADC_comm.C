@@ -366,18 +366,18 @@ int main(int argc, char* argv[])
                   setw(7)<<"12"<<setw(7)<<"13"<<setw(7)<<"14"<<setw(7)<<"15"<<setw(7)<<"16"<<endl;
        qualityfile<<setiosflags(ios::left) << setw(12)<<"overflow  ";
        for(int chan=0;chan<NADCCHAN;chan++){
-          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(3)<<poverflow[islot][chan];
+          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(4)<<poverflow[islot][chan];
         }
        qualityfile<<endl;
        qualityfile<<setiosflags(ios::left) << setw(12)<<"underflow  ";
        for(int chan=0;chan<NADCCHAN;chan++)
         {  
-          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(3)<<punderflow[islot][chan];
+          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(4)<<punderflow[islot][chan];
         }
        qualityfile<<endl;
        qualityfile<<setiosflags(ios::left) << setw(12)<<"badped  ";
        for(int chan=0;chan<NADCCHAN;chan++){
-          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(3)<<pbadped[islot][chan];
+          qualityfile<<setiosflags(ios::left) <<setw(7)<<setiosflags(ios::fixed) << setprecision(4)<<pbadped[islot][chan];
         }
        qualityfile<<endl;
 

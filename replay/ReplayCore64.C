@@ -79,11 +79,15 @@
 #include "TTree.h"
 #include "TFile.h"
 #include "TString.h"
+
+#include "TSQLServer.h"
 #endif//#ifdef __CINT__
 
 #define ALLOW_ROOTFILE_OVERWRITE false
 
 Bool_t IsFileExist(const Char_t * fname);
+void mysql_start(Int_t runnumber);
+void mysql_end(Int_t runnumber);
 
 using namespace std;
 
@@ -97,7 +101,7 @@ void ReplayCore(
 		Bool_t EnableScalar=false,                    //Enable Scalar?
 		Bool_t EnableHelicity=false,                  //Enable Helicity?
 		Int_t FirstEventNum=0,         //First Event To Replay
-		Bool_t QuietRun = kFALSE       //whether not ask question?
+		Bool_t QuietRun = kFALSE      //whether not ask question?
 		)
 {
   //general replay script core
@@ -315,6 +319,12 @@ cout << endl
 	}
     }
 
+
+  // insert info to msql
+  if (nev<0) mysql_start(runnumber);
+
+
+
   cout<<endl<<"----------------------------------------------"<<endl;
   cout<<"replay: Inputs Summary:"<<endl;
   cout<<"        Raw data: "<<filename<<endl;
@@ -410,6 +420,11 @@ cout << endl
   analyzer->Close();
 
   cout<<"replay: YOU JUST ANALYZED RUN number "<<nrun<<"."<<endl;
+
+ 
+  // insert info to msql
+  if (nev<0) mysql_end(runnumber);
+
 }
 
 /////////////////////////////////////////////////////////////////
@@ -425,6 +440,31 @@ Bool_t IsFileExist(const Char_t * fname)
   return isopen;
 }
 
+//=========================================
+  //    update mysql database 
+  //=========================================
+
+
+  //start of run
+void mysql_start(Int_t runnumber){
+    TSQLServer* Server = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
+    TString query(Form("insert into fullreplay (run,anastart,start_when,anadone,end_when) values (%d,1,now(),0,0) on duplicate key update anastart=values(anastart),anadone=values(anadone),start_when=now(),end_when=0",runnumber));
+    TSQLResult* result=Server->Query(query.Data());
+    Server->Close();
+    return;
+  }
+
+// end of run
+void mysql_end(Int_t runnumber){
+    TSQLServer* Server = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
+    TString query(Form("update fullreplay set anadone=1,end_when=now() where run=%d",runnumber));
+    TSQLResult* result=Server->Query(query.Data());
+    cout<<query.Data()<<endl;
+    Server->Close();
+    return;
+  }
+
+//========================================
 
 // DO NOT DELETE!
 #endif//#define ROOT_REPLAY_CORE
