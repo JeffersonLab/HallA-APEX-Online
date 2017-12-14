@@ -1,6 +1,6 @@
 R__LOAD_LIBRARY(../../../libraries/TriFadcRasteredBeam/libTriFadcRasteredBeam.so)
 
-Int_t get_rastersize(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
+Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
 {
 
   // 
@@ -16,7 +16,7 @@ Int_t get_rastersize(TString codafname,TString runNo, Int_t firsteve, Int_t last
   // modified for Root 6 and FADC beam line by Tong Su,2017
   // 
   
-  
+  gStyle->SetNdivisions(605);
   TString* ca_title = new TString("Raster Size (");
   ca_title->Append(codafname);
   ca_title->Append(")");
@@ -25,13 +25,13 @@ Int_t get_rastersize(TString codafname,TString runNo, Int_t firsteve, Int_t last
   TCanvas* c1 = new TCanvas("c1",ca_title->Data(),900,600);
 
   c1->Divide(3,2);
-
+  c1->cd(1);
   TLatex *t = new TLatex();
   t->SetTextFont(32);
   t->SetTextColor(1);
   t->SetTextSize(0.015);
   t->SetTextAlign(12);
-  t->DrawLatex(0.01,0.335,ca_title->Data());
+  t->DrawLatex(0.1,0.335,ca_title->Data());
 
 
   TCanvas* fc1 = new TCanvas("fc1",ca_title->Data(),900,600);
@@ -288,37 +288,55 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   c2->Divide(3,1);
   c2->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *haxis = new TH2F("haxis","Fast Raster 1 X vs.Y",200,3000,5000,200,3000,5000);
-  haxis->Draw();
-  rastxy1->Draw("same colz");
+  //TH2F *haxis = new TH2F("haxis","Fast Raster 1 X vs.Y",200,3000,5000,200,3000,5000);
+  //haxis->Draw();
+  rastxy1->Draw("colz");
+  rastxy1->SetTitle("Upstream Raster X vs.Y");
+  rastxy1->SetAxisRange(3000, 6000,"Y");
+  rastxy1->SetAxisRange(3000, 6000,"X");
+  gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
   c2->cd(2);
   URastX->Draw();
+  URastX->GetXaxis()->SetRangeUser(3000,6000);
+
   c2->cd(3);
   URastY->Draw();
+  URastX->GetXaxis()->SetRangeUser(3000,6000);
 
   TCanvas* c2A =  new TCanvas("c2A","Downstream Raster Plots",1200,600);
   c2A->Divide(3,1);
   c2A->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *haxis2 = new TH2F("haxis","Fast Raster 2 X vs.Y",200,3000,5000,200,3000,5000);
-  haxis2->Draw();
-  rastxy2->Draw("same colz");
+  // TH2F *haxis2 = new TH2F("haxis","Fast Raster 2 X vs.Y",200,3000,5000,200,3000,5000);
+  //haxis2->Draw();
+  rastxy2->Draw("colz");
+  rastxy2->SetTitle("Downstream Raster X vs.Y");
+  rastxy2->SetAxisRange(3000, 6000,"Y");
+  rastxy2->SetAxisRange(3000, 6000,"X");  
+  gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
   c2A->cd(2);
   DRastX->Draw();
+  DRastX->GetXaxis()->SetRangeUser(3000,6000);
   c2A->cd(3);
   DRastY->Draw();
-
- 
+  DRastY->GetXaxis()->SetRangeUser(3000,6000);
+  
   TCanvas* c2B =  new TCanvas("c2B","check",900,600);
   //  gStyle->SetOptStat(0);
   c2B->Divide(2,1);
   c2B->cd(1);
-  rastx1x2->Draw("same colz");
+  rastx1x2->Draw("colz");
+  gPad->SetGrid(1,1);
+  rastx1x2->GetYaxis()->SetLabelSize(.03);
   gStyle->SetOptStat(1);
   c2B->cd(2);
-  rasty1y2->Draw("same colz");
+  rasty1y2->Draw("colz");
+  gPad->SetGrid(1,1);
+  rasty1y2->GetYaxis()->SetLabelSize(.03);
+
+
 
   
   TCanvas* c3 =  new TCanvas("c3","BPM Antenna Plots",900,600);
@@ -368,18 +386,21 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
   c5->cd(1);
   bpma_xy->Draw("col");
+  gPad->SetGrid(1,1);
   c5->cd(2);
   bpma_x->Draw();
   c5->cd(3);
   bpma_y->Draw();
   c5->cd(4);
   bpmb_xy->Draw("col");
+  gPad->SetGrid(1,1);
   c5->cd(5);
   bpmb_x->Draw();
   c5->cd(6);
   bpmb_y->Draw();
   c5->cd(7);
   beam_xy->Draw("col");
+  gPad->SetGrid(1,1);
   c5->cd(8);
   beam_x->Draw();
   c5->cd(9);
@@ -406,14 +427,21 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fbpmb_y->Draw();
 
 
-  TCanvas* fc2 =  new TCanvas("fc2","Upstream Raster Plots for FADC ",1200,600);
+  TCanvas* fc2 =  new TCanvas("fc2","FADC Upstream Raster Plots ",1200,600);
   fc2->Divide(3,1);
   fc2->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *fhaxis = new TH2F("fhaxis","FADC Fast Raster 1 X vs.Y",500,60000,70000,500,60000,70000);
-  fhaxis->Draw();
-  frastxy1->Draw("same colz");
+  // TH2F *fhaxis = new TH2F("fhaxis","FADC Fast Raster 1 X vs.Y",500,60000,70000,500,60000,70000);
+  //fhaxis->Draw();
+  frastxy1->Draw("colz");
+  frastxy1->SetTitle("FADC Upstream Raster X vs.Y");
+  frastxy1->SetAxisRange(60000, 70000,"Y");
+  frastxy1->SetAxisRange(60000, 70000,"X");
+  frastxy1->GetXaxis()->SetLabelSize(.04);
+  frastxy1->GetYaxis()->SetLabelSize(.03);
+  gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
+
   fc2->cd(2);
   fURastX->Draw();
   fc2->cd(3);
@@ -423,25 +451,43 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2A->Divide(3,1);
   fc2A->cd(1);
   // Added to fix axes, show raster x-y in full window
-  TH2F *fhaxis2 = new TH2F("fhaxis","FADC Fast Raster 2 X vs.Y",500,60000,70000,500,60000,70000);
-  fhaxis2->Draw();
-  frastxy2->Draw("same colz");
+  // TH2F *fhaxis2 = new TH2F("fhaxis","FADC Fast Raster 2 X vs.Y",500,60000,70000,500,60000,70000);
+  // fhaxis2->Draw();
+  frastxy2->Draw("colz");
+  frastxy2->SetTitle("FADC Downstream Raster X vs.Y");
+  frastxy2->SetAxisRange(60000, 70000,"Y");
+  frastxy2->SetAxisRange(60000, 70000,"X");
+  frastxy2->GetXaxis()->SetLabelSize(.04);
+  frastxy2->GetYaxis()->SetLabelSize(.03);
+  gPad->SetGrid(1,1);
+  //frastxy2->Draw("same colz");
   gStyle->SetOptStat(1);
   fc2A->cd(2);
   fDRastX->Draw();
+  fDRastX->GetXaxis()->SetLabelSize(.04);
+  fDRastX->GetYaxis()->SetLabelSize(.04);
+
   fc2A->cd(3);
   fDRastY->Draw();
+  fDRastY->GetXaxis()->SetLabelSize(.04);
+  fDRastY->GetYaxis()->SetLabelSize(.04);
+
 
  
   TCanvas* fc2B =  new TCanvas("fc2B","fadc check",900,600);
   //  gStyle->SetOptStat(0);
   fc2B->Divide(2,1);
   fc2B->cd(1);
-  frastx1x2->Draw("same colz");
+  frastx1x2->Draw("colz");
+  frastx1x2->GetXaxis()->SetLabelSize(.05);
+  frastx1x2->GetYaxis()->SetLabelSize(.038);
+  gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
   fc2B->cd(2);
-  frasty1y2->Draw("same colz");
-
+  frasty1y2->Draw("colz");
+  frasty1y2->GetXaxis()->SetLabelSize(.05);
+  frasty1y2->GetYaxis()->SetLabelSize(.038);
+  gPad->SetGrid(1,1);
   
   TCanvas* fc3 =  new TCanvas("fc3","FADC BPM Antenna Plots",900,600);
   //  gStyle->SetOptStat(0);
@@ -449,20 +495,35 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
   fc3->cd(1);
   fbpmaraw1->Draw();
+  fbpmaraw1->GetXaxis()->SetLabelSize(.04);
   fc3->cd(2);
   fbpmaraw2->Draw();
+  fbpmaraw2->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(3);
   fbpmaraw3->Draw();
+  fbpmaraw3->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(4);
   fbpmaraw4->Draw(); 
+  fbpmaraw4->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(5);
   fbpmbraw1->Draw();
+  fbpmbraw1->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(6);
   fbpmbraw2->Draw();
+  fbpmbraw2->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(7);
   fbpmbraw3->Draw();
+  fbpmbraw3->GetXaxis()->SetLabelSize(.04);
+
   fc3->cd(8);
   fbpmbraw4->Draw(); 
+  fbpmbraw4->GetXaxis()->SetLabelSize(.04);
+
 
   TCanvas* fc4 =  new TCanvas("c4","FADC Raster vs BPM Plots",1600,800);
   //  gStyle->SetOptStat(0);
@@ -540,39 +601,37 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
    name3.Append(runNo);
    name3.Append(".pdf]");
  
-    //TString name4=Form("Fadc_Tritium_");
-  // name1.Append(runNo);
-  // name1.Append(".pdf[");
+    TString name4=Form("FADC_Tritium_");
+   name4.Append(runNo);
+   name4.Append(".pdf[");
 
-   // TString name5=Form("Fadc_Tritium_");
-   //name2.Append(runNo);
-   //name2.Append(".pdf");
+   TString name5=Form("FADC_Tritium_");
+   name5.Append(runNo);
+   name5.Append(".pdf");
 
-  // TString name6=Form("Fadc_Tritium_");
-  // name3.Append(runNo);
-  // name3.Append(".pdf]");
+   TString name6=Form("FADC_Tritium_");
+   name6.Append(runNo);
+   name6.Append(".pdf]");
 
 
-
-   c1->Print(name1);
-   c1->Print(name2);
+   //c5 countains c1
+   c5->Print(name1);
+   c5->Print(name2);
+   c3->Print(name2);
+   c2->Print(name2);
    c2A->Print(name2);
    c2B->Print(name2);
-   c3->Print(name2);
-   //c4->Print(name2);
-   c5->Print(name2); 
-   //c5->Print(name3);
+   c2B->Print(name3);
+   
+  
 
-
-   fc1->SaveAs(name2);
-   //fc1->SaveAs(name5);
-   fc2A->SaveAs(name2);
-   fc2B->SaveAs(name2);
-   fc3->SaveAs(name2);
-   //fc4->SaveAs(name5);
-   fc5->SaveAs(name2);
-   fc5->SaveAs(name3);
-  // fc5->SaveAs(name6);
+   fc5->SaveAs(name4);
+   fc5->SaveAs(name5);
+   fc3->SaveAs(name5);
+   fc2->SaveAs(name5);
+   fc2A->SaveAs(name5);
+   fc2B->SaveAs(name5);
+   fc2B->SaveAs(name6);
   return 1;
 
 

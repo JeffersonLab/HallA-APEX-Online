@@ -84,7 +84,7 @@ void get_bpm_pedestals(int run=0, char side='i'){
 		f[i]= new TF1(Form("f%d",i), "gaus",0,100000);	
 		H[i]->Fit(Form("f%d",i),"Q","",0,100000);
 		pedestal(i)=f[i]->GetParameter("Mean");
-		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-2500,pedestal(i)+2500);
+		H[i]->GetXaxis()->SetRangeUser(pedestal(i)-200*13.57,pedestal(i)+200*13.57);
 		c1->Update();
 		}
 		/*double peak_avg=0;
