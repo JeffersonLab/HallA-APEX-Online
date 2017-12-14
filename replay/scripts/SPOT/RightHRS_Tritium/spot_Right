@@ -5,14 +5,12 @@ currentdir=`pwd`
 
 case $1 in 
 "" | "last")
-    runnum=`cat ~adaq/datafile/rcRunNumberL`
+    runnum=`cat ~adaq/datafile/rcRunNumberR`
     CFILE=/adaq1/data1/triton_$runnum.dat.0
     if [ ! -f $CFILE ]
     then  CFILE=/adaq1/data1/triton_$runnum.dat.0
-	 fi
-	 if [ ! -f $CFILE ]
-	 then CFILE=/chafs2/work1/Ar40/raw/triton_$runnum.dat.0
-	 fi
+    fi
+    
     if [ "$CFILE" = "" ] 
     then
 	echo "ERROR: no CODA files"
@@ -100,17 +98,25 @@ case $1 in
 
 esac
 
-#cd /adaqfs/home/a-onl/tritium/HallA-Online-Tritium/replay/scripts/SPOT/LeftHRS_Tritium
-
+cd /adaqfs/home/a-onl/tritium/replay/scripts/SPOT/RightHRS_Tritium
 
 export DB_DIR="/adaqfs/home/a-onl/tritium/replay/DB"
 
 #rm -f rastersize.root
 
-analyzer 'get_rastersize.C("'$CFILE'","'$1'",'$FIRST','$LAST',"rastersize.root")'
+analyzer -b -q 'get_rastersize_R.C("'$CFILE'","'$runnum'",'$FIRST','$LAST',"rastersize.root")'
 
-RootFILE=L$1".root"
+RootFILE=R$runnum".root"
+spot_dir="/chafs1/work1/tritium/spot"
 
-#mv rastersize.root $RootFILE
+mv rastersize.root ${spot_dir}/$RootFILE
+mv Tritium_$runnum.pdf ${spot_dir}/.
+mv FADC_Tritium_$runnum.pdf ${spot_dir}/.
 
+echo =================
+echo DONE. PDFs and ROOTFILE are stored at ${spot_dir}
+echo =================
 cd $currentdir
+evince ${spot_dir}/Tritium_$runnum.pdf &
+evince ${spot_dir}/FADC_Tritium_$runnum.pdf &
+

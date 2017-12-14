@@ -277,8 +277,8 @@ variable RightADC_gate
 variable RightADC_gate_r
 variable RightL1A
 variable RightL1A_r
-variable RightFB_remote
-variable RightFB_remote_r
+variable RightRF_Time
+variable RightRF_Time_r
 
 variable Rightunew
 variable Rightunew_r
@@ -325,8 +325,8 @@ variable evRightADC_gate
 variable evRightADC_gate_r
 variable evRightL1A
 variable evRightL1A_r
-variable evRightFB_remote
-variable evRightFB_remote_r
+variable evRightRF_Time
+variable evRightRF_Time_r
 
 variable evRightunew
 variable evRightunew_r
