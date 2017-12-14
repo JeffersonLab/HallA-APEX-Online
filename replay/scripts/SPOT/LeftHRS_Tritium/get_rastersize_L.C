@@ -22,7 +22,7 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   ca_title->Append(")");
 
 
-  TCanvas* c1 = new TCanvas("c1",ca_title->Data(),900,600);
+  TCanvas* c1 = new TCanvas("c1",ca_title->Data(),1800,1200);
 
   c1->Divide(3,2);
   c1->cd(1);
@@ -34,7 +34,7 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   t->DrawLatex(0.1,0.335,ca_title->Data());
 
 
-  TCanvas* fc1 = new TCanvas("fc1",ca_title->Data(),900,600);
+  TCanvas* fc1 = new TCanvas("fc1",ca_title->Data(),1800,1200);
 
   fc1->Divide(3,2);
 
@@ -284,7 +284,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   bpmb_y->Draw();
 
 
-  TCanvas* c2 =  new TCanvas("c2","Upstream Raster Plots",1200,600);
+  TCanvas* c2 =  new TCanvas("c2","Upstream Raster Plots",1800,1200);
   c2->Divide(3,1);
   c2->cd(1);
   // Added to fix axes, show raster x-y in full window
@@ -304,7 +304,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   URastY->Draw();
   URastX->GetXaxis()->SetRangeUser(3000,6000);
 
-  TCanvas* c2A =  new TCanvas("c2A","Downstream Raster Plots",1200,600);
+  TCanvas* c2A =  new TCanvas("c2A","Downstream Raster Plots",1800,1200);
   c2A->Divide(3,1);
   c2A->cd(1);
   // Added to fix axes, show raster x-y in full window
@@ -323,7 +323,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   DRastY->Draw();
   DRastY->GetXaxis()->SetRangeUser(3000,6000);
   
-  TCanvas* c2B =  new TCanvas("c2B","check",900,600);
+  TCanvas* c2B =  new TCanvas("c2B","check",1800,1200);
   //  gStyle->SetOptStat(0);
   c2B->Divide(2,1);
   c2B->cd(1);
@@ -339,7 +339,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
 
   
-  TCanvas* c3 =  new TCanvas("c3","BPM Antenna Plots",900,600);
+  TCanvas* c3 =  new TCanvas("c3","BPM Antenna Plots",1800,1200);
   //  gStyle->SetOptStat(0);
   c3->Divide(4,2);
 
@@ -447,7 +447,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2->cd(3);
   fURastY->Draw();
 
-  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1200,600);
+  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1800,1200);
   fc2A->Divide(3,1);
   fc2A->cd(1);
   // Added to fix axes, show raster x-y in full window
@@ -474,7 +474,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
 
  
-  TCanvas* fc2B =  new TCanvas("fc2B","fadc check",900,600);
+  TCanvas* fc2B =  new TCanvas("fc2B","fadc check",1800,1200);
   //  gStyle->SetOptStat(0);
   fc2B->Divide(2,1);
   fc2B->cd(1);
@@ -489,7 +489,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   frasty1y2->GetYaxis()->SetLabelSize(.038);
   gPad->SetGrid(1,1);
   
-  TCanvas* fc3 =  new TCanvas("fc3","FADC BPM Antenna Plots",900,600);
+  TCanvas* fc3 =  new TCanvas("fc3","FADC BPM Antenna Plots",1800,1200);
   //  gStyle->SetOptStat(0);
   fc3->Divide(4,2);
 
