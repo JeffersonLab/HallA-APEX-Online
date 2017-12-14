@@ -245,7 +245,7 @@ void Check_L_Time()
         
     t->GetEntry(i);
     for(Int_t j=0;j<16;j++){
-        if(L_tr_n==1&&L_s0_nthit==1&&(int)evtypebits==2&&L_s2_t_pads[0]==j)
+        if(L_tr_n==1&&L_s0_nthit==1&&/*(int)evtypebits==2&&*/L_s2_t_pads[0]==j)
             
         {
            
