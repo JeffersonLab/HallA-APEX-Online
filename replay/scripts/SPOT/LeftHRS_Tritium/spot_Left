@@ -85,7 +85,7 @@ case $1 in
     if [ -z $2 ]
     then
       FIRST=1
-      LAST=5000
+      LAST=15000
     else
 	if [ -z $3 ]
             then
