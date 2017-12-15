@@ -87,6 +87,7 @@ S2R             0   8     1     11    1      LHRS S2R signal
 ADC_gate        0   8     1     13    1      
 L1A             0   8     1     14    1      LHRS L1A
 RF_Time         0   8     1     15    1
+L1A             0   8     1     16    1      L1A directly from TS2 output.
 unew            0   8     1     18    1      
 dnew            0   8     1     20    1      
 unser           0   8     1     22    1      
