@@ -39,7 +39,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
   Bool_t bEloss=kFALSE;
-  Bool_t bOldTrack=kTRUE;
+  Bool_t bOldTrack=kFALSE;
   
   TString rootname;
   if(OnlineReplay){
@@ -96,6 +96,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       Tritium_TSScaler* revscaler = new Tritium_TSScaler("evRight","HA scaler event type 1-14 on R-HRS");
       gHaEvtHandlers->Add(revscaler);
+
+      Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
+      gHaEvtHandlers->Add(rEndscaler);
 
     }
 
@@ -224,6 +227,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
     Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
     gHaEvtHandlers->Add(levscaler);
+
+    Tritium_THaScaler100EvtHandler* lEndscaler = new Tritium_THaScaler100EvtHandler("EndLeft","HA scaler event type 100");
+    gHaEvtHandlers->Add(lEndscaler);
+
     }
 
     //==================================
