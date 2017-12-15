@@ -28,6 +28,7 @@ replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
+replay/RootFiles_chafs
 replay/ScratchRootFiles
 replay/summaryfiles/*
 
@@ -42,5 +43,5 @@ scaler/hana_scaler/tscalonl
 scaler/hana_scaler/tscalring
 scaler/hana_scaler/tscalroc11
 scaler/hana_scaler/xscaler
-
+replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*

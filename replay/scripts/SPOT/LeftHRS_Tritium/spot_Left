@@ -85,7 +85,7 @@ case $1 in
     if [ -z $2 ]
     then
       FIRST=1
-      LAST=5000
+      LAST=15000
     else
 	if [ -z $3 ]
             then
@@ -100,17 +100,25 @@ case $1 in
 
 esac
 
-#cd /adaqfs/home/a-onl/tritium/HallA-Online-Tritium/replay/scripts/SPOT/LeftHRS_Tritium
-
+cd /adaqfs/home/a-onl/tritium/replay/scripts/SPOT/LeftHRS_Tritium
 
 export DB_DIR="/adaqfs/home/a-onl/tritium/replay/DB"
 
 #rm -f rastersize.root
 
-analyzer 'get_rastersize.C("'$CFILE'","'$1'",'$FIRST','$LAST',"rastersize.root")'
+analyzer -b -q 'get_rastersize_L.C("'$CFILE'","'$runnum'",'$FIRST','$LAST',"rastersize.root")'
 
-RootFILE=L$1".root"
+RootFILE=L$runnum".root"
+spot_dir="/chafs1/work1/tritium/spot"
 
-#mv rastersize.root $RootFILE
+mv rastersize.root ${spot_dir}/$RootFILE
+mv Tritium_$runnum.pdf ${spot_dir}/.
+mv FADC_Tritium_$runnum.pdf ${spot_dir}/.
 
+echo =================
+echo DONE. PDFs and ROOTFILE are stored at ${spot_dir}
+echo =================
 cd $currentdir
+evince ${spot_dir}/Tritium_$runnum.pdf &
+evince ${spot_dir}/FADC_Tritium_$runnum.pdf &
+
