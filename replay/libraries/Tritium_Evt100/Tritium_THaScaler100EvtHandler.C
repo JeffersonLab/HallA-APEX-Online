@@ -101,7 +101,7 @@ Int_t Tritium_THaScaler100EvtHandler::Analyze(THaEvData *evdata)
 
     lfirst = 0; // Can't do this in Init for some reason
 
-    TString sname1 = "TS100";
+    TString sname1 = "";
     TString sname2 = sname1 + fName;
     TString sname3 = fName + "  Scaler Data";
 
@@ -236,7 +236,7 @@ THaAnalysisObject::EStatus Tritium_THaScaler100EvtHandler::Init(const TDatime& d
 
 // Parse the map file which defines what scalers exist and the global variables.
 
-  TString sname0 = "_Scalevt_TS";
+  TString sname0 = "Scalevt";
   TString sname;
   sname = fName+sname0;
 

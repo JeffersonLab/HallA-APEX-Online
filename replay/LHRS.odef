@@ -61,6 +61,8 @@ Variable FbusLrb.BPMB.y
 Variable FbusLrb.dir.x
 Variable FbusLrb.dir.y
 Variable FbusLrb.e
+Variable FbusLrb.x
+Variable FbusLrb.y
 
 #-------------------------------------------------------------------
 # LEFT ARM S0
@@ -88,8 +90,8 @@ TH1F Ls2lt 'S2 TDC L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.
 TH1F Ls2rt 'S2 TDC R-PMT ' L.s2.rt 500 1300 2300 L.s2.rt>0.
 TH1F Ls2ltTAll_ 'S2 TDC w/ T2,T3: L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2ltT3_ 'S2 TDC w/ T3 only: L-PMT' L.s2.lt 500 1300 2300 L.s2.lt>0.&&(DL.evtypebits==8)
-TH1F Ls2rtTAll_ 'S2 TDC w/ T2,T3: L-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
-TH1F Ls2rtT3_ 'S2 TDC w/ T3 only: L-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&(DL.evtypebits==8)
+TH1F Ls2rtTAll_ 'S2 TDC w/ T2,T3: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
+TH1F Ls2rtT3_ 'S2 TDC w/ T3 only: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&(DL.evtypebits==8)
 
 TH1F Ls2la 'S2 ADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
 TH1F Ls2ra 'S2 ADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
@@ -116,10 +118,10 @@ TH2F Lcerfadcvfbus_ 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT ' L.cer.a_p FbusL
 #
 #TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 200 10 2000 L.prl1.a>0.
 TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.5 1000.5 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1100 -99.5 1000.5 L.prl1.a_p>=-50.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1050 -99.5 2000.5 L.prl1.a_p>=-50.
 TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 100 1 1000 
 TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0.5 1000.5 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1100 -99.5 1000.5 L.prl2.a_p>=-50.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1050 -99.5 2000.5 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 100 1 1500 100 1 1500

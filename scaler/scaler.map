@@ -170,7 +170,7 @@ ch4             0   8     4     3     1
 L1A_Remote      0   8     4     5     1      L1A remote signal from RHRS
 Clock_RHRS      0   8     4     6     1
 Clock_LHRS      0   8     4     7     1
-empty           0   8     4     8     1      
+Sh-Sum          0   8     4     8     1      
 (S0||S2)L       0   8     4     9     1
 S2L             0   8     4     10    1      LHRS S2L signal
 S2R             0   8     4     11    1      LHRS S2R signal
@@ -281,7 +281,7 @@ Cher-Sum        0   7     1    26    1      Right HRS
 S0-A            0   7     1    27    1      Right HRS
 S0-B            0   7     1    28    1
 S0A_and_S0B     0   7     1    29    1
-L1A_remote  	0   7     1    30    1      
+L1A_Copy  	0   7     1    30    1      
 S2L_and_S2R     0   7     1    31    1      empty
 
 S2mL-1        0   7     2     0    1      S2m scintillator on R-HRS
