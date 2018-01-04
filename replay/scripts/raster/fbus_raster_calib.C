@@ -32,7 +32,7 @@ void fbus_raster_calib(){
   int i = 1;
   //TFile *test_file = new TFile(Form("/volatile/halla/triton/tjhague/rootfiles/coinc_test_%d_%d.root",run,i));
 
-  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run),kFileExists)){
+  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run),kFileExists)){
     rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
@@ -40,7 +40,7 @@ void fbus_raster_calib(){
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i),kFileExists)){
+  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i),kFileExists)){
     rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i));
     cout << "Added file: coinc_test_" << run << "_" << i << ".root" << endl;
     i=i+1;
