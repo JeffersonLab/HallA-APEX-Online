@@ -1,54 +1,91 @@
-# Right HRS
-block R.s2.*
-block R.s0.*
-block R.ps.*
-block R.sh.*
-block R.cer.*
-block R.vdc.*
-block R.tr.*
+# Left HRS
+#s2....
+block R.s2.la_c
+block R.s2.ra_c
+block R.s2.lt_c
+block R.s2.rt_c
+Varible R.s2.tr
+block R.s2.dedx
+block R.s2.trpad
+#s2......
 
-block FbusR.s0.*
-block FbusR.cer.*
+#s0......
+block R.s0.la_c
+block R.s0.ra_c
+block R.s0.lt_c
+block R.s0.rt_c
+Varible R.s0.tr
+block R.s0.dedx
+block R.s0.trpad
+#s0......
 
-block DR.*
-block OldTrackR.*
+
+#prl1....
+block R.prl1.asum_c*
+block R.prl1.e*
+block R.prl1.nblk*
+block R.prl1.eblk*
+block R.prl1.nclust*
+block R.prl1.tr*
+#prl1....
+
+#prl2....
+block R.prl2.asum_c*
+block R.prl2.e*
+block R.prl2.nblk*
+block R.prl2.eblk*
+block R.prl2.nclust*
+block R.prl2.tr*
+#prl2....
+
+#cer.....
+block R.cer.a_c*
+block R.cer.asum_c*
+block R.cer.tr*
+#cer.....
+
+#vdc.....
+block R.vdc.*.clchi2*
+block R.vdc.*.clsiz*
+block R.vdc.*.sigt0*
+block R.vdc.*.cltcor*
+#vdc.....
+
+#track...
+block R.tr.d*
+block R.tr.n
+block R.tr.tg*
+block R.tr.v*
+block R.tr.x
+block R.tr.y
+block R.tr.x
+#track...
+
+#decoder.
+block DR.evtype*
+block DR.ltClock*
+block DR.ltL1*
+#decoder.
+
+#block OldTrackR.*
 
 # Physics variables
 block R.gold.*
 block rpr.*
 block exR.*
-block EKR.*
+#block EKR.*
 block EKRc.*
 block EKRx.*
 #block ElbR.*
 #block EltR.*
 #block EKRxe.*
 
-
-#BPM/Raster Variables
-Variable Rrb.Raster.rawcur.x
-Variable Rrb.Raster.rawcur.y
-Variable Rrb.Raster2.rawcur.x
-Variable Rrb.Raster2.rawcur.y
-Variable Rrb.BPMA.x
-Variable Rrb.BPMA.y
-Variable Rrb.BPMB.x
-Variable Rrb.BPMB.y
 Variable Rrb.dir.x
 Variable Rrb.dir.y
-Variable Rrb.e
-
-Variable FbusRrb.Raster.rawcur.x
-Variable FbusRrb.Raster.rawcur.y
-Variable FbusRrb.Raster2.rawcur.x
-Variable FbusRrb.Raster2.rawcur.y
-Variable FbusRrb.BPMA.x
-Variable FbusRrb.BPMA.y
-Variable FbusRrb.BPMB.x
-Variable FbusRrb.BPMB.y
-Variable FbusRrb.dir.x
-Variable FbusRrb.dir.y
-Variable FbusRrb.e
+Variable FbusRrb.x
+Variable FbusRrb.y
+Variable Rrb.x
+Variable Rrb.y
 
 #-------------------------------------------------------------------------------
 #Event type 140 scaler
@@ -153,7 +190,6 @@ begin epics
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_bcm_average
   hac_unser_read
   hac_unser_current
   hac_bcm_dvm1_current
@@ -166,10 +202,10 @@ begin epics
   IPM1C12.XPOS
   IPM1C12.YPOS
 
-  IPM1H04A.XPOS
-  IPM1H04A.YPOS
-  IPM1H04E.XPOS
-  IPM1H04E.YPOS
+#  IPM1H04A.XPOS
+#  IPM1H04A.YPOS
+#  IPM1H04E.XPOS
+#  IPM1H04E.YPOS
 
-  FCupsCORRECTED.VAL
+#  FCupsCORRECTED.VAL
 end epics
