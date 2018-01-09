@@ -58,7 +58,7 @@ block R.tr.tg*
 block R.tr.v*
 block R.tr.x
 block R.tr.y
-block R.tr.x
+block R.tr.z
 #track...
 
 #decoder.
