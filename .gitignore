@@ -1,5 +1,14 @@
 # ignore patterns
 
+replay/scripts/calibrate/BPM/HarpScans/*
+replay/scripts/calibrate/BPM/harp_results_*
+replay/scripts/FADC_decode/results/
+replay/scripts/calibrate/BPM/*.txt
+replay/Rootfiles*
+replay/plots
+replay/Time_check/*.pdf
+replay/scripts/FADC_decode/*
+replay/scripts/list/*.pdf
 
 **/*~
 **/*.o
