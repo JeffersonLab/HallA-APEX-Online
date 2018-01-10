@@ -1,0 +1,1 @@
+lp -d chax -o "sides=one-sided" -P 2-7 runlist.pdf
