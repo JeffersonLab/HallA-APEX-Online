@@ -8,17 +8,17 @@ void rate_check_L(Int_t flag, TString drawoption){
   TTree *tree = (TTree*)gDirectory->Get("T");
  //Set the cut for data 
    const double dp_cut = 0.08;
-   const double th_cut = 0.035;
-   const double ph_cut = 0.02; 
+//   const double th_cut = 0.035;
+//   const double ph_cut = 0.02; 
   //const double y_cut = 10;//0.02;
   
 
   TCut track = "L.tr.n ==1";
-  TCut trigger = "((DL.evtypebits>>1)&1)";
-  TCut pid = Form("L.cer.asum_c>1000 && ((L.prl1.e+L.prl2.e)>800)");
-  TCut acc = Form("abs(L.tr.tg_dp)<%f && abs(L.tr.tg_ph)<%f && abs(L.tr.tg_th)<%f", dp_cut,ph_cut, th_cut);
-  TCut data_cut = track +acc +pid ;
-  TCut y_cut = "abs(L.tr.tg_y)<0.02"; // +-7cm ztarget at 17 degree
+  TCut trigger = "((DL.evtypebits>>2)&1)";
+  TCut pid = Form("L.cer.asum_c>2000 && ((L.prl1.e+L.prl2.e)/(1000*L.tr.p[0])>0.7)");
+  TCut acc = Form("abs(L.tr.tg_dp)<%f)", dp_cut);
+  TCut data_cut = track +pid +acc;
+  TCut y_cut = "L.tr.tg_y<0.08 && L.tr.tg_y>-0.1"; // +-7cm ztarget at 17 degree
   if(flag==1){
     
     TH1F *ht1 = new TH1F("ht1","xbj w/ acc and tgy cuts",1000,0,3);
@@ -44,7 +44,7 @@ void rate_check_L(Int_t flag, TString drawoption){
      TH1F *htt3 = new TH1F("htt3","ytarget after cuts",1000,-0.1,0.1);
     
     tree->Draw("L.tr.tg_y>>ht3","",drawoption);
-    tree->Draw("L.tr.tg_y>>htt3",data_cut+y_cut,"same");
+    tree->Draw("L.tr.tg_y>>htt3",data_cut+y_cut+trigger,"same");
     htt3->SetLineColor(kRed);
     htt3->Draw("same");
 
