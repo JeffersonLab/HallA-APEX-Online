@@ -176,7 +176,7 @@ TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.p
 TH1F L_tgth 'L-arm target theta' L.tr.tg_th 200 -.2 .2 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_tgy 'L-arm target y' L.tr.tg_y 200 -.1 .1 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 0.05 0.65 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 -0.2 0.2 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 
 TH1F Ltrn_ep  'L-arm number of tracks with ep cut' L.tr.n 20 -0.5 10.5 (L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F Ltrn_cer  'L-arm number of tracks with cer cut' L.tr.n 20 -0.5 10.5 L.cer.asum_c>2000
