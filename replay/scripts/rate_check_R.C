@@ -8,15 +8,15 @@ void rate_check_R(Int_t flag, TString drawoption=""){
   TTree *tree = (TTree*)gDirectory->Get("T");
  //Set the cut for data 
    const double dp_cut = 0.035;
-  const double th_cut = 0.035;
-  const double ph_cut = 0.02; 
+//  const double th_cut = 0.035;
+//  const double ph_cut = 0.02; 
   //const double y_cut = 10;//0.02;
   
 
   TCut track = "R.tr.n ==1";
-  TCut trigger = "((DR.evtypebits>>4)&1)";
-  TCut pid = Form("R.cer.asum_c>1000 && ((R.ps.e+R.sh.e)>800)");
-  TCut acc = Form("abs(R.tr.tg_dp)<%f && abs(R.tr.tg_ph)<%f && abs(R.tr.tg_th)<%f", dp_cut,ph_cut, th_cut);
+  TCut trigger = "((DR.evtypebits>>5)&1)";
+  TCut pid = Form("R.cer.asum_c>2000 && ((R.ps.e+R.sh.e)/(R.tr.p[0]*1000)>0.7)");
+  TCut acc = Form("abs(R.tr.tg_dp)<%f", dp_cut);
   TCut data_cut =  track + acc+ trigger+pid ;
   TCut y_cut = "abs(R.tr.tg_y)<0.2"; // +-7cm ztarget at 17 degree
   if(flag==1){
@@ -44,7 +44,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
     ht3->GetYaxis()->SetTitle("good events counts");ht3->GetYaxis()->CenterTitle();
     
     
-    tree->Draw("R.tr.tg_y>>ht3",data_cut,drawoption);
+    tree->Draw("R.tr.tg_y>>ht3",data_cut+y_cut,drawoption);
   }
 
   if(flag==4){
