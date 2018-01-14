@@ -134,7 +134,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_H3; //default target 
+      Double_t mass_tg = mass_H3/3; //default target 
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
