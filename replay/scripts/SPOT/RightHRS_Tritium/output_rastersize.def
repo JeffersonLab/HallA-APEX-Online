@@ -23,7 +23,7 @@ TH1F beam_y 'y at target [mm]' rby 4000  -10. 10.
 
 TH2F bpma_xy 'BPMA y vs x'  rbax rbay 2000 -5. 5. 2000 -5. 5.
 TH2F bpmb_xy 'BPMB y vs x'  rbbx rbby 2000 -5. 5. 2000 -5. 5.
-TH2F beam_xy 'beam at target y vs x'  rbx rby 200 -10. 10.  200 -10. 10.
+TH2F beam_xy 'beam at target y vs x'  rbx rby 200 -10. 20.  200 -20. 10.
 
 TH2F rastxy1 'Fast Raster 1 X vs Y (current)' FbusRrb.Raster.rawcur.y FbusRrb.Raster.rawcur.x     400 5000 10000 400 5000 10000
 TH2F rastxy2 'Fast Raster 2 X vs Y (current)' FbusRrb.Raster2.rawcur.y FbusRrb.Raster2.rawcur.x   400 5000 10000 400 5000 10000

@@ -14,6 +14,7 @@ block FbusL.cer.*
 
 block DL.*
 block OldTrackL.*
+#block F1*
 
 # Physics variables
 block L.gold.*
@@ -65,6 +66,8 @@ Variable FbusLrb.x
 Variable FbusLrb.y
 
 #-------------------------------------------------------------------
+#
+formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
 TH1F Ls0lt 'S0-Bottom(B) TDC' L.s0.lt 500 1300 2300 L.s0.lt>0.
@@ -99,6 +102,7 @@ TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1800 L.s2.la_p>-6000.
 TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1800 L.s2.ra_p>-6000.
 
 
+
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
@@ -108,7 +112,8 @@ TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&
 
 TH1F Lcera   'Cerenkov'  L.cer.a 15000 0 150000 L.cer.a>0
 TH1F Lcersum 'Cerenkov FADC sum (corrected)' L.cer.asum_c 10100 -100 10000  L.cer.asum_c>-1000
-TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT ' L.cer.a_p 4000 -200 7800 L.cer.a_p>-200.
+TH1F Lcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' L.cer.a_p 5000 -200 2000 L.cer.a_p>-200.&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 500 -200 2000 L.cer.a_p>-200
 TH2F Lcer_x  'Cerenkov FADC sum (corrected) vs. X' L.cer.trx L.cer.asum_c  60 -1.2 1.2 10100 -100 10000 L.tr.n>0&&L.cer.asum_c>-1000
 TH2F Lcer_y  'Cerenkov FADC sum (corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -100 10000 L.tr.n>0&&L.cer.asum_c>-1000
 TH2F Lcerfadcvfbus_ 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT ' L.cer.a_p FbusL.cer.a_p 5000 0 10000 5000 0 10000 L.cer.a_p>0
@@ -167,12 +172,14 @@ TH2F L_tfpb 'L-arm FP Transport theta vs. phi' L.tr.ph L.tr.th 200 -.075 .075 20
 TH2F L_tfpc 'L-arm FP Rotated x vs. y' L.tr.r_y L.tr.r_x 200 -.2 .2 200 -1.5 1.5
 TH2F L_tfpd 'L-arm FP Rotated theta vs. phi' L.tr.r_ph L.tr.r_th 200 -.075 .075 200 -.2 .2 
 
-TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1
-TH1F L_tgth 'L-arm target theta' L.tr.tg_th 200 -.2 .2
-TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1
-TH1F L_tgy 'L-arm target y' L.tr.tg_y 200 -.1 .1
+TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_tgth 'L-arm target theta' L.tr.tg_th 200 -.2 .2 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_tgy 'L-arm target y' L.tr.tg_y 200 -.1 .1 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 -0.2 0.2 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 
-TH1F Ltrn  'L-arm number of tracks' L.tr.n 20 -0.5 10.5
+TH1F Ltrn_ep  'L-arm number of tracks with ep cut' L.tr.n 20 -0.5 10.5 (L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F Ltrn_cer  'L-arm number of tracks with cer cut' L.tr.n 20 -0.5 10.5 L.cer.asum_c>2000
 
 TH1F L_tr_beta  'L-arm Track Beta' L.tr.beta 100 -2 2 L.tr.n>0  
 TH2F L_tr_betax 'L-arm Track Beta vs. Track X' L.tr.x L.tr.beta 100 -1 1 100 -2 2 L.tr.n>0
@@ -252,6 +259,9 @@ TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur
 TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.x rbay 500 0 5000 200 -5. 5.
 TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Lrb.Raster2.rawcur.y rbbx 500 0 5000 200 -5. 5.
 TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Lrb.Raster2.rawcur.x rbby 500 0 5000 200 -5. 5.
+
+TH1F E_p 'E/p' Lep 300 -0.5 1.5 L.gold.p<1000000000&&L.gold.p>0
+TH1F E_p_cut 'E/p with cut' Lep 300 -0.5 1.5 L.cer.asum_c>2000&&L.gold.p<1000000000&&L.gold.p>0
 
 # ------------------------------------------------------------------
 # Event type 140 
