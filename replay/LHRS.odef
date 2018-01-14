@@ -406,6 +406,10 @@ variable evLeftd10_r
 
 #--------------------------------------------
 begin epics
+  haBDSPOS
+  HacL_alignAGL
+  HacL_D1_P0rb	
+  
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
