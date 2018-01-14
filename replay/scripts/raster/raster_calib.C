@@ -22,7 +22,7 @@ void raster_calib(){
     return;
   }
 
-  Double_t kx = -1.;
+  Double_t kx = 1.;
   Double_t ky = -1.;
 
   //Open Root File
@@ -32,7 +32,7 @@ void raster_calib(){
   int i = 1;
   //TFile *test_file = new TFile(Form("/volatile/halla/triton/tjhague/rootfiles/coinc_test_%d_%d.root",run,i));
 
-  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run),kFileExists)){
+  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run),kFileExists)){
     rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
@@ -40,7 +40,7 @@ void raster_calib(){
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i),kFileExists)){
+  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i),kFileExists)){
     rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i));
     cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
     i=i+1;
@@ -66,10 +66,10 @@ void raster_calib(){
   //Also get the Mean and RMS of each plot
   
   //Plot X and Y Currents for both Rasters
-  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 62000, 68000);
+  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 45000, 85000);
+  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 45000, 85000);
+  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 45000, 85000);
+  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 45000, 85000);
 
   //Plot X and Y Position for both BPMs
   TH1F *bpmaxpos = new TH1F("bpmaxpos", "BPM A-X Position (m)", 400, -0.02, 0.02);
