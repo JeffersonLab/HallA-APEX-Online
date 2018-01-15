@@ -41,6 +41,7 @@
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcRasteredBeam/libTriFadcRasteredBeam.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriVDCeff/libTriVDCeff.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriOldTrack/libTriOldTrack.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/TriF1VETROC/libVETROCF1tdc_tritium.so")); // Marco
   }
 
     //Load more libs here, if necessary. 
