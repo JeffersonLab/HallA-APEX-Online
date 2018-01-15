@@ -38,10 +38,19 @@ void getinfo(Int_t run=0){
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
   THaRunParameters *para=aRun->GetParameters();
   para->Print();
-
-
-  Double_t p0, angle, pos,ebeam; 
-  TString arm,targname;
+	
+	
+  Double_t p0, angle, pos,ebeam,clk,dnew; 
+  TString arm,targname="unknown";
+  
+  tree1->SetBranchAddress("evLeftLclock",clk);
+  tree1->SetBranchAddress("evLeftdnew",dnew);
+  Double_t last=tree1->GetEntries();
+  tree1->GetEntry(last-1);
+  cout<<"Event Number: " << last<<endl;
+  cout<<"Time        : " << clk*1.0/103700/60<<" minutes"<<endl;
+  cout<<"Charge      : " << dnew * 0.00033 << " C "<<endl;
+  
   tree2 = (TTree*)file->Get("E");
   tree2->SetBranchAddress("HALLA_p",&ebeam);
   tree2->SetBranchAddress("haBDSPOS",&pos);
@@ -60,19 +69,20 @@ void getinfo(Int_t run=0){
   target ti={10298417,"Titanium"};
   target beo={9583153,"BeO"};
 
-  if(abs(pos)<50) targname=t2.name;
-  else if(abs(pos-d2.pos)<50) targname=d2.name;
-  else if(abs(pos-h.pos)<50) targname=h.name;
-  else if(abs(pos-he3.pos)<50) targname=he3.name;
-  else if(abs(pos-empty.pos)<50) targname=empty.name;
-  else if(abs(pos-dummy.pos)<50) targname=dummy.name;
+  if(abs(pos)<50) targname="HOME";
+  if(abs(pos-t2.pos)<50)          targname=t2.name;
+  else if(abs(pos-d2.pos)<50)     targname=d2.name;
+  else if(abs(pos-h.pos)<50)      targname=h.name;
+  else if(abs(pos-he3.pos)<50)    targname=he3.name;
+  else if(abs(pos-empty.pos)<50)  targname=empty.name;
+  else if(abs(pos-dummy.pos)<50)  targname=dummy.name;
   else if(abs(pos-optics.pos)<50) targname=optics.name;
-  else if(abs(pos-hole.pos)<50) targname=hole.name;
+  else if(abs(pos-hole.pos)<50)   targname=hole.name;
   else if(abs(pos-raster.pos)<50) targname=raster.name;
-  else if(abs(pos-al.pos)<50) targname=al.name;
+  else if(abs(pos-al.pos)<50)     targname=al.name;
   else if(abs(pos-single.pos)<50) targname=single.name;
-  else if(abs(pos-ti.pos)<50) targname=ti.name;
-  else if(abs(pos-beo.pos)<50) targname=beo.name;
+  else if(abs(pos-ti.pos)<50)     targname=ti.name;
+  else if(abs(pos-beo.pos)<50)    targname=beo.name;
   
   if(run<20000) {
     tree2->SetBranchAddress("HacL_alignAGL",&angle);
