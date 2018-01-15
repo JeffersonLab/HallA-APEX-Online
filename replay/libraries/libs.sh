@@ -9,6 +9,7 @@ cd $currentdir/$dir
 echo " "
 
 make realclean
+make clean
 
 echo " "
 

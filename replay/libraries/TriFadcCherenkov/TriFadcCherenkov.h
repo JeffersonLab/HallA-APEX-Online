@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "THaPidDetector.h"
+#include "Fadc250Module.h"
 
 class TClonesArray;
 
@@ -49,7 +50,13 @@ protected:
   Float_t    fASUM_p;     // Sum of ADC minus pedestal values of channels
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
 
-  //NPED: number of samples to sum for pedestal (set in fadc readout list)
+  //FADC
+  Int_t* foverflow;         //[fNelem] FADC overflowbit
+  Int_t* funderflow;        //[fNelem] FADC underflowbit
+  Int_t* fpedq;             //[fNelem] FADC pedestal quality bit
+  Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
+
+
   virtual Int_t  DefineVariables( EMode mode = kDefine );
           void   DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );

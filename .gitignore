@@ -1,5 +1,14 @@
 # ignore patterns
 
+replay/scripts/calibrate/BPM/HarpScans/*
+replay/scripts/calibrate/BPM/harp_results_*
+replay/scripts/FADC_decode/results/
+replay/scripts/calibrate/BPM/*.txt
+replay/Rootfiles*
+replay/plots
+replay/Time_check/*.pdf
+replay/scripts/FADC_decode/*
+replay/scripts/list/*.pdf
 
 **/*~
 **/*.o
@@ -12,6 +21,9 @@
 **/*.pcm
 **/*.dat.*
 **/*Dict.*
+**/*.aux
+**/*.log
+**/*.out
 #**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
 **/.nfs*
 #replay/*.0
@@ -20,10 +32,14 @@
 #replay/*.pcm
 
 replay/onlineGUI64/online
+replay/onlineGUI64/*.pdf
+replay/scripts/SPOT/**/*.pdf
 
 replay/DB/*
 replay/RootFiles
+replay/RootFiles_chafs
 replay/ScratchRootFiles
+replay/summaryfiles/*
 
 scaler/xscaler
 scaler/hana_scaler/tscalasy
@@ -36,5 +52,5 @@ scaler/hana_scaler/tscalonl
 scaler/hana_scaler/tscalring
 scaler/hana_scaler/tscalroc11
 scaler/hana_scaler/xscaler
-
+replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*

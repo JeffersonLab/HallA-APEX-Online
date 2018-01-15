@@ -14,7 +14,7 @@ DL.word =
 		trigCount        11    fed00017   22
 		trigData         11    fed00017   23
 
-DL.crate =
+DL.multi =
 # L-HRS, R-HRS, BB & HAND trigger inputs (1877) left arm copy
 # L-HRS trigger inputs (1877) 
 	T1             5      16      0
@@ -50,6 +50,7 @@ DL.crate =
          ltS0orS2_RHRS     4      11      60
          ltadcgate         4      11      61
          ltL1A             4      11      62
+         ltRFtime          4      11      63
          tGCSum  	   4      11      42
          tS0coinc          4      11      45
          tShSum	           4      11      46

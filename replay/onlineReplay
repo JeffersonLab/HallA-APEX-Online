@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] 
+then
+	echo "Please enter run number"
+	read RUNNUM
+else
+	RUNNUM=$1
+fi
+analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE)'
