@@ -67,10 +67,11 @@ variable 1 30 1  d10     bcm x10 downstream count
 variable 1 30 2  d10_r   bcm x10 downstream rate
 
 
-variable 1 10 1 S2L       S2L counts
-variable 1 10 2 S2L_r     S2L rate
-variable 1 11 1 S2R       S2R counts
-variable 1 11 2 S2R_r     S2R rate
+variable 4 28  1  S0A    S0A
+variable 4 28  2  S0A_r  S0A rate
+variable 4 29  1  S0B    S0B
+variable 4 29  1  S0B_r  S0B rate
+
 
 variable 3 0  1  S2mL_1   S2m1L
 variable 3 0  2  S2mL_1r  S2m1L rate
@@ -136,6 +137,26 @@ variable 3 31  1  S2mR_16   S2m16R
 variable 3 31  2  S2mR_16r  S2m16R rate
 
 
+variable 4 16  1  Cher_1   Cher1
+variable 4 16  2  Cher_1r  Cher1 rate
+variable 4 17  1  Cher_2   Cher2
+variable 4 17  2  Cher_2r  Cher2 rate
+variable 4 18  1  Cher_3   Cher3
+variable 4 18  2  Cher_3r  Cher3 rate
+variable 4 19  1  Cher_4   Cher4
+variable 4 19  2  Cher_4r  Cher4 rate
+variable 4 20  1  Cher_5   Cher5
+variable 4 20  2  Cher_5r  Cher5 rate
+variable 4 21  1  Cher_6   Cher6
+variable 4 21  2  Cher_6r  Cher6 rate
+variable 4 22  1  Cher_7   Cher7
+variable 4 22  2  Cher_7r  Cher7 rate
+variable 4 23  1  Cher_8   Cher8
+variable 4 23  2  Cher_8r  Cher8 rate
+variable 4 24  1  Cher_9   Cher
+variable 4 24  2  Cher_9r  Cher9 rate
+variable 4 25  1  Cher_10   Cher10
+variable 4 25  2  Cher_10r  Cher10 rate
 
 
 
