@@ -1,0 +1,14 @@
+--------[ 2017-12-01 00:00:00 -0500 ] 
+RightBCM.u1.offset = 0.8732
+RightBCM.u1.gain = 0.0003673
+RightBCM.d3.offset = 0.2429
+RightBCM.d3.gain = 0.0001073
+RightBCM.d10.offset= 0.2455
+RightBCM.d10.gain = 0.0003667
+RightBCM.dnew.offset = 0.1612
+RightBCM.dnew.gain = 0.0003267
+RightBCM.unew.offset = 0.187
+RightBCM.unew.gain = 0.0003961
+
+
+
