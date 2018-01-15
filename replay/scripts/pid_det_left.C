@@ -8,7 +8,7 @@ void pid_det_left(Int_t flag, TString drawoption){
 
   if(flag ==1){
     
-    TH2F *h = new TH2F("h","Pion-Rej 2 E/p vs. Pion-Rej 1 E/p",60,0,2000,60,0,2000);
+    TH2F *h = new TH2F("h","Pion-Rej 2 E/p vs. Pion-Rej 1 E/p",60,0,3000,60,0,3000);
     h->GetXaxis()->SetTitle("Layer 1 E/p");h->GetYaxis()->CenterTitle();
     h->GetYaxis()->SetTitle("Layer 2 E/p");h->GetXaxis()->CenterTitle();
     

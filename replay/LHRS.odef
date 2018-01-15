@@ -129,7 +129,7 @@ TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0.5 1000.5 L.prl2.a>0.
 TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1050 -99.5 2000.5 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
 
-TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 100 1 1500 100 1 1500
+TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 1 1500 200 1 1500
 TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
 TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 100 1 1000 L.tr.n>0
 TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 100 1 1000 L.tr.n>0
@@ -176,7 +176,7 @@ TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.p
 TH1F L_tgth 'L-arm target theta' L.tr.tg_th 200 -.2 .2 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_tgy 'L-arm target y' L.tr.tg_y 200 -.1 .1 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 0.05 0.65 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 -0.2 0.2 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 
 TH1F Ltrn_ep  'L-arm number of tracks with ep cut' L.tr.n 20 -0.5 10.5 (L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F Ltrn_cer  'L-arm number of tracks with cer cut' L.tr.n 20 -0.5 10.5 L.cer.asum_c>2000
@@ -192,11 +192,11 @@ TH2F L_tgc  'L-arm tgt phi vs. y' L.tr.tg_y L.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 #-------------------------------------------------------------------------------
 # LEFT Arm Physics Histograms:
 
-TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 200 -0 4
+TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 200 1 12
 TH1F EKLNU 'L-arm nu, energy transfer'   EKL.omega 400 0 2
 TH1F EKLW  'L-arm invariant mass W' sqrt(EKL.W2) 100 -1 2
 TH1F EKL_TH_E 'L-arm scattering angle (deg)' EKL.angle*180./3.14159 180 0 60
-TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 3
+TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 1
 #TH1F EKLTH_Q 'L-arm Virtual photon angle (deg)' EKL.th_q*180./3.14159 60 0 60
 
 TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 3 100 0 4
@@ -406,6 +406,10 @@ variable evLeftd10_r
 
 #--------------------------------------------
 begin epics
+  haBDSPOS
+  HacL_alignAGL
+  HacL_D1_P0rb	
+  
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
