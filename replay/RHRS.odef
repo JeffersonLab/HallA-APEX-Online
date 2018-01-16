@@ -13,6 +13,14 @@ block FbusR.cer.*
 block DR.*
 block OldTrackR.*
 
+# F1tdc and VETROC
+variable F1nhits
+variable F1FirstHit
+variable F1AllHits_014
+variable vfnhits
+variable vfFirstHit
+variable vfAllHits_126
+
 # Physics variables
 block R.gold.*
 block rpr.*
