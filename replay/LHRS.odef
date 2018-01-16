@@ -232,10 +232,10 @@ TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 800 -15. 15. 
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
 #This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
-TH1F rastx1 'Fast Raster 1 X current' Lrb.Raster.rawcur.x 5000 50000 100000
-TH1F rasty1 'Fast Raster 1 Y current' Lrb.Raster.rawcur.y 5000 20000 120000
-TH1F rastx2 'Fast Raster 2 X current' Lrb.Raster2.rawcur.x 5000 45000 95000
-TH1F rasty2 'Fast Raster 2 Y current' Lrb.Raster2.rawcur.y 5000 20000 120000
+TH1F rastx1 'Fast Raster 1 X current' Lrb.Raster.rawcur.x 500 50000 100000
+TH1F rasty1 'Fast Raster 1 Y current' Lrb.Raster.rawcur.y 500 20000 120000
+TH1F rastx2 'Fast Raster 2 X current' Lrb.Raster2.rawcur.x 500 45000 95000
+TH1F rasty2 'Fast Raster 2 Y current' Lrb.Raster2.rawcur.y 500 20000 120000
 
 TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.x Lrb.Raster.rawcur.y 2000 50000 100000 2000 20000 120000
 TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.x Lrb.Raster2.rawcur.y 2000 45000 95000 2000 20000 120000
