@@ -322,7 +322,7 @@ variable evLeftT2_r
 variable evLeftT3
 variable evLeftT3_r
 
-variable evLeftL1A_Ri
+variable evLeftL1A_R
 variable evLeftL1A_R_r
 variable evLeftRclock
 variable evLeftRclock_r
@@ -406,7 +406,7 @@ variable evLeftd10_r
 #  bcm_unewr 7 6
 #  bcm_dnewr 7 7
 #  bcm_unewc 7 6 counts
-#  bcm_dnewc 7 7 countsi
+#  bcm_dnewc 7 7 counts
 
 #end scalers evleft
 
