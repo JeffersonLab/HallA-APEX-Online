@@ -65,8 +65,8 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	char buf[255];
 	char *filestatus;
 	int numofscans=0;
-	const char* exp=getenv("EXPERIMENT");
-	const char* root_dir="/adaqfs/home/a-onl/tritium/replay/RootFiles";
+	const char* exp="tritium_online";//getenv("EXPERIMENT");
+	const char* root_dir="/chafs1/work1/tritium/Rootfiles";//"/adaqfs/home/a-onl/tritium/replay/RootFiles";
 
 //Use vectors instead of an array, to allow for resizing!
 	//Harp positions!
@@ -88,8 +88,8 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	double xp, xm, yp, ym;
 //BMP pedestals
 	//char side = 'L';
-	double pedestal[9] = {0,3453, 3422, 3527, 3609, 3787, 3671, 3414, 3433};//Right
-	double pedestalL[9] ={0,3674, 3501, 3472, 3485, 3801, 3695, 3601, 3438};//Left
+	double pedestal[9] = {0,70792,  70856,  70352,  70771, 75086, 75308, 72259, 72773 };//Right
+	double pedestalL[9] ={0,64117,  65152,  65122,  65745, 69276, 67783, 64835, 63954};//Left
 	
 	if(side=='L'){for(int i=0;i<9;i++){pedestal[i]=pedestalL[i];}}
 	
@@ -160,12 +160,12 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 //Setting up the BPM histograms and tree varibles!!
 	//For BPMA
 	for(int A=1;A<5;A++){T->SetBranchAddress(Form("%crb.BPMA.rawcur.%d",side,A),&peak[A]);
-			H[A] = new TH1F(Form("H%d",A),Form("%c BPMA_%d",side,A),5000,0,10000);
-			HH[A]= new TH1F(Form("HH%d",A),Form("%c BPMA_%d",side,A),2500,pedestal[A]+200,10000);}
+			H[A] = new TH1F(Form("H%d",A),Form("%c BPMA_%d",side,A),10000,0,100000);
+			HH[A]= new TH1F(Form("HH%d",A),Form("%c BPMA_%d",side,A),25000,pedestal[A]+200,10000);}
 	//For BPMB			
 	for(int B=1;B<5;B++){T->SetBranchAddress(Form("%crb.BPMB.rawcur.%d",side,B),&peak[B+4]);
-			H[B+4] = new TH1F(Form("H%d",B+4),Form("%c BPMB_%d",side,B),5000,0,10000);
-			HH[B+4]= new TH1F(Form("HH%d",B+4),Form("%c BPMA_%d",side,B),2500,pedestal[B+4]+200,10000);}
+			H[B+4] = new TH1F(Form("H%d",B+4),Form("%c BPMB_%d",side,B),10000,0,100000);
+			HH[B+4]= new TH1F(Form("HH%d",B+4),Form("%c BPMA_%d",side,B),25000,pedestal[B+4]+200,10000);}
 	c1[numofscans]->cd(1);
 
 	//Event[numofscans]="right_clkcount>=%f&&right_clkcount<=%f",BCMcuts[numofscans][0],BCMcuts[numofscans][1];
@@ -192,12 +192,12 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 				//if(peak[m] - pedestal[m]-200 <=0){T->Draw(Form("rb.BPMB.rawcur.%d>>HH%d",m-4,m));
 				//			peak[m] = HH[m]->GetBinCenter(HH[m]->GetMaximumBin());}
 				}
-			H[m]->GetXaxis()->SetRangeUser(pedestal[m]-20,peak[m]+200);
+			H[m]->GetXaxis()->SetRangeUser(pedestal[m]-2500,peak[m]+2500);
 			
 			H[m]->SetLineWidth(4);
 	
 	//Fit the raw BPM signal with a gausian to extract a value for the peak. 						
-			H[m]->Fit("gaus","Q","",peak[m]-60, peak[m]+60);
+			H[m]->Fit("gaus","Q","",peak[m]-600, peak[m]+600);
         	Sigma[m] = H[m]->GetFunction("gaus")->GetParameter(2);
 			H[m]->Fit("gaus","Q","",peak[m]-2.5*Sigma[m], peak[m]+2.5*Sigma[m]);
 			peak[m] = H[m]->GetFunction("gaus")->GetParameter(1);

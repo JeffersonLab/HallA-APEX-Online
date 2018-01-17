@@ -1,0 +1,261 @@
+# Left HRS
+#s2....
+block L.s2.la_c
+block L.s2.ra_c
+block L.s2.lt_c
+block L.s2.rt_c
+block L.s2.dedx
+block L.s2.tr*
+#s2......
+
+#s0......
+block L.s0.la_c
+block L.s0.ra_c
+block L.s0.lt_c
+block L.s0.rt_c
+Varible L.s0.tr*
+block L.s0.dedx
+#s0......
+
+#prl1....
+block L.prl1.asum_c*
+block L.prl1.asum_p*
+block L.prl1.e*
+block L.prl1.nblk*
+block L.prl1.eblk*
+block L.prl1.nclust*
+block L.prl1.tr*
+#prl1....
+
+#prl2....
+block L.prl2.asum_c*
+block L.prl2.asum_p*
+block L.prl2.e*
+block L.prl2.nblk*
+block L.prl2.eblk*
+block L.prl2.nclust*
+block L.prl2.tr*
+#prl2....
+
+#cer.....
+block L.cer.a_c*
+block L.cer.asum_c*
+block L.cer.tr*
+block L.cer.asum_p*
+#cer.....
+
+#vdc.....
+block L.vdc.*.clchi2*
+block L.vdc.*.clsiz*
+block L.vdc.*.sigt0*
+block L.vdc.*.cltcor*
+#vdc.....
+
+#track...
+block L.tr.*
+#track...
+
+#decoder.
+block DL.*
+#decoder.
+
+#block OldTrackL.*
+
+# Physics variables
+block L.gold.*
+block rpl.*
+block exL.*
+block EKL.*
+block EKLc.*
+block EKLx.*
+#block ElbL.*
+#block EltL.*
+#block EKLxe.*
+block LeftBCM*
+
+Variable Lrb.dir.x
+Variable Lrb.dir.y
+Variable FbusLrb.x
+Variable FbusLrb.y
+Variable Lrb.x
+Variable Lrb.y
+
+# ------------------------------------------------------------------
+# Event type 140 
+
+#begin scalers Left 
+variable LeftT1
+variable LeftT1_r
+variable LeftT2
+variable LeftT2_r  
+variable LeftT3
+variable LeftT3_r  
+
+variable LeftL1A_R
+variable LeftL1A_R_r  
+variable LeftRclock
+variable LeftRclock_r  
+variable LeftLclock
+variable LeftLclock_r
+variable LeftLs0ors2
+variable LeftLs0ors2_r
+variable Lefts2L
+variable Lefts2L_r
+variable Lefts2R
+variable Lefts2R_r
+variable LeftRs0ors2
+variable LeftRs0ors2_r
+variable LeftADC_gate
+variable LeftADC_gate_r
+variable LeftL1A
+variable LeftL1A_r
+variable LeftEDTM_s2
+variable LeftEDTM_s2_r
+variable Leftunew
+variable Leftunew_r
+variable Leftdnew
+variable Leftdnew_r
+variable Leftunser
+variable Leftunser_r
+variable Leftu1
+variable Leftu1_r
+variable Leftd1
+variable Leftd1_r
+variable Leftd3
+variable Leftd3_r
+variable Leftd10
+variable Leftd10_r
+
+variable evLeftT1
+variable evLeftT1_r
+variable evLeftT2
+variable evLeftT2_r
+variable evLeftT3
+variable evLeftT3_r
+
+variable evLeftL1A_R
+variable evLeftL1A_R_r
+variable evLeftRclock
+variable evLeftRclock_r
+variable evLeftLclock
+variable evLeftLclock_r
+variable evLeftLs0ors2
+variable evLeftLs0ors2_r
+variable evLefts2L
+variable evLefts2L_r
+variable evLefts2R
+variable evLefts2R_r
+variable evLeftRs0ors2
+variable evLeftRs0ors2_r
+variable evLeftADC_gate
+variable evLeftADC_gate_r
+variable evLeftL1A
+variable evLeftL1A_r
+variable evLeftEDTM_s2
+variable evLeftEDTM_s2_r
+variable evLeftunew
+variable evLeftunew_r
+variable evLeftdnew
+variable evLeftdnew_r
+variable evLeftunser
+variable evLeftunser_r
+variable evLeftu1
+variable evLeftu1_r
+variable evLeftd1
+variable evLeftd1_r
+variable evLeftd3
+variable evLeftd3_r
+variable evLeftd10
+variable evLeftd10_r
+
+
+
+#end scalers left
+
+# ------------------------------------------------------------------
+# Crate 11 scalers
+
+#begin scalers evleft
+# 103.7 kHz clock
+#  clkcount 3 7 counts
+
+# counts in triggers, BCM, etc.
+#  clkcountr 3 7	      
+
+#  t1c  3 0 counts
+#  t2c  3 1 counts
+#  t3c  3 2 counts
+#  t4c  3 3 counts
+#  t5c  3 4 counts
+#  t6c  3 5 counts
+#  t7c  3 6 counts
+#  t8c  3 7 counts
+#  l1ac 3 14 counts
+
+#  t1r  3 0
+#  t2r  3 1
+#  t3r  3 2
+#  t4r  3 3
+#  t5r  3 4
+#  t6r  3 5
+#  t7r  3 6
+#  t8r  3 7
+#  l1ar 3 14
+ 
+#  unser_c  3 8 counts
+#  bcm_u1c  3 9 counts
+#  bcm_d1c  3 10 counts
+#  bcm_d3c  3 11 counts
+#  bcm_d10c 3 12 counts
+
+#  unser_r  3 8
+#  bcm_u1r  3 9
+#  bcm_d1r  3 10
+#  bcm_d3r  3 11
+#  bcm_d10r 3 12
+
+#  bcm_unewr 7 6
+#  bcm_dnewr 7 7
+#  bcm_unewc 7 6 counts
+#  bcm_dnewc 7 7 counts
+
+#end scalers evleft
+
+#--------------------------------------------
+begin epics
+  hac_bcm_average
+  hac_bcm_dvm1_read
+  hac_bcm_dvm2_read
+  hac_unser_read
+  hac_unser_current
+  hac_bcm_dvm1_current
+  hac_bcm_dvm2_current
+  IBC0L02Current 
+  IBC3H00CRCUR4
+  HA:K224:Current
+  IPM1H05XPM1HZ
+  IPM1H05YPM1HZ
+  IPM1C12.XPOS
+  IPM1C12.YPOS
+
+#  IPM1H04A.XPOS
+#  IPM1H04A.YPOS
+#  IPM1H04E.XPOS
+#  IPM1H04E.YPOS
+
+#  FCupsCORRECTED.VAL
+  
+  HALLA:p
+  HALLA:dpp
+	
+  HacL_D1_P0rb
+  HaBDSPOS
+  HacL_alignAGL
+
+  HacL_Q1_LS450:FLD_DATA
+  HacL_Q2_LS450:FLD_DATA
+  HacL_Q3_LS450:FLD_DATA
+  HacL_D_LS450:FLD_DATA
+  HacL_D1_LS450:SIG
+  HacL_D1_LS450:SIGLCK
+end epics

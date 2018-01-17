@@ -1,0 +1,45 @@
+# scaler.map file for Right HRS event type 100
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
+map 3800 7 3 ceb30020 ffffffff 3 9 1024 
+
+
+# variable syntax
+# scaler#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+# for L-HRS scalers with fname="EndLeft", var name = "EndLeftTSbcmu3"
+
+variable 3 0 1  T1    LHRS T1
+variable 3 1 1  T2    LHRS T2
+variable 3 2 1  T3    LHRS T3
+variable 3 3 1  T4    RHRS T4
+variable 3 4 1  T5    RHRS T5
+variable 3 5 1  T6    RHRS T6
+variable 3 6  1  Rclock   RHRS Clock
+variable 3 7  1  Lclock   LHRS Clock
+variable 3 8  1  L1A_R    L1A remote to LHRS
+variable 3 9  1  Rclock2   2nd RHRS Clock 
+variable 3 10 1  s2L   RHRS s2L signal
+variable 3 11 1  s2R   RHRS s2R signal
+variable 3 12 1  Rs0ors2 RHRS s0||s2
+variable 3 13 1  ADC_gate    RHRS ADC gate
+variable 3 15 1  L1A   RHRS L1A
+variable 3 14 1  RF_Time    RF time
+
+variable 3 18 1 unew   new bcm upstream count
+variable 3 20 1 dnew   new bcm downstream count
+variable 3 22 1 unser   unser count
+variable 3 24 1 u1    bcm x1 upstream count
+variable 3 26 1 d1    bcm x1 downstream count
+variable 3 28 1 d3    bcm x3 downstream count
+variable 3 30 1 d10   bcm x10 downstream count
+
+
+
+ 
+
+   

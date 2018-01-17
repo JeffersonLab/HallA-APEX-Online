@@ -1,0 +1,118 @@
+# scaler.map file for Left HRS event type 140
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
+map 1151 1 0 abc00000 ffff0000 1
+map 3800 1 1 abc10000 ffff0000 1 7 103700 
+map 3800 1 2 abc20000 ffff0000 1
+map 3800 1 3 abc30000 ffff0000 1
+map 3800 1 4 abc40000 ffff0000 1
+map 3800 1 5 abc50000 ffff0000 1
+map 3800 1 6 abc60000 ffff0000 1
+
+
+# variable syntax
+# slot#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+# for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+
+
+variable 1 0  1  T1    LHRS T1 trigger
+variable 1 0  2  T1_r  LHRS T1 trigger rate
+variable 1 1  1  T2    LHRS T2 trigger
+variable 1 1  2  T2_r  LHRS T2 trigger rate
+variable 1 2  1  T3    LHRS T3 trigger
+variable 1 2  2  T3_r  LHRS T3 trigger rate
+variable 1 5  1  L1A_R    L1A remote from RHRS
+variable 1 5  2  L1A_R_r  L1A remote from RHRS rate
+variable 1 6  1  Rclock    RHRS clock
+variable 1 6  2  Rclock_r  RHRS clcok rate
+variable 1 7  1  Lclock    LHRS clock
+variable 1 7  2  Lclock_r  LHRS clcok rate
+variable 1 8  1  Sh_sum    shower sum
+variable 1 8  2  Sh_sum_r  shower sum rate
+variable 1 9  1  Ls0ors2    LHRS s0||s2
+variable 1 9  2  Ls0ors2_r  LHRS s0||s2 rate
+variable 1 10  1  s2L    LHRS s2l signal
+variable 1 10  2  s2L_r  LHRS s2l signal rate
+variable 1 11  1  s2R    LHRS s2r signal
+variable 1 11  2  s2R_r  LHRS s2r signal rate
+variable 1 12  1  Rs0ors2    RHRS s0||s2
+variable 1 12  2  Rs0ors2_r  RHRS s0||s2 rate
+variable 1 13  1  ADC_gate    LHRS s0||s2
+variable 1 13  2  ADC_gate_r  LHRS s0||s2 rate
+variable 1 14  1  L1A    L1A LHRS
+variable 1 14  2  L1A_r  L1A LHRS rate
+variable 1 15  1  EDTM_s2     EDTM s2
+variable 1 15  2  EDTM_s2_r  EDTM s2
+variable 1 16  1  L1A1    L1A from TS LHRS
+variable 1 16  2  L1A1_r  L1A from TS LHRS rate
+
+variable 1 18 1  unew    new bcm upstream count
+variable 1 18 2  unew_r  new bcm upstream rate
+variable 1 20 1  dnew    new bcm downstream count
+variable 1 20 2  dnew_r  new bcm downstream rate
+variable 1 22 1  unser   unser counts
+variable 1 22 2  unser_r unser rate
+variable 1 24 1  u1      bcm x1 upstream count
+variable 1 24 2  u1_r    bcm x1 upstream rate
+variable 1 26 1  d1      bcm x1 downstream count
+variable 1 26 2  d1_r    bcm x1 downstream rate
+variable 1 28 1  d3      bcm x3 downstream count
+variable 1 28 2  d3_r    bcm x3 downstream rate
+variable 1 30 1  d10     bcm x10 downstream count
+variable 1 30 2  d10_r   bcm x10 downstream rate
+
+
+
+ 
+variable 4 28  1  S0A    S0A
+variable 4 29  1  S0B    S0B
+variable 3 0  1   S2mL_1   S2m1L
+variable 3 1  1   S2mL_2   S2m2L
+variable 3 2  1   S2mL_3   S2m3L
+variable 3 3  1   S2mL_4   S2m4L
+variable 3 4  1   S2mL_5   S2m5L
+variable 3 5  1   S2mL_6   S2m6L
+variable 3 6  1   S2mL_7   S2m7L
+variable 3 7  1   S2mL_8   S2m8L
+variable 3 8  1   S2mL_9   S2m9L
+variable 3 9  1   S2mL_10   S2m10L
+variable 3 10  1  S2mL_11   S2m11L
+variable 3 11  1  S2mL_12   S2m12L
+variable 3 12  1  S2mL_13   S2m13L
+variable 3 13  1  S2mL_14   S2m14L
+variable 3 14  1  S2mL_15   S2m15L
+variable 3 15  1  S2mL_16   S2m16L
+variable 3 16  1  S2mR_1   S2m1R
+variable 3 17  1  S2mR_2   S2m2R
+variable 3 18  1  S2mR_3   S2m3R
+variable 3 19  1  S2mR_4   S2m4R
+variable 3 20  1  S2mR_5   S2m5R
+variable 3 21  1  S2mR_6   S2m6R
+variable 3 22  1  S2mR_7   S2m7R
+variable 3 23  1  S2mR_8   S2m8R
+variable 3 24  1  S2mR_9   S2m9R
+variable 3 25  1  S2mR_10   S2m10R
+variable 3 26  1  S2mR_11   S2m11R
+variable 3 27  1  S2mR_12   S2m12R
+variable 3 28  1  S2mR_13   S2m13R
+variable 3 29  1  S2mR_14   S2m14R
+variable 3 30  1  S2mR_15   S2m15R
+variable 3 31  1  S2mR_16   S2m16R
+
+
+
+variable 4 16  1  Cher_1   Cher1
+variable 4 17  1  Cher_2   Cher2
+variable 4 18  1  Cher_3   Cher3
+variable 4 19  1  Cher_4   Cher4
+variable 4 20  1  Cher_5   Cher5
+variable 4 21  1  Cher_6   Cher6
+variable 4 22  1  Cher_7   Cher7
+variable 4 23  1  Cher_8   Cher8
+variable 4 24  1  Cher_9   Cher9
+variable 4 25  1  Cher_10   Cher10

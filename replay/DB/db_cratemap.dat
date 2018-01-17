@@ -79,12 +79,15 @@
        7      250      250
        8      250      250
        9      250      250
+      16     3204        8
 ==== Crate 20 type vme 
 #      slot     model   bank
+        8     3204        8
        13      250      250
        14      250      250
        15      250      250
        16      250      250
+       19     1984        7
 ==== Crate 11 type scaler "evleft" 
 #      slot	model	clear	header	mask	nchan	ndata
    	1	3801	1	0xabc10000	0xffff0000	32	32

@@ -1,0 +1,211 @@
+# Left HRS
+#s2....
+block R.s2.la_c
+block R.s2.ra_c
+block R.s2.lt_c
+block R.s2.rt_c
+Varible R.s2.tr
+block R.s2.dedx
+block R.s2.trpad
+#s2......
+
+#s0......
+block R.s0.la_c
+block R.s0.ra_c
+block R.s0.lt_c
+block R.s0.rt_c
+Varible R.s0.tr
+block R.s0.dedx
+block R.s0.trpad
+#s0......
+
+
+#prl1....
+block R.prl1.asum_c*
+block R.prl1.e*
+block R.prl1.nblk*
+block R.prl1.eblk*
+block R.prl1.nclust*
+block R.prl1.tr*
+#prl1....
+
+#prl2....
+block R.prl2.asum_c*
+block R.prl2.e*
+block R.prl2.nblk*
+block R.prl2.eblk*
+block R.prl2.nclust*
+block R.prl2.tr*
+#prl2....
+
+#cer.....
+block R.cer.a_c*
+block R.cer.asum_c*
+block R.cer.tr*
+#cer.....
+
+#vdc.....
+block R.vdc.*.clchi2*
+block R.vdc.*.clsiz*
+block R.vdc.*.sigt0*
+block R.vdc.*.cltcor*
+#vdc.....
+
+#track...
+block R.tr.d*
+block R.tr.n
+block R.tr.tg*
+block R.tr.v*
+block R.tr.x
+block R.tr.y
+block R.tr.z
+#track...
+
+#decoder.
+block DR.evtype*
+block DR.ltClock*
+block DR.ltL1*
+#decoder.
+
+#block OldTrackR.*
+
+# Physics variables
+block R.gold.*
+block rpr.*
+block exR.*
+#block EKR.*
+block EKRc.*
+block EKRx.*
+#block ElbR.*
+#block EltR.*
+#block EKRxe.*
+
+Variable Rrb.dir.x
+Variable Rrb.dir.y
+Variable FbusRrb.x
+Variable FbusRrb.y
+Variable Rrb.x
+Variable Rrb.y
+
+#-------------------------------------------------------------------------------
+#Event type 140 scaler
+
+variable RightT1
+variable RightT1_r
+variable RightT2
+variable RightT2_r
+variable RightT3
+variable RightT3_r
+variable RightT4
+variable RightT4_r
+variable RightT5
+variable RightT5_r
+variable RightT6
+variable RightT6_r
+variable RightRclock
+variable RightRclock_r
+variable RightLclock
+variable RightLclock_r
+variable RightL1A_R
+variable RightL1A_R_r
+variable RightRclock2
+variable RightRclock2_r
+variable Rights2L
+variable Rights2L_r
+variable Rights2R
+variable Rights2R_r
+variable RightRs0ors2
+variable RightRs0ors2_r
+variable RightADC_gate
+variable RightADC_gate_r
+variable RightL1A
+variable RightL1A_r
+variable RightFB_remote
+variable RightFB_remote_r
+
+variable Rightunew
+variable Rightunew_r
+variable Rightdnew
+variable Rightdnew_r
+variable Rightunser
+variable Rightunser_r
+variable Rightu1
+variable Rightu1_r
+variable Rightd1
+variable Rightd1_r
+variable Rightd3
+variable Rightd3_r
+variable Rightd10
+variable Rightd10_r
+
+variable evRightT1
+variable evRightT1_r
+variable evRightT2
+variable evRightT2_r
+variable evRightT3
+variable evRightT3_r
+variable evRightT4
+variable evRightT4_r
+variable evRightT5
+variable evRightT5_r
+variable evRightT6
+variable evRightT6_r
+variable evRightRclock
+variable evRightRclock_r
+variable evRightLclock
+variable evRightLclock_r
+variable evRightL1A_R
+variable evRightL1A_R_r
+variable evRightRclock2
+variable evRightRclock2_r
+variable evRights2L
+variable evRights2L_r
+variable evRights2R
+variable evRights2R_r
+variable evRightRs0ors2
+variable evRightRs0ors2_r
+variable evRightADC_gate
+variable evRightADC_gate_r
+variable evRightL1A
+variable evRightL1A_r
+variable evRightFB_remote
+variable evRightFB_remote_r
+
+variable evRightunew
+variable evRightunew_r
+variable evRightdnew
+variable evRightdnew_r
+variable evRightunser
+variable evRightunser_r
+variable evRightu1
+variable evRightu1_r
+variable evRightd1
+variable evRightd1_r
+variable evRightd3
+variable evRightd3_r
+variable evRightd10
+variable evRightd10_r
+
+begin epics
+  hac_bcm_average
+  hac_bcm_dvm1_read
+  hac_bcm_dvm2_read
+  hac_unser_read
+  hac_unser_current
+  hac_bcm_dvm1_current
+  hac_bcm_dvm2_current
+  IBC0L02Current 
+  IBC3H00CRCUR4
+  HA:K224:Current
+  IPM1H05XPM1HZ
+  IPM1H05YPM1HZ
+  IPM1C12.XPOS
+  IPM1C12.YPOS
+
+#  IPM1H04A.XPOS
+#  IPM1H04A.YPOS
+#  IPM1H04E.XPOS
+#  IPM1H04E.YPOS
+
+#  FCupsCORRECTED.VAL
+end epics

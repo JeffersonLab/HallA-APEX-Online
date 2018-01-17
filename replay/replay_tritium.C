@@ -18,7 +18,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE, Bool_t bPlots = kFALSE,Bool_t autoreplay = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -38,17 +38,17 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bHelicity=kFALSE;
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
-  Bool_t bPlots=kFALSE; //not open GUI automatically
   Bool_t bEloss=kFALSE;
   Bool_t bOldTrack=kFALSE;
   
   TString rootname;
   if(OnlineReplay){
     rootname = "%s/tritium_online_%d.root";
-    bPlots=kTRUE;
   }else{
     rootname = "%s/tritium_%d.root";
   }
+
+
   const char* RNAME=rootname.Data();
   TString ODEF;
   TString CUTS;
@@ -59,6 +59,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
@@ -96,6 +97,11 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Tritium_TSScaler* revscaler = new Tritium_TSScaler("evRight","HA scaler event type 1-14 on R-HRS");
       gHaEvtHandlers->Add(revscaler);
 
+      Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
+      gHaEvtHandlers->Add(rEndscaler);
+
+      // Marco - F1 and VETROC tdcs:
+      gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
     }
 
     //==================================
@@ -130,7 +136,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_H3; //default target 
+      Double_t mass_tg = mass_H3/3.0; //default target 
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
@@ -144,7 +150,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
       gHaPhysics->Add(EKRc);
 
-      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
+      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","FbusRrb");
       gHaPhysics->Add(rpr);
 
       THaExtTarCor *exR =  new THaExtTarCor("exR","Corrected for extended target, HRS-R","R","rpr");
@@ -152,6 +158,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
+      
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
 
       /*if(bEloss){
         // Beam Energy Loss
@@ -185,6 +194,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   
   else if(LEFT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
@@ -222,6 +232,12 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
     Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
     gHaEvtHandlers->Add(levscaler);
+
+    Tritium_THaScaler100EvtHandler* lEndscaler = new Tritium_THaScaler100EvtHandler("EndLeft","HA scaler event type 100");
+    gHaEvtHandlers->Add(lEndscaler);
+
+    // Marco - for F1 tdc:
+    gHaEvtHandlers->Add (new TdcDataEvtHandler("LTDC","F1 TDCs lHRS")); // do not change the "LTDC" word
     }
 
     //==================================
@@ -257,7 +273,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_H3; //default target 
+      Double_t mass_tg = mass_H3/3.0; //default target 
   
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
@@ -271,7 +287,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
       gHaPhysics->Add(EKLc);
 
-      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
+      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","FbusLrb");
       gHaPhysics->Add(rpl);
 
       THaExtTarCor *exL =  new THaExtTarCor("exL","Corrected for extended target, HRS-L","L","rpl");
@@ -279,6 +295,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
+      
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
+
       
       /*if(bEloss){
         // Beam Energy Loss
@@ -329,54 +349,56 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //=====================================
   if(bPlots){
 
+
   const char* GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
   const char* SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
     if(RIGHT_ARM_CONDITION){
       const char* CONFIGFILE=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS.cfg");
       const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
-      gSystem->Exec("rm -f /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_*.pdf");
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_detectors_latest.pdf",runnumber));
               
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));
-    
-    
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_%d.pdf", runnumber,runnumber));
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/right_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_%d.pdf", runnumber,runnumber));
-    
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_detectors_lastest.pdf",runnumber));
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/right_physics_lastest.pdf",runnumber));
-    
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",runnumber,SUM_DIR));    
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/right_physics_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_physics_latest.pdf",runnumber));
+                
+      const char* config_online=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_online.cfg");
+	  gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, config_online,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,runnumber));
+      gSystem->Exec(Form("unlink %sright_online_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",runnumber,SUM_DIR)); 
     }
+    
     else if(LEFT_ARM_CONDITION){ 
       const char* CONFIGFILE_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS.cfg");
       const char* CONFIGFILEPHYS_L=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_phy.cfg");
-
-	  gSystem->Exec("rm -f /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_*.pdf");	
-				
+	    
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_detectors_latest.pdf",runnumber));
 
       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,runnumber));
       gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
       gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",runnumber,SUM_DIR));
+      gSystem->Exec(Form("ln -sf /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_physics_latest.pdf",runnumber));
       
-          gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/left_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_%d.pdf", runnumber,runnumber));
-    gSystem->Exec(Form("cp /chafs1/work1/tritium/Run_pdfs/left_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_%d.pdf", runnumber,runnumber));
-      
-       gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_detectors_lastest.pdf",runnumber));
-    gSystem->Exec(Form("ln -s /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_%d.pdf /group/halla/www/hallaweb/html/halog/screen_snapshots/replays/left_physics_lastest.pdf",runnumber));   
+      const char* config_online=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_online.cfg");
+	  gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, config_online,runnumber));
+      gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/tritium/Run_pdfs/left_online_%d.pdf",SUM_DIR,runnumber,runnumber));
+      gSystem->Exec(Form("unlink %sleft_online_latest.pdf",SUM_DIR));
+      gSystem->Exec(Form("ln -s /chafs1/work1/tritium/Run_pdfs/left_online_%d.pdf %sleft_online_latest.pdf",runnumber,SUM_DIR));
     }
   }
+
   exit(0);
 }
  

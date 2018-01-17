@@ -5,6 +5,6 @@ In order to make a new runlist:
 This currently needs to be done from the aonl4 machine.
 Please change  the #  in \setcounter{run}{#} on line 25, to the last run number. 
 
-Then use "pdflatex runlist.tex"
+Then, on aonl4, use "pdflatex runlist.tex"
 You can view this pdf- "evince runlist.pdf"
 To print from the printer in the back room run " lp -d chax runlist.pdf "
