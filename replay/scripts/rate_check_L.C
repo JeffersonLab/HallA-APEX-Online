@@ -72,7 +72,7 @@ void rate_check_L(Int_t flag, TString drawoption){
 
   if(flag==4){
     
-    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj(w/acc and tg_y cuts)",1000,0,10,1000,0,1);
+    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj(w/acc and tg_y cuts)",1000,0,1,1000,0,10);
     ht4->GetXaxis()->SetTitle("Time [TDC Channel]");ht4->GetXaxis()->CenterTitle();
     ht4->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht4->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);
