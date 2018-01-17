@@ -30,6 +30,7 @@ block EKLx.*
 #block ElbL.*
 #block EltL.*
 #block EKLxe.*
+block LeftBCM*
 
 
 #BPM/Raster Variables
@@ -68,6 +69,7 @@ Variable FbusLrb.dir.y
 Variable FbusLrb.e
 Variable FbusLrb.x
 Variable FbusLrb.y
+block FbusLrb*
 
 #-------------------------------------------------------------------
 #
