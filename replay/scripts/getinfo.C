@@ -3,11 +3,20 @@
 // !! Run with analyzer NOT root!!
 //======================================
 
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <stdio.h> 
+
+using namespace std;
 struct target
 {
   Double_t pos;
   TString name;
 };
+
+
 
 void getinfo(Int_t run=0){
 
@@ -28,6 +37,11 @@ void getinfo(Int_t run=0){
   
   TFile *file = new TFile(fname,"read");
 
+    if (file->IsZombie()) {
+       cout << "Error opening file" << endl;
+       exit(-1);
+    }
+
   Int_t j=0;
   // 
   TString temp = fname;
@@ -41,10 +55,11 @@ void getinfo(Int_t run=0){
   file = new TFile(fname,"read");
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
   THaRunParameters *para=aRun->GetParameters();
+  TArrayI ps = aRun->GetParameters()->GetPrescales();
   para->Print();
 
 
-  Double_t p0, angle, pos,ebeam,clk,dnew; 
+  Double_t p0, angle, pos,ebeam,clk,dnew,dnew_current; 
   TString arm,targname="unknown";
   
   TTree *tree1=(TTree*)file->Get("T");
@@ -54,10 +69,12 @@ void getinfo(Int_t run=0){
   tree2->SetBranchAddress("HALLA_p",&ebeam);
   tree2->SetBranchAddress("haBDSPOS",&pos);
   
+  
+  
   if(run<20000) {
     tree1->SetBranchAddress("evLeftLclock",&clk);
     tree1->SetBranchAddress("evLeftdnew",&dnew);
-    tree2->SetBranchAddress("HacL_alignAGL",&angle);
+    tree2->SetBranchAddress("HacL_alignAGL",&angle); 
     tree2->SetBranchAddress("HacL_D1_P0rb",&p0);
 
     arm="LHRS";
@@ -75,13 +92,16 @@ void getinfo(Int_t run=0){
   tree1->GetEntry(last-1);
   
   cout<<"---------------\n";
-  cout<<"Events      : " << last<<endl;
-  cout<<"Time        : " << clk*1.0/103700/60<<" minutes"<<endl;
-  cout<<"Charge      : " << dnew * 0.00033 << " C "<<endl;
+  cout<<"Events          : " << last<<endl;
+  cout<<"Time            : " << clk*1.0/103700/60<<" minutes"<<endl;
+  cout<<"Charge          : " << dnew * 0.00033 << " C "<<endl;
+  cout<<"Average Current : " <<(dnew * 0.00033)/(clk*1.0/103700) <<" uA"<<endl;
   
 
   Int_t mm=tree2->GetEntries();
   tree2->GetEntry(mm-1);
+  
+  cout << pos <<endl;
   
   target t2={33106235,"Tritium"};
   target d2={29367355,"Deuterium"};
@@ -121,5 +141,92 @@ void getinfo(Int_t run=0){
   cout<< "Beam Energy              = "<<ebeam<<" GeV"<<endl;
   cout<< arm.Data()<<" p0                  = "<<p0<<" GeV"<<endl;
    cout<< arm.Data()<<" angle               = "<<angle<<" degree"<<endl;
-  return;
+   
+   int request;
+   if(pos<=143940000){request=10;}
+   	else{request=20;}
+   	
+  
+  char *rate = new char[500];
+  char *clkrate = new char[50];
+  char hname[10][50];
+  char *hh = new char[50];
+  Double_t LT[10], DT[10];
+  int icount[10];
+  int daqcount[10];
+  TH1F *his[10];
+   
+   for (int i=1; i<4; i++){
+      TCut t_cut = Form("DL.evtypebits&(1<<%i)",i);
+      sprintf(rate,"evLeftT%i", i);
+      icount[i] = tree1->GetMaximum(rate);
+      sprintf(hname[i],"t%i",i);
+      sprintf(hh,"DL.evtypebits>>%s", hname[i]);
+      his[i] =new TH1F (hname[i], hname[i], 100,0,1000000);
+      tree1->Draw(hh,t_cut, "goff");
+      daqcount[i] = his[i]->GetEntries();
+      if(ps[i-1]>0){
+	LT[i] = 100.*ps[i-1]*daqcount[i]/icount[i];
+	DT[i] = 100. - LT[i];
+      }
+  }
+   
+   
+   
+   
+   
+   // Append a log file with one line that contains the reqired info for the wiki run log
+   TString line ="<tr>";
+   		line += TString::Format("<td> %d </td>",irun);//Run number[s]
+   		line += TString::Format("<td>%s</td>",targname.Data());//Target
+   		line += TString::Format("<td>%d</td>",request);//Current requested
+  		line += TString::Format("<td>%0.2f</td>",(dnew * 0.00033)/(clk*1.0/103700));//Average Current
+   		line += TString::Format("<td>%0.2f</td>",dnew * 0.00033);//Charge
+   		line += TString::Format("<td>PS1=%d PS2=%d PS3=%d PS8=%d </td>",ps[0],ps[1],ps[2],ps[7]);//Prescale
+   		line += TString::Format("<td>%0.2f</td>",DT[2]);//Deadtime Trigger (2)
+   		line += TString::Format("<td>%0.2f</td>",(clk*1.0/103700)/60);//Run time (minutes)  		   		   		   		
+   		line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2 		
+   		line += TString::Format("<td></td>");//Comments
+		line += "</tr>";
+
+
+	std::fstream list;
+	std::string line_file;
+  list.open ("./wiki_runlist.txt", std::fstream::in);
+	std::string stringrun;std::string::size_type sz;
+  	int inrun=0;
+  	int status=0;
+	while (std::getline(list, line_file))
+		{
+
+			for(int jj =9; jj<30;jj++){
+				if(line_file[jj]== ' '){break;}
+				stringrun+=line_file[jj];
+			}	
+
+		inrun=stoi(stringrun,&sz);
+		size_t leng = stringrun.length();	
+			//if(leng == 0){ status=2;}
+			if(inrun==irun){status=1; }
+
+			stringrun="";
+		}
+	list.close();
+	
+	FILE* list2;
+	 list2 =fopen ("./wiki_runlist.txt","a");
+	if(status==0){
+		fprintf(list2,"%s \n",line.Data());	
+		
+		}
+	else{
+
+		cout <<"Run already added to the list for the wiki!! " <<endl; 
+		}
+	fclose(list2);
+
+ exit(1);
+
+ return;
+
 }
