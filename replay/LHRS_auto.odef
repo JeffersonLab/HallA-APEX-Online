@@ -71,6 +71,7 @@ block EKLx.*
 #block ElbL.*
 #block EltL.*
 #block EKLxe.*
+block LeftBCM*
 
 Variable Lrb.dir.x
 Variable Lrb.dir.y
@@ -246,6 +247,10 @@ begin epics
   
   HALLA:p
   HALLA:dpp
+	
+  HacL_D1_P0rb
+  HaBDSPOS
+  HacL_alignAGL
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
