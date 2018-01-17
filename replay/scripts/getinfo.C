@@ -134,19 +134,6 @@ void getinfo(Int_t run=0){
   else if(abs(pos-beo.pos)<50)    targname=beo.name;
  
 
-
-  cout<<"---------------\n";
-  cout<< "Target name              = "<<targname<<endl;
-  cout<< "Target Encoder Position  = "<<pos<<endl;
-  cout<< "Beam Energy              = "<<ebeam<<" GeV"<<endl;
-  cout<< arm.Data()<<" p0                  = "<<p0<<" GeV"<<endl;
-   cout<< arm.Data()<<" angle               = "<<angle<<" degree"<<endl;
-   
-   int request;
-   if(pos<=143940000){request=10;}
-   	else{request=20;}
-   	
-  
   char *rate = new char[500];
   char *clkrate = new char[50];
   char hname[10][50];
@@ -170,6 +157,24 @@ void getinfo(Int_t run=0){
 	DT[i] = 100. - LT[i];
       }
   }
+
+
+
+  cout<<"---------------\n";
+  cout<< "Target name              = "<<targname<<endl;
+  cout<< "Target Encoder Position  = "<<pos<<endl;
+  cout<< "Beam Energy              = "<<ebeam<<" GeV"<<endl;
+  cout<< arm.Data()<<" p0                  = "<<p0<<" GeV"<<endl;
+   cout<< arm.Data()<<" angle               = "<<angle<<" degree"<<endl;
+  cout<< "Dead time for Trigger 1 = "<<DT[1]<<endl;
+  cout<< "Dead time for Trigger 2 = "<<DT[2]<<endl;
+   
+   int request;
+   if(pos<=143940000){request=10;}
+   	else{request=20;}
+   	
+  
+
    
    
    
