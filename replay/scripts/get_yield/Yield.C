@@ -9,9 +9,12 @@ const double TG_Phi_Max = 0.025;//25mrad
 const double TG_Phi_Min =-0.025;//25mrad
 const double TG_Dp_Max = 0.040;//4%mrad
 const double TG_Dp_Min =-0.040;//4%mrad
+const double TG_VZ_Max = 0.080;//4%mrad
+const double TG_VZ_Min =-0.080;//4%mrad
 const double P0 = 3.100; //GeV/c
 
-int main(){    
+//int main(){    
+void Yield(){    
     TString Target = ""; cout<<"--- Target (H2,D2, H3, He3, Empty, Dummy) : "; cin >> Target;
     int kin = 0; cout<<"--- Kin (1 or 2 or 3 ...) : "; cin >> kin;
     TString Kin = Form("Kin%d", kin); 
@@ -27,7 +30,7 @@ int main(){
 
     TChain* T_Tree =(TChain*) gGetTree(RunNoChain, "T");
 
-    TString cut_L = "DL.evtypebits>>2&1 && L.tr.n==1 ";
+    TString cut_L = "DL.evtypebits>>2&1 && L.tr.n==1";
     TString cut_e_L = "DL.evtypebits>>2&1 && L.tr.n==1 && L.cer.asum_c>1000. && (L.prl1.e+L.prl2.e)/(L.gold.p*1000.)>0.8 && abs(rpl.z)<0.075 && abs(L.tr.tg_ph)<0.025 && abs(L.tr.tg_th)<0.04 && abs(L.tr.tg_dp)<0.04";
     TString cut_R = "DR.evtypebits>>5&1 && R.tr.n==1 ";
     TString cut_e_R = "DR.evtypebits>>5&1 && R.tr.n==1 && R.cer.asum_c>1000. && (R.ps.e+R.sh.e)>2000. && abs(rpl.z)<0.075 && abs(R.tr.tg_ph)<0.025 && abs(R.tr.tg_th)<0.04 && abs(R.tr.tg_dp)<0.04";
@@ -60,16 +63,18 @@ int main(){
     int Target_A=0, Target_Z=0;
     double Target_Thickness=0.0, Target_Thickness_Err=0.0;
     int err = gGet_TargetInfo(Target.Data(), &Target_A, &Target_Z, &Target_Thickness, &Target_Thickness_Err);
-
+    double Target_Length = (TG_VZ_Max - TG_VZ_Min)*100.; //meter to cm
 	TRI_VAR* Ntg = new TRI_VAR();
     Double_t* NtgChain = new double[Chain_Size];
     //Boiling Effect for long cryo-targets will be corrected in this subroutine
-    Ntg= gCal_Ntg(RunNoChain,Arm.Data(),Target_A,Target_Z,Target_Thickness,Target_Thickness_Err,NtgChain);
+    Ntg= gCal_Ntg(RunNoChain,Arm.Data(),Target_A,Target_Z,Target_Thickness,Target_Thickness_Err,Target_Length, NtgChain);
     cout   <<Form("     Avg Ntg = %4.3e; Before Boiling Corrected = %4.3e",Ntg->Value,Target_Thickness/Target_A*Na)<<endl;
     /*}}}end of Get Ntg*/
 
 	const double phase_space = (TG_Theta_Max - TG_Theta_Min) * (TG_Phi_Max - TG_Phi_Min) * (TG_Dp_Max - TG_Dp_Min) * P0; 
     double XS = Good_Ele / Ne->Value / Ntg->Value / phase_space * CM2ToNB;
+    //double XS_Err = 0.0;
+    double XS_Err = XS * sqrt( 1/Good_Ele + pow(Ntg->Sys_Err/Ntg->Value, 2) + pow(Ne->Sys_Err/Ntg->Value, 2) );
 
     cout<<"##### Raw Cross Section = "<< XS <<" nb/GeV/sr"<<endl;
     /*}}}*/
@@ -95,7 +100,7 @@ int main(){
     t1->DrawLatex(0.2, 0.70, Form("Total Good Electrons = %4.1f K (out of %4.1fK) ", (Good_Ele/1000.), (Total_Ele/1000.) ));
     t1->SetTextColor(2); 
     //t1->DrawLatex(0.2, 0.60, Form("   Raw Cross Section = %6.3e nb/GeV/sr", XS));
-    t1->DrawLatex(0.2, 0.60, Form("    Normalized Yield = %6.3e nb/GeV/sr", XS));
+    t1->DrawLatex(0.2, 0.60, Form("    Normalized Yield = %6.3e #pm %2.1%% nb/GeV/sr", XS, XS_Err/XS*100.));
 
     t1->SetTextColor(6); 
     t1->SetTextSize(0.04);
