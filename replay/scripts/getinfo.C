@@ -33,6 +33,18 @@ void getinfo(Int_t run=0){
   
   if(irun==-1) return;
 
+	TString file_name = TString::Format("%stritium_%d.root",rootfilePath.Data(),irun);
+	TString basename = TString::Format("%stritium_%d",rootfilePath.Data(),irun);
+	TString rootfile = basename + ".root";
+    TChain* T = new TChain("T");
+    Long_t jk=0;
+    while ( !gSystem->AccessPathName(rootfile.Data()) ) {
+        T->Add(rootfile.Data());
+        cout << "ROOT file " << run<< "_"<< jk << " added to TChain." << endl; jk++;
+        rootfile = basename + "_" + jk + ".root"; 
+       // if(i>10){break;}
+        }
+
 
    TTree *tree1;TTree *tree2;
    TFile *file = new TFile(Form("%stritium_%d.root",rootfilePath.Data(),irun),"read");
@@ -67,8 +79,9 @@ void getinfo(Int_t run=0){
   
   
   if(run<20000) {
-    tree1->SetBranchAddress("evLeftLclock",&clk);
-    tree1->SetBranchAddress("evLeftdnew",&dnew);
+    //tree1->SetBranchAddress("evLeftLclock",&clk);
+    T->SetBranchAddress("evLeftLclock",&clk);
+    T->SetBranchAddress("evLeftdnew",&dnew);
     tree2->SetBranchAddress("HacL_alignAGL",&angle); 
     tree2->SetBranchAddress("HacL_D1_P0rb",&p0);
 
@@ -85,9 +98,10 @@ void getinfo(Int_t run=0){
 
   Double_t last=tree1->GetEntries();
   tree1->GetEntry(last-1);
+  T->GetEntry(T->GetEntries()-1);
   
   cout<<"---------------\n";
-  cout<<"Events          : " << last<<endl;
+  cout<<"Events          : " << last<<" " <<T->GetEntries()<<endl;
   cout<<"Time            : " << clk*1.0/103700/60<<" minutes"<<endl;
   cout<<"Charge          : " << dnew * 0.00033 << " C "<<endl;
   cout<<"Average Current : " <<(dnew * 0.00033)/(clk*1.0/103700) <<" uA"<<endl;
