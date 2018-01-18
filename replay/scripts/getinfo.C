@@ -240,7 +240,7 @@ void getinfo(Int_t run=0){
 		}
 	fclose(list2);
 
- //exit(1);
+ exit(1);
 
  return;
 
