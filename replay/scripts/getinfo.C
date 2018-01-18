@@ -59,7 +59,7 @@ void getinfo(Int_t run=0){
   para->Print();
 
 
-  Double_t p0, angle, pos,ebeam,clk,dnew,dnew_current; 
+  Double_t p0, angle,pos, pos2,ebeam,clk,dnew,dnew_current; 
   TString arm,targname="unknown";
   
   TTree *tree1=(TTree*)file->Get("T");
@@ -67,6 +67,7 @@ void getinfo(Int_t run=0){
   
   //tree2 = (TTree*)file->Get("E");
   tree2->SetBranchAddress("HALLA_p",&ebeam);
+  tree2->SetBranchAddress("haBDSPOS.VAL",&pos2);
   tree2->SetBranchAddress("haBDSPOS",&pos);
   
   
@@ -101,7 +102,7 @@ void getinfo(Int_t run=0){
   Int_t mm=tree2->GetEntries();
   tree2->GetEntry(mm-1);
   
-  cout << pos <<endl;
+  cout << pos << " " <<pos2 <<endl;
   
   target t2={33106235,"Tritium"};
   target d2={29367355,"Deuterium"};
@@ -230,7 +231,7 @@ void getinfo(Int_t run=0){
 		}
 	fclose(list2);
 
- exit(1);
+ //exit(1);
 
  return;
 

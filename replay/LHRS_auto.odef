@@ -249,7 +249,9 @@ begin epics
   HALLA:dpp
 	
   HacL_D1_P0rb
-  HaBDSPOS
+  haBDSPOS 
+  haBDSPOS.VAL 
+  HALL_A_TARGET
   HacL_alignAGL
 
   HacL_Q1_LS450:FLD_DATA

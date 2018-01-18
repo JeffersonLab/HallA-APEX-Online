@@ -442,7 +442,8 @@ begin epics
   HALLA:p
   HALLA:dpp
 
-  haBDSPOS.VAL # Target encoder pos
+  haBDSPOS.VAL 
+  HALL_A_TARGET
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
