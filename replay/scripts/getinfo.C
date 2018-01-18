@@ -33,26 +33,18 @@ void getinfo(Int_t run=0){
   
   if(irun==-1) return;
 
-  TString fname = Form("%stritium_%d.root",rootfilePath.Data(),irun);
-  
-  TFile *file = new TFile(fname,"read");
 
-    if (file->IsZombie()) {
-       cout << "Error opening file" << endl;
-       exit(-1);
-    }
-
-  Int_t j=0;
-  // 
-  TString temp = fname;
-  while ( !gSystem->AccessPathName(temp.Data()) ) {
-    cout << "Found ROOT file " << temp.Data()  << endl;   
-    fname = temp;
-    j++;
-    temp = Form("%stritium_%d_%d.root",rootfilePath.Data(),irun,j);
+   TTree *tree1;TTree *tree2;
+   TFile *file = new TFile(Form("%stritium_%d.root",rootfilePath.Data(),irun),"read");
+    tree1 = (TTree*)file->Get("T");
+    tree2 = (TTree*)file->Get("E");
+  if(file->IsZombie()){
+    cout<<" this rootfile doest not exist: "<<endl;
+    cout<<"Please try again with a new run. "<<endl;
+    return;
   }
   
-  file = new TFile(fname,"read");
+  
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
   THaRunParameters *para=aRun->GetParameters();
   TArrayI ps = aRun->GetParameters()->GetPrescales();
@@ -62,13 +54,15 @@ void getinfo(Int_t run=0){
   Double_t p0, angle,pos, pos2,ebeam,clk,dnew,dnew_current; 
   TString arm,targname="unknown";
   
-  TTree *tree1=(TTree*)file->Get("T");
-  TTree *tree2=(TTree*)file->Get("E");
+ // TTree *tree1=(TTree*)file->Get("T");
+ // TTree *tree2=(TTree*)file->Get("E");
   
   //tree2 = (TTree*)file->Get("E");
   tree2->SetBranchAddress("HALLA_p",&ebeam);
   tree2->SetBranchAddress("haBDSPOS.VAL",&pos2);
   tree2->SetBranchAddress("haBDSPOS",&pos);
+  
+  
   
   
   
@@ -102,8 +96,7 @@ void getinfo(Int_t run=0){
   Int_t mm=tree2->GetEntries();
   tree2->GetEntry(mm-1);
   
-  cout << pos << " " <<pos2 <<endl;
-  
+
   target t2={33106235,"Tritium"};
   target d2={29367355,"Deuterium"};
   target h={25610043,"Hydrogen"};
@@ -118,9 +111,10 @@ void getinfo(Int_t run=0){
   target ti={10298417,"Titanium"};
   target beo={9583153,"BeO"};
 
-  
-  if(abs(pos)<50) targname="HOME";
-  if(abs(pos-t2.pos)<50)          targname=t2.name;
+
+  if(abs(pos)<= 0.000000001 ) {targname =" Unkown - Please double check logbook ";}
+  else if(abs(pos)<50) targname="HOME";
+  else if(abs(pos-t2.pos)<50)          targname=t2.name;
   else if(abs(pos-d2.pos)<50)     targname=d2.name;
   else if(abs(pos-h.pos)<50)      targname=h.name;
   else if(abs(pos-he3.pos)<50)    targname=he3.name;
@@ -143,8 +137,15 @@ void getinfo(Int_t run=0){
   int icount[10];
   int daqcount[10];
   TH1F *his[10];
+  double PS[8];
    
-   for (int i=1; i<4; i++){
+     for (int k=0; k<8; k++){
+    PS[k]= ps[k];
+    //cout<< " Prescaler = : "<< PS[k]<<endl;
+  }
+  //cout<<"Run # "<<"   "<<irun<<endl; 
+  //cout<<"     |  Trigger |   Prescale |  Recorded Trigger |  Raw Trigger |   Deadtime (%)\n";
+    for (int i=1; i<4; i++){
       TCut t_cut = Form("DL.evtypebits&(1<<%i)",i);
       sprintf(rate,"evLeftT%i", i);
       icount[i] = tree1->GetMaximum(rate);
@@ -153,12 +154,12 @@ void getinfo(Int_t run=0){
       his[i] =new TH1F (hname[i], hname[i], 100,0,1000000);
       tree1->Draw(hh,t_cut, "goff");
       daqcount[i] = his[i]->GetEntries();
-      if(ps[i-1]>0){
-	LT[i] = 100.*ps[i-1]*daqcount[i]/icount[i];
+      if(PS[i-1]>0){
+	LT[i] = 100.*PS[i-1]*daqcount[i]/icount[i];
 	DT[i] = 100. - LT[i];
+	//cout<<setw(12)<<i<<setw(12)<<PS[i-1]<<setw(18)<<daqcount[i]<<setw(18)<<icount[i]<<setw(18)<<DT[i]<<endl;
       }
-  }
-
+    }
 
 
   cout<<"---------------\n";
@@ -169,19 +170,13 @@ void getinfo(Int_t run=0){
    cout<< arm.Data()<<" angle               = "<<angle<<" degree"<<endl;
   cout<< "Dead time for Trigger 1 = "<<DT[1]<<endl;
   cout<< "Dead time for Trigger 2 = "<<DT[2]<<endl;
+  cout<< "Counts for Trigger 2    = "<<daqcount[2]<<endl;
    
    int request;
    if(pos<=143940000){request=10;}
    	else{request=20;}
    	
-  
-
-   
-   
-   
-   
-   
-   // Append a log file with one line that contains the reqired info for the wiki run log
+     // Append a log file with one line that contains the reqired info for the wiki run log
    TString line ="<tr>";
    		line += TString::Format("<td> %d </td>",irun);//Run number[s]
    		line += TString::Format("<td>%s</td>",targname.Data());//Target
