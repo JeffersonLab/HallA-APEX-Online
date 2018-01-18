@@ -49,7 +49,7 @@ void Electron_Count(){
 
     t1->SetTextColor(6); 
     t1->SetTextSize(0.04);
-    t1->DrawLatex(0.1, 0.32, Form("Run-List = %s",Run_String.Data() ));
-    c1->Print(Form("good_ele_%s_%s_%s_%d.png", Target.Data(),Kin.Data(),Arm.Data(), RunNoChain[0]));
-    c1->Print(Form("good_ele_%s_%s_%s_%d.pdf", Target.Data(),Kin.Data(),Arm.Data(), RunNoChain[0]));
+    t1->DrawLatex(0.15, 0.32, Form("Run-List = %s",Run_String.Data() ));
+    c1->Print(Form("good_ele/%s_%s_%s_%d.png", Target.Data(),Kin.Data(),Arm.Data(), RunNoChain[0]));
+    c1->Print(Form("good_ele/%s_%s_%s_%d.pdf", Target.Data(),Kin.Data(),Arm.Data(), RunNoChain[0]));
 }
