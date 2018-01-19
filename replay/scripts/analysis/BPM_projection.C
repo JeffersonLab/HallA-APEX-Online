@@ -63,11 +63,11 @@ void BPM_projection(int Run=0, int first=0, int last=25000, TString type = "Fbus
 	TH2F *BPMA_XY = new TH2F("BPMA_xy",Form("BPMA XY pos for %c arm, for run %d",arm,Run),200,-0.005,0.005,200,-0.005,0.005);
 	TH2F *BPMB_XY = new TH2F("BPMB_xy",Form("BPMB XY pos for %c arm, for run %d",arm,Run),200,-0.005,0.005,200,-0.005,0.005);
 	
-	Double_t A_z =7.345 , B_z=2.214 ,T_z =0;
-		
+	//Double_t A_z =7.345 , B_z=2.214 ,T_z =0;
+	Double_t A_z =7.523897 , B_z=2.377568 ,T_z =0;
 	Int_t nentries = T->GetEntries();
 	if( nentries < last){ last = nentries; cout << "Maximum number of events is " << last <<endl;}
-	if( first >= nentries){ cout << "Error: First entry is out of bounds, please change the first entry! " <<endl; exit(1);}
+	if( first >= nentries){ cout << "Error: First entry is out of bounds, please change the first entry! "<<endl; exit(1);}
 	
 	
 	
@@ -88,17 +88,23 @@ void BPM_projection(int Run=0, int first=0, int last=25000, TString type = "Fbus
 		POS->Divide(2,3);
 		POS->cd(1);
 		T->Draw(Form("%s%crb.BPMA.x>>BPMA_X",type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMA_X->GetXaxis()->SetTitle("Pos(m)");
 		POS->cd(3);
 		T->Draw(Form("%s%crb.BPMB.x>>BPMB_X",type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMB_X->GetXaxis()->SetTitle("Pos(m)");
 		POS->cd(5);
 		Target_x->Draw();
+		Target_x->GetXaxis()->SetTitle("Pos(m)");
 
 		POS->cd(2);
 		T->Draw(Form("%s%crb.BPMA.y>>BPMA_Y",type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMB_X->GetXaxis()->SetTitle("Pos(m)");
 		POS->cd(4);
 		T->Draw(Form("%s%crb.BPMB.y>>BPMB_Y",type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMB_X->GetXaxis()->SetTitle("Pos(m)");
 		POS->cd(6);
 		Target_y->Draw();
+		Target_y->GetXaxis()->SetTitle("Pos(m)");
 
 		
 		TCanvas *POS_2D = new TCanvas;	
@@ -107,15 +113,20 @@ void BPM_projection(int Run=0, int first=0, int last=25000, TString type = "Fbus
 		gPad->SetGridx();
 		gPad->SetGridy();
 		T->Draw(Form("%s%crb.BPMA.y:%s%crb.BPMA.x>>BPMA_xy",type.Data(),arm,type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMA_XY->GetXaxis()->SetTitle("X pos(m)");
+		BPMA_XY->GetYaxis()->SetTitle("Y pos(m)");
 		POS_2D->cd(2);
 		gPad->SetGridx();
 		gPad->SetGridy();
 		T->Draw(Form("%s%crb.BPMB.y:%s%crb.BPMB.x>>BPMB_xy",type.Data(),arm,type.Data(),arm),Form("Entry$>=%d&&Entry$<=%d",first,last));
+		BPMB_XY->GetXaxis()->SetTitle("X pos(m)");
+		BPMB_XY->GetYaxis()->SetTitle("Y pos(m)");
 		POS_2D->cd(3);
 		gPad->SetGridx();
 		gPad->SetGridy();
 		Target_xy->Draw();
-		
+		Target_xy->GetXaxis()->SetTitle("X pos(m)");
+		Target_xy->GetYaxis()->SetTitle("Y pos(m)");
 		
 		
 		
