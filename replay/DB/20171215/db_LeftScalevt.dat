@@ -69,8 +69,8 @@ variable 1 30 2  d10_r   bcm x10 downstream rate
 
 
  
-variable 4 28  1  S0A    S0A
-variable 4 29  1  S0B    S0B
+variable 4 27  1  S0A    S0A
+variable 4 28  1  S0B    S0B
 variable 3 0  1   S2mL_1   S2m1L
 variable 3 1  1   S2mL_2   S2m2L
 variable 3 2  1   S2mL_3   S2m3L
