@@ -53,8 +53,15 @@ void getinfo(Int_t run=0){
   if(file->IsZombie()){
     cout<<" this rootfile doest not exist: "<<endl;
     cout<<"Please try again with a new run. "<<endl;
-    return;
+    exit(1);
   }
+  
+	const char* ARM;
+  	if(irun>=90000){ARM="Right";}
+  	else{ARM="Left";}
+  	char arm;
+	if(irun>=90000){arm="R";}
+  	else{arm="L";}
   
   
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
@@ -160,11 +167,11 @@ void getinfo(Int_t run=0){
   //cout<<"Run # "<<"   "<<irun<<endl; 
   //cout<<"     |  Trigger |   Prescale |  Recorded Trigger |  Raw Trigger |   Deadtime (%)\n";
     for (int i=1; i<4; i++){
-      TCut t_cut = Form("DL.evtypebits&(1<<%i)",i);
-      sprintf(rate,"evLeftT%i", i);
+      TCut t_cut = Form("D%c.evtypebits&(1<<%i)",arm,i);
+      sprintf(rate,"ev%sT%i",ARM, i);
       icount[i] = tree1->GetMaximum(rate);
       sprintf(hname[i],"t%i",i);
-      sprintf(hh,"DL.evtypebits>>%s", hname[i]);
+      sprintf(hh,"D%c.evtypebits>>%s",arm, hname[i]);
       his[i] =new TH1F (hname[i], hname[i], 100,0,1000000);
       tree1->Draw(hh,t_cut, "goff");
       daqcount[i] = his[i]->GetEntries();
