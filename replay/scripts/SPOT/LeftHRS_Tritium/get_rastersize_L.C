@@ -16,6 +16,7 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   // modified for Root 6 and FADC beam line by Tong Su,2017
   // 
   
+  gStyle->SetPalette(1);
   gStyle->SetNdivisions(605);
   TString* ca_title = new TString("Raster Size (");
   ca_title->Append(codafname);
