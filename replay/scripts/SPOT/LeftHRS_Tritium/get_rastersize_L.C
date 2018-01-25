@@ -16,6 +16,7 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   // modified for Root 6 and FADC beam line by Tong Su,2017
   // 
   
+  gStyle->SetPalette(1);
   gStyle->SetNdivisions(605);
   TString* ca_title = new TString("Raster Size (");
   ca_title->Append(codafname);
@@ -67,6 +68,12 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
   THaApparatus* FbusLrb = new THaRasteredBeam("FbusLrb","Raster Beamline"); 
+  THaHRS* HRSL = new THaHRS("L","Left arm HRS");
+  HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
+  HRSL->AutoStandardDetectors(kFALSE);
+  gHaApps->Add( HRSL );
+
+
   FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
   FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
   FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));

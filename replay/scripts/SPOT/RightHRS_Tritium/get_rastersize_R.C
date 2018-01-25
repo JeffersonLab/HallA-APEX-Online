@@ -71,6 +71,13 @@ Int_t get_rastersize_R(TString codafname,TString runNo, Int_t firsteve, Int_t la
   FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
   FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
   THaApparatus* Lrb = new TriFadcRasteredBeam("Rrb","Raster Beamline for FADC ");
+    THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+    HRSR->AutoStandardDetectors(kFALSE);
+    gHaApps->Add( HRSR );
+    HRSR->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
+
+
+
 
 
   gHaApps->Add( FbusLrb );
