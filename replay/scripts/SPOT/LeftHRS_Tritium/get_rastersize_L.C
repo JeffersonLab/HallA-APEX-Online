@@ -68,6 +68,12 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
   THaApparatus* FbusLrb = new THaRasteredBeam("FbusLrb","Raster Beamline"); 
+  THaHRS* HRSL = new THaHRS("L","Left arm HRS");
+  HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
+  HRSL->AutoStandardDetectors(kFALSE);
+  gHaApps->Add( HRSL );
+
+
   FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
   FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
   FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
