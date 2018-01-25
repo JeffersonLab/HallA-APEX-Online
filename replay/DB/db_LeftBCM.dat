@@ -5,9 +5,9 @@ LeftBCM.d3.offset = 0.2429
 LeftBCM.d3.gain = 0.0001073
 LeftBCM.d10.offset= 0.2455
 LeftBCM.d10.gain = 0.0003667
-LeftBCM.dnew.offset = 0.1612
+LeftBCM.dnew.offset = 0
 LeftBCM.dnew.gain = 0.0003267
-LeftBCM.unew.offset = 0.187
+LeftBCM.unew.offset = 0
 LeftBCM.unew.gain = 0.0003961
 
 

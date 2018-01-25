@@ -5,9 +5,9 @@ RightBCM.d3.offset = 0.2429
 RightBCM.d3.gain = 0.0001073
 RightBCM.d10.offset= 0.2455
 RightBCM.d10.gain = 0.0003667
-RightBCM.dnew.offset = 0.1612
+RightBCM.dnew.offset = 0
 RightBCM.dnew.gain = 0.0003267
-RightBCM.unew.offset = 0.187
+RightBCM.unew.offset = 0
 RightBCM.unew.gain = 0.0003961
 
 
