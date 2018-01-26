@@ -196,13 +196,13 @@ TH2F R_tgc  'R-arm tgt phi vs. tgt y' R.tr.tg_y R.tr.tg_ph 200 -0.1 0.1 200 -0.1
 #-------------------------------------------------------------------------------
 # RIGHT Arm Physics Histograms:
 #
-TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 200 -0 4
-TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 400 0 2
-TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 -1 2
-TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 0 60
-TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 3
+TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 200 -0 10
+TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 400 5 10
+TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
+TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 15 45
+TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 1
 #TH1F EKRTH_Q 'R-arm Virtual photon angle (deg)' EKR.th_q*180./3.14159 60 0 60
-TH2F EKR_xQ2 'L-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 3 200 0 4
+TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 1 200 0 10
 
 #-------------------------------------------------------------------------------
 # RIGHT Arm Reaction Vertex Histograms  :
