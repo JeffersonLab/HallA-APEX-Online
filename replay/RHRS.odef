@@ -22,6 +22,9 @@ variable vfFirstHit
 variable vfAllHits_126
 
 # Physics variables
+block RightBCM*dnew*
+block RightBCM*unew*
+blcok RightBCM*isrenewed*
 block R.gold.*
 block rpr.*
 block exR.*

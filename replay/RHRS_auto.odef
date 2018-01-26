@@ -20,22 +20,22 @@ block R.s0.trpad
 #s0......
 
 
-#prl1....
-block R.prl1.asum_c*
-block R.prl1.e*
-block R.prl1.nblk*
-block R.prl1.eblk*
-block R.prl1.nclust*
-block R.prl1.tr*
+#ps....
+block R.ps.asum_c*
+block R.ps.e*
+block R.ps.nblk*
+block R.ps.eblk*
+block R.ps.nclust*
+block R.ps.tr*
 #prl1....
 
 #prl2....
-block R.prl2.asum_c*
-block R.prl2.e*
-block R.prl2.nblk*
-block R.prl2.eblk*
-block R.prl2.nclust*
-block R.prl2.tr*
+block R.sh.asum_c*
+block R.sh.e*
+block R.sh.nblk*
+block R.sh.eblk*
+block R.sh.nclust*
+block R.sh.tr*
 #prl2....
 
 #cer.....
@@ -86,6 +86,10 @@ Variable FbusRrb.x
 Variable FbusRrb.y
 Variable Rrb.x
 Variable Rrb.y
+
+block RightBCM*dnew*
+block RightBCM*unew*
+blcok RightBCM*isrenewed*
 
 #-------------------------------------------------------------------------------
 #Event type 140 scaler
