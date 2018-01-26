@@ -229,7 +229,7 @@ void getinfo(Int_t run=0){
                 line += TString::Format("<td>PS4=%d PS5=%d PS6=%d PS8=%d </td>",ps[3],ps[4],ps[5],ps[7]);//Prescale
                 line += TString::Format("<td>%0.2f</td>",DT[5]);//Deadtime Trigger (2) 
                 line += TString::Format("<td>%0.2f</td>",(clk*1.0/1024)/60);//Run time (minutes)                               
-                line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2             
+                line += TString::Format("<td>%d</td>",daqcount[5]);//total counts Trigger 2             
                 line += TString::Format("<td></td>");//Comments
                 line += "</tr>";
   }
