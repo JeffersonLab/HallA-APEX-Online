@@ -23,6 +23,12 @@ function yes_or_no {
 
 ONLINE_ONLY=1
 
+if [[ $# -eq 0 ]] ; then
+  print_the_help
+  exit 
+fi
+
+
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
