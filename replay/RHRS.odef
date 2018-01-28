@@ -363,6 +363,14 @@ variable evRightd10
 variable evRightd10_r
 
 begin epics
+  haBDSPOS
+  HacR_alignAGL
+  HacR_D1_P0rb	
+  HALLA:p
+  HALLA:dpp
+
+  haBDSPOS.VAL 
+
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
