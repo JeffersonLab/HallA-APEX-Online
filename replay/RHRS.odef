@@ -253,7 +253,7 @@ TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x 
 TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x rbax 500 50000 100000 200 -5. 5.
 TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y rbay 500 20000 120000 200 -5. 5.
 TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x rbbx 500 50000 100000 200 -5. 5.
-TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y rbby 500 20000 120000 -5. 5.
+TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y rbby 500 20000 120000 200 -5. 5.
 
 TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y rbax 500 20000 120000 200 -5. 5.
 TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x rbay 500 50000 100000 200 -5. 5.
