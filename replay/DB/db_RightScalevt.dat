@@ -7,7 +7,7 @@
 
 map 3800 7 1 ceb10000 ffff0000 3 
 map 3800 7 2 ceb20000 ffff0000 3 
-map 3800 7 3 ceb30000 ffff0000 3 9 1024 
+map 3800 7 3 ceb30000 ffff0000 3 7 103700
 
 
 # variable syntax
