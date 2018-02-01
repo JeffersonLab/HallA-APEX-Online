@@ -2189,8 +2189,8 @@ void UseMyStyle()
   Style2.SetLabelSize(0.10,"X");
   Style2.SetLabelSize(0.10,"Y");
   Style2.SetLabelOffset(0.020,"X");
-  Style1.SetStatW(0.3);
-  Style2.SetStatW(0.25);
+  Style1.SetStatW(0.2);
+  Style2.SetStatW(0.22);
   //Style2.SetStatH(0.25);
   Style2.SetStatFontSize(0.15);
   Style2.SetStatX(0.95);
