@@ -21,6 +21,9 @@ variable vfnhits
 variable vfFirstHit
 variable vfAllHits_126
 
+# V1495 Clock Count
+variable V1495ClockCount
+
 # Physics variables
 block RightBCM*dnew*
 block RightBCM*unew*

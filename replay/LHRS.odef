@@ -20,6 +20,9 @@ variable F1FirstHit
 variable F1nhits
 variable F1AllHits_033
 
+# V1495 Clock Count
+variable V1495ClockCount
+
 # Physics variables
 block L.gold.*
 block rpl.*
