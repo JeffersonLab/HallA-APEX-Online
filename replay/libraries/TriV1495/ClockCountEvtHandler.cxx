@@ -42,9 +42,6 @@ using namespace std;
 
 static const Int_t MAXDATA=20000;
 
-Int_t NTDCCHAN = 1;
-Int_t NCHAN_F1 = 1;
-
 ClockCountEvtHandler::ClockCountEvtHandler(const char *name, const char* description)
   : THaEvtTypeHandler(name,description), dvars(0)
 {
@@ -56,6 +53,7 @@ ClockCountEvtHandler::~ClockCountEvtHandler()
 }
 
 // GetData is a public method which other classes may use
+// 	I have no idea what this method is doing, so I will leave it for now -- REM -- 2018-02-01
 Float_t ClockCountEvtHandler::GetData(const std::string& tag) const
 {
   map<string, Float_t>::const_iterator elem = theDataMap.find(tag);
@@ -65,8 +63,6 @@ Float_t ClockCountEvtHandler::GetData(const std::string& tag) const
   return elem->second;
 }
 
-
-
 Int_t ClockCountEvtHandler::Analyze(THaEvData *evdata)
 {
 
@@ -75,18 +71,14 @@ Int_t ClockCountEvtHandler::Analyze(THaEvData *evdata)
   if (ldebug) cout << "Entering: ClockCountEvtHander Analyze"<<endl;;
 
   Decoder::V1495Module *V1495 = NULL;
-//  Decoder::TstF1TDCModule  *f1     = NULL;
 
 
   // FIXME: Not getting the crate/slot numbers automatically yet. Hardcoding them for now.
   if(nameArm1495=="LV1495") { // LEFT HRS (ROC31, slot 14 and 16):  
-    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,21));
-    cout << "LV1495 pointer Value = " << V1495 << endl;
+    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,21));	//FIXME: Need to get the actual slots for V1495s
   }
   else if(nameArm1495=="RV1495") { // RIGHT HRS:
-    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(20,20));
-    cout << "RV1495 pointer Value = " << V1495 << endl;
-//    f1     = dynamic_cast <Decoder::TstF1TDCModule* > (evdata->GetModule(20,8));
+    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(20,20));	//FIXME: Need to get the actual slots for V1495s
   }
   else cout << "Did not recognize name of ClockCountEvtHandler decoder. Please call it using RV1495 or LV1495 to decode Clock Counter." << endl;
 
@@ -95,15 +87,9 @@ if(ldebug) {
 		cout << "ERROR: got not pointer for V1495." << endl;
 		cout << "  Did you update the ROC and slot numbers in the declaration of the Decoder::V1495Module (file ClockCountEvtHandler.cxx) ?" << endl;
   }
-//  if(f1==0) {
-//		cout << "ERROR: got not pointer for F1." << endl;
-//		cout << "  Did you update the ROC and slot numbers in the declaration of the Decoder::TstF1TDCModule (file ClockCountEvtHandler.cxx) ?" << endl;
-//  }
-//  cout << "vetroc pointer ?  "<<vetroc<<endl;
 }
 
   assert( fStatus == kOK );  // should never get here if Init() failed
-//MARCO
   assert( dataKeys.size() == 0 ); // else logic error in Init()
 
   fDebug=0;
@@ -190,64 +176,11 @@ if(ldebug) {
 
 if(V1495!=0){
 	V1495ClockCount = 0;
-	cout << "Clock Count Got Here 0c     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
+	if (fDebug) cout << "Before V1495->GetCount()     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockCount = V1495->GetCount();
-	cout << "Clock Count Got Here 0d     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
+	if (fDebug) cout << "After V1495->GetCount()      V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 }
 
-/*// MARCO - VETROC
-if(vetroc!=0) {
-	for(Int_t i=0; i<NTDCCHAN; i++) {
-	    nHits[i] = vetroc->GetNumHits(i,0);
-		FirstHit[i] = vetroc->GetHit(i,0);
-	}
-	
-	for(Int_t i=0; i<nchs; i++) {
-	  AllHitNp[i].clear();
-	  AllHitNp[i].resize(vetroc->GetNumHits(chN[i]));
-	//cout << "--> ch=" << chN[i] << " - numHits=" << vetroc->GetNumHits(chN[i]) << endl;
-	  for(Int_t j=0; j<vetroc->GetNumHits(chN[i]); j++) {
-	    AllHitNp[i][j] = vetroc->GetHit(chN[i],j);
-	  }
-
-	  // FINE hit for calibration
-	  AllHitNpFine[i].clear();
-	  AllHitNpFine[i].resize(vetroc->GetNumHits(chN[i]));
-	//cout << "--> ch=" << chN[i] << " - numHits=" << vetroc->GetNumHits(chN[i]) << endl;
-	  for(Int_t j=0; j<vetroc->GetNumHits(chN[i]); j++) {
-	    AllHitNpFine[i][j] = vetroc->GetFine(chN[i],j);
-	  }
-	}
-}
-
-
-
-// MARCO - F1
-if(f1!=0) {
-
-    // check for sizes for automatic identification of F1 slots - not working yet...
-	totalF1channels = NCHAN_F1*2; // FIXME: hardcoded to read data from two modules
-	F1nHits.clear();
-	F1nHits.resize(totalF1channels);
-	F1FirstHit.clear();
-	F1FirstHit.resize(totalF1channels);
-
-	for(Int_t i=0; i<totalF1channels; i++) {
-	    F1nHits[i] = f1->GetNumHits(i);
-		//F1FirstHit[i] = f1->GetHit(i,0);
-		F1FirstHit[i] = f1->GetData(i,0);
-	}
-	
-	for(Int_t i=0; i<F1nchs; i++) {
-	  F1AllHitNp[i].clear();
-	  F1AllHitNp[i].resize(f1->GetNumHits(F1chN[i]));
-	//cout << "--> ch=" << chN[i] << " - numHits=" << vetroc->GetNumHits(chN[i]) << endl;
-	  for(Int_t j=0; j<f1->GetNumHits(F1chN[i]); j++) {
-	    F1AllHitNp[i][j] = f1->GetData(F1chN[i],j);
-	  }
-	}
-}
-*/
   return 1;
 }
 

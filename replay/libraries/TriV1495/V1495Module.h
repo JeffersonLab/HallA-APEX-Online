@@ -29,7 +29,6 @@ public:
    virtual void Clear(const Option_t *opt="");
    virtual Bool_t IsSlot(UInt_t rdata);
 
-   Double_t GetTevent() const { return tEVT; };
    Int_t Decode(const UInt_t *p) { return 0; };
    UInt_t GetCount();
 
@@ -41,15 +40,11 @@ public:
 private:
 
 
-   Int_t *fNumHitsP;
-   Int_t *fNumHitsN;
    UInt_t *vCount;
-   Double_t tEVT;
 
    Bool_t IsInit;
-   Int_t slotmask, chanmask, datamask;
-
    static TypeIter_t fgThisType;
+
    ClassDef(V1495Module,0)  //  CAEN V1495 custom Clock Counter
 
 };
