@@ -51,7 +51,7 @@ do
       ;;
     -o|--online-only)
       ONLINE_ONLY=1
-      shift # past argument&& [[
+      shift # past argument
       #shift # past value
       ;;
     -n|--no-log)
