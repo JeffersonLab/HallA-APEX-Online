@@ -1,0 +1,9 @@
+if [ $# -eq 0 ] 
+then
+	echo "Please enter run number"
+	read RUNNUM
+else
+	RUNNUM=$1
+fi
+
+./haonline_tool -r $RUNNUM -o -y
