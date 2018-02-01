@@ -18,7 +18,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay = kFALSE, Bool_t bPlots = kFALSE,Bool_t autoreplay = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t autoreplay = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -43,8 +43,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   
   TString rootname;
   if(OnlineReplay){
-    rootname = "%s/tritium_online_%d.root";
-  }else{
+    rootname = "%s/tritium_online_%d.root";}
+  else {
     rootname = "%s/tritium_%d.root";
   }
 
@@ -102,6 +102,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       // Marco - F1 and VETROC tdcs:
       gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
+
+      // Evan - V1495 Clock Counter:
+      gHaEvtHandlers->Add (new ClockCountEvtHandler("RV1495","V1495 RHRS"));
     }
 
     //==================================
@@ -158,6 +161,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
+      
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","ev",0);
+	  gHaPhysics->Add(BCM);
 
       /*if(bEloss){
         // Beam Energy Loss
@@ -204,7 +210,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
     HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
-    HRSL->AddDetector( new THaShower("prl2", "Show pion rej." ));
+    HRSL->AddDetector( new THaShower("prl2", "Show pion rej." )); 
     
     THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
     FbusHRSL->AutoStandardDetectors(kFALSE);
@@ -235,6 +241,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
     // Marco - for F1 tdc:
     gHaEvtHandlers->Add (new TdcDataEvtHandler("LTDC","F1 TDCs lHRS")); // do not change the "LTDC" word
+
+    // Evan - V1495 Clock Counter:
+    gHaEvtHandlers->Add (new ClockCountEvtHandler("LV1495","V1495 RHRS"));
     }
 
     //==================================
@@ -292,6 +301,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
+      
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
+
       
       /*if(bEloss){
         // Beam Energy Loss

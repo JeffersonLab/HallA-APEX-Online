@@ -71,6 +71,13 @@ Int_t get_rastersize_R(TString codafname,TString runNo, Int_t firsteve, Int_t la
   FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
   FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
   THaApparatus* Lrb = new TriFadcRasteredBeam("Rrb","Raster Beamline for FADC ");
+    THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+    HRSR->AutoStandardDetectors(kFALSE);
+    gHaApps->Add( HRSR );
+    HRSR->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
+
+
+
 
 
   gHaApps->Add( FbusLrb );
@@ -364,7 +371,9 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
   TCanvas* c4 =  new TCanvas("c4","Raster vs BPM Plots",1600,800);
   //  gStyle->SetOptStat(0);
-  c4->Divide(4,2);
+  c4->Divide(4,2);  gPad->SetGridx();  
+  gPad->SetGridy();
+
 
   c4->cd(1);
   urastraw_bpma_x->Draw("col");
@@ -409,15 +418,15 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   beam_y->Draw();
 
 //// BELOW IS FOR FADC FADC FADC --THREE TIMES FOR EVERYTHING IMPORTANT////
-  fc1->cd(1);
-  fbpma_xy->Draw("colz");
+  fc1->cd(1);  
   gPad->SetGridx();  
   gPad->SetGridy();
+  fbpma_xy->Draw("colz");
   fc1->cd(4);
   fbpmb_xy->Draw("colz");
   gPad->SetGridx();
   gPad->SetGridy();
- 
+
   fc1->cd(2);
   fbpma_x->Draw();
   fc1->cd(5);
@@ -553,18 +562,28 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
 
   fc5->cd(1);
   fbpma_xy->Draw("col");
+    gPad->SetGridx();  
+  gPad->SetGridy();
+
   fc5->cd(2);
+  
   fbpma_x->Draw();
   fc5->cd(3);
   fbpma_y->Draw();
   fc5->cd(4);
   fbpmb_xy->Draw("col");
+    gPad->SetGridx();  
+  gPad->SetGridy();
+
   fc5->cd(5);
   fbpmb_x->Draw();
   fc5->cd(6);
   fbpmb_y->Draw();
   fc5->cd(7);
   fbeam_xy->Draw("col");
+    gPad->SetGridx();  
+  gPad->SetGridy();
+
   fc5->cd(8);
   fbeam_x->Draw();
   fc5->cd(9);
