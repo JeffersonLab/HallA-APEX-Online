@@ -8,7 +8,7 @@ void pid_det_right(Int_t flag, TString drawoption){
 
   if(flag ==1){
     
-    TH2F *h = new TH2F("h","Shower E/p vs. Pre-Shower E/p",60,0,3000,60,0,3000);
+    TH2F *h = new TH2F("h","Shower adc sum vs. Pre-Shower adc sum",1000,0,3000,2000,0,4000);
     h->GetXaxis()->SetTitle("Layer 1 adc_sum");h->GetYaxis()->CenterTitle();
     h->GetYaxis()->SetTitle("Layer 2 adc_sum");h->GetXaxis()->CenterTitle();
     
