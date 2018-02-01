@@ -21,7 +21,7 @@ void pid_det_right(Int_t flag, TString drawoption){
     h1->GetYaxis()->SetTitle("N_{phe}");h1->GetYaxis()->CenterTitle();
     h1->GetXaxis()->SetTitle("E/p");h1->GetXaxis()->CenterTitle();
     
-    tree->Draw("R.cer.asum_c/100.:(R.ps.e+R.sh.e)/(1000.*R.tr.p[0])>>h1","R.tr.n==1",drawoption);  
+    tree->Draw("R.cer.asum_c/300.:(R.ps.e+R.sh.e)/(1000.*R.tr.p[0])>>h1","R.tr.n==1",drawoption);  
 
   }
 
