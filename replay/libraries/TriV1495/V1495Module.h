@@ -31,7 +31,7 @@ public:
 
    Double_t GetTevent() const { return tEVT; };
    Int_t Decode(const UInt_t *p) { return 0; };
-   Int_t GetCount();
+   UInt_t GetCount();
 
    // Loads slot data for bank structures
    virtual Int_t LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len);

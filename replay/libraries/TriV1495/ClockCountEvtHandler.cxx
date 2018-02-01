@@ -189,12 +189,10 @@ if(ldebug) {
   }
 
 if(V1495!=0){
-	V1495ClockCount[0] = 0;
-	V1495ClockCount[1] = 0;
-//	V1495ClockCount.resize(10);
-	cout << "Clock Count Got Here 0c     V1495ClockCount[0] = " << hex << V1495ClockCount[0] << dec << endl;
-	V1495ClockCount[0] = V1495->GetCount();
-	cout << "Clock Count Got Here 0d     V1495ClockCount[0] = " << hex << V1495ClockCount[0] << dec << endl;
+	V1495ClockCount = 0;
+	cout << "Clock Count Got Here 0c     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
+	V1495ClockCount = V1495->GetCount();
+	cout << "Clock Count Got Here 0d     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 }
 
 /*// MARCO - VETROC
@@ -290,9 +288,7 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
 
   Int_t numEntries = 0;
   // for Clock Count
-  V1495ClockCount[0] = 0;
-  V1495ClockCount[1] = 0;
-//  V1495ClockCount.resize(10);
+  V1495ClockCount = 0;
   gHaVars->DefineByType(dataKeys[numEntries].c_str(), "V1495ClockCount", &V1495ClockCount, kUInt, 0);
   numEntries++;
   

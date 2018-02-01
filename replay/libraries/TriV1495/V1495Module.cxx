@@ -37,7 +37,7 @@ V1495Module::~V1495Module() {
 }
 
 void V1495Module::Init() {
-  vCount = new UInt_t[1];
+  vCount = new UInt_t;
   fDebugFile=0;
   Clear();
   IsInit = kTRUE;
@@ -59,9 +59,9 @@ void V1495Module::Clear(const Option_t* opt) {
   memset(vCount, 0, sizeof(UInt_t));
 }
 
-Int_t V1495Module::GetCount() {
-  cout << "within GetCount(): vCount[0] = " << showbase << hex << vCount[0] << dec << endl;
-  return vCount[0];
+UInt_t V1495Module::GetCount() {
+  cout << "within GetCount(): vCount = " << showbase << hex << *vCount << dec << endl;
+  return *vCount;
 }
 
 Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len) {
@@ -122,8 +122,8 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 		}
 		// Do we have gotCntHeader already? So we are readying data!
 		if(gotCntHeader) {
-			vCount[0] = (*loc);
-			cout << "within loc loop: vCount[0] = " << hex << vCount[0] << dec << endl;
+			*vCount = (*loc);
+			cout << "within loc loop: vCount = " << hex << *vCount << dec << endl;
 		}
 
         loc++;

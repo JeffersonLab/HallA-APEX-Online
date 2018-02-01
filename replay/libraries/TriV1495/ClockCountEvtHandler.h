@@ -43,7 +43,7 @@ private:
    std::vector<UInt_t> CFirstHit;
    //V1495
 //   std::vector<UInt_t> V1495ClockCount;
-   UInt_t V1495ClockCount[2];
+   UInt_t V1495ClockCount;
 
    // to get channel N only
    Int_t nchs;
