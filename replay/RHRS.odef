@@ -25,9 +25,8 @@ variable vfAllHits_126
 variable V1495ClockCount
 
 # Physics variables
-block RightBCM*dnew*
-block RightBCM*unew*
-blcok RightBCM*isrenewed*
+block RightBCM*
+
 block R.gold.*
 block rpr.*
 block exR.*

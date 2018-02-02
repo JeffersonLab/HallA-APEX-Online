@@ -1,3 +1,4 @@
+#include "../TRI_Main.h" //Used for th RunNoChain to Tchain all of the TTrees together
 #include "../TRI_Tools.h" //Used for th RunNoChain to Tchain all of the TTrees together
 
 /*This script will calculate the total amount of charge calulcated from the bcms.
@@ -52,6 +53,7 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
 	Double_t dnew_cur_ev=0, unew_cur_ev=0;
 	Double_t isrenewed=0; //Did the scaler record:
 
+
 //Needed pointer for values in the TChain
 	T->ResetBranchAddresses();
 	T->SetBranchAddress(Form("%sBCM.charge_dnew",ARM.Data()),&dnew_ch_ev);
@@ -59,7 +61,14 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
 	T->SetBranchAddress(Form("%sBCM.current_dnew",ARM.Data()),&dnew_cur_ev);
 	T->SetBranchAddress(Form("%sBCM.current_unew",ARM.Data()),&dnew_cur_ev);
 	T->SetBranchAddress(Form("%sBCM.isrenewed",ARM.Data()),   &isrenewed);
+	    
+	Double_t dnew_u_ch_ev=0, dnew_u_ch_ev_old=0,dnew_u_ch_total=0;
+    T->SetBranchAddress(Form("%sdnew",ARM.Data()),&dnew_u_ch_ev);
 	
+		double gain, offset; 
+		if(arm=="R"){ gain = 0.0003353; offset =0;}
+			else {  gain = 0.0003358; offset =0;}        
+    
 	
 //for loop to calculate the total charge;
 	for(Int_t i=0;i<Total_entries;i++){
@@ -68,15 +77,25 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
 		if(isrenewed==1 && dnew_cur_ev >= cuts_bool*2.5){ 
 			dnew_ch_total+=dnew_ch_ev;
 			unew_ch_total+=unew_ch_ev;
-		}//End of renewed if
-		dnew_ch_ev=0, unew_ch_ev=0; //reset;
+			}//End of renewed if
+			if(dnew_u_ch_ev>dnew_u_ch_ev_old){
+			dnew_u_ch_total+=(dnew_u_ch_ev-dnew_u_ch_ev_old);}
+			dnew_u_ch_ev_old=dnew_u_ch_ev;
+		dnew_ch_ev=0, unew_ch_ev=0; dnew_u_ch_ev=0;//reset;
 	}
 // End of for loop of events in the tchain.    
     
     //cout <<"Dnew :" << dnew_ch_total << "|  Unew  :"<< unew_ch_total <<endl;
-           
     Total_Charge=dnew_ch_total;
     
+
+	T->SetBranchAddress(Form("%sdnew_r",ARM.Data()),&dnew_cur_ev);
+
+
+    T->GetEntry(Total_entries-1);
+    cout << "Charge with out cuts from ev dnew : " << dnew_u_ch_total*gain<<" uC"<<endl;
+    cout << "Charge with cuts from BCM class   : " << Total_Charge<<" uC" <<endl;  
+   	
     
  
 return Total_Charge;
