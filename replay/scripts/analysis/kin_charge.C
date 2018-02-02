@@ -1,3 +1,4 @@
+#include "../TRI_Main.h" //Used for th RunNoChain to Tchain all of the TTrees together
 #include "../TRI_Tools.h" //Used for th RunNoChain to Tchain all of the TTrees together
 
 /*This script will calculate the total amount of charge calulcated from the bcms.
