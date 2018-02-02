@@ -67,6 +67,10 @@ block DR.ltClock*
 block DR.ltL1*
 #decoder.
 
+#V1495 Clock Count
+variable V1495ClockCount
+#V1495 Clock Count
+
 #block OldTrackR.*
 
 # Physics variables

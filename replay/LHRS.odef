@@ -20,6 +20,9 @@ variable F1FirstHit
 variable F1nhits
 variable F1AllHits_033
 
+# V1495 Clock Count
+variable V1495ClockCount
+
 # Physics variables
 block L.gold.*
 block rpl.*
@@ -198,7 +201,7 @@ TH2F L_tgc  'L-arm tgt phi vs. y' L.tr.tg_y L.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 #-------------------------------------------------------------------------------
 # LEFT Arm Physics Histograms:
 
-TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 200 1 10
+TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 200 1 20
 TH1F EKLNU 'L-arm nu, energy transfer'   EKL.omega 400 7.0 8.0
 TH1F EKLW  'L-arm invariant mass W' sqrt(EKL.W2) 100 1.0 4.0
 TH1F EKL_TH_E 'L-arm scattering angle (deg)' EKL.angle*180./3.14159 180 15 45
