@@ -91,9 +91,8 @@ Variable FbusRrb.y
 Variable Rrb.x
 Variable Rrb.y
 
-block RightBCM*dnew*
-block RightBCM*unew*
-blcok RightBCM*isrenewed*
+block RightBCM*
+
 
 #-------------------------------------------------------------------------------
 #Event type 140 scaler
