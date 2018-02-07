@@ -1,0 +1,13 @@
+if [ $# -eq 0 ] 
+then
+	echo "Please run again with a list of runs you would like to add to the wiki run list. "
+	exit 
+fi
+
+
+for  var in "$@"
+do
+echo adding Run $var
+analyzer -b 'getinfo.C('$var')'
+
+done

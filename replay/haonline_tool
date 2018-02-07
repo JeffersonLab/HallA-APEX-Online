@@ -1,0 +1,179 @@
+#!/bin/bash
+
+function print_the_help {
+  echo "USAGE: haonline_tool -r <run_number> [-o,-a] [-y] [-n] "
+  echo "  OPTIONS: "
+  echo "            -r,--run           Required run number"
+  echo "            -o,--online-only   Log online only"
+  echo "            -a,--all           Log all plots (online, detectors, physics)"
+  echo "            -n,--no-log        Do not submit any log entries"
+  echo "            -y,--yes           Automatically submit log entries (does not prompt for y/n)"
+  exit 
+}
+
+function yes_or_no {
+  while true; do
+    read -p "$* [y/n]: " yn
+    case $yn in
+      [Yy]*) return 0 ;;
+      [Nn]*) echo "No entered" ; return 1 ;;
+    esac
+  done
+}
+
+ONLINE_ONLY=1
+
+if [[ $# -eq 0 ]] ; then
+  print_the_help
+  exit 
+fi
+
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -h|--help)
+      shift # past argument
+      print_the_help
+      ;;
+    -r|--run)
+      RUNNUM="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -a|--all)
+      LOG_ALL_PLOTS=1
+      shift # past argument
+      #shift # past value
+      ;;
+    -o|--online-only)
+      ONLINE_ONLY=1
+      shift # past argument
+      #shift # past value
+      ;;
+    -n|--no-log)
+      NO_LOG=1
+      shift # past argument
+      #shift # past value
+      ;;
+    -y|--yes-log)
+      YES_LOG=1
+      shift # past argument
+      #shift # past value
+      ;;
+    *)    # unknown option
+      #POSITIONAL+=("$1") # save it in an array for later
+      echo "unknown option $1"
+      print_the_help
+      shift # past argument
+      ;;
+  esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [[ -n "${LOG_ALL_PLOTS}" ]] ; then
+  ONLINE_ONLY=
+fi
+
+
+echo LOG_ALL_PLOTS     = "${LOG_ALL_PLOTS}"
+echo ONLINE_ONLY PATH  = "${ONLINE_ONLY}"
+echo NO_LOG            = "${NO_LOG}"
+echo DEFAULT           = "${DEFAULT}"
+#echo "Number files in SEARCH PATH with EXTENSION:" $(ls -1 "${SEARCHPATH}"/*."${EXTENSION}" | wc -l)
+#if [[ -n $1 ]]; then
+#    echo "Last line of file specified as non-opt/last argument:"
+#    tail -1 "$1"
+#fi
+
+HRS_side=
+HRS_name=
+if [[ "$RUNNUM" -le "90000" ]] ; then
+  # Left HRS
+  HRS_side=left
+  HRS_name="Left HRS"
+#  echo "Replaying LEFT HRS run ${RUNNUM}"
+#  analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE)'
+#  sleep 1
+#  echo "Online plots for LEFT HRS run ${RUNNUM}"
+#  onlineGUI64/online -f onlineGUI64/LHRS_online.cfg -r $RUNNUM
+
+else 
+  # Right HRS
+  HRS_side=right
+  HRS_name="Right HRS"
+#  echo "Replaying RIGHT HRS run ${RUNNUM}"
+#  analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE)'
+#  sleep 1
+#  echo "Online plots for RIGHT HRS run ${RUNNUM}"
+#  onlineGUI64/online -f onlineGUI64/RHRS_online.cfg -r $RUNNUM
+
+fi
+
+echo "Running online replay for ${HRS_name} run: ${RUNNUM}"
+
+./onlineReplay $RUNNUM
+sleep 1
+./onlinePlots $RUNNUM
+
+HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf
+HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf 
+HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf
+
+if [[ -n "${NO_LOG}" ]] ; then
+	echo "Will not uplaod these plots to HALOG"
+	exit
+elif [[ -n "${LOG_ALL_PLOTS}"  ]] && [[ -n "${YES_LOG}" ]] ; then	
+  /site/ace/certified/apps/bin/logentry \
+  --logbook "HALOG" \
+    --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+    --tag Analysis \
+    --tag Autolog \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf \
+    --caption "Online plots" \
+    --caption "Detector plots" \
+    --caption "Physics plots" 
+    
+elif [[ -n "${ONLINE_ONLY}"  ]] && [[ -n "${YES_LOG}" ]] ; then
+	/site/ace/certified/apps/bin/logentry \
+    --logbook "HALOG" \
+    --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+    --tag Analysis \
+    --tag Autolog \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
+    --caption "Online plots" 
+	
+elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
+  #  
+   yes_or_no "Upload these plots to logbook HALOG? " && \ 
+  /site/ace/certified/apps/bin/logentry \
+  --logbook "HALOG" \
+    --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+    --tag Analysis \
+    --tag Autolog \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf \
+    --caption "Online plots" \
+    --caption "Detector plots" \
+    --caption "Physics plots" 
+
+elif [[ -n "${ONLINE_ONLY}"  ]] ; then
+  # /site/ace/certified/apps/bin/logentry 
+	yes_or_no "Upload these plots to logbook HALOG? " && \
+	/site/ace/certified/apps/bin/logentry \
+    --logbook "HALOG" \
+    --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+    --tag Analysis \
+    --tag Autolog \
+    --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
+    --caption "Online plots" 
+fi
+
+
+

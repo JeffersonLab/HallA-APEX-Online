@@ -4,9 +4,8 @@ block L.s2.la_c
 block L.s2.ra_c
 block L.s2.lt_c
 block L.s2.rt_c
-Varible L.s2.tr
 block L.s2.dedx
-block L.s2.trpad
+block L.s2.tr*
 #s2......
 
 #s0......
@@ -14,13 +13,13 @@ block L.s0.la_c
 block L.s0.ra_c
 block L.s0.lt_c
 block L.s0.rt_c
-Varible L.s0.tr
+Varible L.s0.tr*
 block L.s0.dedx
-block L.s0.trpad
 #s0......
 
 #prl1....
 block L.prl1.asum_c*
+block L.prl1.asum_p*
 block L.prl1.e*
 block L.prl1.nblk*
 block L.prl1.eblk*
@@ -30,6 +29,7 @@ block L.prl1.tr*
 
 #prl2....
 block L.prl2.asum_c*
+block L.prl2.asum_p*
 block L.prl2.e*
 block L.prl2.nblk*
 block L.prl2.eblk*
@@ -41,6 +41,7 @@ block L.prl2.tr*
 block L.cer.a_c*
 block L.cer.asum_c*
 block L.cer.tr*
+block L.cer.asum_p*
 #cer.....
 
 #vdc.....
@@ -51,20 +52,16 @@ block L.vdc.*.cltcor*
 #vdc.....
 
 #track...
-block L.tr.d*
-block L.tr.n
-block L.tr.tg*
-block L.tr.v*
-block L.tr.x
-block L.tr.y
-block L.tr.z
+block L.tr.*
 #track...
 
 #decoder.
-block DL.evtype*
-block DL.ltClock*
-block DL.ltL1*
+block DL.*
 #decoder.
+
+#V1495 Clock Count
+variable V1495ClockCount
+#V1495 Clock Count
 
 #block OldTrackL.*
 
@@ -72,12 +69,13 @@ block DL.ltL1*
 block L.gold.*
 block rpl.*
 block exL.*
-#block EKL.*
+block EKL.*
 block EKLc.*
 block EKLx.*
 #block ElbL.*
 #block EltL.*
 #block EKLxe.*
+block LeftBCM*
 
 Variable Lrb.dir.x
 Variable Lrb.dir.y
@@ -253,6 +251,12 @@ begin epics
   
   HALLA:p
   HALLA:dpp
+	
+  HacL_D1_P0rb
+  haBDSPOS 
+  haBDSPOS.VAL 
+  HALL_A_TARGET
+  HacL_alignAGL
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA

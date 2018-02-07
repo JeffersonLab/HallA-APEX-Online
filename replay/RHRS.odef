@@ -21,7 +21,12 @@ variable vfnhits
 variable vfFirstHit
 variable vfAllHits_126
 
+# V1495 Clock Count
+variable V1495ClockCount
+
 # Physics variables
+block RightBCM*
+
 block R.gold.*
 block rpr.*
 block exR.*
@@ -112,7 +117,7 @@ TH1F RcertT6_   'Cerenkov TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(D
 
 TH1F Rcera 'Cerenkov'  R.cer.a 10100 -100 10000 R.cer.a>0
 TH1F Rcersum 'Cerenkov FADC sum (corrected)' R.cer.asum_c 10100 -100 10000 R.cer.asum_c>-1000
-TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 4000 -200 7800 R.cer.a_p>-200
+TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 4000 -200 2000 R.cer.a_p>-200
 TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 5000 -200 2000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
 TH2F Rcer_x  'Cerenkov FADC sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcer_y  'Cerenkov FADC sum (corrected) vs. Y' R.cer.try R.cer.asum_c  60 -0.12 0.12 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
@@ -193,13 +198,13 @@ TH2F R_tgc  'R-arm tgt phi vs. tgt y' R.tr.tg_y R.tr.tg_ph 200 -0.1 0.1 200 -0.1
 #-------------------------------------------------------------------------------
 # RIGHT Arm Physics Histograms:
 #
-TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 200 -0 4
-TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 400 0 2
-TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 -1 2
-TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 0 60
-TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 3
+TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 200 0 20
+TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 400 5 10
+TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
+TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 15 45
+TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 2
 #TH1F EKRTH_Q 'R-arm Virtual photon angle (deg)' EKR.th_q*180./3.14159 60 0 60
-TH2F EKR_xQ2 'L-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 3 200 0 4
+TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 2 200 0 20
 
 #-------------------------------------------------------------------------------
 # RIGHT Arm Reaction Vertex Histograms  :
@@ -225,37 +230,37 @@ TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 200 -15. 15. 
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
 #This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
-TH1F rastx1 'Fast Raster 1 X current' Rrb.Raster.rawcur.x 500 4000 9000
-TH1F rasty1 'Fast Raster 1 Y current' Rrb.Raster.rawcur.y 500 4000 9000
-TH1F rastx2 'Fast Raster 2 X current' Rrb.Raster2.rawcur.x 500 4000 9000
-TH1F rasty2 'Fast Raster 2 Y current' Rrb.Raster2.rawcur.y 500 4000 9000
+TH1F rastx1 'Fast Raster 1 X current' Rrb.Raster.rawcur.x 500 50000 100000
+TH1F rasty1 'Fast Raster 1 Y current' Rrb.Raster.rawcur.y 500 20000 120000
+TH1F rastx2 'Fast Raster 2 X current' Rrb.Raster2.rawcur.x 500 50000 100000
+TH1F rasty2 'Fast Raster 2 Y current' Rrb.Raster2.rawcur.y 500 20000 120000
 
-TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Rrb.Raster.rawcur.x Rrb.Raster.rawcur.y 300 0 9000 300 0 9000
-TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Rrb.Raster2.rawcur.x Rrb.Raster2.rawcur.y 300 0 9000 300 0 9000
-TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Rrb.Raster2.rawcur.x Rrb.Raster.rawcur.x 300 0 9000 300 0 9000
-TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Rrb.Raster2.rawcur.y Rrb.Raster.rawcur.y 300 0 9000 300 0 9000
-TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Rrb.Raster2.rawcur.y Rrb.Raster.rawcur.x 300 0 9000 300 0 9000
-TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Rrb.Raster.rawcur.y Rrb.Raster2.rawcur.x 300 0 9000 300 0 9000
+TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Rrb.Raster.rawcur.x Rrb.Raster.rawcur.y 500 50000 100000 500 20000 120000
+TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Rrb.Raster2.rawcur.x Rrb.Raster2.rawcur.y 500 50000 100000 500 20000 120000
+TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Rrb.Raster2.rawcur.x Rrb.Raster.rawcur.x 500 50000 100000 500 50000 100000
+TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Rrb.Raster2.rawcur.y Rrb.Raster.rawcur.y 500 20000 120000 500 20000 120000
+TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Rrb.Raster2.rawcur.y Rrb.Raster.rawcur.x 500 20000 120000 500 50000 100000
+TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Rrb.Raster.rawcur.y Rrb.Raster2.rawcur.x 500 20000 120000 500 50000 100000
 
-TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Rrb.Raster.rawcur.x rbax 500 4000 9000 200 -5. 5.
-TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Rrb.Raster.rawcur.y rbay 500 4000 9000 200 -5. 5.
-TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' Rrb.Raster.rawcur.x rbbx 500 4000 9000 200 -5. 5.
-TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' Rrb.Raster.rawcur.y rbby 500 4000 9000 200 -5. 5.
+TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Rrb.Raster.rawcur.x rbax 500 50000 100000 200 -5. 5.
+TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Rrb.Raster.rawcur.y rbay 500 20000 120000 200 -5. 5.
+TH2F urastraw_bpmb_x 'Up Fast Raster Current vs BPMB X' Rrb.Raster.rawcur.x rbbx 500 50000 100000 200 -5. 5.
+TH2F urastraw_bpmb_y 'Up Fast Raster Current vs BPMB Y' Rrb.Raster.rawcur.y rbby 500 20000 120000 200 -5. 5.
 
-TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' Rrb.Raster.rawcur.y rbax 500 4000 9000 200 -5. 5.
-TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Rrb.Raster.rawcur.x rbay 500 4000 9000 200 -5. 5.
-TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Rrb.Raster.rawcur.y rbbx 500 4000 9000 200 -5. 5.
-TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x rbby 500 4000 9000 200 -5. 5.
+TH2F urastraw_y_bpma_x 'Up Fast Raster Current Y vs BPMA X' Rrb.Raster.rawcur.y rbax 500 20000 120000 200 -5. 5.
+TH2F urastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Rrb.Raster.rawcur.x rbay 500 50000 100000 200 -5. 5.
+TH2F urastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Rrb.Raster.rawcur.y rbbx 500 20000 120000 200 -5. 5.
+TH2F urastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x rbby 500 50000 100000 200 -5. 5.
 
-TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x rbax 500 4000 9000 200 -5. 5.
-TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y rbay 500 4000 9000 200 -5. 5.
-TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x rbbx 500 4000 9000 200 -5. 5.
-TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y rbby 500 4000 9000 200 -5. 5.
+TH2F drastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x rbax 500 50000 100000 200 -5. 5.
+TH2F drastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y rbay 500 20000 120000 200 -5. 5.
+TH2F drastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x rbbx 500 50000 100000 200 -5. 5.
+TH2F drastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y rbby 500 20000 120000 200 -5. 5.
 
-TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y rbax 500 4000 9000 200 -5. 5.
-TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x rbay 500 4000 9000 200 -5. 5.
-TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Rrb.Raster2.rawcur.y rbbx 500 4000 9000 200 -5. 5.
-TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Rrb.Raster2.rawcur.x rbby 500 4000 9000 200 -5. 5.
+TH2F drastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y rbax 500 20000 120000 200 -5. 5.
+TH2F drastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x rbay 500 50000 100000 200 -5. 5.
+TH2F drastraw_y_bpmb_x 'Down Fast Raster Current Y vs BPMB X' Rrb.Raster2.rawcur.y rbbx 500 20000 120000 200 -5. 5.
+TH2F drastraw_x_bpmb_y 'Down Fast Raster Current X vs BPMB Y' Rrb.Raster2.rawcur.x rbby 500 50000 100000 200 -5. 5.
 
 TH1F E_p 'E/p' Rep 300 -0.5 1.5 R.gold.p<1000000000&&R.gold.p>0
 TH1F E_p_cut 'E/p with cut' Rep 300 -0.5 1.5 R.cer.asum_c>2000&&R.gold.p<1000000000&&R.gold.p>0
@@ -360,6 +365,14 @@ variable evRightd10
 variable evRightd10_r
 
 begin epics
+  haBDSPOS
+  HacR_alignAGL
+  HacR_D1_P0rb	
+  HALLA:p
+  HALLA:dpp
+
+  haBDSPOS.VAL 
+
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
