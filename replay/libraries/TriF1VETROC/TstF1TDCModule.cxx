@@ -46,6 +46,7 @@ TstF1TDCModule::~TstF1TDCModule() {
   //if (fNumHits) delete [] fNumHits;
   if (fTdcData.size()>0) fTdcData.clear();
   if (fNumHits.size()>0) fNumHits.clear();
+  if (fWarnings.size()>0) fWarnings.clear();
   if(F1slots) delete [] F1slots;
 }
 
@@ -67,8 +68,10 @@ void TstF1TDCModule::Init() {
     fNumChan = 64;
   }
   fNumHits.clear();
+  fWarnings.clear();
   fTdcData.clear();
   fNumHits.resize(fNumChan*nF1);
+  fWarnings.resize(fNumChan*nF1);
   fTdcData.resize(fNumChan*nF1*MAXHIT);
 }
 
@@ -93,14 +96,20 @@ Int_t TstF1TDCModule::GetNumHits(Int_t chan) {
   return fNumHits[chan];
 }
 
+Int_t TstF1TDCModule::GetWarnings(Int_t chan) {
+  if (chan < 0 || chan > nF1*fNumChan) return -1;
+  return fWarnings[chan];
+}
+
 void TstF1TDCModule::Clear(const Option_t* opt) {
   VmeModule::Clear(opt);
   //memset(fTdcData, 0, fNumChan*MAXHIT*sizeof(Int_t));
   //memset(fNumHits, 0, fNumChan*sizeof(Int_t));
 //  std::fill(fTdcData.begin(), fTdcData.end(), 0);
 //  std::fill(fNumHits.begin(), fNumHits.end(), 0);
-  for(Int_t i=0; i<fTdcData.size(); i++) fTdcData[i]=0;
-  for(Int_t i=0; i<fNumHits.size(); i++) fNumHits[i]=0;
+  for(UInt_t i=0; i<fTdcData.size(); i++) fTdcData[i]=0;
+  for(UInt_t i=0; i<fNumHits.size(); i++) fNumHits[i]=0;
+  for(UInt_t i=0; i<fWarnings.size(); i++) fWarnings[i]=0;
 }
 
 Int_t TstF1TDCModule::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len) {
@@ -226,30 +235,6 @@ Int_t TstF1TDCModule::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const
 		else okslot = 0;
 
 //cout << "f1slot: " << f1slot << " ";//endl;
-	     if (okslot && f1slot!=30 && ((*loc) & DATA_CHK) != F1_RES_LOCK ) {
-	       if(nwarnings<10) {
-                  cout << "\tWarning: F1 TDC " << hex << (*loc) << dec;
-	          cout << "\tSlot (Ch) = " << f1slot << "(" << chan << ")";
-               
-	          if ( (*loc) & F1_HIT_OFLW ) {
-		      cout << "\tHit-FIFO overflow";
-	          }
-	          if ( (*loc) & F1_OUT_OFLW ) {
-		      cout << "\tOutput FIFO overflow";
-	          }
-	          if ( ! ((*loc) & F1_RES_LOCK ) ) {
-                      cout << "\tWarning: F1 TDC " << hex << (*loc) << dec << "\tResolution lock failure!";
-	          }
-	          cout << endl;
-               }
-               if ( (*loc) & F1_HIT_OFLW || (*loc) & F1_OUT_OFLW || ! ((*loc) & F1_RES_LOCK )) {
-                  nwarnings++;
-                  if(nwarnings==10) {
-			cout << "  (Omitting next warnings of \"Hit-FIFO overflow\" or \"Output FIFO overflow\" or \"Resolution lock failure\" from F1 tdc)" << endl;
-			nwarnings++;
-                  }
-               }
-	     }
 
 	      Int_t raw= (*loc) & 0xffff;
 	      if(fDebug > 1 && fDebugFile!=0) {
@@ -260,6 +245,38 @@ Int_t TstF1TDCModule::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const
 
 		  if(okslot && (*loc)!=0xf1daffff && nF1>0 && f1slot!=30) { // Make sure memory is allocated to save data
 		    Int_t chSlot = idxSlot*fNumChan + chan;
+
+	     // Handling with warnings
+	     //
+	     if (okslot && f1slot!=30 && ((*loc) & DATA_CHK) != F1_RES_LOCK ) {
+	       if(nwarnings<10) {
+                  cout << "\tWarning: F1 TDC " << hex << (*loc) << dec;
+	          cout << "\tSlot (Ch) = " << f1slot << "(" << chan << ")";
+               }
+               
+	          if ( (*loc) & F1_HIT_OFLW ) {
+                      fWarnings[chSlot] |= 1UL << 0; // 1st bit
+		      if(nwarnings<10) cout << "\tHit-FIFO overflow";
+	          }
+	          if ( (*loc) & F1_OUT_OFLW ) {
+                      fWarnings[chSlot] |= 1UL << 1; // 2nd bit
+		      if(nwarnings<10) cout << "\tOutput FIFO overflow";
+	          }
+	          if ( ! ((*loc) & F1_RES_LOCK ) ) {
+                      fWarnings[chSlot] |= 1UL << 2; // 3rd bit
+                      if(nwarnings<10) cout << "\tWarning: F1 TDC " << hex << (*loc) << dec << "\tResolution lock failure!";
+	          }
+	          if(nwarnings<10) cout << endl;
+               if ( (*loc) & F1_HIT_OFLW || (*loc) & F1_OUT_OFLW || ! ((*loc) & F1_RES_LOCK )) {
+                  nwarnings++;
+                  if(nwarnings==10) {
+			cout << "  (Omitting next warnings of \"Hit-FIFO overflow\" or \"Output FIFO overflow\" or \"Resolution lock failure\" from F1 tdc)" << endl;
+			nwarnings++;
+                  }
+               }
+	     }
+
+		// data
 	        Int_t idx = chSlot*MAXHIT + fNumHits[chSlot]; // multiple hits, multiple slots 
 	        if (idx >= 0 && idx < MAXHIT*nF1*fNumChan  && fNumHits[chSlot]<MAXHIT) fTdcData[idx] = raw;
 		    if(fNumHits[chSlot]>=MAXHIT) cout << "F1TDC warning: more than " << MAXHIT << " hits in channel " << chan << " / slot " << f1slot << ". Not taking last hit(s)." << endl;

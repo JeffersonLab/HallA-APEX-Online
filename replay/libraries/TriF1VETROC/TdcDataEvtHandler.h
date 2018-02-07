@@ -38,6 +38,7 @@ private:
    std::vector<UInt_t> FirstHit;
    //F1
    std::vector<UInt_t> F1nHits;
+   std::vector<UInt_t> F1Warnings;
    std::vector<UInt_t> F1FirstHit;
    //CAEN
    std::vector<UInt_t> CnHits;

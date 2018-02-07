@@ -39,6 +39,7 @@ public:
    Bool_t IsHiResolution() const { return (fResol==IHI); };
 
    Int_t GetNumHits(Int_t chan);// const { return fNumHits; };
+   Int_t GetWarnings(Int_t chan);
    Int_t Decode(const UInt_t *p) { return 0; };
 
    // For multiple slots - not working yet...
@@ -55,6 +56,7 @@ private:
    //Int_t *fNumHits;
    //Int_t *fTdcData;  // Raw data (either samples or pulse integrals)
    std::vector<Int_t> fNumHits;
+   std::vector<Int_t> fWarnings;
    std::vector<Int_t> fTdcData;  // Raw data (either samples or pulse integrals)
    EResolution fResol;
    Bool_t IsInit;
