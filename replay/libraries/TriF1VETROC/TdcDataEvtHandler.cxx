@@ -253,11 +253,14 @@ if(f1!=0) {
 	totalF1channels = NCHAN_F1*2; // FIXME: hardcoded to read data from two modules
 	F1nHits.clear();
 	F1nHits.resize(totalF1channels);
+	F1Warnings.clear();
+	F1Warnings.resize(totalF1channels);
 	F1FirstHit.clear();
 	F1FirstHit.resize(totalF1channels);
 
 	for(Int_t i=0; i<totalF1channels; i++) {
 	    F1nHits[i] = f1->GetNumHits(i);
+	    F1Warnings[i] = f1->GetWarnings(i);
 		//F1FirstHit[i] = f1->GetHit(i,0);
 		F1FirstHit[i] = f1->GetData(i,0);
 	}
@@ -331,6 +334,7 @@ THaAnalysisObject::EStatus TdcDataEvtHandler::Init(const TDatime& date)
   for(Int_t i=0; i<nchs; i++) dataKeys.push_back(Form("vfAllHits_%.3d",chN[i]));
   for(Int_t i=0; i<nchs; i++) dataKeys.push_back(Form("vfFine_%.3d",chN[i]));
   dataKeys.push_back("F1nhits");
+  dataKeys.push_back("F1Warnings");
   dataKeys.push_back("F1FirstHit");
   for(Int_t i=0; i<F1nchs; i++) dataKeys.push_back(Form("F1AllHits_%.3d",F1chN[i]));
   //dataKeys.push_back("Cnhit");
@@ -391,6 +395,11 @@ THaAnalysisObject::EStatus TdcDataEvtHandler::Init(const TDatime& date)
   F1nHits.clear();
   F1nHits.resize(NCHAN_F1);
   gHaVars->DefineByType(dataKeys[numEntries].c_str(), "F1nHits", &F1nHits, kUIntV, 0);
+  numEntries++;
+  // for Warnings
+  F1Warnings.clear();
+  F1Warnings.resize(NCHAN_F1);
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "F1Warnings", &F1Warnings, kIntV, 0);
   numEntries++;
   // for FirstHit
   F1FirstHit.clear();
