@@ -110,6 +110,9 @@ protected:
   Int_t* frunderflow;        //[fNelem] FADC underflowbit
   Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
 
+  Int_t* fLNhits;            //[fNelem] number of hit for each left pmt
+  Int_t* fRNhits;	     //[fNelem] number of hit for each right pmt
+
   Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
 
 
