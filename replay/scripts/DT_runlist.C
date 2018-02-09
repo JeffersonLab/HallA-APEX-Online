@@ -14,7 +14,7 @@ void DT_runlist(int first_run, int last_run){
 	cout << "Running from run " << first_run << " to run " <<last_run <<endl;
 //Start of each run
 	for(int i = first_run;i<=last_run;i++){
-		int run=i;0
+		int run=i;
 		
 		cout << "This is the start of run " << run <<endl;
 	
