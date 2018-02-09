@@ -35,6 +35,8 @@ private:
    Double_t *dvars;
    //V1495
    UInt_t V1495ClockCount;
+   UInt_t V1495PrevCount;
+   UInt_t V1495ClockInterval;
 
    ClockCountEvtHandler(const ClockCountEvtHandler& fh);
    ClockCountEvtHandler& operator=(const ClockCountEvtHandler& fh);
