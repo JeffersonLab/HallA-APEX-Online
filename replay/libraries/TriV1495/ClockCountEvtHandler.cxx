@@ -74,11 +74,11 @@ Int_t ClockCountEvtHandler::Analyze(THaEvData *evdata)
 
 
   // FIXME: Not getting the crate/slot numbers automatically yet. Hardcoding them for now.
-  if(nameArm1495=="LV1495") { // LEFT HRS (ROC31, slot 14 and 16):  
-    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,21));	//FIXME: Need to get the actual slots for V1495s
+  if(nameArm1495=="LV1495") { // LEFT HRS (ROC31, slot 18):  
+    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,18));	//FIXME: Need to get the actual slots for V1495s
   }
-  else if(nameArm1495=="RV1495") { // RIGHT HRS:
-    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(20,20));	//FIXME: Need to get the actual slots for V1495s
+  else if(nameArm1495=="RV1495") { // RIGHT HRS (ROC20, slot 4):
+    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(20,4));	//FIXME: Need to get the actual slots for V1495s
   }
   else cout << "Did not recognize name of ClockCountEvtHandler decoder. Please call it using RV1495 or LV1495 to decode Clock Counter." << endl;
 
@@ -175,10 +175,13 @@ if(ldebug) {
   }
 
 if(V1495!=0){
+	V1495PrevCount = V1495ClockCount;
 	V1495ClockCount = 0;
 	if (fDebug) cout << "Before V1495->GetCount()     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockCount = V1495->GetCount();
 	if (fDebug) cout << "After V1495->GetCount()      V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
+	V1495ClockInterval = 0;
+	V1495ClockInterval = V1495ClockCount - V1495PrevCount;
 }
 
   return 1;
@@ -198,6 +201,7 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
 
   // data keys to look for in this fun example
   dataKeys.push_back("V1495ClockCount");
+  dataKeys.push_back("V1495ClockInterval");
 
   // initialize map elements to -1 (means not found yet)
   for (UInt_t i=0; i < dataKeys.size(); i++) {
@@ -223,6 +227,10 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   // for Clock Count
   V1495ClockCount = 0;
   gHaVars->DefineByType(dataKeys[numEntries].c_str(), "V1495ClockCount", &V1495ClockCount, kUInt, 0);
+  numEntries++;
+  // for Clock Interval
+  V1495ClockInterval = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "V1495ClockInterval", &V1495ClockInterval, kUInt, 0);
   numEntries++;
   
   fStatus = kOK;

@@ -28,7 +28,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 			    THaApparatus* apparatus )
   : THaPidDetector(name,description,apparatus), fOff(0), fPed(0), fGain(0),
     fNThit(0), fT(0), fT_c(0), fNAhit(0), fA(0), fA_p(0), fA_c(0),
-    foverflow(0), funderflow(0),fpedq(0)
+    foverflow(0), funderflow(0),fpedq(0),fNhits(0)
 {
   // Constructor
   fFADC=NULL;
@@ -37,7 +37,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 //_____________________________________________________________________________
 TriFadcCherenkov::TriFadcCherenkov()
   : THaPidDetector(), fOff(0), fPed(0), fGain(0), fT(0), fT_c(0),
-    fA(0), fA_p(0), fA_c(0),foverflow(0), funderflow(0),fpedq(0)
+    fA(0), fA_p(0), fA_c(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -130,6 +130,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     foverflow  = new Int_t[ nval ]; 
     funderflow = new Int_t[ nval ];
     fpedq      = new Int_t[ nval ];
+    fNhits     = new Int_t[ nval ];
 
     fIsInit = true;
   }
@@ -190,6 +191,7 @@ Int_t TriFadcCherenkov::DefineVariables( EMode mode )
     { "noverflow",  "overflow bit of FADC pulse",    "foverflow" },
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
     { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
+    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -225,7 +227,7 @@ void TriFadcCherenkov::DeleteArrays()
   delete [] foverflow; foverflow = NULL;
   delete [] funderflow; funderflow = NULL;
   delete [] fpedq;    fpedq    = NULL;
-
+  delete [] fNhits;   fNhits  = NULL;
 }
 
 //_____________________________________________________________________________
@@ -248,6 +250,7 @@ void TriFadcCherenkov::Clear( Option_t* opt )
     memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
     memset( funderflow, 0, fNelem*sizeof(funderflow[0]) );
     memset( fpedq, 0, fNelem*sizeof(fpedq[0]) );
+    memset( fNhits, 0, fNelem*sizeof(fNhits[0]) );
 
   }
 }
@@ -273,20 +276,24 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
       Int_t chan = evdata.GetNextChan( d->crate, d->slot, j );
       if( chan < d->lo || chan > d->hi ) continue;     // Not one of my channels
 
-      // Get the data. Aero mirrors are assumed to have only single hit (hit=0)
-      Int_t data;
-      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-      else data = evdata.GetData( d->crate, d->slot, chan, 0 );
-
       // Get the detector channel number, starting at 0
       Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo) - 1;
 
 #ifdef WITH_DEBUG
       if( k<0 || k>= fNelem ) {
-	Warning( Here("Decode()"), "Illegal detector channel: %d", k );
+        Warning( Here("Decode()"), "Illegal detector channel: %d", k );
         continue;
       }
 #endif
+
+      // Get the data. Aero mirrors are assumed to have only single hit (hit=0)
+      Int_t data;
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+      else{ 
+	     fNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);     
+             data = evdata.GetData( d->crate, d->slot, chan, fNhits[k]-1 );
+
+	  }
 
       if(adc){
           if(fFADC!=NULL){

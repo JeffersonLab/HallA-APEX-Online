@@ -72,7 +72,7 @@ void DT_runlist(int first_run, int last_run){
 	
     	for (int i=1; i<7; i++){
     	  TCut t_cut = Form("D%s.evtypebits&(1<<%i)",arm.Data(),i);
-    	  sprintf(rate,"ev%sT%i",ARM.Data(), i);
+    	  sprintf(rate,"%sT%i",ARM.Data(), i);
     	  icount[i] = T->GetMaximum(rate);
     	  sprintf(hname[i],"t%i",i);
     	  sprintf(hh,"D%s.evtypebits>>%s", arm.Data(),hname[i]);
