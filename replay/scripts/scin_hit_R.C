@@ -62,8 +62,12 @@ void scin_hit_R(){
     if (s0rt>100) ns0rt->Fill(1,scale0);
      
     for(Int_t j=0;j<16;j++){
-      if (s2la[j]>50) ns2la->Fill(j);
-      if (s2ra[j]>50) ns2ra->Fill(j);
+      //if (s2la[j]>50) ns2la->Fill(j);
+      //if (s2ra[j]>50) ns2ra->Fill(j);
+      //if (s2lt[j]>100) ns2lt->Fill(j,scale2);
+      //if (s2rt[j]>100) ns2rt->Fill(j,scale2);
+      if (s2la[j]>35) ns2la->Fill(j);
+      if (s2ra[j]>35) ns2ra->Fill(j);
       if (s2lt[j]>100) ns2lt->Fill(j,scale2);
       if (s2rt[j]>100) ns2rt->Fill(j,scale2);
     }
