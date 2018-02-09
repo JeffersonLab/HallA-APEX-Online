@@ -56,6 +56,8 @@ protected:
   Int_t* fpedq;             //[fNelem] FADC pedestal quality bit
   Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
 
+  Int_t* fNhits;           //[fNelem] number of hits for each PMT
+
 
   virtual Int_t  DefineVariables( EMode mode = kDefine );
           void   DeleteArrays();
