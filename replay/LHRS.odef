@@ -23,6 +23,7 @@ variable F1AllHits_033
 
 # V1495 Clock Count
 variable V1495ClockCount
+variable V1495ClockInterval
 
 # Physics variables
 block L.gold.*
