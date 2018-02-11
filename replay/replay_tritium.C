@@ -64,7 +64,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //==================================
     //  Detectors
     //==================================
-    THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+   // THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+    Tritium_HRS* HRSR = new Tritium_HRS("R","Right arm HRS");
     HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
     HRSR->AddDetector( new TriFadcXscin("s0","s0 scintillator",kTRUE) );
@@ -100,6 +101,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
       gHaEvtHandlers->Add(rEndscaler);
 
+      // Marco - F1 and VETROC tdcs:
+      gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
     }
 
     //==================================
@@ -134,7 +137,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_H3; //default target 
+      Double_t mass_tg = mass_H3/3.0; //default target 
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
@@ -148,7 +151,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
       gHaPhysics->Add(EKRc);
 
-      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
+      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","FbusRrb");
       gHaPhysics->Add(rpr);
 
       THaExtTarCor *exR =  new THaExtTarCor("exR","Corrected for extended target, HRS-R","R","rpr");
@@ -156,6 +159,9 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
+      
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
 
       /*if(bEloss){
         // Beam Energy Loss
@@ -194,7 +200,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //==================================
     //  Detectors
     //==================================
-    THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    //THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    Tritium_HRS* HRSL = new Tritium_HRS("L","Right arm HRS");
     HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator",kFALSE) );
@@ -231,6 +238,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     Tritium_THaScaler100EvtHandler* lEndscaler = new Tritium_THaScaler100EvtHandler("EndLeft","HA scaler event type 100");
     gHaEvtHandlers->Add(lEndscaler);
 
+    // Marco - for F1 tdc:
+    gHaEvtHandlers->Add (new TdcDataEvtHandler("LTDC","F1 TDCs lHRS")); // do not change the "LTDC" word
     }
 
     //==================================
@@ -266,7 +275,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       Double_t mass_He3 = 3.0160293*amu;
       Double_t mass_H2 = 2.01410178*amu;
       Double_t mass_H3 = 3.0160492*amu;
-      Double_t mass_tg = mass_H3; //default target 
+      Double_t mass_tg = mass_H3/3.0; //default target 
   
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
@@ -280,7 +289,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
       gHaPhysics->Add(EKLc);
 
-      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
+      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","FbusLrb");
       gHaPhysics->Add(rpl);
 
       THaExtTarCor *exL =  new THaExtTarCor("exL","Corrected for extended target, HRS-L","L","rpl");
@@ -288,6 +297,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
+      
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
+
       
       /*if(bEloss){
         // Beam Energy Loss
