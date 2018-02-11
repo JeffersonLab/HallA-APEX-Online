@@ -7,3 +7,10 @@ Lurb.BPMA.calib_rot = 0.01887
 Lurb.BPMA.pedestals = 3764  3501  3472  3485
 Lurb.BPMA.rotmatrix = -0.821808  0.775581  0.867645  0.766977
 Lurb.BPMA.offsets =  0.00143766 -6.81262e-06
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+Lurb.BPMA.rotmatrix = -0.77287 0.777118 0.86131 0.772947 
+Lurb.BPMA.offsets =0.00236547 -0.000440653
+
+--------[ 2017-12-02 00:00:00 -0500 ]
+Lurb.BPMA.offsets =0.00065 -0.00100

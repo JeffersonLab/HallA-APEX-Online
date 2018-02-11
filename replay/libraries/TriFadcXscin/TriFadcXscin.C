@@ -65,7 +65,8 @@ TriFadcXscin::TriFadcXscin( ) :
   frunderflow = NULL;
   frpedq = NULL;
 
-
+  fRNhits=NULL; 
+  fLNhits=NULL;
 }
 
 //_____________________________________________________________________________
@@ -213,6 +214,9 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
     frunderflow = new Int_t[ nval ];
     frpedq = new Int_t[ nval ];
 
+    fLNhits = new Int_t[ nval ];
+    fRNhits = new Int_t[ nval ];
+
     fIsInit = true;
   }
 
@@ -343,6 +347,8 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "roverflow",  "overflow bit of FADC pulse right side",        "froverflow" },
     { "runderflow", "underflow bit of FADC pulse right side",       "frunderflow" },
     { "rbadped",    "pedestal quality bit of FADC pulse right side","frpedq" },
+    { "lnhits", "Number of hits for left pmt",      "fLNhits"},
+    { "rnhits", "Number of hits for right pmt",     "fRNhits"},
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -410,7 +416,8 @@ void TriFadcXscin::DeleteArrays()
   delete [] froverflow;  froverflow  = NULL;
   delete [] frunderflow; frunderflow = NULL;
   delete [] frpedq;      frpedq      = NULL;
-
+  delete [] fLNhits;      fLNhits     = NULL;
+  delete [] fRNhits;      fRNhits     = NULL;
 }
 
 //_____________________________________________________________________________
@@ -461,7 +468,8 @@ void TriFadcXscin::ClearEvent()
   memset( froverflow,  0, fNelem*sizeof(froverflow[0]) );
   memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
   memset( frpedq,      0, fNelem*sizeof(frpedq[0]) );
-
+  memset( fLNhits,      0, fNelem*sizeof(fLNhits[0]) );
+  memset( fRNhits,      0, fNelem*sizeof(fRNhits[0]) );
   fTrackProj->Clear();
 }
 
@@ -500,11 +508,6 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
 		 evdata.GetEvNum(),
 		 nhit, adc ? "ADC" : "TDC", d->crate, d->slot, chan );
 #endif
-      // Get the data. Scintillators are assumed to have only single hit (hit=0)
-      Int_t data;
-      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-      else data = evdata.GetData( d->crate, d->slot, chan, 0 );
-
       // Get the detector channel number, starting at 0
       Int_t k = d->first + chan - d->lo - 1;   
 
@@ -523,6 +526,22 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
       int jj=0;
       jj = k/fNelem; 
       k = k % fNelem;
+
+      // Get the data. Scintillators are assumed to have only single hit (hit=0)
+      Int_t data;
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+      else{
+             if(jj==0){
+                 fRNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
+                 data = evdata.GetData( d->crate, d->slot, chan, fRNhits[k]-1);
+               }
+             else {
+                 fLNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
+                 data = evdata.GetData( d->crate, d->slot, chan, fLNhits[k]-1);
+               }
+          }
+
+
       if(adc){
           if(fFADC!=NULL){
             if(jj==1){   

@@ -15,8 +15,8 @@ void onlineGUI_Style() {
   gStyle->SetPadBottomMargin(.10);
   gStyle->SetTitleXOffset(0.8);
   gStyle->SetTitleYOffset(0.8);
-  gStyle->SetLabelFont(42,"X");
-  gStyle->SetLabelFont(42,"Y");
+  gStyle->SetLabelFont(32,"X");
+  gStyle->SetLabelFont(32,"Y");
 
   gStyle->SetStatH(0.4);
 
@@ -45,5 +45,5 @@ void onlineGUI_Style() {
 
   gStyle->SetTitleSize(0.08,"T");
 
-  gStyle->SetStatW(0.6);
+  gStyle->SetStatW(0.2);
 }

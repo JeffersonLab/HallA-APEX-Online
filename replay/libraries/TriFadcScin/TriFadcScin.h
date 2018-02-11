@@ -116,7 +116,12 @@ protected:
   Int_t* frunderflow;        //[fNelem] FADC underflowbit
   Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
 
+  Int_t* fLNhits;           //[fNelem] number of hits for each Left PMT
+  Int_t* fRNhits;           //[fNelem] number of hits for each Right PMT
+
   Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
+
+
 
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );

@@ -36,7 +36,7 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
     fLTNhit(0), fLT(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_c(0),
     fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
     fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0), 
-    floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0)
+    floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0),fLNhits(0),fRNhits(0)
 {
   // Constructor
   fFADC = NULL;
@@ -48,7 +48,8 @@ TriFadcScin::TriFadcScin()
     fLGain(0), fRGain(0), fTWalkPar(0), fAdcMIP(0), fTrigOff(0),
     fLT(0), fLT_c(0), fRT(0), fRT_c(0), fLA(0), fLA_p(0), fLA_c(0),
     fRA(0), fRA_p(0), fRA_c(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0),
-    fYt(0), fYa(0),floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0)
+    fYt(0), fYa(0),floverflow(0), flunderflow(0),flpedq(0),froverflow(0), frunderflow(0),frpedq(0),
+    fLNhits(0),fRNhits(0)
 {
   // Default constructor (for ROOT I/O)
 
@@ -180,6 +181,9 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     frunderflow = new Int_t[ nval ];
     frpedq      = new Int_t[ nval ];
 
+    fLNhits  = new Int_t[ nval ];
+    fRNhits  = new Int_t[ nval ]; 
+
     fIsInit = true;
   }
 
@@ -299,6 +303,8 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "roverflow",  "overflow bit of FADC pulse",    "froverflow" },
     { "runderflow",  "underflow bit of FADC pulse",  "frunderflow" },
     { "rbadped",  "pedestal quality bit of FADC pulse",   "frpedq" },
+    { "lnhits",  "Number of hits for left PMT",   "fLNhits" },
+    { "rnhits",  "Number of hits for right PMT",  "fRNhits" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -353,6 +359,8 @@ void TriFadcScin::DeleteArrays()
   delete [] froverflow;  froverflow  = NULL;
   delete [] frunderflow; frunderflow = NULL;
   delete [] frpedq;      frpedq      = NULL;
+  delete [] fLNhits;     fLNhits     = NULL;
+  delete [] fRNhits;     fRNhits     = NULL;
 }
 
 //_____________________________________________________________________________
@@ -390,7 +398,8 @@ void TriFadcScin::Clear( Option_t* opt )
     memset( froverflow, 0, fNelem*sizeof(froverflow[0]) );
     memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
     memset( frpedq, 0, fNelem*sizeof(frpedq[0]) );
-
+    memset( fLNhits, 0, fNelem*sizeof(fLNhits[0]) );
+    memset( fRNhits, 0, fNelem*sizeof(fRNhits[0]) );
   }
 }
 
@@ -426,11 +435,6 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
 	Warning( Here("Decode"), "%d hits on %s channel %d/%d/%d",
 		 nhit, adc ? "ADC" : "TDC", d->crate, d->slot, chan );
 #endif
-      // Get the data. Scintillators are assumed to have only single hit (hit=0)
-      Int_t data;
-      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-      else data = evdata.GetData( d->crate, d->slot, chan, 0 );
-    
       // Get the detector channel number, starting at 0
       Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo) - 1;
 
@@ -446,6 +450,20 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
       //decide wether use event by event pedestal
       int jj=k/fNelem; 
       k = k % fNelem; 
+
+      Int_t data;
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+      else {
+	     if(jj==0){
+                 fRNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
+                 data = evdata.GetData( d->crate, d->slot, chan, fRNhits[k]-1);
+	       }
+             else {
+                 fLNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
+                 data = evdata.GetData( d->crate, d->slot, chan, fLNhits[k]-1);
+               }
+
+	   }
       
       if(adc){ 
           if(fFADC!=NULL){

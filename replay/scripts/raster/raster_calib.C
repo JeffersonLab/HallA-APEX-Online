@@ -22,7 +22,7 @@ void raster_calib(){
     return;
   }
 
-  Double_t kx = -1.;
+  Double_t kx = 1.;
   Double_t ky = -1.;
 
   //Open Root File
@@ -32,16 +32,16 @@ void raster_calib(){
   int i = 1;
   //TFile *test_file = new TFile(Form("/volatile/halla/triton/tjhague/rootfiles/coinc_test_%d_%d.root",run,i));
 
-  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run),kFileExists)){
-    rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d.root",run));
+  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run),kFileExists)){
+    rootfile->Add(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
     cout << "Requested run has not been replayed. Exiting." << endl << endl;
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i),kFileExists)){
-    rootfile->Add(TString::Format("/chafs1/work1/tritium/Rootfiles/tritium_%d_%d.root",run,i));
+  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i),kFileExists)){
+    rootfile->Add(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i));
     cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
     i=i+1;
   }                      
@@ -66,10 +66,10 @@ void raster_calib(){
   //Also get the Mean and RMS of each plot
   
   //Plot X and Y Currents for both Rasters
-  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 62000, 68000);
-  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 62000, 68000);
+  TH1F *r1xcurr = new TH1F("r1xcurr", "Raster 1-X Current vs ADC Channel", 1000, 45000, 95000);
+  TH1F *r1ycurr = new TH1F("r1ycurr", "Raster 1-Y Current vs ADC Channel", 1000, 20000, 120000);
+  TH1F *r2xcurr = new TH1F("r2xcurr", "Raster 2-X Current vs ADC Channel", 1000, 45000, 95000);
+  TH1F *r2ycurr = new TH1F("r2ycurr", "Raster 2-Y Current vs ADC Channel", 1000, 20000, 120000);
 
   //Plot X and Y Position for both BPMs
   TH1F *bpmaxpos = new TH1F("bpmaxpos", "BPM A-X Position (m)", 400, -0.02, 0.02);
@@ -85,7 +85,13 @@ void raster_calib(){
   //Need to start with a cut for when the beam is off
   //If the BPM goes to a very large (negative?) value, the beam is off
   //Probably add a current cut later? Maybe unnecessary
-  TString cut = "TMath::Abs(" + arm + ".BPMA.x)<100";
+  TString cut = "(TMath::Abs(" + arm + ".BPMA.x)<100)&&((ev";
+  if(RIGHT_ARM_CONDITION){
+    cut += "Right";
+  }else if(LEFT_ARM_CONDITION){
+    cut += "Left";
+  }
+  cut += "dnew_r*0.0003299)>20)";
   TCut beamcut = cut.Data();
 
   //The plots are added to a canvas as they are populated
@@ -104,9 +110,13 @@ void raster_calib(){
 
   raster_canvas->cd(3);
   rootfile->Draw(arm + ".Raster2.rawcur.x>>r2xcurr",beamcut);
+  Double_t r2x_mean = r2xcurr->GetMean();
+  Double_t r2x_rms = r2xcurr->GetRMS();
 
   raster_canvas->cd(4);
   rootfile->Draw(arm + ".Raster2.rawcur.y>>r2ycurr",beamcut);
+  Double_t r2y_mean = r2ycurr->GetMean();
+  Double_t r2y_rms = r2ycurr->GetRMS();
 
   TCanvas *position_canvas = new TCanvas("position_canvas");
   position_canvas->Divide(2,3);
@@ -160,20 +170,20 @@ void raster_calib(){
   Double_t Utargy_offset = targy_mean - ((r1y_mean*targy_rms)/(r1y_rms*ky));
   Double_t Utargy_slope = targy_rms/(r1y_rms*ky);
 
-  Double_t DbpmAx_offset = bpmax_mean - ((r1x_mean*bpmax_rms)/(r1x_rms*kx));
-  Double_t DbpmAx_slope = bpmax_rms/(r1x_rms*kx);
-  Double_t DbpmAy_offset = bpmay_mean - ((r1y_mean*bpmay_rms)/(r1y_rms*ky));
-  Double_t DbpmAy_slope = bpmay_rms/(r1y_rms*ky);
+  Double_t DbpmAx_offset = bpmax_mean - ((r2x_mean*bpmax_rms)/(r2x_rms*kx));
+  Double_t DbpmAx_slope = bpmax_rms/(r2x_rms*kx);
+  Double_t DbpmAy_offset = bpmay_mean - ((r2y_mean*bpmay_rms)/(r2y_rms*ky));
+  Double_t DbpmAy_slope = bpmay_rms/(r2y_rms*ky);
 
-  Double_t DbpmBx_offset = bpmbx_mean - ((r1x_mean*bpmbx_rms)/(r1x_rms*kx));
-  Double_t DbpmBx_slope = bpmbx_rms/(r1x_rms*kx);
-  Double_t DbpmBy_offset = bpmby_mean - ((r1y_mean*bpmby_rms)/(r1y_rms*ky));
-  Double_t DbpmBy_slope = bpmby_rms/(r1y_rms*ky);
+  Double_t DbpmBx_offset = bpmbx_mean - ((r2x_mean*bpmbx_rms)/(r2x_rms*kx));
+  Double_t DbpmBx_slope = bpmbx_rms/(r2x_rms*kx);
+  Double_t DbpmBy_offset = bpmby_mean - ((r2y_mean*bpmby_rms)/(r2y_rms*ky));
+  Double_t DbpmBy_slope = bpmby_rms/(r2y_rms*ky);
 
-  Double_t Dtargx_offset = targx_mean - ((r1x_mean*targx_rms)/(r1x_rms*kx));
-  Double_t Dtargx_slope = targx_rms/(r1x_rms*kx);
-  Double_t Dtargy_offset = targy_mean - ((r1y_mean*targy_rms)/(r1y_rms*ky));
-  Double_t Dtargy_slope = targy_rms/(r1y_rms*ky);
+  Double_t Dtargx_offset = targx_mean - ((r2x_mean*targx_rms)/(r2x_rms*kx));
+  Double_t Dtargx_slope = targx_rms/(r2x_rms*kx);
+  Double_t Dtargy_offset = targy_mean - ((r2y_mean*targy_rms)/(r2y_rms*ky));
+  Double_t Dtargy_slope = targy_rms/(r2y_rms*ky);
 
   cout << arm << ".Raster.raw2posA = " << UbpmAx_offset << " " << UbpmAy_offset << " " << UbpmAx_slope << " " << UbpmAy_slope << " 0.0 0.0" << endl; 
   cout << arm << ".Raster.raw2posB = " << UbpmBx_offset << " " << UbpmBy_offset << " " << UbpmBx_slope << " " << UbpmBy_slope << " 0.0 0.0" << endl; 

@@ -1,17 +1,17 @@
-# scaler.map file for Right HRS event type 140
+# scaler.map file for Right HRS fast scaler readout
 # comments start with #
 
 # map syntax
 # scaler, type, crate, slot, header, mask, norm slot#
 # after the norm slot#:  clock chan# and clock frequency
 
-map 3800 7 3 ceb30020 ffffffff 3 9 1024 
+map 3800 7 3 ceb30020 ffffffff 3 7 103700
 
 
 # variable syntax
 # scaler#, chan#, (1=cnt, 2=rate), var name, description string
 # var name gets "fName" prefix, e.g.
-# for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+# for L-HRS scalers with fname="evLeft", var name = "evLeftTSbcmu3"
 
 variable 3 0 1  T1    LHRS T1
 variable 3 0 2  T1_r  LHRS T1 rate

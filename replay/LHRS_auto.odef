@@ -1,19 +1,69 @@
 # Left HRS
-#
-block L.s2.*
-block L.s0.*
-block L.prl1.*
-block L.prl2.*
-block L.cer.*
-block L.vdc.*
+#s2....
+block L.s2.la_c
+block L.s2.ra_c
+block L.s2.lt_c
+block L.s2.rt_c
+block L.s2.dedx
+block L.s2.tr*
+#s2......
+
+#s0......
+block L.s0.la_c
+block L.s0.ra_c
+block L.s0.lt_c
+block L.s0.rt_c
+Varible L.s0.tr*
+block L.s0.dedx
+#s0......
+
+#prl1....
+block L.prl1.asum_c*
+block L.prl1.asum_p*
+block L.prl1.e*
+block L.prl1.nblk*
+block L.prl1.eblk*
+block L.prl1.nclust*
+block L.prl1.tr*
+#prl1....
+
+#prl2....
+block L.prl2.asum_c*
+block L.prl2.asum_p*
+block L.prl2.e*
+block L.prl2.nblk*
+block L.prl2.eblk*
+block L.prl2.nclust*
+block L.prl2.tr*
+#prl2....
+
+#cer.....
+block L.cer.a_c*
+block L.cer.asum_c*
+block L.cer.tr*
+block L.cer.asum_p*
+#cer.....
+
+#vdc.....
+block L.vdc.*.clchi2*
+block L.vdc.*.clsiz*
+block L.vdc.*.sigt0*
+block L.vdc.*.cltcor*
+#vdc.....
+
+#track...
 block L.tr.*
+#track...
 
-block FbusL.s0.*
-#block FbusL.s2.* #S2 isn't split to the fastbus
-block FbusL.cer.*
-
+#decoder.
 block DL.*
-block OldTrackL.*
+#decoder.
+
+#V1495 Clock Count
+variable V1495ClockCount
+#V1495 Clock Count
+
+#block OldTrackL.*
 
 # Physics variables
 block L.gold.*
@@ -25,33 +75,14 @@ block EKLx.*
 #block ElbL.*
 #block EltL.*
 #block EKLxe.*
+block LeftBCM*
 
-
-#BPM/Raster Variables
-Variable Lrb.Raster.rawcur.x
-Variable Lrb.Raster.rawcur.y
-Variable Lrb.Raster2.rawcur.x
-Variable Lrb.Raster2.rawcur.y
-Variable Lrb.BPMA.x
-Variable Lrb.BPMA.y
-Variable Lrb.BPMB.x
-Variable Lrb.BPMB.y
 Variable Lrb.dir.x
 Variable Lrb.dir.y
-Variable Lrb.e
-
-Variable FbusLrb.Raster.rawcur.x
-Variable FbusLrb.Raster.rawcur.y
-Variable FbusLrb.Raster2.rawcur.x
-Variable FbusLrb.Raster2.rawcur.y
-Variable FbusLrb.BPMA.x
-Variable FbusLrb.BPMA.y
-Variable FbusLrb.BPMB.x
-Variable FbusLrb.BPMB.y
-Variable FbusLrb.dir.x
-Variable FbusLrb.dir.y
-Variable FbusLrb.e
-
+Variable FbusLrb.x
+Variable FbusLrb.y
+Variable Lrb.x
+Variable Lrb.y
 
 # ------------------------------------------------------------------
 # Event type 140 
@@ -199,7 +230,6 @@ begin epics
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_bcm_average
   hac_unser_read
   hac_unser_current
   hac_bcm_dvm1_current
@@ -212,15 +242,21 @@ begin epics
   IPM1C12.XPOS
   IPM1C12.YPOS
 
-  IPM1H04A.XPOS
-  IPM1H04A.YPOS
-  IPM1H04E.XPOS
-  IPM1H04E.YPOS
+#  IPM1H04A.XPOS
+#  IPM1H04A.YPOS
+#  IPM1H04E.XPOS
+#  IPM1H04E.YPOS
 
-  FCupsCORRECTED.VAL
+#  FCupsCORRECTED.VAL
   
   HALLA:p
   HALLA:dpp
+	
+  HacL_D1_P0rb
+  haBDSPOS 
+  haBDSPOS.VAL 
+  HALL_A_TARGET
+  HacL_alignAGL
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
