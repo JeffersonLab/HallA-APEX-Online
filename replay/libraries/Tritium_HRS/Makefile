@@ -55,7 +55,7 @@ ROOTCFLAGS   := $(shell root-config --cflags)
 ROOTLIBS     := $(shell root-config --libs)
 ROOTGLIBS    := $(shell root-config --glibs)
 
-INCLUDES      = $(ROOTCFLAGS) $(addprefix -I, $(INCDIRS) ) -I$(shell pwd) -I./TriFadcScin -I./TriFadcXscin
+INCLUDES      = $(ROOTCFLAGS) $(addprefix -I, $(INCDIRS) ) -I$(shell pwd) -I../TriFadcScin -I../TriFadcXscin
 
 USERLIB       = lib$(PACKAGE).so
 USERDICT      = $(PACKAGE)Dict
