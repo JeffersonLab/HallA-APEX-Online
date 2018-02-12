@@ -7,7 +7,7 @@
 # List only the implementation files (*.cxx). For every implementation file
 # there must be a corresponding header file (*.h).
 
-SRC  = TriFadcXscin.cxx 
+SRC  = TriFadcXscin.cxx
 
 # Name of your package. 
 # The shared library that will be built will get the name lib$(PACKAGE).so
@@ -35,14 +35,13 @@ ARCH          = linuxegcs
 # Hall A counting house installation. For local installations, verify
 # the setting of ANALYZER, or specify INCDIRS explicitly.
 
-#ANALYZER=/adaqfs/home/a-onl/bob/src
-#ANALYZER=/adaqfs/apps/analyzer
+#ANALYZER=/adaqfs/home/a-onl/hanjie/fadc_analyzer/
 
 ifndef ANALYZER
   $(error $$ANALYZER environment variable not defined)
 endif
 
-INCDIRS  = $(wildcard $(addprefix $(ANALYZER)/, include src hana_decode ))
+INCDIRS  = $(wildcard $(addprefix $(ANALYZER)/, include src hana_decode))
 
 #------------------------------------------------------------------------------
 # Do not change anything  below here unless you know what you are doing
@@ -55,7 +54,7 @@ ROOTCFLAGS   := $(shell root-config --cflags)
 ROOTLIBS     := $(shell root-config --libs)
 ROOTGLIBS    := $(shell root-config --glibs)
 
-INCLUDES      =  $(addprefix -I, $(INCDIRS) ) -I$(shell pwd) -I./Tritium_Xscin
+INCLUDES      = $(ROOTCFLAGS) $(addprefix -I, $(INCDIRS) ) -I$(shell pwd)
 
 USERLIB       = lib$(PACKAGE).so
 USERDICT      = $(PACKAGE)Dict
@@ -80,7 +79,7 @@ endif
 
 ifeq ($(ARCH),linuxegcs)
 # Linux with egcs (>= RedHat 5.2)
-CXX           = $(shell root-config --cxx)
+CXX           = g++
 ifdef DEBUG
   CXXFLAGS    = -g -O0
   LDFLAGS     = -g -O0
@@ -90,14 +89,14 @@ else
 endif
 CXXFLAGS     += -Wall -Woverloaded-virtual -fPIC
 LD            = g++
-SOFLAGS       = -shared  -Wl,-undefined,dynamic_lookup
+SOFLAGS       = -shared
 endif
 
 ifeq ($(CXX),)
 $(error $(ARCH) invalid architecture)
 endif
 
-CXXFLAGS     += $(ROOTCFLAGS) $(INCLUDES)
+CXXFLAGS     += $(INCLUDES)
 LIBS         += $(ROOTLIBS) $(SYSLIBS)
 GLIBS        += $(ROOTGLIBS) $(SYSLIBS)
 
