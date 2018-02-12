@@ -64,7 +64,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //==================================
     //  Detectors
     //==================================
-    THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+   // THaHRS* HRSR = new THaHRS("R","Right arm HRS");
+    Tritium_HRS* HRSR = new Tritium_HRS("R","Right arm HRS");
     HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
     HRSR->AddDetector( new TriFadcXscin("s0","s0 scintillator",kTRUE) );
@@ -99,10 +100,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
       gHaEvtHandlers->Add(rEndscaler);
-
       // Marco - F1 and VETROC tdcs:
       gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
-
       // Evan - V1495 Clock Counter:
       gHaEvtHandlers->Add (new ClockCountEvtHandler("RV1495","V1495 RHRS"));
     }
@@ -161,7 +160,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
-      
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Left","ev",0);
       THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","ev",0);
 	  gHaPhysics->Add(BCM);
 
@@ -202,7 +201,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //==================================
     //  Detectors
     //==================================
-    THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    //THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
+    Tritium_HRS* HRSL = new Tritium_HRS("L","Right arm HRS");
     HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator",kFALSE) );
@@ -241,7 +241,6 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
     // Marco - for F1 tdc:
     gHaEvtHandlers->Add (new TdcDataEvtHandler("LTDC","F1 TDCs lHRS")); // do not change the "LTDC" word
-
     // Evan - V1495 Clock Counter:
     gHaEvtHandlers->Add (new ClockCountEvtHandler("LV1495","V1495 RHRS"));
     }

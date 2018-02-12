@@ -191,7 +191,7 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
 
   // Set DEFAULT values here
   // TDC resolution (s/channel)
-  fTdc2T = 0.1e-9;      // seconds/channel
+  fTdc2T = 0.5e-9;      // seconds/channel
   fResolution = kBig;   // actual timing resolution
   // Speed of light in the scintillator material
   fCn = 1.7e+8;    // meters/second
@@ -537,6 +537,7 @@ Int_t TriFadcScin::ApplyCorrections()
     }
     if (fLT[i] != 0.) {
       fLT_c[i] = (fLT[i] - fLOff[i])*fTdc2T - TimeWalkCorrection(i,kLeft);
+     //if(i==5) cout<<"offset="<<fLOff[i]<<endl;
       nlt++;
     }
     if (fRT[i] != 0.) {
@@ -601,7 +602,7 @@ Int_t TriFadcScin::CoarseProcess( TClonesArray& tracks )
   for (int i=0; i<fNelem; i++) {
     if (fLT[i]>0 && fRT[i]>0) {
       fHitPad[fNhit++] = i;
-      fTime[i] = .5*(fLT_c[i]+fRT_c[i])-fSize[1]/fCn;
+      fTime[i] = .5*(fLT_c[i]+fRT_c[i])+fSize[1]/fCn;
       fdTime[i] = fResolution/sqrt2;
       fYt[i] = .5*fCn*(fRT_c[i]-fLT_c[i]);
     }

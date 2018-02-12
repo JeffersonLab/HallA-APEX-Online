@@ -65,8 +65,7 @@ TriFadcXscin::TriFadcXscin( ) :
   frunderflow = NULL;
   frpedq = NULL;
 
-  fRNhits=NULL; 
-  fLNhits=NULL;
+
 }
 
 //_____________________________________________________________________________
@@ -214,9 +213,6 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
     frunderflow = new Int_t[ nval ];
     frpedq = new Int_t[ nval ];
 
-    fLNhits = new Int_t[ nval ];
-    fRNhits = new Int_t[ nval ];
-
     fIsInit = true;
   }
 
@@ -225,7 +221,7 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
 
   // Set DEFAULT values here
   // TDC resolution (s/channel)
-  fTdc2T = 0.5e-9;      // seconds/channel
+  fTdc2T = 0.1e-9;      // seconds/channel
   fResolution = kBig;   // actual timing resolution
   // Speed of light in the scintillator material
   fCn = 1.7e+8;    // meters/second
@@ -347,8 +343,6 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "roverflow",  "overflow bit of FADC pulse right side",        "froverflow" },
     { "runderflow", "underflow bit of FADC pulse right side",       "frunderflow" },
     { "rbadped",    "pedestal quality bit of FADC pulse right side","frpedq" },
-    { "lnhits", "Number of hits for left pmt",      "fLNhits"},
-    { "rnhits", "Number of hits for right pmt",     "fRNhits"},
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -416,8 +410,7 @@ void TriFadcXscin::DeleteArrays()
   delete [] froverflow;  froverflow  = NULL;
   delete [] frunderflow; frunderflow = NULL;
   delete [] frpedq;      frpedq      = NULL;
-  delete [] fLNhits;      fLNhits     = NULL;
-  delete [] fRNhits;      fRNhits     = NULL;
+
 }
 
 //_____________________________________________________________________________
@@ -468,8 +461,7 @@ void TriFadcXscin::ClearEvent()
   memset( froverflow,  0, fNelem*sizeof(froverflow[0]) );
   memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
   memset( frpedq,      0, fNelem*sizeof(frpedq[0]) );
-  memset( fLNhits,      0, fNelem*sizeof(fLNhits[0]) );
-  memset( fRNhits,      0, fNelem*sizeof(fRNhits[0]) );
+
   fTrackProj->Clear();
 }
 
@@ -508,6 +500,11 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
 		 evdata.GetEvNum(),
 		 nhit, adc ? "ADC" : "TDC", d->crate, d->slot, chan );
 #endif
+      // Get the data. Scintillators are assumed to have only single hit (hit=0)
+      Int_t data;
+      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+      else data = evdata.GetData( d->crate, d->slot, chan, 0 );
+
       // Get the detector channel number, starting at 0
       Int_t k = d->first + chan - d->lo - 1;   
 
@@ -526,22 +523,6 @@ Int_t TriFadcXscin::Decode( const THaEvData& evdata )
       int jj=0;
       jj = k/fNelem; 
       k = k % fNelem;
-
-      // Get the data. Scintillators are assumed to have only single hit (hit=0)
-      Int_t data;
-      if(adc)data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-      else{
-             if(jj==0){
-                 fRNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
-                 data = evdata.GetData( d->crate, d->slot, chan, fRNhits[k]-1);
-               }
-             else {
-                 fLNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);
-                 data = evdata.GetData( d->crate, d->slot, chan, fLNhits[k]-1);
-               }
-          }
-
-
       if(adc){
           if(fFADC!=NULL){
             if(jj==1){   
@@ -679,7 +660,7 @@ Double_t TriFadcXscin::TimeWalkCorrection(const Int_t& paddle,
   tw = par[0]*pow(adc,-.5);
   tw_ref = par[0]*pow(ref,-.5);
 
-  return (tw-tw_ref)/(1e+09);
+  return tw-tw_ref;
 }
 
 //_____________________________________________________________________________
@@ -701,7 +682,7 @@ Int_t TriFadcXscin::CoarseProcess( TClonesArray& /* tracks */ )
   for (int i=0; i<fNelem; i++) {
     if (fLT[i]>0 && fRT[i]>0) {
       fHitPad[fNhit++] = i;
-      fTime[i] = .5*(fLT_c[i]+fRT_c[i])+fSize[0]/fCn;
+      fTime[i] = .5*(fLT_c[i]+fRT_c[i])-fSize[0]/fCn;
       fdTime[i] = fResolution/sqrt2;
       
       //+x is down...
