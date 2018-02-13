@@ -69,6 +69,7 @@ block DR.ltL1*
 
 #V1495 Clock Count
 variable V1495ClockCount
+variable V1495ClockInterval
 #V1495 Clock Count
 
 #block OldTrackR.*
