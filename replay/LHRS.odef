@@ -217,7 +217,7 @@ TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 1 100 1 10
 #
 TH1F reactx 'L-arm Reaction X vertex' rpl.x 200 -.1 .1
 TH1F reacty 'L-arm Reaction Y vertex' rpl.y 200 -.1 .1
-TH1F reactz 'L-arm Reaction Z vertex' rpl.z 200 -.1.5 .1.5
+TH1F reactz 'L-arm Reaction Z vertex' rpl.z 200 -.15 .15
 
 #-------------------------------------------------------------------------------
 #Beam Information
