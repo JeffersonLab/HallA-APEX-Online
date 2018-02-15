@@ -45,13 +45,14 @@ variable 3 15 1  L1A   RHRS L1A
 variable 3 15 2  L1A_r RHRS L1A rate
 variable 3 14 1  RF_Time    RF time
 variable 3 14 2  RF_Time_r  RF time rate
-
+variable 3 16 1 unser   unser count
+variable 3 16 2 unser_r unser rate
 variable 3 18 1 unew   new bcm upstream count
 variable 3 18 2 unew_r new bcm upstream rate
 variable 3 20 1 dnew   new bcm downstream count
 variable 3 20 2 dnew_r new bcm downstream rate
-variable 3 22 1 unser   unser count
-variable 3 22 2 unser_r unser rate
+variable 3 22 1 unser_old    bad unser count 
+variable 3 22 2 unser_r_old  bad unser rate
 variable 3 24 1 u1    bcm x1 upstream count
 variable 3 24 2 u1_r  bcm x1 upstream rate
 variable 3 26 1 d1    bcm x1 downstream count
