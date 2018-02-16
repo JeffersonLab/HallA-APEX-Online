@@ -54,6 +54,7 @@ typedef struct _sReplaySetUp
 
 static const char* PATHS[] = {
   "/adaq1/data1",
+  "/cache/halla/triton/raw",
    0
 };
 
