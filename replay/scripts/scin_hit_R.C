@@ -117,8 +117,8 @@ void scin_hit_R(){
    //RHRS s0A=s0.r=bottom
     leg->AddEntry(ns0rt,"Bottom PMT TDC Hits");
     leg->AddEntry(ns0lt,"Top PMT TDC Hits");
-    leg->AddEntry(ns0ra,"Bottom PMT TDC Hits");
-    leg->AddEntry(ns0la,"Top PMT TDC Hits");
+    leg->AddEntry(ns0ra,"Bottom PMT ADC Hits");
+    leg->AddEntry(ns0la,"Top PMT ADC Hits");
 
   leg->Draw();
   ns0la->SetTitle("S0: Number of Hits");
