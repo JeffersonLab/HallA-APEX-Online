@@ -118,8 +118,8 @@ void scin_hit_L(){
    //LHRS s0A=s0.r=Top
     leg->AddEntry(ns0lt,"Bottom PMT TDC Hits");
     leg->AddEntry(ns0rt,"Top PMT TDC Hits");
-    leg->AddEntry(ns0la,"Bottom PMT TDC Hits");
-    leg->AddEntry(ns0ra,"Top PMT TDC Hits");
+    leg->AddEntry(ns0la,"Bottom PMT ADC Hits");
+    leg->AddEntry(ns0ra,"Top PMT ADC Hits");
   
 
   leg->Draw();
