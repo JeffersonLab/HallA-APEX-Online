@@ -1,4 +1,9 @@
 R__LOAD_LIBRARY(../../../libraries/TriFadcRasteredBeam/libTriFadcRasteredBeam.so)
+R__LOAD_LIBRARY(../../../libraries/TriFadcCherenkov/libTriFadcCherenkov.so)
+R__LOAD_LIBRARY(../../../libraries/TriBCM/libTriBCM.so)
+R__LOAD_LIBRARY(../../../libraries/Tritium_TSScaler/libTritium_TSScaler.so)
+
+
 
 Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
 {
@@ -68,8 +73,10 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
   THaApparatus* FbusLrb = new THaRasteredBeam("FbusLrb","Raster Beamline"); 
+  
   THaHRS* HRSL = new THaHRS("L","Left arm HRS");
   HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
+  HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
   HRSL->AutoStandardDetectors(kFALSE);
   gHaApps->Add( HRSL );
 
@@ -77,11 +84,19 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
   FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
   FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
+  
+   THaApparatus* decL = new THaDecData("DL","Misc. Decoder Data");
+   gHaApps->Add( decL );
+  
   THaApparatus* Lrb = new TriFadcRasteredBeam("Lrb","Raster Beamline for FADC ");
-
-
   gHaApps->Add( FbusLrb );
   gHaApps->Add(Lrb);
+
+    Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
+    gHaEvtHandlers->Add(levscaler);
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCM);
+
 
   analyzer->SetEvent( event );
   analyzer->SetOutFile( rootfname );
@@ -299,17 +314,17 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   //haxis->Draw();
   rastxy1->Draw("colz");
   rastxy1->SetTitle("Upstream Raster X vs.Y");
-  rastxy1->SetAxisRange(3000, 6000,"Y");
-  rastxy1->SetAxisRange(3000, 6000,"X");
+  rastxy1->SetAxisRange(1000, 8000,"Y");
+  rastxy1->SetAxisRange(1000, 8000,"X");
   gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
   c2->cd(2);
   URastX->Draw();
-  URastX->GetXaxis()->SetRangeUser(3000,6000);
+  URastX->GetXaxis()->SetRangeUser(1000,8000);
 
   c2->cd(3);
   URastY->Draw();
-  URastX->GetXaxis()->SetRangeUser(3000,6000);
+  URastX->GetXaxis()->SetRangeUser(1000,8000);
 
   TCanvas* c2A =  new TCanvas("c2A","Downstream Raster Plots",1800,1200);
   c2A->Divide(3,1);
@@ -319,16 +334,16 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   //haxis2->Draw();
   rastxy2->Draw("colz");
   rastxy2->SetTitle("Downstream Raster X vs.Y");
-  rastxy2->SetAxisRange(3000, 6000,"Y");
-  rastxy2->SetAxisRange(3000, 6000,"X");  
+  rastxy2->SetAxisRange(1000, 8000,"Y");
+  rastxy2->SetAxisRange(1000, 8000,"X");  
   gPad->SetGrid(1,1);
   gStyle->SetOptStat(1);
   c2A->cd(2);
   DRastX->Draw();
-  DRastX->GetXaxis()->SetRangeUser(3000,6000);
+  DRastX->GetXaxis()->SetRangeUser(1000,8000);
   c2A->cd(3);
   DRastY->Draw();
-  DRastY->GetXaxis()->SetRangeUser(3000,6000);
+  DRastY->GetXaxis()->SetRangeUser(1000,8000);
   
   TCanvas* c2B =  new TCanvas("c2B","check",1800,1200);
   //  gStyle->SetOptStat(0);
@@ -440,10 +455,11 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   // Added to fix axes, show raster x-y in full window
   // TH2F *fhaxis = new TH2F("fhaxis","FADC Fast Raster 1 X vs.Y",500,60000,70000,500,60000,70000);
   //fhaxis->Draw();
+  frastxy1->SetStats(0); 
   frastxy1->Draw("colz");
   frastxy1->SetTitle("FADC Upstream Raster X vs.Y");
-  frastxy1->SetAxisRange(60000, 70000,"Y");
-  frastxy1->SetAxisRange(60000, 70000,"X");
+  frastxy1->SetAxisRange(10000, 120000,"Y");
+  frastxy1->SetAxisRange(10000, 120000,"X");
   frastxy1->GetXaxis()->SetLabelSize(.04);
   frastxy1->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
@@ -460,15 +476,16 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   // Added to fix axes, show raster x-y in full window
   // TH2F *fhaxis2 = new TH2F("fhaxis","FADC Fast Raster 2 X vs.Y",500,60000,70000,500,60000,70000);
   // fhaxis2->Draw();
+  frastxy2->SetStats(0);  
   frastxy2->Draw("colz");
   frastxy2->SetTitle("FADC Downstream Raster X vs.Y");
-  frastxy2->SetAxisRange(60000, 70000,"Y");
-  frastxy2->SetAxisRange(60000, 70000,"X");
+  frastxy2->SetAxisRange(10000, 120000,"Y");
+  frastxy2->SetAxisRange(10000, 120000,"X");
   frastxy2->GetXaxis()->SetLabelSize(.04);
   frastxy2->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
   //frastxy2->Draw("same colz");
-  gStyle->SetOptStat(1);
+
   fc2A->cd(2);
   fDRastX->Draw();
   fDRastX->GetXaxis()->SetLabelSize(.04);
@@ -557,18 +574,24 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc5->Divide(3,3);
 
   fc5->cd(1);
+  gPad->SetGridx();  
+  gPad->SetGridy();
   fbpma_xy->Draw("col");
   fc5->cd(2);
   fbpma_x->Draw();
   fc5->cd(3);
   fbpma_y->Draw();
   fc5->cd(4);
+  gPad->SetGridx();  
+  gPad->SetGridy();
   fbpmb_xy->Draw("col");
   fc5->cd(5);
   fbpmb_x->Draw();
   fc5->cd(6);
   fbpmb_y->Draw();
   fc5->cd(7);
+  gPad->SetGridx();  
+  gPad->SetGridy();
   fbeam_xy->Draw("col");
   fc5->cd(8);
   fbeam_x->Draw();
