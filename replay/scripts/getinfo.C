@@ -21,7 +21,7 @@ void getinfo(Int_t run=0){
 
   cout<<"Please run this code with ANALYZER instead of ROOT"<<endl;
   Int_t irun;
-  const TString rootfilePath = "/chafs1/work1/tritium/Rootfiles/";
+  const TString rootfilePath = "/volatile/halla/triton/Tritium_Rootfiles/";
 
   if(run==0){
 	  cout << "\nreplay: Please enter a Run Number (-1 to exit):";
@@ -132,7 +132,7 @@ void getinfo(Int_t run=0){
 
   if(abs(pos)<= 0.000000001 ) {targname =" Unkown - Please double check logbook ";}
   else if(abs(pos)<50) targname="HOME";
-  else if(abs(pos-t2.pos)<500)          targname=t2.name;
+  else if(abs(pos-t2.pos)<50)          targname=t2.name;
   else if(abs(pos-d2.pos)<50)     targname=d2.name;
   else if(abs(pos-h.pos)<50)      targname=h.name;
   else if(abs(pos-he3.pos)<50)    targname=he3.name;
@@ -235,7 +235,7 @@ void getinfo(Int_t run=0){
   }
   std::fstream list;
   std::string line_file;
-  list.open ("./wiki_runlist.txt", std::fstream::in); 
+  list.open (Form("./wiki_runlist_%s.txt",arm.Data()), std::fstream::in); 
   std::string stringrun;std::string::size_type sz;
   int inrun=0;
   int status=0;
