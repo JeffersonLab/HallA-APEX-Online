@@ -21,7 +21,7 @@ void getinfo(Int_t run=0){
 
   cout<<"Please run this code with ANALYZER instead of ROOT"<<endl;
   Int_t irun;
-  const TString rootfilePath = "/volatile/halla/triton/Tritium_Rootfiles/";
+  const TString rootfilePath = "/chafs1/work1/tritium/Rootfiles/";
 
   if(run==0){
 	  cout << "\nreplay: Please enter a Run Number (-1 to exit):";
@@ -53,7 +53,7 @@ void getinfo(Int_t run=0){
   if(file->IsZombie()){
     cout<<" this rootfile doest not exist: "<<endl;
     cout<<"Please try again with a new run. "<<endl;
-    return;
+    exit(1);
   }
   
   
@@ -132,7 +132,7 @@ void getinfo(Int_t run=0){
 
   if(abs(pos)<= 0.000000001 ) {targname =" Unkown - Please double check logbook ";}
   else if(abs(pos)<50) targname="HOME";
-  else if(abs(pos-t2.pos)<50)          targname=t2.name;
+  else if(abs(pos-t2.pos)<500)          targname=t2.name;
   else if(abs(pos-d2.pos)<50)     targname=d2.name;
   else if(abs(pos-h.pos)<50)      targname=h.name;
   else if(abs(pos-he3.pos)<50)    targname=he3.name;
@@ -216,7 +216,7 @@ void getinfo(Int_t run=0){
    		line += TString::Format("<td>PS1=%d PS2=%d PS3=%d PS8=%d </td>",ps[0],ps[1],ps[2],ps[7]);//Prescale
    		line += TString::Format("<td>%0.2f</td>",DT[2]);//Deadtime Trigger (2)
    		line += TString::Format("<td>%0.2f</td>",(clk*1.0/103700)/60);//Run time (minutes)  		   		 
-                line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2 		
+        line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2 		
    		line += TString::Format("<td></td>");//Comments
 		line += "</tr>";
    }else{
@@ -253,7 +253,7 @@ void getinfo(Int_t run=0){
   }
   list.close();
   FILE* list2;
-  list2 =fopen ("./wiki_runlist.txt","a"); 
+  list2 =fopen (Form("./wiki_runlist_%s.txt",arm.Data()),"a"); 
   if(status==0){
      fprintf(list2,"%s \n",line.Data());	
   }

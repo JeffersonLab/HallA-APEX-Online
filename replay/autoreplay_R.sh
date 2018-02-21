@@ -78,6 +78,11 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 		    echo Start analyzing
 		    analyzer -q "replay_tritium.C($thisrun,$gtotal,$gstart,$kfalse,$kfalse,$kfalse,$ktrue)"  >> ${LOGDIR}/${thisrun}.log
 		    echo RUN $thisrun is analyzed
+    		   
+		   # running the wiki runlist script to auto add thisrun to the wiki runlist
+		   cd scripts
+		   ./wiki_runlist $thisrun
+		   cd ..
 		fi
 		
 	    else 
