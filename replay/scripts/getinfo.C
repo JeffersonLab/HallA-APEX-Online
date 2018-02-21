@@ -53,7 +53,7 @@ void getinfo(Int_t run=0){
   if(file->IsZombie()){
     cout<<" this rootfile doest not exist: "<<endl;
     cout<<"Please try again with a new run. "<<endl;
-    return;
+    exit(1);
   }
   
   
@@ -216,7 +216,7 @@ void getinfo(Int_t run=0){
    		line += TString::Format("<td>PS1=%d PS2=%d PS3=%d PS8=%d </td>",ps[0],ps[1],ps[2],ps[7]);//Prescale
    		line += TString::Format("<td>%0.2f</td>",DT[2]);//Deadtime Trigger (2)
    		line += TString::Format("<td>%0.2f</td>",(clk*1.0/103700)/60);//Run time (minutes)  		   		 
-                line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2 		
+        line += TString::Format("<td>%d</td>",daqcount[2]);//total counts Trigger 2 		
    		line += TString::Format("<td></td>");//Comments
 		line += "</tr>";
    }else{
@@ -235,7 +235,7 @@ void getinfo(Int_t run=0){
   }
   std::fstream list;
   std::string line_file;
-  list.open ("./wiki_runlist.txt", std::fstream::in); 
+  list.open (Form("./wiki_runlist_%s.txt",arm.Data()), std::fstream::in); 
   std::string stringrun;std::string::size_type sz;
   int inrun=0;
   int status=0;
@@ -253,7 +253,7 @@ void getinfo(Int_t run=0){
   }
   list.close();
   FILE* list2;
-  list2 =fopen ("./wiki_runlist.txt","a"); 
+  list2 =fopen (Form("./wiki_runlist_%s.txt",arm.Data()),"a"); 
   if(status==0){
      fprintf(list2,"%s \n",line.Data());	
   }
