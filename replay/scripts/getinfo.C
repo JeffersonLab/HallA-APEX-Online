@@ -36,13 +36,13 @@ void getinfo(Int_t run=0){
 	TString rootfile = basename + ".root";
   TChain* T = new TChain("T");
   TChain* T1;
-  if (run<20000){ T1 =  new TChain("TSLeft");} else{T1 =  new TChain("TSRight");}
+  if (irun<20000){ T1 =  new TChain("TSLeft");} else{T1 =  new TChain("TSRight");}
   
   Long_t jk=0;
   while ( !gSystem->AccessPathName(rootfile.Data()) ) {
       T->Add(rootfile.Data());
       T1->Add(rootfile.Data());
-      cout << "ROOT file " << run<< "_"<< jk << " added to TChain." << endl; jk++;
+      cout << "ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
       rootfile = basename + "_" + jk + ".root"; 
   }
 
@@ -52,8 +52,25 @@ void getinfo(Int_t run=0){
   tree2 = (TTree*)file->Get("E");
   if(file->IsZombie()){
     cout<<" this rootfile doest not exist: "<<endl;
-    cout<<"Please try again with a new run. "<<endl;
-    exit(1);
+    const TString rootfilePath1 = "/chafs1/work1/tritium/Rootfiles/";
+    file = new TFile(Form("%stritium_%d.root",rootfilePath1.Data(),irun),"read");
+      if(file->IsZombie()){
+          	cout<<" this rootfile doest not exist: "<<endl;
+       		cout<<"Please try again with a new run. "<<endl;
+       		exit(1);
+       		}
+       		
+       		TString file_name1 = TString::Format("%stritium_%d.root",rootfilePath1.Data(),irun);
+			TString basename1 = TString::Format("%stritium_%d",rootfilePath1.Data(),irun);
+			TString rootfile1 = basename1 + ".root";
+  		Long_t jk=0;
+  		while ( !gSystem->AccessPathName(rootfile1.Data()) ) {
+      		T->Add(rootfile1.Data());
+	    	T1->Add(rootfile1.Data());
+      		cout << "ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
+      		rootfile = basename1 + "_" + jk + ".root"; 
+  			}
+       		
   }
   
   
@@ -78,7 +95,7 @@ void getinfo(Int_t run=0){
   
   
   
-  if(run<20000) {
+  if(irun<20000) {
     //tree1->SetBranchAddress("evLeftLclock",&clk);
     T->SetBranchAddress("evLeftLclock",&clk);
     T->SetBranchAddress("evLeftdnew",&dnew);
@@ -162,13 +179,13 @@ void getinfo(Int_t run=0){
     //cout<< " Prescaler = : "<< PS[k]<<endl;
   }
   TCut t_cut; 
-  if(run < 20000){trig=2;}else{trig=5;}  
+  if(irun < 20000){trig=2;}else{trig=5;}  
 
-  if(run < 20000){t_cut = Form("DL.evtypebits&(1<<%i)",trig); sprintf(rate,"evLeftT%i", trig);}
+  if(irun < 20000){t_cut = Form("DL.evtypebits&(1<<%i)",trig); sprintf(rate,"evLeftT%i", trig);}
   else{ t_cut = Form("DR.evtypebits&(1<<%i)",trig); sprintf(rate,"evRightT%i", trig);}
   icount[trig] = T->GetMaximum(rate);
   sprintf(hname[trig],"t%i",trig);
-  if(run < 20000){sprintf(hh,"DL.evtypebits>>%s", hname[trig]);}else{sprintf(hh,"DR.evtypebits>>%s", hname[trig]);}
+  if(irun < 20000){sprintf(hh,"DL.evtypebits>>%s", hname[trig]);}else{sprintf(hh,"DR.evtypebits>>%s", hname[trig]);}
   his[trig] =new TH1F (hname[trig], hname[trig], 100,0,1000000);
   T->Draw(hh,t_cut, "goff");
   daqcount[trig] = his[trig]->GetEntries();
@@ -207,7 +224,7 @@ void getinfo(Int_t run=0){
      // Append a log file with one line that contains the reqired info for the wiki run log
    TString line ="<tr>";
     
-   if(run<20000){  
+   if(irun<20000){  
  		line += TString::Format("<td> %d </td>",irun);//Run number[s]
    		line += TString::Format("<td>%s</td>",targname.Data());//Target
    		line += TString::Format("<td>%0.2f</td>",current);//Current with beam on
