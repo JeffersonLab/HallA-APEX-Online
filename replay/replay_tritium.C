@@ -182,7 +182,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
-      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","ev",0);
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","",0);
       gHaPhysics->Add(BCM);
 
       /*if(bEloss){
@@ -344,7 +344,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
       
-      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","",0);
 	  gHaPhysics->Add(BCM);
 
       
