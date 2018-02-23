@@ -184,7 +184,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gHaPhysics->Add(EKRx);
       THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","",0);
       gHaPhysics->Add(BCM);
-
+      THaPhysicsModule* BCMev = new TriBCM("RightBCMev","Beam Current Monitors","Right","ev",0);
+      gHaPhysics->Add(BCMev);
       /*if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
@@ -347,7 +348,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","",0);
 	  gHaPhysics->Add(BCM);
 
-      
+      THaPhysicsModule* BCMev = new TriBCM("LeftBCMev","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCMev);
       /*if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
