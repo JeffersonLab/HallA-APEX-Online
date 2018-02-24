@@ -88,7 +88,6 @@ void getinfo(Int_t run=0){
   
   //tree2 = (TTree*)file->Get("E");
   tree2->SetBranchAddress("HALLA_p",&ebeam);
-  tree2->SetBranchAddress("haBDSPOS.VAL",&pos2);
   tree2->SetBranchAddress("haBDSPOS",&pos);
   
   
@@ -110,7 +109,7 @@ void getinfo(Int_t run=0){
     T->SetBranchAddress("evRightRclock",&clk);
     T->SetBranchAddress("evRightdnew",&dnew);
     T1->SetBranchAddress("Rightdnew_r",&dnew_r);
-    tree2->SetBranchAddress("hacR_alignAGL",&angle);
+    tree2->SetBranchAddress("HacR_alignAGL",&angle);
     tree2->SetBranchAddress("HacR_D1_P0rb",&p0);
     arm="RHRS";
   }
