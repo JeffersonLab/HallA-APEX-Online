@@ -6,6 +6,18 @@ evt18     g.evtyp<=9
 Decode_master evt18
 
 Block: Reconstruct
-trk1      L.tr.n==1
-Reconstruct_master trk1
 
+trigger DL.evtypebits>>2&1
+trk1    L.tr.n==1
+e      	L.cer.asum_c>1200
+TargetYCut abs(L.tr.tg_y+0.003)<0.01 
+
+spot trk1&&TargetYCut
+
+Reconstruct_master spot
+
+Block: Physics
+
+trip LeftBCM.current_dnew>10.0
+
+Reconstruct_master trip

@@ -18,7 +18,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
   TCut pid = Form("R.cer.asum_c>2000 && ((R.ps.e+R.sh.e)/(R.tr.p[0]*1000)>0.7)");
   TCut acc = Form("abs(R.tr.tg_dp)<%f", dp_cut);
   TCut data_cut =  track + acc+ trigger+pid ;
-  TCut y_cut = "abs(R.tr.tg_y)<0.2"; // +-7cm ztarget at 17 degree
+  TCut y_cut = "R.tr.vz<0.08 && R.tr.vz>-0.1"; 
   if(flag==1){
     
     TH1F *ht1 = new TH1F("ht1","xbj w/ acc and tgy cuts",1000,0,1);
