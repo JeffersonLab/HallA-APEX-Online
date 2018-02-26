@@ -58,7 +58,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
 
   if(RIGHT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
@@ -216,14 +216,14 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
     //==================================
     //THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
-    Tritium_HRS* HRSL = new Tritium_HRS("L","Right arm HRS");
+    Tritium_HRS* HRSL = new Tritium_HRS("L","Left arm HRS");
     HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator",kFALSE) );
