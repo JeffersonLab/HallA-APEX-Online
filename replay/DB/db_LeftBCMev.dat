@@ -1,0 +1,27 @@
+--------[ 2017-12-01 00:00:00 -0500 ] 
+LeftBCMev.u1.offset = 0
+LeftBCMev.u1.gain = 0.0003673
+LeftBCMev.d1.offset = 0
+LeftBCMev.d1.gain = 0.0003212
+LeftBCMev.d3.offset = 0
+LeftBCMev.d3.gain = 0.0001073
+LeftBCMev.d10.offset= 0
+LeftBCMev.d10.gain = 0.0003667
+LeftBCMev.dnew.offset = 0
+LeftBCMev.dnew.gain = 0.0003267
+LeftBCMev.unew.offset = 0
+LeftBCMev.unew.gain = 0.0003961
+--------[ 2018-01-08 00:00:00 -0500 ]
+LeftBCMev.u1.offset = 0
+LeftBCMev.u1.gain = 0.0003673
+LeftBCMev.d1.offset = 0
+LeftBCMev.d1.gain = 0.0003212
+LeftBCMev.d3.offset = 0
+LeftBCMev.d3.gain = 0.0001072
+LeftBCMev.d10.offset= 0
+LeftBCMev.d10.gain = 0.00003739
+LeftBCMev.dnew.offset = 0
+LeftBCMev.dnew.gain = 0.0003358
+LeftBCMev.unew.offset = 0
+LeftBCMev.unew.gain = 0.0003
+

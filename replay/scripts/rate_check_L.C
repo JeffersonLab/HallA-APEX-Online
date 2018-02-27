@@ -29,7 +29,7 @@ void rate_check_L(Int_t flag, TString drawoption){
   }
  if(flag==2){
     
-    TH1F *ht2 = new TH1F("ht2","Q2 w/ acc and tgy cuts",1000,0,10);
+    TH1F *ht2 = new TH1F("ht2","Q2 w/ acc and tgy cuts",1000,0,20);
     ht2->GetXaxis()->SetTitle("Q2");ht2->GetXaxis()->CenterTitle();
     ht2->GetYaxis()->SetTitle("good events counts");ht2->GetYaxis()->CenterTitle();
     
@@ -72,9 +72,9 @@ void rate_check_L(Int_t flag, TString drawoption){
 
   if(flag==4){
     
-    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj(w/acc and tg_y cuts)",1000,0,1,1000,0,10);
-    ht4->GetXaxis()->SetTitle("Time [TDC Channel]");ht4->GetXaxis()->CenterTitle();
-    ht4->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht4->GetYaxis()->CenterTitle();
+    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj(w/acc and tg_y cuts)",1000,0,1,1000,0,20);
+    ht4->GetXaxis()->SetTitle("x_bj");ht4->GetXaxis()->CenterTitle();
+    ht4->GetYaxis()->SetTitle("Q2");ht4->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);
 
     tree->Draw("EKL.Q2:EKL.x_bj>>ht4",data_cut+y_cut,drawoption);
