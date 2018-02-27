@@ -44,7 +44,7 @@ variable 1 13  2  ADC_gate_r  LHRS s0||s2 rate
 variable 1 14  1  L1A    L1A LHRS
 variable 1 14  2  L1A_r  L1A LHRS rate
 variable 1 15  1  RF_time     RF time
-variable 1 15  2  RF_time     RF time
+variable 1 15  2  RF_time_r     RF time
 variable 1 16  1  L1A1    L1A from TS LHRS
 variable 1 16  2  L1A1_r  L1A from TS LHRS rate
 
