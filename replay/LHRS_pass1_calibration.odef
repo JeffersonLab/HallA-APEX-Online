@@ -1,5 +1,4 @@
 # Left HRS
-#
 block L.s2.*
 block L.s0.*
 block L.prl1.*
@@ -9,7 +8,6 @@ block L.vdc.*
 block L.tr.*
 
 block FbusL.s0.*
-#block FbusL.s2.* #S2 isn't split to the fastbus
 block FbusL.cer.*
 
 block DL.*
@@ -18,6 +16,10 @@ block DL.*
 variable F1FirstHit
 variable F1nhits
 variable F1AllHits_033
+
+#V1495 Clock Count
+variable V1495ClockCount
+variable V1495ClockInterval
 
 # Physics variables
 block L.gold.*
@@ -29,8 +31,6 @@ block EKLx.*
 #block ElbL.*
 #block EltL.*
 #block EKLxe.*
-block LeftBCM*
-
 
 #BPM/Raster Variables
 FORMULA rbax 1000.*Lrb.BPMA.x
@@ -59,6 +59,8 @@ Variable FbusLrb.Raster.rawcur.x
 Variable FbusLrb.Raster.rawcur.y
 Variable FbusLrb.Raster2.rawcur.x
 Variable FbusLrb.Raster2.rawcur.y
+Variable FbusLrb.x
+Variable FbusLrb.y
 Variable FbusLrb.BPMA.x
 Variable FbusLrb.BPMA.y
 Variable FbusLrb.BPMB.x
@@ -66,9 +68,8 @@ Variable FbusLrb.BPMB.y
 Variable FbusLrb.dir.x
 Variable FbusLrb.dir.y
 Variable FbusLrb.e
-Variable FbusLrb.x
-Variable FbusLrb.y
-block FbusLrb*
+
+block LeftBCM*
 
 # ------------------------------------------------------------------
 # Event type 140 
@@ -249,4 +250,5 @@ begin epics
   HacL_D_LS450:FLD_DATA
   HacL_D1_LS450:SIG
   HacL_D1_LS450:SIGLCK
+
 end epics

@@ -63,9 +63,6 @@ block R.tr.*
 
 #decoder.
 block DR.*
-#block DR.evtype*
-#block DR.ltClock*
-#block DR.ltL1*
 #decoder.
 
 #F1
@@ -89,7 +86,7 @@ variable V1495ClockInterval
 block R.gold.*
 block rpr.*
 block exR.*
-#block EKR.*
+block EKR.*
 block EKRc.*
 block EKRx.*
 #block ElbR.*

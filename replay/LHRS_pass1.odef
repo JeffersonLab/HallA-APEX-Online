@@ -17,7 +17,7 @@ block L.s0.lt_c
 block L.s0.lt
 block L.s0.rt_c
 block L.s0.rt
-variable L.s0.tr*
+block L.s0.tr*
 block L.s0.dedx
 #s0......
 

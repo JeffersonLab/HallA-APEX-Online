@@ -21,6 +21,7 @@ variable vfFirstHit
 variable vfAllHits_126
 
 variable V1495ClockCount
+variable V1495ClockInterval
 
 # Physics variables
 block R.gold.*
@@ -61,6 +62,8 @@ Variable FbusRrb.Raster.rawcur.x
 Variable FbusRrb.Raster.rawcur.y
 Variable FbusRrb.Raster2.rawcur.x
 Variable FbusRrb.Raster2.rawcur.y
+Variable FbusRrb.x
+Variable FbusRrb.y
 Variable FbusRrb.BPMA.x
 Variable FbusRrb.BPMA.y
 Variable FbusRrb.BPMB.x
@@ -68,6 +71,8 @@ Variable FbusRrb.BPMB.y
 Variable FbusRrb.dir.x
 Variable FbusRrb.dir.y
 Variable FbusRrb.e
+
+block RightBCM*
 
 #-------------------------------------------------------------------
 #

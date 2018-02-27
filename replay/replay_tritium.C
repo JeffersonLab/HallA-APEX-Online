@@ -46,6 +46,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     rootname = "%s/tritium_online_%d.root";}
   else {
     rootname = "%s/tritium_%d.root";
+    //rootname = "%s/tritium_calibration_%d.root";
   }
 
 
@@ -58,7 +59,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
 
   if(RIGHT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_pass1.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
@@ -100,6 +101,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
       gHaEvtHandlers->Add(rEndscaler);
+
       // Marco - F1 and VETROC tdcs:
       gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
       // Evan - V1495 Clock Counter:
@@ -217,7 +219,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_pass1.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
