@@ -46,7 +46,6 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     rootname = "%s/tritium_online_%d.root";}
   else {
     rootname = "%s/tritium_%d.root";
-    //rootname = "%s/tritium_calibration_%d.root";
   }
 
 
@@ -59,8 +58,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
 
   if(RIGHT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_pass1.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_pass1_calibration.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_pass1.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
@@ -219,8 +218,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   //==================================
   
   else if(LEFT_ARM_CONDITION){
-    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_pass1.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
+    ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_pass1_calibration.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_pass1.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
