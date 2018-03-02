@@ -75,30 +75,30 @@ void scalers_right(Int_t flag, TString drawoption){
   }
    if(flag ==8){
     Double_t max7 = TSRight->GetMaximum("RightT4");
-    TH2F *h8 = new TH2F("h8","RightT1",100,0,nentries,100,0,max7);
+    TH2F *h8 = new TH2F("h8","RightT4",100,0,nentries,100,0,max7);
     h8->GetXaxis()->SetTitle("Entry #");h8->GetXaxis()->CenterTitle();
-    h8->GetYaxis()->SetTitle("T1 (counts)");h8->GetYaxis()->CenterTitle();
+    h8->GetYaxis()->SetTitle("T4 (counts)");h8->GetYaxis()->CenterTitle();
 
-    tree->Draw("RightT1:Entry$>>h8","",drawoption);
+    tree->Draw("RightT4:Entry$>>h8","",drawoption);
 
   }
 
  if(flag ==9){
     Double_t max8 = TSRight->GetMaximum("RightT5");
-    TH2F *h9 = new TH2F("h9","RightT2",100,0,nentries,100,0,max8);
+    TH2F *h9 = new TH2F("h9","RightT5",100,0,nentries,100,0,max8);
     h9->GetXaxis()->SetTitle("Entry #");h9->GetXaxis()->CenterTitle();
-    h9->GetYaxis()->SetTitle("T2 (counts)");h9->GetYaxis()->CenterTitle();
+    h9->GetYaxis()->SetTitle("T5 (counts)");h9->GetYaxis()->CenterTitle();
 
-    tree->Draw("RightT2:Entry$>>h9","",drawoption);
+    tree->Draw("RightT5:Entry$>>h9","",drawoption);
   }
 
   if(flag ==10){
     Double_t max9 = TSRight->GetMaximum("RightT6");
-    TH2F *h10 = new TH2F("h10","RightT3",100,0,nentries,100,0,max9);
+    TH2F *h10 = new TH2F("h10","RightT6",100,0,nentries,100,0,max9);
     h10->GetXaxis()->SetTitle("Entry #");h10->GetXaxis()->CenterTitle();
-    h10->GetYaxis()->SetTitle("T3 (counts)");h10->GetYaxis()->CenterTitle();
+    h10->GetYaxis()->SetTitle("T6 (counts)");h10->GetYaxis()->CenterTitle();
 
-    tree->Draw("RightT3:Entry$>>h10","",drawoption);
+    tree->Draw("RightT6:Entry$>>h10","",drawoption);
 
   }
 
