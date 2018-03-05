@@ -59,8 +59,15 @@ block L.tr.*
 block DL.*
 #decoder.
 
+# F1 tdc
+variable F1FirstHit
+variable F1nhits
+variable F1Warnings
+variable F1AllHits_033
+
 #V1495 Clock Count
 variable V1495ClockCount
+
 variable V1495ClockInterval
 #V1495 Clock Count
 
