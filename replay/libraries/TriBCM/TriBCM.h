@@ -22,14 +22,10 @@ class TriBCM : public THaPhysicsModule {
 public:
 
    TriBCM(const char* name, const char* description, const char* arm1, const char* scaler1, Int_t Debug);
+   TriBCM();// for ROOT I/O
    virtual ~TriBCM();
 
-   //virtual Int_t Analyze(THaEvData *evdata);
-   //virtual EStatus Init( const TDatime& run_time);
-   //virtual Int_t End( THaRunBase* r=0 );
    virtual Int_t Process(const THaEvData& evdata);
-   //virtual Int_t SetInputModule( const char* arm, const char* scaler );
-  // virtual Int_t SetInputModule( const char* arm1, const char* scaler1, const char* bcm_name2[] );
 
   protected:
 
@@ -38,8 +34,16 @@ public:
   TString arm;
   //TString arm1;
   //TString scaler1;
-  
-  
+  	
+  	std::vector<std::array<float, 3>> time_up;
+   
+
+   typedef std::vector<Long64_t> time_up1;
+   typedef std::vector<Long64_t> time_up2;
+   typedef std::vector<Long64_t> time_up3;
+   typedef std::vector<Long64_t> time_up4;       
+   typedef std::vector<Long64_t> time_up5;
+     
   Float_t bcm_u1;
   Float_t bcm_d1; 
   Float_t bcm_d3; 
@@ -68,13 +72,23 @@ public:
   Float_t current[8];
   Float_t charge[8];
   Float_t bcm_new[8];
+  //DB values
   Double_t gain[8];
   Double_t off[8];
+  Double_t c_cuts[5];
+  
+  Double_t quality[2];
+  Double_t* BeamUp;
+  Double_t* BeamOn;
+  
+ 
   Double_t count;
-
+  Double_t total_charge_event[8];
 
   Float_t clock_count_new;
   Float_t clock_count_old;
+  Double_t V1495_old;
+  Double_t V1495;
   
   
     Float_t current_u1;
@@ -115,10 +129,13 @@ public:
   Double_t gain_dnew;
   Double_t off_dnew;
   
+  Bool_t Beam_status;
+  
   
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
   virtual Int_t  DefineVariables( EMode mode = kDefine );
+  virtual Int_t BeamQuality(const THaEvData& evdata);
 
    ClassDef(TriBCM,0)  // Scaler Event handler
 

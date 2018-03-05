@@ -39,6 +39,7 @@ TriBCM::~TriBCM()
 {
   // Destructor
   DefineVariables( kDelete ); 
+    DeleteArrays();
 
 }
 
@@ -51,8 +52,6 @@ Int_t TriBCM::ReadDatabase( const TDatime& date) {
 
     FILE *file = OpenFile( date );
     if (!file) return kFileError;
-
-
 
     const DBRequest calib_request[] = {
         { "u1.gain",      &gain[0],   kDouble, 0 , 1 },
@@ -71,18 +70,25 @@ Int_t TriBCM::ReadDatabase( const TDatime& date) {
         { "d10.offset",   &off[6],   kDouble, 0 , 1},
         { "dnew.gain",    &gain[7], kDouble, 0 , 1},
         { "dnew.offset",  &off[7],  kDouble, 0 , 1},
+        { "current_cuts", c_cuts, 	kDouble, 5 , 1},
         { 0 }
     };
+
+ 	if( !fIsInit ) {    
+   		BeamOn = new Double_t[ 5 ];
+		BeamUp = new Double_t[ 5 ];
+		
+	}
 
   Int_t err = LoadDB( file, date, calib_request, fPrefix );
   fclose(file);
   if( err )
     return err;
-	
-	
-	cout << "dnew offest " << off[7]<<endl;
-	
+    cout << "Dnew offset = " << off[7] << "  Dnew gain = " << gain[7] <<endl;
   return kOK;
+   	
+
+
 }
 
 
@@ -116,45 +122,26 @@ Int_t TriBCM::DefineVariables( EMode mode )
     { "charge_d3",     "Integrated charge from bcm d3",      "charge[5]" },  
     { "charge_d10",    "Integrated charge from bcm d10",     "charge[6]" },  
     { "charge_dnew",   "Integrated charge from bcm dnew",    "charge[7]" },
-    { "total_charge",  "Total Charge averaged over all bcms","total_charge"},
-    { "average_current","Current average over all bcms",     "avg_current" },  
-    { "isrenewed",     "Scaler reading updated or not",      "isrenewed"},
+//    { "total_charge_dnew",  "Total Charge for dnew",		 "total_charge_event[7]"},
+//    { "average_current","Current average over all bcms",     "avg_current" },  
+    { "isrenewed",  	"Scaler reading updated or not",      "isrenewed"},
+    { "BeamUp_time[5]",	"Time the beam has been up in seconds","BeamUp"},
+    { "BeamUp_events[5]","Time the beam has been up in events","BeamOn"},
     { 0 }
   };
 
   
   return DefineVarsFromList( vars, mode );
 }
-//_______________________________________________________________________________
-/*Int_t SetInputModule( const char* arm1, const char* scaler1, const char* bcm_name2[] )
-{
-
-
-//	TString bcm_name[8];
-	TString bname[8] ={"_u1","_u3","_u10","_unew","_d1","_d3","_d10","_dnew"};
-	for(int i =0; i<8;i++){
-		bcm_name2[i] = TString::Format("%s%s%s",arm1,scaler1,bname[i].Data());
-	  }
-
- return 0;
-}
-*/
 //_____________________________________________________________________________
 Int_t TriBCM::Process(const THaEvData& evdata)
 {
 	bcm_u1=0; bcm_d1=0; bcm_d3=0; bcm_d10=0; bcm_unew=0; bcm_dnew=0;
     charge_u1=0; charge_d1=0; charge_d3=0; charge_d10=0; charge_unew=0; charge_dnew=0;
-	
-	//debug = 10; //Hard coded debug flag!!!!!
-	
+		
 	THaVar* var[8];
 	THaVar* Rate[8];
-
-//Needs to be arm switchable and scaler switchable
-	TString bcm_name[8];// = {"evLeftu1", "evLeftu3", "evLeftu10","evLeftunew","evLeftd1", "evLeftd3", "evLeftd10","evLeftdnew"};
-//	TString bcm_name_R[8] = {"evLeftu1_r", "evLeftu3_r", "evLeftu10_r","evLeftunew_r","evLeftd1_r", "evLeftd3_r", "evLeftd10_r","evLeftdnew_r"};
-////////////////////////////////////////////////
-
+	TString bcm_name[8];
 
 	TString bname[8] ={"u1","u3","u10","unew","d1","d3","d10","dnew"};
 	for(int i =0; i<8;i++){
@@ -163,43 +150,37 @@ Int_t TriBCM::Process(const THaEvData& evdata)
 		bcm_name_R[i] = TString::Format("%s%s%s_r",scaler.Data(),arm.Data(),bname[i].Data());
 		//cout << bcm_name[i].Data() <<endl;
 	  }
-
-
-
 //needs to arm and scalar switchable
-	double clock_freq=  103700; //1024
-///////////////////////////////////////
-
+	double clock_freq;
+	///////////////////////////////////////
 	double bcms[8]={0};
 	double bcms_diff[8] ={0};
 	double time_diff=0;
 	double bcms_R[8]={0};
-
 //needs to be arm and scalar switchable 
 	THaVar* clock_Count_pt = gHaVars->Find(Form("%s%sLclock",scaler.Data(),arm.Data()));
 	THaVar* clock_Rate_pt  = gHaVars->Find(Form("%s%sLclock_r",scaler.Data(),arm.Data()));
 ///////////////////////////////////////////
-	
-	///Defining if this is new scalar event.
+		///Defining if this is new scalar event.
 	isrenewed=0;
-	
-	
-	if(clock_Count_pt !=0){ clock_count_new= clock_Count_pt->GetValue(); }
+		
+	if(clock_Count_pt !=0){ clock_count_new= clock_Count_pt->GetValue(); 
+							clock_freq = clock_Rate_pt->GetValue();}
 	if(clock_count_new!=clock_count_old){isrenewed=1;}
 		
 	double time_sec =0;
 	if(clock_Count_pt !=0 && clock_Rate_pt!=0){
 		if(isrenewed){
-	  time_diff = (clock_count_new - clock_count_old);
-	  time_sec  =  time_diff/clock_freq;
+	  		time_diff = (clock_count_new - clock_count_old);
+	  		time_sec  =  time_diff/clock_freq;
+//Debug statement
 	if(debug==1||debug==10){
 	  cout << "time_sec  "<<time_sec<<"  total "<<clock_Count_pt->GetValue()/clock_freq<< endl;
-	    }
-	  time_diff = (clock_count_new - clock_count_old)/(clock_Rate_pt->GetValue()*1.0);
+	   }
+////////////////////
+	  		time_diff = (clock_count_new - clock_count_old)/(clock_Rate_pt->GetValue()*1.0);
 	  }}    
 	
-	clock_count_old=clock_count_new;
-	double total_charge_event=0;
 	double average_current_event=0;
 	count=0;
 	for(int i =0;i<8;i++){
@@ -208,35 +189,36 @@ Int_t TriBCM::Process(const THaEvData& evdata)
 		var[i] = gHaVars->Find(varname.Data());
 		TString varnameR = bcm_name_R[i];
 		Rate[i] = gHaVars->Find(varnameR.Data());
-
+	if(debug==10&& isrenewed){
 		//cout << var[i]<<endl;
 		//cout << varname.Data()<<endl;
-		
+		}
 		if(var[i]!=0){
 			bcms[i] = var[i]->GetValue();
 			bcms_R[i] = Rate[i]->GetValue();
-
 // Calculate the charge and current if scalar is renewed
-			if(bcms[i]!=0 && bcm_old[i]!=bcms[i] && isrenewed){			
-				count++;
-				bcms_diff[i] = bcms[i]-bcm_old[i];
-				total_charge_event+=bcms[i]*gain[i] + off[i]*time_sec;
-				average_current_event+= bcms_R[i]*gain[i]+ off[i];
-				
-				charge[i] = bcms_diff[i]*gain[i] + off[i]*time_sec;
-				current[i] =bcms_R[i]*gain[i] + off[i];
-				}
+			count++;
+			bcms_diff[i] = bcms[i]-bcm_old[i];
+			average_current_event+= bcms_R[i]*gain[i]+ off[i];
+			charge[i] = bcms_diff[i]*gain[i] + off[i]*time_sec;
+			current[i] =bcms_R[i]*gain[i] + off[i];
+			total_charge_event[i]+=charge[i]; //bcms[i]*gain[i] + off[i]*time_sec
  	 		bcm_old[i]=bcms[i];
 		}
-
-	}
+	}//end of bcm loop
+//Debug statement 
 	if(debug==10&& isrenewed){
 		cout << "bcm_unew qe" << " " <<charge[3]<<"\t";
 		cout << "bcm_unew I" << " " <<current[3]<<endl;
-		cout << "bcm_cnew qe" << " " <<charge[7]<<"\t";
-		cout << "bcm_new I" << " " <<current[7]<<endl;
+		cout << "bcm_dnew qe" << " " <<charge[7]<<"\t";
+		cout << "bcm_dnew I" << " " <<current[7]<<endl;
+		cout << "dnew qe ("<<gain[7]<<")  "<< total_charge_event[7]<<"  "<<bcms[7]*gain[7]<<endl;
+
 	}
-	
+//Beam quality function/
+		int qua = BeamQuality(evdata);
+		if(qua){cout << "error"<<endl;}
+
 /* Work in progress!!!!		
 	if(isrenewed){
 		total_charge+=total_charge_event/(count);
@@ -245,12 +227,47 @@ Int_t TriBCM::Process(const THaEvData& evdata)
 			cout <<"tot eq "<<total_charge << "| avg I "<<avg_current <<endl;
 		}
 	}
+
 */
-		
- return 0;
+//Reset for time diff.
+	clock_count_old=clock_count_new;
+	return 0;
+}
+//____________________________________________________
+//  
+Int_t TriBCM::BeamQuality(const THaEvData& evdata)
+{
+	//Retrieve info for V1495
+	THaVar* V1495CC = gHaVars->Find("V1495ClockCount");
+	V1495 = V1495CC->GetValue()/103700.0;
+	Double_t V1495_diff = V1495 - V1495_old;
+
+	//Looping for the differenve current cuts;
+	for(int i =0;i<5;i++){
+		//Greated then the DB cut vaule;
+		if(current[7]>=c_cuts[i]){
+			BeamUp[i]+=V1495_diff;	BeamOn[i]++;
+			}
+		else{//Reset the count otherwise
+			BeamUp[i]=0.0;			BeamOn[i]=0.0;
+			}
+	}//end of for loop
+
+//Debug statement 10 for all 3 for just this
+	if(debug==3||debug==10){
+		cout <<current[7]<<" "<< BeamOn[2] <<"  "<< BeamUp[2]<< "  "<< V1495<<endl;
+	}
+//Set for finding time diff.
+	V1495_old = V1495;
+	return 0;
 }
 //_____________________________________________________________________________
+void TriBCM::DeleteArrays()
+{
+  // Delete member arrays. Internal function used by destructor.
 
+  	delete [] BeamOn;    BeamOn   = NULL;
+	delete [] BeamUp;    BeamUp   = NULL;
 
-
+}
 //ClassImp(TriBCM)
