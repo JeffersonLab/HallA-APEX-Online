@@ -18,6 +18,8 @@ map 3800 1 6 abc60000 ffff0000 1
 # slot#, chan#, (1=cnt, 2=rate), var name, description string
 # var name gets "fName" prefix, e.g.
 # for L-HRS scalers with fname="Left", var name = "LeftTSbcmu3"
+# Setup valid from 11.1.18 on
+#MLU Random clock was added 11.1.18
 
 
 variable 1 0  1  T1    LHRS T1 trigger
@@ -26,8 +28,10 @@ variable 1 1  1  T2    LHRS T2 trigger
 variable 1 1  2  T2_r  LHRS T2 trigger rate
 variable 1 2  1  T3    LHRS T3 trigger
 variable 1 2  2  T3_r  LHRS T3 trigger rate
+variable 1 3  1  MLU_random  MLU random clock
+variable 1 3  2  MLU_random_r MLU random clock
 variable 1 5  1  L1A_R    L1A remote from RHRS
-variable 1 5  2  L1A_R_r  L1A remote from RHRS rate
+variable 1 5  2  L1A_R_r  L1A remote from RHRS rate.
 variable 1 6  1  Rclock    RHRS clock
 variable 1 6  2  Rclock_r  RHRS clcok rate
 variable 1 7  1  Lclock    LHRS clock
@@ -46,8 +50,8 @@ variable 1 13  1  ADC_gate    LHRS s0||s2
 variable 1 13  2  ADC_gate_r  LHRS s0||s2 rate
 variable 1 14  1  L1A    L1A LHRS
 variable 1 14  2  L1A_r  L1A LHRS rate
-variable 1 15  1  EDTM_s2     EDTM s2
-variable 1 15  2  EDTM_s2_r  EDTM s2
+variable 1 15  1  RF_time     RF time
+variable 1 15  2  RF_time_r  RF time
 variable 1 16  1  L1A1    L1A from TS LHRS
 variable 1 16  2  L1A1_r  L1A from TS LHRS rate
 
@@ -67,10 +71,6 @@ variable 1 30 1  d10     bcm x10 downstream count
 variable 1 30 2  d10_r   bcm x10 downstream rate
 
 
-
- 
-variable 4 27  1  S0A    S0A
-variable 4 28  1  S0B    S0B
 variable 3 0  1   S2mL_1   S2m1L
 variable 3 1  1   S2mL_2   S2m2L
 variable 3 2  1   S2mL_3   S2m3L
@@ -116,3 +116,10 @@ variable 4 22  1  Cher_7   Cher7
 variable 4 23  1  Cher_8   Cher8
 variable 4 24  1  Cher_9   Cher9
 variable 4 25  1  Cher_10   Cher10
+variable 4 26  1  Cher_sum   CherSum
+variable 4 27  1  S0A    S0A
+variable 4 28  1  S0B    S0B
+variable 4 29  1  S0AandB    S0A & S0B
+variable 4 30  1  L1A2    L1A copy 2 from TS LHRS (for F1s)
+variable 4 31  1  S2LandR    S2L & S2R
+

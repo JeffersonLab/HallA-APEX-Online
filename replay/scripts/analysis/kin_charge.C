@@ -63,7 +63,7 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
 	T->SetBranchAddress(Form("%sBCM.isrenewed",ARM.Data()),   &isrenewed);
 	    
 	Double_t dnew_u_ch_ev=0, dnew_u_ch_ev_old=0,dnew_u_ch_total=0;
-    T->SetBranchAddress(Form("%sdnew",ARM.Data()),&dnew_u_ch_ev);
+    T->SetBranchAddress(Form("ev%sdnew",ARM.Data()),&dnew_u_ch_ev);
 	
 		double gain, offset; 
 		if(arm=="R"){ gain = 0.0003353; offset =0;}
@@ -74,14 +74,20 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
 	for(Int_t i=0;i<Total_entries;i++){
 		T->GetEntry(i);
 		//is T-event a new scaler event and if cuts are turned on makes a beam trip cut forcing at least 0.5 uAs
-		if(isrenewed==1 && dnew_cur_ev >= cuts_bool*2.5){ 
+		if(isrenewed==1 && dnew_cur_ev >= cuts_bool*5.5){ 
 			dnew_ch_total+=dnew_ch_ev;
 			unew_ch_total+=unew_ch_ev;
 			}//End of renewed if
-			if(dnew_u_ch_ev>dnew_u_ch_ev_old){
+			if(dnew_u_ch_ev>=dnew_u_ch_ev_old){
 			dnew_u_ch_total+=(dnew_u_ch_ev-dnew_u_ch_ev_old);}
+
 			dnew_u_ch_ev_old=dnew_u_ch_ev;
-		dnew_ch_ev=0, unew_ch_ev=0; dnew_u_ch_ev=0;//reset;
+			dnew_ch_ev=0, unew_ch_ev=0; dnew_u_ch_ev=0;//reset;
+	
+		if(i/250000==i/250000.0){
+			double per_done = (i/(Total_entries*1.0))*100;
+			cout << per_done <<"\tpercent complete! "<<endl;
+		}
 	}
 // End of for loop of events in the tchain.    
     
@@ -89,11 +95,11 @@ Double_t kin_charge( TString filename="",Int_t cuts_bool=1){
     Total_Charge=dnew_ch_total;
     
 
-	T->SetBranchAddress(Form("%sdnew_r",ARM.Data()),&dnew_cur_ev);
+//	T->SetBranchAddress(Form("%sdnew_r",ARM.Data()),&dnew_cur_ev);
 
 
-    T->GetEntry(Total_entries-1);
-    cout << "Charge with out cuts from ev dnew : " << dnew_u_ch_total*gain<<" uC"<<endl;
+  //  T->GetEntry(Total_entries-1);
+    cout << "Charge without cuts from ev dnew : " << dnew_u_ch_total*gain<<" uC"<<endl;
     cout << "Charge with cuts from BCM class   : " << Total_Charge<<" uC" <<endl;  
    	
     
