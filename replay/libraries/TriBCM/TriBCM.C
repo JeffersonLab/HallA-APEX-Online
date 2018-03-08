@@ -77,6 +77,7 @@ Int_t TriBCM::ReadDatabase( const TDatime& date) {
  	if( !fIsInit ) {    
    		BeamOn = new Double_t[ 5 ];
 		BeamUp = new Double_t[ 5 ];
+		BeamUp_S = new Double_t[ 5 ];
 		
 	}
 
@@ -125,7 +126,8 @@ Int_t TriBCM::DefineVariables( EMode mode )
 //    { "total_charge_dnew",  "Total Charge for dnew",		 "total_charge_event[7]"},
 //    { "average_current","Current average over all bcms",     "avg_current" },  
     { "isrenewed",  	"Scaler reading updated or not",      "isrenewed"},
-    { "BeamUp_time[5]",	"Time the beam has been up in seconds","BeamUp"},
+    { "BeamUp_time_v1495[5]","Time the beam has been up in seconds","BeamUp"},
+	{ "BeamUp_time_scaler[5]","Time the beam has been up in seconds","BeamUp_S"},
     { "BeamUp_events[5]","Time the beam has been up in events","BeamOn"},
     { 0 }
   };
@@ -241,24 +243,42 @@ Int_t TriBCM::BeamQuality(const THaEvData& evdata)
 	THaVar* V1495CC = gHaVars->Find("V1495ClockCount");
 	V1495 = V1495CC->GetValue()/103700.0;
 	Double_t V1495_diff = V1495 - V1495_old;
+	
+	//Retreive info for the scaler clock;
+	THaVar* cc_pt = gHaVars->Find(Form("%s%sLclock",scaler.Data(),arm.Data()));
+	THaVar* cr_pt  = gHaVars->Find(Form("%s%sLclock_r",scaler.Data(),arm.Data()));
+	
+	//Make sure the varible is there!!
+	if(cc_pt !=0 && cr_pt!=0){
+		cfreq = cr_pt->GetValue();
+		cc_new= cc_pt->GetValue()/cfreq;
+		t_diff = (cc_new - cc_old);
+  		t_sec  =  t_diff;
+  		}
+  	else{t_sec=0.0;	}
+  	if(cfreq==0||t_diff==0){t_sec=0.0;}
 
 	//Looping for the differenve current cuts;
 	for(int i =0;i<5;i++){
 		//Greated then the DB cut vaule;
 		if(current[7]>=c_cuts[i]){
 			BeamUp[i]+=V1495_diff;	BeamOn[i]++;
+			if(isrenewed){BeamUp_S[i]+=t_sec;}
 			}
 		else{//Reset the count otherwise
 			BeamUp[i]=0.0;			BeamOn[i]=0.0;
+			BeamUp_S[i]=0.0;
 			}
 	}//end of for loop
-
+	
+	//cout << BeamUp[4] << " "<< BeamUp_S[4] <<" "<< BeamUp_S[4] - BeamUp[4]<<endl;
 //Debug statement 10 for all 3 for just this
 	if(debug==3||debug==10){
 		cout <<current[7]<<" "<< BeamOn[2] <<"  "<< BeamUp[2]<< "  "<< V1495<<endl;
 	}
 //Set for finding time diff.
 	V1495_old = V1495;
+	cc_old = cc_new;
 	return 0;
 }
 //_____________________________________________________________________________
@@ -268,6 +288,7 @@ void TriBCM::DeleteArrays()
 
   	delete [] BeamOn;    BeamOn   = NULL;
 	delete [] BeamUp;    BeamUp   = NULL;
+	delete [] BeamUp_S;  BeamUp_S = NULL;
 
 }
 //ClassImp(TriBCM)
