@@ -35,15 +35,6 @@ public:
   //TString arm1;
   //TString scaler1;
   	
-  	std::vector<std::array<float, 3>> time_up;
-   
-
-   typedef std::vector<Long64_t> time_up1;
-   typedef std::vector<Long64_t> time_up2;
-   typedef std::vector<Long64_t> time_up3;
-   typedef std::vector<Long64_t> time_up4;       
-   typedef std::vector<Long64_t> time_up5;
-     
   Float_t bcm_u1;
   Float_t bcm_d1; 
   Float_t bcm_d3; 
@@ -80,13 +71,19 @@ public:
   Double_t quality[2];
   Double_t* BeamUp;
   Double_t* BeamOn;
-  
+  Double_t* BeamUp_S;  
  
   Double_t count;
   Double_t total_charge_event[8];
 
   Float_t clock_count_new;
   Float_t clock_count_old;
+  Float_t cc_new;
+  Float_t cc_old;
+  Float_t cfreq;
+  Float_t t_diff;
+  Float_t t_sec;
+
   Double_t V1495_old;
   Double_t V1495;
   
