@@ -246,9 +246,10 @@ Int_t TriVDCeff::Process( const THaEvData& /*evdata*/ )
 
   // FIXME: repeated WriteHist seems to cause problems with splits files
   // (multiple cycles left in output)
-  if( (cycle_event && fNevt < 4*fCycle) ||
-      (fNevt % (10*fCycle) == 0) )
-    WriteHist();
+	//commented out, not needed for pass1, possibly not needed at all...
+//  if( (cycle_event && fNevt < 4*fCycle) ||
+//      (fNevt % (10*fCycle) == 0) )
+//    WriteHist();
 
 #ifdef WITH_DEBUG
   if( fDebug>1 && (fNevt%10) == 0 )
