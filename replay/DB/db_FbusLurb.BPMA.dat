@@ -7,7 +7,7 @@ FbusLurb.BPMA.pedestals = 4728  4511  4485  4488
 
 FbusLurb.BPMA.detmap =
       3    21     0     3     1  1881
-FbusLurb.BPMA.position = 2.58610e-03  5.71653e-04  -7.34500e+00
+FbusLurb.BPMA.position = 0.0      0.0      -7.34500e+00
 FbusLurb.BPMA.calib_rot = 0.01887
 FbusLurb.BPMA.pedestals = 3764  3501  3472  3485
 FbusLurb.BPMA.rotmatrix = -0.821808  0.775581  0.867645  0.766977
