@@ -42,14 +42,13 @@ void getinfo(Int_t run=0){
   while ( !gSystem->AccessPathName(rootfile.Data()) ) {
       T->Add(rootfile.Data());
       T1->Add(rootfile.Data());
-      cout << "ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
+      cout << "volatile ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
       rootfile = basename + "_" + jk + ".root"; 
+      if(jk>100) break;
   }
 
   TTree *tree1;TTree *tree2;
   TFile *file = new TFile(Form("%stritium_%d.root",rootfilePath.Data(),irun),"read");
-  tree1 = (TTree*)file->Get("T");
-  tree2 = (TTree*)file->Get("E");
   if(file->IsZombie()){
     cout<<" this rootfile doest not exist: "<<endl;
     const TString rootfilePath1 = "/chafs1/work1/tritium/Rootfiles/";
@@ -60,18 +59,21 @@ void getinfo(Int_t run=0){
        		exit(1);
        		}
        		
-       		TString file_name1 = TString::Format("%stritium_%d.root",rootfilePath1.Data(),irun);
-			TString basename1 = TString::Format("%stritium_%d",rootfilePath1.Data(),irun);
-			TString rootfile1 = basename1 + ".root";
-  		Long_t jk=0;
-  		while ( !gSystem->AccessPathName(rootfile1.Data()) ) {
+       	TString file_name1 = TString::Format("%stritium_%d.root",rootfilePath1.Data(),irun);
+	TString basename1 = TString::Format("%stritium_%d",rootfilePath1.Data(),irun);
+	TString rootfile1 = basename1 + ".root";
+  	Long_t jk=0;
+  	while ( !gSystem->AccessPathName(rootfile1.Data()) ) {
       		T->Add(rootfile1.Data());
 	    	T1->Add(rootfile1.Data());
-      		cout << "ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
-      		rootfile = basename1 + "_" + jk + ".root"; 
-  			}
+      		cout << "chafs ROOT file " << irun<< "_"<< jk << " added to TChain." << endl; jk++;
+      		rootfile1 = basename1 + "_" + jk + ".root"; 
+		if(jk>100) break;
+  		}
        		
   }
+  tree1 = (TTree*)file->Get("T");
+  tree2 = (TTree*)file->Get("E");
   
   
   THaRun *aRun = (THaRun*)file->Get("Run_Data");
@@ -87,9 +89,10 @@ void getinfo(Int_t run=0){
  // TTree *tree2=(TTree*)file->Get("E");
   
   //tree2 = (TTree*)file->Get("E");
+ cout << "got here 0" << endl; 
   tree2->SetBranchAddress("HALLA_p",&ebeam);
+ cout << "got here 1" << endl; 
   tree2->SetBranchAddress("haBDSPOS",&pos);
-  
   
   
   
