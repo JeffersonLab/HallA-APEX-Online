@@ -1,31 +1,35 @@
---------[ 2015-03-01 00:00:00 -0500 ]
+--------[ 2018-03-25 00:00:00 -0500 ]
+FbusRrb.BPMA.pedestals = 4179  4147  4274  4347
+FbusRrb.BPMA.rotmatrix = -0.879922 0.857463 0.830902 0.827966 
+FbusRrb.BPMA.offsets = 0.00226823 0.00009463
 
+--------[ 2018-01-10 00:00:00 -0500 ]
 FbusRrb.BPMA.detmap =
       1    22     0     3     1  1881
 FbusRrb.BPMA.position = 0.0 0.0  -7.345
 FbusRrb.BPMA.calib_rot = 0.01887
-FbusRrb.BPMA.pedestals = 4137  4107  4230  4324 
-FbusRrb.BPMA.rotmatrix = -0.776076  0.728423  0.795095  0.719106
-FbusRrb.BPMA.offsets = 0.00108179 0.0017538
+FbusRrb.BPMA.pedestals = 4156  4124  4249  4352
+FbusRrb.BPMA.rotmatrix = -0.850311 0.832249 0.847916 0.806948 
+FbusRrb.BPMA.offsets = 0.00192313 0.000187412
 
---------[ 2017-03-01 00:00:00 -0500 ]
-
-FbusRrb.BPMA.detmap =
-      1    22     0     3     1  1881
-FbusRrb.BPMA.position = 0.0 0.0  -7.345
-FbusRrb.BPMA.calib_rot = 0.01887
-FbusRrb.BPMA.pedestals = 4137  4107  4230  4324 
-FbusRrb.BPMA.rotmatrix = -0.776076  0.728423  0.795095  0.719106
-FbusRrb.BPMA.offsets = 0.00108179 0.0017538
+--------[ 2017-12-02 00:00:00 -0500 ]
+FbusRrb.BPMA.offsets = 0.000417 -0.000694635
 
 --------[ 2017-12-01 00:00:00 -0500 ]
 FbusRrb.BPMA.rotmatrix = -0.812928 0.798982 0.911982 0.795201
 FbusRrb.BPMA.offsets = 0.00206729 -0.000194635
 
---------[ 2017-12-02 00:00:00 -0500 ]
-FbusRrb.BPMA.offsets = 0.000417 -0.000694635
+--------[ 2017-03-01 00:00:00 -0500 ]
+FbusRrb.BPMA.detmap =
+      1    22     0     3     1  1881
+FbusRrb.BPMA.position = 0.0 0.0  -7.345
+FbusRrb.BPMA.calib_rot = 0.01887
+FbusRrb.BPMA.pedestals = 4137  4107  4230  4324 
+FbusRrb.BPMA.rotmatrix = -0.776076  0.728423  0.795095  0.719106
+FbusRrb.BPMA.offsets = 0.00108179 0.0017538
 
---------[ 2018-01-10 00:00:00 -0500 ]
-FbusRrb.BPMA.pedestals = 4156  4124  4249  4352
-FbusRrb.BPMA.rotmatrix = -0.850311 0.832249 0.847916 0.806948 
-FbusRrb.BPMA.offsets = 0.00202313 0.000197412
+
+
+
+
+

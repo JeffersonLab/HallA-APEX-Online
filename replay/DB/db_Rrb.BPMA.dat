@@ -1,3 +1,8 @@
+--------[ 2018-03-25 00:00:00 -0500 ]
+Rrb.BPMA.pedestals =  17692  17636  17091  17305 
+Rrb.BPMA.rotmatrix = -0.846228 0.803169 0.803169 0.796501 
+Rrb.BPMA.offsets =  0.00243525 -0.000487653
+
 --------[ 2018-01-10 00:00:00 -0500 ]
 Rrb.BPMA.pedestals = 17610 17634 17050 17238
 Rrb.BPMA.rotmatrix = -0.805129 0.833093 0.82335 0.789525
@@ -17,6 +22,6 @@ Rrb.BPMA.position = 0.0 0.0  -7.345
 Rrb.BPMA.calib_rot = 0.01887
 Rrb.BPMA.pedestals = 17565  17557  17053  17237 
 Rrb.BPMA.rotmatrix = -0.776076  0.728423  0.795095  0.719106
-Rrb.BPMA.offsets = 0.00108179 0.0017538
+Rrb.BPMA.offsets = 0.00105179 0.0017538
 
 
