@@ -1,12 +1,30 @@
---------[ 2015-03-01 00:00:00 -0500 ]
+--------[ 2018-03-25 00:00:00 -0500 ]
+FbusRrb.BPMB.pedestals = 4500  4378  4086  4081
+FbusRrb.BPMB.rotmatrix = -0.645917 0.728136 0.66215 0.674
+FbusRrb.BPMB.offsets = 0.0002287 -0.000902
+FbusRrb.BPMB.position = 0.0  0.0 -2.21400e+00
 
+
+--------[ 2018-01-11 00:00:00 -0500 ]
+FbusRrb.BPMB.offsets = 0.00003 -0.000055
+
+--------[ 2018-01-10 00:00:00 -0500 ]
+FbusRrb.BPMB.pedestals = 4527  4402  4104  4114
+FbusRrb.BPMB.rotmatrix = -0.668403 0.774865 0.675742 0.756601 
+FbusRrb.BPMB.offsets = 0.000357819 -0.00090161
 FbusRrb.BPMB.detmap =
       1    22     4     7     1  1881
-FbusRrb.BPMB.position = 3.63459e-04  -8.31714e-04  -2.21400e+00
+FbusRrb.BPMB.position = 0.0 0.0  -2.21400e+00
 FbusRrb.BPMB.calib_rot = 0.01887
-FbusRrb.BPMB.pedestals = 4504  4381  4084  4096 
-FbusRrb.BPMB.rotmatrix = -0.584147  0.693931  0.644125  0.662207
-FbusRrb.BPMB.offsets = 0.00108179 0.0017538
+
+
+--------[ 2017-12-02 00:00:00 -0500 ]
+FbusRrb.BPMB.offsets = -0.00167 -0.000992939
+FbusRrb.BPMB.rotmatrix = -0.648025 0.764462 0.745127 0.785746	
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+FbusRrb.BPMB.rotmatrix = -0.633289 0.919829 0.729649 0.622554
+FbusRrb.BPMB.offsets = -8.08807e-06 -0.000637691
 
 --------[ 2017-03-02 00:00:00 -0500 ]
 FbusRrb.BPMB.detmap =
@@ -17,18 +35,8 @@ FbusRrb.BPMB.pedestals = 4504  4381  4084  4096
 FbusRrb.BPMB.rotmatrix = -0.584147  0.693931  0.644125  0.662207
 FbusRrb.BPMB.offsets = 0.00108179 0.0017538
 
---------[ 2017-12-01 00:00:00 -0500 ]
-FbusRrb.BPMB.rotmatrix = -0.633289 0.919829 0.729649 0.622554
-FbusRrb.BPMB.offsets = -8.08807e-06 -0.000637691
 
---------[ 2017-12-02 00:00:00 -0500 ]
-FbusRrb.BPMB.offsets = -0.00167 -0.000992939
-FbusRrb.BPMB.rotmatrix = -0.648025 0.764462 0.745127 0.785746	
 
---------[ 2018-01-10 00:00:00 -0500 ]
-FbusRrb.BPMB.pedestals = 4527  4402  4104  4114
-FbusRrb.BPMB.rotmatrix = -0.668403 0.774865 0.675742 0.756601 
-FbusRrb.BPMB.offsets = 0.000357819 -0.00090161
 
---------[ 2018-01-11 00:00:00 -0500 ]
-FbusRrb.BPMB.offsets = 0.00003 0.000205
+
+
