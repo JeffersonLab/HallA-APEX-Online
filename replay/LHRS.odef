@@ -75,7 +75,7 @@ Variable FbusLrb.e
 Variable FbusLrb.x
 Variable FbusLrb.y
 block FbusLrb*
-
+block FbusLurb*
 #-------------------------------------------------------------------
 #
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)

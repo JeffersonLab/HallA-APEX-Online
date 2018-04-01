@@ -12,12 +12,12 @@ trk1    L.tr.n==1
 e      	L.cer.asum_c>1200
 TargetYCut abs(L.tr.tg_y+0.003)<0.01 
 
-spot trk1&&TargetYCut
+spot trk1
 
 Reconstruct_master spot
 
-Block: Physics
+#Block: Physics
 
-trip LeftBCM.current_dnew>10.0
+#trip LeftBCM.current_dnew>10.0
 
-Reconstruct_master trip
+#Physics_master trip

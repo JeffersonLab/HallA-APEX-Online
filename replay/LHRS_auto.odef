@@ -91,7 +91,7 @@ Variable FbusLrb.x
 Variable FbusLrb.y
 Variable Lrb.x
 Variable Lrb.y
-
+block FbusLurb*
 # ------------------------------------------------------------------
 # Event type 140 
 

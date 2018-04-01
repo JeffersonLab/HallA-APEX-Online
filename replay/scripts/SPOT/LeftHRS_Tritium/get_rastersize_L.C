@@ -94,8 +94,8 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
     Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
     gHaEvtHandlers->Add(levscaler);
-      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
-	  gHaPhysics->Add(BCM);
+ //     THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+//	  gHaPhysics->Add(BCM);
 
 
   analyzer->SetEvent( event );
