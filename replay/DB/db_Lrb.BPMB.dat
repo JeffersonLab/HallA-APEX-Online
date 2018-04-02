@@ -2,10 +2,6 @@
 Lrb.BPMB.rotmatrix = -0.642938 0.742996 0.655866 0.680293 
 Lrb.BPMB.offsets = 0.00117789 -0.00030231
 Lrb.BPMB.pedestals = 22469 21978 18691 19844
-Lrb.BPMB.detmap =
-      31    9     8    11     1  250
-Lrb.BPMB.position = 0.0 0.0   -2.21400e+00
-Lrb.BPMB.calib_rot = 0.01887
 
 --------[ 2018-01-10 00:00:00 -0500 ]
 Lrb.BPMB.rotmatrix = -0.627507 0.75801 0.67739 0.734726  
@@ -21,6 +17,10 @@ Lrb.BPMB.offsets =  0.00113866 -0.000309452
 
 
 --------[ 2017-03-01 00:00:00 -0500 ]
+Lrb.BPMB.detmap =
+      31    9     8    11     1  250
+Lrb.BPMB.position = 0.0 0.0   -2.21400e+00
+Lrb.BPMB.calib_rot = 0.01887
 Lrb.BPMB.pedestals = 20549  19706  16716  15456
 Lrb.BPMB.rotmatrix =-0.624004  0.761298 0.659681 0.708074
 Lrb.BPMB.offsets = 0.000601645 -0.000985787
