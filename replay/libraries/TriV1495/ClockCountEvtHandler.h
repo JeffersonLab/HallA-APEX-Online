@@ -37,6 +37,7 @@ private:
    UInt_t V1495ClockCount;
    UInt_t V1495PrevCount;
    UInt_t V1495ClockInterval;
+   std::string nameArm1495;
 
    ClockCountEvtHandler(const ClockCountEvtHandler& fh);
    ClockCountEvtHandler& operator=(const ClockCountEvtHandler& fh);

@@ -240,7 +240,12 @@ Int_t TriBCM::Process(const THaEvData& evdata)
 Int_t TriBCM::BeamQuality(const THaEvData& evdata)
 {
 	//Retrieve info for V1495
-	THaVar* V1495CC = gHaVars->Find("V1495ClockCount");
+	TString V1495name = arm(0);
+	if (V1495name!="L" && V1495name!="R") { 
+		cout << "ERROR: Unknown arm for TriBCM class, Use standard 'L' " << endl;
+		V1495name = "L";
+	}  
+	THaVar* V1495CC = gHaVars->Find(V1495name + "V1495.ClockCount");
 	V1495 = V1495CC->GetValue()/103700.0;
 	Double_t V1495_diff = V1495 - V1495_old;
 	
