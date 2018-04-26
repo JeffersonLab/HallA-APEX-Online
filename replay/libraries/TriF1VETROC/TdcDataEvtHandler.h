@@ -58,6 +58,7 @@ private:
    //vector<vector<UInt_t> > AllHitNp(NTDCCHAN);
    //std::vector<Int_t> AllHitN;
    
+	std::string nameArm;
    Int_t totalF1channels;
 
    TdcDataEvtHandler(const TdcDataEvtHandler& fh);
