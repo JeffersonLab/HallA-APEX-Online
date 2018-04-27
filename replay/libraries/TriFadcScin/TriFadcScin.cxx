@@ -367,31 +367,17 @@ void TriFadcScin::DeleteArrays()
 void TriFadcScin::Clear( Option_t* opt )
 {
   // Reset per-event data.
+  THaNonTrackingDetector::Clear(opt);
+  fNhit = fLTNhit = fRTNhit = fLANhit = fRANhit = 0;
+  assert(fIsInit);
+  for( Int_t i=0; i<fNelem; ++i ) {
+    fLT[i] = fLT_c[i] = fRT[i] = fRT_c[i] = kBig;
+    fLA[i] = fLA_p[i] = fLA_c[i] = fRA[i] = fRA_p[i] = fRA_c[i] = kBig;
+    fTime[i] = fdTime[i] = fAmpl[i] = fYt[i] = fYa[i] = kBig;
+  }
+  memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
 
-  fNhit = 0;
-  fLTNhit = 0;                            // Number of Left paddles TDC times
-  fRTNhit = 0;                            // Number of Right paddles TDC times
-  fLANhit = 0;                            // Number of Left paddles ADC amps
-  fRANhit = 0;                            // Number of Right paddles ADC smps
   if( !strchr(opt,'I') ) {
-    const int lf = fNelem*sizeof(Double_t);
-    memset( fLT, 0, lf );                 // Left paddles TDCs
-    memset( fLT_c, 0, lf );               // Left paddles corrected times
-    memset( fRT, 0, lf );                 // Right paddles TDCs
-    memset( fRT_c, 0, lf );               // Right paddles corrected times
-    memset( fLA, 0, lf );                 // Left paddles ADCs
-    memset( fLA_p, 0, lf );               // Left paddles ADC minus pedestal
-    memset( fLA_c, 0, lf );               // Left paddles corrected ADCs
-    memset( fRA, 0, lf );                 // Right paddles ADCs
-    memset( fRA_p, 0, lf );               // Right paddles ADC minus pedestal
-    memset( fRA_c, 0, lf );               // Right paddles corrected ADCs
-
-    memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
-    memset( fTime, 0, lf );
-    memset( fdTime, 0, lf );
-    memset( fYt, 0, lf );
-    memset( fYa, 0, lf );
-
     memset( floverflow, 0, fNelem*sizeof(floverflow[0]) );
     memset( flunderflow, 0, fNelem*sizeof(flunderflow[0]) );
     memset( flpedq, 0, fNelem*sizeof(flpedq[0]) );
@@ -637,6 +623,7 @@ Int_t TriFadcScin::FineProcess( TClonesArray& tracks )
   // paddles oriented along the transverse (non-dispersive, y) direction.
 
   // Redo projection of tracks since FineTrack may have changed tracks
+  fTrackProj->Clear();
   Int_t n_cross = CalcTrackProj( tracks );
 
   // Find the closest hits to the track crossing points
