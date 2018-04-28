@@ -238,7 +238,7 @@ void TriFadcCherenkov::Clear( Option_t* opt )
   fNThit = fNAhit = 0;
   assert(fIsInit);
   for( Int_t i=0; i<fNelem; ++i ) {
-    fT[i] = fT_c[i] = fA[i] = fA_p[i] = fA_c[i] = kBig;
+    fT[i] = fT_c[i] = fA[i] = fA_p[i] = fA_c[i] = 0.0;
   }
   fASUM_p = fASUM_c = 0.0;
 

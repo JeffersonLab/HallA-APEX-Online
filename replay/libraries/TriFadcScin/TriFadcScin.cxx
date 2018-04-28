@@ -371,9 +371,9 @@ void TriFadcScin::Clear( Option_t* opt )
   fNhit = fLTNhit = fRTNhit = fLANhit = fRANhit = 0;
   assert(fIsInit);
   for( Int_t i=0; i<fNelem; ++i ) {
-    fLT[i] = fLT_c[i] = fRT[i] = fRT_c[i] = kBig;
-    fLA[i] = fLA_p[i] = fLA_c[i] = fRA[i] = fRA_p[i] = fRA_c[i] = kBig;
-    fTime[i] = fdTime[i] = fAmpl[i] = fYt[i] = fYa[i] = kBig;
+    fLT[i] = fLT_c[i] = fRT[i] = fRT_c[i] = 0;
+    fLA[i] = fLA_p[i] = fLA_c[i] = fRA[i] = fRA_p[i] = fRA_c[i] = 0;
+    fTime[i] = fdTime[i] = fAmpl[i] = fYt[i] = fYa[i] = 0;
   }
   memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
 
