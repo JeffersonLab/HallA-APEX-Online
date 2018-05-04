@@ -88,8 +88,8 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	double xp, xm, yp, ym;
 //BMP pedestals
 	//char side = 'L';
-	double pedestal[9] = {0, 4137,  4107,  4230,  4324, 4504,  4381,  4084,  4096};//Right
-	double pedestalL[9] ={0,4728,  4511 , 4485 , 4488, 4886,  4719 , 4622,  4415};//Left
+	double pedestal[9] = {0, 4260,  4227,  4355,  4448, 4585,  4461,  4161,  4158};//Right
+	double pedestalL[9] ={0, 4711,  4494 , 4467 , 4470, 4864,  4699 , 4602,  4396};//Left
 	
 	if(side=='L'){for(int i=0;i<9;i++){pedestal[i]=pedestalL[i];}}
 	
