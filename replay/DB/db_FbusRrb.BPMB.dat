@@ -1,7 +1,7 @@
 --------[ 2018-05-03 00:00:00 -0500 ]
 FbusRrb.BPMB.pedestals = 4585  4461  4161  4158
-FbusRrb.BPMB.rotmatrix = -0.645917 0.728136 0.66215 0.674
-FbusRrb.BPMB.offsets = 0.0002287 -0.000902
+FbusRrb.BPMB.rotmatrix = -0.64922 0.774065 0.664776 0.75878
+FbusRrb.BPMB.offsets = 0.000272667 -0.000755106
 
 --------[ 2018-04-12 00:00:00 -0500 ]
 FbusRrb.BPMB.pedestals = 4497 4376 4082 4079

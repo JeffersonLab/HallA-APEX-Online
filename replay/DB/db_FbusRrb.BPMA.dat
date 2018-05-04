@@ -1,7 +1,7 @@
 --------[ 2018-05-03 00:00:00 -0500 ]
 FbusRrb.BPMA.pedestals = 4260  4227  4355  4448
-FbusRrb.BPMA.rotmatrix = -0.879922 0.857463 0.830902 0.827966
-FbusRrb.BPMA.offsets = 0.00226823 0.00009463
+FbusRrb.BPMA.rotmatrix = -0.808394 0.81684 0.842124 0.837629
+FbusRrb.BPMA.offsets = 0.00219436 0.0000315774
 
 --------[ 2018-04-12 00:00:00 -0500 ]
 FbusRrb.BPMA.pedestals = 4176  4146  4271  4360 
