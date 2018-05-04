@@ -203,23 +203,23 @@ TH2F L_tgc  'L-arm tgt phi vs. y' L.tr.tg_y L.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 #-------------------------------------------------------------------------------
 # LEFT Arm Physics Histograms:
 
-TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 200 1 20
-TH1F EKLNU 'L-arm nu, energy transfer'   EKL.omega 400 7.0 8.0
-TH1F EKLW  'L-arm invariant mass W' sqrt(EKL.W2) 100 1.0 4.0
+TH1F EKLQ2  'L-arm Q2, 4-momentum transfer'  EKL.Q2 100 0 2
+TH1F EKLNU 'L-arm nu, energy transfer'   EKL.omega 100 0 2
+TH1F EKLW  'L-arm invariant mass W' sqrt(EKL.W2) 100 0.0 2.0
 TH1F EKL_TH_E 'L-arm scattering angle (deg)' EKL.angle*180./3.14159 180 15 45
-TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 1
+TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 1.5
 #TH1F EKLTH_Q 'L-arm Virtual photon angle (deg)' EKL.th_q*180./3.14159 60 0 60
 
-TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 1 100 1 20
+TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 1.5 100 0 2
 #TH2F L_W2Q2  'L-arm Q2 vs W2'       PKL.W2 PKL.Q2    100 0 2 100 0 0.5
 #TH2F L_thqW2 'L-arm W2 vs theta_q'  PKL.th_q PKL.Q2  100 0 2 100 0 0.5
 
 #-------------------------------------------------------------------------------
 # LEFT Arm Reaction Vertex Histograms  :
 #
-TH1F reactx 'L-arm Reaction X vertex' rpl.x 200 -.1 .1
-TH1F reacty 'L-arm Reaction Y vertex' rpl.y 200 -.1 .1
-TH1F reactz 'L-arm Reaction Z vertex' rpl.z 200 -.15 .15
+TH1F reactx 'L-arm Reaction X vertex' rpl.x 200 -.6 .6
+TH1F reacty 'L-arm Reaction Y vertex' rpl.y 200 -.6 .6
+TH1F reactz 'L-arm Reaction Z vertex' rpl.z 200 -.5 .8
 
 #-------------------------------------------------------------------------------
 #Beam Information
