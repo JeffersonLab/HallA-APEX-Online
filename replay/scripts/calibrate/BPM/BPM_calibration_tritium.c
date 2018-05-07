@@ -88,13 +88,13 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	double xp, xm, yp, ym;
 //BMP pedestals
 	//char side = 'L';
-	double pedestal[9] = {0,70792,  70856,  70352,  70771, 75086, 75308, 72259, 72773 };//Right
-	double pedestalL[9] ={0,64117,  65152,  65122,  65745, 69276, 67783, 64835, 63954};//Left
+	double pedestal[9] = {0,17693,  17654,  17142,  17333, 22495, 21997, 18731, 19852};//Right
+	double pedestalL[9] ={0,17671,  18596,  18139,  19015, 22608, 21631, 18331, 16982};//Left
 	
 	if(side=='L'){for(int i=0;i<9;i++){pedestal[i]=pedestalL[i];}}
 	
 	double BCMcuts[5][2]={{61e6,120E6},{0,10E10},{6E6,42E6},{0,10E10},{45E6,140E6}};
-	double cur[5] ={0.02,3.5,3.5,3.5,3.5};
+	double cur[5]  ={2.02,2.5,2.5,2.5,2.5};
 
 //These arrays stand for the 8 wires of the BPMs 4 for A and 4 for B
 // {blank, A Xp, A Xm, A yp, Aym, B Xp, B Xm, B yp, B ym}
@@ -110,10 +110,11 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 	double calib = 0.01887;
 
   //Day of harp runs in hall A
-  	char date[256] = {"02232017"};
+  	char date[256] = {"05032018"};
 	ifstream fi;
 	char Hresults[256];
 	sprintf(Hresults,"harp_results_%s.txt",date);
+	if(side=='R') {sprintf(Hresults,"harp_results_R_%s.txt",date);}
 	fi.open(Hresults);
 	TFile *filein;
 	TTree *T;
@@ -197,9 +198,12 @@ void BPM_calibration_tritium (char side ='R', int quiet =1){
 			H[m]->SetLineWidth(4);
 	
 	//Fit the raw BPM signal with a gausian to extract a value for the peak. 						
+	//
+			TString drawop ="Q";
+			if(quiet==0)drawop="";
 			H[m]->Fit("gaus","Q","",peak[m]-600, peak[m]+600);
         	Sigma[m] = H[m]->GetFunction("gaus")->GetParameter(2);
-			H[m]->Fit("gaus","Q","",peak[m]-2.5*Sigma[m], peak[m]+2.5*Sigma[m]);
+			H[m]->Fit("gaus",Form("%s",drawop.Data()),"",peak[m]-2.5*Sigma[m], peak[m]+2.5*Sigma[m]);
 			peak[m] = H[m]->GetFunction("gaus")->GetParameter(1);
         	signal[m] =peak[m] - pedestal[m];   
   
