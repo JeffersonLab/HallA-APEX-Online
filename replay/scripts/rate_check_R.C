@@ -8,20 +8,20 @@ void rate_check_R(Int_t flag, TString drawoption=""){
   TTree *tree = (TTree*)gDirectory->Get("T");
  //Set the cut for data 
    const double dp_cut = 0.035;
-//  const double th_cut = 0.035;
-//  const double ph_cut = 0.02; 
+   const double th_cut = 0.035;
+   const double ph_cut = 0.02; 
   //const double y_cut = 10;//0.02;
   
 
   TCut track = "R.tr.n ==1";
   TCut trigger = "((DR.evtypebits>>5)&1)";
   TCut pid = Form("R.cer.asum_c>2000 && ((R.ps.e+R.sh.e)/(R.tr.p[0]*1000)>0.7)");
-  TCut acc = Form("abs(R.tr.tg_dp)<%f", dp_cut);
+   TCut acc = Form("abs(R.tr.tg_dp)<%f && abs(R.tr.tg_th)<%f && abs(R.tr.tg_ph)<%f ", dp_cut, th_cut, ph_cut); 
   TCut data_cut =  track + acc+ trigger+pid ;
-  TCut y_cut = "R.tr.vz<0.08 && R.tr.vz>-0.1"; 
+  TCut y_cut = "abs(R.tr.vz)<0.05"; 
   if(flag==1){
     
-    TH1F *ht1 = new TH1F("ht1","xbj w/ acc and tgy cuts",1000,0,1);
+    TH1F *ht1 = new TH1F("ht1","xbj w/ acc and tgy cuts",1000,0,5);
     ht1->GetXaxis()->SetTitle("xbj");ht1->GetXaxis()->CenterTitle();
     ht1->GetYaxis()->SetTitle("good events counts");ht1->GetYaxis()->CenterTitle();
     
@@ -30,7 +30,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
   }
  if(flag==2){
     
-    TH1F *ht2 = new TH1F("ht2","Q2 w/ acc and tgy cuts",1000,0,15);
+    TH1F *ht2 = new TH1F("ht2","Q2 w/ acc and tgy cuts",1000,0,2);
     ht2->GetXaxis()->SetTitle("Q2");ht2->GetXaxis()->CenterTitle();
     ht2->GetYaxis()->SetTitle("good events counts");ht2->GetYaxis()->CenterTitle();
     
@@ -62,7 +62,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
 
   if(flag==4){
     
-    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj (w/ acc, tgy cuts)",1000,0,1,1000,0,15);
+    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj (w/ acc, tgy cuts)",1000,0,1,1000,0,5);
     ht4->GetXaxis()->SetTitle("x_bj");ht4->GetXaxis()->CenterTitle();
     ht4->GetYaxis()->SetTitle("Q2");ht4->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);

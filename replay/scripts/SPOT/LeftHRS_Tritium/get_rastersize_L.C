@@ -470,7 +470,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2->cd(3);
   fURastY->Draw();
 
-  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1800,1200);
+  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1800,600);
   fc2A->Divide(3,1);
   fc2A->cd(1);
   // Added to fix axes, show raster x-y in full window
