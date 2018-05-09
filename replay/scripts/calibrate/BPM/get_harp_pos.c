@@ -46,12 +46,12 @@ TCanvas *C1[2][5];
 
 
   //Day of harp runs in hall A
-   char date[256] = {"02232017"};
+   char date[256] = {"05032018"};
 
 //output array;
 	double results[5][10];
 //CODA run number for harp scans
-	int run_number[5]  ={462,463,464,466,467};
+	int run_number[5]  ={3033,3034,3035,3036,3038};
 	int logbook_num[5] ={3461814,3461814,3461814,3461814,3461814};	
 
 //output file named with date of harpscans
@@ -64,7 +64,7 @@ TCanvas *C1[2][5];
   char harp_name[2][256] = {"IHA1H04A","IHA1H04B"};
 
   //Time of each harp run {in order: (2,-2),(-2,-2),(-2,2),(2,2),(0,0)}
-	char TimeStamp[2][5][256] = {{"03:34:22","03:49:57","04:08:07","04:41:21","04:49:24"},{"03:38:44","03:57:57","04:10:26","04:43:28","05:11:46"}}	;			
+	char TimeStamp[2][5][256] = {{"21:44:49","22:24:58","22:29:26","22:44:03","22:54:11"},{"21:48:03","22:17:50","22:31:29","22:37:58","22:57:05"}};			
 
   /////////////////////////////////////////////////////////
   //                                                     //
@@ -84,7 +84,7 @@ TCanvas *C1[2][5];
 	int r =0;
 //Loop through both harps, and all scan locations
 	for(harp=0; harp<2;harp++){
-		for(run=0;run<4;run++){r++;//C->cd(r);
+		for(run=0;run<5;run++){r++;//C->cd(r);
 
 		//run=1;harp=1;
 			ifstream myfile;
