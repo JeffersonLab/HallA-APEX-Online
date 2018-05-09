@@ -59,7 +59,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
@@ -218,7 +218,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   
   else if(LEFT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS_auto.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
