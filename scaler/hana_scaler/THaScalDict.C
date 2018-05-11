@@ -147,7 +147,7 @@ TClass *THaScalerDB::Dictionary()
 //______________________________________________________________________________
 TClass *THaScalerDB::Class()
 {
-   if (!fgIsA.load()) { R__LOCKGUARD2(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::THaScalerDB*)0x0)->GetClass(); }
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::THaScalerDB*)0x0)->GetClass(); }
    return fgIsA;
 }
 
@@ -335,7 +335,7 @@ namespace {
     static const char* includePaths[] = {
 "/adaqfs/apps/ROOT/pro/include",
 "../hana_decode",
-"/adaqfs/apps/ROOT/6.10-08/include",
+"/adaqfs/apps/ROOT/6.12-06/include",
 "/adaqfs/home/a-onl/tritium/scaler/hana_scaler/",
 0
     };

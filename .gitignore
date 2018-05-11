@@ -6,6 +6,9 @@ replay/scripts/FADC_decode/results/
 replay/scripts/calibrate/BPM/*.txt
 replay/Rootfiles*
 replay/plots
+replay/*.pdf
+replay/*.eps
+replay/*.jpg
 replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
@@ -34,6 +37,7 @@ replay/scripts/list/*.pdf
 replay/onlineGUI64/online
 replay/onlineGUI64/*.pdf
 replay/scripts/SPOT/**/*.pdf
+replay/scripts/Time_check/*.pdf
 
 replay/DB/*
 replay/RootFiles
@@ -42,6 +46,13 @@ replay/ScratchRootFiles
 replay/summaryfiles/*
 
 scaler/xscaler
+scaler/hana_decode/THaDecDict.C
+scaler/hana_scaler/THaScalDict.C
+scaler/hana_decode/epicsd
+scaler/hana_decode/prfact
+scaler/hana_decode/tdecex
+scaler/hana_decode/tdecpr
+scaler/hana_decode/tstio
 scaler/hana_scaler/tscalasy
 scaler/hana_scaler/tscaldtime
 scaler/hana_scaler/tscalevt

@@ -37,8 +37,14 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
     # check if is running already
     for pid in $(pgrep -f "bash autoreplay_L.sh"); do 
 	if [ $pid != $$ ];then
-	echo !!PID $pid ":Process is already running!!"
-	exit 
+	    echo !!PID $pid ":Process is already running!!"
+	    echo " Do you still want to start a new session?"
+	    select yn in "Yes" "No"; do
+		case $yn in
+		    Yes ) break;;
+		    No ) exit;;
+		esac
+	    done
 	fi
     done
 
@@ -72,7 +78,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	    if [[ $(find ${RAWDIR}/triton_${thisrun}.dat.0 -type f -size +10000000c 2>/dev/null) ]]; then  # require rawdata > 10 Mbytes
 		echo  ==Found ${RAWDIR}/triton_${thisrun}.dat.0
 		if [ -e ${t2root}/tritium_${thisrun}.root ]; then
-		    echo !! Can not Overwriting ${t2root}/tritium_${thisrun}_1.root
+		    echo !! Can not Overwriting ${t2root}/tritium_${thisrun}.root
 		
 		else 
 		    echo Start analyzing
@@ -81,7 +87,8 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 		   
 		   # running the wiki runlist script to auto add thisrun to the wiki runlist
 		   cd scripts
-		   ./wiki_runlist $thisrun
+		 #  ./wiki_runlist $thisrun
+		   analyzer -q -b "sql_update.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
 		   cd ..
 		fi
 		

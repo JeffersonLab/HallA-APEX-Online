@@ -21,8 +21,8 @@ const double TG_Phi_Max = 0.030;//25mrad
 const double TG_Phi_Min =-0.030;//25mrad
 const double TG_Dp_Max = 0.04;//4%mrad
 const double TG_Dp_Min =-0.04;//4%mrad
-const double TG_VZ_Max = 0.100;//4%mrad
-const double TG_VZ_Min =-0.100;//4%mrad
+const double TG_VZ_Max = 0.115;//4%mrad
+const double TG_VZ_Min =-0.095;//4%mrad
 const double P0 = 3.100; //GeV/c
 const double GC_Cut = 2000.;
 const double EP_Cut = 0.80;
@@ -48,8 +48,8 @@ void Electron_Count(TString aInputFileName=""){
 	const TString Target=gGet_InputFile_Var(aInputFileName,aline);aline++; cout << "   Target Name = " << Target<<endl; 
 	const int kin=gGet_InputFile_Var(aInputFileName,aline).Atoi();aline++;                cout << Form("   Kin = Kin%d ", kin)<<endl; 
 	TString Kin = Form("Kin%d", kin);
-	if(kin<=7)
-		ROOTFILES_DIR = "/volatile/halla/triton/Tritium_Rootfiles/";
+//	if(kin<=7)
+//		ROOTFILES_DIR = "/volatile/halla/triton/Tritium_Rootfiles/";
 
 	TString Run_String = gGet_InputFile_Var(aInputFileName,aline);
 	const vector<Int_t> RunNoChain=gGet_RunNoChain(Run_String);aline++;

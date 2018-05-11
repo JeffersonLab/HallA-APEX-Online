@@ -117,11 +117,11 @@ TH1F Rcert 'Cerenkov TDC PMT ' R.cer.t 500 0 2500 R.cer.t>0
 TH1F RcertT4_   'Cerenkov TDC w/ T5,T6: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F RcertT6_   'Cerenkov TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(DR.evtypebits==64)
 
-TH1F Rcera 'Cerenkov'  R.cer.a 10100 -100 10000 R.cer.a>0
-TH1F Rcersum 'Cerenkov FADC sum (corrected)' R.cer.asum_c 10100 -100 10000 R.cer.asum_c>-1000
-TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 4000 -200 2000 R.cer.a_p>-200
-TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 5000 -200 2000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
-TH2F Rcer_x  'Cerenkov FADC sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
+TH1F Rcera 'Cerenkov'  R.cer.a 10100 -100 20000 R.cer.a>0
+TH1F Rcersum 'Cerenkov FADC sum (corrected)' R.cer.asum_c 10100 -100 20000 R.cer.asum_c>-1000
+TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 1000 -200 20000 R.cer.a_p>-200
+TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 1000 -200 20000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
+TH2F Rcer_x  'Cerenkov FADC sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 10100 -100 20000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcer_y  'Cerenkov FADC sum (corrected) vs. Y' R.cer.try R.cer.asum_c  60 -0.12 0.12 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcerfadcvfbus 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT  ' R.cer.a_p FbusR.cer.a_p 5000 0 10000 5000 0 10000 R.cer.a_p>0
 # ------------------------------------------------------------------
@@ -130,18 +130,18 @@ TH2F Rcerfadcvfbus 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT  ' R.cer.a_p FbusR
 #
 #TH1F Rpsa   'PionRejector1 ADCs' R.ps.a 200 10 2000 R.ps.a>0.
 TH1F Rpsa   'Preshower ADCs' R.ps.a 1000 0.5 1000.5 R.ps.a>0.
-TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 1100 -99.5 1000.5 R.ps.a_p>-50
+TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 1100 -99.5 2000.5 R.ps.a_p>-50
 TH1F Rpssum 'Preshower sum' R.ps.asum_c 100 1 1000 
 #TH1F Rsha   'Shower ADCs' R.sh.a 200 10 2000 R.sh.a>0.
 TH1F Rsha   'Shower ADCs' R.sh.a 1000 0.5 1000.5 R.sh.a>0.
-TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 1100 -99.5 1000.5 R.sh.a_p>-50
-TH1F Rshsum  'Shower sum' R.sh.asum_c 100 10 1000 
+TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 1100 -99.5 3000.5 R.sh.a_p>-50
+TH1F Rshsum  'Shower sum' R.sh.asum_c 100 10 3000 
 
-TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 100 1 1500 100 1 1500 
-TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
-TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
-TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
-TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
+TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 100 1 1500 100 1 3000 
+TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 3000 R.tr.n>0
+TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 3000 R.tr.n>0
+TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
+TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
 
 # ------------------------------------------------------------------
 # RIGHT ARM VDC wires and timing  :
@@ -200,20 +200,20 @@ TH2F R_tgc  'R-arm tgt phi vs. tgt y' R.tr.tg_y R.tr.tg_ph 200 -0.1 0.1 200 -0.1
 #-------------------------------------------------------------------------------
 # RIGHT Arm Physics Histograms:
 #
-TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 200 0 20
-TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 400 5 10
-TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
-TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 15 45
-TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 2
+TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 100 0 2
+TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 100 0 2
+TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 0 2
+TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 35 50
+TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 3.5
 #TH1F EKRTH_Q 'R-arm Virtual photon angle (deg)' EKR.th_q*180./3.14159 60 0 60
-TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 2 200 0 20
+TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 3.5 200 0 2
 
 #-------------------------------------------------------------------------------
 # RIGHT Arm Reaction Vertex Histograms  :
 #
-TH1F reactx 'R-arm Reaction X vertex' rpr.x 200 -.1 .1
-TH1F reacty 'R-arm Reaction Y vertex' rpr.y 200 -.1 .1
-TH1F reactz 'R-arm Reaction Z vertex' rpr.z 200 -.15 .15
+TH1F reactx 'R-arm Reaction X vertex' rpr.x 200 -.6 .6
+TH1F reacty 'R-arm Reaction Y vertex' rpr.y 200 -.6 .6
+TH1F reactz 'R-arm Reaction Z vertex' rpr.z 200 -.5 .8
 
 #-------------------------------------------------------------------------------
 #Beam Information

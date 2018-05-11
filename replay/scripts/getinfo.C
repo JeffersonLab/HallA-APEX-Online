@@ -1,4 +1,3 @@
-//======================================
 // get run info from rootfile -shujie
 // !! Run with analyzer NOT root!!
 //======================================
@@ -127,7 +126,7 @@ void getinfo(Int_t run=0){
   else{ cout<<"Time            : " << clk*1.0/1024/60<<" minutes" << endl;}
   cout<<"Charge          : " << dnew * 0.00033 << " uC "<<endl;
   if(run<20000){cout<<"Average Current : " <<(dnew * 0.00033)/(clk*1.0/103700) <<" uA"<<endl;}
-  else{cout<<"Average Current : " <<(dnew * 0.00033)/(clk*1.0/1024) <<" uA"<<endl;}
+  else{cout<<"/: " <<(dnew * 0.00033)/(clk*1.0/1024) <<" uA"<<endl;}
   
 
   Int_t mm=tree2->GetEntries();
