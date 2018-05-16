@@ -6,5 +6,5 @@ evt18     g.evtyp<=9
 Decode_master evt18
 
 Block: Reconstruct
-trk1 R.tr.n==1
-Reconstruct_master trk1
+#trk1 R.tr.n==1
+#Reconstruct_master trk1
