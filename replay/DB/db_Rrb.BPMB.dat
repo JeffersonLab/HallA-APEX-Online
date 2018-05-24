@@ -12,8 +12,8 @@ Rrb.BPMB.detmap =
 Rrb.BPMB.position = 0.0 0.0  -2.21400e+00
 Rrb.BPMB.calib_rot = 0.01887
 Rrb.BPMB.pedestals =  22469  21978  18691  19844 
-Rrb.BPMB.rotmatrix = -0.643336 0.739298 0.657935 0.681604
-Rrb.BPMB.offsets = 0.000801131 -1.68025e-05
+Rrb.BPMB.rotmatrix = -0.643811 0.740782 0.657485 0.680485
+Rrb.BPMB.offsets = 0.000803653 -1.82902e-05
 
 --------[ 2018-01-11 00:00:00 -0500 ]
 Rrb.BPMB.offsets = 0.000529 0.000790
