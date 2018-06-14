@@ -1,0 +1,26 @@
+Requirements:
+	Python
+	vpython module
+	PyROOT
+
+The main function is RHRS_event_vis.py.  It takes one (required) argument, the path of a ROOT file to visualize events from.
+
+
+Code for building an individual detector (e.g. shower, preshower) is contained in the script: 
+
+	detector.py
+
+
+In detector.py is defined a function:
+
+	build_detector
+
+
+Build functions for all detectors should be imported to the main function:
+
+	from detector import build_detector
+
+
+If the detector is dynamic (i.e., changes appearance to represent event data), the build_detector function must return the object (or array of objects) that constitute that detector.  Adjusting the appearance of detectors is done in the main function. 
+
+
