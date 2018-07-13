@@ -215,7 +215,7 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
   TSQLResult*    result   = Server->Query(query.Data());
   Server->Close();// Always remember to CLOSE the connection!
   // Int_t nrows = result->GetRowCount();
-  Int_t nrows = GetNCurrents(); 
+  Int_t nrows = GetNCurrents(runnum); 
   if(nrows==0){
     cout<<"Error: Can't find run "<<runnum<<" in the table "<<coda.experiment<<"analysis"<<endl;
     runinfo.status = -1;
