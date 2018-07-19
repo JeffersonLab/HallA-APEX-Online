@@ -11,7 +11,6 @@ block FbusR.s0.*
 block FbusR.cer.*
 
 block DR.*
-block OldTrackR.*
 
 # F1tdc and VETROC
 variable F1nhits
@@ -37,10 +36,15 @@ block EKRc.*
 block EKRx.*
 #block ElbR.*
 #block EltR.*
-#block EKRxe.*
+block EKRxe.*
 
 
 #BPM/Raster Variables
+
+block Rrb.*
+block FbusRrb.*
+block Rurb.*
+
 FORMULA rbax 1000.*Rrb.BPMA.x
 FORMULA rbay 1000.*Rrb.BPMA.y
 FORMULA rbbx 1000.*Rrb.BPMB.x
@@ -51,29 +55,9 @@ FORMULA bpmaws Rrb.BPMA.rawcur.1+Rrb.BPMA.rawcur.2+Rrb.BPMA.rawcur.3+Rrb.BPMA.ra
 FORMULA bpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.rawcur.4
 FORMULA bpmaws FbusRrb.BPMA.rawcur.1+FbusRrb.BPMA.rawcur.2+FbusRrb.BPMA.rawcur.3+FbusRrb.BPMA.rawcur.4
 FORMULA bpmbws FbusRrb.BPMB.rawcur.1+FbusRrb.BPMB.rawcur.2+FbusRrb.BPMB.rawcur.3+FbusRrb.BPMB.rawcur.4
-Variable Rrb.Raster.rawcur.x
-Variable Rrb.Raster.rawcur.y
-Variable Rrb.Raster2.rawcur.x
-Variable Rrb.Raster2.rawcur.y
-Variable Rrb.BPMA.x
-Variable Rrb.BPMA.y
-Variable Rrb.BPMB.x
-Variable Rrb.BPMB.y
-Variable Rrb.dir.x
-Variable Rrb.dir.y
-Variable Rrb.e
 
-Variable FbusRrb.Raster.rawcur.x
-Variable FbusRrb.Raster.rawcur.y
-Variable FbusRrb.Raster2.rawcur.x
-Variable FbusRrb.Raster2.rawcur.y
-Variable FbusRrb.BPMA.x
-Variable FbusRrb.BPMA.y
-Variable FbusRrb.BPMB.x
-Variable FbusRrb.BPMB.y
-Variable FbusRrb.dir.x
-Variable FbusRrb.dir.y
-Variable FbusRrb.e
+
+
 
 #-------------------------------------------------------------------
 #
@@ -373,12 +357,9 @@ begin epics
   HALLA:p
   HALLA:dpp
 
-  haBDSPOS.VAL 
-
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_bcm_average
   hac_unser_read
   hac_unser_current
   hac_bcm_dvm1_current

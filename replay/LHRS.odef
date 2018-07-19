@@ -9,11 +9,9 @@ block L.vdc.*
 block L.tr.*
 
 block FbusL.s0.*
-#block FbusL.s2.* #S2 isn't split to the fastbus
 block FbusL.cer.*
 
 block DL.*
-block OldTrackL.*
 
 # F1 tdc
 variable F1FirstHit
@@ -29,13 +27,9 @@ variable V1495ClockInterval
 block L.gold.*
 block rpl.*
 block exL.*
-block EKL.*
-block EKLc.*
+block EKLxe.*
 block EKLx.*
-#block ElbL.*
-#block EltL.*
-#block EKLxe.*
-block LeftBCM*
+#block LeftBCM*
 
 
 #BPM/Raster Variables
@@ -49,33 +43,11 @@ FORMULA bpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.ra
 FORMULA bpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
 FORMULA bpmawsFbus FbusLrb.BPMA.rawcur.1+FbusLrb.BPMA.rawcur.2+FbusLrb.BPMA.rawcur.3+FbusLrb.BPMA.rawcur.4
 FORMULA bpmbwsFbus FbusLrb.BPMB.rawcur.1+FbusLrb.BPMB.rawcur.2+FbusLrb.BPMB.rawcur.3+FbusLrb.BPMB.rawcur.4
-Variable Lrb.Raster.rawcur.x
-Variable Lrb.Raster.rawcur.y
-Variable Lrb.Raster2.rawcur.x
-Variable Lrb.Raster2.rawcur.y
-Variable Lrb.BPMA.x
-Variable Lrb.BPMA.y
-Variable Lrb.BPMB.x
-Variable Lrb.BPMB.y
-Variable Lrb.dir.x
-Variable Lrb.dir.y
-Variable Lrb.e
 
-Variable FbusLrb.Raster.rawcur.x
-Variable FbusLrb.Raster.rawcur.y
-Variable FbusLrb.Raster2.rawcur.x
-Variable FbusLrb.Raster2.rawcur.y
-Variable FbusLrb.BPMA.x
-Variable FbusLrb.BPMA.y
-Variable FbusLrb.BPMB.x
-Variable FbusLrb.BPMB.y
-Variable FbusLrb.dir.x
-Variable FbusLrb.dir.y
-Variable FbusLrb.e
-Variable FbusLrb.x
-Variable FbusLrb.y
+
+block Lrb*
 block FbusLrb*
-block FbusLurb*
+block Lurb*
 #-------------------------------------------------------------------
 #
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
@@ -303,8 +275,6 @@ variable LeftADC_gate
 variable LeftADC_gate_r
 variable LeftL1A
 variable LeftL1A_r
-variable LeftEDTM_s2
-variable LeftEDTM_s2_r
 variable Leftunew
 variable Leftunew_r
 variable Leftdnew
@@ -345,8 +315,6 @@ variable evLeftADC_gate
 variable evLeftADC_gate_r
 variable evLeftL1A
 variable evLeftL1A_r
-variable evLeftEDTM_s2
-variable evLeftEDTM_s2_r
 variable evLeftunew
 variable evLeftunew_r
 variable evLeftdnew
@@ -424,7 +392,6 @@ begin epics
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_bcm_average
   hac_unser_read
   hac_unser_current
   hac_bcm_dvm1_current
@@ -446,9 +413,6 @@ begin epics
   
   HALLA:p
   HALLA:dpp
-
-  haBDSPOS.VAL 
-  HALL_A_TARGET
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA

@@ -5,7 +5,10 @@
 
 ///////////////////////////////////// To Do ////////////////////////////////////
 /*
+ * - Correctly set run number ranges for each arm
  * - Automatically open Online Plots GUI for shift takers?
+ * - Make work for coincidence as well? Or use separate script?
+ * - Do we use GMP S0 Class or stock? GMP class needs to be updated to be 1.6 compatible
  * - Are we using energy loss classes? Need to be made 1.6 compatible
  */
 
@@ -13,9 +16,9 @@
 using namespace std;
 
 #define RIGHT_ARM_CONDITION runnumber>=20000
-#define LEFT_ARM_CONDITION  runnumber<20000
+#define LEFT_ARM_CONDITION runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t autoreplay = kFALSE){
+void replay_marathon(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t autoreplay = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -56,7 +59,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
     //==================================
     //  Detectors
@@ -116,11 +119,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      TriFadcRasteredBeam*    Rrb     = new TriFadcRasteredBeam("Rrb", "Rastered beam to the R-HRS");
+      TriFadcRasteredBeam* Rrb = new TriFadcRasteredBeam("Rrb", "Rastered beam to the R-HRS");
       gHaApps->Add(Rrb);
-      TriFadcUnRasteredBeam*  Rurb    = new TriFadcUnRasteredBeam("Rurb", "Unastered beam to the R-HRS");
-      gHaApps->Add(Rurb);
-      THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+
+      THaRasteredBeam* FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
       FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
       FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
       FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
@@ -131,8 +133,34 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //  Physics
     //==================================
     if(bPhysics){
+      Double_t mass_el  = 0.000511; // electron mass
+      Double_t amu = 931.494*1.e-3; // amu to GeV
+      Double_t mass_He3 = 3.0160293*amu;
+      Double_t mass_H2 = 2.01410178*amu;
+      Double_t mass_H3 = 3.0160492*amu;
       Double_t mass_tg = 0.938; //default target 
 
+      string word[5],line;
+      TString filename = Form("/adaqfs/home/adaq/epics/runfiles_tritium_R/Start_of_Run_%d.epics",runnumber);
+      ifstream infile;
+      infile.open(filename);
+      double pos=0;
+      double t2=33106235;
+      double d2=29367355;
+      double he3=21875520;
+
+      while(getline(infile,line)){
+            istringstream str(line);
+            str>>word[0]>>word[1];
+            if(word[0]=="Encoder" && word[1]=="Position"){
+               str>>word[2]>>word[3];
+               pos = atof(word[3].c_str()); 
+               if(abs(pos-t2)<50) mass_tg=mass_H3/3.0;
+               else if(abs(pos-d2)<50) mass_tg=mass_H2/2.0;
+               else if(abs(pos-he3)<50)mass_tg=mass_He3/3.0;
+               break;
+            }
+      }
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
@@ -154,10 +182,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
       gHaPhysics->Add(EKRx);
-      // THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","",0);
-      // gHaPhysics->Add(BCM);
-      // THaPhysicsModule* BCMev = new TriBCM("RightBCMev","Beam Current Monitors","Right","ev",0);
-      // gHaPhysics->Add(BCMev);
+      THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","",0);
+      gHaPhysics->Add(BCM);
+      THaPhysicsModule* BCMev = new TriBCM("RightBCMev","Beam Current Monitors","Right","ev",0);
+      gHaPhysics->Add(BCMev);
       /*if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
@@ -252,11 +280,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaIdealBeam* ib = new THaIdealBeam("ib","Ideal beam");
       gHaApps->Add(ib);
 
-      TriFadcRasteredBeam*    Lrb     = new TriFadcRasteredBeam("Lrb", "Rastered beam to L-HRS");
+      TriFadcRasteredBeam* Lrb = new TriFadcRasteredBeam("Lrb", "Rastered beam to L-HRS");
       gHaApps->Add(Lrb);
-      TriFadcUnRasteredBeam*  Lurb    = new TriFadcUnRasteredBeam("Lurb", "Unastered beam to the L-HRS");
-      gHaApps->Add(Lurb);
-      THaRasteredBeam*        FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
+
+      THaRasteredBeam* FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
       FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
       FbusLrb->AddDetector(new THaBPM("BPMA", "First BPM"));
       FbusLrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
@@ -268,9 +295,35 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //==================================
     
     if(bPhysics){
-
+      Double_t mass_el  = 0.000511; // electron mass
+      Double_t amu = 931.494*1.e-3; // amu to GeV
+      Double_t mass_He3 = 3.0160293*amu;
+      Double_t mass_H2 = 2.01410178*amu;
+      Double_t mass_H3 = 3.0160492*amu;
       Double_t mass_tg = 0.938; //default target 
 
+      string word[5],line;
+      TString filename = Form("/adaqfs/home/adaq/epics/runfiles_tritium_L/Start_of_Run_%d.epics",runnumber);
+      ifstream infile;
+      infile.open(filename);
+      double pos=0;
+      double t2=33106235;
+      double d2=29367355;
+      double he3=21875520;
+
+      while(getline(infile,line)){
+            istringstream str(line);
+            str>>word[0]>>word[1];
+            if(word[0]=="Encoder" && word[1]=="Position"){
+               str>>word[2]>>word[3];
+               pos = atof(word[3].c_str());
+               if(abs(pos-t2)<50) mass_tg=mass_H3/3.0;
+               else if(abs(pos-d2)<50) mass_tg=mass_H2/2.0;
+               else if(abs(pos-he3)<50)mass_tg=mass_He3/3.0;
+               break;
+            }
+      }
+     
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
       
@@ -292,12 +345,12 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
       gHaPhysics->Add(EKLx);
       
-   //    THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","",0);
-	  // gHaPhysics->Add(BCM);
+      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","",0);
+	  gHaPhysics->Add(BCM);
 
-   //    THaPhysicsModule* BCMev = new TriBCM("LeftBCMev","Beam Current Monitors","Left","ev",0);
-	  // gHaPhysics->Add(BCMev);
-     /*if(bEloss){
+      THaPhysicsModule* BCMev = new TriBCM("LeftBCMev","Beam Current Monitors","Left","ev",0);
+	  gHaPhysics->Add(BCMev);
+      /*if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
         
