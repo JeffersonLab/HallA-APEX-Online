@@ -1,7 +1,4 @@
-#Updates start/end run comments and HV info to SQL runlist from log entry.
-# Shujie Li, 2018.6
-
-import urllib2, json
+import urllib3, json
 import subprocess
 import sys
 import requests # python3 preferred
@@ -141,17 +138,16 @@ update_entry   = ( "update `"+table+"` set "  \
 +"`modify_time`=now() where `run_number`=" + runnum \
 )
 
-print "good"
 try:
     cnx = mysql.connector.connect(user=db_user,host=db_host,
                                 database=db_name, password=db_pswd)
     cursor = cnx.cursor(buffered=True)
     cursor.execute("select * from "+table+" where run_number="+runnum)
     if cursor.rowcount == 0:
-      print 'run '+runnum+' is not in '+table + ', will create a new entry from logbook'
+      print('run '+runnum+' is not in '+table + ', will create a new entry from logbook')
       command_txt = create_entry
     else:
-      print 'Will update run '+runnum
+      print('Will update run '+runnum)
       command_txt = update_entry
 
 except mysql.connector.Error as err:
@@ -170,28 +166,29 @@ cursor.execute(command_txt)
 # create table cerL( run_number int(10) unsigned not null,pmt_id smallint(6) not null,pedestal float(8,3) default null,gain float(8,3) default null,primary key (run_number,pmt_id));
 
 #create table R_PreShower ( run_number int(8) unsigned not null, id varchar(6) not null, hv float(10,3) not null default 1, primary key (run_number,id));
-def fill_hv(arm,detector):
-  index,set_hv,log.read_hv,current= get_hv(fend, detector)
+def fill_hv(logentry,arm,detector):
+  index,set_hv,read_hv,current= log.get_hv(logentry, arm, detector)
   hv_table = arm+"_"+detector
-  cursor.executemany("INSERT INTO `"+hv_table+ "` (`run_number`,`id`,`hv`) VALUES ('"+runnum+"',%s,%s)  ON DUPLICATE KEY UPDATE `hv`=values(`hv`)", [(x,y) for (x,y) in zip(index,log.read_hv)])
+  cursor.executemany("INSERT INTO `"+hv_table+ "` (`run_number`,`id`,`hv`) VALUES ('"+runnum+"',%s,%s)  ON DUPLICATE KEY UPDATE `hv`=values(`hv`)", [(x,y) for (x,y) in zip(index,read_hv)])
   return -1
 
 
 if float(runnum)<90000:
   arm='L'
-  fill_hv(arm,'PRL1')
-  fill_hv(arm,'PRL2')
+  print(log.get_hv(fend, arm, 'PRL1'))
+  fill_hv(fend,arm,'PRL1')
+  fill_hv(fend,arm,'PRL2')
 
 else:
   arm='R'
-  fill_hv(arm,'PreShower')
-  fill_hv(arm,'Shower')
+  fill_hv(fend,arm,'PreShower')
+  fill_hv(fend,arm,'Shower')
 
 
-fill_hv(arm,'Cherenkov')
-fill_hv(arm,'VDC')
-fill_hv(arm,'S0')
-fill_hv(arm,'S2m')
+fill_hv(fend,arm,'Cherenkov')
+fill_hv(fend,arm,'VDC')
+fill_hv(fend,arm,'S0')
+fill_hv(fend,arm,'S2m')
 
 
 cnx.commit()
