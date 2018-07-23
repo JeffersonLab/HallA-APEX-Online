@@ -7,9 +7,9 @@ Lrb.BPMA.offsets =  0.00262162 -0.000137309
 Lrb.BPMA.pedestals = 17689 18618 18172 19054
 
 --------[ 2018-03-25 00:00:00 -0500 ]
-Lrb.BPMA.pedestals =  17666 18578 15185 19025
-Lrb.BPMA.rotmatrix = -0.803116 0.689331 0.86271 0.6562 
-Lrb.BPMA.offsets =  0.0018 -0.0009
+Lrb.BPMA.pedestals = 17666 18578 18185 19025
+Lrb.BPMA.rotmatrix = -0.805458 0.683881 0.860173 0.642313 
+Lrb.BPMA.offsets =  0.00117789 -0.00030231
 
 --------[ 2015-03-01 00:00:00 -0500 ]
 Lrb.BPMA.detmap =
