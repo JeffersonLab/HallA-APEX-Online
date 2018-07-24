@@ -97,6 +97,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
       Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
       gHaEvtHandlers->Add(rEndscaler);
+
       // Marco - F1 and VETROC tdcs:
       gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
       // Evan - V1495 Clock Counter:
@@ -196,7 +197,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //  Detectors
     //==================================
     //THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
-    Tritium_HRS* HRSL = new Tritium_HRS("L","Right arm HRS");
+    Tritium_HRS* HRSL = new Tritium_HRS("L","Left arm HRS");
     HRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSL );
     HRSL->AddDetector( new TriFadcXscin("s0","s0 scintillator",kFALSE) );
