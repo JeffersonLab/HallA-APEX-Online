@@ -1,16 +1,37 @@
---------[ 2017-03-01 00:00:00 -0500 ]
+--------[ 2018-05-03 00:00:00 -0500 ]
+Lurb.BPMB.rotmatrix = -0.637556 0.763405 0.642592 0.746022
+Lurb.BPMB.offsets = 0.00116969 -0.000160558
+Lurb.BPMB.pedestals = 22608 21631 18331 16982
 
-Lurb.BPMB.detmap =
-      3    21     7    10     1  1881
-Lurb.BPMB.position = 6.96577e-04  -1.12530e-03  -2.21400e+00
-Lurb.BPMB.calib_rot = 0.01887
-Lurb.BPMB.pedestals = 3801  3695  3601  3438
-Lurb.BPMB.rotmatrix = -0.621281  0.741729  0.701388  0.707639
-Lurb.BPMB.offsets =  0.00143766 -6.81262e-06
+--------[ 2018-04-12 00:00:00 -0500 ]
+Lurb.BPMB.pedestals =22604 21665 18344 17037
+
+--------[ 2018-03-25 00:00:00 -0500 ]
+Lurb.BPMB.rotmatrix = -0.642938 0.742996 0.655866 0.680293 
+Lurb.BPMB.offsets = 0.00117789 -0.00030231
+Lurb.BPMB.pedestals = 22601 21673 18367 17010
+
+--------[ 2018-01-10 00:00:00 -0500 ]
+Lurb.BPMB.rotmatrix = -0.627507 0.75801 0.67739 0.734726  
+Lurb.BPMB.offsets = 0.00118779 -0.00034076
+Lurb.BPMB.pedestals= 22563  21620  18311  16953
+
+--------[ 2017-12-02 00:00:00 -0500 ]
+Lurb.BPMB.offsets =  -0.0005 -0.001
 
 --------[ 2017-12-01 00:00:00 -0500 ]
 Lurb.BPMB.rotmatrix = -0.585444 0.71668 0.694959 0.694204
 Lurb.BPMB.offsets =  0.00113866 -0.000309452
 
---------[ 2017-12-02 00:00:00 -0500 ]
-Lurb.BPMB.offsets =  -0.0005 -0.001
+--------[ 2017-03-01 00:00:00 -0500 ]
+Lurb.BPMB.detmap =
+      31    9     8    11     1  250
+Lurb.BPMB.position = 0.0 0.0   -2.21400e+00
+Lurb.BPMB.calib_rot = 0.01887
+Lurb.BPMB.pedestals = 20549  19706  16716  15456
+Lurb.BPMB.rotmatrix =-0.624004  0.761298 0.659681 0.708074
+Lurb.BPMB.offsets = 0.000601645 -0.000985787
+Lurb.BPMB.rotmatrix = -0.642938 0.742996 0.655866 0.680293 
+Lurb.BPMB.offsets = 0.00117789 -0.00030231
+Lurb.BPMB.pedestals = 22469 21978 18691 19844
+

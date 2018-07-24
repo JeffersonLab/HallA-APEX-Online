@@ -1,8 +1,4 @@
-# A module of functions to read info from logbook
-# Shujie Li, 2018.6
-
-
-import urllib2, json
+import urllib3, json
 import subprocess
 import sys
 import requests
@@ -45,7 +41,7 @@ def read_log(runnum, flag):
   url += "&author="+author
   response = requests.get(url) #,auth=(log_user,log_pswd)) -- don't need this on a CUE level machine
   response = response.json()
-  print flag+" of run log entry:", prefix+response['data']['entries'][0]['lognumber']
+  print(flag+" of run log entry:", prefix+response['data']['entries'][0]['lognumber'])
   content =  response['data']['entries'][0]['body']['content']
   content = content.split("\n")
   # print content
@@ -88,10 +84,10 @@ def read_online_url(runnum):
 
   try:
     response = requests.get(url).json()
-    print response['data']['entries'][0]['title']+":",prefix+response['data']['entries'][0]['lognumber']
+    print(response['data']['entries'][0]['title']+":",prefix+response['data']['entries'][0]['lognumber'])
     # print response['data']['entries'][0]['attachments'][0]['url']
   except:
-    print "error!"
+    print("error!")
 
   return 0
 
@@ -112,11 +108,11 @@ def read_var(f, name, delim=":"):
         return ss[ii+1]
     ii+=1
 
-  print name+" not found"
+  print (name+" not found")
   return "%d" %-1
 
 
-def get_hv(f, detector):
+def get_hv(f, arm, detector):
   repeat2=['S2m','PRL1','PRL2','S2','PreShower','Shower'] # 2 rows
   repeat5=['Shower'] # 5 rows
 
@@ -127,16 +123,14 @@ def get_hv(f, detector):
   else:
     repeat_rows=1
 
+  keyword = arm+'HRS Detector High Voltage'
+
   try:
     flag=0
     lines = [x for x in f if x]
     i=0
     for line in lines:
       i=i+1
-      if float(runnum)<90000:
-        keyword = 'LHRS Detector High Voltage'
-      else:
-        keyword = 'RHRS Detector High Voltage'
       if keyword in line:
         block=lines[i:]
         i=0
@@ -147,7 +141,6 @@ def get_hv(f, detector):
             set_hv  = []
             read_hv = []
             current = []
-
             for j in range(repeat_rows):
               index        += block[i+4*j].strip().split()
               set_hv       += block[i+4*j+1].strip().split()[3:]

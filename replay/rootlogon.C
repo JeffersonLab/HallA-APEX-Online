@@ -40,6 +40,7 @@
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Track_Eloss/libTritium_Track_Eloss.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriScalerEvtHandler/libTriScaler.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcRasteredBeam/libTriFadcRasteredBeam.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcUnRasteredBeam/libTriFadcUnRasteredBeam.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriVDCeff/libTriVDCeff.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriOldTrack/libTriOldTrack.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriBCM/libTriBCM.so"));
