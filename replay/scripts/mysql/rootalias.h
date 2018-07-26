@@ -42,10 +42,12 @@
 #include "TFile.h"
 #include "TEventList.h"
 #include "TSpectrum.h"
-
-
+#include "TArray.h"
+#include "THaRun.h"
+#include "THaRunParameters.h"
 
 const char* PATHS[] = {
+  "./tmproot/",
   "/home/shujie/jlab/MyTritium/Rootfiles/",
   "/volatile/halla/triton/nathaly/Rootfiles/",  
   "/volatile/halla/triton/eep_Rootfiles/pass1/",
@@ -54,6 +56,16 @@ const char* PATHS[] = {
   "/chafs1/work1/tritium/Rootfiles/",
   "/volatile/halla/triton/shujie/replay/Rootfiles/",
   "/volatile/halla/triton/Tritium_Rootfiles/",
+  "/cache/halla/triton/prod/marathon/pass1/kin1/",
+  "/cache/halla/triton/prod/marathon/pass1/kin2/",
+  "/cache/halla/triton/prod/marathon/pass1/kin3/",
+  "/cache/halla/triton/prod/marathon/pass1/kin4/",
+  "/cache/halla/triton/prod/marathon/pass1/kin5/",
+  "/cache/halla/triton/prod/marathon/pass1/kin7/",
+  "/cache/halla/triton/prod/marathon/pass1/kin9/",
+  "/cache/halla/triton/prod/marathon/pass1/kin11/",
+  "/cache/halla/triton/prod/marathon/pass1/kin13/",
+  "/cache/halla/triton/prod/marathon/pass1/kin15/",
   "./",
   0
 };
@@ -74,7 +86,7 @@ const double cer_min_L=2000;
 TCut sh_cut_L       = Form("(L.prl1.e+L.prl2.e)>HacL_D1_P0rb*1000*%g",sh_min_L);
 TCut cer_cut_L      = Form("L.cer.asum_c>%g",cer_min_L);
 TCut beta_cut_L     = Form("L.tr.beta>%g",beta_min_L);
-TCut electron_cut_L = cer_cut_L+sh_cut_L+beta_min_L;
+TCut electron_cut_L = cer_cut_L+sh_cut_L+beta_cut_L;
 TCut track_L        = "L.tr.n==1";
 TCut aperture_L     = "((L.tr.tg_y+L.tr.tg_ph*1.5)^2/0.64+(L.tr.tg_th*1.5)^2/0.49)<0.01";
 const double tg_dp_L=0.05;
@@ -102,7 +114,7 @@ const double cer_min_R=2000;
 TCut sh_cut_R       = Form("(R.ps.e+R.sh.e)>HacR_D1_P0rb*1000*%g",sh_min_R);
 TCut cer_cut_R      = Form("R.cer.asum_c>%g",cer_min_R);
 TCut beta_cut_R     = Form("R.tr.beta>%g",beta_min_R);
-TCut electron_cut_R = cer_cut_R+sh_cut_R+beta_min_R;
+TCut electron_cut_R = cer_cut_R+sh_cut_R+beta_cut_R;
 TCut track_R        = "R.tr.n==1";
 
 //TCut aperture_L="((L.tr.tg_y+L.tr.tg_ph*1.5)^2/0.64+(L.tr.tg_th*1.5)^2/0.49)<0.01";
@@ -227,7 +239,7 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
     return runinfo;
 
   }
-  TSQLRow *row;
+  TSQLRow *row = nullptr;
   for (Int_t i=0; i<=current_id; i++){
     row  = result->Next(); // load row for the corresponding current
   }
@@ -419,7 +431,7 @@ Int_t GetPS(TTree* tt,Int_t trigger)
   //  TDatime run_time("2018-01-01 00:00:00");
 
     THaRun* run = 0;
-    Int_t ps;
+    Int_t ps=0;
     if (!tt->GetDirectory()) tt->LoadTree(0); // Necessary if T is a TChain
     TDirectory* fDir = tt->GetDirectory();
     if (fDir) fDir->GetObject("Run_Data",run);
