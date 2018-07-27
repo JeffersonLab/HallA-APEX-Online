@@ -2,7 +2,8 @@
 // cut on beam trip, record the good entry numbers to eventlist->rootfile, and write current, charge, livetime to SQL database
 // also calculate the mean current , charge, and livetime
 // Shujie Li, 02.2018
-#include "rootalias.h"
+#include "../rootalias.h"
+#include "../SQLanalysis.h"
 
 // where to store/find the beamtrip cut eventlist
 TString  listdir    = Form("%s/elist/",getenv("PWD")); 
@@ -43,10 +44,10 @@ Double_t beamtrip_sql(Int_t runnum,Int_t timecut=5){
 
   // the bcm class is not working, comment out for now
   // TString curr=arm+"BCMev.current_"+bcm;
-  TString charr          = "ev"+coda.arm+bcm.name;
-  TString curr           = "ev"+coda.arm+bcm.name+"_r";
-  TString trigger_scaler = Form("ev%sT%d",coda.arm.Data(),coda.bit);
-  TString clock_scaler   = "ev"+coda.arm+"Lclock";
+  TString charr          = coda.evscaler+bcm.name;
+  TString curr           = coda.evscaler+bcm.name+"_r";
+  TString trigger_scaler = Form("%sT%d",coda.evscaler.Data(),coda.bit);
+  TString clock_scaler   = coda.evscaler+"Lclock";
   chain->SetBranchStatus("*"         ,0);
   chain->SetBranchStatus(coda.trigger,1);
   chain->SetBranchStatus(charr  ,1);
@@ -93,7 +94,7 @@ Double_t beamtrip_sql(Int_t runnum,Int_t timecut=5){
   }
 
     // delete previous results;
-  TSQLServer* Server1 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
+  TSQLServer* Server1   = TSQLServer::Connect(mysql_connection.Data(),mysql_user.Data(),mysql_password.Data());
   TString     query1;
   //cout<<query2<<endl;
   query1 = Form("delete from %sanalysis where run_number=%d",coda.experiment.Data(),runnum);
@@ -209,12 +210,12 @@ Double_t beamtrip_sql(Int_t runnum,Int_t timecut=5){
     //---------------
     // write results into database
     //---------------
-  TSQLServer* Server2 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
   TString     query2;
 
+  TSQLServer* Server2   = TSQLServer::Connect(mysql_connection.Data(),mysql_user.Data(),mysql_password.Data());
 
-  query2=Form("insert into %sanalysis values (%d, %.1f, %g, '%s',%g,%d,%d, '%s') on duplicate key update charge=values(charge),livetime=values(livetime),trigger_counts=values(trigger_counts),trigger_events=values(trigger_events),elist=values(elist)",coda.experiment.Data(),runnum,xpeaks[i],goodcharge[i],coda.trigger.Data(),livetime,trgscaler_total,trgbit_total,listname.Data());
-  //cout<<query2<<endl;
+  query2=Form("insert into %sanalysis values (%d, %.2f, %g, '%s',%g,%d,%d, '%s') on duplicate key update charge=values(charge),livetime=values(livetime),trigger_counts=values(trigger_counts),trigger_events=values(trigger_events),elist=values(elist)",coda.experiment.Data(),runnum,xpeaks[i],goodcharge[i],coda.trigger.Data(),livetime,trgscaler_total,trgbit_total,listname.Data());
+  cout<<query2<<endl;
   Server2->Query(query2.Data());
   Server2->Close();
   }
@@ -248,7 +249,7 @@ Double_t beamtrip_sql(Int_t runnum,Int_t timecut=5){
   // before beam cut
   chain->SetEventList(0);
   TString draw;
-  draw=curr+":ev"+coda.arm+"Lclock/103700";
+  draw=curr+":"+coda.evscaler+"Lclock/103700";
   chain->Draw(draw+">>ss","","col");
   ss->SetMarkerSize(0.3);
   ss->SetMarkerStyle(20);
@@ -266,7 +267,7 @@ Double_t beamtrip_sql(Int_t runnum,Int_t timecut=5){
   gPad->SetGrid();
   //Delete T;
 
-  c1->Print(plotdir+Form("bcm_%d.eps",runnum));
+  c1->Print(plotdir+Form("bcm_%d.png",runnum));
 
   return charge;
 }
