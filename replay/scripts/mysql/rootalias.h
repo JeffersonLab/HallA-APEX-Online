@@ -319,12 +319,10 @@ Int_t GetPS(TTree* tt,Int_t trigger)
 // ---------------------------
 Int_t GetTimeStamp(TTree* tt, Int_t decay_days=0)
 {
-    TDatime datetime;
-    THaRun* run = GetRunData(tt);
-    if (run) {
-      datetime = run->GetDate();
-      delete run;
-    }
+   
+    THaRun* run = GetRunData(tt);    
+    TDatime datetime = run->GetDate();
+   
     // cout<<datetime.AsString()<<endl;
     Int_t timestamp = datetime.Convert();    // convert to epoch time 
 
