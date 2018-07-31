@@ -72,6 +72,17 @@ const char* ROOTPATHS[] = {
   "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1_calibration/kin13/",
   "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1_calibration/kin15/",
   "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1_calibration/kin16/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin1/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin2/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin3/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin4/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin5/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin7/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin9/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin11/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin13/"
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin15/",
+  "/v/lustre2/expphy/cache/halla/triton/prod/marathon/pass1/kin16/",
   "./",
   0
 };
