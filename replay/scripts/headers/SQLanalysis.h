@@ -219,6 +219,7 @@ struct AnalysisInfo {
   Double_t dens_cor   =   1;
   Double_t dens_err   =   0;
   Int_t    status     =   0;
+  TString kin         =  '0';
 };
 
 Int_t GetNCurrents(Int_t runnum){
@@ -278,6 +279,7 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
   runinfo.ntrigger   = atoi(row->GetField(5)); 
   runinfo.ntriggered = atoi(row->GetField(6)); 
   runinfo.elist      = row->GetField(7); 
+  runinfo.kin        = row->GetField(8);
   runinfo.status     = 1;
 
 // calculate density correction factor (boiling)
@@ -379,6 +381,66 @@ TChain *LoadList(Int_t runnum, Int_t current_id=0, Int_t stable_time=5){
   t->SetEventList(elist);
   return t;
 }
+
+//////////////////////////////////
+
+//A few quick very user friend queries for SQL list.
+//
+//////////////
+class RunList {
+	public:
+	int runnumber;
+	string target;
+	void set_values(int a, string b);
+};
+
+	void RunList::set_values(int a, string b){
+		runnumber=a;
+		target=b;
+	}
+///////////////
+
+
+//This 
+vector<RunList> SQL_Kin_Target(TString kin="", TString tgt=""){
+	vector<RunList> runlist;
+	if(kin =="" || tgt=="")
+	{
+		cout << "Please use this function with (kin,tgt),,, example (1,Tritium)" <<"\n\n";
+		return runlist;
+	}
+	if(tgt=="H3"||tgt=="T2") tgt = "Tritium";
+	else if(tgt=="D2")  tgt = "Deuterium";
+	else if(tgt=="He3") tgt = "Helium-3";
+	else if(tgt=="EM")  tgt = "Empty Cell";
+	else if(tgt=="DM")  tgt = "25 cm Dummy";
+	else if(tgt=="CH")  tgt = "Carbon Hole";
+
+	/////Make a SQL querey in 	
+        TSQLServer* Server1 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
+  	TString  query1;
+     	query1=Form("select run_number, Kinematic from MARATHONrunlist where Kinematic like'%%%s%%' and target='%s' order by run_number asc",kin.Data(),tgt.Data());  
+       TSQLResult* result1=Server1->Query(query1.Data());
+       Server1->Close();
+	
+	if(result1->GetRowCount()==0){ 
+		cout <<"Sorry could not find that kin tgt" <<"\n";
+		return runlist;
+	}
+	RunList tmp;
+	TSQLRow *row1;
+	for(int i =0; i<result1->GetRowCount();i++){
+		row1 =  result1->Next();	
+		tmp.set_values(atoi(row1->GetField(0)),row1->GetField(1));
+		runlist.push_back(tmp);
+
+	}
+	return runlist;
+}
+
+
+
+
 
 
 #endif
