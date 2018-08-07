@@ -36,8 +36,6 @@
 #include <sstream>
 #include <cassert>
 
-TString nameArm1495;   //AAAARRRGGGG GLOBAL VARIABLE NOOOOOOOOOOOOOOOO -- REM -- 2018-01-29
-
 using namespace std;
 
 static const Int_t MAXDATA=20000;
@@ -200,8 +198,8 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   for (Int_t i=1; i<14; i++) eventtypes.push_back(i);  // what events to look for
 
   // data keys to look for in this fun example
-  dataKeys.push_back("V1495ClockCount");
-  dataKeys.push_back("V1495ClockInterval");
+  dataKeys.push_back(nameArm1495 + ".ClockCount");
+  dataKeys.push_back(nameArm1495 + ".ClockInterval");
 
   // initialize map elements to -1 (means not found yet)
   for (UInt_t i=0; i < dataKeys.size(); i++) {
@@ -226,11 +224,11 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   Int_t numEntries = 0;
   // for Clock Count
   V1495ClockCount = 0;
-  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "V1495ClockCount", &V1495ClockCount, kUInt, 0);
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "ClockCount", &V1495ClockCount, kUInt, 0);
   numEntries++;
   // for Clock Interval
   V1495ClockInterval = 0;
-  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "V1495ClockInterval", &V1495ClockInterval, kUInt, 0);
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "ClockInterval", &V1495ClockInterval, kUInt, 0);
   numEntries++;
   
   fStatus = kOK;
