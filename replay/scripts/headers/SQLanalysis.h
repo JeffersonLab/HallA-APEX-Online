@@ -418,7 +418,7 @@ vector<int> RLtoint(vector<RunList> a, string b=""){
 ///////////////
 
 
-//This 
+//This will make a Class RunList output from the query to give you the choice to look at all the kinemtaics of one type. 
 vector<RunList> SQL_Kin_Target_RL(TString kin="", TString tgt=""){
 	vector<RunList> runlist;
 	if(kin =="" || tgt=="")
