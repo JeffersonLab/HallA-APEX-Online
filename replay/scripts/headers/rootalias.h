@@ -87,7 +87,10 @@ const char* ROOTPATHS[] = {
   0
 };
 
-
+const char* MCPATHS[] = {
+	"./mcroot/",
+	0
+};
 
 const double pi=3.1415926535897932;
 const double rad=pi/180.0;
@@ -169,14 +172,14 @@ TChain* LoadRun(Int_t run, const char* path, const char* tree, Int_t debug)
 
   while ( !gSystem->AccessPathName(rootfile.Data()) ) {
     tt->Add(rootfile.Data());
-    cout << "ROOT file " << rootfile << " added to " << tree<<" tree"<<endl;
+    if(debug)   cout << "ROOT file " << rootfile << " added to " << tree<<" tree"<<endl;
     split++;
     rootfile = basename + "_" + split + ".root";
     rootfile.Prepend(dir.Data());
   }
 
   if (split<=0) {
-   if (debug>0) cerr << "Can not find ROOT file for run " << run << endl;
+   if (debug>0) cout << "Can not find ROOT file for run " << run << endl;
    delete tt;
    tt = 0;
   }
@@ -222,7 +225,7 @@ TChain* LoadOnline(Int_t run, const char* path, const char* tree,Int_t debug)
 
     while ( !gSystem->AccessPathName(rootfile.Data()) ) {
   tt->Add(rootfile.Data());
-  cout << "ROOT file " << rootfile << " added to " << tree<<" tree"<<endl;
+ if(debug){ cout << "ROOT file " << rootfile << " added to " << tree<<" tree"<<endl;}
   split++;
   rootfile = basename + "_" + split + ".root";
   rootfile.Prepend(dir.Data());
@@ -230,7 +233,7 @@ TChain* LoadOnline(Int_t run, const char* path, const char* tree,Int_t debug)
     }
 
     if (split<=0) {
-  if (debug>0) cerr << "Can not find online replay file for run " << run << endl;
+  if (debug>0) cout << "Can not find online replay file for run " << run << endl;
   delete tt;
   tt = 0;
     }
@@ -255,6 +258,17 @@ TChain* LoadOnline(Int_t run, const char* tree = "T")
     return tt;
 }
 
+
+TChain* LoadMC(Int_t run, int tarid=0, const char* tree = "h9040")
+{
+	TString tgt="";
+	if(tarid>0){ tgt=Form("_%d",tarid);}
+	TChain *tt = new TChain(tree);
+	tt->Add(Form("%smc%d%s.root",MCPATHS[0],run,tgt.Data()));
+	if(tt==nullptr){cout <<"no mc file"<<"\n";}
+//	else{cout << "adding " <<Form("%smc%d.root",MCPATHS[0],run)<<"\n";}
+	return tt;
+}
 // get rootfile path
 
 TString GetPath(Int_t run)
@@ -272,7 +286,7 @@ TString GetPath(Int_t run)
     }
 
     if (!T)
-  cerr << "Can not find ROOT file for run " << run << endl;
+  cout << "Can not find ROOT file for run " << run << endl;
 
     return rootpath;
 }
