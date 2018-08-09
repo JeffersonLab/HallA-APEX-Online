@@ -32,16 +32,16 @@ void raster_calib(){
   int i = 1;
   //TFile *test_file = new TFile(Form("/volatile/halla/triton/tjhague/rootfiles/coinc_test_%d_%d.root",run,i));
 
-  if(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run),kFileExists)){
-    rootfile->Add(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d.root",run));
+  if(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/positron/tritium_%d.root",run),kFileExists)){
+    rootfile->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/positron/tritium_%d.root",run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
     cout << "Requested run has not been replayed. Exiting." << endl << endl;
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i),kFileExists)){
-    rootfile->Add(TString::Format("/chafs1/work1/tritium/tmp_data/tritium_%d_%d.root",run,i));
+  while(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/positron/tritium_%d_%d.root",run,i),kFileExists)){
+    rootfile->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/positron/tritium_%d_%d.root",run,i));
     cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
     i=i+1;
   }                      
@@ -83,15 +83,20 @@ void raster_calib(){
 
   //Populate the plots
   //Need to start with a cut for when the beam is off
-  //If the BPM goes to a very large (negative?) value, the beam is off
-  //Probably add a current cut later? Maybe unnecessary
-  TString cut = "(TMath::Abs(" + arm + ".BPMA.x)<100)&&((ev";
+  TString cut = "";
   if(RIGHT_ARM_CONDITION){
     cut += "Right";
   }else if(LEFT_ARM_CONDITION){
     cut += "Left";
   }
-  cut += "dnew_r*0.0003299)>20)";
+  cut += "BCM.current_dnew>21";
+  /*cut+="&&";
+  if(RIGHT_ARM_CONDITION){
+    cut+="DR";
+  }else if(LEFT_ARM_CONDITION){
+    cut+="DL";
+  }
+  cut+=".evtypebits>>8&1";*/
   TCut beamcut = cut.Data();
 
   //The plots are added to a canvas as they are populated

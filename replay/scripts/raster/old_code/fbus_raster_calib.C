@@ -91,7 +91,7 @@ void fbus_raster_calib(){
   }else if(LEFT_ARM_CONDITION){
     cut += "Left";
   }
-  cut += "dnew_r*0.0003299)>20)";
+  cut += "dnew_r*0.0003299)>8)";
   TCut beamcut = cut.Data();
 
   //The plots are added to a canvas as they are populated
