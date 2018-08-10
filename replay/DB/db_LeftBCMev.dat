@@ -26,4 +26,18 @@ LeftBCMev.dnew.gain = 0.0003358
 LeftBCMev.unew.offset = 0
 LeftBCMev.unew.gain = 0.0003
 LeftBCMev.current_cut = 3.0 8.0 13.0 16.0 19.0
+--------[ 2018-05-03 00:00:00 -0500 ]
+LeftBCMev.u1.offset = 0
+LeftBCMev.u1.gain = 0.0003673
+LeftBCMev.d1.offset = 0
+LeftBCMev.d1.gain = 0.0003212
+LeftBCMev.d3.offset = 0.2068
+LeftBCMev.d3.gain = 0.0001076
+LeftBCMev.d10.offset= 0.1775
+LeftBCMev.d10.gain = 0.00003714
+LeftBCMev.dnew.offset = 0.0127
+LeftBCMev.dnew.gain = 0.0003486
+LeftBCMev.unew.offset = -0.03138
+LeftBCMev.unew.gain = 0.0003054
+LeftBCMev.current_cut = 3.0 8.0 13.0 16.0 19.0
 

@@ -31,6 +31,10 @@ block EKLxe.*
 block EKLx.*
 #block LeftBCM*
 
+#beam correction variables
+block ElbL.*
+block EltL.*
+block EKLxe.*
 
 #BPM/Raster Variables
 FORMULA rbax 1000.*Lrb.BPMA.x

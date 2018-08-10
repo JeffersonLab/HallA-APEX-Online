@@ -46,6 +46,9 @@
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriBCM/libTriBCM.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriF1VETROC/libVETROCF1tdc_tritium.so")); 
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriV1495/libV1495_tritium.so")); 
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_ElossCorrection/libTri_ElossCorrection.so")); 
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_Beam_Eloss/libTri_Beam_Eloss.so")); 
+    gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_Track_Eloss/libTri_Track_Eloss.so")); 
 
   }
 

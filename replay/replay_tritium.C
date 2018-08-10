@@ -35,7 +35,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bHelicity=kFALSE;
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
-  Bool_t bEloss=kFALSE;
+  Bool_t bEloss=kTRUE;
   Bool_t bOldTrack=kFALSE;
   
   TString rootname;
@@ -132,8 +132,54 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     //  Physics
     //==================================
     if(bPhysics){
+      Double_t mass_el = 0.000511; // electron mass
+      Double_t amu = 931.494*1.e-3; // amu to GeV
+      Double_t mass_He3 = 3.0160293*amu;
+      Double_t mass_H2 = 2.01410178*amu;
+      Double_t mass_H3 = 3.0160492*amu;
       Double_t mass_tg = 0.938; //default target 
 
+      string word[5],line;
+      TString filename = Form("/adaqfs/home/adaq/epics/runfiles_tritium_R/Start_of_Run_%d.epics",runnumber);
+      ifstream infile;
+      infile.open(filename);
+      double pos=0;
+      double t2=33106235;
+      double d2=29367355;
+      double he3=21875520;
+      // default values for Hydrogen
+      int Z = 1.;
+      int A = 1.;
+      double density = 0.002832; // g/cm3
+
+       while(getline(infile,line)){
+            istringstream str(line);
+            str>>word[0]>>word[1];
+            if(word[0]=="Encoder" && word[1]=="Position"){
+               str>>word[2]>>word[3];
+               pos = atof(word[3].c_str());
+               if(abs(pos-t2)<300){
+		 mass_tg=mass_H3/3.0;
+		 Z = 1;
+		 A = 3;
+		 density =  0.003065; // g/cm3
+	       }
+               else if(abs(pos-d2)<300){
+		 mass_tg=mass_H2/2.0;
+		 Z = 1;
+		 A = 2;
+		 density =  0.005686; // g/cm3
+	       }
+               else if(abs(pos-he3)<300){
+		 mass_tg=mass_He3/3.0;
+		  Z  = 2;
+		  A  = 3;
+                  density = 0.002; // g/cm3
+                }
+
+               break;
+            }
+      }
   
       THaPhysicsModule *Rgold = new THaGoldenTrack( "R.gold", "HRS-R Golden Track", "R" );
       gHaPhysics->Add(Rgold);
@@ -159,30 +205,35 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       // gHaPhysics->Add(BCM);
       // THaPhysicsModule* BCMev = new TriBCM("RightBCMev","Beam Current Monitors","Right","ev",0);
       // gHaPhysics->Add(BCMev);
-      /*if(bEloss){
+      if(bEloss){
         // Beam Energy Loss
-        Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
-       
-        Gmp_Beam_Eloss *ElbR = new Gmp_Beam_Eloss("ElbR","Beam Corrected for Energy Loss",beamchoice,"rpr",zbeam_off);
+        Double_t zbeam_off = -0.125 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m) 
+
+        Tri_Beam_Eloss *ElbR = new Tri_Beam_Eloss("ElbR","Beam Corrected for Energy Loss","Rrb","rpr",zbeam_off);
         ElbR->SetDebug(1);
-        ElbR->SetMedium(1.,1.00727,0.0723); // Set medium assuming LH2 Target. According to the Cryotarget Training Slides,
-                                           // the density should be 0.0723 g/cc (agrees more or less w/ NIST table).
+        ElbR->SetMedium(Z,A,density);
         gHaPhysics->Add(ElbR);
-        
-        //Track Energy Loss
-        Double_t targ_length = 0.15 ; // In meters. Set to 15 cm for GMp LH2 target
-        Double_t ztrack_off = 0. ; //For a target centered at z=0, this should equal to 0. (in m)
-        Double_t air_length = 0.3757; // In meters. Set to 0.3543 m for RHRS and 0.2697 m for LHRS for Spring 16.
-                                     //            Set to 0.3757 m for RHRS and 0.3868 m for LHRS for Fall 16.
-       
-        Gmp_Track_Eloss *EltR = new Gmp_Track_Eloss("EltR","Track Corrected for Energy Loss","exR","rpr",targ_length,ztrack_off,air_length);
+
+        // Track Energy Loss
+        Double_t targ_length = 0.25 ; // In meters. Set to 25 cm for Tritium gas target cells
+        Double_t ztrack_off  = 0.   ; // For a target centered at z=0, this should equal to 0. (in m)
+
+	// Pathlength through air between scattering chamber exit and spectrometer entrance
+	// Set to 0.3543 m for RHRS and 0.2697 m for LHRS for Spring 16.
+	// Set to 0.3757 m for RHRS and 0.3868 m for LHRS for Fall 16.
+        // Set to 0.8160   m for both spectrometers according to Jesse
+
+	Double_t air_lengthL = 0.8160; // In meters.
+        Double_t air_lengthR = 0.8160; // In meters.
+
+	Tri_Track_Eloss *EltR = new Tri_Track_Eloss("EltR","Track Corrected for Energy Loss","exR","rpr",targ_length,ztrack_off,air_lengthR);
         EltR->SetDebug(1);
-        EltR->SetMedium(1.,1.00727,0.0723); // See above for explanation.
+        EltR->SetMedium(Z,A,density);
         gHaPhysics->Add(EltR);
 
-        THaPhysicsModule *EKRxe = new THaElectronKine("EKRxe","Best Corrected Electron kinematics in HRS-R","EltR","ElbR",mass_tg);
-        gHaPhysics->Add(EKRxe);
-      }*/
+	THaPhysicsModule *EKRxe = new THaPrimaryKine  ("EKRxe","Electron kinem in RHRS corrected also for eloss","EltR" ,"ElbR",mass_tg);
+        gHaPhysics->Add(EKRxe); 
+      } 
     }
   }
   //==================================
@@ -270,8 +321,55 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     
     if(bPhysics){
 
+      Double_t mass_el = 0.000511; // electron mass
+      Double_t amu = 931.494*1.e-3; // amu to GeV
+      Double_t mass_He3 = 3.0160293*amu;
+      Double_t mass_H2 = 2.01410178*amu;
+      Double_t mass_H3 = 3.0160492*amu;
       Double_t mass_tg = 0.938; //default target 
 
+      string word[5],line;
+      TString filename = Form("/adaqfs/home/adaq/epics/runfiles_tritium_L/Start_of_Run_%d.epic",runnumber);
+      ifstream infile;
+      infile.open(filename);
+      double pos=0;
+      double t2=33106235;
+      double d2=29367355;
+      double he3=21875520;
+      // default values for Hydrogen
+      int Z = 1.;
+      int A = 1.;
+      double density = 0.002832; // g/cm3
+
+      while(getline(infile,line)){
+            istringstream str(line);
+            str>>word[0]>>word[1];
+            if(word[0]=="Encoder" && word[1]=="Position"){
+               str>>word[2]>>word[3];
+               pos = atof(word[3].c_str());
+               if(abs(pos-t2)<300){
+		 mass_tg=mass_H3/3.0;
+		 Z = 1;
+		 A = 3;
+		 density =  0.003065; // g/cm3
+	       }
+               else if(abs(pos-d2)<300){
+		 mass_tg=mass_H2/2.0;
+		 Z = 1;
+		 A = 2;
+		 density =  0.005686; // g/cm3
+	       }
+               else if(abs(pos-he3)<300){
+		 mass_tg=mass_He3/3.0;
+		  Z  = 2;
+		  A  = 3;
+                  density = 0.002; // g/cm3
+                }
+
+               break;
+            }
+      }
+      
       THaPhysicsModule *Lgold = new THaGoldenTrack( "L.gold", "HRS-L Golden Track", "L" );
       gHaPhysics->Add(Lgold);
       
@@ -298,30 +396,35 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
    //    THaPhysicsModule* BCMev = new TriBCM("LeftBCMev","Beam Current Monitors","Left","ev",0);
 	  // gHaPhysics->Add(BCMev);
-     /*if(bEloss){
+      if(bEloss){
         // Beam Energy Loss
-        Double_t zbeam_off = -0.075 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m)
-        
-        Gmp_Beam_Eloss *ElbL = new Gmp_Beam_Eloss("ElbL","Beam Corrected for Energy Loss",beamchoice,"rpr",zbeam_off);
+        Double_t zbeam_off = -0.125 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m) 
+
+        Tri_Beam_Eloss *ElbL = new Tri_Beam_Eloss("ElbL","Beam Corrected for Energy Loss","Lrb","rpl",zbeam_off);
         ElbL->SetDebug(1);
-        ElbL->SetMedium(1.,1.00727,0.0723); // Set medium assuming LH2 Target. According to the Cryotarget Training Slides,
-                                           // the density should be 0.0723 g/cc (agrees more or less w/ NIST table).
+        ElbL->SetMedium(Z,A,density);
         gHaPhysics->Add(ElbL);
-        
-        //Track Energy Loss
-        Double_t targ_length = 0.15 ; // In meters. Set to 15 cm for GMp LH2 target
-        Double_t ztrack_off = 0. ; //For a target centered at z=0, this should equal to 0. (in m)
-        Double_t air_length = 0.3757; // In meters. Set to 0.3543 m for RHRS and 0.2697 m for LHRS for Spring 16.
-                                      //            Set to 0.3757 m for RHRS and 0.3868 m for LHRS for Fall 16.
-        
-        Gmp_Track_Eloss *EltL = new Gmp_Track_Eloss("EltL","Track Corrected for Energy Loss","exL","rpl",targ_length,ztrack_off,air_length);
+
+        // Track Energy Loss
+        Double_t targ_length = 0.25 ; // In meters. Set to 25 cm for Tritium gas target cells
+        Double_t ztrack_off  = 0.   ; // For a target centered at z=0, this should equal to 0. (in m)
+
+	// Pathlength through air between scattering chamber exit and spectrometer entrance
+	// Set to 0.3543 m for RHRS and 0.2697 m for LHRS for Spring 16.
+	// Set to 0.3757 m for RHRS and 0.3868 m for LHRS for Fall 16.
+        // Set to 0.8160   m for both spectrometers according to Jesse
+
+	Double_t air_lengthL = 0.8160; // In meters.
+        Double_t air_lengthR = 0.8160; // In meters.
+
+	Tri_Track_Eloss *EltL = new Tri_Track_Eloss("EltL","Track Corrected for Energy Loss","exL","rpl",targ_length,ztrack_off,air_lengthL);
         EltL->SetDebug(1);
-        EltL->SetMedium(1.,1.00727,0.0723); // See above for explanation.
+        EltL->SetMedium(Z,A,density);
         gHaPhysics->Add(EltL);
 
-        THaPhysicsModule *EKLxe = new THaElectronKine("EKLxe","Best Corrected Electron kinematics in HRS-L","EltL","ElbL",mass_tg);
-        gHaPhysics->Add(EKLxe);
-      }*/
+	THaPhysicsModule *EKLxe = new THaPrimaryKine  ("EKLxe","Electron kinem in LHRS corrected also for eloss","EltL" ,"ElbL",mass_tg);
+        gHaPhysics->Add(EKLxe); 
+      }     
     }
   }
   

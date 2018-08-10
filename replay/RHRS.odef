@@ -38,6 +38,11 @@ block EKRx.*
 #block EltR.*
 block EKRxe.*
 
+#beam correction variables
+block ElbR.*
+block EltR.*
+block EKRxe.*
+
 
 #BPM/Raster Variables
 
