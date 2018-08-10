@@ -1,0 +1,47 @@
+#!/bin/bash
+
+tempdir=$(mktemp -d )
+
+# LHRS scopes
+wget http://129.57.192.253/Image.png -O ${tempdir}/LHRS_scope1.png
+wget http://129.57.192.128/Image.png -O ${tempdir}/LHRS_scope2.png
+
+# RHRS scopes
+fname=$( wget http://129.57.164.227/getImage.asp?inv=false -O - | grep getImage | grep -Eo 'SRC =["\047].*["\047]' | grep -Eo '["\047].*["\047]' | cut -d '"' -f 2)
+wget http://129.57.164.227${fname}  -O ${tempdir}/RHRS_scope1.png
+echo "${fname}"
+wget http://129.57.164.45/Image.png -O ${tempdir}/RHRS_scope2.png
+#ls -lrth ${tempdir}
+
+function yes_or_no {
+  while true; do
+    read -p "$* [y/n]: " yn
+    case $yn in
+      [Yy]*) return 0 ;;
+      [Nn]*) echo "No entered" ; return 1 ;;
+    esac
+  done
+}
+
+yes_or_no "Upload these scope screens to logbook HALOG? " && \
+/site/ace/certified/apps/bin/logentry \
+    --logbook "HALOG" \
+    --tag Autolog \
+    --title "Left and Right HRS scope sceens " \
+    --attach ${tempdir}/LHRS_scope1.png \
+    --caption "Left HRS 4 chan. scope at 129.57.192.253" \
+    --attach ${tempdir}/LHRS_scope2.png \
+    --caption "Left HRS 2 chan. scope at 129.57.192.128" \
+    --attach ${tempdir}/RHRS_scope1.png \
+    --caption "Right HRS (Agilent) 4 chan. scope at 129.57.164.227" \
+    --attach ${tempdir}/RHRS_scope2.png \
+    --caption "Left HRS (Tex) 4 chan. scope at (hascope4) 129.57.164.45"
+
+# cleanup
+rm "${tempdir}/LHRS_scope1.png"
+rm "${tempdir}/LHRS_scope2.png"
+rm "${tempdir}/RHRS_scope1.png"
+rm "${tempdir}/RHRS_scope2.png"
+rmdir "${tempdir}"
+
+
