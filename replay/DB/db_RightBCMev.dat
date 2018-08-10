@@ -26,6 +26,20 @@ RightBCMev.dnew.gain = 0.0003353
 RightBCMev.unew.offset = 0
 RightBCMev.unew.gain = 0.0002996
 RightBCMev.current_cut = 3.0 8.0 13.0 16.0 19.0
+--------[ 2018-05-03 00:00:00 -0500 ]
+RightBCMev.u1.offset = 0
+RightBCMev.u1.gain = 0.0003673
+RightBCMev.d1.offset = 0
+RightBCMev.d1.gain = 0.0003212
+RightBCMev.d3.offset = 0.3704
+RightBCMev.d3.gain = 0.0001061
+RightBCMev.d10.offset= 0.3508
+RightBCMev.d10.gain = 0.00003648
+RightBCMev.dnew.offset = -0.0656
+RightBCMev.dnew.gain = 0.0003487
+RightBCMev.unew.offset = -0.1081
+RightBCMev.unew.gain = 0.0003054
+RightBCMev.current_cut = 3.0 8.0 13.0 16.0 19.0
 
 
 
