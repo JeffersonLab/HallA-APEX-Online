@@ -1,5 +1,6 @@
 --------[ 2017-03-01 00:00:00 -0500 ]
 
+L.vdc.tdc.hits = 6
 L.vdc.nwires = 368
 L.vdc.wire.spacing = -0.0042426
 L.vdc.tdc.min = 800
