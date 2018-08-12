@@ -51,6 +51,8 @@ protected:
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
 
   //FADC
+  Float_t*   fT_FADC;       // [fNelem] Array of FADC TDC times of channels
+  Float_t*   fT_FADC_c;     // [fNelem] Array of FADC corrected TDC times of channels
   Int_t* foverflow;         //[fNelem] FADC overflowbit
   Int_t* funderflow;        //[fNelem] FADC underflowbit
   Int_t* fpedq;             //[fNelem] FADC pedestal quality bit
