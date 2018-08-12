@@ -27,7 +27,7 @@ using namespace Decoder;
 TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 			    THaApparatus* apparatus )
   : THaPidDetector(name,description,apparatus), fOff(0), fPed(0), fGain(0),
-    fNThit(0), fT(0), fT_c(0), fNAhit(0), fA(0), fA_p(0), fA_c(0),fT_FADC(0),fT_FADC_c(0),
+    fNThit(0), fT(0), fT_c(0), fNAhit(0), fA(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
     foverflow(0), funderflow(0),fpedq(0),fNhits(0)
 {
   // Constructor
@@ -37,7 +37,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 //_____________________________________________________________________________
 TriFadcCherenkov::TriFadcCherenkov()
   : THaPidDetector(), fOff(0), fPed(0), fGain(0), fT(0), fT_c(0),
-    fA(0), fA_p(0), fA_c(0),fT_FADC(0),fT_FADC_c(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0)
+    fA(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -127,6 +127,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     fA_p  = new Float_t[ nval ];
     fA_c  = new Float_t[ nval ];
 
+    fPeak      = new Float_t[ nval ];
     fT_FADC    = new Float_t[ nval ];
     fT_FADC_c  = new Float_t[ nval ];
     foverflow  = new Int_t[ nval ]; 
@@ -185,6 +186,7 @@ Int_t TriFadcCherenkov::DefineVariables( EMode mode )
     { "a",      "ADC values",                        "fA" },
     { "a_p",    "Ped-subtracted ADC values ",        "fA_p" },
     { "a_c",    "Corrected ADC values",              "fA_c" },
+    { "peak",   "FADC ADC peak values",              "fPeak" },
     { "t_fadc", "FADC TDC values",                   "fT_FADC" },
     { "tc_fadc", "FADC corrected TDC values",        "fT_FADC_c" },
     { "asum_p", "Sum of ADC minus pedestal values",  "fASUM_p" },
@@ -228,6 +230,7 @@ void TriFadcCherenkov::DeleteArrays()
   delete [] fPed;    fPed    = NULL;
   delete [] fOff;    fOff    = NULL;
 
+  delete [] fPeak;      fPeak      = NULL;
   delete [] fT_FADC;    fT_FADC    = NULL;
   delete [] fT_FADC_c;  fT_FADC_c  = NULL;
   delete [] foverflow;  foverflow  = NULL;
@@ -245,6 +248,7 @@ void TriFadcCherenkov::Clear( Option_t* opt )
   assert(fIsInit);
   for( Int_t i=0; i<fNelem; ++i ) {
     fT[i] = fT_c[i] = fA[i] = fA_p[i] = fA_c[i] = 0.0;
+    fPeak[i]=0.0;
     fT_FADC[i]=0.0;
     fT_FADC_c[i]=0.0;
   }
@@ -292,9 +296,11 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
       // Get the data. Aero mirrors are assumed to have only single hit (hit=0)
       Int_t data;
       Int_t ftime=0;
+      Int_t fpeak=0;
       if(adc){
 	 data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
          ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+         fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
       }
       else{ 
 	     fNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);     
@@ -316,6 +322,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
       // Copy the data to the local variables.
       if ( adc ) {
 	fA[k]   = data;
+        fPeak[k] = static_cast<Float_t>(fpeak);
         fT_FADC[k]=static_cast<Float_t>(ftime);
         fT_FADC_c[k]=fT_FADC[k]*0.0625;
 	fA_p[k] = data - fPed[k];
