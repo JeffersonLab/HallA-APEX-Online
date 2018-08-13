@@ -6,6 +6,8 @@ block R.sh.*
 block R.cer.*
 block R.vdc.*
 block R.tr.*
+block R.a1.*
+block R.a2.*
 
 block FbusR.s0.*
 block FbusR.cer.*
