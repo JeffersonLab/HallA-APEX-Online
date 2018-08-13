@@ -19,7 +19,7 @@ variable F1nhits
 variable F1Warnings
 variable F1FirstHit
 variable F1AllHits_014
-variable vfnhits
+	 variable vfnhits
 variable vfFirstHit
 variable vfAllHits_126
 
@@ -44,8 +44,6 @@ block EKRxe.*
 block ElbR.*
 block EltR.*
 block EKRxe.*
-
-
 #BPM/Raster Variables
 
 block Rrb.*
@@ -115,6 +113,44 @@ TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 1000 -200 20000 R.c
 TH2F Rcer_x  'Cerenkov FADC sum (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 10100 -100 20000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcer_y  'Cerenkov FADC sum (corrected) vs. Y' R.cer.try R.cer.asum_c  60 -0.12 0.12 10100 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcerfadcvfbus 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT  ' R.cer.a_p FbusR.cer.a_p 5000 0 10000 5000 0 10000 R.cer.a_p>0
+
+
+# ------------------------------------------------------------------
+# RIGHT ARM AEROGEL A1  ADC and TDC :
+#
+TH1F Ra1t 'A1 TDC PMT ' R.a1.t 500 0 2500 R.a1.t>0
+TH1F Ra1tT4_   'A1 TDC w/ T5,T6: PMT ' R.a1.t 500 0 2500 R.a1.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Ra1tT6_   'A1 TDC w/ T6 only: PMT ' R.a1.t 500 0 2500 R.a1.t>0&&(DR.evtypebits==64)
+
+TH1F Ra1a 'A1'  R.a1.a 10100 -100 20000 R.a1.a>0
+TH1F Ra1sum 'A1 FADC sum (corrected)' R.a1.asum_c 10100 -100 20000 R.a1.asum_c>-1000
+TH1F Ra1a_p 'A1 FADC(PedSub) PMT ' R.a1.a_p 1000 -200 20000 R.a1.a_p>-200
+TH1F Ra1a_p_cut 'A1 FADC(PedSub) PMT w cut' R.a1.a_p 1000 -200 20000 R.a1.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
+TH2F Ra1_x  'A1 FADC sum (corrected) vs. X' R.a1.trx R.a1.asum_c  60 -1.2 1.2 10100 -100 20000 R.tr.n>0&&R.a1.asum_c>-1000
+TH2F Ra1_y  'A1 FADC sum (corrected) vs. Y' R.a1.try R.a1.asum_c  60 -0.12 0.12 10100 -100 10000 R.tr.n>0&&R.a1.asum_c>-1000
+
+
+
+
+# ------------------------------------------------------------------
+# RIGHT ARM AEROGEL A2  ADC and TDC :
+#
+TH1F Ra2t 'A2 TDC PMT ' R.a2.t 500 0 2500 R.a2.t>0
+TH1F Ra2tT4_   'A2 TDC w/ T5,T6: PMT ' R.a2.t 500 0 2500 R.a2.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
+TH1F Ra2tT6_   'A2 TDC w/ T6 only: PMT ' R.a2.t 500 0 2500 R.a2.t>0&&(DR.evtypebits==64)
+
+TH1F Ra2a 'A2'  R.a2.a 10100 -100 20000 R.a2.a>0
+TH1F Ra2sum 'A2 FADC sum (corrected)' R.a2.asum_c 10100 -100 20000 R.a2.asum_c>-1000
+TH1F Ra2a_p 'A2 FADC(PedSub) PMT ' R.a2.a_p 1000 -200 20000 R.a2.a_p>-200
+TH1F Ra2a_p_cut 'A2 FADC(PedSub) PMT w cut' R.a2.a_p 1000 -200 20000 R.a2.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
+TH2F Ra2_x  'A2 FADC sum (corrected) vs. X' R.a2.trx R.a2.asum_c  60 -1.2 1.2 10100 -100 20000 R.tr.n>0&&R.a2.asum_c>-1000
+TH2F Ra2_y  'A2 FADC sum (corrected) vs. Y' R.a2.try R.a2.asum_c  60 -0.12 0.12 10100 -100 10000 R.tr.n>0&&R.a2.asum_c>-1000
+
+
+
+
+
+
 # ------------------------------------------------------------------
 
 # RIGHT ARM Pion Rejector 1,2 (Preshower/Shower):
