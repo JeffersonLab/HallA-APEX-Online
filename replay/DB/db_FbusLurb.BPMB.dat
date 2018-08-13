@@ -1,0 +1,24 @@
+--------[ 2018-04-12 00:00:00 -0500 ]
+FbusLurb.BPMB.pedestals = 4886  4719  4622  4415
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+FbusLurb.BPMB.offsets = 0.000608 -0.001116
+FbusLurb.BPMB.rotmatrix =-0.60759 0.736121 0.712974 0.704207
+FbusLurb.BPMB.pedestals = 4886  4719  4622  4415
+
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+FbusLurb.BPMB.detmap =
+      3    21     7    10     1  1881
+FbusLurb.BPMB.position = 0      0        -2.21400e+00
+FbusLurb.BPMB.calib_rot = 0.01887
+FbusLurb.BPMB.pedestals = 3801  3695  3601  3438
+FbusLurb.BPMB.rotmatrix = -0.621281  0.741729  0.701388  0.707639
+FbusLurb.BPMB.offsets =  0.00143766 -6.81262e-06
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+FbusLurb.BPMB.rotmatrix = -0.585444 0.71668 0.694959 0.694204
+FbusLurb.BPMB.offsets =  0.00113866 -0.000309452
+
+--------[ 2017-12-02 00:00:00 -0500 ]
+FbusLurb.BPMB.offsets =  -0.0005 -0.001

@@ -1,0 +1,214 @@
+# Right HRS
+block R.s2.*
+block R.s0.*
+block R.ps.*
+block R.sh.*
+block R.cer.*
+block R.vdc.*
+block R.tr.*
+
+block FbusR.s0.*
+block FbusR.cer.*
+
+block DR.*
+
+# F1tdc and VETROC
+variable F1nhits
+variable F1FirstHit
+variable F1AllHits_014
+variable vfnhits
+variable vfFirstHit
+variable vfAllHits_126
+
+variable V1495ClockCount
+variable V1495ClockInterval
+
+# Physics variables
+block R.gold.*
+block rpr.*
+block exR.*
+block EKR.*
+block EKRc.*
+block EKRx.*
+#block ElbR.*
+#block EltR.*
+#block EKRxe.*
+
+
+#BPM/Raster Variables
+FORMULA rbax 1000.*Rrb.BPMA.x
+FORMULA rbay 1000.*Rrb.BPMA.y
+FORMULA rbbx 1000.*Rrb.BPMB.x
+FORMULA rbby 1000.*Rrb.BPMB.y
+FORMULA rbx 1000.*Rrb.x
+FORMULA rby 1000.*Rrb.y
+FORMULA bpmaws Rrb.BPMA.rawcur.1+Rrb.BPMA.rawcur.2+Rrb.BPMA.rawcur.3+Rrb.BPMA.rawcur.4
+FORMULA bpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.rawcur.4
+FORMULA bpmaws FbusRrb.BPMA.rawcur.1+FbusRrb.BPMA.rawcur.2+FbusRrb.BPMA.rawcur.3+FbusRrb.BPMA.rawcur.4
+FORMULA bpmbws FbusRrb.BPMB.rawcur.1+FbusRrb.BPMB.rawcur.2+FbusRrb.BPMB.rawcur.3+FbusRrb.BPMB.rawcur.4
+Variable Rrb.Raster.rawcur.x
+Variable Rrb.Raster.rawcur.y
+Variable Rrb.Raster2.rawcur.x
+Variable Rrb.Raster2.rawcur.y
+Variable Rrb.BPMA.x
+Variable Rrb.BPMA.y
+Variable Rrb.BPMB.x
+Variable Rrb.BPMB.y
+Variable Rrb.dir.x
+Variable Rrb.dir.y
+Variable Rrb.e
+
+Variable FbusRrb.Raster.rawcur.x
+Variable FbusRrb.Raster.rawcur.y
+Variable FbusRrb.Raster2.rawcur.x
+Variable FbusRrb.Raster2.rawcur.y
+Variable FbusRrb.x
+Variable FbusRrb.y
+Variable FbusRrb.BPMA.x
+Variable FbusRrb.BPMA.y
+Variable FbusRrb.BPMB.x
+Variable FbusRrb.BPMB.y
+Variable FbusRrb.dir.x
+Variable FbusRrb.dir.y
+Variable FbusRrb.e
+
+block RightBCM*
+
+#-------------------------------------------------------------------
+#
+
+variable RightT1
+variable RightT1_r
+variable RightT2
+variable RightT2_r
+variable RightT3
+variable RightT3_r
+variable RightT4
+variable RightT4_r
+variable RightT5
+variable RightT5_r
+variable RightT6
+variable RightT6_r
+variable RightRclock
+variable RightRclock_r
+variable RightLclock
+variable RightLclock_r
+variable RightL1A_R
+variable RightL1A_R_r
+variable RightRclock2
+variable RightRclock2_r
+variable Rights2L
+variable Rights2L_r
+variable Rights2R
+variable Rights2R_r
+variable RightRs0ors2
+variable RightRs0ors2_r
+variable RightADC_gate
+variable RightADC_gate_r
+variable RightL1A
+variable RightL1A_r
+variable RightRF_Time
+variable RightRF_Time_r
+
+variable Rightunew
+variable Rightunew_r
+variable Rightdnew
+variable Rightdnew_r
+variable Rightunser
+variable Rightunser_r
+variable Rightu1
+variable Rightu1_r
+variable Rightd1
+variable Rightd1_r
+variable Rightd3
+variable Rightd3_r
+variable Rightd10
+variable Rightd10_r
+
+variable evRightT1
+variable evRightT1_r
+variable evRightT2
+variable evRightT2_r
+variable evRightT3
+variable evRightT3_r
+variable evRightT4
+variable evRightT4_r
+variable evRightT5
+variable evRightT5_r
+variable evRightT6
+variable evRightT6_r
+variable evRightRclock
+variable evRightRclock_r
+variable evRightLclock
+variable evRightLclock_r
+variable evRightL1A_R
+variable evRightL1A_R_r
+variable evRightRclock2
+variable evRightRclock2_r
+variable evRights2L
+variable evRights2L_r
+variable evRights2R
+variable evRights2R_r
+variable evRightRs0ors2
+variable evRightRs0ors2_r
+variable evRightADC_gate
+variable evRightADC_gate_r
+variable evRightL1A
+variable evRightL1A_r
+variable evRightRF_Time
+variable evRightRF_Time_r
+
+variable evRightunew
+variable evRightunew_r
+variable evRightdnew
+variable evRightdnew_r
+variable evRightunser
+variable evRightunser_r
+variable evRightu1
+variable evRightu1_r
+variable evRightd1
+variable evRightd1_r
+variable evRightd3
+variable evRightd3_r
+variable evRightd10
+variable evRightd10_r
+
+begin epics
+  haBDSPOS
+  HacR_alignAGL
+  HacR_D1_P0rb
+
+  hac_bcm_average
+  hac_bcm_dvm1_read
+  hac_bcm_dvm2_read
+  hac_bcm_average
+  hac_unser_read
+  hac_unser_current
+  hac_bcm_dvm1_current
+  hac_bcm_dvm2_current
+  IBC0L02Current 
+  IBC3H00CRCUR4
+  HA:K224:Current
+  IPM1H05XPM1HZ
+  IPM1H05YPM1HZ
+  IPM1C12.XPOS
+  IPM1C12.YPOS
+
+  IPM1H04A.XPOS
+  IPM1H04A.YPOS
+  IPM1H04E.XPOS
+  IPM1H04E.YPOS
+
+  FCupsCORRECTED.VAL
+
+  HALLA:p
+  HALLA:dpp
+
+  HacR_Q1_LS450:FLD_DATA
+  HacR_Q2_LS450:FLD_DATA
+  HacR_Q3_LS450:FLD_DATA
+  HacR_D_LS450:FLD_DATA
+  HacR_D1_NMR:SIG
+  HacR_D1_NMR:SIGLCK
+
+end epics

@@ -40,7 +40,6 @@ Int_t NTDCCHAN=192;
 Int_t NCHAN_F1=32;
 Int_t NCHAN_CAEN=32;
 
-TString nameArm;
 
 using namespace std;
 
@@ -329,17 +328,18 @@ THaAnalysisObject::EStatus TdcDataEvtHandler::Init(const TDatime& date)
 //for(Int_t i=0; i<nchs; i++) cout << " [" << i << "]=" << chN[i] << endl;
 
   // data keys to look for in this fun example
-  dataKeys.push_back("vfnhits");
-  dataKeys.push_back("vfFirstHit");
-  for(Int_t i=0; i<nchs; i++) dataKeys.push_back(Form("vfAllHits_%.3d",chN[i]));
-  for(Int_t i=0; i<nchs; i++) dataKeys.push_back(Form("vfFine_%.3d",chN[i]));
-  dataKeys.push_back("F1nhits");
-  dataKeys.push_back("F1Warnings");
-  dataKeys.push_back("F1FirstHit");
-  for(Int_t i=0; i<F1nchs; i++) dataKeys.push_back(Form("F1AllHits_%.3d",F1chN[i]));
-  //dataKeys.push_back("Cnhit");
-  //dataKeys.push_back("CFirstHit");
-  //for(Int_t i=0; i<Cnchs; i++) dataKeys.push_back(Form("CAllHits_%.3d",CchN[i]));
+  dataKeys.push_back(nameArm + ".vfnhits");
+
+  dataKeys.push_back(nameArm + ".vfFirstHit");
+  for(Int_t i=0; i<nchs; i++) dataKeys.push_back(nameArm + Form(".vfAllHits_%.3d",chN[i]));
+  for(Int_t i=0; i<nchs; i++) dataKeys.push_back(nameArm + Form(".vfFine_%.3d",chN[i]));
+  dataKeys.push_back(nameArm + ".F1nhits");
+  dataKeys.push_back(nameArm + ".F1Warnings");
+  dataKeys.push_back(nameArm + ".F1FirstHit");
+  for(Int_t i=0; i<F1nchs; i++) dataKeys.push_back(nameArm + Form(".F1AllHits_%.3d",F1chN[i]));
+  //dataKeys.push_back(nameArm + ".Cnhit");
+  //dataKeys.push_back(nameArm + ".CFirstHit");
+  //for(Int_t i=0; i<Cnchs; i++) dataKeys.push_back(nameArm + Form(".CAllHits_%.3d",CchN[i]));
 
   // initialize map elements to -1 (means not found yet)
   for (UInt_t i=0; i < dataKeys.size(); i++) {

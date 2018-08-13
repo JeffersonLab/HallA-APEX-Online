@@ -229,8 +229,8 @@ Int_t TriFadcRaster::Decode( const THaEvData& evdata )
 
     chancnt+=d->hi-d->lo+1;
   }
-
-  if (fNfired!=2*NBPM) {
+//condition was set to NBPM to silence the Warnings, since the parameters for fRawSlope were not used in the recent years and they are also not connected
+  if (fNfired!=NBPM) {
       Warning( Here(here), "Number of fired Channels out of range. "
 	       "Setting beam position to nominal values");
   }

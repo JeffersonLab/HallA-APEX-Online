@@ -42,9 +42,9 @@ void get_bpm_pedestals(int run=0, char side='i'){
 	const char* root_dir= "/chafs1/work1/tritium/Rootfiles";//"/adaqfs/home/a-onl/tritium/replay/RootFiles";
 	if(run==0){cout << "Please enter the run number of your BPM pedestal run: \n"; 
 		cin >> run;}
-
-	if(run < 90000 ){side = 'L';}
-	else{side = 'R';}
+	
+	//if(run < 90000){side = 'L';}
+	//else{side = 'R';}
 	if(side=='i'){cout << "Please enter the letter L or R to choose which HRS to use: \n";
 		cin >>side;}
 

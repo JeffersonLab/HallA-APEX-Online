@@ -1,0 +1,24 @@
+--------[ 2018-03-25 00:00:00 -0500 ]
+FbusLurb.BPMA.pedestals = 4715 4497 4469 4473
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+FbusLurb.BPMA.offsets = 0.002727 -0.001808
+FbusLurb.BPMA.rotmatrix = -0.796719 0.794821 0.871733 0.781172 
+FbusLurb.BPMA.pedestals = 4728  4511  4485  4488
+
+--------[ 2017-03-01 00:00:00 -0500 ]
+
+FbusLurb.BPMA.detmap =
+      3    21     0     3     1  1881
+FbusLurb.BPMA.position = 0.0      0.0      -7.34500e+00
+FbusLurb.BPMA.calib_rot = 0.01887
+FbusLurb.BPMA.pedestals = 3764  3501  3472  3485
+FbusLurb.BPMA.rotmatrix = -0.821808  0.775581  0.867645  0.766977
+FbusLurb.BPMA.offsets =  0.00143766 -6.81262e-06
+
+--------[ 2017-12-01 00:00:00 -0500 ]
+FbusLurb.BPMA.rotmatrix = -0.77287 0.777118 0.86131 0.772947 
+FbusLurb.BPMA.offsets =0.00236547 -0.000440653
+
+--------[ 2017-12-02 00:00:00 -0500 ]
+FbusLurb.BPMA.offsets =0.00065 -0.00100

@@ -94,8 +94,8 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
     Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
     gHaEvtHandlers->Add(levscaler);
-      THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
-	  gHaPhysics->Add(BCM);
+ //     THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","ev",0);
+//	  gHaPhysics->Add(BCM);
 
 
   analyzer->SetEvent( event );
@@ -470,7 +470,7 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   fc2->cd(3);
   fURastY->Draw();
 
-  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1800,1200);
+  TCanvas* fc2A =  new TCanvas("fc2A","FADC Downstream Raster Plots",1800,600);
   fc2A->Divide(3,1);
   fc2A->cd(1);
   // Added to fix axes, show raster x-y in full window
