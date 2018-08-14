@@ -273,7 +273,7 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
 
   if( mode == kDefine && fIsSetup ) return kOK;
   fIsSetup = ( mode == kDefine );
-
+ 
   // Register variables in global list
 
   RVarDef vars[] = {
