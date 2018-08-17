@@ -39,7 +39,8 @@ TriFadcShower::TriFadcShower( const char* name, const char* description,
 		      THaApparatus* apparatus ) :
   THaPidDetector(name,description,apparatus),
   fNclublk(0), fNrows(0), fBlockX(0), fBlockY(0), fPed(0), fGain(0),
-  fNhits(0), fA(0), fA_p(0), fA_c(0), fNblk(0), fEblk(0), foverflow(0), funderflow(0), fpedq(0)
+  fNhits(0), fA(0), fA_p(0), fA_c(0), fNblk(0), fEblk(0), foverflow(0), funderflow(0), fpedq(0),
+  fPeak(0),fT(0),fT_c(0)
 {
   // Constructor
 }
@@ -48,7 +49,7 @@ TriFadcShower::TriFadcShower( const char* name, const char* description,
 TriFadcShower::TriFadcShower() :
   THaPidDetector(),
   fNclublk(0), fNrows(0), fBlockX(0), fBlockY(0), fPed(0), fGain(0),
-  fNhits(0), fA(0), fA_p(0), fA_c(0), fNblk(0), fEblk(0)
+  fNhits(0), fA(0), fA_p(0), fA_c(0), fNblk(0), fEblk(0), fPeak(0),fT(0),fT_c(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -188,6 +189,9 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     fA_c  = new Float_t[ nval ];
     fNblk = new Int_t[ fNclublk ];
     fEblk = new Float_t[ fNclublk ];
+    fPeak = new Float_t[ nval ];
+    fT    = new Float_t[ nval ];
+    fT_c  = new Float_t[ nval ];
 
     fIsInit = true;
   }
@@ -262,6 +266,9 @@ Int_t TriFadcShower::DefineVariables( EMode mode )
     { "a_c",    "Calibrated ADC amplitudes",          "fA_c" },
     { "asum_p", "Sum of ped-subtracted ADCs",         "fAsum_p" },
     { "asum_c", "Sum of calibrated ADCs",             "fAsum_c" },
+    { "peak",   "FADC ADC peak values",               "fPeak" },
+    { "t",      "FADC TDC values",                    "fT" },
+    { "t_c",    "FADC corrected TDC values",          "fT_c" },
     { "nclust", "Number of clusters",                 "fNclust" },
     { "e",      "Energy (MeV) of largest cluster",    "fE" },
     { "x",      "x-position (cm) of largest cluster", "fX" },
@@ -304,6 +311,9 @@ void TriFadcShower::DeleteArrays()
   delete [] fA;       fA       = 0;
   delete [] fA_p;     fA_p     = 0;
   delete [] fA_c;     fA_c     = 0;
+  delete [] fPeak;    fPeak    = 0;
+  delete [] fT;       fT       = 0;
+  delete [] fT_c;     fT_c     = 0;
   delete [] fNblk;    fNblk    = 0;
   delete [] fEblk;    fEblk    = 0;
   delete [] foverflow; foverflow = 0;
@@ -321,6 +331,7 @@ void TriFadcShower::Clear( Option_t* opt )
   assert(fIsInit);
   for( Int_t i=0; i<fNelem; ++i ) {
     fA[i] = fA_p[i] = fA_c[i] = kBig;
+    fPeak[i] = fT[i] = fT_c[i] = kBig;
   }
   fAsum_p = fAsum_c = 0.0;
   fE = fX = fY = kBig;
@@ -407,6 +418,10 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
 	continue;
       }
 
+      Int_t ftime=0,fpeak=0;
+      ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+      fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
+
       // Copy the data and apply calibrations
       fA[k]   = data;                   // ADC value
       fA_p[k] = data    - fPed[k];      // ADC minus ped
@@ -415,6 +430,12 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
 	fAsum_p += fA_p[k];             // Sum of ADC minus ped
       if( fA_c[k] > 0.0 )
 	fAsum_c += fA_c[k];             // Sum of ADC corrected
+
+      fPeak[k] = static_cast<Float_t>(fpeak);
+      fT[k]=static_cast<Float_t>(ftime);
+      fT_c[k]=fT[k]*0.0625;
+
+
       if(fFADC!=NULL){
         foverflow[k]  = fFADC->GetOverflowBit(chan,0);
         funderflow[k] = fFADC->GetUnderflowBit(chan,0);
