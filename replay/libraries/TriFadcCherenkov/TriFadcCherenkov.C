@@ -297,6 +297,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
       Int_t data;
       Int_t ftime=0;
       Int_t fpeak=0;
+      Float_t tempPed = fPed[k];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
       if(adc){
 	 data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
          ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
@@ -315,7 +316,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
           }
           if(fpedq[k]==0)
-           fPed[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+           tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
 
       }
       
@@ -325,7 +326,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
         fPeak[k] = static_cast<Float_t>(fpeak);
         fT_FADC[k]=static_cast<Float_t>(ftime);
         fT_FADC_c[k]=fT_FADC[k]*0.0625;
-	fA_p[k] = data - fPed[k];
+	fA_p[k] = data - tempPed;
 	fA_c[k] = fA_p[k] * fGain[k];
 	// only add channels with signals to the sums
 	if( fA_p[k] > 0.0 )

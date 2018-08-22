@@ -418,13 +418,22 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
 	continue;
       }
 
+      Float tempPed = fPed[k];
       Int_t ftime=0,fpeak=0;
       ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
       fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
 
+      if(fFADC!=NULL){
+        foverflow[k]  = fFADC->GetOverflowBit(chan,0);
+        funderflow[k] = fFADC->GetUnderflowBit(chan,0);
+        fpedq[k]      = fFADC->GetPedestalQuality(chan,0);
+      }
+      if(fpedq[k]==0) // good quality
+        tempPed    = fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+
       // Copy the data and apply calibrations
       fA[k]   = data;                   // ADC value
-      fA_p[k] = data    - fPed[k];      // ADC minus ped
+      fA_p[k] = data    - tempPed;      // ADC minus ped
       fA_c[k] = fA_p[k] * fGain[k];     // ADC corrected
       if( fA_p[k] > 0.0 )
 	fAsum_p += fA_p[k];             // Sum of ADC minus ped
@@ -434,15 +443,6 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
       fPeak[k] = static_cast<Float_t>(fpeak);
       fT[k]=static_cast<Float_t>(ftime);
       fT_c[k]=fT[k]*0.0625;
-
-
-      if(fFADC!=NULL){
-        foverflow[k]  = fFADC->GetOverflowBit(chan,0);
-        funderflow[k] = fFADC->GetUnderflowBit(chan,0);
-        fpedq[k]      = fFADC->GetPedestalQuality(chan,0);
-      }
-      if(fpedq[k]==0) // good quality
-        fPed[k]       = fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
 
       fNhits++;
     }
