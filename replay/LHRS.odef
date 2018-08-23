@@ -131,10 +131,22 @@ TH1F Lvu2t 'L-arm VDC u2 time' L.vdc.u2.rawtime 300 0 3000
 TH1F Lvv1t 'L-arm VDC v1 time' L.vdc.v1.rawtime 300 0 3000
 TH1F Lvv2t 'L-arm VDC v2 time' L.vdc.v2.rawtime 300 0 3000
 
+TH2F Lvu1tn 'L-arm VDC u1 TDC time : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 300 0 3000
+TH2F Lvu2tn 'L-arm VDC u2 TDC time : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 0 3000
+TH2F Lvv1tn 'L-arm VDC v1 TDC time : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 300 0 3000
+TH2F Lvv2tn 'L-arm VDC v2 TDC time : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 300 0 3000
+
+
 TH1F Lvu1w 'L-arm VDC u1 wires' L.vdc.u1.wire 400 0 400
 TH1F Lvu2w 'L-arm VDC u2 wires' L.vdc.u2.wire 400 0 400
 TH1F Lvv1w 'L-arm VDC v1 wires' L.vdc.v1.wire 400 0 400
 TH1F Lvv2w 'L-arm VDC v2 wires' L.vdc.v2.wire 400 0 400
+
+TH2F Lvu1nthit 'L-arm VDC u1 TDC hits per channel : wire number' L.vdc.u1.wire L.vdc.u1.nthit 400 0 400 20 0 10
+TH2F Lvu2nthit 'L-arm VDC u2 TDC hits per channel : wire number' L.vdc.u2.wire L.vdc.u2.nthit 400 0 400 20 0 10
+TH2F Lvv1nthit 'L-arm VDC v1 TDC hits per channel : wire number' L.vdc.v1.wire L.vdc.v1.nthit 400 0 400 20 0 10
+TH2F Lvv2nthit 'L-arm VDC v2 TDC hits per channel : wire number' L.vdc.v2.wire L.vdc.v2.nthit 400 0 400 20 0 10
+
 
 #-------------------------------------------------------------------------------
 # LEFT Arm Tracking & Reconstruction Histograms  :

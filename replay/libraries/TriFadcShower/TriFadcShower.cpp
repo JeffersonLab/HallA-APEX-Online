@@ -66,6 +66,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
 
   FILE* file = OpenFile( date );
   if( !file ) return kFileError;
+ 
 
   // Read fOrigin and fSize (required!)
   Int_t err = ReadGeometry( file, date, true );
@@ -92,10 +93,10 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     { "emin",         &fEmin,   kDouble },
     { "NPED",         &fNPED,   kInt},
     { "Win",          &fWin,    kInt},
- 
     { 0 }
   };
   err = LoadDB( file, date, config_request, fPrefix );
+ 
 
   // Sanity checks
   if( !err && (nrows <= 0 || ncols <= 0) ) {
@@ -120,6 +121,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
       fNclublk = nclbl;
     }
   }
+ 
 
   if( !err ) {
     // Clear out the old channel map before reading a new one
@@ -165,6 +167,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
       }
     }
   }
+ 
 
   if( err ) {
     fclose(file);
@@ -192,9 +195,13 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     fPeak = new Float_t[ nval ];
     fT    = new Float_t[ nval ];
     fT_c  = new Float_t[ nval ];
+    foverflow  = new Int_t[ nval ]; 
+    funderflow = new Int_t[ nval ];
+    fpedq      = new Int_t[ nval ];
 
     fIsInit = true;
   }
+ 
 
   // Compute block positions
   for( int c=0; c<ncols; c++ ) {
@@ -223,6 +230,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
   fclose(file);
   if( err )
     return err;
+ 
 
 #ifdef WITH_DEBUG
   // Debug printout
@@ -302,6 +310,7 @@ TriFadcShower::~TriFadcShower()
 void TriFadcShower::DeleteArrays()
 {
   // Delete member arrays. Internal function used by destructor.
+ 
 
   fChanMap.clear();
   delete [] fBlockX;  fBlockX  = 0;
@@ -333,17 +342,24 @@ void TriFadcShower::Clear( Option_t* opt )
     fA[i] = fA_p[i] = fA_c[i] = kBig;
     fPeak[i] = fT[i] = fT_c[i] = kBig;
   }
+ 
+
   fAsum_p = fAsum_c = 0.0;
   fE = fX = fY = kBig;
   memset( fNblk, 0, fNclublk*sizeof(fNblk[0]) );
   for( Int_t i=0; i<fNclublk; ++i ) {
     fEblk[i] = kBig;
   }
-  for( Int_t i=0; i<fNelem; ++i ) {
-    foverflow[i]  = 1;
-    funderflow[i] = 1;
-    fpedq[i]      = 1;
-  } 
+  if( !strchr(opt,'I') ) {
+    memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
+    memset( funderflow, 0, fNelem*sizeof(funderflow[0]) );
+    memset( fpedq, 0, fNelem*sizeof(fpedq[0]) );
+  }
+  // for( Int_t i=0; i<fNelem; ++i ) {
+  //   foverflow[i]  = 1;
+  //   funderflow[i] = 1;
+  //   fpedq[i]      = 1;
+  // } 
 
 }
 
@@ -361,6 +377,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
   // fAsum_c          -  Sum of shower blocks corrected ADC values;
 
   const char* const here = "Decode";
+ 
 
   // Loop over all modules defined for shower detector
   bool has_warning = false;
@@ -417,6 +434,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
 	       "invalid. Data skipped.", k );
 	continue;
       }
+ 
 
       Float tempPed = fPed[k];
       Int_t ftime=0,fpeak=0;
@@ -459,6 +477,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
       cout << "  Block  ADC  ADC_p  ";
     }
     cout << endl;
+ 
 
     for (int i=0; i<(fNelem+ncol-1)/ncol; i++ ) {
       for (int c=0; c<ncol; c++) {
@@ -544,6 +563,7 @@ Int_t TriFadcShower::CoarseProcess( TClonesArray& tracks )
   }
 
   // Calculate track projections onto shower plane
+ 
 
   CalcTrackProj( tracks );
 

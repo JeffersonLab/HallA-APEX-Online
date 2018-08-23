@@ -258,8 +258,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
-    HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
-    HRSL->AddDetector( new THaShower("prl2", "Show pion rej." )); 
+    HRSL->AddDetector( new TriFadcShower("prl1", "Pre-shower pion rej." ));
+    HRSL->AddDetector( new TriFadcShower("prl2", "Shower pion rej." )); 
     
     THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
     FbusHRSL->AutoStandardDetectors(kFALSE);

@@ -3,7 +3,6 @@
 Lrb.Raster.detmap =
       31   9     1     1      1  250
       31   9     0     0      1  250
-      3    21    15    16     1  1881
 Lrb.Raster.zpos = -7.345  -2.214  0
 Lrb.Raster.freqs = 18.3  18.3
 Lrb.Raster.slope_peds = 1633  1643
@@ -60,4 +59,3 @@ Lrb.Raster.raw2posT = -0.01290454 0.01980049 1.4731e-07 -2.60486e-07 0.0 0.0
 Lrb.Raster.detmap =
       31   8     1     1      1  250
       31   8     0     0      1  250
-

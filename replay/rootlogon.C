@@ -31,8 +31,9 @@
     gSystem->Load(Form(replay_dir_prefix,"ReplayCore64_C.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Xscin/libTritium_Xscin.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcScin/libTriFadcScin.so"));
-    gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcCherenkov/libTriFadcCherenkov.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcXscin/libTriFadcXscin.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcCherenkov/libTriFadcCherenkov.so"));
+    gSystem->Load(Form(replay_dir_prefix,"libraries/TriFadcShower/libTriFadcShower.so"));
     gSystem->Load(Form("./libraries/Tritium_HRS/libTritium_HRS.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_TSScaler/libTritium_TSScaler.so"));
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tritium_Evt100/libTritium_THaScaler100EvtHandler.so"));
