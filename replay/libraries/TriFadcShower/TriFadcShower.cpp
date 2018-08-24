@@ -436,7 +436,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
       }
  
 
-      Float tempPed = fPed[k];
+      Float_t tempPed = fPed[k];
       Int_t ftime=0,fpeak=0;
       ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
       fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
