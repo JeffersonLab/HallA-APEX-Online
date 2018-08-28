@@ -82,7 +82,8 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
   // Read mapping/geometry/configuration parameters
 
   fNPED = 1;
-  fWin  = 1;
+  fNSA  = 1;
+  fNSB  = 1;
   DBRequest config_request[] = {
     { "detmap",       &detmap,  kIntV },
     { "chanmap",      &chanmap, kIntV,    0, 1 },
@@ -92,7 +93,8 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     { "dxdy",         &dxy,     kDoubleV, 2 },  // dx and dy block spacings
     { "emin",         &fEmin,   kDouble },
     { "NPED",         &fNPED,   kInt},
-    { "Win",          &fWin,    kInt},
+    { "NSA",          &fNSA,    kInt},
+    { "NSB",          &fNSB,    kInt},
     { 0 }
   };
   err = LoadDB( file, date, config_request, fPrefix );
@@ -447,7 +449,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
         fpedq[k]      = fFADC->GetPedestalQuality(chan,0);
       }
       if(fpedq[k]==0) // good quality
-        tempPed    = fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+        tempPed    = (fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
 
       // Copy the data and apply calibrations
       fA[k]   = data;                   // ADC value
