@@ -31,13 +31,14 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
   
   //Enable modules
-  Bool_t bScaler=kFALSE;
+  Bool_t bScaler=kTRUE;
   Bool_t bHelicity=kFALSE;
   Bool_t bBeam=kTRUE;
   Bool_t bPhysics=kTRUE;
-  Bool_t bEloss=kFALSE;
+  Bool_t bEloss=kTRUE;
   Bool_t bOldTrack=kFALSE;
-  
+
+
   TString rootname;
   if(OnlineReplay){
     rootname = "%s/tritium_online_%d.root";}
@@ -258,9 +259,15 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
-    HRSL->AddDetector( new TriFadcShower("prl1", "Pre-shower pion rej." ));
-    HRSL->AddDetector( new TriFadcShower("prl2", "Shower pion rej." )); 
-    
+
+    if(runnumber<3200){
+      HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
+      HRSL->AddDetector( new THaShower("prl2", "Shower pion rej." )); 
+    }
+    else{
+      HRSL->AddDetector( new TriFadcShower("prl1", "Pre-shower pion rej." ));
+      HRSL->AddDetector( new TriFadcShower("prl2", "Shower pion rej." )); 
+    }
     THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
     FbusHRSL->AutoStandardDetectors(kFALSE);
     gHaApps->Add(FbusHRSL);
