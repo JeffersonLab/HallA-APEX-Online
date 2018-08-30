@@ -149,7 +149,8 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
   memset( fPed, 0, nval*sizeof(fPed[0]) );
 
   fNPED = 1; //number of samples included in FADC pedestal sum
-  fWin = 1;  //number of samples included in FADC integration
+  fNSA = 1;  //number of integration samples after threshold crossing
+  fNSB = 1;  //number of integration samples before threshold crossing
 
   for( UInt_t i=0; i<nval; ++i ) { fGain[i] = 1.0; }
 
@@ -159,7 +160,8 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     { "adc.gains",        fGain,        kFloat, nval, 1 },
     //    { "tdc.res",          &fTdc2T,      kDouble },
     { "NPED",             &fNPED,        kInt},
-    { "Win",              &fWin,         kInt},
+    { "NSA",              &fNSA,         kInt},
+    { "NSB",              &fNSB,         kInt},
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
@@ -316,7 +318,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
           }
           if(fpedq[k]==0)
-           tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+           tempPed=(NSA+NSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
 
       }
       
