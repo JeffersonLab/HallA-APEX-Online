@@ -36,7 +36,8 @@ protected:
   Float_t*   fGain;       // [fNelem] ADC gains
 
   Int_t    fNPED;        //number of samples included in FADC pedestal sum
-  Int_t    fWin;         //number of samples that FADC make integration
+  Int_t    fNSA;         //number of integration samples after threshold crossing
+  Int_t    fNSB;         //number of integration samples before threshold crossing
 
 
   // Per-event data

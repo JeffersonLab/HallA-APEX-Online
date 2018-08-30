@@ -73,7 +73,8 @@ protected:
   Int_t*   funderflow;        //[fNelem] FADC underflowbit
   Int_t*   fpedq;             //[fNelem] FADC pedestal quality bit
   Int_t    fNPED;        //number of samples included in FADC pedestal sum
-  Int_t    fWin;         //number of samples that FADC make integration
+  Int_t    fNSA;         //number of integrated samples after threshold crossing
+  Int_t    fNSB;         //number of integrated samples before threshold crossing
   Float_t*   fPeak;         // [fNelem] Array of FADC ADC peak values
   Float_t*   fT;       // [fNelem] Array of FADC TDC times of channels
   Float_t*   fT_c;     // [fNelem] Array of FADC corrected TDC times of channels
