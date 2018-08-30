@@ -318,7 +318,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
           }
           if(fpedq[k]==0)
-           tempPed=(NSA+NSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+           tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
 
       }
       
