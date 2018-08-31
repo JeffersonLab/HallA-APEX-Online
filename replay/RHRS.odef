@@ -34,20 +34,16 @@ block R.gold.*
 block rpr.*
 block exR.*
 block EKR.*
-block EKRc.*
 block EKRx.*
-#block ElbR.*
-#block EltR.*
-block EKRxe.*
 
 #beam correction variables
 block ElbR.*
 block EltR.*
 block EKRxe.*
+
 #BPM/Raster Variables
 
 block Rrb.*
-block FbusRrb.*
 block Rurb.*
 
 FORMULA rbax 1000.*Rrb.BPMA.x
@@ -56,6 +52,8 @@ FORMULA rbbx 1000.*Rrb.BPMB.x
 FORMULA rbby 1000.*Rrb.BPMB.y
 FORMULA rbx 1000.*Rrb.x
 FORMULA rby 1000.*Rrb.y
+FORMULA urbx 1000.*Rurb.x
+FORMULA urby 1000.*Rurb.y
 FORMULA bpmaws Rrb.BPMA.rawcur.1+Rrb.BPMA.rawcur.2+Rrb.BPMA.rawcur.3+Rrb.BPMA.rawcur.4
 FORMULA bpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.rawcur.4
 FORMULA bpmaws FbusRrb.BPMA.rawcur.1+FbusRrb.BPMA.rawcur.2+FbusRrb.BPMA.rawcur.3+FbusRrb.BPMA.rawcur.4
@@ -183,6 +181,24 @@ TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
 TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
 TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
 
+
+TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
+TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
+TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
+TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
+
+
+TH1F Rvu1nhit 'R-arm VDC u1 TDC channel hits ' R.vdc.u1.nthit 20 0 10
+TH1F Rvu2nhit 'R-arm VDC u2 TDC channel hits ' R.vdc.u2.nthit 20 0 10
+TH1F Rvv1nhit 'R-arm VDC v1 TDC channel hits ' R.vdc.v1.nthit 20 0 10
+TH1F Rvv2nhit 'R-arm VDC v2 TDC channel hits ' R.vdc.v2.nthit 20 0 10
+
+
+TH2F Rvu1nthit 'R-arm VDC u1 TDC hits per channel : wire number' R.vdc.u1.wire R.vdc.u1.nthit 400 0 400 20 0 10
+TH2F Rvu2nthit 'R-arm VDC u2 TDC hits per channel : wire number' R.vdc.u2.wire R.vdc.u2.nthit 400 0 400 20 0 10
+TH2F Rvv1nthit 'R-arm VDC v1 TDC hits per channel : wire number' R.vdc.v1.wire R.vdc.v1.nthit 400 0 400 20 0 10
+TH2F Rvv2nthit 'R-arm VDC v2 TDC hits per channel : wire number' R.vdc.v2.wire R.vdc.v2.nthit 400 0 400 20 0 10
+
 #--------------------------------------------------------------------------------
 # RIGHT Arm Tracking & Reconstruction Histograms  :
 #
@@ -245,6 +261,7 @@ TH1F reactz 'R-arm Reaction Z vertex' rpr.z 200 -.5 .8
 #-------------------------------------------------------------------------------
 #Beam Information
 #
+
 TH1F bpma_x 'BPMA x [mm]' rbax 4000 -15. 15.
 TH1F bpma_y 'BPMA y [mm]' rbay 4000 -15. 15.
 TH1F bpmb_x 'BPMB x [mm]' rbbx 4000 -15. 15.
@@ -256,7 +273,7 @@ TH1F beam_rastery 'y at target (from Rasters) [mm]' rby 4000  -15. 15.
 TH2F bpma_xy 'BPMA y vs x'  rbax rbay 2000 -15. 15. 2000 -15. 15.
 TH2F bpmb_xy 'BPMB y vs x'  rbbx rbby 2000 -15. 15. 2000 -15. 15.
 TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 200 -15. 15.  200 -15. 15.
-
+TH2F beam_unrasterxy 'Beam at target y vs x (unrastered)'  urbx urby 800 -15. 15.  800 -15. 15. 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
 #This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
 TH1F rastx1 'Fast Raster 1 X current' Rrb.Raster.rawcur.x 500 50000 100000
@@ -393,25 +410,30 @@ variable evRightd3_r
 variable evRightd10
 variable evRightd10_r
 
+#--------------------------------------------
+
 begin epics
+
   haBDSPOS
   HacR_alignAGL
-  HacR_D1_P0rb	
-  HALLA:p
-  HALLA:dpp
+  HacR_AglMrk
+  HacR_AglVrn
+  HacR_CalcAngle 
+  HacR_CalcPoint
 
+  hac_unser_read
+  hac_unser_current
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_unser_read
-  hac_unser_current
   hac_bcm_dvm1_current
   hac_bcm_dvm2_current
   IBC0L02Current 
   IBC3H00CRCUR4
-  HA:K224:Current
-  IPM1H05XPM1HZ
-  IPM1H05YPM1HZ
+  #HA:K224:Current
+  #IPM1H05XPM1HZ
+  #IPM1H05YPM1HZ
+  
   IPM1C12.XPOS
   IPM1C12.YPOS
 
@@ -420,5 +442,22 @@ begin epics
   IPM1H04E.XPOS
   IPM1H04E.YPOS
 
-  FCupsCORRECTED.VAL
+  HALLA:p
+  HALLA:dpp
+
+  HacR_D1_P0rb	
+
+  HacR_Q1_LS450:FLD_DATA
+  HacR_Q2_LS450:FLD_DATA
+  HacR_Q3_LS450:FLD_DATA
+  HacR_D_LS450:FLD_DATA
+  HacR_D1_LS450:SIG
+  HacR_D1_LS450:SIGLCK
+  HacR_D1_NMR:SIG             
+  HacR_D1_NMR:SIGLCK          
+  HacR_Q1_P0rb                
+  HacR_D1_P0rb                
+  HacR_Q2_P0rb                
+  HacR_Q3_P0rb                
+
 end epics

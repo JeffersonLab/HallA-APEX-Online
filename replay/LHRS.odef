@@ -27,7 +27,6 @@ variable V1495ClockInterval
 block L.gold.*
 block rpl.*
 block exL.*
-block EKLxe.*
 block EKLx.*
 #block LeftBCM*
 
@@ -37,21 +36,25 @@ block EltL.*
 block EKLxe.*
 
 #BPM/Raster Variables
+
+
+block Lrb*
+block Lurb*
+
 FORMULA rbax 1000.*Lrb.BPMA.x
 FORMULA rbay 1000.*Lrb.BPMA.y
 FORMULA rbbx 1000.*Lrb.BPMB.x
 FORMULA rbby 1000.*Lrb.BPMB.y
 FORMULA rbx 1000.*Lrb.x
 FORMULA rby 1000.*Lrb.y
+FORMULA urbx 1000.*Lurb.x
+FORMULA urby 1000.*Lurb.y
 FORMULA bpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
 FORMULA bpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
 FORMULA bpmawsFbus FbusLrb.BPMA.rawcur.1+FbusLrb.BPMA.rawcur.2+FbusLrb.BPMA.rawcur.3+FbusLrb.BPMA.rawcur.4
 FORMULA bpmbwsFbus FbusLrb.BPMB.rawcur.1+FbusLrb.BPMB.rawcur.2+FbusLrb.BPMB.rawcur.3+FbusLrb.BPMB.rawcur.4
 
 
-block Lrb*
-block FbusLrb*
-block Lurb*
 #-------------------------------------------------------------------
 #
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
@@ -108,13 +111,13 @@ TH2F Lcerfadcvfbus_ 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT ' L.cer.a_p FbusL
 
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
 #
-#TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 200 10 2000 L.prl1.a>0.
-TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.5 1000.5 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1050 -99.5 2000.5 L.prl1.a_p>=-50.
-TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 100 1 1000 
-TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0.5 1000.5 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1050 -99.5 2000.5 L.prl2.a_p>=-50.
-TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 100 10 1000
+#TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 1000 10 6000 L.prl1.a>0.
+TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.0 6000 L.prl1.a>0.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -100 6000 L.prl1.a_p>=-50.
+TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 1000 1 6000 
+TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0 6000 L.prl2.a>0.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -100 6000 L.prl2.a_p>=-50.
+TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 6000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
 TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 3000 L.tr.n>0
@@ -126,15 +129,33 @@ TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 20
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
 #
-TH1F Lvu1t 'L-arm VDC u1 time' L.vdc.u1.rawtime 300 0 3000
-TH1F Lvu2t 'L-arm VDC u2 time' L.vdc.u2.rawtime 300 0 3000
-TH1F Lvv1t 'L-arm VDC v1 time' L.vdc.v1.rawtime 300 0 3000
-TH1F Lvv2t 'L-arm VDC v2 time' L.vdc.v2.rawtime 300 0 3000
+TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 300 0 3000
+TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 300 0 3000
+TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 300 0 3000
+TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 300 0 3000
+
+TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 300 0 3000
+TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 0 3000
+TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 300 0 3000
+TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 300 0 3000
+
 
 TH1F Lvu1w 'L-arm VDC u1 wires' L.vdc.u1.wire 400 0 400
 TH1F Lvu2w 'L-arm VDC u2 wires' L.vdc.u2.wire 400 0 400
 TH1F Lvv1w 'L-arm VDC v1 wires' L.vdc.v1.wire 400 0 400
 TH1F Lvv2w 'L-arm VDC v2 wires' L.vdc.v2.wire 400 0 400
+
+TH1F Lvu1nhit 'L-arm VDC u1 TDC channel hits ' L.vdc.u1.nthit 20 0 10
+TH1F Lvu2nhit 'L-arm VDC u2 TDC channel hits ' L.vdc.u2.nthit 20 0 10
+TH1F Lvv1nhit 'L-arm VDC v1 TDC channel hits ' L.vdc.v1.nthit 20 0 10
+TH1F Lvv2nhit 'L-arm VDC v2 TDC channel hits ' L.vdc.v2.nthit 20 0 10
+
+
+TH2F Lvu1nthit 'L-arm VDC u1 TDC hits per channel : wire number' L.vdc.u1.wire L.vdc.u1.nthit 400 0 400 20 0 10
+TH2F Lvu2nthit 'L-arm VDC u2 TDC hits per channel : wire number' L.vdc.u2.wire L.vdc.u2.nthit 400 0 400 20 0 10
+TH2F Lvv1nthit 'L-arm VDC v1 TDC hits per channel : wire number' L.vdc.v1.wire L.vdc.v1.nthit 400 0 400 20 0 10
+TH2F Lvv2nthit 'L-arm VDC v2 TDC hits per channel : wire number' L.vdc.v2.wire L.vdc.v2.nthit 400 0 400 20 0 10
+
 
 #-------------------------------------------------------------------------------
 # LEFT Arm Tracking & Reconstruction Histograms  :
@@ -200,6 +221,7 @@ TH1F reactz 'L-arm Reaction Z vertex' rpl.z 200 -.5 .8
 #-------------------------------------------------------------------------------
 #Beam Information
 #
+
 TH1F bpma_x 'BPMA x [mm]' rbax 4000 -15. 15.
 TH1F bpma_y 'BPMA y [mm]' rbay 4000 -15. 15.
 TH1F bpmb_x 'BPMB x [mm]' rbbx 4000 -15. 15.
@@ -211,12 +233,13 @@ TH1F beam_rastery 'y at target (from Rasters) [mm]' rby 4000  -15. 15.
 TH2F bpma_xy 'BPMA y vs x'  rbax rbay 2000 -15. 15. 2000 -15. 15.
 TH2F bpmb_xy 'BPMB y vs x'  rbbx rbby 2000 -15. 15. 2000 -15. 15.
 TH2F beam_rasterxy 'Beam at target y vs x (from Rasters)'  rbx rby 800 -15. 15.  800 -15. 15.
+TH2F beam_unrasterxy 'Beam at target y vs x (unrastered)'  urbx urby 800 -15. 15.  800 -15. 15. 
 
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
 #This was changed back to the standard definitions by Barak in July 2015 (avoids off-diagonal terms in Raster current-to-position matrix)
-TH1F rastx1 'Fast Raster 1 X current' Lrb.Raster.rawcur.x 500 50000 100000
-TH1F rasty1 'Fast Raster 1 Y current' Lrb.Raster.rawcur.y 500 20000 120000
+TH1F rastx1 'Fast Raster 1 X current' Lrb.Raster.rawcur.x  500 50000 100000
+TH1F rasty1 'Fast Raster 1 Y current' Lrb.Raster.rawcur.y  500 20000 120000
 TH1F rastx2 'Fast Raster 2 X current' Lrb.Raster2.rawcur.x 500 45000 95000
 TH1F rasty2 'Fast Raster 2 Y current' Lrb.Raster2.rawcur.y 500 20000 120000
 
@@ -389,22 +412,27 @@ variable evLeftd10_r
 
 #--------------------------------------------
 begin epics
+
   haBDSPOS
   HacL_alignAGL
-  HacL_D1_P0rb	
-  
+  HacL_AglMrk
+  HacL_AglVrn
+  HacL_CalcAngle 
+  HacL_CalcPoint
+
+  hac_unser_read
+  hac_unser_current
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_unser_read
-  hac_unser_current
   hac_bcm_dvm1_current
   hac_bcm_dvm2_current
   IBC0L02Current 
   IBC3H00CRCUR4
-  HA:K224:Current
-  IPM1H05XPM1HZ
-  IPM1H05YPM1HZ
+  #HA:K224:Current
+  #IPM1H05XPM1HZ
+  #IPM1H05YPM1HZ
+  
   IPM1C12.XPOS
   IPM1C12.YPOS
 
@@ -413,10 +441,10 @@ begin epics
   IPM1H04E.XPOS
   IPM1H04E.YPOS
 
-  FCupsCORRECTED.VAL
-  
   HALLA:p
   HALLA:dpp
+
+  HacL_D1_P0rb	
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
@@ -424,4 +452,11 @@ begin epics
   HacL_D_LS450:FLD_DATA
   HacL_D1_LS450:SIG
   HacL_D1_LS450:SIGLCK
+  HacL_D1_NMR:SIG             
+  HacL_D1_NMR:SIGLCK          
+  HacL_Q1_P0rb                
+  HacL_D1_P0rb                
+  HacL_Q2_P0rb                
+  HacL_Q3_P0rb                
+
 end epics

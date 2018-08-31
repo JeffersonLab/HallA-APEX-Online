@@ -1,6 +1,6 @@
 //Check the stability of the beam energy using BPM 1c12
 //Barak Schmookler, Feb 2016
-
+// Add plot of epics beam energy with flag 0 -Shujie Li, 2018.08
 void energy_stability_left(Int_t flag){
   
   gStyle->SetOptStat(0);
@@ -8,14 +8,36 @@ void energy_stability_left(Int_t flag){
   TTree *ttree = (TTree*)gDirectory->Get("T");
   TTree *etree = (TTree*)gDirectory->Get("E");
   
+  //Entries in E-tree
+  Int_t nentries = etree->GetEntries();
+
   //Get Beam Energy
   TH1F *etemp1 = (TH1F*)gROOT->FindObject("etemp1");
   if(etemp1){
     etemp1->Reset();
   }else{
-    etemp1 = new TH1F("etemp1","",200,0,20);
+    etemp1 = new TH1F("etemp1","",2000,0,12000);
+
   }
-  ttree->Project("etemp1","Lrb.e");
+ // ttree->Project("etemp1","Lrb.e");
+  ttree->Project("etemp1","HALLA_p","hac_bcm_average>1");
+
+  if(flag==0){
+
+    Float_t ebeam_mean = etemp1->GetMean();
+    TH2F *hE0 = (TH2F*)gROOT->FindObject("hE0");
+    if(hE0){
+      hE0->Reset();
+    }else{
+      hE0 = new TH2F("hE0","Beam energy from Epics",nentries,0,nentries,100,ebeam_mean-2,ebeam_mean+2);
+      hE0->GetXaxis()->SetTitle("Entry");hE0->GetXaxis()->CenterTitle();
+      hE0->GetYaxis()->SetTitle("Energy [MeV]");hE0->GetYaxis()->CenterTitle();
+      hE0->SetMarkerColor(kBlue);hE0->SetMarkerStyle(3);hE0->SetMarkerSize(0.25);
+    }
+
+    etree->Draw("HALLA_p:Entry$>>hE0","hac_bcm_average>1","");
+  }
+
 
   //1d X Histogram (to find mean)
   TH1F *etemp2 = (TH1F*)gROOT->FindObject("etemp2");
@@ -40,8 +62,6 @@ void energy_stability_left(Int_t flag){
   //Dispersion at BPM 1c12 (in mm)
   const Float_t dispersion = 1.44E3;
 
-  //Entries in E-tree
-  Int_t nentries = etree->GetEntries();
 
   if(flag==1){
 
