@@ -36,6 +36,7 @@ using namespace std;
 
 const TString nhit_suffix( "nhit" );
 const TString eff_suffix(  "eff" );
+const TString ineff_suffix(  "ineff" );
 
 #if __cplusplus < 201103L
 # define SMART_PTR auto_ptr
@@ -62,8 +63,9 @@ TriVDCeff::VDCvar_t::~VDCvar_t()
 {
   // VDCvar_t destructor. Delete histograms, if defined.
 
-  SafeDeleteHist( histname + nhit_suffix, hist_eff );
-  SafeDeleteHist( histname + eff_suffix,  hist_nhit );
+  SafeDeleteHist( histname + nhit_suffix, hist_nhit );
+  SafeDeleteHist( histname + ineff_suffix, hist_ineff );
+  SafeDeleteHist( histname + eff_suffix,  hist_eff );
 }
 
 //_____________________________________________________________________________
@@ -77,6 +79,7 @@ void TriVDCeff::VDCvar_t::Reset( Option_t* )
   }
   if( hist_nhit ) hist_nhit->Reset();
   if( hist_eff  ) hist_eff->Reset();
+  if( hist_ineff  ) hist_ineff->Reset();
 }
 
 //_____________________________________________________________________________
@@ -131,6 +134,14 @@ Int_t TriVDCeff::Begin( THaRunBase* )
       TString title = thePlane.histname + " efficiency";
       thePlane.hist_eff = new TH1F( name, title,
 				    thePlane.nwire, 0, thePlane.nwire );
+    }
+    if( !thePlane.hist_ineff ) {
+      TString name = thePlane.histname + ineff_suffix;
+      TString title = thePlane.histname + " inefficiency";
+      thePlane.hist_ineff = new TH1F( name, title,
+            thePlane.nwire, 0, thePlane.nwire );
+      thePlane.hist_ineff->SetMaximum(2);
+      thePlane.hist_ineff->SetMinimum(0.001);
     }
   }
   fNevt = 0;
@@ -229,15 +240,17 @@ Int_t TriVDCeff::Process( const THaEvData& /*evdata*/ )
 
     if( cycle_event ) {
       thePlane.hist_eff->Reset();
+      thePlane.hist_ineff->Reset();
       for( Int_t i = 0; i < nwire; ++i ) {
 	if( thePlane.ncnt[i] != 0 ) {
 	  Double_t xeff = static_cast<Double_t>(thePlane.nhit[i]) /
 	    static_cast<Double_t>(thePlane.ncnt[i]);
-	  thePlane.hist_eff->Fill(i,xeff);
+    thePlane.hist_eff->Fill(i,xeff);
+    thePlane.hist_ineff->Fill(i,1-xeff);
 	  //thePlane.hist_eff->SetBinContent(i,xeff);
 	  Double_t error1[nwire];
 	  for( Int_t j = 0; j<nwire; ++j ) {error1[j]=0.0;}
-	 thePlane.hist_eff->SetError(error1);
+	 thePlane.hist_ineff->SetError(error1);
 	}
       }
 
@@ -377,6 +390,8 @@ void TriVDCeff::WriteHist()
       thePlane.hist_nhit->Write();
     if( thePlane.hist_eff )
       thePlane.hist_eff->Write();
+    if( thePlane.hist_ineff )
+      thePlane.hist_ineff->Write();
   }
 }
 
