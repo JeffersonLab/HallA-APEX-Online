@@ -215,6 +215,8 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
   fNPED = 1; //number of samples included in FADC pedestal sum
   fNSA = 1;  //number of integrated samples after threshold crossing
   fNSB = 1;  //number of integrated samples before threshold crossing
+  fWin = 1;  //total number of sample in FADC window
+  fTFlag = 1;  //Threshold On: 1, Off: 0
 
   // Default TDC offsets (0), ADC pedestals (0) and ADC gains (1)
   memset( fLOff, 0, nval*sizeof(fLOff[0]) );
@@ -240,6 +242,8 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     { "NPED",             &fNPED,        kInt},
     { "NSA",              &fNSA,         kInt},
     { "NSB",              &fNSB,         kInt},
+    { "Win",              &fWin,         kInt},
+    { "TFlag",            &fTFlag,       kInt},
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
@@ -499,11 +503,17 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
              }
           }
 
-         if(jj==1 && flpedq[k]==0)
-           dest->ped[k]=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
-        
-         if(jj==0 && frpedq[k]==0)
-           dest->ped[k]=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+         if( (jj==1 && flpedq[k]==0) || (jj==0 && frpedq[k]==0) )
+         {
+           if(fTFlag == 1)
+           {
+             dest->ped[k]=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+           }
+           else
+           {
+             dest->ped[k]=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+           }
+         }
       }
 
       if( adc ) {

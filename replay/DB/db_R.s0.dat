@@ -35,3 +35,5 @@ R.s0.retiming_offsets = 0
 R.s0.NPED = 15
 R.s0.NSA = 15
 R.s0.NSB = 2
+R.s0.Win = 55
+R.s0.TFlag = 0

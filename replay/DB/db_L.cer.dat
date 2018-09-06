@@ -42,3 +42,5 @@ L.cer.adc.gains = 0.94745 0.90151 0.90986 0.89472   0.84190  0.76139 1.07075  0.
 L.cer.NPED = 15
 L.cer.NSA = 55
 L.cer.NSB = 0
+L.cer.Win = 55
+L.cer.TFlag = 0

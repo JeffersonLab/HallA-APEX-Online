@@ -151,6 +151,8 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
   fNPED = 1; //number of samples included in FADC pedestal sum
   fNSA = 1;  //number of integration samples after threshold crossing
   fNSB = 1;  //number of integration samples before threshold crossing
+  fWin = 1;  //total number of sample in FADC window
+  fTFlag = 1;  //Threshold On: 1, Off: 0
 
   for( UInt_t i=0; i<nval; ++i ) { fGain[i] = 1.0; }
 
@@ -162,6 +164,8 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     { "NPED",             &fNPED,        kInt},
     { "NSA",              &fNSA,         kInt},
     { "NSB",              &fNSB,         kInt},
+    { "Win",              &fWin,         kInt},
+    { "TFlag",            &fTFlag,       kInt},
     { 0 }
   };
   err = LoadDB( file, date, calib_request, fPrefix );
@@ -308,7 +312,6 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
       else{ 
 	     fNhits[k]=evdata.GetNumHits(d->crate, d->slot, chan);     
              data = evdata.GetData( d->crate, d->slot, chan, fNhits[k]-1 );
-
 	  }
 
       if(adc){
@@ -316,10 +319,23 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                foverflow[k] = fFADC->GetOverflowBit(chan,0);
                funderflow[k] = fFADC->GetUnderflowBit(chan,0);
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
+            if(foverflow[k]+funderflow[k]+fpedq[k] != 0) printf("Bad Quality: (over, under, ped)= (%i,%i,%i)\n",foverflow[k],funderflow[k],fpedq[k]);
           }
           if(fpedq[k]==0)
-           tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
-
+          {
+            if(fTFlag == 1)
+            {
+              tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+            }
+            else
+            {
+              tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+            }
+          }
+   //       else
+   //       {
+   //         printf("\nWARNING: BAD FADC PEDESTAL\n");
+   //       }
       }
       
       // Copy the data to the local variables.
