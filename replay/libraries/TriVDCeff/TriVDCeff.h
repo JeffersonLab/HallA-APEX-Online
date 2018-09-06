@@ -40,8 +40,9 @@ protected:
     Vcnt_t   nhit;
     TH1F*    hist_nhit;
     TH1F*    hist_eff;
+    TH1F*    hist_ineff;
     VDCvar_t( const char* nm, const char* hn, Int_t nw )
-      : name(nm), histname(hn), pvar(0), nwire(nw), hist_nhit(0), hist_eff(0) {}
+      : name(nm), histname(hn), pvar(0), nwire(nw), hist_nhit(0), hist_eff(0), hist_ineff(0){}
     ~VDCvar_t();
     void     Reset( Option_t* opt ="" );
   };
