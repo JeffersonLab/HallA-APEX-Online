@@ -716,11 +716,19 @@ vmeDmaConfig(2, 5, 1);
     //MLU//
     ///////
   
-  BANKOPEN(1495,BT_UI4,0);		//MLU Clock Count bank
+  unsigned long BCMu_value = 0;
+  unsigned long BCMd_value = 0;
+  BCMu_value = v1495BCM_ReadCODA(0);
+  BCMd_value = v1495BCM_ReadCODA(1);
+
+  BANKOPEN(1495,BT_UI4,0);		//MLU Readout bank
     vmeDmaConfig(2,3,0);
     *dma_dabufp++ = LSWAP(0x14951495);
-    *dma_dabufp++ = LSWAP(v1495ClockCountReadCODA());
-    *dma_dabufp++ = LSWAP(v1495BCM_ReadCODA());
+    *dma_dabufp++ = LSWAP(v1495ClockCountReadCODA());			//32 bit Clock Count
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMu_value>>32));		//upper 32 bits of upstream bcm
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMu_value & 0xFFFF));		//lower 32 bits of upstream bcm
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMd_value>>32));		//upper 32 bits of downstream bcm
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMd_value & 0xFFFF));		//lower 32 bits of downstream bcm
     *dma_dabufp++ = LSWAP(0x14950000);
     vmeDmaConfig(2, 5, 1);
   BANKCLOSE;
