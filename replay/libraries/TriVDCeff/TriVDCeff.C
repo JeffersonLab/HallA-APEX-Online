@@ -141,7 +141,7 @@ Int_t TriVDCeff::Begin( THaRunBase* )
       thePlane.hist_ineff = new TH1F( name, title,
             thePlane.nwire, 0, thePlane.nwire );
       thePlane.hist_ineff->SetMaximum(2);
-      thePlane.hist_ineff->SetMinimum(0.001);
+      thePlane.hist_ineff->SetMinimum(0.005);
     }
   }
   fNevt = 0;
@@ -250,7 +250,8 @@ Int_t TriVDCeff::Process( const THaEvData& /*evdata*/ )
 	  //thePlane.hist_eff->SetBinContent(i,xeff);
 	  Double_t error1[nwire];
 	  for( Int_t j = 0; j<nwire; ++j ) {error1[j]=0.0;}
-	 thePlane.hist_ineff->SetError(error1);
+   thePlane.hist_ineff->SetError(error1);
+   thePlane.hist_eff->SetError(error1);
 	}
       }
 
