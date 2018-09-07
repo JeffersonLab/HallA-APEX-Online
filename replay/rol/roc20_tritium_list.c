@@ -35,8 +35,9 @@
 #define FADC_NSA           55 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5
+#define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
 #define chan_mask  0x0000 // chan mask for threshold setting 
-#define WANT_THRESHOLD 1  //whether or not want threshold settings
+#define WANT_THRESHOLD 0  //whether or not want threshold settings
 
 int FA_SLOT;
 /* FADC Library Variables */
@@ -127,25 +128,25 @@ rocDownload()
         printf("FADC THRESHOLDS ON!\n");
                // DAC values set such that pedestal samples are at 300ch
         if(islot==0) //S2
-          faSetThreshold(faSlot(islot), 300+25, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 82ch = 10mV
+          faSetThreshold(faSlot(islot), 300+8, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 8ch = 1mV
         if(islot==1) //S2
-          faSetThreshold(faSlot(islot), 300+25, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 82ch = 10mV
+          faSetThreshold(faSlot(islot), 300+8, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 8ch = 1mV
         if(islot==2) //GC/S0/A2
         {
 	  faSetThreshold(faSlot(islot), 300+25, 0x3fff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 25ch = 3mV
-	  faSetThreshold(faSlot(islot), 300+21, 0xc000);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 25ch = 3mV
+	  faSetThreshold(faSlot(islot), 300+8, 0xc000);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 8ch = 1mV
         }
         if(islot==3) //raster/BPM
           faSetThreshold(faSlot(islot), 1, 0xffff);
         if(islot==4) //A2
-	  faSetThreshold(faSlot(islot), 300+21, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 25ch = 3mV
+	  faSetThreshold(faSlot(islot), 300+8, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 8ch = 1mV
         if(islot==5) //A1/A2
         {
-	  faSetThreshold(faSlot(islot), 300+41, 0x00ff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 41ch = 5mV
-	  faSetThreshold(faSlot(islot), 300+21, 0xff00);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 25ch = 3mV
+	  faSetThreshold(faSlot(islot), 300+16, 0x00ff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 16ch = 2.0mV
+	  faSetThreshold(faSlot(islot), 300+8, 0xff00);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 8ch = 1mV
         }
         if(islot==6) //A1
-	  faSetThreshold(faSlot(islot), 300+41, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 41ch = 5mV
+	  faSetThreshold(faSlot(islot), 300+16, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 16ch = 2.0mV
 //	 for (ifa = 0; ifa<16; ifa++)
 //	   {
 //	     thrshflag |= 1 << ifa;
@@ -196,7 +197,7 @@ rocDownload()
 	    faSetDAC(faSlot(islot), 3003, 0x4000);	//A2 channel
 	    faSetDAC(faSlot(islot), 2986, 0x8000);	//A2 channel
           }
-        if(islot==0)
+        if(islot==0)//s2
 	  {
 	       //faSetThreshold(faSlot(islot), 300+25, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 82ch = 10mV
                faSetDAC(faSlot(islot), 3024, 0x0001); // jumper set to 0.5 V
@@ -217,7 +218,7 @@ rocDownload()
 	       faSetDAC(faSlot(islot), 3018, 0x8000);
 	  }
 
-        if(islot==1)
+        if(islot==1) // s2
 	  {
 	       //faSetThreshold(faSlot(islot), 300+25, 0xffff);	//for 0.5V setting, 0.5V/4096 = 0.122 mV/channel, so 82ch = 10mV
                faSetDAC(faSlot(islot), 3033, 0x0001); // jumper set to 0.5 V
@@ -341,17 +342,25 @@ rocDownload()
 
       // faSetProcMode(faSlot(islot), 10, 85, 40, 5, 60, 1, 4,250,2);
           if(WANT_THRESHOLD)
-            faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,160,2);
-          else{
+            {
+            printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
+           // faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,160,2);
+            if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+            if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,FADC_NSAT); //raster and BPM, no thresholds ever
+            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+            }
+          else
+            {
+            printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,357,1);
+            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
 //            if(islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,1);
 //            if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,330,1);
 //            if(islot==4)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,270,1);
-            if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,357,1);
+            if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
 	    //     faSetProcMode(faSlot(islot), 10, 135, 135, 5, 30, 1, 4,250,1);
-	   }
-	    faSetTriggerBusyCondition(faSlot(islot),8);
+	    }
+	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
 
     }
 
