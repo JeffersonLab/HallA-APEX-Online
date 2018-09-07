@@ -319,7 +319,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                foverflow[k] = fFADC->GetOverflowBit(chan,0);
                funderflow[k] = fFADC->GetUnderflowBit(chan,0);
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
-            if(foverflow[k]+funderflow[k]+fpedq[k] != 0) printf("Bad Quality: (over, under, ped)= (%i,%i,%i)\n",foverflow[k],funderflow[k],fpedq[k]);
+        //       if(foverflow[k]+funderflow[k]+fpedq[k] != 0) printf("Bad Quality: (over, under, ped)= (%i,%i,%i)\n",foverflow[k],funderflow[k],fpedq[k]);
           }
           if(fpedq[k]==0)
           {
