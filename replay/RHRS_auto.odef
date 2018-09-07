@@ -87,8 +87,8 @@ block EKRx.*
 
 Variable Rrb.dir.x
 Variable Rrb.dir.y
-Variable FbusRrb.x
-Variable FbusRrb.y
+#Variable FbusRrb.x
+#Variable FbusRrb.y
 Variable Rrb.x
 Variable Rrb.y
 

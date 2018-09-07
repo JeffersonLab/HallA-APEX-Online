@@ -26,7 +26,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
     ht1->GetYaxis()->SetTitle("good events counts");ht1->GetYaxis()->CenterTitle();
     
     
-    tree->Draw("EKR.x_bj>>ht1",data_cut+y_cut,drawoption);
+    tree->Draw("EKRxe.x_bj>>ht1",data_cut+y_cut,drawoption);
   }
  if(flag==2){
     
@@ -35,7 +35,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
     ht2->GetYaxis()->SetTitle("good events counts");ht2->GetYaxis()->CenterTitle();
     
     
-    tree->Draw("EKR.Q2>>ht2",data_cut+y_cut,drawoption);
+    tree->Draw("EKRxe.Q2>>ht2",data_cut+y_cut,drawoption);
   }
  if(flag==3){
     
@@ -67,7 +67,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
     ht4->GetYaxis()->SetTitle("Q2");ht4->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);
 
-    tree->Draw("EKR.Q2:EKR.x_bj>>ht4",data_cut+y_cut,drawoption);
+    tree->Draw("EKRxe.Q2:EKRxe.x_bj>>ht4",data_cut+y_cut,drawoption);
     
   }
 }
