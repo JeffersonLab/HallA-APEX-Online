@@ -5,7 +5,7 @@ L.prl2.detmap =
     31  12   0  15
     31   8  15  15
 L.prl2.NPED = 15
-L.prl2.NSA = 50
+L.prl2.NSA = 60
 L.prl2.NSB = 0
 --------[ 2018-05-03 00:00:00 -0500 ]
 L.prl2.pedestals =

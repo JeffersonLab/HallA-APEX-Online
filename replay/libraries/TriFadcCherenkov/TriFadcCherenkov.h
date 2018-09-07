@@ -38,6 +38,8 @@ protected:
   Int_t    fNPED;        //number of samples included in FADC pedestal sum
   Int_t    fNSA;         //number of integration samples after threshold crossing
   Int_t    fNSB;         //number of integration samples before threshold crossing
+  Int_t    fWin;         //total number of samples in FADC window
+  Int_t    fTFlag;       //flag for FADC threshold on vs FADC threshold off
 
 
   // Per-event data
