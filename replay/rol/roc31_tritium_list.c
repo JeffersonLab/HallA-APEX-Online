@@ -7,10 +7,10 @@
  */
 
 /* Event Buffer definitions */
-#define MAX_EVENT_LENGTH   1024*256 	/* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*128 	/* Size in Bytes */
 //MARCO:
-#define MAX_EVENT_POOL     10
-//#define MAX_EVENT_POOL     400
+#define MAX_EVENT_POOL     25
+//#define MAX_EVENT_POOL     80
 
 /* Define Interrupt source and address */
 #define TIR_SOURCE
@@ -29,13 +29,13 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          10 // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE          9 // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  55 // was 
-#define FADC_LATENCY       74 // was 
-#define FADC_LA_Sh         60 // was 
-#define FADC_WD_Sh         40 // was 
+#define FADC_LATENCY       74 // 
+#define FADC_LA_Sh         64 // was 62 
+#define FADC_WD_Sh         60 // was 
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           40 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_NSA           60 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
@@ -153,19 +153,32 @@ rocDownload()
         else faSetThreshold(faSlot(islot), 1, 0xffff); //0xffff sets all channels to same threshold
     }
        /* Set input DAC level */ //turn off adjusting DAC for slot 2 
+     /// adding islot 0,1,2 
+if(islot==0){
+	faSetDAC(faSlot(islot), 3000, 0xf);
+       }
+/// islot 1
+if(islot==1){
+	faSetDAC(faSlot(islot), 3000, 0xf);
+       }
+// islot2 
+if(islot==2){
+	faSetDAC(faSlot(islot), 3000, 0xf);
+       }
+
        
-      if(islot==2){
+      if(islot==3){
 	faSetDAC(faSlot(islot), 2500, 0xf); //changed for busy test : was 3150 
         faSetDAC(faSlot(islot), 3000, 0x0ff0);//BPM 
         faSetDAC(faSlot(islot), 3000, 0xf000);//prl1 and prl2 
        }
       else{
-            if(islot==1){ 
+            if(islot==2){ 
               faSetDAC(faSlot(islot),3220,0xdfff);
               faSetDAC(faSlot(islot),3200,0x2000);
 	    }
  	    else{
-	       if(islot==3||islot==4||islot==5||islot==6)
+	       if(islot==4||islot==5||islot==6||islot==7)
                  faSetDAC(faSlot(islot), 3400, 0xffff); // jumper set to 0.5 V
 	       else
 		 faSetDAC(faSlot(islot), 3200, 0xffff);
@@ -207,7 +220,7 @@ rocDownload()
        if(WANT_THRESHOLD)
          faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,140,2);
        else{
-         if(islot==2||islot==3||islot==4||islot==5||islot==6)
+         if(islot==3||islot==4||islot==5||islot==6||islot==7)
              faSetProcMode(faSlot(islot), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800,1);
          else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,200,1);
        }
@@ -431,7 +444,7 @@ rocTrigger(int arg)
     {
       //             nwords = faReadBlock(0, dma_dabufp, 5000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
        
-      nwords = faReadBlock(faSlot(0), dma_dabufp, 3000, 2);
+      nwords = faReadBlock(faSlot(0), dma_dabufp, 25000, 2);
       // nwords = 0;
       // nwords = 0;
       if (nwords < 0)
