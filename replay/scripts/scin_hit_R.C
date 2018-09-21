@@ -9,7 +9,7 @@ void scin_hit_R(){
   Int_t maintrig;
   Double_t thres=0;// adc pedestal level
   
-  arm = "R";maintrig=1;thres=400;
+  arm = "R";maintrig=1;thres=200;
 
 
   //   plot s0 and s2 adc and tdc hits 
