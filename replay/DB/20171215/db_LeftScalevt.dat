@@ -123,3 +123,55 @@ variable 4 29  1  S0AandB    S0A & S0B
 variable 4 30  1  L1A2    L1A copy 2 from TS LHRS (for F1s)
 variable 4 31  1  S2LandR    S2L & S2R
 
+
+variable 3 0   2  S2mL_1_r    S2m1L  rate
+variable 3 1   2  S2mL_2_r    S2m2L  rate
+variable 3 2   2  S2mL_3_r    S2m3L  rate
+variable 3 3   2  S2mL_4_r    S2m4L  rate
+variable 3 4   2  S2mL_5_r    S2m5L  rate
+variable 3 5   2  S2mL_6_r    S2m6L  rate
+variable 3 6   2  S2mL_7_r    S2m7L  rate
+variable 3 7   2  S2mL_8_r    S2m8L  rate
+variable 3 8   2  S2mL_9_r    S2m9L  rate
+variable 3 9   2  S2mL_10_r   S2m10L rate
+variable 3 10  2  S2mL_11_r   S2m11L rate
+variable 3 11  2  S2mL_12_r   S2m12L rate
+variable 3 12  2  S2mL_13_r   S2m13L rate
+variable 3 13  2  S2mL_14_r   S2m14L rate
+variable 3 14  2  S2mL_15_r   S2m15L rate
+variable 3 15  2  S2mL_16_r   S2m16L rate
+variable 3 16  2  S2mR_1_r    S2m1R rate
+variable 3 17  2  S2mR_2_r    S2m2R rate
+variable 3 18  2  S2mR_3_r    S2m3R rate
+variable 3 19  2  S2mR_4_r    S2m4R rate
+variable 3 20  2  S2mR_5_r    S2m5R rate
+variable 3 21  2  S2mR_6_r    S2m6R rate
+variable 3 22  2  S2mR_7_r    S2m7R rate
+variable 3 23  2  S2mR_8_r    S2m8R rate
+variable 3 24  2  S2mR_9_r    S2m9R rate
+variable 3 25  2  S2mR_10_r   S2m10R rate
+variable 3 26  2  S2mR_11_r   S2m11R rate
+variable 3 27  2  S2mR_12_r   S2m12R rate
+variable 3 28  2  S2mR_13_r   S2m13R rate
+variable 3 29  2  S2mR_14_r   S2m14R rate
+variable 3 30  2  S2mR_15_r   S2m15R rate
+variable 3 31  2  S2mR_16_r   S2m16R rate
+
+
+
+variable 4 16  2  Cher_1_r   Cher1 rate
+variable 4 17  2  Cher_2_r   Cher2 rate
+variable 4 18  2  Cher_3_r   Cher3 rate
+variable 4 19  2  Cher_4_r   Cher4 rate
+variable 4 20  2  Cher_5_r   Cher5 rate
+variable 4 21  2  Cher_6_r   Cher6 rate
+variable 4 22  2  Cher_7_r   Cher7 rate
+variable 4 23  2  Cher_8_r   Cher8 rate
+variable 4 24  2  Cher_9_r   Cher9 rate
+variable 4 25  2  Cher_10_r  Cher10 rate
+variable 4 26  2  Cher_sum_r CherSum rate
+variable 4 27  2  S0A_r      S0A rate
+variable 4 28  2  S0B_r      S0B rate
+variable 4 29  2  S0AandB_r  S0A & S0B rate
+variable 4 30  2  L1A2_r     L1A copy 2 from TS LHRS (for F1s) rate
+variable 4 31  2  S2LandR_r  S2L & S2R rate
