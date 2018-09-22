@@ -154,16 +154,65 @@ rocDownload()
     }
        /* Set input DAC level */ //turn off adjusting DAC for slot 2 
      /// adding islot 0,1,2 
-if(islot==0){
-	faSetDAC(faSlot(islot), 3000, 0xf);
+if(islot==0)      {
+        faSetDAC(faSlot(islot), 3072, 0x0001);   ///S0
+	faSetDAC(faSlot(islot), 3088, 0x0002);
+	faSetDAC(faSlot(islot), 3090, 0x0004); // GC
+	faSetDAC(faSlot(islot), 3092, 0x0008);
+	faSetDAC(faSlot(islot), 3091, 0x0010);
+	faSetDAC(faSlot(islot), 3103, 0x0020);
+	faSetDAC(faSlot(islot), 3080, 0x0040);
+	faSetDAC(faSlot(islot), 3077, 0x0080);
+	faSetDAC(faSlot(islot), 3093, 0x0100);
+	faSetDAC(faSlot(islot), 3085, 0x0200);
+	faSetDAC(faSlot(islot), 3096, 0x0400);
+	faSetDAC(faSlot(islot), 3102, 0x0800);
+	faSetDAC(faSlot(islot), 3071, 0x1000); // Gc sum
+	faSetDAC(faSlot(islot), 3027, 0x2000); // L1A Ref
+	faSetDAC(faSlot(islot), 2998, 0x4000); // last two channels are empty
+	faSetDAC(faSlot(islot), 2998, 0x8000);
+	//faSetDAC(faSlot(islot), 3200, 0xffff);  //previous default value
        }
 /// islot 1
 if(islot==1){
-	faSetDAC(faSlot(islot), 3000, 0xf);
+        faSetDAC(faSlot(islot), 3040, 0x0001); /// S2L
+	faSetDAC(faSlot(islot), 3059, 0x0002);
+	faSetDAC(faSlot(islot), 3034, 0x0004);
+	faSetDAC(faSlot(islot), 3039, 0x0008);
+	faSetDAC(faSlot(islot), 3067, 0x0010);
+	faSetDAC(faSlot(islot), 3060, 0x0020);
+	faSetDAC(faSlot(islot), 3035, 0x0040);
+	faSetDAC(faSlot(islot), 3047, 0x0080);
+	faSetDAC(faSlot(islot), 3057, 0x0100);
+	faSetDAC(faSlot(islot), 3049, 0x0200);
+	faSetDAC(faSlot(islot), 3053, 0x0400);
+	faSetDAC(faSlot(islot), 3037, 0x0800);
+	faSetDAC(faSlot(islot), 3068, 0x1000);
+	faSetDAC(faSlot(islot), 3056, 0x2000);
+	faSetDAC(faSlot(islot), 3052, 0x4000);
+	faSetDAC(faSlot(islot), 3046, 0x8000);
+	//faSetDAC(faSlot(islot), 3200, 0xffff);  //previous default value
        }
 // islot2 
 if(islot==2){
-	faSetDAC(faSlot(islot), 3000, 0xf);
+        faSetDAC(faSlot(islot), 3030, 0x0001); // S2R
+	faSetDAC(faSlot(islot), 3047, 0x0002);
+	faSetDAC(faSlot(islot), 3042, 0x0004);
+	faSetDAC(faSlot(islot), 3040, 0x0008);
+	faSetDAC(faSlot(islot), 3049, 0x0010);
+	faSetDAC(faSlot(islot), 3015, 0x0020);
+	faSetDAC(faSlot(islot), 3049, 0x0040);
+	faSetDAC(faSlot(islot), 3024, 0x0080);
+	faSetDAC(faSlot(islot), 3044, 0x0100);
+	faSetDAC(faSlot(islot), 3022, 0x0200);
+	faSetDAC(faSlot(islot), 3046, 0x0400);
+	faSetDAC(faSlot(islot), 3034, 0x0800);
+	faSetDAC(faSlot(islot), 3047, 0x1000);
+	faSetDAC(faSlot(islot), 3039, 0x2000);
+	faSetDAC(faSlot(islot), 3048, 0x4000);
+	faSetDAC(faSlot(islot), 3037, 0x8000);
+       // faSetDAC(faSlot(islot),3220,0xdfff);
+       // faSetDAC(faSlot(islot),3200,0x2000);
        }
 
        
@@ -171,19 +220,10 @@ if(islot==2){
 	faSetDAC(faSlot(islot), 2500, 0xf); //changed for busy test : was 3150 
         faSetDAC(faSlot(islot), 3000, 0x0ff0);//BPM 
         faSetDAC(faSlot(islot), 3000, 0xf000);//prl1 and prl2 
-       }
-      else{
-            if(islot==2){ 
-              faSetDAC(faSlot(islot),3220,0xdfff);
-              faSetDAC(faSlot(islot),3200,0x2000);
-	    }
- 	    else{
-	       if(islot==4||islot==5||islot==6||islot==7)
-                 faSetDAC(faSlot(islot), 3400, 0xffff); // jumper set to 0.5 V
-	       else
-		 faSetDAC(faSlot(islot), 3200, 0xffff);
-	    }
-       }
+      }
+      if(islot==4||islot==5||islot==6||islot==7){
+        faSetDAC(faSlot(islot), 3400, 0xffff); // jumper set to 0.5 V
+      }
       /*  Setup option 1 processing - RAW Window Data     <-- */
       /*        option 2            - RAW Pulse Data */
       /*        option 3            - Integral Pulse Data */
