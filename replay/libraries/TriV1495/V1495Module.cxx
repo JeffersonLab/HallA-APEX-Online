@@ -96,6 +96,7 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 		// gotCntHeader true? Store the Clock Count Word
 		if(gotCntHeader) {
 			*vCount = (*loc);
+			gotCntHeader=0;
 			fWordsSeen++;	//Not sure if this is actually needed...  -- REM -- 2018-02-01
 		}
 
