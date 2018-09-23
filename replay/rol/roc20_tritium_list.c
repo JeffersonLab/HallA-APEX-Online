@@ -27,10 +27,9 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  55
-#define FADC_LATENCY       70
-#define FADC_LATENCY_A1A2  55	
+#define FADC_LATENCY       79
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           55 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -188,20 +187,20 @@ rocDownload()
           }
         if(islot==2)
           {
-             faSetDAC(faSlot(islot),3077,0x0001);	//S0 channels   DAC=3000
-	     faSetDAC(faSlot(islot),3080,0x0002);       
-	    faSetDAC(faSlot(islot),3105,0x0004);	//GC channels    DAC 3220 
-	    faSetDAC(faSlot(islot),3100,0x0008); 
-	    faSetDAC(faSlot(islot),3105,0x0010);
-	    faSetDAC(faSlot(islot),3100,0x0020);
-	    faSetDAC(faSlot(islot),3097,0x0040);
-	    faSetDAC(faSlot(islot),3100,0x0080);
-	    faSetDAC(faSlot(islot),3100,0x0100);
-	    faSetDAC(faSlot(islot),3080,0x0200);
-	    faSetDAC(faSlot(islot),3080,0x0400);
-	    faSetDAC(faSlot(islot),3093,0x0800);
-	    faSetDAC(faSlot(islot),3070,0x1000); //ADCsum
-	    faSetDAC(faSlot(islot),3056,0x2000); //L1A Timing Reference
+             faSetDAC(faSlot(islot),3086.33,0x0001);	//S0 channels   DAC=3000
+	     faSetDAC(faSlot(islot),3092,0x0002);       
+	    faSetDAC(faSlot(islot),3091,0x0004);	//GC channels    DAC 3220 
+	    faSetDAC(faSlot(islot),3091.3,0x0008); 
+	    faSetDAC(faSlot(islot),3096.3,0x0010);
+	    faSetDAC(faSlot(islot),3092.7,0x0020);
+	    faSetDAC(faSlot(islot),3084.3,0x0040);
+	    faSetDAC(faSlot(islot),3085.3,0x0080);
+	    faSetDAC(faSlot(islot),3087.3,0x0100);
+	    faSetDAC(faSlot(islot),3092,0x0200);
+	    faSetDAC(faSlot(islot),3090,0x0400);
+	    faSetDAC(faSlot(islot),3078.3,0x0800);
+	    faSetDAC(faSlot(islot),3085.3,0x1000); //ADCsum
+	    faSetDAC(faSlot(islot),3036.7,0x2000); //L1A Timing Reference
            
            
 	    faSetDAC(faSlot(islot), 3003, 0x4000);	//A2 channel
@@ -348,21 +347,17 @@ rocDownload()
           if(WANT_THRESHOLD)
             {
             printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
-           // faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,160,2);
-            if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,500,FADC_NSAT);
+            if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,FADC_NSAT); //raster and BPM, no thresholds ever
-            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
             }
           else
             {
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-//            if(islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_A1A2, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,1);
-//            if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,330,1);
-//            if(islot==4)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,270,1);
+            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
             if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-	    //     faSetProcMode(faSlot(islot), 10, 135, 135, 5, 30, 1, 4,250,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
 
