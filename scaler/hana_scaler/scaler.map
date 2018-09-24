@@ -9,6 +9,341 @@
 # near the end of that web page).
 #
 
+# ------ September 22, 2018
+
+DATE 22 9 2018
+
+# Setup for Tritium Fall 2018
+
+# Helicity-gated scalers are two "virtual" slots derived from one scaler unit
+
+# directives for Left HRS
+
+xscaler-tabs Left 0:Empty 1:Norm 2:Empty 3:S2m 4:Trig-Cher-S0 5:Empty 6:Empty
+xscaler-layout Left 0:4x4 1:8x4 2:8x4 3:8x4 4:8x4 5:4x4 6:8x4 
+xscaler-pageslot Left 0:slot0 1:slot1 2:slot2 3:slot3 4:slot4 5:slot5 6:slot6 
+xscaler-pagename Left 0:'L-HRS LeCroy Scaler'
+xscaler-pagename Left 1:'L-HRS Normalization (it is not gated by helicity)'
+xscaler-pagename Left 2:'L-HRS '
+xscaler-pagename Left 3:'L-HRS S2m Left and Right (4th physical slot)'
+xscaler-pagename Left 4:'L-HRS Triggers, Gas Cherenkov,and S0 (5th physical slot)'
+xscaler-pagename Left 5:'L-HRS '
+xscaler-pagename Left 6:'L-HRS '
+
+xscaler-server Left IP:129.57.192.30 port:5022
+xscaler-clock Left slot:4 chan:7 rate:103700
+
+#
+# directives for Right HRS
+xscaler-tabs Right 0:Empty 1:Trig-Cher-S0 2:S2m 3:Norm 4:empty 5:empty 6:empty
+xscaler-layout Right 0:4x4 1:8x4 2:8x4 3:8x4 4:4x4 5:4x4 6:4x4
+xscaler-pageslot Right 0:slot0 1:slot1 2:slot2 3:slot3 4:slot4 5:slot5 6:slot6
+xscaler-pagename Right 0:'LeCroy Scaler in 1st slot'
+xscaler-pagename Right 1:'R-HRS Triggers, Gas Cherenkov, and s0'
+xscaler-pagename Right 2:'R-HRS S2m Left and Right'
+xscaler-pagename Right 3:'R-HRS Normalization'
+xscaler-pagename Right 4:'BCMs Scalar in 5th slot'
+xscaler-pagename Right 5:'Caen Scalar in 6th slot'
+xscaler-pagename Right 6:'Caen Scalar in 7th slot'
+
+xscaler-server Right IP:129.57.192.28 port:5021
+xscaler-clock Right slot:1 chan:6 rate:1024
+
+# Left HRS:  
+# Normalization scaler in software slot 3, which is hardware slot 2  
+# (software 0=Lecroy, software [1,2] = helicity scaler sorted by helicity)
+
+# desc        hel crate slot  start nchan  long-description
+1               0   8     0     0     1      
+2               0   8     0     1     1     
+3               0   8     0     2     1      
+4               0   8     0     3     1      
+5               0   8     0     4     1      
+6               0   8     0     5     1      
+7               0   8     0     6     1      
+8               0   8     0     7     1      
+9               0   8     0     8     1      
+10              0   8     0     9     1      
+11              0   8     0     10    1      
+12              0   8     0     11    1      
+13              0   8     0     12    1      
+14              0   8     0     13    1      
+15              0   8     0     14    1      
+16              0   8     0     15    1     
+
+T1              0   8     1     0     1      Trigger 1   
+T2              0   8     1     1     1      Trigger 2
+T3              0   8     1     2     1      Trigger 3
+MLU random      0   8     1     3     1      
+empty           0   8     1     4     1       
+L1A_Remote      0   8     1     5     1      L1A remote signal from RHRS
+Clock_RHRS      0   8     1     6     1      
+Clock_LHRS      0   8     1     7     1      
+L1A             0   8     1     8     1      LHRS L1A
+(S0||S2)L       0   8     1     9     1
+S2L             0   8     1     10    1      LHRS S2L signal
+S2R             0   8     1     11    1      LHRS S2R signal
+(S0||S2)R       0   8     1     12    1      Retiming signal from RHRS
+ADC_gate        0   8     1     13    1      
+empty           0   8     1     14    1      
+RF_Time         0   8     1     15    1
+L1A             0   8     1     16    1      L1A directly from TS2 output.
+unew            0   8     1     18    1      
+dnew            0   8     1     20    1      
+unser           0   8     1     22    1      
+u1              0   8     1     24    1      
+d1              0   8     1     26    1      
+d3              0   8     1     28    1      
+d10             0   8     1     30    1      
+
+1               0   8     2     0     1      
+2               0   8     2     1     1      
+3               0   8     2     2     1      
+4               0   8     2     3     1      
+5               0   8     2     4     1      
+6               0   8     2     5     1      
+7               0   8     2     6     1      
+8               0   8     2     7     1      
+9               0   8     2     8     1      
+10              0   8     2     9     1      
+11              0   8     2     10    1      
+12              0   8     2     11    1      
+13              0   8     2     12    1      
+14              0   8     2     13    1     
+15              0   8     2     14    1      
+16              0   8     2     15    1      
+17              0   8     2     16    1      
+18              0   8     2     17    1      
+19              0   8     2     18    1      
+20              0   8     2     19    1      
+21              0   8     2     20    1      
+22              0   8     2     21    1      
+23              0   8     2     22    1      
+24              0   8     2     23    1      
+25              0   8     2     24    1      
+26              0   8     2     25    1      
+27              0   8     2     26    1      
+28              0   8     2     27    1      
+29              0   8     2     28    1      
+30              0   8     2     29    1      
+31              0   8     2     30    1      
+32              0   8     2     31    1      
+
+
+S2mL-1          0   8     3     0     1
+S2mL-2          0   8     3     1     1
+S2mL-3          0   8     3     2     1
+S2mL-4          0   8     3     3     1
+S2mL-5          0   8     3     4     1
+S2mL-6          0   8     3     5     1
+S2mL-7          0   8     3     6     1
+S2mL-8          0   8     3     7     1
+S2mL-9          0   8     3     8     1
+S2mL-10         0   8     3     9     1
+S2mL-11         0   8     3     10    1
+S2mL-12         0   8     3     11    1
+S2mL-13         0   8     3     12    1
+S2mL-14         0   8     3     13    1
+S2mL-15         0   8     3     14    1
+S2mL-16         0   8     3     15    1
+S2mR-1          0   8     3     16    1
+S2mR-2          0   8     3     17    1
+S2mR-3          0   8     3     18    1
+S2mR-4          0   8     3     19    1
+S2mR-5          0   8     3     20    1
+S2mR-6          0   8     3     21    1
+S2mR-7          0   8     3     22    1
+S2mR-8          0   8     3     23    1
+S2mR-9          0   8     3     24    1
+S2mR-10         0   8     3     25    1
+S2mR-11         0   8     3     26    1
+S2mR-12         0   8     3     27    1
+S2mR-13         0   8     3     28    1
+S2mR-14         0   8     3     29    1
+S2mR-15         0   8     3     30    1
+S2mR-16         0   8     3     31    1      
+
+T1              0   8     4     0     1      Trigger 1
+T2              0   8     4     1     1      Trigger 2
+T3              0   8     4     2     1      Trigger 3
+MLUran          0   8     4     3     1      Randoms from MLU
+empty           0   8     4     4     1      
+L1A_Remote      0   8     4     5     1      L1A remote signal from RHRS
+Clock_RHRS      0   8     4     6     1
+Clock_LHRS      0   8     4     7     1
+L1A             0   8     4     8     1      LHRS L1A    
+(S0||S2)L       0   8     4     9     1
+S2L             0   8     4     10    1      LHRS S2L signal
+S2R             0   8     4     11    1      LHRS S2R signal
+(S0||S2)R       0   8     4     12    1      Retiming signal from RHRS
+ADC_gate        0   8     4     13    1      
+empty           0   8     4     14    1      
+RF_Time         0   8     4     15    1
+Cher-1          0   8     4     16    1
+Cher-2          0   8     4     17    1
+Cher-3          0   8     4     18    1
+Cher-4          0   8     4     19    1
+Cher-5          0   8     4     20    1
+Cher-6          0   8     4     21    1
+Cher-7          0   8     4     22    1
+Cher-8          0   8     4     23    1
+Cher-9          0   8     4     24    1
+Cher-10         0   8     4     25    1
+Cher-sum        0   8     4     26    1
+S0-A            0   8     4     27    1
+S0-B            0   8     4     28    1
+S0A_and_S0B     0   8     4     29    1
+L1A             0   8     4     30    1
+S2L_and_S2R     0   8     4     31    1
+
+
+1               0   8     5     0     1      
+2               0   8     5     1     1      
+3               0   8     5     2     1      
+4               0   8     5     3     1      
+5               0   8     5     4     1      
+6               0   8     5     5     1      
+7               0   8     5     6     1      
+8               0   8     5     7     1      
+9               0   8     5     8     1      
+10              0   8     5     9     1      
+11              0   8     5     10    1      
+12              0   8     5     11    1      
+13              0   8     5     12    1      
+14              0   8     5     13    1     
+15              0   8     5     14    1      
+16              0   8     5     15    1      
+
+
+1               0   8     6     0     1      
+2               0   8     6     1     1      
+3               0   8     6     2     1       
+4               0   8     6     3     1      
+5               0   8     6     4     1      
+6               0   8     6     5     1      
+7               0   8     6     6     1      
+8               0   8     6     7     1      
+9               0   8     6     8     1      
+10              0   8     6     9     1      
+11              0   8     6     10    1      
+12              0   8     6     11    1      
+13              0   8     6     12    1      
+14              0   8     6     13    1     
+15              0   8     6     14    1      
+16              0   8     6     15    1      
+17              0   8     6     16    1      
+18              0   8     6     17    1      
+19              0   8     6     18    1      
+20              0   8     6     19    1      
+21              0   8     6     20    1      
+22              0   8     6     21    1      
+23              0   8     6     22    1    
+24              0   8     6     23    1      
+25              0   8     6     24    1      
+26              0   8     6     25    1      
+27              0   8     6     26    1      
+28              0   8     6     27    1      
+29              0   8     6     28    1      
+30              0   8     6     29    1      
+31              0   8     6     30    1      
+32              0   8     6     31    1 
+
+ 
+
+# Right HRS   
+
+T1            0   7     1     0    1      LHRS single trigger
+T2            0   7     1     1    1      LHRS single trigger
+T3            0   7     1     2    1      LHRS single trigger
+T4            0   7     1     3    1      RHRS single trigger
+T5            0   7     1     4    1      RHRS single trigger
+T6            0   7     1     5    1      RHRS single trigger
+Clock_RHRS    0   7     1     6    1      
+Clock_LHRS    0   7     1     7    1      1024 Hz
+L1A_remote    0   7     1     8    1      L1A remote signal to LHRS
+L1A           0   7     1     9    1      RHRS L1A
+S2L           0   7     1     10   1
+S2R	      0   7     1     11   1 
+(S0||S2)R     0   7     1     12   1 
+ADC_gate      0   7     1     13   1
+empty         0   7     1     14   1   
+RF_Time         0   7     1    15   1 
+Cher-1          0   7     1    16    1      1st chan of cerenkov
+Cher-2          0   7     1    17    1
+Cher-3          0   7     1    18    1      Right HRS
+Cher-4          0   7     1    19    1
+Cher-5          0   7     1    20    1
+Cher-6          0   7     1    21    1
+Cher-7          0   7     1    22    1
+Cher-8          0   7     1    23    1
+Cher-9          0   7     1    24    1
+Cher-10         0   7     1    25    1
+Cher-Sum        0   7     1    26    1      Right HRS
+S0-A            0   7     1    27    1      Right HRS
+S0-B            0   7     1    28    1
+S0A_and_S0B     0   7     1    29    1
+L1A_Copy  	0   7     1    30    1      
+S2L_and_S2R     0   7     1    31    1      empty
+
+S2mL-1        0   7     2     0    1      S2m scintillator on R-HRS
+S2mL-2        0   7     2     1    1      S2m scintillator on R-HRS
+S2mL-3        0   7     2     2    1      S2m scintillator on R-HRS
+S2mL-4        0   7     2     3    1      S2m scintillator on R-HRS
+S2mL-5        0   7     2     4    1      S2m scintillator on R-HRS
+S2mL-6        0   7     2     5    1      S2m scintillator on R-HRS
+S2mL-7        0   7     2     6    1      S2m scintillator on R-HRS
+S2mL-8        0   7     2     7    1      S2m scintillator on R-HRS
+S2mL-9        0   7     2     8    1      S2m scintillator on R-HRS
+S2mL-10       0   7     2     9    1      S2m scintillator on R-HRS
+S2mL-11       0   7     2    10    1      S2m scintillator on R-HRS
+S2mL-12       0   7     2    11    1      S2m scintillator on R-HRS
+S2mL-13       0   7     2    12    1      S2m scintillator on R-HRS
+S2mL-14       0   7     2    13    1      S2m scintillator on R-HRS
+S2mL-15       0   7     2    14    1      S2m scintillator on R-HRS
+S2mL-16       0   7     2    15    1      S2m scintillator on R-HRS
+
+S2mR-1        0   7     2    16    1      S2m scintillator on R-HRS
+S2mR-2        0   7     2    17    1      S2m scintillator on R-HRS
+S2mR-3        0   7     2    18    1      S2m scintillator on R-HRS
+S2mR-4        0   7     2    19    1      S2m scintillator on R-HRS
+S2mR-5        0   7     2    20    1      S2m scintillator on R-HRS
+S2mR-6        0   7     2    21    1      S2m scintillator on R-HRS
+S2mR-7        0   7     2    22    1      S2m scintillator on R-HRS
+S2mR-8        0   7     2    23    1      S2m scintillator on R-HRS
+S2mR-9        0   7     2    24    1      S2m scintillator on R-HRS
+S2mR-10       0   7     2    25    1      S2m scintillator on R-HRS
+S2mR-11       0   7     2    26    1      S2m scintillator on R-HRS
+S2mR-12       0   7     2    27    1      S2m scintillator on R-HRS
+S2mR-13       0   7     2    28    1      S2m scintillator on R-HRS
+S2mR-14       0   7     2    29    1      S2m scintillator on R-HRS
+S2mR-15       0   7     2    30    1      S2m scintillator on R-HRS
+S2mR-16       0   7     2    31    1      S2m scintillator on R-HRS
+
+
+T1            0   7     3     0    1      LHRS single trigger
+T2            0   7     3     1    1      LHRS single trigger
+T3            0   7     3     2    1      LHRS single trigger
+T4            0   7     3     3    1      RHRS single trigger
+T5            0   7     3     4    1      RHRS single trigger
+T6            0   7     3     5    1      RHRS single trigger
+Clock_RHRS    0   7     3     6    1
+Clock_LHRS    0   7     3     7    1      1024 Hz
+L1A_remote    0   7     3     8    1      L1A remote signal to LHRS
+L1A           0   7     3     9    1      RHRS L1A
+S2L           0   7     3     10   1
+S2R           0   7     3     11   1
+(S0||S2)R     0   7     3     12   1
+ADC_gate      0   7     3     13   1
+broken        0   7     3     14   1      Currently broken. Will was FastBus_remote or RF_Time.
+RF_Time       0   7     3     15   1
+unew          0   7     3     18    1
+dnew          0   7     3     20    1
+unser         0   7     3     22    1
+u1            0   7     3     24    1
+d1            0   7     3     26    1
+d3            0   7     3     28    1
+d10           0   7     3     30    1
+
 # ------ Jan 20, 2014
 
 DATE 20 1 2014
@@ -35,7 +370,7 @@ xscaler-server Left IP:129.57.192.30 port:5022
 xscaler-clock Left slot:3 chan:7 rate:103700
 
 crate-tied EvLeft 0:8 -1:8 1:8
-slot-offset EvLeft 0:0 -1:-1 1:-2
+slot-offset EvLeft 0:0 -1:-2 1:-1
 slot-offset Left 0:0 -1:-1 1:-2 
 
 #
@@ -52,11 +387,11 @@ xscaler-pagename Right 5:'Caen Scalar in 6th slot'
 xscaler-pagename Right 6:'Caen Scalar in 7th slot'
 
 xscaler-server Right IP:129.57.192.28 port:5021
-xscaler-clock Right slot:1 chan:9 rate:103700
+xscaler-clock Right slot:1 chan:7 rate:1024
 
-crate-tied EvRight 0:7 -1:7 1:7
-slot-offset EvRight 0:0 -1:-2 1:-1
-slot-offset Right 0:0 -1:-2 1:-1
+#crate-tied EvRight 0:7 -1:7 1:7
+#slot-offset EvRight 0:0 -1:-2 1:-1
+#slot-offset Right 0:0 -1:-1 1:-2
 
 
 # Left HRS:  
@@ -64,9 +399,9 @@ slot-offset Right 0:0 -1:-2 1:-1
 # (software 0=Lecroy, software [1,2] = helicity scaler sorted by helicity)
 
 # desc        hel crate slot start nchan  long-description
-T1test            0   8     3     0    1      trigger 1 on Left Arm
-T2test            0   8     3     1    1      trigger 2 on Left Arm
-T3test            0   8     3     2    1      trigger 3 on Left Arm
+T1            0   8     3     0    1      trigger 1 on Left Arm
+T2            0   8     3     1    1      trigger 2 on Left Arm
+T3            0   8     3     2    1      trigger 3 on Left Arm
 T4            0   8     3     3    1      trigger 4 on Left Arm
 T5            0   8     3     4    1      trigger 5 on Left Arm
 T6            0   8     3     5    1      trigger 6 on Left Arm
@@ -213,6 +548,7 @@ Empty	      0   7     1     15   1
 #TDC-gate       0   7     1    15    1      TDC gate
 
 clock         0   7     1     9    1      103.8 kHz clock
+#clock         0   7     1     7    1      1024 Hz clock
 TS-accept     0   7     1    14    1      Level 1 Accept
 #TS-accept     0   7     1    12    1      Level 1 Accept
 #hel           0   7     1    18    1      Beam current, upstream cavity, gain = 3

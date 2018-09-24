@@ -44,22 +44,22 @@ DL.multi =
          ltClockRHRS      4       11      54
          ltClockLHRS      4       11      55
          ltL1ARemote      4       11      53    
+         ltL1A            4       11      56
          ltS0orS2          4      11      57
          ltS2L             4      11      58
          ltS2R             4      11      59
          ltS0orS2_RHRS     4      11      60
          ltadcgate         4      11      61
-         ltL1A             4      11      62
          ltRFtime          4      11      63
          tGCSum  	   4      11      42
          tS0coinc          4      11      45
-         tShSum	           4      11      46
+         ltL1A_2           4      11      46
          tS2coinc          4      11      47
-#Extra ADC information
-         aShSum     3  20  38
-	 aSum_1L    3  20  36
-	 aSum_2L    3  20  37
-	 aGCSum     3  19  10
+#Extra ADC information, not existing anymore after everything is on FADCs (09/23/18)
+#         aShSum     3  20  38
+#	 aSum_1L    3  20  36
+#	 aSum_2L    3  20  37
+#	 aGCSum     3  19  10
 
      
 DL.bit =
