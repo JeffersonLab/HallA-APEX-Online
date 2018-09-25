@@ -3,11 +3,6 @@
  * Works for non-coincidence experiments using 2 daqs
  */
 
-///////////////////////////////////// To Do ////////////////////////////////////
-/*
- * - Automatically open Online Plots GUI for shift takers?
- * - Are we using energy loss classes? Need to be made 1.6 compatible
- */
 
 #include "def_tritium.h"
 using namespace std;
@@ -15,7 +10,7 @@ using namespace std;
 #define RIGHT_ARM_CONDITION runnumber>=20000
 #define LEFT_ARM_CONDITION  runnumber<20000
 
-void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t autoreplay = kFALSE){
+void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t autoreplay = kFALSE, Bool_t skim = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -31,12 +26,13 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
 
   
   //Enable modules
-  Bool_t bScaler=kTRUE;
-  Bool_t bHelicity=kFALSE;
-  Bool_t bBeam=kTRUE;
-  Bool_t bPhysics=kTRUE;
-  Bool_t bEloss=kTRUE;
-  Bool_t bOldTrack=kFALSE;
+  Bool_t bScaler   =   kTRUE;
+  Bool_t bHelicity =   kFALSE;
+  Bool_t bBeam     =   kTRUE;
+  Bool_t bPhysics  =   kTRUE;
+  Bool_t bEloss    =   kTRUE;
+  Bool_t bOldTrack =   kFALSE;
+  Bool_t bRaster   =   kFALSE;   
 
 
   TString rootname;
@@ -44,6 +40,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
     rootname = "%s/tritium_online_%d.root";}
   else {
     rootname = "%s/tritium_%d.root";
+    if (skim)
+      rootname = "%s/skim_%d.root"
   }
 
 
@@ -58,7 +56,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   if(RIGHT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    if(skim)
+      CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
     CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
+
     //==================================
     //  Detectors
     //==================================
@@ -125,11 +126,11 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gHaApps->Add(Rrb);
       TriFadcUnRasteredBeam*  Rurb    = new TriFadcUnRasteredBeam("Rurb", "Unastered beam to the R-HRS");
       gHaApps->Add(Rurb);
-      THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
-      FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-      gHaApps->Add(FbusRrb);
+      // THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+      // FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      // FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      // FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      // gHaApps->Add(FbusRrb);
     }
     
     //==================================
@@ -194,16 +195,25 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKR = new THaPrimaryKine("EKR","Electron kinematics in HRS-R","R","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKR);
 
-      THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
+      if(bRaster)
+        THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rrb",mass_tg);
+      else
+        THaPhysicsModule *EKRc = new THaPrimaryKine("EKRc","Corrected Electron kinematics in HRS-R","R","Rurb",mass_tg);
+
       gHaPhysics->Add(EKRc);
 
-      THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
+      if(bRaster)
+        THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rrb");
+      else
+        THaReactionPoint *rpr = new THaReactionPoint("rpr","Reaction vertex for HRS-R","R","Rurb");
       gHaPhysics->Add(rpr);
 
       THaExtTarCor *exR =  new THaExtTarCor("exR","Corrected for extended target, HRS-R","R","rpr");
       gHaPhysics->Add(exR);
-
-      THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
+      if(bRaster)
+        THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rrb",mass_tg);
+      else
+        THaPhysicsModule *EKRx = new THaPrimaryKine("EKRx","Better Corrected Electron kinematics in HRS-R","exR","Rurb",mass_tg);
       gHaPhysics->Add(EKRx);
       // THaPhysicsModule* BCM = new TriBCM("RightBCM","Beam Current Monitors","Right","",0);
       // gHaPhysics->Add(BCM);
@@ -212,8 +222,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.125 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m) 
-
-        Tri_Beam_Eloss *ElbR = new Tri_Beam_Eloss("ElbR","Beam Corrected for Energy Loss","Rrb","rpr",zbeam_off);
+        if(bRaster)
+          Tri_Beam_Eloss *ElbR = new Tri_Beam_Eloss("ElbR","Beam Corrected for Energy Loss","Rrb","rpr",zbeam_off);
+        else
+          Tri_Beam_Eloss *ElbR = new Tri_Beam_Eloss("ElbR","Beam Corrected for Energy Loss","Rurb","rpr",zbeam_off);
         ElbR->SetDebug(1);
         ElbR->SetMedium(Z,A,density);
         gHaPhysics->Add(ElbR);
@@ -247,6 +259,8 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   else if(LEFT_ARM_CONDITION){
     ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"LHRS.odef");
+    if(skim)
+      CUTS=Form(REPLAY_DIR_PREFIX,"LHRS_skim.cuts");
     CUTS=Form(REPLAY_DIR_PREFIX,"LHRS.cuts");
     //==================================
     //  Detectors
@@ -318,11 +332,11 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gHaApps->Add(Lrb);
       TriFadcUnRasteredBeam*  Lurb    = new TriFadcUnRasteredBeam("Lurb", "Unastered beam to the L-HRS");
       gHaApps->Add(Lurb);
-      THaRasteredBeam*        FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
-      FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      FbusLrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      FbusLrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-      gHaApps->Add(FbusLrb);  
+      //THaRasteredBeam*        FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to L-HRS");
+      //FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+      //FbusLrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+      //FbusLrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+      //gHaApps->Add(FbusLrb);  
     }
     
     //==================================
@@ -389,16 +403,26 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       THaPhysicsModule *EKL = new THaPrimaryKine("EKL","Electron kinematics in HRS-L","L","ib",mass_tg); //Should be same if no beam included in constructor
       gHaPhysics->Add(EKL);
 
-      THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
+      if(bRaster)
+        THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lrb",mass_tg);
+      else
+        THaPhysicsModule *EKLc = new THaPrimaryKine("EKLc","Corrected Electron kinematics in HRS-L","L","Lurb",mass_tg);
+
       gHaPhysics->Add(EKLc);
 
-      THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
+      if(bRaster)
+        THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lrb");
+      else
+        THaReactionPoint *rpl = new THaReactionPoint("rpl","Reaction vertex for HRS-L","L","Lurb");
       gHaPhysics->Add(rpl);
 
       THaExtTarCor *exL =  new THaExtTarCor("exL","Corrected for extended target, HRS-L","L","rpl");
       gHaPhysics->Add(exL);
 
-      THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
+      if(bRaster)
+        THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lrb",mass_tg);
+      else
+        THaPhysicsModule *EKLx = new THaPrimaryKine("EKLx","Better Corrected Electron kinematics in HRS-L","exL","Lurb",mass_tg);
       gHaPhysics->Add(EKLx);
       
    //    THaPhysicsModule* BCM = new TriBCM("LeftBCM","Beam Current Monitors","Left","",0);
@@ -409,8 +433,10 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       if(bEloss){
         // Beam Energy Loss
         Double_t zbeam_off = -0.125 ; //For a target centered at z=0, this should equal to the targetlength/2. (in m) 
-
-        Tri_Beam_Eloss *ElbL = new Tri_Beam_Eloss("ElbL","Beam Corrected for Energy Loss","Lrb","rpl",zbeam_off);
+        if(bRaster)
+          Tri_Beam_Eloss *ElbL = new Tri_Beam_Eloss("ElbL","Beam Corrected for Energy Loss","Lrb","rpl",zbeam_off);
+        else
+          Tri_Beam_Eloss *ElbL = new Tri_Beam_Eloss("ElbL","Beam Corrected for Energy Loss","Lurb","rpl",zbeam_off);
         ElbL->SetDebug(1);
         ElbL->SetMedium(Z,A,density);
         gHaPhysics->Add(ElbL);

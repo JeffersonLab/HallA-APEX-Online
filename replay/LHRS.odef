@@ -410,6 +410,7 @@ variable evLeftd10_r
 #--------------------------------------------
 begin epics
 
+  HacL_D1_P0rb	
   haBDSPOS
   HacL_alignAGL
   HacL_AglMrk
@@ -440,8 +441,10 @@ begin epics
 
   HALLA:p
   HALLA:dpp
-
-  HacL_D1_P0rb	
+  MCZDSZD
+  MCZDSNMRLOCK
+  MCZDSRDFMAI  
+  
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
