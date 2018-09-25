@@ -336,9 +336,10 @@ S2R           0   7     3     11   1
 ADC_gate      0   7     3     13   1
 broken        0   7     3     14   1      Currently broken. Will was FastBus_remote or RF_Time.
 RF_Time       0   7     3     15   1
+unser         0   7     3     16   1     
 unew          0   7     3     18    1
 dnew          0   7     3     20    1
-unser         0   7     3     22    1
+unser_c       0   7     3     22    1
 u1            0   7     3     24    1
 d1            0   7     3     26    1
 d3            0   7     3     28    1
