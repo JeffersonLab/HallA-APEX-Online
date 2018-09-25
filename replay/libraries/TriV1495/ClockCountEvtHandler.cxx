@@ -73,7 +73,7 @@ Int_t ClockCountEvtHandler::Analyze(THaEvData *evdata)
 
   // FIXME: Not getting the crate/slot numbers automatically yet. Hardcoding them for now.
   if(nameArm1495=="LV1495") { // LEFT HRS (ROC31, slot 18):  
-    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,18));	//FIXME: Need to get the actual slots for V1495s
+    V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(31,21));	//FIXME: Need to get the actual slots for V1495s
   }
   else if(nameArm1495=="RV1495") { // RIGHT HRS (ROC20, slot 4):
     V1495 = dynamic_cast <Decoder::V1495Module* > (evdata->GetModule(20,4));	//FIXME: Need to get the actual slots for V1495s
