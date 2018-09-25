@@ -9,9 +9,6 @@ block R.tr.*
 block R.a1.*
 block R.a2.*
 
-#block FbusR.s0.*
-#block FbusR.cer.*
-
 block DR.*
 
 # F1tdc and VETROC
@@ -438,8 +435,10 @@ begin epics
 
   HALLA:p
   HALLA:dpp
+  MCZDSZD
+  MCZDSNMRLOCK
+  MCZDSRDFMAI  
 
-  HacR_D1_P0rb	
 
   HacR_Q1_LS450:FLD_DATA
   HacR_Q2_LS450:FLD_DATA
