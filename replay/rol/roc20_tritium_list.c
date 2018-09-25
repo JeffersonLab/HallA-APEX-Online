@@ -27,7 +27,7 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  55
 #define FADC_LATENCY       79
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
@@ -187,20 +187,20 @@ rocDownload()
           }
         if(islot==2)
           {
-             faSetDAC(faSlot(islot),3086.33,0x0001);	//S0 channels   DAC=3000
-	     faSetDAC(faSlot(islot),3092,0x0002);       
-	    faSetDAC(faSlot(islot),3091,0x0004);	//GC channels    DAC 3220 
-	    faSetDAC(faSlot(islot),3091.3,0x0008); 
-	    faSetDAC(faSlot(islot),3096.3,0x0010);
-	    faSetDAC(faSlot(islot),3092.7,0x0020);
-	    faSetDAC(faSlot(islot),3084.3,0x0040);
-	    faSetDAC(faSlot(islot),3085.3,0x0080);
-	    faSetDAC(faSlot(islot),3087.3,0x0100);
+             faSetDAC(faSlot(islot),3087,0x0001);	//S0 channels   DAC=3000
+	     faSetDAC(faSlot(islot),3093,0x0002);       
+	    faSetDAC(faSlot(islot),3088,0x0004);	//GC channels    DAC 3220 
+	    faSetDAC(faSlot(islot),3091,0x0008); 
+	    faSetDAC(faSlot(islot),3087,0x0010);
+	    faSetDAC(faSlot(islot),3091,0x0020);
+	    faSetDAC(faSlot(islot),3082,0x0040);
+	    faSetDAC(faSlot(islot),3084,0x0080);
+	    faSetDAC(faSlot(islot),3085,0x0100);
 	    faSetDAC(faSlot(islot),3092,0x0200);
-	    faSetDAC(faSlot(islot),3090,0x0400);
-	    faSetDAC(faSlot(islot),3078.3,0x0800);
-	    faSetDAC(faSlot(islot),3085.3,0x1000); //ADCsum
-	    faSetDAC(faSlot(islot),3036.7,0x2000); //L1A Timing Reference
+	    faSetDAC(faSlot(islot),3091,0x0400);
+	    faSetDAC(faSlot(islot),3076,0x0800);
+	    faSetDAC(faSlot(islot),3085,0x1000); //ADCsum
+	    faSetDAC(faSlot(islot),3035,0x2000); //L1A Timing Reference
            
            
 	    faSetDAC(faSlot(islot), 3003, 0x4000);	//A2 channel

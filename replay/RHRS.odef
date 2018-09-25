@@ -330,8 +330,6 @@ variable RightLclock
 variable RightLclock_r
 variable RightL1A_R
 variable RightL1A_R_r
-variable RightRclock2
-variable RightRclock2_r
 variable Rights2L
 variable Rights2L_r
 variable Rights2R
@@ -378,8 +376,6 @@ variable evRightLclock
 variable evRightLclock_r
 variable evRightL1A_R
 variable evRightL1A_R_r
-variable evRightRclock2
-variable evRightRclock2_r
 variable evRights2L
 variable evRights2L_r
 variable evRights2R

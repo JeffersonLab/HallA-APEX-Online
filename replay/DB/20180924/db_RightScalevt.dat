@@ -1,0 +1,170 @@
+# scaler.map file for Right HRS event type 140
+# comments start with #
+
+# map syntax
+# scaler, type, crate, slot, header, mask, norm slot#
+# after the norm slot#:  clock chan# and clock frequency
+
+map 3800 7 1 ceb10000 ffff0000 3 
+map 3800 7 2 ceb20000 ffff0000 3 
+map 3800 7 3 ceb30000 ffff0000 3 7 103700
+
+
+# variable syntax
+# scaler#, chan#, (1=cnt, 2=rate), var name, description string
+# var name gets "fName" prefix, e.g.
+
+variable 3 0 1  T1    LHRS T1
+variable 3 0 2  T1_r  LHRS T1 rate
+variable 3 1 1  T2    LHRS T2
+variable 3 1 2  T2_r  LHRS T2 rate
+variable 3 2 1  T3    LHRS T3
+variable 3 2 2  T3_r  LHRS T3 rate
+variable 3 3 1  T4    RHRS T4
+variable 3 3 2  T4_r  RHRS T4 rate
+variable 3 4 1  T5    RHRS T5
+variable 3 4 2  T5_r  RHRS T5 rate
+variable 3 5 1  T6    RHRS T6
+variable 3 5 2  T6_r  RHRS T6 rate
+variable 3 6  1  Rclock   RHRS Clock
+variable 3 6  2  Rclock_r RHRS Clock rate
+variable 3 7  1  Lclock   LHRS Clock
+variable 3 7  2  Lclock_r LHRS Clock rate
+variable 3 8  1  L1A_R    L1A remote to LHRS
+variable 3 8  2  L1A_R_r  L1A remote to LHRS rate
+variable 3 9  1  L1A   RHRS L1A 
+variable 3 9  2  L1A_r  RHRS L1A rate
+variable 3 10 1  s2L   RHRS s2L signal
+variable 3 10 2  s2L_r RHRS s2L signal rate
+variable 3 11 1  s2R   RHRS s2R signal
+variable 3 11 2  s2R_r RHRS s2R signal rate
+variable 3 12 1  Rs0ors2 RHRS s0||s2
+variable 3 12 2  Rs0ors2_r RHRS s0||s2 rate
+variable 3 13 1  ADC_gate    RHRS ADC gate
+variable 3 13 2  ADC_gate_r  RHRS ADC gate rate
+variable 3 15 1  RF_Time  RF time
+variable 3 15 2  RF_Time_r  RF time rate
+
+variable 3 16 1 unser   unser count
+variable 3 16 2 unser_r unser rate
+variable 3 18 1 unew   new bcm upstream count
+variable 3 18 2 unew_r new bcm upstream rate
+variable 3 20 1 dnew   new bcm downstream count
+variable 3 20 2 dnew_r new bcm downstream rate
+variable 3 22 1 unser_old   bad unser count
+variable 3 22 2 unser_r_old bad unser rate
+variable 3 24 1 u1    bcm x1 upstream count
+variable 3 24 2 u1_r  bcm x1 upstream rate
+variable 3 26 1 d1    bcm x1 downstream count
+variable 3 26 2 d1_r  bcm x1 downstream rate
+variable 3 28 1 d3    bcm x3 downstream count
+variable 3 28 2 d3_r  bcm x3 downstream rate
+variable 3 30 1 d10   bcm x10 downstream count
+variable 3 30 2 d10_r bcm x10 downstream rate 
+
+
+
+variable 2 0  1  S2mL_1   S2m1L
+variable 2 1  1  S2mL_2   S2m2L
+variable 2 2  1  S2mL_3   S2m3L
+variable 2 3  1  S2mL_4   S2m4L
+variable 2 4  1  S2mL_5   S2m5L
+variable 2 5  1  S2mL_6   S2m6L
+variable 2 6  1  S2mL_7   S2m7L
+variable 2 7  1  S2mL_8   S2m8L
+variable 2 8  1  S2mL_9   S2m9L
+variable 2 9  1  S2mL_10   S2m10L
+variable 2 10  1  S2mL_11   S2m11L
+variable 2 11  1  S2mL_12   S2m12L
+variable 2 12  1  S2mL_13   S2m13L
+variable 2 13  1  S2mL_14   S2m14L
+variable 2 14  1  S2mL_15   S2m15L
+variable 2 15  1  S2mL_16   S2m16L
+variable 2 16  1  S2mR_1   S2m1R
+variable 2 17  1  S2mR_2   S2m2R
+variable 2 18  1  S2mR_3   S2m3R
+variable 2 19  1  S2mR_4   S2m4R
+variable 2 20  1  S2mR_5   S2m5R
+variable 2 21  1  S2mR_6   S2m6R
+variable 2 22  1  S2mR_7   S2m7R
+variable 2 23  1  S2mR_8   S2m8R
+variable 2 24  1  S2mR_9   S2m9R
+variable 2 25  1  S2mR_10   S2m10R
+variable 2 26  1  S2mR_11   S2m11R
+variable 2 27  1  S2mR_12   S2m12R
+variable 2 28  1  S2mR_13   S2m13R
+variable 2 29  1  S2mR_14   S2m14R
+variable 2 30  1  S2mR_15   S2m15R
+variable 2 31  1  S2mR_16   S2m16R
+
+
+variable 1 16  1  Cher_1   Cher1
+variable 1 17  1  Cher_2   Cher2
+variable 1 18  1  Cher_3   Cher3
+variable 1 19  1  Cher_4   Cher4
+variable 1 20  1  Cher_5   Cher5
+variable 1 21  1  Cher_6   Cher6
+variable 1 22  1  Cher_7   Cher7
+variable 1 23  1  Cher_8   Cher8
+variable 1 24  1  Cher_9   Cher9
+variable 1 25  1  Cher_10   Cher10
+variable 1 26  1  Cher_sum   CherSum
+variable 1 27  1  S0A    S0A
+variable 1 28  1  S0B    S0B
+variable 1 29  1  S0AandB    S0A & S0B
+variable 1 30  1  L1A2    L1A copy 2 from TS RHRS (for F1s)
+variable 1 31  1  S2LandR    S2L & S2R
+
+
+variable 2 0   2  S2mL_1_r   S2m1L rate
+variable 2 1   2  S2mL_2_r   S2m2L rate
+variable 2 2   2  S2mL_3_r   S2m3L rate
+variable 2 3   2  S2mL_4_r   S2m4L rate
+variable 2 4   2  S2mL_5_r   S2m5L rate
+variable 2 5   2  S2mL_6_r   S2m6L rate
+variable 2 6   2  S2mL_7_r   S2m7L rate
+variable 2 7   2  S2mL_8_r   S2m8L rate
+variable 2 8   2  S2mL_9_r   S2m9L rate
+variable 2 9   2  S2mL_10_r   S2m10L rate
+variable 2 10  2  S2mL_11_r   S2m11L rate
+variable 2 11  2  S2mL_12_r   S2m12L rate
+variable 2 12  2  S2mL_13_r   S2m13L rate
+variable 2 13  2  S2mL_14_r   S2m14L rate
+variable 2 14  2  S2mL_15_r   S2m15L rate
+variable 2 15  2  S2mL_16_r   S2m16L rate
+variable 2 16  2  S2mR_1_r   S2m1R rate
+variable 2 17  2  S2mR_2_r   S2m2R rate
+variable 2 18  2  S2mR_3_r   S2m3R rate
+variable 2 19  2  S2mR_4_r   S2m4R rate
+variable 2 20  2  S2mR_5_r   S2m5R rate
+variable 2 21  2  S2mR_6_r   S2m6R rate
+variable 2 22  2  S2mR_7_r   S2m7R rate
+variable 2 23  2  S2mR_8_r   S2m8R rate
+variable 2 24  2  S2mR_9_r   S2m9R rate
+variable 2 25  2  S2mR_10_r   S2m10R rate
+variable 2 26  2  S2mR_11_r   S2m11R rate
+variable 2 27  2  S2mR_12_r   S2m12R rate
+variable 2 28  2  S2mR_13_r   S2m13R rate
+variable 2 29  2  S2mR_14_r   S2m14R rate
+variable 2 30  2  S2mR_15_r   S2m15R rate
+variable 2 31  2  S2mR_16_r   S2m16R rate
+
+
+variable 1 16  2  Cher_1_r   Cher1 rate
+variable 1 17  2  Cher_2_r   Cher2 rate
+variable 1 18  2  Cher_3_r   Cher3 rate
+variable 1 19  2  Cher_4_r   Cher4 rate
+variable 1 20  2  Cher_5_r   Cher5 rate
+variable 1 21  2  Cher_6_r   Cher6 rate
+variable 1 22  2  Cher_7_r   Cher7 rate
+variable 1 23  2  Cher_8_r   Cher8 rate
+variable 1 24  2  Cher_9_r   Cher9 rate
+variable 1 25  2  Cher_10_r   Cher10 rate
+variable 1 26  2  Cher_sum_r   CherSum rate
+variable 1 27  2  S0A_r    S0A rate
+variable 1 28  2  S0B_r    S0B rate
+variable 1 29  2  S0AandB_r    S0A & S0B rate
+variable 1 30  2  L1A2_r    L1A copy 2 from TS RHRS (for F1s) rate
+variable 1 31  2  S2LandR_r    S2L & S2R rate
+
+

@@ -32,7 +32,7 @@
 #define FADC_MODE          9 // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  55 // was 
 #define FADC_LATENCY       88 // 
-#define FADC_LA_Sh         64 // was 62 
+#define FADC_LA_Sh         78 // was 62 
 #define FADC_WD_Sh         60 // was 
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           60 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -258,11 +258,11 @@ if(islot==2){
 
       // faSetProcMode(faSlot(islot), 10, 85, 40, 5, 60, 1, 4,250,2);
        if(WANT_THRESHOLD)
-         faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,140,2);
+         faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 13, 1, 15,400,2);
        else{
          if(islot==3||islot==4||islot==5||islot==6||islot==7)
              faSetProcMode(faSlot(islot), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800,1);
-         else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,200,1);
+         else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,1);
        }
       //  faSetProcMode(faSlot(islot), 9, 135, 135, 5, 30, 1, 4,250,1);
 

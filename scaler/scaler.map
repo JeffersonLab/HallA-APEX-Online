@@ -9,11 +9,11 @@
 # near the end of that web page).
 #
 
-# ------ December 5, 2017
+# ------ September 22, 2018
 
-DATE 5 12 2017
+DATE 22 9 2018
 
-# Setup for Tritium series
+# Setup for Tritium Fall 2018
 
 # Helicity-gated scalers are two "virtual" slots derived from one scaler unit
 
@@ -47,7 +47,7 @@ xscaler-pagename Right 5:'Caen Scalar in 6th slot'
 xscaler-pagename Right 6:'Caen Scalar in 7th slot'
 
 xscaler-server Right IP:129.57.192.28 port:5021
-xscaler-clock Right slot:1 chan:9 rate:1024
+xscaler-clock Right slot:1 chan:6 rate:1024
 
 # Left HRS:  
 # Normalization scaler in software slot 3, which is hardware slot 2  
@@ -74,18 +74,18 @@ xscaler-clock Right slot:1 chan:9 rate:1024
 T1              0   8     1     0     1      Trigger 1   
 T2              0   8     1     1     1      Trigger 2
 T3              0   8     1     2     1      Trigger 3
-ch4             0   8     1     3     1      
-(S0||S2)R       0   8     1     4     1      EDTM S2 
+MLU random      0   8     1     3     1      
+empty           0   8     1     4     1       
 L1A_Remote      0   8     1     5     1      L1A remote signal from RHRS
 Clock_RHRS      0   8     1     6     1      
 Clock_LHRS      0   8     1     7     1      
-Sh-Sum          0   8     1     8     1    
+L1A             0   8     1     8     1      LHRS L1A
 (S0||S2)L       0   8     1     9     1
 S2L             0   8     1     10    1      LHRS S2L signal
 S2R             0   8     1     11    1      LHRS S2R signal
 (S0||S2)R       0   8     1     12    1      Retiming signal from RHRS
 ADC_gate        0   8     1     13    1      
-L1A             0   8     1     14    1      LHRS L1A
+empty           0   8     1     14    1      
 RF_Time         0   8     1     15    1
 L1A             0   8     1     16    1      L1A directly from TS2 output.
 unew            0   8     1     18    1      
@@ -166,18 +166,18 @@ S2mR-16         0   8     3     31    1
 T1              0   8     4     0     1      Trigger 1
 T2              0   8     4     1     1      Trigger 2
 T3              0   8     4     2     1      Trigger 3
-ch4             0   8     4     3     1
-(S0||S2)R       0   8     4     4     1      EDTM S2
+MLUran          0   8     4     3     1      Randoms from MLU
+empty           0   8     4     4     1      
 L1A_Remote      0   8     4     5     1      L1A remote signal from RHRS
 Clock_RHRS      0   8     4     6     1
 Clock_LHRS      0   8     4     7     1
-Sh-Sum          0   8     4     8     1      
+L1A             0   8     4     8     1      LHRS L1A    
 (S0||S2)L       0   8     4     9     1
 S2L             0   8     4     10    1      LHRS S2L signal
 S2R             0   8     4     11    1      LHRS S2R signal
 (S0||S2)R       0   8     4     12    1      Retiming signal from RHRS
 ADC_gate        0   8     4     13    1      
-L1A             0   8     4     14    1      LHRS L1A
+empty           0   8     4     14    1      
 RF_Time         0   8     4     15    1
 Cher-1          0   8     4     16    1
 Cher-2          0   8     4     17    1
@@ -261,13 +261,13 @@ T6            0   7     1     5    1      RHRS single trigger
 Clock_RHRS    0   7     1     6    1      
 Clock_LHRS    0   7     1     7    1      1024 Hz
 L1A_remote    0   7     1     8    1      L1A remote signal to LHRS
-Clock_RHRS    0   7     1     9    1
+L1A           0   7     1     9    1      RHRS L1A
 S2L           0   7     1     10   1
 S2R	      0   7     1     11   1 
 (S0||S2)R     0   7     1     12   1 
 ADC_gate      0   7     1     13   1
-FastBus_remote  0   7     1     14   1   
-L1A             0   7     1     15   1 
+empty         0   7     1     14   1   
+RF_Time         0   7     1    15   1 
 Cher-1          0   7     1    16    1      1st chan of cerenkov
 Cher-2          0   7     1    17    1
 Cher-3          0   7     1    18    1      Right HRS
@@ -329,16 +329,17 @@ T6            0   7     3     5    1      RHRS single trigger
 Clock_RHRS    0   7     3     6    1
 Clock_LHRS    0   7     3     7    1      1024 Hz
 L1A_remote    0   7     3     8    1      L1A remote signal to LHRS
-Clock_RHRS    0   7     3     9    1
+L1A           0   7     3     9    1      RHRS L1A
 S2L           0   7     3     10   1
 S2R           0   7     3     11   1
 (S0||S2)R     0   7     3     12   1
 ADC_gate      0   7     3     13   1
-Broken        0   7     3     14   1      Currently broken. Will was FastBus_remote or RF_Time.
-L1A           0   7     3     15   1
+broken        0   7     3     14   1      Currently broken. Will was FastBus_remote or RF_Time.
+RF_Time       0   7     3     15   1
+unser         0   7     3     16   1     
 unew          0   7     3     18    1
 dnew          0   7     3     20    1
-unser         0   7     3     22    1
+unser_c       0   7     3     22    1
 u1            0   7     3     24    1
 d1            0   7     3     26    1
 d3            0   7     3     28    1

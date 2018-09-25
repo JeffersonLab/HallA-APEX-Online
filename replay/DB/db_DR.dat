@@ -53,17 +53,17 @@ DR.multi =
          rrawt15             2      11      62
          rrawt16             2      11      63
          rtL1Aremote       2      11      56
-         rtClockRHRS       2      11      57
+         rtClockRHRS       2      11      54
          rtClockLHRS       2      11      55
+         rtL1A             2      11      57
          rtS2L             2      11      58
          rtS2R             2      11      59
          rtS0orS2          2      11      60
          rtadcgate         2      11      61
-         rtL1A             2      11      62
-         rtBusyRemote      2      11      63
+         rtRFtime          2      11      63
          tGCSum            2      11      42
          tS0coinc          2      11      45
-         rtRFtime          2      11      46
+         rtL1A_2           2      11      46
          tS2coinc          2      11      47
 #Extra ADC information
          aShSum     1  20  45

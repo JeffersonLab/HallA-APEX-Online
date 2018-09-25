@@ -116,8 +116,6 @@ variable RightLclock
 variable RightLclock_r
 variable RightL1A_R
 variable RightL1A_R_r
-variable RightRclock2
-variable RightRclock2_r
 variable Rights2L
 variable Rights2L_r
 variable Rights2R
@@ -128,8 +126,8 @@ variable RightADC_gate
 variable RightADC_gate_r
 variable RightL1A
 variable RightL1A_r
-variable RightFB_remote
-variable RightFB_remote_r
+variable RightRF_Time
+variable RightRF_Time_r
 
 variable Rightunew
 variable Rightunew_r
@@ -164,8 +162,6 @@ variable evRightLclock
 variable evRightLclock_r
 variable evRightL1A_R
 variable evRightL1A_R_r
-variable evRightRclock2
-variable evRightRclock2_r
 variable evRights2L
 variable evRights2L_r
 variable evRights2R
@@ -176,8 +172,8 @@ variable evRightADC_gate
 variable evRightADC_gate_r
 variable evRightL1A
 variable evRightL1A_r
-variable evRightFB_remote
-variable evRightFB_remote_r
+variable evRightRF_Time
+variable evRightRF_Time_r
 
 variable evRightunew
 variable evRightunew_r
