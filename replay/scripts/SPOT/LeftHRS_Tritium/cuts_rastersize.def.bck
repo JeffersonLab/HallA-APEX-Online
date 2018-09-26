@@ -1,0 +1,19 @@
+
+Block: Decode
+
+evt18     g.evtyp<=9
+
+Decode_master evt18
+
+Block: Reconstruct
+
+trigger DL.evtypebits>>2&1
+trk1    L.tr.n==1
+e      	L.cer.asum_c>1200
+TargetYCut abs(L.tr.tg_y+0.003)<0.01 
+
+spot trk1
+
+Reconstruct_master spot
+
+

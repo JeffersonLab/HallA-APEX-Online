@@ -114,7 +114,7 @@ RootFILE=L$runnum".root"
 spot_dir="/chafs1/work1/tritium/spot"
 
 mv rastersize.root ${spot_dir}/$RootFILE
-mv Tritium_$runnum.pdf ${spot_dir}/.
+#mv Tritium_$runnum.pdf ${spot_dir}/.
 mv FADC_Tritium_$runnum.pdf ${spot_dir}/.
 
 echo =================
@@ -122,7 +122,7 @@ echo DONE. PDFs and ROOTFILE are stored at ${spot_dir}
 echo =================
 echo "RUN : ${runnum}"
 cd $currentdir
-evince ${spot_dir}/Tritium_$runnum.pdf &
+#evince ${spot_dir}/Tritium_$runnum.pdf &
 evince ${spot_dir}/FADC_Tritium_$runnum.pdf &
 
 function yes_or_no {
