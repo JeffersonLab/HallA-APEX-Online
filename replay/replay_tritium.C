@@ -30,7 +30,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bHelicity =   kFALSE;
   Bool_t bBeam     =   kTRUE;
   Bool_t bPhysics  =   kTRUE;
-  Bool_t bEloss    =   kTRUE;
+  Bool_t bEloss    =   kFALSE;
   Bool_t bOldTrack =   kFALSE;
   Bool_t bRaster   =   kFALSE;   
 

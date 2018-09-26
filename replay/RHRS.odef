@@ -12,20 +12,20 @@ block R.a2.*
 block DR.*
 
 # F1tdc and VETROC
-variable F1nhits
-variable F1Warnings
-variable F1FirstHit
-variable F1AllHits_014
-	 variable vfnhits
-variable vfFirstHit
-variable vfAllHits_126
+#variable F1nhits
+#variable F1Warnings
+#variable RightBCMtHit
+#variable F1AllHits_014
+#variable vfnhits
+#variable vfFirstHit
+#variable vfAllHits_126
 
 # V1495 Clock Count
 variable RV1495.ClockCount
 variable RV1495.ClockInterval
 
 # Physics variables
-block RightBCM*
+#block RightBCM*
 
 block R.gold.*
 block rpr.*
@@ -34,9 +34,9 @@ block EKR.*
 block EKRx.*
 
 #beam correction variables
-block ElbR.*
-block EltR.*
-block EKRxe.*
+#block ElbR.*
+#block EltR.*
+#block EKRxe.*
 
 #BPM/Raster Variables
 
@@ -172,13 +172,6 @@ TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
 TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
 TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
 TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
-
-
-TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
-TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
-TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
-TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
-
 
 TH1F Rvu1nhit 'R-arm VDC u1 TDC channel hits ' R.vdc.u1.nthit 20 0 10
 TH1F Rvu2nhit 'R-arm VDC u2 TDC channel hits ' R.vdc.u2.nthit 20 0 10

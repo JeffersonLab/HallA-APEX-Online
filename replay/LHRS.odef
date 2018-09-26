@@ -12,10 +12,10 @@ block L.tr.*
 block DL.*
 
 # F1 tdc
-variable F1FirstHit
-variable F1nhits
-variable F1Warnings
-variable F1AllHits_033
+#variable F1FirstHit
+#variable F1nhits
+#variable F1Warnings
+#variable F1AllHits_033
 
 # V1495 Clock Count
 variable LV1495.ClockCount
@@ -30,9 +30,9 @@ block EKLx.*
 #block LeftBCM*
 
 #beam correction variables
-block ElbL.*
-block EltL.*
-block EKLxe.*
+#block ElbL.*
+#block EltL.*
+#block EKLxe.*
 
 #BPM/Raster Variables
 
@@ -86,8 +86,6 @@ TH1F Ls2ra 'S2 ADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
 TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1800 L.s2.la_p>-6000.
 TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1800 L.s2.ra_p>-6000.
 
-
-
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
@@ -132,7 +130,6 @@ TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 
 TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 0 3000
 TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 300 0 3000
 TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 300 0 3000
-
 
 TH1F Lvu1w 'L-arm VDC u1 wires' L.vdc.u1.wire 400 0 400
 TH1F Lvu2w 'L-arm VDC u2 wires' L.vdc.u2.wire 400 0 400
