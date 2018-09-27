@@ -1,54 +1,60 @@
 # Left HRS
 #s2....
-block L.s2.la_c
-block L.s2.ra_c
-block L.s2.lt_c
-block L.s2.rt_c
-block L.s2.dedx
-block L.s2.tr*
+block L.s2.*
+#block L.s2.la_c
+#block L.s2.ra_c
+#block L.s2.lt_c
+#block L.s2.rt_c
+#block L.s2.dedx
+#block L.s2.tr*
 #s2......
 
 #s0......
-block L.s0.la_c
-block L.s0.ra_c
-block L.s0.lt_c
-block L.s0.rt_c
-Varible L.s0.tr*
-block L.s0.dedx
+block L.s0.*
+#block L.s0.la_c
+#block L.s0.ra_c
+#block L.s0.lt_c
+#block L.s0.rt_c
+#Varible L.s0.tr*
+#block L.s0.dedx
 #s0......
 
 #prl1....
-block L.prl1.asum_c*
-block L.prl1.asum_p*
-block L.prl1.e*
-block L.prl1.nblk*
-block L.prl1.eblk*
-block L.prl1.nclust*
-block L.prl1.tr*
+block L.prl1.*
+#block L.prl1.asum_c*
+#block L.prl1.asum_p*
+#block L.prl1.e*
+#block L.prl1.nblk*
+#block L.prl1.eblk*
+#block L.prl1.nclust*
+#block L.prl1.tr*
 #prl1....
 
 #prl2....
-block L.prl2.asum_c*
-block L.prl2.asum_p*
-block L.prl2.e*
-block L.prl2.nblk*
-block L.prl2.eblk*
-block L.prl2.nclust*
-block L.prl2.tr*
+block L.prl2.*
+#block L.prl2.asum_c*
+#block L.prl2.asum_p*
+#block L.prl2.e*
+#block L.prl2.nblk*
+#block L.prl2.eblk*
+#block L.prl2.nclust*
+#block L.prl2.tr*
 #prl2....
 
 #cer.....
-block L.cer.a_c*
-block L.cer.asum_c*
-block L.cer.tr*
-block L.cer.asum_p*
+block L.cer.*
+#block L.cer.a_c*
+#block L.cer.asum_c*
+#block L.cer.tr*
+#block L.cer.asum_p*
 #cer.....
 
 #vdc.....
-block L.vdc.*.clchi2*
-block L.vdc.*.clsiz*
-block L.vdc.*.sigt0*
-block L.vdc.*.cltcor*
+block L.vdc.*
+#block L.vdc.*.clchi2*
+#block L.vdc.*.clsiz*
+#block L.vdc.*.sigt0*
+#block L.vdc.*.cltcor*
 #vdc.....
 
 #track...
@@ -77,18 +83,16 @@ variable V1495ClockInterval
 block L.gold.*
 block rpl.*
 block exL.*
-block EKL.*
+#block EKL.*
 block EKLc.*
 block EKLx.*
 #block ElbL.*
 #block EltL.*
-#block EKLxe.*
+block EKLxe.*
 block LeftBCM*
 
-Variable Lrb.dir.x
-Variable Lrb.dir.y
-Variable Lrb.x
-Variable Lrb.y
+block Lrb.*
+block Lurb.*
 # ------------------------------------------------------------------
 # Event type 140 
 
@@ -232,36 +236,40 @@ variable evLeftd10_r
 
 #--------------------------------------------
 begin epics
+   haBDSPOS
+  HacL_alignAGL
+  HacL_AglMrk
+  HacL_AglVrn
+  HacL_CalcAngle 
+  HacL_CalcPoint
+
+  hac_unser_read
+  hac_unser_current
   hac_bcm_average
   hac_bcm_dvm1_read
   hac_bcm_dvm2_read
-  hac_unser_read
-  hac_unser_current
   hac_bcm_dvm1_current
   hac_bcm_dvm2_current
   IBC0L02Current 
   IBC3H00CRCUR4
-  HA:K224:Current
-  IPM1H05XPM1HZ
-  IPM1H05YPM1HZ
+  #HA:K224:Current
+  #IPM1H05XPM1HZ
+  #IPM1H05YPM1HZ
+  
   IPM1C12.XPOS
   IPM1C12.YPOS
 
-#  IPM1H04A.XPOS
-#  IPM1H04A.YPOS
-#  IPM1H04E.XPOS
-#  IPM1H04E.YPOS
+  IPM1H04A.XPOS
+  IPM1H04A.YPOS
+  IPM1H04E.XPOS
+  IPM1H04E.YPOS
 
-#  FCupsCORRECTED.VAL
-  
   HALLA:p
   HALLA:dpp
-	
-  HacL_D1_P0rb
-  haBDSPOS 
-  haBDSPOS.VAL 
-  HALL_A_TARGET
-  HacL_alignAGL
+  MCZDSZD
+  MCZDSNMRLOCK
+  MCZDSRDFMAI  
+  
 
   HacL_Q1_LS450:FLD_DATA
   HacL_Q2_LS450:FLD_DATA
@@ -269,4 +277,11 @@ begin epics
   HacL_D_LS450:FLD_DATA
   HacL_D1_LS450:SIG
   HacL_D1_LS450:SIGLCK
+  HacL_D1_NMR:SIG             
+  HacL_D1_NMR:SIGLCK          
+  HacL_Q1_P0rb                
+  HacL_D1_P0rb                
+  HacL_Q2_P0rb                
+  HacL_Q3_P0rb                
+
 end epics

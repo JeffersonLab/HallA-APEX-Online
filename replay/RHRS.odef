@@ -9,26 +9,23 @@ block R.tr.*
 block R.a1.*
 block R.a2.*
 
-#block FbusR.s0.*
-#block FbusR.cer.*
-
 block DR.*
 
 # F1tdc and VETROC
-variable F1nhits
-variable F1Warnings
-variable F1FirstHit
-variable F1AllHits_014
-	 variable vfnhits
-variable vfFirstHit
-variable vfAllHits_126
+#variable F1nhits
+#variable F1Warnings
+#variable RightBCMtHit
+#variable F1AllHits_014
+#variable vfnhits
+#variable vfFirstHit
+#variable vfAllHits_126
 
 # V1495 Clock Count
 variable RV1495.ClockCount
 variable RV1495.ClockInterval
 
 # Physics variables
-block RightBCM*
+#block RightBCM*
 
 block R.gold.*
 block rpr.*
@@ -37,9 +34,9 @@ block EKR.*
 block EKRx.*
 
 #beam correction variables
-block ElbR.*
-block EltR.*
-block EKRxe.*
+#block ElbR.*
+#block EltR.*
+#block EKRxe.*
 
 #BPM/Raster Variables
 
@@ -121,7 +118,7 @@ TH1F Ra1tT6_   'A1 TDC w/ T6 only: PMT ' R.a1.t 500 0 2500 R.a1.t>0&&(DR.evtypeb
 
 TH1F Ra1a 'A1'  R.a1.a 10100 -100 20000 R.a1.a>0
 TH1F Ra1sum 'A1 FADC sum (corrected)' R.a1.asum_c 10100 -100 10000 R.a1.asum_c>-1000
-TH1F Ra1sum_scaled 'A1 FADC sum (scaled)' R.a1.asum_c/400.0 1000 -10 200 R.a1.asum_c>-1000
+TH1F Ra1sum_scaled 'A1 FADC sum (scaled)' R.a1.asum_c/400.0 1000 -10 100 R.a1.asum_c>-1000
 TH1F Ra1a_p 'A1 FADC(PedSub) PMT ' R.a1.a_p 1500 -100 3000 R.a1.a_p>-200
 TH1F Ra1a_c 'A1 FADC(Corrected) PMT ' R.a1.a_c 1500 -100 3000 R.a1.a_c>-200
 TH1F Ra1a_p_cut 'A1 FADC(PedSub) PMT w cut' R.a1.a_p 1000 -200 20000 R.a1.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
@@ -136,8 +133,8 @@ TH1F Ra2tT4_   'A2 TDC w/ T5,T6: PMT ' R.a2.t 500 0 2500 R.a2.t>0&&((DR.evtypebi
 TH1F Ra2tT6_   'A2 TDC w/ T6 only: PMT ' R.a2.t 500 0 2500 R.a2.t>0&&(DR.evtypebits==64)
 
 TH1F Ra2a 'A2'  R.a2.a 10100 -100 20000 R.a2.a>0
-TH1F Ra2sum 'A2 FADC sum (corrected)' R.a2.asum_c 10100 -100 10000 R.a2.asum_c>-1000
-TH1F Ra2sum_scaled 'A2 FADC sum (scaled)' R.a2.asum_c/400.0 1000 -10 400 R.a2.asum_c>-1000
+TH1F Ra2sum 'A2 FADC sum (corrected)' R.a2.asum_c 10100 -100 20000 R.a2.asum_c>-1000
+TH1F Ra2sum_scaled 'A2 FADC sum (scaled)' R.a2.asum_c/400.0 1000 -10 200 R.a2.asum_c>-1000
 TH1F Ra2a_p 'A2 FADC(PedSub) PMT ' R.a2.a_p 1500 -100 3000 R.a2.a_p>-200
 TH1F Ra2a_c 'A2 FADC(Corrected) PMT ' R.a2.a_c 1500 -100 3000 R.a2.a_c>-200
 TH1F Ra2a_p_cut 'A2 FADC(PedSub) PMT w cut' R.a2.a_p 1000 -200 20000 R.a2.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
@@ -175,13 +172,6 @@ TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
 TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
 TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
 TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
-
-
-TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
-TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
-TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 0 400
-TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 0 400
-
 
 TH1F Rvu1nhit 'R-arm VDC u1 TDC channel hits ' R.vdc.u1.nthit 20 0 10
 TH1F Rvu2nhit 'R-arm VDC u2 TDC channel hits ' R.vdc.u2.nthit 20 0 10
@@ -438,8 +428,10 @@ begin epics
 
   HALLA:p
   HALLA:dpp
+  MCZDSZD
+  MCZDSNMRLOCK
+  MCZDSRDFMAI  
 
-  HacR_D1_P0rb	
 
   HacR_Q1_LS450:FLD_DATA
   HacR_Q2_LS450:FLD_DATA

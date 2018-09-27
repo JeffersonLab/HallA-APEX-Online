@@ -57,6 +57,15 @@ unsigned int MAXFADCWORDS=0;
 //unsigned int fadc_window_width=FADC_WINDOW_WIDTH;
 int ii;
 
+
+int sync_or_unbuff;
+static int buffered;
+static int event_cnt = 0;
+static int icnt = 0;
+
+
+#include "usrstrutils.c" // utils to pick up CODA ROC config parameter line
+
 //F1
 #include "f1tdcLib.h"
 extern int f1tdcA32Base;
@@ -582,6 +591,121 @@ vmeDmaConfig(2,3,0);
   *dma_dabufp++ = LSWAP(0x14950000);
 vmeDmaConfig(2, 5, 1);
   BANKCLOSE;
+
+
+  BANKOPEN(0xfabc,BT_UI4,0);		//Sync checks
+  event_cnt = event_cnt + 1;
+  event_ty = (EVTYPE&0xf);
+  icnt = icnt + 1;
+  if(icnt > 20000) icnt = 0;
+  *dma_dabufp++ = LSWAP(0xfabc0004);
+  *dma_dabufp++ = LSWAP(event_ty);
+  *dma_dabufp++ = LSWAP(event_cnt);
+  *dma_dabufp++ = LSWAP(icnt);
+  *dma_dabufp++ = LSWAP(syncFlag);
+  *dma_dabufp++ = LSWAP(0xfaaa0001);
+  
+  //check if FIFO is empty at sync event or when no buffering
+  sync_or_unbuff = syncFlag || !buffered;
+  //  printf("sync or unbuff : %d\n",sync_or_unbuff);
+   if (sync_or_unbuff!=0)
+    {
+      scanmask = faScanMask();
+      /* Check scanmask for block ready up to 100 times */
+      datascan = faGBlockReady(scanmask, 100); 
+      stat = (datascan == scanmask);
+      
+      if (stat > 0)
+	{
+	  printf("data in FADC FIFO\n");
+	  		//FADC sync event bank
+          nwords = faReadBlock(0, dma_dabufp, 5000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
+	  *dma_dabufp++ = LSWAP(0xfadc250);
+	  //	  nwords = faReadBlock(faSlot(0), dma_dabufp, 25000, 2);
+	  // nwords = 0;
+	  // nwords = 0;
+	  if (nwords < 0)
+	    {
+	      printf("ERROR: in transfer (event = %d), nwords = 0x%x\n",
+		     tirGetIntCount(), nwords);
+	      //  *dma_dabufp++ = LSWAP(0xda000bad);
+	      
+	    }
+	  else
+	    {
+	      dma_dabufp += nwords;
+	    }
+	  for (islot = 0; islot < nfadc; islot++)	// 5/25/17
+	    faResetToken(faSlot(islot));
+	  for(islot = 0; islot < nfadc; islot++)
+	    {
+	      int davail = faBready(faSlot(islot));
+	      if(davail > 0)
+		{
+		  printf("%s: ERROR: fADC250 Data available after readout in SYNC event \n",
+			 __func__, davail);
+		  
+		  while(faBready(faSlot(islot)))
+		    {
+		      vmeDmaFlush(faGetA32(faSlot(islot)));
+		    }
+		}
+	    }
+	  
+	}
+  
+
+      /*
+       *dma_dabufp++ = LSWAP(0xbadbad1);
+       *dma_dabufp++ = LSWAP(0xbadbad2);
+       *dma_dabufp++ = LSWAP(0xbadbad3);
+       */
+      
+      
+      //  *dma_dabufp++ = LSWAP(0xda0000ff);	/* Event EOB */
+      
+      vmeDmaConfig(2,3,0);
+      // *dma_dabufp++ = LSWAP(tirGetIntCount());
+      
+      for(if1=0; if1<nf1tdc; if1++) {
+	F1_SLOT = f1ID[if1];
+	// Check for valid data here 
+	for(ii=0;ii<100;ii++)
+	  {
+	    datascan = f1Dready(F1_SLOT);
+	    if (datascan>0)
+	      {
+		break;
+	      }
+	  }
+	//printf("F1_datascan: %d\n",datascan);
+	if(datascan>0)
+	  {
+	    printf ("Data left in F1 FIFO\n");
+	    *dma_dabufp++ = LSWAP(0xf1ddc);
+	    nwords = f1ReadEvent(F1_SLOT,dma_dabufp,500,1);
+	    // nwords = f1PrintEvent(F1_SLOT,0);
+	    //printf("  -> nwords = %d\n",nwords);
+	    
+	    if(nwords < 0)
+	      {
+		//printf("ERROR: in transfer (event = %d), status = 0x%x\n", tirGetIntCount(),nwords);
+		// Marco:
+		printf("ERROR: in transfer (event = %d), status = 0x%x\n", tirGetIntCount(),nwords);
+		*dma_dabufp++ = LSWAP(0xda000bad);
+	      }
+	    else
+	      {
+		dma_dabufp += nwords;
+	      }
+	  }
+      }
+    }
+ BANKCLOSE;
+
+
+
+
 
   EVENTCLOSE;
   // tir[0] -> tir_oport = 0; // added 9/19/2017

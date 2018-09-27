@@ -1,0 +1,16 @@
+
+# Cut definitions
+
+Block: RawDecode
+trigger           DR.bit5>0       // Event type 5 (=RHRS main trigger)
+RawDecode_master  trigger
+
+Block: Decode
+track             R.tr.n>0
+Decode_master     track
+
+
+Block: Reconstruct
+
+Block: Physics
+

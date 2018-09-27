@@ -1,0 +1,16 @@
+
+# Cut definitions
+
+Block: RawDecode
+trigger           DL.bit2>0       // Event type 2 (=RHRS main trigger)
+RawDecode_master  trigger
+
+Block: Decode
+track             L.tr.n>0
+Decode_master     track
+
+
+Block: Reconstruct
+
+Block: Physics
+

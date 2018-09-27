@@ -1,0 +1,12 @@
+
+Block: Decode
+
+evt18     g.evtyp<=9
+
+Decode_master evt18
+
+Block: Reconstruct
+trk1      L.tr.n==1
+TargetYCut abs(L.tr.tg_y+0.003)<0.005
+Reconstruct_master trk1&&TargetYCut
+#Reconstruct_master trk1
