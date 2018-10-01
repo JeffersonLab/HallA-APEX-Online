@@ -88,7 +88,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 		   # running the wiki runlist script to auto add thisrun to the wiki runlist
 		   cd scripts
 		 #  ./wiki_runlist $thisrun
-		   analyzer -q -b "sql_update.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
+		   analyzer -q -b "good_electron.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
 		   cd ..
 		fi
 		
@@ -99,13 +99,13 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	    waittime=0
 	    let thisrun=thisrun+1
 	else
-	    echo Run ${thisrun} is not completed.  Will check again after 10 minutes.
+	    echo Run ${thisrun} is not completed.  Will check again after 2 minutes.
 	    if [ $(($waittime % 5)) -eq 0 ]; then
 		echo **If you want to terminate this program, do ctrl+z, kill %
 	    fi
-	    sleep 10m #wait for 10 minutes
+	    sleep 2m #wait for 5 minutes
 	    waittime=$(($waittime + 1))
-	    if [ $waittime -gt 144 ]; then
+	    if [ $waittime -gt 720 ]; then
 		echo ====no new datafile in the past 24 hours, STOP========
 		exit
 	    fi

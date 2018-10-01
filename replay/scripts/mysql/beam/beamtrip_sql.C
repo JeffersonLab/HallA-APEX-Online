@@ -2,11 +2,12 @@
 // cut on beam trip, record the good entry numbers to eventlist->rootfile, and write current, charge, livetime to SQL database
 // also calculate the mean current , charge, and livetime
 // Shujie Li, 02.2018
-#include "../rootalias.h"
-#include "../SQLanalysis.h"
+#include "../../rootalias.h"
+#include "../../SQLanalysis.h"
 
 // where to store/find the beamtrip cut eventlist
-TString  listdir    = Form("%s/elist/",getenv("PWD")); 
+// TString  listdir    = Form("%s/elist/",getenv("PWD")); 
+TString  listdir    = Form("/w/halla-scifs17exp/triton/SRC_elist/"); 
 TString  plotdir    = "plots/";
 Int_t    maxpeaks   = 6; // maximum number of currents allowed in one run. 
 

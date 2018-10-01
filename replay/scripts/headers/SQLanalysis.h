@@ -18,6 +18,7 @@
 #include "TSQLResult.h"
 #include "TSQLRow.h"
 #include "TTree.h"
+#include "TString.h"
 #include "TROOT.h"
 #include "TStyle.h"
 #include <fstream>
@@ -43,6 +44,7 @@
 #include "TEventList.h"
 #include "TSpectrum.h"
 #include "rootalias.h"
+
 
 const TString mysql_connection = "mysql://halladb/triton-work";
 const TString mysql_user       = "triton-user";
@@ -134,11 +136,13 @@ struct TargetInfo
   TString  type      = "unknown";
   Int_t    pos       = -999;
   Int_t    pos_err   = 0;
+  Double_t lumi      = 0; // luminosity per uA
   Double_t dens_par0 = 1;
   Double_t dens_par1 = 0;
   Double_t dens_err1 = 0;
   Double_t dens_par2 = 0;
   Double_t dens_err2 = 0;
+  Int_t    tarid     = -1;
 };
 
 
@@ -173,13 +177,24 @@ TargetInfo GetTargetInfo(TString name, Int_t pos=-999, Int_t runnum=0){
   target.type     = row->GetField(2); 
   target.pos      = atoi(row->GetField(3)); 
   target.pos_err  = atoi(row->GetField(4)); 
+  target.tarid    = atoi(row->GetField(15)); 
   if(target.type=="gas"){
     target.dens_par1 = atof(row->GetField(6)); 
     target.dens_err1 = atof(row->GetField(7)); 
     target.dens_par2 = atof(row->GetField(8)); 
-    target.dens_err2 = atof(row->GetField(9)); 
+    target.dens_err2 = atof(row->GetField(9));     
   }
-
+  // get luminosity
+  Double_t rho =  atof(row->GetField(10)); 
+  if(rho>0){
+    Double_t avg = 6.02e23;                     // N/mol
+    Double_t I   = 1.0;                           // uA = 1e-6 A = 1e-6 C/sec
+    Double_t Ne  = 1.0/(1.602e-19) ;               // electrons / C
+    Double_t amu = atof(row->GetField(14));     // g/mol
+    Double_t A   = atof(row->GetField(12));     // g/mol
+    target.lumi  = rho * avg/amu * A * I *1e-6 *Ne; // #/cm2, for QE and DIS
+    target.lumi  = target.lumi /1e-4 * 1e-37 ;  // cm2 to nb
+  }
   return target;
 
 }
@@ -204,6 +219,51 @@ TargetInfo GetTarget(Int_t run)
   return target;
 }
 
+
+//----------------------
+// Run condition
+//----------------------
+struct RunInfo {
+  // use dnew from 2018.1 as default setting
+  TString  kinid     =  "unknown"; 
+  TString  type      =  "unknown";
+  TString  quality   =  "unknown";
+};
+
+RunInfo GetRunInfo(Int_t runnum){
+  CODASetting coda    = GetCODASetting(runnum);
+  RunInfo     runinfo;
+
+  TSQLServer* Server1 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
+  TString  query1;
+  // find the latest bcm calibration results from database
+  query1=Form("select kin,run_type,quality from `%srunlist` where run_number=%d", coda.experiment.Data(),runnum); // 
+  TSQLResult* result1=Server1->Query(query1.Data());
+  Server1->Close();
+  // skip the run if it's not on the runlist
+  if(result1==0){
+    cout<<"Error: can not find column kin in "<<coda.experiment.Data()<<"runlist!"<<endl;
+    return runinfo;
+
+  }
+  if(result1->GetRowCount()==0){
+    cout<<"Error: can not find run "<<runnum<<" in "<<coda.experiment.Data()<<"runlist!"<<endl;
+    return runinfo;
+  }
+
+  // get the first row 
+  TSQLRow *row1   =    result1->Next();
+  runinfo.kinid   =    row1->GetField(0);
+  runinfo.type    =    row1->GetField(1);
+  runinfo.quality =    row1->GetField(2);
+
+  runinfo.kinid.ToLower();
+  runinfo.type.ToLower();
+  runinfo.quality.ToLower();
+
+  return runinfo;
+}
+
 //-----------------------------
 // Get analysis info from SQL table <experiment>analysis
 //-----------------------------
@@ -219,7 +279,8 @@ struct AnalysisInfo {
   Double_t dens_cor   =   1;
   Double_t dens_err   =   0;
   Int_t    status     =   0;
-  TString kin         =  '0';
+  TString  kinid      =  "unknown"; 
+  Int_t    tarid      =  -1;
 };
 
 Int_t GetNCurrents(Int_t runnum){
@@ -249,7 +310,7 @@ Int_t GetNCurrents(Int_t runnum){
 AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
   CODASetting    coda     = GetCODASetting(runnum);
   TargetInfo     target   = GetTarget(runnum);
-  AnalysisInfo   runinfo;
+  AnalysisInfo   ana;
   TSQLServer*    Server   = TSQLServer::Connect(mysql_connection.Data(),mysql_user.Data(),mysql_password.Data());
   TString        query    = Form("select * from %sanalysis where run_number=%d order by current desc", coda.experiment.Data(),runnum);
   TSQLResult*    result   = Server->Query(query.Data());
@@ -258,13 +319,13 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
   Int_t nrows = GetNCurrents(runnum); 
   if(nrows==0){
     cout<<"Error: Can't find run "<<runnum<<" in the table "<<coda.experiment<<"analysis"<<endl;
-    runinfo.status = -1;
-    return runinfo;
+    ana.status = -1;
+    return ana;
   }
   else if(current_id >= nrows){
     cout<<"Error: only "<<nrows<<" available current values for run "<<endl;
-    runinfo.status = -1;
-    return runinfo;
+    ana.status = -1;
+    return ana;
 
   }
   TSQLRow *row = nullptr;
@@ -272,23 +333,26 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
     row  = result->Next(); // load row for the corresponding current
   }
 
-  runinfo.current    = atof(row->GetField(1)); // get the second column (current)
-  runinfo.charge     = atof(row->GetField(2)); // get the third  column (charge )
-  runinfo.trigger    = row->GetField(3); 
-  runinfo.livetime   = atof(row->GetField(4)); 
-  runinfo.ntrigger   = atoi(row->GetField(5)); 
-  runinfo.ntriggered = atoi(row->GetField(6)); 
-  runinfo.elist      = row->GetField(7); 
-  if(coda.experiment=="MARATHON")runinfo.kin        = row->GetField(8);
-  runinfo.status     = 1;
+  ana.current    = atof(row->GetField(1)); // get the second column (current)
+  ana.charge     = atof(row->GetField(2)); // get the third  column (charge )
+  ana.trigger    = row->GetField(3); 
+  ana.livetime   = atof(row->GetField(4)); 
+  ana.ntrigger   = atoi(row->GetField(5)); 
+  ana.ntriggered = atoi(row->GetField(6)); 
+  ana.elist      = row->GetField(7); 
+  ana.status     = 1;
+  ana.kinid      = GetRunInfo(runnum).kinid;
 
 // calculate density correction factor (boiling)
-  runinfo.target = target.name;
+  ana.target = target.name;
   if(target.type=="gas"){
-    runinfo.dens_cor = 1 + target.dens_par1 * runinfo.current + target.dens_par2 * runinfo.current*runinfo.current;
+    ana.dens_cor = 1 + target.dens_par1 * ana.current + target.dens_par2 * ana.current*ana.current;
   }
 
-  return runinfo;
+// tarid in simulation
+  ana.tarid = target.tarid;
+
+  return ana;
 
 }
 
@@ -355,22 +419,23 @@ TEventList* GetList(TString path){
   // highest currrent has id 0, default cut on 5 seconds after beam stablized
 TChain *LoadList(Int_t runnum, Int_t current_id=0, Int_t stable_time=5){
   TChain*         t    = LoadRun(runnum);
-  // read info from SQL 
+  // read info from SQL
   AnalysisInfo    ana  = GetAnalysisInfo(runnum, current_id);
   CODASetting     coda = GetCODASetting(runnum);
   if(ana.status < 1){
     cout<<"Error: can not find run "<<runnum<<" in analysis table! No beamtrip cut applied\n";
     return t;
-  } 
+  }
   // load eventlist after beamtrip cut
   TString listname = Form("bcm%d_%d_%d.root",runnum,current_id,stable_time);
   TString LISTPATHS[] = {
-	ana.elist,
-	"./elist/"+listname,
-	"beam/beamtrip/elist/"+listname,
-	"~/jlab/MyTritium/Rootfiles/"+listname,
-	""
-	};
+  	ana.elist,
+  	"/w/halla-scifs17exp/triton/SRC_elist/"+listname,
+  	"./elist/"+listname,
+  	"beam/beamtrip/elist/"+listname,
+  	"~/jlab/MyTritium/Rootfiles/"+listname,
+  	""
+  	};
 
   Int_t       i     = 0;
   TEventList* elist = 0;
@@ -381,117 +446,6 @@ TChain *LoadList(Int_t runnum, Int_t current_id=0, Int_t stable_time=5){
   t->SetEventList(elist);
   return t;
 }
-
-//////////////////////////////////
-
-//A few quick very user friend queries for SQL list.
-//
-//////////////
-class RunList {
-	public:
-	int runnumber;
-	string kin;
-	void set_values(int a, string b);
-	void print();
-};
-
-	void RunList::set_values(int a, string b){
-		runnumber=a;
-		kin=b;
-	}
-	void RunList::print(){
-		cout << "Run number : " << runnumber << "  Kinematic " << kin <<endl;
-	}
-
-vector<int> RLtoint(vector<RunList> a, string b=""){
-	vector<int> runlist;
-	for(unsigned int i=0;i<a.size();i++){
-		if(b==""){runlist.push_back(a[i].runnumber);}
-		else{
-			if(a[i].kin==b)runlist.push_back(a[i].runnumber);
-		}
-	}
-	return runlist;
-}
-
- 
-///////////////
-
-
-//This will make a Class RunList output from the query to give you the choice to look at all the kinemtaics of one type. 
-vector<RunList> SQL_Kin_Target_RL(TString kin="", TString tgt=""){
-	vector<RunList> runlist;
-	if(kin =="" || tgt=="")
-	{
-		cout << "Please use this function with (kin,tgt),,, example (1,Tritium)" <<"\n\n";
-		return runlist;
-	}
-	if(tgt=="H3"||tgt=="T2") tgt = "Tritium";
-	else if(tgt=="D2")  tgt = "Deuterium";
-	else if(tgt=="He3") tgt = "Helium-3";
-	else if(tgt=="EM")  tgt = "Empty Cell";
-	else if(tgt=="DM")  tgt = "25 cm Dummy";
-	else if(tgt=="CH")  tgt = "Carbon Hole";
-
-	/////Make a SQL querey in 	
-        TSQLServer* Server1 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
-  	TString  query1;
-     	query1=Form("select run_number, Kinematic from MARATHONrunlist where Kinematic like'%%%s%%' and target='%s' order by run_number asc",kin.Data(),tgt.Data());  
-       TSQLResult* result1=Server1->Query(query1.Data());
-       Server1->Close();
-	
-	if(result1->GetRowCount()==0){ 
-		cout <<"Sorry could not find that kin tgt" <<"\n";
-		return runlist;
-	}
-	RunList tmp;
-	TSQLRow *row1;
-	for(int i =0; i<result1->GetRowCount();i++){
-		row1 =  result1->Next();	
-		tmp.set_values(atoi(row1->GetField(0)),row1->GetField(1));
-		runlist.push_back(tmp);
-
-	}
-	return runlist;
-}
-
-vector<int> SQL_Kin_Target(TString kin="", TString tgt=""){
-	vector<int> runlist;
-	if(kin =="" || tgt=="")
-	{
-		cout << "Please use this function with (kin,tgt),,, example (1,Tritium)" <<"\n\n";
-		return runlist;
-	}
-	if(tgt=="H3"||tgt=="T2") tgt = "Tritium";
-	else if(tgt=="D2")  tgt = "Deuterium";
-	else if(tgt=="He3") tgt = "Helium-3";
-	else if(tgt=="EM")  tgt = "Empty Cell";
-	else if(tgt=="DM")  tgt = "25 cm Dummy";
-	else if(tgt=="CH")  tgt = "Carbon Hole";
-
-	/////Make a SQL querey in 	
-        TSQLServer* Server1 = TSQLServer::Connect("mysql://halladb/triton-work","triton-user","3He3Hdata");
-  	TString  query1;
-     	query1=Form("select run_number from MARATHONrunlist where Kinematic='%s' and target='%s' order by run_number asc",kin.Data(),tgt.Data());  
-       TSQLResult* result1=Server1->Query(query1.Data());
-       Server1->Close();
-	
-	if(result1->GetRowCount()==0){ 
-		cout <<"Sorry could not find that kin tgt" <<"\n";
-		return runlist;
-	}
-	TSQLRow *row1;
-	for(int i =0; i<result1->GetRowCount();i++){
-		row1 =  result1->Next();	
-		runlist.push_back(atoi(row1->GetField(0)));
-
-	}
-	return runlist;
-}
-
-
-
-
 
 
 #endif
