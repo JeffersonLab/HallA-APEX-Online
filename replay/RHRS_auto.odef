@@ -34,7 +34,7 @@ block EKRxe.*
 block Rrb.*
 block Rurb.*
 block RightBCM*
-
+block FbusRrb.*
 
 #-------------------------------------------------------------------------------
 #Event type 140 scaler
@@ -180,4 +180,11 @@ begin epics
   HacR_D1_P0rb                
   HacR_Q2_P0rb                
   HacR_Q3_P0rb   
+
+
+
+  MQ172RM  #Q1 current LHRS
+  HacR_Q2_HP3458A_IOUT
+  HacR_D1_HP3458A_IOUT
+  HacR_Q3_HP3458A_IOUT
 end epics

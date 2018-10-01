@@ -30,9 +30,9 @@
 
 /*Used in faSetProcMode() */
 #define FADC_MODE          9 // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
-#define FADC_WINDOW_WIDTH  55 // was 
+#define FADC_WINDOW_WIDTH  55 // was 55
 #define FADC_LATENCY       88 // 
-#define FADC_LA_Sh         78 // was 62 
+#define FADC_LA_Sh         73 //was 78 // was 62 
 #define FADC_WD_Sh         60 // was 
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           60 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -95,6 +95,11 @@ void rocTrigger(int arg);
 void
 rocDownload()
 {
+
+  init_strings();
+  buffered = getflag(BUFFERED);
+  printf ("Buffer flag : %d\n",buffered);
+  
 
   printf("Hello!!!! This is our Test of the FADC\n");
   int islot, iflag,ifa;
@@ -619,7 +624,7 @@ vmeDmaConfig(2, 5, 1);
 	{
 	  printf("data in FADC FIFO\n");
 	  		//FADC sync event bank
-          nwords = faReadBlock(0, dma_dabufp, 5000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
+          nwords = faReadBlock(0, dma_dabufp, 25000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
 	  *dma_dabufp++ = LSWAP(0xfadc250);
 	  //	  nwords = faReadBlock(faSlot(0), dma_dabufp, 25000, 2);
 	  // nwords = 0;
