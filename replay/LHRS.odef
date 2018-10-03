@@ -12,10 +12,10 @@ block L.tr.*
 block DL.*
 
 # F1 tdc
-#variable F1FirstHit
-#variable F1nhits
-#variable F1Warnings
-#variable F1AllHits_033
+variable LTDC.F1FirstHit
+variable LTDC.F1nhits
+variable LTDC.F1Warnings
+variable LTDC.F1AllHits_033
 
 # V1495 Clock Count
 variable LV1495.ClockCount
