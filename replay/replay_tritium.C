@@ -126,11 +126,11 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
       gHaApps->Add(Rrb);
       TriFadcUnRasteredBeam*  Rurb    = new TriFadcUnRasteredBeam("Rurb", "Unastered beam to the R-HRS");
       gHaApps->Add(Rurb);
-      // THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
-      // FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-      // FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-      // FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-      // gHaApps->Add(FbusRrb);
+      THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+       FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+       FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+       FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+       gHaApps->Add(FbusRrb);
     }
     
     //==================================

@@ -27,7 +27,7 @@ yes_or_no "Upload these scope screens to logbook HALOG? " && \
 /site/ace/certified/apps/bin/logentry \
     --logbook "HALOG" \
     --tag Autolog \
-    --title "Left and Right HRS scope sceens " \
+    --title "Left and Right HRS scope screens " \
     --attach ${tempdir}/LHRS_scope1.png \
     --caption "Left HRS 4 chan. scope at 129.57.192.253" \
     --attach ${tempdir}/LHRS_scope2.png \

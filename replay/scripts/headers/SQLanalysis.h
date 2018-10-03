@@ -283,7 +283,7 @@ struct AnalysisInfo {
   Int_t    tarid      =  -1;
 };
 
-Int_t GetNCurrents(Int_t runnum){
+Int_t GetNCurrents(Int_t runnum, Int_t verb=1){
   CODASetting    coda     = GetCODASetting(runnum);
   AnalysisInfo   runinfo;
   TSQLServer*    Server   = TSQLServer::Connect(mysql_connection.Data(),mysql_user.Data(),mysql_password.Data());
@@ -293,21 +293,21 @@ Int_t GetNCurrents(Int_t runnum){
   Int_t   nrows = result->GetRowCount(); 
   Int_t nfields = result->GetFieldCount();
   
-  printf("%20s", "current_id");
+  if(verb) printf("%20s", "current_id");
   for (Int_t i = 0; i < nfields; i++)
-    printf("%20s", result->GetFieldName(i));
-  cout<<endl;
+    if(verb) printf("%20s", result->GetFieldName(i));
+  if(verb) cout<<endl;
  for (Int_t j=0; j<nrows; j++){
     TSQLRow*    row  = result->Next(); // load row for the corresponding current
-    printf("%20d", j);
+    if(verb) printf("%20d", j);
     for (Int_t i = 0; i < nfields; i++)
-      printf("%20s", row->GetField(i));
-    cout<<endl;
+      if(verb) printf("%20s", row->GetField(i));
+    if(verb) cout<<endl;
   }
   return nrows;
 }
 
-AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
+AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0, Int_t verb=1){
   CODASetting    coda     = GetCODASetting(runnum);
   TargetInfo     target   = GetTarget(runnum);
   AnalysisInfo   ana;
@@ -316,7 +316,7 @@ AnalysisInfo GetAnalysisInfo(Int_t runnum, Int_t current_id=0){
   TSQLResult*    result   = Server->Query(query.Data());
   Server->Close();// Always remember to CLOSE the connection!
   // Int_t nrows = result->GetRowCount();
-  Int_t nrows = GetNCurrents(runnum); 
+  Int_t nrows = GetNCurrents(runnum,verb); 
   if(nrows==0){
     cout<<"Error: Can't find run "<<runnum<<" in the table "<<coda.experiment<<"analysis"<<endl;
     ana.status = -1;
