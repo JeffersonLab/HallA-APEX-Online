@@ -12,7 +12,7 @@ trk1    L.tr.n==1
 e      	L.cer.asum_c>1200
 TargetYCut abs(L.tr.tg_y+0.003)<0.01 
 
-spot trk1
+#spot trk1
 
 Reconstruct_master spot
 

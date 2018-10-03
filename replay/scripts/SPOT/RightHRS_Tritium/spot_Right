@@ -137,6 +137,5 @@ yes_or_no "Upload these plots to logbook HALOG? " && \
     --logbook "HALOG" \
     --tag Autolog \
     --title "Spot check using Right HRS run ${runnum}" \
-    --attach ${spot_dir}/Tritium_${runnum}.pdf \
     --attach ${spot_dir}/FADC_Tritium_${runnum}.pdf
 
