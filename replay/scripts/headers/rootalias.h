@@ -80,15 +80,12 @@ const char* ROOTPATHS[] = {
   0
 };
 
-<<<<<<< HEAD
 
-=======
 const char* MCPATHS[] = {
 	"/run/media/jbane/Slim/",
 	"./mcroot/",
 	0
 };
->>>>>>> 3a4dba11092054e17f5384c95aad8aff03e4ba62
 
 const double pi=3.1415926535897932;
 const double rad=pi/180.0;
@@ -265,8 +262,6 @@ TChain* LoadOnline(Int_t run, const char* tree = "T")
     return tt;
 }
 
-<<<<<<< HEAD
-=======
 
 TChain* LoadMC(Int_t run, int tarid=0, const char* tree = "h9040")
 {
@@ -278,7 +273,6 @@ TChain* LoadMC(Int_t run, int tarid=0, const char* tree = "h9040")
 	else{cout << "adding " <<Form("%smc%d.root",MCPATHS[0],run)<<"\n";}
 	return tt;
 }
->>>>>>> 3a4dba11092054e17f5384c95aad8aff03e4ba62
 // get rootfile path
 
 TString GetPath(Int_t run, Int_t skim=0)
@@ -339,10 +333,7 @@ TArrayI GetPS(TTree* tt)
 Int_t GetPS(TTree* tt,Int_t trigger)
 {
     THaRun* run = GetRunData(tt);
-<<<<<<< HEAD
-=======
     Int_t ps=0;
->>>>>>> 3a4dba11092054e17f5384c95aad8aff03e4ba62
     if (run) {
       TArrayI ps = GetPS(tt);
       delete run;
