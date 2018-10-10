@@ -47,6 +47,7 @@
 #include "TArray.h"
 #include "THaRun.h"
 #include "THaRunParameters.h"
+#include "TVector.h"
 
 using namespace std;
 
@@ -80,6 +81,11 @@ const char* ROOTPATHS[] = {
 };
 
 
+const char* MCPATHS[] = {
+	"/run/media/jbane/Slim/",
+	"./mcroot/",
+	0
+};
 
 const double pi=3.1415926535897932;
 const double rad=pi/180.0;
@@ -256,6 +262,17 @@ TChain* LoadOnline(Int_t run, const char* tree = "T")
     return tt;
 }
 
+
+TChain* LoadMC(Int_t run, int tarid=0, const char* tree = "h9040")
+{
+	TString tgt="";
+	if(tarid>0){ tgt=Form("_%d",tarid);}
+	TChain *tt = new TChain(tree);
+	tt->Add(Form("%smc%d%s.root",MCPATHS[0],run,tgt.Data()));
+	if(tt->GetEntries()==0){return nullptr;}
+	else{cout << "adding " <<Form("%smc%d.root",MCPATHS[0],run)<<"\n";}
+	return tt;
+}
 // get rootfile path
 
 TString GetPath(Int_t run, Int_t skim=0)
@@ -316,6 +333,7 @@ TArrayI GetPS(TTree* tt)
 Int_t GetPS(TTree* tt,Int_t trigger)
 {
     THaRun* run = GetRunData(tt);
+    Int_t ps=0;
     if (run) {
       TArrayI ps = GetPS(tt);
       delete run;
