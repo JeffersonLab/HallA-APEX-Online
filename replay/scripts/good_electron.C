@@ -11,10 +11,10 @@ Int_t good_electron(Int_t runnum, Int_t timecut=5,Int_t current_id=0){
   CODASetting     coda = GetCODASetting(runnum);
   AnalysisInfo     ana = GetAnalysisInfo(runnum, current_id);
 
-  if(ana.tarid==-1) {
-    cout<<"run "<<runnum<<" : not production target, skipped\n";
-    return -1;
-  }
+  // if(ana.tarid==-1) {
+  //    cout<<"run "<<runnum<<" : not production target, skipped\n";
+  //    return -1;
+  //  }
   //-------------------------
   // get good electrons
   //-------------------------

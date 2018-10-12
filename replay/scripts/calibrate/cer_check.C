@@ -13,6 +13,7 @@ void cer_check(Int_t runnum, Int_t rightarm=0, Int_t fadc=1){
   if (fadc==1) scale=3;
  
   TChain *t = LoadRun(runnum);
+  
   if(!t){
    cout<< "can't find rootfile for run "<<runnum<<endl;
    exit(0);
@@ -20,6 +21,8 @@ void cer_check(Int_t runnum, Int_t rightarm=0, Int_t fadc=1){
   if(rightarm){
     t->Add(LoadRun(runnum+1));
     t->Add(LoadRun(runnum+2));
+    t->Add(LoadRun(runnum+3));
+    t->Add(LoadRun(runnum+4));
   }
 
 
@@ -28,9 +31,9 @@ void cer_check(Int_t runnum, Int_t rightarm=0, Int_t fadc=1){
   t->SetBranchStatus("*.cer.a*",   1);
  
   TString  arm = "L"; 
-  TString  cut = "DL.bit3>0"; //lhrs single
+  TString  cut = "DL.bit2>0"; //lhrs single
   if(rightarm){
-    cut = "DR.bit6>0"; // rhrs single
+    cut = "DR.bit5>0"; // rhrs single
     arm = "R";
   }
   if(runnum>100000)   
@@ -77,8 +80,11 @@ void cer_check(Int_t runnum, Int_t rightarm=0, Int_t fadc=1){
     //cout<<ped[i]<<"  "<<dip<<endl;
     hh[i]->GetXaxis()->SetRangeUser(min,max);
     double_t gap = 110;
-    if(rightarm) gap*=1.5;
-    TF1 *f2 = new TF1("f2", "gaus", dip+10*scale, dip+gap*scale);
+    if(rightarm) {
+      gap*=1.2;
+      if(i==1) gap*=1.2;
+    }
+    TF1 *f2 = new TF1("f2", "gaus", dip+5*scale, dip+gap*scale);
     hh[i]->Fit(f2, "Rq");
     peak[i] = f2->GetParameter(1);
     TLine *l1 = new TLine(peak[i],0,peak[i],hh[i]->GetMaximum());

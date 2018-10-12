@@ -74,7 +74,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
     # while [ $waittime -lt 144 ]; do  # if no new datafile for 24 hours, stop
     while [ $thisrun -le $runnum ]; do
 	if [ $thisrun -lt $runnum ]; then
-	
+	    python scripts/mysql/log2db_aonl.py $thisrun	
 	    if [[ $(find ${RAWDIR}/triton_${thisrun}.dat.0 -type f -size +10000000c 2>/dev/null) ]]; then  # require rawdata > 10 Mbytes
 		echo  ==Found ${RAWDIR}/triton_${thisrun}.dat.0
 		if [ -e ${t2root}/tritium_${thisrun}.root ]; then
@@ -88,7 +88,8 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 		   # running the wiki runlist script to auto add thisrun to the wiki runlist
 		   cd scripts
 		 #  ./wiki_runlist $thisrun
-		   analyzer -q -b "good_electron.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
+		   analyzer -q -b "electron_counts.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
+		   analyzer -q -b "electron_counts.C($thisrun,150)" >> ${LOGDIR}/${thisrun}_info.log
 		   cd ..
 		fi
 		
