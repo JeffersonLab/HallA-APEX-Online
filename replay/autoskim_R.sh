@@ -35,7 +35,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	esac
     done
     # check if is running already
-    for pid in $(pgrep -f "bash autoreplay_R.sh"); do 
+    for pid in $(pgrep -f "bash autoskim_R.sh"); do 
 	if [ $pid != $$ ];then
 	echo !!PID $pid ":Process is already running!!"
 	exit 
@@ -47,6 +47,8 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
     if [ $# -eq 0 ];then
 	echo "which run you want to start with?"
 	read thisrun
+	echo "which run you want to end at?"
+	read runnum
     else
 	thisrun=$1 # start from which run
     fi
@@ -59,38 +61,39 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	echo "Please enter a RHRS run number!"
 	exit
     fi
-    runnum=`cat ~adaq/datafile/rcRunNumberR`
-    echo **The current RHRS run number is $runnum
-    echo "==Will start full replay from run " $thisrun
+    #runnum=`cat ~adaq/datafile/rcRunNumberR`
+    #echo **The current RHRS run number is $runnum
+    #echo "==Will start full replay from run " $thisrun
     
 
     # Check whether the raw data is ready
     # while [ $waittime -lt 144 ]; do  # if no new datafile for 24 hours, stop
     while [ $thisrun -le $runnum ]; do
 	if [ $thisrun -lt $runnum ]; then
-            python scripts/mysql/log2db_aonl.py  $thisrun       
 	
 	    if [[ $(find ${RAWDIR}/triton_${thisrun}.dat.0 -type f -size +10000000c 2>/dev/null) ]]; then  # require rawdata > 10 Mbytes
 		echo  ==Found ${RAWDIR}/triton_${thisrun}.dat.0
-		if [ -e ${t2root}/tritium_${thisrun}.root ]; then
-		    echo !!Can not overwrite ${t2root}/tritium_${thisrun}.root
-		
+		if [ -e ${t2root}/skim_${thisrun}.root ]; then
+		   # echo !!Can not overwrite ${t2root}/skim_${thisrun}.root
+		    rm  ${t2root}/skim_${thisrun}.root
+		    rm  ${t2root}/skim_${thisrun}_*.root
+		    echo !! will overwrite ${t2root}/skim_${thisrun}.root
+	
 		else 
 		    echo Start analyzing
-		    analyzer -q "replay_tritium.C($thisrun,$gtotal,$gstart,$kfalse,$kfalse,$kfalse,$ktrue)"  >> ${LOGDIR}/${thisrun}.log
-		    echo RUN $thisrun is analyzed
+		    analyzer -q "replay_tritium.C($thisrun,$gtotal,$gstart,$kfalse,$kfalse,$kfalse,$ktrue,$ktrue)"  >> ${LOGDIR}/skim_${thisrun}.log
+		    echo RUN skim_${thisrun} is analyzed
     		   
 		   # running the wiki runlist script to auto add thisrun to the wiki runlist
-		   cd scripts
+		  # cd scripts
 		   #./wiki_runlist $thisrun
-		   analyzer -q -b "electron_counts.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
-		   analyzer -q -b "electron_counts.C($thisrun,150)" >> ${LOGDIR}/${thisrun}_info.log
-		   cd ..
+		   #analyzer -q -b "sql_update.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
+		  # cd ..
 		fi
 		
 	    else 
 		echo ${RAWDIR}/triton_${thisrun}.dat.0 less than 10 Mb. Will skip
-		echo  ${RAWDIR}/triton_${thisrun}.dat.0 is skipped >> ${LOGDIR}/${thisrun}.log
+		echo  ${RAWDIR}/triton_${thisrun}.dat.0 is skipped >> ${LOGDIR}/skim_${thisrun}.log
 	    fi
 	    waittime=0
 	    let thisrun=thisrun+1
@@ -110,7 +113,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	fi
 #    let counter=counter+1
 	#    echo $counter
-    runnum=`cat ~adaq/datafile/rcRunNumberR`
+  #  runnum=`cat ~adaq/datafile/rcRunNumberR`
     done
  
 else

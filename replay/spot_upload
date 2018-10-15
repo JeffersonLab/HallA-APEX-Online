@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function yes_or_no {
+  while true; do
+    read -p "$* [y/n]: " yn
+    case $yn in
+      [Yy]*) return 0 ;;
+      [Nn]*) echo "No entered" ; return 1 ;;
+    esac
+  done
+}
+
+yes_or_no "Upload these plots to logbook HALOG? " && 
+#/site/ace/certified/apps/bin/logentry \
+echo "
+    --logbook "HALOG" \
+    --title "Spot check using Left HRS run 1575" \
+    --attach /chafs1/work1/tritium/spot/Tritium_1575.pdf
+
+"
+
+

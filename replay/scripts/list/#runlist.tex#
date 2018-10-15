@@ -1,0 +1,36 @@
+\pagestyle{empty}
+\documentclass[letter,13pt]{article}
+%\documentclass[13pt]{revtex4}
+\usepackage[latin1]{inputenc} 
+\usepackage{rotating}
+\usepackage{amsmath} 
+\usepackage[english]{babel} 
+\usepackage{graphicx} 
+\usepackage{amssymb} 
+\usepackage{subfigure} 
+\usepackage{epsfig} 
+\usepackage{enumerate} 
+\usepackage{pifont} 
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{lscape}
+\pagestyle{empty} 
+\setlength{\textwidth}{27.7cm} 
+\setlength{\textheight}{15.7cm} 
+\advance\textheight by 6cm 
+\advance\hoffset by -8cm 
+
+\begin{document} 
+\newcounter{run}
+\setcounter{run}{10012}
+
+\input{table.txt}
+\input{table.txt}
+\input{table.txt}
+\input{table.txt}
+\input{table.txt}
+\input{table.txt}
+\thispagestyle{empty}
+
+
+\end{document}

@@ -1,0 +1,1149 @@
+<tr><td> 91488 </td><td>Tritium</td><td>20.63</td><td>13.80</td><td>62340.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>75.31</td><td>9053</td><td></td></tr> 
+<tr><td> 91584 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>-nan</td><td>0.00</td><td>PS4=1 PS5=1 PS6=0 PS8=0 </td><td>-nan</td><td>0.00</td><td>0</td><td></td></tr> 
+<tr><td> 91585 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=1 PS8=0 </td><td>0.00</td><td>4147.34</td><td>0</td><td></td></tr> 
+<tr><td> 91588 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=1 PS8=0 </td><td>0.00</td><td>2820.27</td><td>0</td><td></td></tr> 
+<tr><td> 91589 </td><td>Carbon Hole</td><td>5.68</td><td>1.21</td><td>459.63</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.51</td><td>6.35</td><td>391</td><td></td></tr> 
+<tr><td> 91590 </td><td>Carbon Hole</td><td>7.87</td><td>6.94</td><td>1174.93</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>21.58</td><td>2.82</td><td>1737</td><td></td></tr> 
+<tr><td> 91591 </td><td>Carbon Hole</td><td>8.51</td><td>6.86</td><td>1454.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.54</td><td>3.53</td><td>555</td><td></td></tr> 
+<tr><td> 91592 </td><td>Carbon Hole</td><td>6.61</td><td>2.01</td><td>864.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.42</td><td>7.18</td><td>479</td><td></td></tr> 
+<tr><td> 91593 </td><td>Carbon Hole</td><td>5.28</td><td>2.63</td><td>3192.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.69</td><td>20.23</td><td>1294</td><td></td></tr> 
+<tr><td> 91594 </td><td>Carbon Hole</td><td>7.91</td><td>4.78</td><td>1115.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.49</td><td>3.88</td><td>791</td><td></td></tr> 
+<tr><td> 91595 </td><td>Carbon Hole</td><td>9.26</td><td>8.51</td><td>2102.59</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.37</td><td>4.12</td><td>1006</td><td></td></tr> 
+<tr><td> 91596 </td><td>Carbon Hole</td><td>9.09</td><td>5.33</td><td>7238.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.47</td><td>22.64</td><td>2313</td><td></td></tr> 
+<tr><td> 91597 </td><td>Single Carbon Foil</td><td>8.51</td><td>4.25</td><td>1196.67</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>4.69</td><td>0</td><td></td></tr> 
+<tr><td> 91598 </td><td>Single Carbon Foil</td><td>5.82</td><td>0.51</td><td>60.30</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 91599 </td><td>Single Carbon Foil</td><td>9.07</td><td>7.66</td><td>4116.52</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>8.96</td><td>0</td><td></td></tr> 
+<tr><td> 91600 </td><td>Carbon Hole</td><td>9.99</td><td>10.01</td><td>1489.21</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>2.48</td><td>0</td><td></td></tr> 
+<tr><td> 91601 </td><td>Carbon Hole</td><td>10.14</td><td>10.16</td><td>3643.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.55</td><td>5.98</td><td>724</td><td></td></tr> 
+<tr><td> 91602 </td><td>Multifoils</td><td>7.67</td><td>2.63</td><td>5177.66</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>32.76</td><td>1733</td><td></td></tr> 
+<tr><td> 91603 </td><td>Multifoils</td><td>9.02</td><td>5.59</td><td>13408.88</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>40.01</td><td>4521</td><td></td></tr> 
+<tr><td> 91604 </td><td>Multifoils</td><td>9.06</td><td>7.97</td><td>12607.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>26.36</td><td>3454</td><td></td></tr> 
+<tr><td> 91605 </td><td>Multifoils</td><td>8.73</td><td>5.17</td><td>13654.04</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>44.04</td><td>3838</td><td></td></tr> 
+<tr><td> 91606 </td><td>Multifoils</td><td>9.53</td><td>9.23</td><td>14035.01</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>25.35</td><td>3460</td><td></td></tr> 
+<tr><td> 91607 </td><td>Multifoils</td><td>9.62</td><td>7.81</td><td>14069.38</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>30.03</td><td>3524</td><td></td></tr> 
+<tr><td> 91608 </td><td>Multifoils</td><td>9.27</td><td>6.98</td><td>19128.55</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>45.65</td><td>4826</td><td></td></tr> 
+<tr><td> 91609 </td><td>Multifoils</td><td>8.85</td><td>4.77</td><td>8741.30</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>30.55</td><td>2471</td><td></td></tr> 
+<tr><td> 91610 </td><td>Multifoils</td><td>9.61</td><td>7.96</td><td>13853.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.03</td><td>29.01</td><td>3562</td><td></td></tr> 
+<tr><td> 91611 </td><td>Multifoils</td><td>8.74</td><td>7.62</td><td>17192.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>37.60</td><td>4345</td><td></td></tr> 
+<tr><td> 91612 </td><td>Multifoils</td><td>9.17</td><td>8.87</td><td>17817.05</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.20</td><td>33.46</td><td>4470</td><td></td></tr> 
+<tr><td> 91613 </td><td>Multifoils</td><td>9.78</td><td>9.76</td><td>4240.66</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>7.24</td><td>1035</td><td></td></tr> 
+<tr><td> 91614 </td><td>Multifoils</td><td>8.79</td><td>5.74</td><td>72795.60</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.20</td><td>211.32</td><td>19622</td><td></td></tr> 
+<tr><td> 91615 </td><td>Single Carbon Foil</td><td>8.88</td><td>7.42</td><td>70095.37</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.88</td><td>157.51</td><td>17838</td><td></td></tr> 
+<tr><td> 91616 </td><td>Multifoils</td><td>8.00</td><td>6.64</td><td>11683.30</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>29.32</td><td>3025</td><td></td></tr> 
+<tr><td> 91617 </td><td>Titanium</td><td>9.27</td><td>5.07</td><td>33686.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>3.73</td><td>110.80</td><td>61629</td><td></td></tr> 
+<tr><td> 91618 </td><td>Titanium</td><td>8.91</td><td>6.04</td><td>43791.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>3.70</td><td>120.87</td><td>79020</td><td></td></tr> 
+<tr><td> 91619 </td><td>Titanium</td><td>9.50</td><td>8.14</td><td>43758.32</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>3.83</td><td>89.56</td><td>78419</td><td></td></tr> 
+<tr><td> 91620 </td><td>Titanium</td><td>9.66</td><td>8.65</td><td>45193.69</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>4.10</td><td>87.07</td><td>81089</td><td></td></tr> 
+<tr><td> 91621 </td><td>Multifoils</td><td>9.48</td><td>7.31</td><td>28467.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>4.82</td><td>64.88</td><td>59826</td><td></td></tr> 
+<tr><td> 91622 </td><td>Multifoils</td><td>9.35</td><td>6.14</td><td>19432.02</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>4.69</td><td>52.74</td><td>41043</td><td></td></tr> 
+<tr><td> 91623 </td><td>Multifoils</td><td>9.50</td><td>8.27</td><td>36736.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>4.76</td><td>74.08</td><td>76366</td><td></td></tr> 
+<tr><td> 91624 </td><td>Multifoils</td><td>9.57</td><td>8.84</td><td>19714.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>4.72</td><td>37.18</td><td>41438</td><td></td></tr> 
+<tr><td> 91625 </td><td>Titanium</td><td>9.95</td><td>9.97</td><td>7714.79</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.00</td><td>12.90</td><td>8563</td><td></td></tr> 
+<tr><td> 91626 </td><td>Titanium</td><td>8.29</td><td>3.68</td><td>2255.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.91</td><td>10.22</td><td>2620</td><td></td></tr> 
+<tr><td> 91627 </td><td>Titanium</td><td>9.50</td><td>7.86</td><td>15042.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.97</td><td>31.90</td><td>16652</td><td></td></tr> 
+<tr><td> 91628 </td><td>Titanium</td><td>9.60</td><td>9.18</td><td>37342.55</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.98</td><td>67.76</td><td>41653</td><td></td></tr> 
+<tr><td> 91629 </td><td>Titanium</td><td>9.59</td><td>8.04</td><td>36209.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.82</td><td>75.05</td><td>40580</td><td></td></tr> 
+<tr><td> 91630 </td><td>Titanium</td><td>8.55</td><td>6.50</td><td>9304.14</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.81</td><td>23.85</td><td>10355</td><td></td></tr> 
+<tr><td> 91631 </td><td>Titanium</td><td>9.22</td><td>8.42</td><td>20138.84</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.10</td><td>39.86</td><td>22469</td><td></td></tr> 
+<tr><td> 91632 </td><td>Titanium</td><td>9.89</td><td>8.76</td><td>8571.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.66</td><td>16.32</td><td>9516</td><td></td></tr> 
+<tr><td> 91633 </td><td>Titanium</td><td>9.16</td><td>2.71</td><td>1757.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.82</td><td>10.83</td><td>2104</td><td></td></tr> 
+<tr><td> 91634 </td><td>Titanium</td><td>9.67</td><td>8.24</td><td>48197.78</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.68</td><td>97.54</td><td>53754</td><td></td></tr> 
+<tr><td> 91635 </td><td>Titanium</td><td>9.42</td><td>6.61</td><td>58597.39</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.79</td><td>147.80</td><td>66094</td><td></td></tr> 
+<tr><td> 91636 </td><td>Titanium</td><td>9.36</td><td>7.27</td><td>33971.79</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.93</td><td>77.86</td><td>37963</td><td></td></tr> 
+<tr><td> 91637 </td><td>Titanium</td><td>9.50</td><td>7.99</td><td>46620.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.91</td><td>97.26</td><td>52503</td><td></td></tr> 
+<tr><td> 91638 </td><td>Titanium</td><td>9.64</td><td>8.76</td><td>19030.61</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.85</td><td>36.19</td><td>21246</td><td></td></tr> 
+<tr><td> 91639 </td><td>Titanium</td><td>8.47</td><td>6.42</td><td>2388.58</td><td>PS4=1 PS5=1 PS6=1 PS8=100 </td><td>6.02</td><td>6.20</td><td>2590</td><td></td></tr> 
+<tr><td> 91640 </td><td>Titanium</td><td>9.30</td><td>5.36</td><td>1167.18</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.20</td><td>3.63</td><td>1276</td><td></td></tr> 
+<tr><td> 91641 </td><td>Titanium</td><td>9.78</td><td>9.22</td><td>7933.06</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.28</td><td>14.34</td><td>8050</td><td></td></tr> 
+<tr><td> 91642 </td><td>Titanium</td><td>9.36</td><td>8.49</td><td>6406.22</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.57</td><td>12.58</td><td>6661</td><td></td></tr> 
+<tr><td> 91643 </td><td>Titanium</td><td>10.28</td><td>10.30</td><td>915.86</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.85</td><td>1.48</td><td>979</td><td></td></tr> 
+<tr><td> 91644 </td><td>Titanium</td><td>9.79</td><td>9.81</td><td>886.27</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.52</td><td>1.51</td><td>977</td><td></td></tr> 
+<tr><td> 91645 </td><td>Titanium</td><td>9.71</td><td>9.72</td><td>3888.81</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.75</td><td>6.66</td><td>4090</td><td></td></tr> 
+<tr><td> 91646 </td><td>Titanium</td><td>10.16</td><td>10.17</td><td>2719.71</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>8.47</td><td>4.46</td><td>2832</td><td></td></tr> 
+<tr><td> 91647 </td><td>Multifoils</td><td>8.83</td><td>7.04</td><td>2447.72</td><td>PS4=1 PS5=1 PS6=1 PS8=50 </td><td>9.29</td><td>5.80</td><td>3037</td><td></td></tr> 
+<tr><td> 91648 </td><td>Multifoils</td><td>9.98</td><td>9.82</td><td>10842.13</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.23</td><td>18.41</td><td>14202</td><td></td></tr> 
+<tr><td> 91649 </td><td>Multifoils</td><td>9.39</td><td>7.40</td><td>2839.68</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.19</td><td>6.39</td><td>3613</td><td></td></tr> 
+<tr><td> 91650 </td><td>Multifoils</td><td>9.37</td><td>8.00</td><td>25310.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.23</td><td>52.74</td><td>32771</td><td></td></tr> 
+<tr><td> 91651 </td><td>Multifoils</td><td>8.49</td><td>3.93</td><td>10612.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.97</td><td>44.95</td><td>14352</td><td></td></tr> 
+<tr><td> 91652 </td><td>Dummy</td><td>9.14</td><td>6.79</td><td>5073.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.29</td><td>12.45</td><td>347</td><td></td></tr> 
+<tr><td> 91653 </td><td>Dummy</td><td>9.24</td><td>6.19</td><td>5778.38</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>15.57</td><td>2150</td><td></td></tr> 
+<tr><td> 91655 </td><td>Dummy</td><td>8.99</td><td>6.53</td><td>37230.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>95.03</td><td>13521</td><td></td></tr> 
+<tr><td> 91656 </td><td>Dummy</td><td>8.76</td><td>3.58</td><td>15013.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>69.84</td><td>6196</td><td></td></tr> 
+<tr><td> 91657 </td><td>Dummy</td><td>9.16</td><td>6.91</td><td>11016.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>26.56</td><td>3863</td><td></td></tr> 
+<tr><td> 91658 </td><td>Dummy</td><td>9.29</td><td>5.99</td><td>21546.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>59.96</td><td>7993</td><td></td></tr> 
+<tr><td> 91659 </td><td>Dummy</td><td>8.94</td><td>8.11</td><td>30197.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>62.04</td><td>10552</td><td></td></tr> 
+<tr><td> 91660 </td><td>Dummy</td><td>8.20</td><td>3.01</td><td>5039.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>27.88</td><td>2195</td><td></td></tr> 
+<tr><td> 91661 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>8.49</td><td>213</td><td></td></tr> 
+<tr><td> 91662 </td><td>Dummy</td><td>8.56</td><td>6.89</td><td>16670.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>40.31</td><td>5993</td><td></td></tr> 
+<tr><td> 91663 </td><td>Dummy</td><td>9.15</td><td>7.47</td><td>31390.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>70.07</td><td>11134</td><td></td></tr> 
+<tr><td> 91664 </td><td>Dummy</td><td>9.45</td><td>6.56</td><td>22574.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>57.40</td><td>8147</td><td></td></tr> 
+<tr><td> 91665 </td><td>Dummy</td><td>9.33</td><td>6.72</td><td>25667.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>63.68</td><td>9055</td><td></td></tr> 
+<tr><td> 91666 </td><td>Dummy</td><td>9.02</td><td>5.79</td><td>17354.29</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>49.94</td><td>6427</td><td></td></tr> 
+<tr><td> 91667 </td><td>Helium3</td><td>21.29</td><td>19.20</td><td>72429.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>62.88</td><td>6895</td><td></td></tr> 
+<tr><td> 91668 </td><td>Hydrogen</td><td>21.11</td><td>15.92</td><td>60484.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>63.30</td><td>7587</td><td></td></tr> 
+<tr><td> 91669 </td><td>Carbon Hole</td><td>9.85</td><td>4.26</td><td>1094.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.80</td><td>4.29</td><td>126</td><td></td></tr> 
+<tr><td> 91670 </td><td>HOME</td><td>15.89</td><td>7.92</td><td>17552.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>36.92</td><td>829</td><td></td></tr> 
+<tr><td> 91671 </td><td>HOME</td><td>20.70</td><td>14.64</td><td>51350.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>58.48</td><td>1312</td><td></td></tr> 
+<tr><td> 91672 </td><td>Single Carbon Foil</td><td>19.40</td><td>16.89</td><td>2659.71</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>2.62</td><td>0</td><td></td></tr> 
+<tr><td> 91673 </td><td>Single Carbon Foil</td><td>16.45</td><td>3.85</td><td>9127.06</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>39.54</td><td>1264</td><td></td></tr> 
+<tr><td> 91674 </td><td>Single Carbon Foil</td><td>19.40</td><td>13.28</td><td>19675.08</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>24.69</td><td>1322</td><td></td></tr> 
+<tr><td> 91675 </td><td>unknown</td><td>19.46</td><td>16.75</td><td>27555.70</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>27.43</td><td>3550</td><td></td></tr> 
+<tr><td> 91676 </td><td>unknown</td><td>19.97</td><td>17.45</td><td>28996.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>27.70</td><td>3745</td><td></td></tr> 
+<tr><td> 91677 </td><td>unknown</td><td>17.28</td><td>12.79</td><td>23188.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>30.21</td><td>3043</td><td></td></tr> 
+<tr><td> 91678 </td><td>Tritium</td><td>10.29</td><td>1.06</td><td>312.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>4.92</td><td>146</td><td></td></tr> 
+<tr><td> 91679 </td><td>Tritium</td><td>18.12</td><td>14.16</td><td>8408.88</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>9.90</td><td>1220</td><td></td></tr> 
+<tr><td> 91680 </td><td>Tritium</td><td>19.55</td><td>17.61</td><td>26499.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>25.08</td><td>3586</td><td></td></tr> 
+<tr><td> 91681 </td><td>Tritium</td><td>18.19</td><td>15.92</td><td>24183.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>25.31</td><td>3399</td><td></td></tr> 
+<tr><td> 91682 </td><td>Tritium</td><td>17.99</td><td>15.68</td><td>27037.01</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>28.74</td><td>3794</td><td></td></tr> 
+<tr><td> 91683 </td><td>unknown</td><td>20.33</td><td>17.24</td><td>23591.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>22.81</td><td>3017</td><td></td></tr> 
+<tr><td> 91684 </td><td>Empty Cell</td><td>19.72</td><td>16.53</td><td>46876.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>47.26</td><td>3775</td><td></td></tr> 
+<tr><td> 91685 </td><td>Helium3</td><td>16.25</td><td>12.88</td><td>47150.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>61.02</td><td>5048</td><td></td></tr> 
+<tr><td> 91686 </td><td>Helium3</td><td>19.87</td><td>16.38</td><td>84777.32</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>86.24</td><td>8380</td><td></td></tr> 
+<tr><td> 91687 </td><td>Hydrogen</td><td>17.52</td><td>12.23</td><td>53162.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>72.44</td><td>7019</td><td></td></tr> 
+<tr><td> 91688 </td><td>Hydrogen</td><td>20.67</td><td>18.37</td><td>87565.63</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>79.45</td><td>10842</td><td></td></tr> 
+<tr><td> 91689 </td><td>unknown</td><td>20.49</td><td>17.18</td><td>69974.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>67.88</td><td>9288</td><td></td></tr> 
+<tr><td> 91690 </td><td>unknown</td><td>20.43</td><td>18.29</td><td>67374.91</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>61.39</td><td>8718</td><td></td></tr> 
+<tr><td> 91691 </td><td>Tritium</td><td>17.10</td><td>11.92</td><td>22238.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>31.10</td><td>3215</td><td></td></tr> 
+<tr><td> 91692 </td><td>Tritium</td><td>20.56</td><td>17.74</td><td>70904.09</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>66.60</td><td>9580</td><td></td></tr> 
+<tr><td> 91693 </td><td>Tritium</td><td>18.53</td><td>13.67</td><td>43423.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>52.94</td><td>6314</td><td></td></tr> 
+<tr><td> 91694 </td><td>Tritium</td><td>19.51</td><td>13.95</td><td>24947.72</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>29.81</td><td>3445</td><td></td></tr> 
+<tr><td> 91695 </td><td>Empty Cell</td><td>19.80</td><td>13.98</td><td>57738.27</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>68.84</td><td>5004</td><td></td></tr> 
+<tr><td> 91696 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=100 </td><td>0.00</td><td>4.75</td><td>129</td><td></td></tr> 
+<tr><td> 91697 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=100 </td><td>4.44</td><td>2.35</td><td>43</td><td></td></tr> 
+<tr><td> 91698 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-9.15</td><td>14.09</td><td>346</td><td></td></tr> 
+<tr><td> 91699 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=100 </td><td>6.25</td><td>0.87</td><td>15</td><td></td></tr> 
+<tr><td> 91700 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-123.53</td><td>7.91</td><td>912</td><td></td></tr> 
+<tr><td> 91701 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=8 </td><td>0.00</td><td>17.38</td><td>0</td><td></td></tr> 
+<tr><td> 91702 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>43.44</td><td>0</td><td></td></tr> 
+<tr><td> 91703 </td><td>Single Carbon Foil</td><td>19.48</td><td>15.59</td><td>3170.96</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>3.39</td><td>0</td><td></td></tr> 
+<tr><td> 91704 </td><td>unknown</td><td>17.80</td><td>10.65</td><td>6285.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>9.83</td><td>0</td><td></td></tr> 
+<tr><td> 91705 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>1.46</td><td>0</td><td></td></tr> 
+<tr><td> 91706 </td><td>HOME</td><td>11.33</td><td>5.48</td><td>15992.67</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>48.60</td><td>0</td><td></td></tr> 
+<tr><td> 91707 </td><td>Dummy</td><td>21.10</td><td>21.16</td><td>3505.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>2.76</td><td>1078</td><td></td></tr> 
+<tr><td> 91708 </td><td>Dummy</td><td>21.03</td><td>21.05</td><td>3441.39</td><td>PS4=0 PS5=1 PS6=1 PS8=0 </td><td>-0.19</td><td>2.72</td><td>1063</td><td></td></tr> 
+<tr><td> 91709 </td><td>Empty Cell</td><td>18.77</td><td>16.98</td><td>5271.51</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.23</td><td>5.17</td><td>425</td><td></td></tr> 
+<tr><td> 91710 </td><td>Hydrogen</td><td>20.15</td><td>18.99</td><td>19504.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>17.12</td><td>2347</td><td></td></tr> 
+<tr><td> 91711 </td><td>Hydrogen</td><td>19.85</td><td>14.60</td><td>17694.11</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.09</td><td>20.20</td><td>2163</td><td></td></tr> 
+<tr><td> 91712 </td><td>Hydrogen</td><td>20.39</td><td>15.25</td><td>18800.79</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.21</td><td>20.54</td><td>2398</td><td></td></tr> 
+<tr><td> 91713 </td><td>Hydrogen</td><td>18.60</td><td>4.15</td><td>14443.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>57.96</td><td>2789</td><td></td></tr> 
+<tr><td> 91714 </td><td>Hydrogen</td><td>20.10</td><td>12.67</td><td>5153.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>6.78</td><td>687</td><td></td></tr> 
+<tr><td> 91715 </td><td>Hydrogen</td><td>20.23</td><td>16.56</td><td>9110.58</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>9.17</td><td>1072</td><td></td></tr> 
+<tr><td> 91716 </td><td>Empty Cell</td><td>10.20</td><td>9.86</td><td>5624.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>9.51</td><td>514</td><td></td></tr> 
+<tr><td> 91717 </td><td>Hydrogen</td><td>10.30</td><td>8.68</td><td>8820.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>16.94</td><td>1312</td><td></td></tr> 
+<tr><td> 91718 </td><td>Hydrogen</td><td>9.92</td><td>9.28</td><td>8200.89</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>14.73</td><td>1180</td><td></td></tr> 
+<tr><td> 91719 </td><td>Hydrogen</td><td>9.95</td><td>6.13</td><td>8817.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.25</td><td>23.97</td><td>1574</td><td></td></tr> 
+<tr><td> 91720 </td><td>Hydrogen</td><td>10.20</td><td>8.51</td><td>8726.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.16</td><td>17.09</td><td>1225</td><td></td></tr> 
+<tr><td> 91721 </td><td>Hydrogen</td><td>9.89</td><td>8.28</td><td>9155.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>18.42</td><td>1401</td><td></td></tr> 
+<tr><td> 91722 </td><td>Hydrogen</td><td>10.27</td><td>8.06</td><td>8969.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>18.55</td><td>1312</td><td></td></tr> 
+<tr><td> 91723 </td><td>Hydrogen</td><td>10.39</td><td>9.50</td><td>8733.64</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.08</td><td>15.33</td><td>1230</td><td></td></tr> 
+<tr><td> 91724 </td><td>Hydrogen</td><td>10.10</td><td>8.52</td><td>8684.31</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>17.00</td><td>1221</td><td></td></tr> 
+<tr><td> 91725 </td><td>Empty Cell</td><td>16.05</td><td>6.87</td><td>9563.30</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>23.19</td><td>1103</td><td></td></tr> 
+<tr><td> 91726 </td><td>unknown</td><td>18.84</td><td>10.32</td><td>22986.72</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.32</td><td>37.13</td><td>3386</td><td></td></tr> 
+<tr><td> 91727 </td><td>unknown</td><td>19.72</td><td>14.60</td><td>20684.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.04</td><td>23.61</td><td>2736</td><td></td></tr> 
+<tr><td> 91728 </td><td>Empty Cell</td><td>10.24</td><td>10.10</td><td>7222.90</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.15</td><td>11.92</td><td>658</td><td></td></tr> 
+<tr><td> 91729 </td><td>unknown</td><td>10.40</td><td>8.12</td><td>8163.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>16.75</td><td>1326</td><td></td></tr> 
+<tr><td> 91730 </td><td>unknown</td><td>9.91</td><td>6.49</td><td>8707.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>22.35</td><td>1573</td><td></td></tr> 
+<tr><td> 91731 </td><td>unknown</td><td>10.30</td><td>9.86</td><td>8934.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.08</td><td>15.10</td><td>1319</td><td></td></tr> 
+<tr><td> 91732 </td><td>unknown</td><td>9.83</td><td>8.21</td><td>8487.31</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>17.22</td><td>1321</td><td></td></tr> 
+<tr><td> 91733 </td><td>Empty Cell</td><td>12.98</td><td>6.06</td><td>6426.60</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>17.68</td><td>777</td><td></td></tr> 
+<tr><td> 91734 </td><td>Tritium</td><td>18.10</td><td>12.75</td><td>9126.30</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.07</td><td>11.93</td><td>1348</td><td></td></tr> 
+<tr><td> 91735 </td><td>Tritium</td><td>19.90</td><td>17.74</td><td>17894.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.24</td><td>16.81</td><td>2453</td><td></td></tr> 
+<tr><td> 91736 </td><td>Tritium</td><td>19.81</td><td>8.31</td><td>13247.52</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>26.56</td><td>2161</td><td></td></tr> 
+<tr><td> 91737 </td><td>Tritium</td><td>19.11</td><td>13.40</td><td>18973.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>23.60</td><td>2734</td><td></td></tr> 
+<tr><td> 91738 </td><td>Empty Cell</td><td>10.52</td><td>10.54</td><td>4413.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>6.98</td><td>423</td><td></td></tr> 
+<tr><td> 91739 </td><td>Tritium</td><td>9.44</td><td>6.28</td><td>7927.06</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>21.03</td><td>1347</td><td></td></tr> 
+<tr><td> 91740 </td><td>Tritium</td><td>10.57</td><td>10.15</td><td>9695.75</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>15.93</td><td>1463</td><td></td></tr> 
+<tr><td> 91741 </td><td>Tritium</td><td>9.99</td><td>7.33</td><td>8763.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>19.93</td><td>1470</td><td></td></tr> 
+<tr><td> 91742 </td><td>Tritium</td><td>10.28</td><td>7.89</td><td>8478.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>17.90</td><td>1392</td><td></td></tr> 
+<tr><td> 91743 </td><td>Tritium</td><td>9.96</td><td>5.35</td><td>10447.65</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>32.57</td><td>1881</td><td></td></tr> 
+<tr><td> 91744 </td><td>Tritium</td><td>9.46</td><td>4.25</td><td>9141.70</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>35.86</td><td>1914</td><td></td></tr> 
+<tr><td> 91745 </td><td>Tritium</td><td>10.22</td><td>6.63</td><td>7759.65</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>19.50</td><td>1326</td><td></td></tr> 
+<tr><td> 91746 </td><td>Empty Cell</td><td>14.39</td><td>12.41</td><td>6278.82</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>8.43</td><td>545</td><td></td></tr> 
+<tr><td> 91747 </td><td>Tritium</td><td>14.83</td><td>11.84</td><td>15219.74</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>21.43</td><td>2212</td><td></td></tr> 
+<tr><td> 91748 </td><td>Tritium</td><td>14.10</td><td>7.52</td><td>30300.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>2.62</td><td>67.17</td><td>5021</td><td></td></tr> 
+<tr><td> 91749 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>16.94</td><td>370</td><td></td></tr> 
+<tr><td> 91750 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=100 </td><td>2.33</td><td>2.19</td><td>42</td><td></td></tr> 
+<tr><td> 91751 </td><td>Tritium</td><td>12.80</td><td>9.14</td><td>35354.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>64.49</td><td>5439</td><td></td></tr> 
+<tr><td> 91752 </td><td>Empty Cell</td><td>12.89</td><td>7.32</td><td>34593.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>78.77</td><td>5571</td><td></td></tr> 
+<tr><td> 91753 </td><td>Empty Cell</td><td>18.99</td><td>17.88</td><td>6114.90</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.21</td><td>5.70</td><td>483</td><td></td></tr> 
+<tr><td> 91754 </td><td>Helium3</td><td>19.77</td><td>9.32</td><td>14703.31</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.12</td><td>26.30</td><td>1737</td><td></td></tr> 
+<tr><td> 91755 </td><td>Helium3</td><td>18.79</td><td>11.49</td><td>15726.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.06</td><td>22.81</td><td>1697</td><td></td></tr> 
+<tr><td> 91756 </td><td>Helium3</td><td>17.66</td><td>10.06</td><td>18781.65</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>31.13</td><td>2137</td><td></td></tr> 
+<tr><td> 91757 </td><td>Helium3</td><td>20.02</td><td>17.91</td><td>21987.05</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>20.46</td><td>2102</td><td></td></tr> 
+<tr><td> 91758 </td><td>Helium3</td><td>18.59</td><td>14.44</td><td>16316.28</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>18.84</td><td>1647</td><td></td></tr> 
+<tr><td> 91759 </td><td>Helium3</td><td>19.09</td><td>12.47</td><td>23096.38</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>30.88</td><td>2469</td><td></td></tr> 
+<tr><td> 91760 </td><td>Helium3</td><td>20.25</td><td>19.63</td><td>30438.56</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>25.84</td><td>2991</td><td></td></tr> 
+<tr><td> 91761 </td><td>Empty Cell</td><td>9.78</td><td>5.37</td><td>7411.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>23.02</td><td>987</td><td></td></tr> 
+<tr><td> 91762 </td><td>Helium3</td><td>9.95</td><td>8.95</td><td>8427.47</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>15.69</td><td>1006</td><td></td></tr> 
+<tr><td> 91763 </td><td>Helium3</td><td>10.31</td><td>9.24</td><td>12246.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>22.10</td><td>1356</td><td></td></tr> 
+<tr><td> 91764 </td><td>Helium3</td><td>9.79</td><td>9.09</td><td>10117.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>18.55</td><td>1113</td><td></td></tr> 
+<tr><td> 91765 </td><td>Helium3</td><td>10.18</td><td>8.04</td><td>10301.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>21.36</td><td>1277</td><td></td></tr> 
+<tr><td> 91766 </td><td>Helium3</td><td>10.10</td><td>9.85</td><td>10153.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>17.18</td><td>1153</td><td></td></tr> 
+<tr><td> 91767 </td><td>Helium3</td><td>9.89</td><td>9.70</td><td>9389.74</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.09</td><td>16.13</td><td>1070</td><td></td></tr> 
+<tr><td> 91768 </td><td>Helium3</td><td>9.70</td><td>8.45</td><td>8517.68</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.09</td><td>16.80</td><td>1069</td><td></td></tr> 
+<tr><td> 91769 </td><td>Helium3</td><td>10.23</td><td>9.94</td><td>9763.47</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>16.38</td><td>1136</td><td></td></tr> 
+<tr><td> 91770 </td><td>Helium3</td><td>8.82</td><td>4.74</td><td>8024.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.08</td><td>28.24</td><td>1239</td><td></td></tr> 
+<tr><td> 91771 </td><td>Helium3</td><td>9.64</td><td>7.71</td><td>10761.08</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>23.27</td><td>1411</td><td></td></tr> 
+<tr><td> 91772 </td><td>Helium3</td><td>10.05</td><td>8.67</td><td>10028.78</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>19.29</td><td>1210</td><td></td></tr> 
+<tr><td> 91773 </td><td>Empty Cell</td><td>14.47</td><td>11.21</td><td>8966.43</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>13.33</td><td>867</td><td></td></tr> 
+<tr><td> 91774 </td><td>Helium3</td><td>13.18</td><td>1.67</td><td>4653.97</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>46.47</td><td>1468</td><td></td></tr> 
+<tr><td> 91775 </td><td>Helium3</td><td>14.66</td><td>12.24</td><td>141018.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>192.04</td><td>15001</td><td></td></tr> 
+<tr><td> 91776 </td><td>Empty Cell</td><td>14.34</td><td>11.19</td><td>10849.73</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.20</td><td>16.16</td><td>986</td><td></td></tr> 
+<tr><td> 91777 </td><td>Hydrogen</td><td>14.65</td><td>11.80</td><td>93259.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>131.71</td><td>12809</td><td></td></tr> 
+<tr><td> 91778 </td><td>Empty Cell</td><td>13.63</td><td>9.43</td><td>10164.54</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>17.97</td><td>1038</td><td></td></tr> 
+<tr><td> 91779 </td><td>unknown</td><td>12.45</td><td>5.17</td><td>17585.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>56.69</td><td>3157</td><td></td></tr> 
+<tr><td> 91780 </td><td>unknown</td><td>14.35</td><td>9.10</td><td>28418.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>52.07</td><td>4395</td><td></td></tr> 
+<tr><td> 91781 </td><td>Carbon Hole</td><td>20.16</td><td>12.50</td><td>13407.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.31</td><td>17.88</td><td>635</td><td></td></tr> 
+<tr><td> 91782 </td><td>Single Carbon Foil</td><td>20.28</td><td>10.21</td><td>6400.43</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>10.45</td><td>482</td><td></td></tr> 
+<tr><td> 91783 </td><td>Single Carbon Foil</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=10 </td><td>85.00</td><td>1.16</td><td>3</td><td></td></tr> 
+<tr><td> 91784 </td><td>Single Carbon Foil</td><td>17.73</td><td>4.89</td><td>2145.40</td><td>PS4=1 PS5=1 PS6=1 PS8=10 </td><td>76.58</td><td>7.31</td><td>52</td><td></td></tr> 
+<tr><td> 91785 </td><td>Multifoils</td><td>17.87</td><td>11.05</td><td>6305.99</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>9.51</td><td>1472</td><td></td></tr> 
+<tr><td> 91786 </td><td>Dummy</td><td>20.73</td><td>19.55</td><td>20285.34</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>17.29</td><td>6528</td><td></td></tr> 
+<tr><td> 91787 </td><td>Empty Cell</td><td>20.74</td><td>14.13</td><td>34780.23</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>41.03</td><td>2995</td><td></td></tr> 
+<tr><td> 91788 </td><td>Helium3</td><td>21.43</td><td>21.25</td><td>119725.39</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>93.90</td><td>11040</td><td></td></tr> 
+<tr><td> 91789 </td><td>Tritium</td><td>21.22</td><td>19.31</td><td>74021.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>63.88</td><td>9949</td><td></td></tr> 
+<tr><td> 91790 </td><td>Deuterium</td><td>20.99</td><td>18.11</td><td>79903.50</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>73.55</td><td>10605</td><td></td></tr> 
+<tr><td> 91791 </td><td>unknown</td><td>21.26</td><td>19.68</td><td>116428.85</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>98.62</td><td>14354</td><td></td></tr> 
+<tr><td> 91792 </td><td>Empty Cell</td><td>20.65</td><td>15.88</td><td>41917.16</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>43.99</td><td>3555</td><td></td></tr> 
+<tr><td> 91793 </td><td>Helium3</td><td>21.06</td><td>8.38</td><td>20383.96</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>40.54</td><td>2467</td><td></td></tr> 
+<tr><td> 91794 </td><td>Helium3</td><td>20.60</td><td>16.05</td><td>101050.34</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>104.92</td><td>9941</td><td></td></tr> 
+<tr><td> 91795 </td><td>Tritium</td><td>21.03</td><td>18.66</td><td>124505.35</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>111.22</td><td>16777</td><td></td></tr> 
+<tr><td> 91796 </td><td>Deuterium</td><td>20.00</td><td>12.55</td><td>41584.68</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>55.23</td><td>5853</td><td></td></tr> 
+<tr><td> 91797 </td><td>Carbon Hole</td><td>13.88</td><td>9.06</td><td>9039.60</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>16.63</td><td>568</td><td></td></tr> 
+<tr><td> 91798 </td><td>unknown</td><td>17.41</td><td>11.88</td><td>38215.78</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>53.61</td><td>5393</td><td></td></tr> 
+<tr><td> 91799 </td><td>unknown</td><td>16.79</td><td>12.14</td><td>40443.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>55.52</td><td>5397</td><td></td></tr> 
+<tr><td> 91800 </td><td>unknown</td><td>19.43</td><td>13.01</td><td>39097.13</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>50.07</td><td>5151</td><td></td></tr> 
+<tr><td> 91801 </td><td>unknown</td><td>19.20</td><td>14.60</td><td>41462.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.02</td><td>47.34</td><td>5250</td><td></td></tr> 
+<tr><td> 91802 </td><td>unknown</td><td>14.13</td><td>4.79</td><td>5206.55</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>18.13</td><td>979</td><td></td></tr> 
+<tr><td> 91803 </td><td>Helium3</td><td>17.39</td><td>9.16</td><td>25605.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>46.59</td><td>3113</td><td></td></tr> 
+<tr><td> 91804 </td><td>Helium3</td><td>20.31</td><td>17.00</td><td>56086.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>54.98</td><td>5426</td><td></td></tr> 
+<tr><td> 91805 </td><td>Tritium</td><td>21.11</td><td>18.46</td><td>33633.59</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.02</td><td>30.36</td><td>4432</td><td></td></tr> 
+<tr><td> 91806 </td><td>Tritium</td><td>20.86</td><td>20.62</td><td>30618.26</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>24.75</td><td>3997</td><td></td></tr> 
+<tr><td> 91807 </td><td>Empty Cell</td><td>18.86</td><td>13.86</td><td>13892.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>16.70</td><td>1196</td><td></td></tr> 
+<tr><td> 91808 </td><td>Carbon Hole</td><td>19.79</td><td>13.96</td><td>10937.50</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>13.06</td><td>492</td><td></td></tr> 
+<tr><td> 91809 </td><td>Single Carbon Foil</td><td>16.86</td><td>8.38</td><td>3741.99</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>7.44</td><td>0</td><td></td></tr> 
+<tr><td> 91810 </td><td>Single Carbon Foil</td><td>20.59</td><td>14.93</td><td>7105.04</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.22</td><td>7.93</td><td>462</td><td></td></tr> 
+<tr><td> 91811 </td><td>Multifoils</td><td>20.81</td><td>18.70</td><td>7230.47</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>6.44</td><td>1654</td><td></td></tr> 
+<tr><td> 91812 </td><td>Dummy</td><td>19.89</td><td>14.76</td><td>6267.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>7.07</td><td>2108</td><td></td></tr> 
+<tr><td> 91813 </td><td>Helium3</td><td>20.28</td><td>16.40</td><td>36453.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>37.03</td><td>3535</td><td></td></tr> 
+<tr><td> 91814 </td><td>Helium3</td><td>19.93</td><td>14.30</td><td>34566.10</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>40.28</td><td>3511</td><td></td></tr> 
+<tr><td> 91815 </td><td>Helium3</td><td>20.08</td><td>13.51</td><td>33844.79</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>41.75</td><td>3434</td><td></td></tr> 
+<tr><td> 91816 </td><td>Tritium</td><td>19.90</td><td>16.77</td><td>36817.73</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>36.58</td><td>4946</td><td></td></tr> 
+<tr><td> 91817 </td><td>Tritium</td><td>21.03</td><td>14.52</td><td>33747.70</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>38.74</td><td>4657</td><td></td></tr> 
+<tr><td> 91818 </td><td>Tritium</td><td>19.34</td><td>14.29</td><td>42171.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>49.18</td><td>6000</td><td></td></tr> 
+<tr><td> 91819 </td><td>Deuterium</td><td>19.84</td><td>13.19</td><td>98562.77</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>124.52</td><td>13566</td><td></td></tr> 
+<tr><td> 91820 </td><td>Empty Cell</td><td>19.92</td><td>15.36</td><td>75192.98</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>81.59</td><td>6138</td><td></td></tr> 
+<tr><td> 91821 </td><td>Helium3</td><td>19.70</td><td>14.77</td><td>87509.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>98.71</td><td>8704</td><td></td></tr> 
+<tr><td> 91822 </td><td>Helium3</td><td>19.89</td><td>16.57</td><td>25870.64</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.08</td><td>26.02</td><td>2511</td><td></td></tr> 
+<tr><td> 91823 </td><td>Tritium</td><td>10.74</td><td>4.30</td><td>13615.98</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>52.82</td><td>2799</td><td></td></tr> 
+<tr><td> 91824 </td><td>Tritium</td><td>16.17</td><td>9.41</td><td>60164.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>106.53</td><td>9173</td><td></td></tr> 
+<tr><td> 91825 </td><td>Tritium</td><td>18.83</td><td>15.60</td><td>34427.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>36.79</td><td>4588</td><td></td></tr> 
+<tr><td> 91826 </td><td>Single Carbon Foil</td><td>19.87</td><td>14.08</td><td>10164.09</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>12.03</td><td>666</td><td></td></tr> 
+<tr><td> 91828 </td><td>Single Carbon Foil</td><td>18.15</td><td>15.47</td><td>4208.48</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>4.53</td><td>0</td><td></td></tr> 
+<tr><td> 91829 </td><td>Multifoils</td><td>21.16</td><td>10.90</td><td>6832.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.25</td><td>10.45</td><td>1606</td><td></td></tr> 
+<tr><td> 91830 </td><td>Dummy</td><td>19.37</td><td>16.43</td><td>34298.97</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.27</td><td>34.80</td><td>11156</td><td></td></tr> 
+<tr><td> 91831 </td><td>Helium3</td><td>17.96</td><td>13.80</td><td>56503.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>68.22</td><td>5809</td><td></td></tr> 
+<tr><td> 91832 </td><td>Helium3</td><td>19.90</td><td>15.19</td><td>60987.74</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>66.91</td><td>6094</td><td></td></tr> 
+<tr><td> 91833 </td><td>Helium3</td><td>19.82</td><td>16.70</td><td>67623.04</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>67.47</td><td>6552</td><td></td></tr> 
+<tr><td> 91834 </td><td>Tritium</td><td>20.56</td><td>18.17</td><td>71586.61</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>65.68</td><td>9445</td><td></td></tr> 
+<tr><td> 91835 </td><td>Tritium</td><td>20.29</td><td>17.07</td><td>71701.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>70.02</td><td>9513</td><td></td></tr> 
+<tr><td> 91836 </td><td>Deuterium</td><td>19.76</td><td>15.95</td><td>61249.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>63.98</td><td>8170</td><td></td></tr> 
+<tr><td> 91837 </td><td>Deuterium</td><td>20.17</td><td>14.85</td><td>63109.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>70.83</td><td>8250</td><td></td></tr> 
+<tr><td> 91838 </td><td>Empty Cell</td><td>19.31</td><td>13.91</td><td>55378.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>66.35</td><td>4568</td><td></td></tr> 
+<tr><td> 91839 </td><td>unknown</td><td>19.57</td><td>13.96</td><td>16603.26</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.09</td><td>19.82</td><td>2204</td><td></td></tr> 
+<tr><td> 91840 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>95.47</td><td>0.20</td><td>66</td><td></td></tr> 
+<tr><td> 91841 </td><td>Carbon Hole</td><td>3.90</td><td>0.26</td><td>3182.98</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>204.32</td><td>6513</td><td></td></tr> 
+<tr><td> 91842 </td><td>Helium3</td><td>21.10</td><td>20.34</td><td>14901.81</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.33</td><td>12.21</td><td>1530</td><td></td></tr> 
+<tr><td> 91843 </td><td>Helium3</td><td>18.26</td><td>10.28</td><td>15619.72</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>25.31</td><td>1967</td><td></td></tr> 
+<tr><td> 91844 </td><td>Helium3</td><td>21.13</td><td>20.67</td><td>35317.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.22</td><td>28.48</td><td>3595</td><td></td></tr> 
+<tr><td> 91845 </td><td>Helium3</td><td>20.14</td><td>12.81</td><td>35067.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>45.63</td><td>4288</td><td></td></tr> 
+<tr><td> 91846 </td><td>Helium3</td><td>20.02</td><td>13.56</td><td>43709.01</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>53.72</td><td>5117</td><td></td></tr> 
+<tr><td> 91847 </td><td>Helium3</td><td>18.22</td><td>15.22</td><td>72558.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>79.45</td><td>8335</td><td></td></tr> 
+<tr><td> 91848 </td><td>Tritium</td><td>19.39</td><td>14.99</td><td>72654.69</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>80.79</td><td>11024</td><td></td></tr> 
+<tr><td> 91849 </td><td>Tritium</td><td>20.91</td><td>20.36</td><td>71516.27</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>58.55</td><td>10286</td><td></td></tr> 
+<tr><td> 91850 </td><td>Tritium</td><td>19.01</td><td>17.62</td><td>19013.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>17.98</td><td>2805</td><td></td></tr> 
+<tr><td> 91851 </td><td>Deuterium</td><td>18.95</td><td>13.87</td><td>36107.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>43.37</td><td>5450</td><td></td></tr> 
+<tr><td> 91852 </td><td>Carbon Hole</td><td>20.96</td><td>19.35</td><td>34658.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>29.86</td><td>1473</td><td></td></tr> 
+<tr><td> 91853 </td><td>Single Carbon Foil</td><td>21.00</td><td>20.58</td><td>9735.62</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>7.89</td><td>0</td><td></td></tr> 
+<tr><td> 91854 </td><td>Single Carbon Foil</td><td>6.37</td><td>4.48</td><td>6035.62</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>22.44</td><td>0</td><td></td></tr> 
+<tr><td> 91855 </td><td>Single Carbon Foil</td><td>19.74</td><td>17.66</td><td>24310.47</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>22.94</td><td>1689</td><td></td></tr> 
+<tr><td> 91856 </td><td>Multifoils</td><td>19.78</td><td>17.02</td><td>32938.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>32.25</td><td>8008</td><td></td></tr> 
+<tr><td> 91857 </td><td>Empty Cell</td><td>18.20</td><td>13.86</td><td>11378.56</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.09</td><td>13.68</td><td>1108</td><td></td></tr> 
+<tr><td> 91858 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=1 PS8=0 </td><td>0.00</td><td>13.06</td><td>0</td><td></td></tr> 
+<tr><td> 91859 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>3.21</td><td>79</td><td></td></tr> 
+<tr><td> 91860 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.05</td><td>87.70</td><td>2055</td><td></td></tr> 
+<tr><td> 91861 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>3.44</td><td>0</td><td></td></tr> 
+<tr><td> 91862 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>66.78</td><td>0</td><td></td></tr> 
+<tr><td> 91863 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>96.17</td><td>1.81</td><td>528</td><td></td></tr> 
+<tr><td> 91864 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>47.67</td><td>1075</td><td></td></tr> 
+<tr><td> 91865 </td><td>Empty Cell</td><td>20.98</td><td>18.81</td><td>21677.11</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>19.20</td><td>1669</td><td></td></tr> 
+<tr><td> 91866 </td><td>Helium3</td><td>21.40</td><td>4.02</td><td>7350.77</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.24</td><td>30.50</td><td>1222</td><td></td></tr> 
+<tr><td> 91867 </td><td>Helium3</td><td>20.29</td><td>6.98</td><td>18406.68</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>43.93</td><td>2373</td><td></td></tr> 
+<tr><td> 91868 </td><td>Helium3</td><td>20.39</td><td>13.20</td><td>41311.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>52.16</td><td>4233</td><td></td></tr> 
+<tr><td> 91869 </td><td>Helium3</td><td>20.02</td><td>15.19</td><td>66821.26</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>73.31</td><td>6550</td><td></td></tr> 
+<tr><td> 91870 </td><td>Helium3</td><td>20.03</td><td>3.74</td><td>5057.79</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>22.53</td><td>926</td><td></td></tr> 
+<tr><td> 91871 </td><td>Helium3</td><td>20.14</td><td>18.95</td><td>75210.56</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>66.15</td><td>6933</td><td></td></tr> 
+<tr><td> 91872 </td><td>Helium3</td><td>19.44</td><td>18.80</td><td>76542.59</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>67.84</td><td>7268</td><td></td></tr> 
+<tr><td> 91873 </td><td>Tritium</td><td>18.16</td><td>13.94</td><td>76330.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>91.24</td><td>10507</td><td></td></tr> 
+<tr><td> 91874 </td><td>Tritium</td><td>14.47</td><td>7.43</td><td>27451.53</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.02</td><td>61.58</td><td>4382</td><td></td></tr> 
+<tr><td> 91875 </td><td>Tritium</td><td>18.62</td><td>10.65</td><td>17832.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>27.90</td><td>2618</td><td></td></tr> 
+<tr><td> 91876 </td><td>Tritium</td><td>17.97</td><td>8.57</td><td>36881.09</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>71.70</td><td>5607</td><td></td></tr> 
+<tr><td> 91877 </td><td>Tritium</td><td>19.00</td><td>11.71</td><td>88384.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>125.76</td><td>12778</td><td></td></tr> 
+<tr><td> 91878 </td><td>Tritium</td><td>19.92</td><td>13.79</td><td>24515.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>29.63</td><td>3367</td><td></td></tr> 
+<tr><td> 91879 </td><td>Tritium</td><td>18.23</td><td>6.20</td><td>15816.84</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>42.54</td><td>2766</td><td></td></tr> 
+<tr><td> 91880 </td><td>Tritium</td><td>18.19</td><td>2.01</td><td>13634.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>112.79</td><td>4104</td><td></td></tr> 
+<tr><td> 91881 </td><td>Tritium</td><td>20.65</td><td>17.52</td><td>59534.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>56.63</td><td>7960</td><td></td></tr> 
+<tr><td> 91882 </td><td>Deuterium</td><td>20.77</td><td>19.33</td><td>73714.98</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>63.55</td><td>9152</td><td></td></tr> 
+<tr><td> 91883 </td><td>Deuterium</td><td>18.94</td><td>16.02</td><td>58305.89</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>60.67</td><td>7667</td><td></td></tr> 
+<tr><td> 91884 </td><td>Deuterium</td><td>18.12</td><td>12.42</td><td>56239.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.01</td><td>75.47</td><td>7818</td><td></td></tr> 
+<tr><td> 91885 </td><td>Helium3</td><td>19.96</td><td>11.24</td><td>6229.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>9.24</td><td>681</td><td></td></tr> 
+<tr><td> 91886 </td><td>Helium3</td><td>19.69</td><td>17.08</td><td>78058.75</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>76.18</td><td>7439</td><td></td></tr> 
+<tr><td> 91887 </td><td>Helium3</td><td>18.08</td><td>13.55</td><td>67096.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>82.56</td><td>6107</td><td></td></tr> 
+<tr><td> 91888 </td><td>Helium3</td><td>15.36</td><td>8.93</td><td>44163.90</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>82.42</td><td>5054</td><td></td></tr> 
+<tr><td> 91889 </td><td>Helium3</td><td>9.36</td><td>4.88</td><td>5573.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>19.03</td><td>854</td><td></td></tr> 
+<tr><td> 91890 </td><td>Helium3</td><td>20.68</td><td>14.75</td><td>99881.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>112.87</td><td>9860</td><td></td></tr> 
+<tr><td> 91891 </td><td>Tritium</td><td>12.08</td><td>1.72</td><td>609.12</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>5.89</td><td>205</td><td></td></tr> 
+<tr><td> 91892 </td><td>Tritium</td><td>19.55</td><td>13.86</td><td>14982.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>18.01</td><td>2125</td><td></td></tr> 
+<tr><td> 91893 </td><td>Tritium</td><td>19.70</td><td>14.34</td><td>40657.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>47.25</td><td>5611</td><td></td></tr> 
+<tr><td> 91894 </td><td>Tritium</td><td>20.83</td><td>16.45</td><td>88229.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>89.38</td><td>11828</td><td></td></tr> 
+<tr><td> 91895 </td><td>Deuterium</td><td>20.30</td><td>14.41</td><td>64620.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>74.76</td><td>8566</td><td></td></tr> 
+<tr><td> 91896 </td><td>Empty Cell</td><td>19.77</td><td>16.82</td><td>67218.91</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>66.62</td><td>5202</td><td></td></tr> 
+<tr><td> 91897 </td><td>Dummy</td><td>14.89</td><td>12.92</td><td>32169.47</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.22</td><td>41.50</td><td>10531</td><td></td></tr> 
+<tr><td> 91898 </td><td>Carbon Hole</td><td>19.38</td><td>18.17</td><td>11478.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.24</td><td>10.53</td><td>410</td><td></td></tr> 
+<tr><td> 91899 </td><td>unknown</td><td>17.88</td><td>13.71</td><td>35925.04</td><td>PS4=1 PS5=1 PS6=1 PS8=1000 </td><td>0.22</td><td>43.67</td><td>2310</td><td></td></tr> 
+<tr><td> 91900 </td><td>Helium3</td><td>19.37</td><td>13.85</td><td>34558.90</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>41.58</td><td>7896</td><td></td></tr> 
+<tr><td> 91901 </td><td>Helium3</td><td>20.75</td><td>17.83</td><td>66643.66</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.22</td><td>62.30</td><td>6216</td><td></td></tr> 
+<tr><td> 91902 </td><td>Helium3</td><td>19.76</td><td>11.68</td><td>11158.11</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>15.92</td><td>1147</td><td></td></tr> 
+<tr><td> 91903 </td><td>Helium3</td><td>20.61</td><td>16.35</td><td>84819.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>86.49</td><td>8325</td><td></td></tr> 
+<tr><td> 91904 </td><td>Helium3</td><td>19.88</td><td>16.32</td><td>72156.34</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>73.71</td><td>6980</td><td></td></tr> 
+<tr><td> 91905 </td><td>Helium3</td><td>21.05</td><td>19.15</td><td>96088.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>83.63</td><td>8947</td><td></td></tr> 
+<tr><td> 91906 </td><td>Helium3</td><td>21.05</td><td>16.95</td><td>62413.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>61.38</td><td>6010</td><td></td></tr> 
+<tr><td> 91907 </td><td>Helium3</td><td>19.89</td><td>13.19</td><td>45346.14</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>57.32</td><td>4572</td><td></td></tr> 
+<tr><td> 91908 </td><td>Helium3</td><td>19.75</td><td>12.69</td><td>60755.26</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>79.79</td><td>6268</td><td></td></tr> 
+<tr><td> 91909 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=500 </td><td>0.00</td><td>0.81</td><td>15</td><td></td></tr> 
+<tr><td> 91910 </td><td>Dummy</td><td>3.40</td><td>2.56</td><td>610.27</td><td>PS4=1 PS5=1 PS6=1 PS8=500 </td><td>1.15</td><td>3.97</td><td>258</td><td></td></tr> 
+<tr><td> 91911 </td><td>Dummy</td><td>5.48</td><td>2.29</td><td>1769.68</td><td>PS4=1 PS5=1 PS6=1 PS8=500 </td><td>0.47</td><td>12.86</td><td>849</td><td></td></tr> 
+<tr><td> 91913 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>51.99</td><td>0</td><td></td></tr> 
+<tr><td> 91914 </td><td>Dummy</td><td>5.13</td><td>1.78</td><td>5312.28</td><td>PS4=1 PS5=1 PS6=1 PS8=500 </td><td>0.93</td><td>49.86</td><td>2654</td><td></td></tr> 
+<tr><td> 91915 </td><td>Dummy</td><td>7.17</td><td>1.22</td><td>434.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>5.95</td><td>260</td><td></td></tr> 
+<tr><td> 91916 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>68.58</td><td>0</td><td></td></tr> 
+<tr><td> 91917 </td><td>Tritium</td><td>19.70</td><td>16.68</td><td>78700.59</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>78.62</td><td>10435</td><td></td></tr> 
+<tr><td> 91918 </td><td>Tritium</td><td>18.97</td><td>14.18</td><td>73829.57</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>86.76</td><td>9882</td><td></td></tr> 
+<tr><td> 91919 </td><td>Tritium</td><td>19.71</td><td>16.18</td><td>75563.56</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>77.83</td><td>10100</td><td></td></tr> 
+<tr><td> 91920 </td><td>Tritium</td><td>19.16</td><td>15.31</td><td>78626.64</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>85.57</td><td>10542</td><td></td></tr> 
+<tr><td> 91921 </td><td>Tritium</td><td>20.46</td><td>18.78</td><td>93729.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>83.20</td><td>12203</td><td></td></tr> 
+<tr><td> 91922 </td><td>Deuterium</td><td>20.81</td><td>19.31</td><td>84171.10</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>72.65</td><td>10550</td><td></td></tr> 
+<tr><td> 91923 </td><td>Deuterium</td><td>20.54</td><td>16.75</td><td>72448.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>72.07</td><td>9560</td><td></td></tr> 
+<tr><td> 91924 </td><td>Deuterium</td><td>20.22</td><td>19.75</td><td>80721.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>68.10</td><td>10243</td><td></td></tr> 
+<tr><td> 91925 </td><td>Deuterium</td><td>19.73</td><td>17.42</td><td>75249.69</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>72.01</td><td>9530</td><td></td></tr> 
+<tr><td> 91926 </td><td>Helium3</td><td>18.95</td><td>11.27</td><td>45489.69</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>67.28</td><td>4916</td><td></td></tr> 
+<tr><td> 91927 </td><td>Helium3</td><td>19.97</td><td>17.29</td><td>36804.39</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>35.47</td><td>3447</td><td></td></tr> 
+<tr><td> 91928 </td><td>Helium3</td><td>19.56</td><td>16.59</td><td>70778.94</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>71.10</td><td>7041</td><td></td></tr> 
+<tr><td> 91929 </td><td>Helium3</td><td>20.25</td><td>17.42</td><td>67773.87</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>64.85</td><td>6570</td><td></td></tr> 
+<tr><td> 91930 </td><td>Helium3</td><td>20.66</td><td>16.98</td><td>102838.84</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>100.91</td><td>9883</td><td></td></tr> 
+<tr><td> 91931 </td><td>Helium3</td><td>19.24</td><td>15.20</td><td>80545.46</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>88.30</td><td>7944</td><td></td></tr> 
+<tr><td> 91932 </td><td>Helium3</td><td>19.65</td><td>18.49</td><td>50945.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>45.91</td><td>4741</td><td></td></tr> 
+<tr><td> 91933 </td><td>Tritium</td><td>20.41</td><td>17.35</td><td>80717.05</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>77.52</td><td>10659</td><td></td></tr> 
+<tr><td> 91934 </td><td>Tritium</td><td>20.15</td><td>18.39</td><td>82999.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>75.21</td><td>10620</td><td></td></tr> 
+<tr><td> 91935 </td><td>Tritium</td><td>19.88</td><td>17.51</td><td>70102.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>66.73</td><td>9217</td><td></td></tr> 
+<tr><td> 91936 </td><td>Tritium</td><td>20.78</td><td>17.87</td><td>83671.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>78.06</td><td>10875</td><td></td></tr> 
+<tr><td> 91937 </td><td>Tritium</td><td>19.27</td><td>17.86</td><td>40864.61</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>38.13</td><td>5415</td><td></td></tr> 
+<tr><td> 91938 </td><td>Deuterium</td><td>19.78</td><td>13.82</td><td>67480.15</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>81.40</td><td>9007</td><td></td></tr> 
+<tr><td> 91939 </td><td>Deuterium</td><td>21.55</td><td>21.59</td><td>10596.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.08</td><td>8.18</td><td>1298</td><td></td></tr> 
+<tr><td> 91940 </td><td>Dummy</td><td>20.20</td><td>19.11</td><td>68978.37</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.20</td><td>60.15</td><td>21836</td><td></td></tr> 
+<tr><td> 91941 </td><td>Carbon Hole</td><td>21.18</td><td>20.88</td><td>11958.33</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>9.55</td><td>412</td><td></td></tr> 
+<tr><td> 91942 </td><td>Single Carbon Foil</td><td>19.90</td><td>18.96</td><td>31076.05</td><td>PS4=1 PS5=1 PS6=1 PS8=1000 </td><td>0.11</td><td>27.32</td><td>1746</td><td></td></tr> 
+<tr><td> 91943 </td><td>Multifoils</td><td>20.77</td><td>18.52</td><td>33837.77</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.21</td><td>30.46</td><td>7435</td><td></td></tr> 
+<tr><td> 91944 </td><td>unknown</td><td>20.90</td><td>20.05</td><td>69943.36</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>58.14</td><td>8691</td><td></td></tr> 
+<tr><td> 91945 </td><td>unknown</td><td>20.51</td><td>18.52</td><td>75437.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>67.90</td><td>9519</td><td></td></tr> 
+<tr><td> 91946 </td><td>unknown</td><td>20.34</td><td>19.27</td><td>71432.10</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>61.78</td><td>8819</td><td></td></tr> 
+<tr><td> 91947 </td><td>unknown</td><td>20.40</td><td>18.36</td><td>83333.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>75.66</td><td>10635</td><td></td></tr> 
+<tr><td> 91948 </td><td>Tritium</td><td>20.60</td><td>17.74</td><td>77506.78</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>72.81</td><td>10182</td><td></td></tr> 
+<tr><td> 91949 </td><td>Tritium</td><td>19.67</td><td>16.48</td><td>74058.05</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>74.88</td><td>9943</td><td></td></tr> 
+<tr><td> 91950 </td><td>Tritium</td><td>20.10</td><td>15.73</td><td>67929.78</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>71.97</td><td>9049</td><td></td></tr> 
+<tr><td> 91951 </td><td>Helium3</td><td>20.66</td><td>16.65</td><td>79372.97</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>79.44</td><td>7686</td><td></td></tr> 
+<tr><td> 91952 </td><td>Helium3</td><td>21.06</td><td>16.75</td><td>82483.84</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>82.09</td><td>8074</td><td></td></tr> 
+<tr><td> 91953 </td><td>Helium3</td><td>21.10</td><td>20.01</td><td>79421.57</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>66.14</td><td>7312</td><td></td></tr> 
+<tr><td> 91954 </td><td>Helium3</td><td>20.84</td><td>17.45</td><td>55692.60</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>53.19</td><td>5340</td><td></td></tr> 
+<tr><td> 91955 </td><td>Dummy</td><td>11.15</td><td>5.52</td><td>16083.84</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>48.58</td><td>0</td><td></td></tr> 
+<tr><td> 91956 </td><td>Dummy</td><td>20.49</td><td>14.30</td><td>71071.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>82.83</td><td>23101</td><td></td></tr> 
+<tr><td> 91957 </td><td>unknown</td><td>20.98</td><td>19.43</td><td>80376.96</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>68.95</td><td>10150</td><td></td></tr> 
+<tr><td> 91958 </td><td>unknown</td><td>20.42</td><td>13.76</td><td>53733.60</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>65.06</td><td>7282</td><td></td></tr> 
+<tr><td> 91959 </td><td>unknown</td><td>20.85</td><td>13.99</td><td>45604.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>54.34</td><td>6039</td><td></td></tr> 
+<tr><td> 91960 </td><td>unknown</td><td>21.07</td><td>14.74</td><td>67273.91</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>76.08</td><td>8828</td><td></td></tr> 
+<tr><td> 91961 </td><td>unknown</td><td>20.59</td><td>12.90</td><td>79990.91</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>103.39</td><td>10960</td><td></td></tr> 
+<tr><td> 91962 </td><td>Tritium</td><td>21.10</td><td>18.86</td><td>79144.01</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>69.94</td><td>10409</td><td></td></tr> 
+<tr><td> 91963 </td><td>Tritium</td><td>21.18</td><td>20.66</td><td>78760.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>63.54</td><td>10326</td><td></td></tr> 
+<tr><td> 91964 </td><td>Tritium</td><td>21.06</td><td>19.63</td><td>98997.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>84.05</td><td>12852</td><td></td></tr> 
+<tr><td> 91965 </td><td>Tritium</td><td>20.67</td><td>16.85</td><td>86498.28</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>85.54</td><td>11351</td><td></td></tr> 
+<tr><td> 91966 </td><td>Helium3</td><td>20.89</td><td>14.32</td><td>78919.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>91.85</td><td>7861</td><td></td></tr> 
+<tr><td> 91967 </td><td>Helium3</td><td>20.74</td><td>17.49</td><td>79922.71</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>76.18</td><td>7665</td><td></td></tr> 
+<tr><td> 91968 </td><td>Helium3</td><td>20.79</td><td>17.77</td><td>98817.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>92.70</td><td>9530</td><td></td></tr> 
+<tr><td> 91969 </td><td>Helium3</td><td>20.57</td><td>16.69</td><td>78613.88</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>78.50</td><td>7537</td><td></td></tr> 
+<tr><td> 91970 </td><td>Helium3</td><td>21.56</td><td>21.44</td><td>21730.34</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>16.90</td><td>1960</td><td></td></tr> 
+<tr><td> 91971 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>115.72</td><td>2599</td><td></td></tr> 
+<tr><td> 91972 </td><td>Helium3</td><td>20.95</td><td>17.74</td><td>56472.43</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>53.05</td><td>5339</td><td></td></tr> 
+<tr><td> 91973 </td><td>Helium3</td><td>20.90</td><td>16.34</td><td>68276.67</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>69.66</td><td>6484</td><td></td></tr> 
+<tr><td> 91974 </td><td>Helium3</td><td>19.44</td><td>4.42</td><td>8341.75</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>31.44</td><td>1305</td><td></td></tr> 
+<tr><td> 91975 </td><td>Helium3</td><td>20.94</td><td>18.49</td><td>79189.58</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>71.39</td><td>7465</td><td></td></tr> 
+<tr><td> 91976 </td><td>Helium3</td><td>19.72</td><td>12.27</td><td>48694.23</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>66.14</td><td>5028</td><td></td></tr> 
+<tr><td> 91977 </td><td>Helium3</td><td>20.63</td><td>15.96</td><td>11858.92</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>12.38</td><td>1148</td><td></td></tr> 
+<tr><td> 91978 </td><td>Tritium</td><td>20.29</td><td>15.83</td><td>77196.20</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>81.25</td><td>10418</td><td></td></tr> 
+<tr><td> 91979 </td><td>Tritium</td><td>20.94</td><td>17.36</td><td>73670.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>70.74</td><td>9621</td><td></td></tr> 
+<tr><td> 91980 </td><td>Helium3</td><td>20.30</td><td>16.44</td><td>87411.12</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>88.59</td><td>8515</td><td></td></tr> 
+<tr><td> 91981 </td><td>Helium3</td><td>20.41</td><td>14.68</td><td>67141.25</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>76.21</td><td>6760</td><td></td></tr> 
+<tr><td> 91982 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>178.89</td><td>4087</td><td></td></tr> 
+<tr><td> 91984 </td><td>Carbon Hole</td><td>11.88</td><td>10.29</td><td>8187.61</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.24</td><td>13.27</td><td>414</td><td></td></tr> 
+<tr><td> 91985 </td><td>Single Carbon Foil</td><td>19.45</td><td>17.94</td><td>30782.44</td><td>PS4=1 PS5=1 PS6=1 PS8=1000 </td><td>0.18</td><td>28.60</td><td>1702</td><td></td></tr> 
+<tr><td> 91986 </td><td>Tritium</td><td>19.05</td><td>11.66</td><td>39759.69</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>56.83</td><td>5640</td><td></td></tr> 
+<tr><td> 91987 </td><td>Tritium</td><td>12.12</td><td>2.11</td><td>2808.73</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>22.21</td><td>809</td><td></td></tr> 
+<tr><td> 91988 </td><td>Tritium</td><td>20.30</td><td>16.85</td><td>80871.98</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>80.00</td><td>10852</td><td></td></tr> 
+<tr><td> 91990 </td><td>Tritium</td><td>20.64</td><td>16.95</td><td>70819.27</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>69.64</td><td>9451</td><td></td></tr> 
+<tr><td> 91991 </td><td>Helium3</td><td>19.49</td><td>12.54</td><td>59169.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>78.66</td><td>6210</td><td></td></tr> 
+<tr><td> 91992 </td><td>Helium3</td><td>14.96</td><td>3.76</td><td>21113.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>93.61</td><td>3720</td><td></td></tr> 
+<tr><td> 91993 </td><td>Helium3</td><td>19.04</td><td>11.54</td><td>59901.77</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>86.48</td><td>6456</td><td></td></tr> 
+<tr><td> 91994 </td><td>Helium3</td><td>20.87</td><td>13.94</td><td>35977.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>43.03</td><td>3609</td><td></td></tr> 
+<tr><td> 91995 </td><td>Helium3</td><td>19.53</td><td>13.57</td><td>19492.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>23.94</td><td>1950</td><td></td></tr> 
+<tr><td> 91997 </td><td>Helium3</td><td>19.94</td><td>14.91</td><td>84060.16</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>93.94</td><td>8416</td><td></td></tr> 
+<tr><td> 91998 </td><td>Helium3</td><td>21.17</td><td>19.09</td><td>44235.53</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>38.62</td><td>4054</td><td></td></tr> 
+<tr><td> 91999 </td><td>unknown</td><td>21.19</td><td>21.09</td><td>34081.55</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>26.93</td><td>4315</td><td></td></tr> 
+<tr><td> 92000 </td><td>unknown</td><td>20.58</td><td>16.10</td><td>85877.18</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>88.89</td><td>11145</td><td></td></tr> 
+<tr><td> 92001 </td><td>Dummy</td><td>20.76</td><td>17.38</td><td>39444.24</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.23</td><td>37.82</td><td>12627</td><td></td></tr> 
+<tr><td> 92002 </td><td>Empty Cell</td><td>20.89</td><td>20.50</td><td>39812.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.21</td><td>32.37</td><td>2907</td><td></td></tr> 
+<tr><td> 92003 </td><td>Carbon Hole</td><td>19.54</td><td>19.14</td><td>9348.50</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>8.14</td><td>314</td><td></td></tr> 
+<tr><td> 92004 </td><td>Single Carbon Foil</td><td>20.30</td><td>16.68</td><td>31730.96</td><td>PS4=1 PS5=1 PS6=1 PS8=1000 </td><td>0.39</td><td>31.70</td><td>1788</td><td></td></tr> 
+<tr><td> 92006 </td><td>Tritium</td><td>20.87</td><td>16.47</td><td>82351.61</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.11</td><td>83.35</td><td>10949</td><td></td></tr> 
+<tr><td> 92009 </td><td>Helium3</td><td>20.68</td><td>19.34</td><td>83397.83</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>71.88</td><td>7820</td><td></td></tr> 
+<tr><td> 92011 </td><td>Helium3</td><td>19.80</td><td>2.97</td><td>802.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>4.50</td><td>157</td><td></td></tr> 
+<tr><td> 92012 </td><td>Helium3</td><td>21.32</td><td>21.36</td><td>36700.93</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>28.64</td><td>3322</td><td></td></tr> 
+<tr><td> 92013 </td><td>Dummy</td><td>21.08</td><td>20.60</td><td>52931.09</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>42.82</td><td>16577</td><td></td></tr> 
+<tr><td> 92014 </td><td>unknown</td><td>20.41</td><td>19.97</td><td>76682.86</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>64.00</td><td>9715</td><td></td></tr> 
+<tr><td> 92015 </td><td>unknown</td><td>20.92</td><td>18.93</td><td>66603.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>58.65</td><td>8311</td><td></td></tr> 
+<tr><td> 92016 </td><td>Tritium</td><td>20.72</td><td>17.26</td><td>64881.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>62.66</td><td>8623</td><td></td></tr> 
+<tr><td> 92017 </td><td>Tritium</td><td>21.00</td><td>20.87</td><td>73994.19</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>59.10</td><td>9439</td><td></td></tr> 
+<tr><td> 92018 </td><td>Tritium</td><td>20.53</td><td>17.16</td><td>77092.44</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>74.89</td><td>10303</td><td></td></tr> 
+<tr><td> 92027 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.08</td><td>0</td><td></td></tr> 
+<tr><td> 92048 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100003 </td><td>unknown</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.00</td><td>0</td><td></td></tr> 
+<tr><td> 100004 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100005 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 100006 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 100007 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.03</td><td>0</td><td></td></tr> 
+<tr><td> 100008 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100009 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100010 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100011 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100014 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.18</td><td>0</td><td></td></tr> 
+<tr><td> 100015 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.19</td><td>0</td><td></td></tr> 
+<tr><td> 100016 </td><td>HOME</td><td>0.01</td><td>0.89</td><td>17.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.33</td><td>0</td><td></td></tr> 
+<tr><td> 100017 </td><td>Thick Aluminum</td><td>1.18</td><td>3.66</td><td>3405.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>15.52</td><td>0</td><td></td></tr> 
+<tr><td> 100021 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100025 </td><td>unknown</td><td>9.97</td><td>232.23</td><td>10217.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.73</td><td>0</td><td></td></tr> 
+<tr><td> 100027 </td><td>unknown</td><td>10.59</td><td>233.61</td><td>808.06</td><td>PS4=1 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 100029 </td><td>unknown</td><td>10.11</td><td>229.05</td><td>70843.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>5.15</td><td>0</td><td></td></tr> 
+<tr><td> 100030 </td><td>unknown</td><td>10.10</td><td>231.28</td><td>27547.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 100031 </td><td>unknown</td><td>10.56</td><td>235.00</td><td>2222.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.16</td><td>0</td><td></td></tr> 
+<tr><td> 100032 </td><td>unknown</td><td>10.57</td><td>233.89</td><td>11359.36</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.81</td><td>0</td><td></td></tr> 
+<tr><td> 100033 </td><td>unknown</td><td>10.57</td><td>231.82</td><td>1172.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.08</td><td>0</td><td></td></tr> 
+<tr><td> 100034 </td><td>unknown</td><td>10.42</td><td>233.51</td><td>38457.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.74</td><td>0</td><td></td></tr> 
+<tr><td> 100036 </td><td>Dummy</td><td>10.24</td><td>138.82</td><td>72960.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>8.76</td><td>0</td><td></td></tr> 
+<tr><td> 100037 </td><td>Tritium</td><td>10.43</td><td>256.68</td><td>76799.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>4.99</td><td>0</td><td></td></tr> 
+<tr><td> 100038 </td><td>Tritium</td><td>10.47</td><td>256.84</td><td>76294.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>4.95</td><td>0</td><td></td></tr> 
+<tr><td> 100039 </td><td>Tritium</td><td>10.46</td><td>258.25</td><td>39459.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.55</td><td>0</td><td></td></tr> 
+<tr><td> 100040 </td><td>Tritium</td><td>10.46</td><td>256.37</td><td>33101.04</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.15</td><td>0</td><td></td></tr> 
+<tr><td> 100041 </td><td>Tritium</td><td>9.89</td><td>251.90</td><td>8564.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.57</td><td>0</td><td></td></tr> 
+<tr><td> 100042 </td><td>Tritium</td><td>3.32</td><td>86.36</td><td>568.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.11</td><td>0</td><td></td></tr> 
+<tr><td> 100043 </td><td>Tritium</td><td>9.73</td><td>252.04</td><td>29330.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.94</td><td>0</td><td></td></tr> 
+<tr><td> 100044 </td><td>Tritium</td><td>10.19</td><td>257.14</td><td>36129.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.34</td><td>0</td><td></td></tr> 
+<tr><td> 100045 </td><td>Tritium</td><td>8.90</td><td>186.92</td><td>887.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.08</td><td>0</td><td></td></tr> 
+<tr><td> 100046 </td><td>Tritium</td><td>4.37</td><td>104.64</td><td>146.33</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100047 </td><td>Tritium</td><td>10.34</td><td>256.30</td><td>32922.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.14</td><td>0</td><td></td></tr> 
+<tr><td> 100048 </td><td>Tritium</td><td>10.02</td><td>252.78</td><td>37026.42</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.44</td><td>0</td><td></td></tr> 
+<tr><td> 100049 </td><td>unknown</td><td>9.93</td><td>39.32</td><td>31788.28</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>13.48</td><td>0</td><td></td></tr> 
+<tr><td> 100050 </td><td>unknown</td><td>9.91</td><td>39.15</td><td>39658.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>16.88</td><td>0</td><td></td></tr> 
+<tr><td> 100051 </td><td>Helium3</td><td>9.38</td><td>313.35</td><td>43856.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.33</td><td>0</td><td></td></tr> 
+<tr><td> 100052 </td><td>Helium3</td><td>10.21</td><td>325.03</td><td>37527.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.92</td><td>0</td><td></td></tr> 
+<tr><td> 100053 </td><td>Helium3</td><td>9.87</td><td>317.88</td><td>24876.96</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.30</td><td>0</td><td></td></tr> 
+<tr><td> 100054 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 100055 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100056 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.03</td><td>0</td><td></td></tr> 
+<tr><td> 100057 </td><td>Helium3</td><td>20.46</td><td>324.47</td><td>11670.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.60</td><td>0</td><td></td></tr> 
+<tr><td> 100058 </td><td>Helium3</td><td>19.76</td><td>317.91</td><td>37796.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.98</td><td>0</td><td></td></tr> 
+<tr><td> 100059 </td><td>Helium3</td><td>19.48</td><td>309.40</td><td>36425.99</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.96</td><td>0</td><td></td></tr> 
+<tr><td> 100060 </td><td>Helium3</td><td>19.99</td><td>323.12</td><td>37075.74</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.91</td><td>0</td><td></td></tr> 
+<tr><td> 100061 </td><td>Helium3</td><td>19.14</td><td>303.88</td><td>33400.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.83</td><td>0</td><td></td></tr> 
+<tr><td> 100063 </td><td>Tritium</td><td>20.03</td><td>255.69</td><td>37975.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.48</td><td>0</td><td></td></tr> 
+<tr><td> 100064 </td><td>Tritium</td><td>19.54</td><td>247.51</td><td>39491.60</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.66</td><td>0</td><td></td></tr> 
+<tr><td> 100065 </td><td>Tritium</td><td>19.93</td><td>252.46</td><td>37006.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.44</td><td>0</td><td></td></tr> 
+<tr><td> 100066 </td><td>Tritium</td><td>20.77</td><td>240.26</td><td>8587.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.60</td><td>0</td><td></td></tr> 
+<tr><td> 100067 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=10 </td><td>0.00</td><td>0.00</td><td>0</td><td></td></tr> 
+<tr><td> 100068 </td><td>Tritium</td><td>19.78</td><td>251.46</td><td>29681.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.97</td><td>0</td><td></td></tr> 
+<tr><td> 100069 </td><td>Tritium</td><td>19.27</td><td>247.54</td><td>37832.76</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.55</td><td>0</td><td></td></tr> 
+<tr><td> 100070 </td><td>Tritium</td><td>19.28</td><td>246.33</td><td>40307.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.73</td><td>0</td><td></td></tr> 
+<tr><td> 100071 </td><td>Tritium</td><td>19.13</td><td>246.01</td><td>21601.56</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.46</td><td>0</td><td></td></tr> 
+<tr><td> 100072 </td><td>Tritium</td><td>20.47</td><td>256.00</td><td>15192.42</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.99</td><td>0</td><td></td></tr> 
+<tr><td> 100073 </td><td>Tritium</td><td>19.70</td><td>247.37</td><td>35335.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.38</td><td>0</td><td></td></tr> 
+<tr><td> 100074 </td><td>Tritium</td><td>18.88</td><td>248.27</td><td>37678.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.53</td><td>0</td><td></td></tr> 
+<tr><td> 100075 </td><td>Tritium</td><td>19.97</td><td>252.99</td><td>38844.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.56</td><td>0</td><td></td></tr> 
+<tr><td> 100076 </td><td>Helium3</td><td>19.55</td><td>313.21</td><td>33888.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.80</td><td>0</td><td></td></tr> 
+<tr><td> 100077 </td><td>Helium3</td><td>18.41</td><td>309.76</td><td>39807.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.14</td><td>0</td><td></td></tr> 
+<tr><td> 100078 </td><td>Helium3</td><td>19.26</td><td>315.99</td><td>38967.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.06</td><td>0</td><td></td></tr> 
+<tr><td> 100079 </td><td>Helium3</td><td>19.77</td><td>309.79</td><td>38807.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.09</td><td>0</td><td></td></tr> 
+<tr><td> 100080 </td><td>Helium3</td><td>19.69</td><td>309.30</td><td>39098.59</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.11</td><td>0</td><td></td></tr> 
+<tr><td> 100081 </td><td>Helium3</td><td>19.89</td><td>293.70</td><td>9618.33</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.55</td><td>0</td><td></td></tr> 
+<tr><td> 100082 </td><td>Helium3</td><td>19.56</td><td>320.35</td><td>26616.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.38</td><td>0</td><td></td></tr> 
+<tr><td> 100083 </td><td>Helium3</td><td>19.48</td><td>315.89</td><td>28470.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.50</td><td>0</td><td></td></tr> 
+<tr><td> 100084 </td><td>Helium3</td><td>18.51</td><td>306.19</td><td>48157.04</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.62</td><td>0</td><td></td></tr> 
+<tr><td> 100085 </td><td>Helium3</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.15</td><td>0</td><td></td></tr> 
+<tr><td> 100086 </td><td>Helium3</td><td>19.36</td><td>313.31</td><td>38676.64</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.06</td><td>0</td><td></td></tr> 
+<tr><td> 100087 </td><td>Helium3</td><td>19.78</td><td>317.03</td><td>38143.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.01</td><td>0</td><td></td></tr> 
+<tr><td> 100088 </td><td>Dummy</td><td>18.76</td><td>134.63</td><td>39923.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>4.94</td><td>0</td><td></td></tr> 
+<tr><td> 100089 </td><td>Dummy</td><td>17.63</td><td>130.80</td><td>36479.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>4.65</td><td>0</td><td></td></tr> 
+<tr><td> 100090 </td><td>Helium3</td><td>20.03</td><td>319.55</td><td>37266.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.94</td><td>0</td><td></td></tr> 
+<tr><td> 100091 </td><td>Helium3</td><td>20.65</td><td>324.20</td><td>37921.10</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.95</td><td>0</td><td></td></tr> 
+<tr><td> 100092 </td><td>Helium3</td><td>20.68</td><td>324.17</td><td>37586.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.93</td><td>0</td><td></td></tr> 
+<tr><td> 100093 </td><td>Helium3</td><td>20.21</td><td>320.73</td><td>37710.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.96</td><td>0</td><td></td></tr> 
+<tr><td> 100094 </td><td>Helium3</td><td>19.85</td><td>320.32</td><td>38165.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 100095 </td><td>unknown</td><td>19.45</td><td>231.90</td><td>37689.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.71</td><td>0</td><td></td></tr> 
+<tr><td> 100096 </td><td>unknown</td><td>18.79</td><td>233.54</td><td>37759.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.69</td><td>0</td><td></td></tr> 
+<tr><td> 100097 </td><td>unknown</td><td>17.94</td><td>228.06</td><td>29850.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.18</td><td>0</td><td></td></tr> 
+<tr><td> 100098 </td><td>unknown</td><td>15.77</td><td>230.23</td><td>51732.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.75</td><td>0</td><td></td></tr> 
+<tr><td> 100099 </td><td>Dummy</td><td>18.53</td><td>135.39</td><td>37936.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>4.67</td><td>0</td><td></td></tr> 
+<tr><td> 100100 </td><td>Carbon Hole</td><td>18.37</td><td>195.46</td><td>9023.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.77</td><td>0</td><td></td></tr> 
+<tr><td> 100101 </td><td>Multifoils</td><td>20.81</td><td>38.73</td><td>35332.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>15.20</td><td>0</td><td></td></tr> 
+<tr><td> 100102 </td><td>Hydrogen</td><td>17.60</td><td>235.11</td><td>40374.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.86</td><td>0</td><td></td></tr> 
+<tr><td> 100103 </td><td>Hydrogen</td><td>19.43</td><td>247.80</td><td>40363.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.71</td><td>0</td><td></td></tr> 
+<tr><td> 100104 </td><td>Tritium</td><td>18.40</td><td>250.37</td><td>40164.43</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.67</td><td>0</td><td></td></tr> 
+<tr><td> 100105 </td><td>Helium3</td><td>20.79</td><td>320.17</td><td>18815.11</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.98</td><td>0</td><td></td></tr> 
+<tr><td> 100106 </td><td>Multifoils</td><td>16.39</td><td>122.01</td><td>4586.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.63</td><td>0</td><td></td></tr> 
+<tr><td> 100107 </td><td>Multifoils</td><td>19.95</td><td>36.92</td><td>25931.59</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>11.71</td><td>0</td><td></td></tr> 
+<tr><td> 100108 </td><td>Tritium</td><td>20.53</td><td>336.45</td><td>36854.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.83</td><td>0</td><td></td></tr> 
+<tr><td> 100109 </td><td>Tritium</td><td>21.10</td><td>334.19</td><td>932.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.05</td><td>0</td><td></td></tr> 
+<tr><td> 100110 </td><td>Tritium</td><td>19.91</td><td>331.53</td><td>33022.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.66</td><td>0</td><td></td></tr> 
+<tr><td> 100111 </td><td>Tritium</td><td>20.79</td><td>213.15</td><td>5024.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.39</td><td>0</td><td></td></tr> 
+<tr><td> 100112 </td><td>Tritium</td><td>20.20</td><td>333.49</td><td>43549.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.18</td><td>0</td><td></td></tr> 
+<tr><td> 100113 </td><td>Tritium</td><td>19.78</td><td>333.17</td><td>44035.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.20</td><td>0</td><td></td></tr> 
+<tr><td> 100114 </td><td>Tritium</td><td>20.40</td><td>331.09</td><td>38637.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.94</td><td>0</td><td></td></tr> 
+<tr><td> 100115 </td><td>Tritium</td><td>19.99</td><td>334.33</td><td>41381.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.06</td><td>0</td><td></td></tr> 
+<tr><td> 100116 </td><td>Tritium</td><td>19.72</td><td>331.44</td><td>38164.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.92</td><td>0</td><td></td></tr> 
+<tr><td> 100117 </td><td>Tritium</td><td>20.05</td><td>329.44</td><td>38408.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.94</td><td>0</td><td></td></tr> 
+<tr><td> 100118 </td><td>Tritium</td><td>19.51</td><td>330.59</td><td>38256.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.93</td><td>0</td><td></td></tr> 
+<tr><td> 100119 </td><td>Tritium</td><td>19.00</td><td>330.24</td><td>37347.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.88</td><td>0</td><td></td></tr> 
+<tr><td> 100120 </td><td>Tritium</td><td>20.36</td><td>332.52</td><td>39007.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.96</td><td>0</td><td></td></tr> 
+<tr><td> 100121 </td><td>Tritium</td><td>17.59</td><td>317.32</td><td>37933.75</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 100122 </td><td>Tritium</td><td>19.27</td><td>333.47</td><td>37419.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.87</td><td>0</td><td></td></tr> 
+<tr><td> 100123 </td><td>Tritium</td><td>20.10</td><td>332.55</td><td>37981.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.90</td><td>0</td><td></td></tr> 
+<tr><td> 100124 </td><td>Helium3</td><td>20.96</td><td>435.95</td><td>38249.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.46</td><td>0</td><td></td></tr> 
+<tr><td> 100125 </td><td>Helium3</td><td>20.42</td><td>431.89</td><td>38322.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.48</td><td>0</td><td></td></tr> 
+<tr><td> 100126 </td><td>Helium3</td><td>20.46</td><td>427.68</td><td>37355.19</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.46</td><td>0</td><td></td></tr> 
+<tr><td> 100127 </td><td>Helium3</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100128 </td><td>Helium3</td><td>20.29</td><td>428.14</td><td>41800.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.63</td><td>0</td><td></td></tr> 
+<tr><td> 100129 </td><td>Helium3</td><td>21.33</td><td>405.00</td><td>9026.28</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.37</td><td>0</td><td></td></tr> 
+<tr><td> 100130 </td><td>Helium3</td><td>19.78</td><td>428.24</td><td>31895.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.24</td><td>0</td><td></td></tr> 
+<tr><td> 100131 </td><td>Helium3</td><td>19.60</td><td>423.53</td><td>42400.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.67</td><td>0</td><td></td></tr> 
+<tr><td> 100132 </td><td>Helium3</td><td>19.75</td><td>417.28</td><td>38839.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.55</td><td>0</td><td></td></tr> 
+<tr><td> 100133 </td><td>Helium3</td><td>19.28</td><td>395.44</td><td>15747.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.66</td><td>0</td><td></td></tr> 
+<tr><td> 100134 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.77</td><td>0</td><td></td></tr> 
+<tr><td> 100135 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 100136 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.89</td><td>0</td><td></td></tr> 
+<tr><td> 100137 </td><td>Carbon Hole</td><td>5.95</td><td>99.44</td><td>1350.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.23</td><td>0</td><td></td></tr> 
+<tr><td> 100138 </td><td>Carbon Hole</td><td>6.48</td><td>152.57</td><td>1440.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.16</td><td>0</td><td></td></tr> 
+<tr><td> 100139 </td><td>Helium3</td><td>20.44</td><td>431.59</td><td>46141.16</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.78</td><td>0</td><td></td></tr> 
+<tr><td> 100140 </td><td>Helium3</td><td>20.98</td><td>434.71</td><td>49872.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.91</td><td>0</td><td></td></tr> 
+<tr><td> 100141 </td><td>Helium3</td><td>20.82</td><td>406.85</td><td>10064.89</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.41</td><td>0</td><td></td></tr> 
+<tr><td> 100142 </td><td>Helium3</td><td>20.58</td><td>432.30</td><td>42316.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.63</td><td>0</td><td></td></tr> 
+<tr><td> 100143 </td><td>Helium3</td><td>19.42</td><td>420.98</td><td>49940.98</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.98</td><td>0</td><td></td></tr> 
+<tr><td> 100144 </td><td>Helium3</td><td>19.68</td><td>426.59</td><td>38710.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.51</td><td>0</td><td></td></tr> 
+<tr><td> 100145 </td><td>Helium3</td><td>20.68</td><td>431.57</td><td>54587.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.11</td><td>0</td><td></td></tr> 
+<tr><td> 100146 </td><td>Dummy</td><td>20.45</td><td>184.39</td><td>39740.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.59</td><td>0</td><td></td></tr> 
+<tr><td> 100147 </td><td>Dummy</td><td>19.75</td><td>184.57</td><td>39066.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.53</td><td>0</td><td></td></tr> 
+<tr><td> 100148 </td><td>Dummy</td><td>19.80</td><td>182.78</td><td>39931.85</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.64</td><td>0</td><td></td></tr> 
+<tr><td> 100149 </td><td>Dummy</td><td>20.82</td><td>185.33</td><td>38634.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.47</td><td>0</td><td></td></tr> 
+<tr><td> 100150 </td><td>Tritium</td><td>20.48</td><td>335.16</td><td>39497.85</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.96</td><td>0</td><td></td></tr> 
+<tr><td> 100151 </td><td>Tritium</td><td>20.44</td><td>335.39</td><td>40420.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.01</td><td>0</td><td></td></tr> 
+<tr><td> 100152 </td><td>Tritium</td><td>20.70</td><td>336.13</td><td>39196.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.94</td><td>0</td><td></td></tr> 
+<tr><td> 100153 </td><td>Tritium</td><td>20.67</td><td>337.32</td><td>40646.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.01</td><td>0</td><td></td></tr> 
+<tr><td> 100154 </td><td>Tritium</td><td>20.48</td><td>336.40</td><td>40497.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.01</td><td>0</td><td></td></tr> 
+<tr><td> 100155 </td><td>Tritium</td><td>20.99</td><td>339.18</td><td>41212.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.03</td><td>0</td><td></td></tr> 
+<tr><td> 100156 </td><td>Tritium</td><td>20.45</td><td>333.84</td><td>41049.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.05</td><td>0</td><td></td></tr> 
+<tr><td> 100157 </td><td>Tritium</td><td>21.27</td><td>339.34</td><td>40520.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 100158 </td><td>Tritium</td><td>20.66</td><td>335.90</td><td>40551.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.01</td><td>0</td><td></td></tr> 
+<tr><td> 100159 </td><td>Tritium</td><td>19.43</td><td>325.24</td><td>32519.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.67</td><td>0</td><td></td></tr> 
+<tr><td> 100160 </td><td>Tritium</td><td>13.77</td><td>179.08</td><td>233.65</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100161 </td><td>Tritium</td><td>21.10</td><td>336.32</td><td>21277.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.05</td><td>0</td><td></td></tr> 
+<tr><td> 100162 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.22</td><td>0</td><td></td></tr> 
+<tr><td> 100163 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100164 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.01</td><td>0</td><td></td></tr> 
+<tr><td> 100166 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.83</td><td>0</td><td></td></tr> 
+<tr><td> 100167 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.46</td><td>0</td><td></td></tr> 
+<tr><td> 100168 </td><td>Carbon Hole</td><td>20.53</td><td>169.92</td><td>2272.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.22</td><td>0</td><td></td></tr> 
+<tr><td> 100169 </td><td>Tritium</td><td>18.46</td><td>321.35</td><td>62323.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.23</td><td>0</td><td></td></tr> 
+<tr><td> 100170 </td><td>Tritium</td><td>20.47</td><td>338.99</td><td>44131.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.17</td><td>0</td><td></td></tr> 
+<tr><td> 100171 </td><td>Tritium</td><td>20.87</td><td>329.82</td><td>39098.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.98</td><td>0</td><td></td></tr> 
+<tr><td> 100172 </td><td>Single Carbon Foil</td><td>10.78</td><td>106.05</td><td>13258.69</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>2.08</td><td>0</td><td></td></tr> 
+<tr><td> 100173 </td><td>unknown</td><td>21.40</td><td>464.81</td><td>535.62</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>0.02</td><td>0</td><td></td></tr> 
+<tr><td> 100174 </td><td>Helium3</td><td>20.91</td><td>432.77</td><td>38431.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.48</td><td>0</td><td></td></tr> 
+<tr><td> 100175 </td><td>Helium3</td><td>20.45</td><td>436.80</td><td>42489.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.62</td><td>0</td><td></td></tr> 
+<tr><td> 100176 </td><td>Helium3</td><td>20.87</td><td>437.20</td><td>40882.05</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.56</td><td>0</td><td></td></tr> 
+<tr><td> 100177 </td><td>Helium3</td><td>21.11</td><td>431.27</td><td>40419.36</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.56</td><td>0</td><td></td></tr> 
+<tr><td> 100178 </td><td>Helium3</td><td>20.49</td><td>432.54</td><td>40464.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.56</td><td>0</td><td></td></tr> 
+<tr><td> 100179 </td><td>Helium3</td><td>20.74</td><td>428.92</td><td>41355.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.61</td><td>0</td><td></td></tr> 
+<tr><td> 100180 </td><td>Helium3</td><td>21.17</td><td>436.32</td><td>45323.05</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.73</td><td>0</td><td></td></tr> 
+<tr><td> 100181 </td><td>Helium3</td><td>20.92</td><td>437.62</td><td>41746.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.59</td><td>0</td><td></td></tr> 
+<tr><td> 100182 </td><td>Helium3</td><td>20.00</td><td>422.59</td><td>41345.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.63</td><td>0</td><td></td></tr> 
+<tr><td> 100183 </td><td>Helium3</td><td>20.50</td><td>427.78</td><td>41149.71</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.60</td><td>0</td><td></td></tr> 
+<tr><td> 100185 </td><td>Helium3</td><td>20.64</td><td>437.65</td><td>40973.05</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.56</td><td>0</td><td></td></tr> 
+<tr><td> 100186 </td><td>Helium3</td><td>20.91</td><td>431.07</td><td>40383.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.56</td><td>0</td><td></td></tr> 
+<tr><td> 100187 </td><td>Helium3</td><td>21.06</td><td>440.82</td><td>40210.71</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.52</td><td>0</td><td></td></tr> 
+<tr><td> 100188 </td><td>Helium3</td><td>20.58</td><td>435.67</td><td>37927.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.45</td><td>0</td><td></td></tr> 
+<tr><td> 100190 </td><td>Tritium</td><td>20.62</td><td>327.94</td><td>25986.08</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.32</td><td>0</td><td></td></tr> 
+<tr><td> 100191 </td><td>Tritium</td><td>20.69</td><td>338.13</td><td>49849.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.46</td><td>0</td><td></td></tr> 
+<tr><td> 100192 </td><td>Tritium</td><td>20.78</td><td>334.64</td><td>33097.44</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.65</td><td>0</td><td></td></tr> 
+<tr><td> 100193 </td><td>Tritium</td><td>20.71</td><td>339.43</td><td>37932.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.86</td><td>0</td><td></td></tr> 
+<tr><td> 100194 </td><td>Tritium</td><td>20.48</td><td>332.25</td><td>40304.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.02</td><td>0</td><td></td></tr> 
+<tr><td> 100195 </td><td>Tritium</td><td>20.16</td><td>328.13</td><td>36197.99</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.84</td><td>0</td><td></td></tr> 
+<tr><td> 100196 </td><td>Tritium</td><td>20.52</td><td>335.77</td><td>46303.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.30</td><td>0</td><td></td></tr> 
+<tr><td> 100197 </td><td>Tritium</td><td>20.29</td><td>334.41</td><td>47874.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.39</td><td>0</td><td></td></tr> 
+<tr><td> 100198 </td><td>Tritium</td><td>21.00</td><td>341.15</td><td>38318.08</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.87</td><td>0</td><td></td></tr> 
+<tr><td> 100199 </td><td>Tritium</td><td>20.12</td><td>328.82</td><td>44824.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.27</td><td>0</td><td></td></tr> 
+<tr><td> 100200 </td><td>Tritium</td><td>20.58</td><td>339.33</td><td>38250.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.88</td><td>0</td><td></td></tr> 
+<tr><td> 100201 </td><td>Tritium</td><td>19.84</td><td>330.15</td><td>16407.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.83</td><td>0</td><td></td></tr> 
+<tr><td> 100203 </td><td>Tritium</td><td>20.08</td><td>337.81</td><td>43678.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.15</td><td>0</td><td></td></tr> 
+<tr><td> 100204 </td><td>Tritium</td><td>19.98</td><td>333.34</td><td>31425.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.57</td><td>0</td><td></td></tr> 
+<tr><td> 100205 </td><td>Tritium</td><td>20.80</td><td>337.21</td><td>52603.76</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.60</td><td>0</td><td></td></tr> 
+<tr><td> 100206 </td><td>Helium3</td><td>19.29</td><td>398.76</td><td>41224.42</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.72</td><td>0</td><td></td></tr> 
+<tr><td> 100207 </td><td>Helium3</td><td>20.21</td><td>420.57</td><td>45819.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.82</td><td>0</td><td></td></tr> 
+<tr><td> 100208 </td><td>Helium3</td><td>20.27</td><td>432.51</td><td>35157.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.35</td><td>0</td><td></td></tr> 
+<tr><td> 100209 </td><td>Helium3</td><td>20.60</td><td>439.74</td><td>39195.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.49</td><td>0</td><td></td></tr> 
+<tr><td> 100210 </td><td>Helium3</td><td>20.49</td><td>434.39</td><td>36162.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.39</td><td>0</td><td></td></tr> 
+<tr><td> 100211 </td><td>Helium3</td><td>20.71</td><td>434.47</td><td>48606.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.86</td><td>0</td><td></td></tr> 
+<tr><td> 100212 </td><td>Helium3</td><td>20.74</td><td>423.95</td><td>41655.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.64</td><td>0</td><td></td></tr> 
+<tr><td> 100213 </td><td>Helium3</td><td>19.99</td><td>417.87</td><td>45652.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.82</td><td>0</td><td></td></tr> 
+<tr><td> 100214 </td><td>Helium3</td><td>20.82</td><td>436.00</td><td>41208.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.58</td><td>0</td><td></td></tr> 
+<tr><td> 100215 </td><td>Helium3</td><td>21.18</td><td>440.61</td><td>41939.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.59</td><td>0</td><td></td></tr> 
+<tr><td> 100216 </td><td>Helium3</td><td>20.34</td><td>430.98</td><td>38991.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.51</td><td>0</td><td></td></tr> 
+<tr><td> 100217 </td><td>Helium3</td><td>20.34</td><td>426.16</td><td>38674.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.51</td><td>0</td><td></td></tr> 
+<tr><td> 100218 </td><td>Helium3</td><td>20.70</td><td>423.11</td><td>41584.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.64</td><td>0</td><td></td></tr> 
+<tr><td> 100219 </td><td>Helium3</td><td>20.64</td><td>435.11</td><td>39526.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.51</td><td>0</td><td></td></tr> 
+<tr><td> 100220 </td><td>Dummy</td><td>20.47</td><td>182.78</td><td>43150.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.93</td><td>0</td><td></td></tr> 
+<tr><td> 100221 </td><td>Dummy</td><td>19.95</td><td>186.08</td><td>41604.63</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.73</td><td>0</td><td></td></tr> 
+<tr><td> 100222 </td><td>Dummy</td><td>20.41</td><td>185.44</td><td>41853.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.76</td><td>0</td><td></td></tr> 
+<tr><td> 100223 </td><td>Dummy</td><td>20.85</td><td>186.87</td><td>39301.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>3.51</td><td>0</td><td></td></tr> 
+<tr><td> 100224 </td><td>Tritium</td><td>19.48</td><td>322.47</td><td>45764.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.37</td><td>0</td><td></td></tr> 
+<tr><td> 100225 </td><td>Tritium</td><td>20.60</td><td>338.50</td><td>49187.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.42</td><td>0</td><td></td></tr> 
+<tr><td> 100226 </td><td>Tritium</td><td>21.01</td><td>337.90</td><td>31153.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.54</td><td>0</td><td></td></tr> 
+<tr><td> 100227 </td><td>Tritium</td><td>20.72</td><td>337.79</td><td>36339.59</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.79</td><td>0</td><td></td></tr> 
+<tr><td> 100228 </td><td>Tritium</td><td>20.63</td><td>335.52</td><td>55865.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.78</td><td>0</td><td></td></tr> 
+<tr><td> 100229 </td><td>Tritium</td><td>19.66</td><td>333.78</td><td>36275.48</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.81</td><td>0</td><td></td></tr> 
+<tr><td> 100230 </td><td>Tritium</td><td>19.25</td><td>327.74</td><td>41332.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.10</td><td>0</td><td></td></tr> 
+<tr><td> 100231 </td><td>Tritium</td><td>20.25</td><td>334.06</td><td>39790.88</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.99</td><td>0</td><td></td></tr> 
+<tr><td> 100232 </td><td>Tritium</td><td>19.48</td><td>327.13</td><td>48685.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.48</td><td>0</td><td></td></tr> 
+<tr><td> 100233 </td><td>Tritium</td><td>19.98</td><td>16.04</td><td>74047.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>76.92</td><td>0</td><td></td></tr> 
+<tr><td> 100234 </td><td>Tritium</td><td>20.74</td><td>17.10</td><td>40919.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.88</td><td>0</td><td></td></tr> 
+<tr><td> 100235 </td><td>Tritium</td><td>20.82</td><td>17.99</td><td>44725.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.44</td><td>0</td><td></td></tr> 
+<tr><td> 100236 </td><td>Tritium</td><td>20.78</td><td>20.37</td><td>38640.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.61</td><td>0</td><td></td></tr> 
+<tr><td> 100237 </td><td>Tritium</td><td>16.24</td><td>12.26</td><td>53322.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>72.47</td><td>0</td><td></td></tr> 
+<tr><td> 100238 </td><td>Tritium</td><td>20.15</td><td>18.10</td><td>38908.11</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.82</td><td>0</td><td></td></tr> 
+<tr><td> 100239 </td><td>Helium3</td><td>20.95</td><td>19.78</td><td>41725.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.15</td><td>0</td><td></td></tr> 
+<tr><td> 100240 </td><td>Helium3</td><td>21.12</td><td>20.64</td><td>41866.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.81</td><td>0</td><td></td></tr> 
+<tr><td> 100241 </td><td>Helium3</td><td>20.83</td><td>18.64</td><td>42206.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.73</td><td>0</td><td></td></tr> 
+<tr><td> 100242 </td><td>Helium3</td><td>20.98</td><td>19.92</td><td>38672.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.35</td><td>0</td><td></td></tr> 
+<tr><td> 100243 </td><td>Helium3</td><td>20.57</td><td>19.74</td><td>47294.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.93</td><td>0</td><td></td></tr> 
+<tr><td> 100244 </td><td>Helium3</td><td>19.41</td><td>12.58</td><td>43045.64</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>57.05</td><td>0</td><td></td></tr> 
+<tr><td> 100245 </td><td>Helium3</td><td>20.69</td><td>20.45</td><td>40475.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.99</td><td>0</td><td></td></tr> 
+<tr><td> 100246 </td><td>Helium3</td><td>17.78</td><td>13.56</td><td>38353.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>47.13</td><td>0</td><td></td></tr> 
+<tr><td> 100247 </td><td>Helium3</td><td>7.18</td><td>0.35</td><td>339.65</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>16.35</td><td>0</td><td></td></tr> 
+<tr><td> 100248 </td><td>Helium3</td><td>21.43</td><td>21.04</td><td>43651.43</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.58</td><td>0</td><td></td></tr> 
+<tr><td> 100249 </td><td>Helium3</td><td>20.25</td><td>20.02</td><td>45304.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.71</td><td>0</td><td></td></tr> 
+<tr><td> 100250 </td><td>Helium3</td><td>12.95</td><td>1.42</td><td>2217.44</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>26.05</td><td>0</td><td></td></tr> 
+<tr><td> 100251 </td><td>Helium3</td><td>9.56</td><td>0.24</td><td>410.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>28.04</td><td>0</td><td></td></tr> 
+<tr><td> 100252 </td><td>Helium3</td><td>21.19</td><td>21.13</td><td>44623.98</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.20</td><td>0</td><td></td></tr> 
+<tr><td> 100253 </td><td>Helium3</td><td>20.22</td><td>16.05</td><td>44444.65</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.16</td><td>0</td><td></td></tr> 
+<tr><td> 100254 </td><td>Helium3</td><td>21.15</td><td>20.89</td><td>44164.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.24</td><td>0</td><td></td></tr> 
+<tr><td> 100255 </td><td>Helium3</td><td>21.06</td><td>17.32</td><td>41771.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.20</td><td>0</td><td></td></tr> 
+<tr><td> 100256 </td><td>Tritium</td><td>20.29</td><td>9.88</td><td>36826.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>62.10</td><td>0</td><td></td></tr> 
+<tr><td> 100257 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.60</td><td>0</td><td></td></tr> 
+<tr><td> 100258 </td><td>Tritium</td><td>21.28</td><td>19.25</td><td>39929.48</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.57</td><td>0</td><td></td></tr> 
+<tr><td> 100259 </td><td>Tritium</td><td>20.53</td><td>18.63</td><td>34778.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.11</td><td>0</td><td></td></tr> 
+<tr><td> 100260 </td><td>Tritium</td><td>18.36</td><td>14.80</td><td>38696.59</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.57</td><td>0</td><td></td></tr> 
+<tr><td> 100261 </td><td>Tritium</td><td>18.44</td><td>8.64</td><td>42181.34</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>81.37</td><td>0</td><td></td></tr> 
+<tr><td> 100262 </td><td>Tritium</td><td>20.52</td><td>19.89</td><td>48972.74</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.03</td><td>0</td><td></td></tr> 
+<tr><td> 100265 </td><td>Tritium</td><td>20.22</td><td>18.07</td><td>35492.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.74</td><td>0</td><td></td></tr> 
+<tr><td> 100266 </td><td>Tritium</td><td>20.47</td><td>16.47</td><td>41074.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.56</td><td>0</td><td></td></tr> 
+<tr><td> 100267 </td><td>Tritium</td><td>19.86</td><td>18.07</td><td>49764.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.89</td><td>0</td><td></td></tr> 
+<tr><td> 100269 </td><td>Tritium</td><td>20.01</td><td>16.23</td><td>34700.88</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.63</td><td>0</td><td></td></tr> 
+<tr><td> 100270 </td><td>Tritium</td><td>20.24</td><td>15.17</td><td>43450.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>47.75</td><td>0</td><td></td></tr> 
+<tr><td> 100271 </td><td>Tritium</td><td>19.80</td><td>14.45</td><td>41918.34</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>48.37</td><td>0</td><td></td></tr> 
+<tr><td> 100272 </td><td>Tritium</td><td>20.14</td><td>19.72</td><td>43429.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.70</td><td>0</td><td></td></tr> 
+<tr><td> 100273 </td><td>Tritium</td><td>20.08</td><td>19.29</td><td>35239.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.44</td><td>0</td><td></td></tr> 
+<tr><td> 100274 </td><td>Helium3</td><td>20.71</td><td>19.66</td><td>48760.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.34</td><td>0</td><td></td></tr> 
+<tr><td> 100275 </td><td>Helium3</td><td>19.98</td><td>10.86</td><td>21559.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.07</td><td>0</td><td></td></tr> 
+<tr><td> 100276 </td><td>Helium3</td><td>20.66</td><td>19.95</td><td>50103.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.85</td><td>0</td><td></td></tr> 
+<tr><td> 100277 </td><td>Helium3</td><td>21.06</td><td>20.88</td><td>41607.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.21</td><td>0</td><td></td></tr> 
+<tr><td> 100278 </td><td>Helium3</td><td>11.29</td><td>1.85</td><td>2166.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>19.55</td><td>0</td><td></td></tr> 
+<tr><td> 100062 </td><td>Helium3</td><td>20.39</td><td>19.92</td><td>40716.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.07</td><td>0</td><td></td></tr> 
+<tr><td> 100279 </td><td>Helium3</td><td>15.61</td><td>4.58</td><td>2805.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>10.21</td><td>0</td><td></td></tr> 
+<tr><td> 100280 </td><td>Helium3</td><td>21.23</td><td>21.28</td><td>42266.33</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.11</td><td>0</td><td></td></tr> 
+<tr><td> 100281 </td><td>Helium3</td><td>20.47</td><td>18.08</td><td>39853.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.74</td><td>0</td><td></td></tr> 
+<tr><td> 100282 </td><td>Helium3</td><td>21.02</td><td>20.72</td><td>39262.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.58</td><td>0</td><td></td></tr> 
+<tr><td> 100283 </td><td>Helium3</td><td>20.57</td><td>19.09</td><td>44448.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.81</td><td>0</td><td></td></tr> 
+<tr><td> 100284 </td><td>Helium3</td><td>20.91</td><td>20.50</td><td>41175.99</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.47</td><td>0</td><td></td></tr> 
+<tr><td> 100285 </td><td>Helium3</td><td>20.95</td><td>20.88</td><td>41126.47</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.82</td><td>0</td><td></td></tr> 
+<tr><td> 100286 </td><td>Helium3</td><td>20.92</td><td>20.75</td><td>40611.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.62</td><td>0</td><td></td></tr> 
+<tr><td> 100287 </td><td>Helium3</td><td>20.14</td><td>19.69</td><td>40793.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.54</td><td>0</td><td></td></tr> 
+<tr><td> 100288 </td><td>Helium3</td><td>20.43</td><td>20.16</td><td>40172.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.22</td><td>0</td><td></td></tr> 
+<tr><td> 100289 </td><td>Helium3</td><td>20.21</td><td>17.49</td><td>39840.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.98</td><td>0</td><td></td></tr> 
+<tr><td> 100290 </td><td>Dummy</td><td>3.20</td><td>0.15</td><td>179.10</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>19.75</td><td>0</td><td></td></tr> 
+<tr><td> 100291 </td><td>Dummy</td><td>19.89</td><td>14.38</td><td>39448.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.72</td><td>0</td><td></td></tr> 
+<tr><td> 100292 </td><td>Dummy</td><td>20.77</td><td>17.58</td><td>51547.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>48.88</td><td>0</td><td></td></tr> 
+<tr><td> 100293 </td><td>Dummy</td><td>19.74</td><td>16.63</td><td>46266.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.38</td><td>0</td><td></td></tr> 
+<tr><td> 100294 </td><td>Dummy</td><td>20.82</td><td>18.68</td><td>41793.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.28</td><td>0</td><td></td></tr> 
+<tr><td> 100295 </td><td>Tritium</td><td>20.45</td><td>18.77</td><td>48239.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>42.83</td><td>0</td><td></td></tr> 
+<tr><td> 100296 </td><td>Tritium</td><td>19.01</td><td>6.18</td><td>7469.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>20.14</td><td>0</td><td></td></tr> 
+<tr><td> 100297 </td><td>Tritium</td><td>20.82</td><td>20.16</td><td>48078.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.74</td><td>0</td><td></td></tr> 
+<tr><td> 100298 </td><td>Tritium</td><td>20.37</td><td>20.15</td><td>40461.04</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.47</td><td>0</td><td></td></tr> 
+<tr><td> 100299 </td><td>Tritium</td><td>20.26</td><td>19.63</td><td>44738.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.99</td><td>0</td><td></td></tr> 
+<tr><td> 100300 </td><td>Tritium</td><td>20.53</td><td>20.21</td><td>37689.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.09</td><td>0</td><td></td></tr> 
+<tr><td> 100301 </td><td>Tritium</td><td>20.85</td><td>20.66</td><td>34905.45</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>28.16</td><td>0</td><td></td></tr> 
+<tr><td> 100302 </td><td>Tritium</td><td>20.86</td><td>19.05</td><td>34075.88</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>29.81</td><td>0</td><td></td></tr> 
+<tr><td> 100303 </td><td>Tritium</td><td>20.58</td><td>20.16</td><td>46773.48</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.66</td><td>0</td><td></td></tr> 
+<tr><td> 100304 </td><td>Tritium</td><td>20.42</td><td>17.36</td><td>48441.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.51</td><td>0</td><td></td></tr> 
+<tr><td> 100305 </td><td>Tritium</td><td>20.20</td><td>17.43</td><td>41156.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.35</td><td>0</td><td></td></tr> 
+<tr><td> 100306 </td><td>Tritium</td><td>21.14</td><td>15.54</td><td>10663.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>11.44</td><td>0</td><td></td></tr> 
+<tr><td> 100307 </td><td>Tritium</td><td>21.12</td><td>21.01</td><td>40258.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.93</td><td>0</td><td></td></tr> 
+<tr><td> 100308 </td><td>Tritium</td><td>21.01</td><td>20.89</td><td>42950.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.27</td><td>0</td><td></td></tr> 
+<tr><td> 100309 </td><td>Tritium</td><td>20.81</td><td>20.43</td><td>40987.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.44</td><td>0</td><td></td></tr> 
+<tr><td> 100310 </td><td>Tritium</td><td>20.79</td><td>17.82</td><td>35220.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.95</td><td>0</td><td></td></tr> 
+<tr><td> 100311 </td><td>Helium3</td><td>20.34</td><td>19.28</td><td>42478.04</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.71</td><td>0</td><td></td></tr> 
+<tr><td> 100312 </td><td>Helium3</td><td>20.46</td><td>17.72</td><td>42094.58</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.59</td><td>0</td><td></td></tr> 
+<tr><td> 100313 </td><td>Helium3</td><td>20.04</td><td>18.22</td><td>39549.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.18</td><td>0</td><td></td></tr> 
+<tr><td> 100314 </td><td>Helium3</td><td>20.85</td><td>17.79</td><td>25637.85</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>24.02</td><td>0</td><td></td></tr> 
+<tr><td> 100315 </td><td>Helium3</td><td>20.98</td><td>20.73</td><td>46643.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.49</td><td>0</td><td></td></tr> 
+<tr><td> 100316 </td><td>Helium3</td><td>20.52</td><td>19.83</td><td>45566.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.29</td><td>0</td><td></td></tr> 
+<tr><td> 100317 </td><td>Helium3</td><td>20.39</td><td>20.38</td><td>18741.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>15.33</td><td>0</td><td></td></tr> 
+<tr><td> 100319 </td><td>Helium3</td><td>20.58</td><td>17.94</td><td>45382.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>42.15</td><td>0</td><td></td></tr> 
+<tr><td> 100320 </td><td>Helium3</td><td>20.25</td><td>19.68</td><td>39542.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.49</td><td>0</td><td></td></tr> 
+<tr><td> 100321 </td><td>Helium3</td><td>20.20</td><td>16.92</td><td>38518.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.93</td><td>0</td><td></td></tr> 
+<tr><td> 100322 </td><td>Helium3</td><td>20.53</td><td>20.25</td><td>39592.89</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.59</td><td>0</td><td></td></tr> 
+<tr><td> 100323 </td><td>Helium3</td><td>20.33</td><td>19.86</td><td>39859.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.45</td><td>0</td><td></td></tr> 
+<tr><td> 100324 </td><td>Helium3</td><td>20.61</td><td>16.83</td><td>39681.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.29</td><td>0</td><td></td></tr> 
+<tr><td> 100325 </td><td>Helium3</td><td>20.25</td><td>19.98</td><td>39519.44</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.96</td><td>0</td><td></td></tr> 
+<tr><td> 100326 </td><td>Helium3</td><td>20.88</td><td>20.82</td><td>40495.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.42</td><td>0</td><td></td></tr> 
+<tr><td> 100327 </td><td>Helium3</td><td>20.22</td><td>17.67</td><td>43244.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.78</td><td>0</td><td></td></tr> 
+<tr><td> 100328 </td><td>Helium3</td><td>20.88</td><td>20.81</td><td>40848.08</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.71</td><td>0</td><td></td></tr> 
+<tr><td> 100329 </td><td>Helium3</td><td>20.09</td><td>18.99</td><td>40798.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.80</td><td>0</td><td></td></tr> 
+<tr><td> 100330 </td><td>Tritium</td><td>20.93</td><td>20.76</td><td>40272.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.33</td><td>0</td><td></td></tr> 
+<tr><td> 100331 </td><td>Tritium</td><td>20.27</td><td>16.30</td><td>47365.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>48.44</td><td>0</td><td></td></tr> 
+<tr><td> 100332 </td><td>Tritium</td><td>20.71</td><td>19.91</td><td>44800.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.50</td><td>0</td><td></td></tr> 
+<tr><td> 100333 </td><td>Tritium</td><td>20.49</td><td>19.85</td><td>42297.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.51</td><td>0</td><td></td></tr> 
+<tr><td> 100334 </td><td>Tritium</td><td>19.69</td><td>10.84</td><td>16868.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>25.93</td><td>0</td><td></td></tr> 
+<tr><td> 100335 </td><td>Tritium</td><td>20.24</td><td>17.77</td><td>28969.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>27.18</td><td>0</td><td></td></tr> 
+<tr><td> 100336 </td><td>Tritium</td><td>20.29</td><td>19.81</td><td>39077.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.88</td><td>0</td><td></td></tr> 
+<tr><td> 100337 </td><td>Tritium</td><td>20.31</td><td>15.34</td><td>40240.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.71</td><td>0</td><td></td></tr> 
+<tr><td> 100338 </td><td>Tritium</td><td>20.68</td><td>20.61</td><td>39173.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.68</td><td>0</td><td></td></tr> 
+<tr><td> 100339 </td><td>Tritium</td><td>20.22</td><td>18.70</td><td>39262.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.99</td><td>0</td><td></td></tr> 
+<tr><td> 100340 </td><td>Tritium</td><td>20.25</td><td>16.19</td><td>38751.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.88</td><td>0</td><td></td></tr> 
+<tr><td> 100341 </td><td>Tritium</td><td>19.66</td><td>18.86</td><td>39646.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.04</td><td>0</td><td></td></tr> 
+<tr><td> 100342 </td><td>Tritium</td><td>20.98</td><td>20.80</td><td>39477.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.63</td><td>0</td><td></td></tr> 
+<tr><td> 100343 </td><td>Tritium</td><td>20.64</td><td>20.56</td><td>38891.89</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.52</td><td>0</td><td></td></tr> 
+<tr><td> 100344 </td><td>Tritium</td><td>20.79</td><td>20.50</td><td>39385.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.03</td><td>0</td><td></td></tr> 
+<tr><td> 100345 </td><td>Tritium</td><td>20.83</td><td>20.76</td><td>39147.21</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.43</td><td>0</td><td></td></tr> 
+<tr><td> 100346 </td><td>Tritium</td><td>19.78</td><td>17.86</td><td>38224.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.67</td><td>0</td><td></td></tr> 
+<tr><td> 100347 </td><td>Helium3</td><td>20.56</td><td>20.49</td><td>40026.96</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.55</td><td>0</td><td></td></tr> 
+<tr><td> 100348 </td><td>Helium3</td><td>19.71</td><td>15.34</td><td>39992.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.46</td><td>0</td><td></td></tr> 
+<tr><td> 100349 </td><td>Helium3</td><td>20.71</td><td>18.27</td><td>50756.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.31</td><td>0</td><td></td></tr> 
+<tr><td> 100350 </td><td>Helium3</td><td>20.74</td><td>20.57</td><td>41327.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.49</td><td>0</td><td></td></tr> 
+<tr><td> 100351 </td><td>Helium3</td><td>20.38</td><td>19.38</td><td>38415.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.04</td><td>0</td><td></td></tr> 
+<tr><td> 100352 </td><td>Helium3</td><td>20.64</td><td>20.07</td><td>34994.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>29.06</td><td>0</td><td></td></tr> 
+<tr><td> 100353 </td><td>Helium3</td><td>20.65</td><td>18.87</td><td>36664.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.39</td><td>0</td><td></td></tr> 
+<tr><td> 100354 </td><td>Helium3</td><td>20.66</td><td>18.80</td><td>37014.45</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.82</td><td>0</td><td></td></tr> 
+<tr><td> 100355 </td><td>Helium3</td><td>19.61</td><td>16.73</td><td>38570.56</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.43</td><td>0</td><td></td></tr> 
+<tr><td> 100356 </td><td>Helium3</td><td>20.51</td><td>17.43</td><td>38220.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.54</td><td>0</td><td></td></tr> 
+<tr><td> 100357 </td><td>Helium3</td><td>20.46</td><td>19.02</td><td>42615.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.35</td><td>0</td><td></td></tr> 
+<tr><td> 100358 </td><td>Helium3</td><td>21.12</td><td>21.05</td><td>39963.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.65</td><td>0</td><td></td></tr> 
+<tr><td> 100359 </td><td>Helium3</td><td>20.71</td><td>20.53</td><td>39691.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.23</td><td>0</td><td></td></tr> 
+<tr><td> 100360 </td><td>Helium3</td><td>21.04</td><td>19.31</td><td>39395.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.01</td><td>0</td><td></td></tr> 
+<tr><td> 100361 </td><td>Helium3</td><td>20.39</td><td>18.65</td><td>38763.10</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.64</td><td>0</td><td></td></tr> 
+<tr><td> 100362 </td><td>Tritium</td><td>21.24</td><td>21.27</td><td>40674.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.86</td><td>0</td><td></td></tr> 
+<tr><td> 100363 </td><td>Tritium</td><td>20.34</td><td>19.85</td><td>39393.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.07</td><td>0</td><td></td></tr> 
+<tr><td> 100268 </td><td>Tritium</td><td>18.94</td><td>16.64</td><td>41823.21</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.90</td><td>0</td><td></td></tr> 
+<tr><td> 100364 </td><td>Tritium</td><td>21.00</td><td>20.74</td><td>44570.45</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.82</td><td>0</td><td></td></tr> 
+<tr><td> 100365 </td><td>Tritium</td><td>21.19</td><td>21.27</td><td>43099.48</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.77</td><td>0</td><td></td></tr> 
+<tr><td> 100366 </td><td>Tritium</td><td>20.88</td><td>20.82</td><td>43224.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.61</td><td>0</td><td></td></tr> 
+<tr><td> 100367 </td><td>Tritium</td><td>20.33</td><td>16.91</td><td>41164.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.57</td><td>0</td><td></td></tr> 
+<tr><td> 100368 </td><td>Tritium</td><td>20.32</td><td>18.48</td><td>40268.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.32</td><td>0</td><td></td></tr> 
+<tr><td> 100369 </td><td>Tritium</td><td>20.36</td><td>18.48</td><td>39509.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.64</td><td>0</td><td></td></tr> 
+<tr><td> 100370 </td><td>Tritium</td><td>20.26</td><td>17.45</td><td>37591.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.91</td><td>0</td><td></td></tr> 
+<tr><td> 100371 </td><td>Dummy</td><td>19.44</td><td>9.10</td><td>21168.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.78</td><td>0</td><td></td></tr> 
+<tr><td> 100372 </td><td>Dummy</td><td>19.14</td><td>3.45</td><td>42847.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>207.19</td><td>0</td><td></td></tr> 
+<tr><td> 100373 </td><td>Dummy</td><td>19.40</td><td>12.76</td><td>38878.38</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>50.79</td><td>0</td><td></td></tr> 
+<tr><td> 100374 </td><td>Dummy</td><td>19.70</td><td>16.30</td><td>40533.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.45</td><td>0</td><td></td></tr> 
+<tr><td> 100375 </td><td>Dummy</td><td>20.30</td><td>18.77</td><td>53975.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>47.91</td><td>0</td><td></td></tr> 
+<tr><td> 100376 </td><td>Tritium</td><td>19.73</td><td>16.34</td><td>25066.64</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>25.57</td><td>0</td><td></td></tr> 
+<tr><td> 100377 </td><td>Tritium</td><td>20.66</td><td>20.35</td><td>48965.75</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.10</td><td>0</td><td></td></tr> 
+<tr><td> 100378 </td><td>Tritium</td><td>19.82</td><td>17.87</td><td>39375.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.73</td><td>0</td><td></td></tr> 
+<tr><td> 100379 </td><td>Tritium</td><td>20.19</td><td>14.85</td><td>21374.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>23.99</td><td>0</td><td></td></tr> 
+<tr><td> 100380 </td><td>Tritium</td><td>20.24</td><td>19.49</td><td>60160.41</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>51.45</td><td>0</td><td></td></tr> 
+<tr><td> 100381 </td><td>Tritium</td><td>20.57</td><td>17.53</td><td>38928.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.01</td><td>0</td><td></td></tr> 
+<tr><td> 100382 </td><td>Helium3</td><td>20.80</td><td>20.08</td><td>44086.08</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.60</td><td>0</td><td></td></tr> 
+<tr><td> 100383 </td><td>Helium3</td><td>20.43</td><td>19.85</td><td>39190.14</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.91</td><td>0</td><td></td></tr> 
+<tr><td> 100384 </td><td>Helium3</td><td>20.92</td><td>20.96</td><td>40030.48</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.83</td><td>0</td><td></td></tr> 
+<tr><td> 100385 </td><td>Helium3</td><td>20.77</td><td>18.28</td><td>39344.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.87</td><td>0</td><td></td></tr> 
+<tr><td> 100386 </td><td>Helium3</td><td>20.57</td><td>19.93</td><td>38776.09</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.42</td><td>0</td><td></td></tr> 
+<tr><td> 100387 </td><td>Helium3</td><td>19.16</td><td>13.72</td><td>39739.34</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>48.28</td><td>0</td><td></td></tr> 
+<tr><td> 100388 </td><td>Helium3</td><td>19.75</td><td>16.25</td><td>40067.85</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.09</td><td>0</td><td></td></tr> 
+<tr><td> 100389 </td><td>Helium3</td><td>20.70</td><td>19.13</td><td>39837.89</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.70</td><td>0</td><td></td></tr> 
+<tr><td> 100390 </td><td>Helium3</td><td>20.48</td><td>20.00</td><td>40045.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.36</td><td>0</td><td></td></tr> 
+<tr><td> 100391 </td><td>Helium3</td><td>20.86</td><td>20.42</td><td>45507.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.14</td><td>0</td><td></td></tr> 
+<tr><td> 100392 </td><td>Helium3</td><td>20.92</td><td>20.75</td><td>43088.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.61</td><td>0</td><td></td></tr> 
+<tr><td> 100393 </td><td>Helium3</td><td>19.96</td><td>15.03</td><td>39000.55</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.24</td><td>0</td><td></td></tr> 
+<tr><td> 100394 </td><td>Helium3</td><td>20.55</td><td>19.58</td><td>40147.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.18</td><td>0</td><td></td></tr> 
+<tr><td> 100395 </td><td>Helium3</td><td>20.48</td><td>15.40</td><td>38490.64</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.67</td><td>0</td><td></td></tr> 
+<tr><td> 100396 </td><td>Tritium</td><td>20.20</td><td>19.15</td><td>39309.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.22</td><td>0</td><td></td></tr> 
+<tr><td> 100397 </td><td>HOME</td><td>20.90</td><td>8.59</td><td>7378.44</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>14.32</td><td>0</td><td></td></tr> 
+<tr><td> 100398 </td><td>Carbon Hole</td><td>13.76</td><td>0.30</td><td>975.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>54.10</td><td>0</td><td></td></tr> 
+<tr><td> 100399 </td><td>Carbon Hole</td><td>21.05</td><td>21.09</td><td>3544.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.80</td><td>0</td><td></td></tr> 
+<tr><td> 100400 </td><td>Tritium</td><td>20.77</td><td>18.42</td><td>37165.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.63</td><td>0</td><td></td></tr> 
+<tr><td> 100401 </td><td>Tritium</td><td>21.47</td><td>21.51</td><td>41282.74</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.99</td><td>0</td><td></td></tr> 
+<tr><td> 100402 </td><td>Tritium</td><td>21.28</td><td>20.60</td><td>43544.08</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.22</td><td>0</td><td></td></tr> 
+<tr><td> 100403 </td><td>Tritium</td><td>20.92</td><td>19.33</td><td>40075.28</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.56</td><td>0</td><td></td></tr> 
+<tr><td> 100404 </td><td>Tritium</td><td>18.70</td><td>11.28</td><td>38881.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>57.43</td><td>0</td><td></td></tr> 
+<tr><td> 100405 </td><td>Tritium</td><td>20.38</td><td>15.11</td><td>41517.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.80</td><td>0</td><td></td></tr> 
+<tr><td> 100406 </td><td>Tritium</td><td>21.08</td><td>19.70</td><td>41425.43</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.04</td><td>0</td><td></td></tr> 
+<tr><td> 100407 </td><td>Tritium</td><td>20.57</td><td>16.74</td><td>39569.92</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.39</td><td>0</td><td></td></tr> 
+<tr><td> 100408 </td><td>Tritium</td><td>20.99</td><td>18.14</td><td>39935.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.69</td><td>0</td><td></td></tr> 
+<tr><td> 100409 </td><td>Tritium</td><td>21.23</td><td>20.94</td><td>40774.47</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.46</td><td>0</td><td></td></tr> 
+<tr><td> 100410 </td><td>Tritium</td><td>20.79</td><td>19.61</td><td>40671.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.57</td><td>0</td><td></td></tr> 
+<tr><td> 100411 </td><td>Tritium</td><td>21.37</td><td>19.63</td><td>40491.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.37</td><td>0</td><td></td></tr> 
+<tr><td> 100412 </td><td>Tritium</td><td>20.95</td><td>19.35</td><td>39939.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.41</td><td>0</td><td></td></tr> 
+<tr><td> 100413 </td><td>Helium3</td><td>21.42</td><td>21.46</td><td>40469.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.43</td><td>0</td><td></td></tr> 
+<tr><td> 100414 </td><td>Helium3</td><td>20.93</td><td>20.72</td><td>34600.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>27.83</td><td>0</td><td></td></tr> 
+<tr><td> 100415 </td><td>Helium3</td><td>20.87</td><td>19.87</td><td>40155.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.69</td><td>0</td><td></td></tr> 
+<tr><td> 100416 </td><td>Helium3</td><td>19.91</td><td>16.54</td><td>39038.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.34</td><td>0</td><td></td></tr> 
+<tr><td> 100417 </td><td>Helium3</td><td>20.89</td><td>20.49</td><td>39103.85</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.81</td><td>0</td><td></td></tr> 
+<tr><td> 100418 </td><td>Helium3</td><td>19.70</td><td>15.92</td><td>39911.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.77</td><td>0</td><td></td></tr> 
+<tr><td> 100419 </td><td>Helium3</td><td>20.43</td><td>16.85</td><td>42277.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.81</td><td>0</td><td></td></tr> 
+<tr><td> 100420 </td><td>Helium3</td><td>20.28</td><td>19.14</td><td>39652.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.54</td><td>0</td><td></td></tr> 
+<tr><td> 100421 </td><td>Helium3</td><td>20.84</td><td>19.61</td><td>39006.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.15</td><td>0</td><td></td></tr> 
+<tr><td> 100422 </td><td>Helium3</td><td>20.60</td><td>13.31</td><td>28177.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.29</td><td>0</td><td></td></tr> 
+<tr><td> 100423 </td><td>Helium3</td><td>4.45</td><td>0.19</td><td>30.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.70</td><td>0</td><td></td></tr> 
+<tr><td> 100424 </td><td>Helium3</td><td>20.90</td><td>18.94</td><td>51770.75</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.57</td><td>0</td><td></td></tr> 
+<tr><td> 100425 </td><td>Helium3</td><td>20.89</td><td>18.54</td><td>42404.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.13</td><td>0</td><td></td></tr> 
+<tr><td> 100426 </td><td>Helium3</td><td>21.26</td><td>21.19</td><td>40465.47</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.83</td><td>0</td><td></td></tr> 
+<tr><td> 100427 </td><td>Helium3</td><td>21.08</td><td>17.74</td><td>39042.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.68</td><td>0</td><td></td></tr> 
+<tr><td> 100428 </td><td>Tritium</td><td>21.27</td><td>18.96</td><td>39689.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.90</td><td>0</td><td></td></tr> 
+<tr><td> 100429 </td><td>Tritium</td><td>21.08</td><td>20.79</td><td>40610.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.55</td><td>0</td><td></td></tr> 
+<tr><td> 100430 </td><td>Tritium</td><td>20.73</td><td>15.76</td><td>41428.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.80</td><td>0</td><td></td></tr> 
+<tr><td> 100431 </td><td>Tritium</td><td>20.78</td><td>18.93</td><td>46058.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.55</td><td>0</td><td></td></tr> 
+<tr><td> 100432 </td><td>Tritium</td><td>20.52</td><td>14.02</td><td>28967.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.44</td><td>0</td><td></td></tr> 
+<tr><td> 100433 </td><td>Tritium</td><td>20.16</td><td>12.21</td><td>46580.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>63.60</td><td>0</td><td></td></tr> 
+<tr><td> 100434 </td><td>Tritium</td><td>20.94</td><td>20.56</td><td>41219.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.42</td><td>0</td><td></td></tr> 
+<tr><td> 100435 </td><td>Tritium</td><td>20.82</td><td>19.84</td><td>41256.98</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.66</td><td>0</td><td></td></tr> 
+<tr><td> 100436 </td><td>Tritium</td><td>19.94</td><td>16.03</td><td>41712.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.37</td><td>0</td><td></td></tr> 
+<tr><td> 100437 </td><td>Tritium</td><td>20.44</td><td>19.57</td><td>44779.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.13</td><td>0</td><td></td></tr> 
+<tr><td> 100438 </td><td>Tritium</td><td>20.56</td><td>16.05</td><td>43743.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.42</td><td>0</td><td></td></tr> 
+<tr><td> 100439 </td><td>Tritium</td><td>20.41</td><td>19.49</td><td>41377.60</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.39</td><td>0</td><td></td></tr> 
+<tr><td> 100440 </td><td>Tritium</td><td>19.65</td><td>15.65</td><td>32899.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.04</td><td>0</td><td></td></tr> 
+<tr><td> 100441 </td><td>Helium3</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>25.34</td><td>0</td><td></td></tr> 
+<tr><td> 100442 </td><td>Helium3</td><td>14.46</td><td>1.48</td><td>3612.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.81</td><td>0</td><td></td></tr> 
+<tr><td> 100443 </td><td>Helium3</td><td>20.70</td><td>20.46</td><td>44342.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.13</td><td>0</td><td></td></tr> 
+<tr><td> 100444 </td><td>Helium3</td><td>19.96</td><td>14.86</td><td>44211.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>49.59</td><td>0</td><td></td></tr> 
+<tr><td> 100445 </td><td>Helium3</td><td>20.53</td><td>19.67</td><td>40690.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.48</td><td>0</td><td></td></tr> 
+<tr><td> 100446 </td><td>Helium3</td><td>20.23</td><td>16.89</td><td>36801.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.31</td><td>0</td><td></td></tr> 
+<tr><td> 100447 </td><td>Helium3</td><td>21.16</td><td>20.43</td><td>39164.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.96</td><td>0</td><td></td></tr> 
+<tr><td> 100448 </td><td>Helium3</td><td>21.01</td><td>20.72</td><td>39927.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.12</td><td>0</td><td></td></tr> 
+<tr><td> 100449 </td><td>Helium3</td><td>21.07</td><td>19.58</td><td>40915.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.83</td><td>0</td><td></td></tr> 
+<tr><td> 100450 </td><td>Helium3</td><td>20.59</td><td>15.54</td><td>9748.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>10.46</td><td>0</td><td></td></tr> 
+<tr><td> 100451 </td><td>Dummy</td><td>13.54</td><td>0.20</td><td>546.65</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>44.47</td><td>0</td><td></td></tr> 
+<tr><td> 100452 </td><td>Helium3</td><td>20.83</td><td>17.99</td><td>45920.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>42.55</td><td>0</td><td></td></tr> 
+<tr><td> 100453 </td><td>Helium3</td><td>21.20</td><td>21.04</td><td>67676.34</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>53.60</td><td>0</td><td></td></tr> 
+<tr><td> 100454 </td><td>Helium3</td><td>20.79</td><td>15.64</td><td>41874.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>44.61</td><td>0</td><td></td></tr> 
+<tr><td> 100455 </td><td>Helium3</td><td>21.25</td><td>21.17</td><td>39544.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.13</td><td>0</td><td></td></tr> 
+<tr><td> 100456 </td><td>Helium3</td><td>20.91</td><td>17.83</td><td>41001.21</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.33</td><td>0</td><td></td></tr> 
+<tr><td> 100457 </td><td>Helium3</td><td>21.49</td><td>21.53</td><td>41768.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.33</td><td>0</td><td></td></tr> 
+<tr><td> 100458 </td><td>Helium3</td><td>20.93</td><td>18.67</td><td>39486.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.24</td><td>0</td><td></td></tr> 
+<tr><td> 100459 </td><td>Helium3</td><td>20.79</td><td>18.35</td><td>47343.86</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.00</td><td>0</td><td></td></tr> 
+<tr><td> 100460 </td><td>Helium3</td><td>21.05</td><td>17.21</td><td>32033.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.02</td><td>0</td><td></td></tr> 
+<tr><td> 100461 </td><td>Tritium</td><td>21.05</td><td>20.87</td><td>40736.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.53</td><td>0</td><td></td></tr> 
+<tr><td> 100462 </td><td>Tritium</td><td>21.45</td><td>21.49</td><td>41017.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.81</td><td>0</td><td></td></tr> 
+<tr><td> 100463 </td><td>Tritium</td><td>20.70</td><td>15.52</td><td>39726.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>42.65</td><td>0</td><td></td></tr> 
+<tr><td> 100464 </td><td>Tritium</td><td>20.74</td><td>18.83</td><td>40387.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.75</td><td>0</td><td></td></tr> 
+<tr><td> 100465 </td><td>Tritium</td><td>21.05</td><td>20.88</td><td>42091.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.60</td><td>0</td><td></td></tr> 
+<tr><td> 100466 </td><td>Tritium</td><td>21.48</td><td>21.52</td><td>39631.66</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.69</td><td>0</td><td></td></tr> 
+<tr><td> 100467 </td><td>Tritium</td><td>20.80</td><td>19.79</td><td>52031.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.83</td><td>0</td><td></td></tr> 
+<tr><td> 100468 </td><td>Tritium</td><td>20.83</td><td>18.15</td><td>39048.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.86</td><td>0</td><td></td></tr> 
+<tr><td> 100469 </td><td>Tritium</td><td>20.46</td><td>16.16</td><td>53050.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>54.72</td><td>0</td><td></td></tr> 
+<tr><td> 100470 </td><td>Tritium</td><td>20.70</td><td>16.89</td><td>39386.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.87</td><td>0</td><td></td></tr> 
+<tr><td> 100471 </td><td>Tritium</td><td>20.81</td><td>16.24</td><td>37722.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.71</td><td>0</td><td></td></tr> 
+<tr><td> 100472 </td><td>Tritium</td><td>20.87</td><td>19.31</td><td>40623.31</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.06</td><td>0</td><td></td></tr> 
+<tr><td> 100473 </td><td>Tritium</td><td>20.01</td><td>10.53</td><td>37764.65</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>59.76</td><td>0</td><td></td></tr> 
+<tr><td> 100474 </td><td>Tritium</td><td>20.28</td><td>13.61</td><td>37818.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.31</td><td>0</td><td></td></tr> 
+<tr><td> 100475 </td><td>Helium3</td><td>20.39</td><td>20.01</td><td>49265.96</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.04</td><td>0</td><td></td></tr> 
+<tr><td> 100477 </td><td>Helium3</td><td>20.04</td><td>7.60</td><td>12330.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>27.06</td><td>0</td><td></td></tr> 
+<tr><td> 100478 </td><td>Helium3</td><td>19.34</td><td>2.58</td><td>1161.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>7.50</td><td>0</td><td></td></tr> 
+<tr><td> 100479 </td><td>Helium3</td><td>16.38</td><td>8.55</td><td>384.75</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.75</td><td>0</td><td></td></tr> 
+<tr><td> 100480 </td><td>Helium3</td><td>20.60</td><td>20.06</td><td>29115.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>24.19</td><td>0</td><td></td></tr> 
+<tr><td> 100481 </td><td>Helium3</td><td>20.77</td><td>14.71</td><td>39897.05</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.21</td><td>0</td><td></td></tr> 
+<tr><td> 100482 </td><td>Helium3</td><td>21.16</td><td>21.03</td><td>38998.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.91</td><td>0</td><td></td></tr> 
+<tr><td> 100483 </td><td>Helium3</td><td>20.58</td><td>16.24</td><td>40021.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.07</td><td>0</td><td></td></tr> 
+<tr><td> 100484 </td><td>Helium3</td><td>20.63</td><td>16.02</td><td>39595.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.19</td><td>0</td><td></td></tr> 
+<tr><td> 100485 </td><td>Helium3</td><td>21.18</td><td>21.11</td><td>40816.42</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.22</td><td>0</td><td></td></tr> 
+<tr><td> 100492 </td><td>Single Carbon Foil</td><td>20.86</td><td>18.79</td><td>18769.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>16.65</td><td>0</td><td></td></tr> 
+<tr><td> 100486 </td><td>Helium3</td><td>19.04</td><td>10.79</td><td>41109.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>63.49</td><td>0</td><td></td></tr> 
+<tr><td> 100487 </td><td>Helium3</td><td>20.85</td><td>18.21</td><td>39898.63</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.52</td><td>0</td><td></td></tr> 
+<tr><td> 100488 </td><td>Helium3</td><td>21.25</td><td>21.30</td><td>39818.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.16</td><td>0</td><td></td></tr> 
+<tr><td> 100489 </td><td>Helium3</td><td>20.44</td><td>18.84</td><td>40376.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.71</td><td>0</td><td></td></tr> 
+<tr><td> 100490 </td><td>Helium3</td><td>20.82</td><td>19.97</td><td>42306.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.31</td><td>0</td><td></td></tr> 
+<tr><td> 100491 </td><td>Helium3</td><td>20.98</td><td>20.80</td><td>40112.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.14</td><td>0</td><td></td></tr> 
+<tr><td> 100493 </td><td>Tritium</td><td>20.58</td><td>19.22</td><td>40013.88</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.70</td><td>0</td><td></td></tr> 
+<tr><td> 100494 </td><td>Tritium</td><td>20.29</td><td>18.71</td><td>42667.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.00</td><td>0</td><td></td></tr> 
+<tr><td> 100495 </td><td>Tritium</td><td>21.00</td><td>20.82</td><td>40939.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.77</td><td>0</td><td></td></tr> 
+<tr><td> 100496 </td><td>Tritium</td><td>19.90</td><td>18.73</td><td>40459.46</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.00</td><td>0</td><td></td></tr> 
+<tr><td> 100497 </td><td>Tritium</td><td>20.19</td><td>17.19</td><td>40263.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.04</td><td>0</td><td></td></tr> 
+<tr><td> 100498 </td><td>Tritium</td><td>21.10</td><td>20.80</td><td>39380.59</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.56</td><td>0</td><td></td></tr> 
+<tr><td> 100499 </td><td>Tritium</td><td>20.77</td><td>20.71</td><td>42687.56</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.36</td><td>0</td><td></td></tr> 
+<tr><td> 100500 </td><td>Tritium</td><td>20.50</td><td>14.68</td><td>38897.75</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>44.15</td><td>0</td><td></td></tr> 
+<tr><td> 100501 </td><td>Tritium</td><td>19.94</td><td>16.39</td><td>44073.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>44.83</td><td>0</td><td></td></tr> 
+<tr><td> 100502 </td><td>Tritium</td><td>20.99</td><td>18.57</td><td>35119.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.52</td><td>0</td><td></td></tr> 
+<tr><td> 100503 </td><td>Tritium</td><td>21.05</td><td>19.32</td><td>39427.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.01</td><td>0</td><td></td></tr> 
+<tr><td> 100504 </td><td>Tritium</td><td>20.74</td><td>17.63</td><td>41060.21</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.82</td><td>0</td><td></td></tr> 
+<tr><td> 100505 </td><td>Tritium</td><td>20.97</td><td>19.16</td><td>39425.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.29</td><td>0</td><td></td></tr> 
+<tr><td> 100506 </td><td>Tritium</td><td>20.30</td><td>19.92</td><td>39548.63</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.09</td><td>0</td><td></td></tr> 
+<tr><td> 100507 </td><td>Helium3</td><td>17.01</td><td>11.22</td><td>38132.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>56.63</td><td>0</td><td></td></tr> 
+<tr><td> 100508 </td><td>Helium3</td><td>20.78</td><td>18.33</td><td>38972.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.44</td><td>0</td><td></td></tr> 
+<tr><td> 100509 </td><td>Helium3</td><td>20.82</td><td>20.55</td><td>41578.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.72</td><td>0</td><td></td></tr> 
+<tr><td> 100510 </td><td>Helium3</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>2.57</td><td>0</td><td></td></tr> 
+<tr><td> 100511 </td><td>Dummy</td><td>19.68</td><td>7.67</td><td>588.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.28</td><td>0</td><td></td></tr> 
+<tr><td> 100512 </td><td>Helium3</td><td>21.04</td><td>20.85</td><td>39436.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.52</td><td>0</td><td></td></tr> 
+<tr><td> 100513 </td><td>Helium3</td><td>20.34</td><td>16.40</td><td>46449.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>47.21</td><td>0</td><td></td></tr> 
+<tr><td> 100514 </td><td>Helium3</td><td>20.56</td><td>18.89</td><td>38854.28</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.28</td><td>0</td><td></td></tr> 
+<tr><td> 100515 </td><td>Helium3</td><td>20.12</td><td>16.28</td><td>38396.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.30</td><td>0</td><td></td></tr> 
+<tr><td> 100516 </td><td>Helium3</td><td>20.17</td><td>17.85</td><td>40081.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.42</td><td>0</td><td></td></tr> 
+<tr><td> 100517 </td><td>Helium3</td><td>20.49</td><td>18.18</td><td>38313.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.13</td><td>0</td><td></td></tr> 
+<tr><td> 100518 </td><td>Helium3</td><td>21.16</td><td>21.20</td><td>38115.53</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>29.97</td><td>0</td><td></td></tr> 
+<tr><td> 100519 </td><td>Helium3</td><td>21.10</td><td>21.14</td><td>38579.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.42</td><td>0</td><td></td></tr> 
+<tr><td> 100520 </td><td>Helium3</td><td>20.75</td><td>19.92</td><td>38319.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.06</td><td>0</td><td></td></tr> 
+<tr><td> 100521 </td><td>Helium3</td><td>20.81</td><td>19.99</td><td>39079.19</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.59</td><td>0</td><td></td></tr> 
+<tr><td> 100522 </td><td>Helium3</td><td>20.60</td><td>18.68</td><td>6027.64</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>5.38</td><td>0</td><td></td></tr> 
+<tr><td> 100525 </td><td>Helium3</td><td>20.90</td><td>17.58</td><td>44112.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.82</td><td>0</td><td></td></tr> 
+<tr><td> 100526 </td><td>Helium3</td><td>20.53</td><td>18.46</td><td>39957.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.07</td><td>0</td><td></td></tr> 
+<tr><td> 100527 </td><td>Helium3</td><td>21.24</td><td>21.17</td><td>40543.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.92</td><td>0</td><td></td></tr> 
+<tr><td> 100528 </td><td>Helium3</td><td>21.12</td><td>20.48</td><td>38491.41</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.32</td><td>0</td><td></td></tr> 
+<tr><td> 100529 </td><td>Tritium</td><td>20.06</td><td>19.50</td><td>39067.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.40</td><td>0</td><td></td></tr> 
+<tr><td> 100530 </td><td>Tritium</td><td>21.11</td><td>18.28</td><td>39177.06</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.73</td><td>0</td><td></td></tr> 
+<tr><td> 100531 </td><td>Tritium</td><td>20.96</td><td>20.31</td><td>39323.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.26</td><td>0</td><td></td></tr> 
+<tr><td> 100532 </td><td>Tritium</td><td>20.20</td><td>16.99</td><td>40612.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.83</td><td>0</td><td></td></tr> 
+<tr><td> 100533 </td><td>Tritium</td><td>20.95</td><td>15.77</td><td>39569.63</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.81</td><td>0</td><td></td></tr> 
+<tr><td> 100534 </td><td>Tritium</td><td>21.17</td><td>20.98</td><td>39044.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.02</td><td>0</td><td></td></tr> 
+<tr><td> 100535 </td><td>Tritium</td><td>20.50</td><td>18.46</td><td>39903.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.03</td><td>0</td><td></td></tr> 
+<tr><td> 100536 </td><td>Tritium</td><td>20.79</td><td>12.56</td><td>43021.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>57.08</td><td>0</td><td></td></tr> 
+<tr><td> 100537 </td><td>Tritium</td><td>20.11</td><td>17.20</td><td>45028.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.63</td><td>0</td><td></td></tr> 
+<tr><td> 100538 </td><td>Tritium</td><td>20.98</td><td>19.87</td><td>43582.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.56</td><td>0</td><td></td></tr> 
+<tr><td> 100539 </td><td>Tritium</td><td>21.23</td><td>20.49</td><td>38970.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.70</td><td>0</td><td></td></tr> 
+<tr><td> 100540 </td><td>Tritium</td><td>21.05</td><td>20.65</td><td>38738.78</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.27</td><td>0</td><td></td></tr> 
+<tr><td> 100541 </td><td>Tritium</td><td>17.94</td><td>9.86</td><td>6144.58</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>10.39</td><td>0</td><td></td></tr> 
+<tr><td> 100542 </td><td>Tritium</td><td>21.33</td><td>21.38</td><td>46875.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.55</td><td>0</td><td></td></tr> 
+<tr><td> 100543 </td><td>Tritium</td><td>21.17</td><td>19.77</td><td>56799.68</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>47.88</td><td>0</td><td></td></tr> 
+<tr><td> 100544 </td><td>Helium3</td><td>21.42</td><td>21.40</td><td>67822.98</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>52.82</td><td>0</td><td></td></tr> 
+<tr><td> 100545 </td><td>Helium3</td><td>21.06</td><td>20.57</td><td>64692.62</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>52.43</td><td>0</td><td></td></tr> 
+<tr><td> 100546 </td><td>Helium3</td><td>21.17</td><td>20.99</td><td>72240.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>57.35</td><td>0</td><td></td></tr> 
+<tr><td> 100547 </td><td>Helium3</td><td>20.98</td><td>20.83</td><td>38066.69</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.45</td><td>0</td><td></td></tr> 
+<tr><td> 100548 </td><td>Helium3</td><td>21.04</td><td>18.04</td><td>42858.83</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.59</td><td>0</td><td></td></tr> 
+<tr><td> 100549 </td><td>Helium3</td><td>19.29</td><td>8.27</td><td>14383.17</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>28.98</td><td>0</td><td></td></tr> 
+<tr><td> 100550 </td><td>Helium3</td><td>20.14</td><td>13.59</td><td>21925.19</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>26.89</td><td>0</td><td></td></tr> 
+<tr><td> 100551 </td><td>Helium3</td><td>20.49</td><td>19.08</td><td>69634.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>60.82</td><td>0</td><td></td></tr> 
+<tr><td> 100552 </td><td>Helium3</td><td>20.80</td><td>20.84</td><td>40293.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.22</td><td>0</td><td></td></tr> 
+<tr><td> 100553 </td><td>Helium3</td><td>20.38</td><td>18.83</td><td>37434.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.13</td><td>0</td><td></td></tr> 
+<tr><td> 100554 </td><td>Helium3</td><td>20.42</td><td>20.24</td><td>38281.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.52</td><td>0</td><td></td></tr> 
+<tr><td> 100555 </td><td>Helium3</td><td>20.61</td><td>17.64</td><td>8929.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>8.44</td><td>0</td><td></td></tr> 
+<tr><td> 100556 </td><td>Helium3</td><td>20.65</td><td>20.59</td><td>39313.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.83</td><td>0</td><td></td></tr> 
+<tr><td> 100557 </td><td>Tritium</td><td>19.86</td><td>11.55</td><td>7482.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>10.80</td><td>0</td><td></td></tr> 
+<tr><td> 100558 </td><td>Tritium</td><td>20.24</td><td>18.78</td><td>33133.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>29.41</td><td>0</td><td></td></tr> 
+<tr><td> 100559 </td><td>Tritium</td><td>20.45</td><td>18.18</td><td>38872.40</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.64</td><td>0</td><td></td></tr> 
+<tr><td> 100560 </td><td>Tritium</td><td>20.39</td><td>19.78</td><td>37280.60</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.41</td><td>0</td><td></td></tr> 
+<tr><td> 100561 </td><td>Tritium</td><td>20.82</td><td>20.87</td><td>39713.72</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.72</td><td>0</td><td></td></tr> 
+<tr><td> 100562 </td><td>Tritium</td><td>20.73</td><td>20.65</td><td>37272.44</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.08</td><td>0</td><td></td></tr> 
+<tr><td> 100563 </td><td>Tritium</td><td>18.76</td><td>2.51</td><td>1320.45</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>8.76</td><td>0</td><td></td></tr> 
+<tr><td> 100564 </td><td>Tritium</td><td>20.34</td><td>19.84</td><td>37660.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.63</td><td>0</td><td></td></tr> 
+<tr><td> 100565 </td><td>Tritium</td><td>19.80</td><td>17.43</td><td>37607.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.96</td><td>0</td><td></td></tr> 
+<tr><td> 100566 </td><td>Tritium</td><td>20.83</td><td>20.65</td><td>38200.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.84</td><td>0</td><td></td></tr> 
+<tr><td> 100567 </td><td>Tritium</td><td>18.51</td><td>6.71</td><td>4486.32</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>11.14</td><td>0</td><td></td></tr> 
+<tr><td> 100568 </td><td>Tritium</td><td>20.26</td><td>19.17</td><td>38078.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.11</td><td>0</td><td></td></tr> 
+<tr><td> 100569 </td><td>Tritium</td><td>20.31</td><td>19.02</td><td>38113.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.40</td><td>0</td><td></td></tr> 
+<tr><td> 100570 </td><td>Tritium</td><td>19.98</td><td>19.10</td><td>37901.61</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.07</td><td>0</td><td></td></tr> 
+<tr><td> 100571 </td><td>Tritium</td><td>20.43</td><td>20.25</td><td>37941.41</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.23</td><td>0</td><td></td></tr> 
+<tr><td> 100572 </td><td>Helium3</td><td>20.79</td><td>20.83</td><td>38987.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.20</td><td>0</td><td></td></tr> 
+<tr><td> 100573 </td><td>Helium3</td><td>20.16</td><td>19.22</td><td>40124.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.79</td><td>0</td><td></td></tr> 
+<tr><td> 100574 </td><td>Helium3</td><td>20.71</td><td>20.30</td><td>38090.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.27</td><td>0</td><td></td></tr> 
+<tr><td> 100575 </td><td>Helium3</td><td>20.63</td><td>18.68</td><td>38839.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.66</td><td>0</td><td></td></tr> 
+<tr><td> 100576 </td><td>Helium3</td><td>20.23</td><td>17.67</td><td>38846.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.63</td><td>0</td><td></td></tr> 
+<tr><td> 100577 </td><td>Helium3</td><td>20.35</td><td>19.86</td><td>37907.86</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.81</td><td>0</td><td></td></tr> 
+<tr><td> 100578 </td><td>Helium3</td><td>20.51</td><td>19.91</td><td>38592.86</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.30</td><td>0</td><td></td></tr> 
+<tr><td> 100579 </td><td>Helium3</td><td>20.60</td><td>20.64</td><td>39671.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.03</td><td>0</td><td></td></tr> 
+<tr><td> 100580 </td><td>Helium3</td><td>20.19</td><td>15.10</td><td>38380.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>42.35</td><td>0</td><td></td></tr> 
+<tr><td> 100581 </td><td>Helium3</td><td>20.60</td><td>20.44</td><td>40952.21</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.40</td><td>0</td><td></td></tr> 
+<tr><td> 100582 </td><td>Helium3</td><td>20.23</td><td>18.69</td><td>38778.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.57</td><td>0</td><td></td></tr> 
+<tr><td> 100583 </td><td>Helium3</td><td>20.37</td><td>17.53</td><td>38991.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.08</td><td>0</td><td></td></tr> 
+<tr><td> 100584 </td><td>Helium3</td><td>19.81</td><td>15.03</td><td>69123.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>76.65</td><td>0</td><td></td></tr> 
+<tr><td> 100588 </td><td>Multifoils</td><td>20.38</td><td>18.63</td><td>22189.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>19.86</td><td>0</td><td></td></tr> 
+<tr><td> 100590 </td><td>Single Carbon Foil</td><td>19.96</td><td>16.17</td><td>19911.58</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>20.53</td><td>0</td><td></td></tr> 
+<tr><td> 100591 </td><td>Tritium</td><td>20.10</td><td>17.16</td><td>44402.39</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.13</td><td>0</td><td></td></tr> 
+<tr><td> 100592 </td><td>Tritium</td><td>20.39</td><td>15.97</td><td>10329.04</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>10.78</td><td>0</td><td></td></tr> 
+<tr><td> 100593 </td><td>Tritium</td><td>20.69</td><td>17.58</td><td>41768.89</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.61</td><td>0</td><td></td></tr> 
+<tr><td> 100594 </td><td>Tritium</td><td>20.40</td><td>20.16</td><td>43561.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.02</td><td>0</td><td></td></tr> 
+<tr><td> 100595 </td><td>Tritium</td><td>20.52</td><td>20.04</td><td>39654.79</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.98</td><td>0</td><td></td></tr> 
+<tr><td> 100596 </td><td>Tritium</td><td>20.58</td><td>20.51</td><td>39206.22</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.86</td><td>0</td><td></td></tr> 
+<tr><td> 100597 </td><td>Tritium</td><td>20.67</td><td>18.06</td><td>36953.92</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.10</td><td>0</td><td></td></tr> 
+<tr><td> 100598 </td><td>Tritium</td><td>21.47</td><td>21.50</td><td>1143.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.89</td><td>0</td><td></td></tr> 
+<tr><td> 100599 </td><td>Helium3</td><td>20.71</td><td>19.11</td><td>38938.13</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.96</td><td>0</td><td></td></tr> 
+<tr><td> 100600 </td><td>Helium3</td><td>20.87</td><td>20.67</td><td>37154.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>29.95</td><td>0</td><td></td></tr> 
+<tr><td> 100601 </td><td>Helium3</td><td>20.57</td><td>19.86</td><td>38430.01</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.25</td><td>0</td><td></td></tr> 
+<tr><td> 100602 </td><td>Helium3</td><td>20.46</td><td>13.97</td><td>38351.82</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>45.74</td><td>0</td><td></td></tr> 
+<tr><td> 100603 </td><td>Helium3</td><td>20.25</td><td>16.90</td><td>39666.16</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.12</td><td>0</td><td></td></tr> 
+<tr><td> 100604 </td><td>unknown</td><td>20.90</td><td>20.71</td><td>38680.71</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.13</td><td>0</td><td></td></tr> 
+<tr><td> 100605 </td><td>unknown</td><td>20.61</td><td>20.44</td><td>39790.37</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.44</td><td>0</td><td></td></tr> 
+<tr><td> 100606 </td><td>unknown</td><td>20.91</td><td>20.65</td><td>41979.25</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.89</td><td>0</td><td></td></tr> 
+<tr><td> 100607 </td><td>unknown</td><td>20.65</td><td>18.07</td><td>38790.28</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.77</td><td>0</td><td></td></tr> 
+<tr><td> 100608 </td><td>Tritium</td><td>20.45</td><td>19.77</td><td>39313.81</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.15</td><td>0</td><td></td></tr> 
+<tr><td> 100609 </td><td>Tritium</td><td>20.55</td><td>17.40</td><td>38424.76</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.81</td><td>0</td><td></td></tr> 
+<tr><td> 100610 </td><td>Tritium</td><td>20.50</td><td>18.53</td><td>39982.77</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.96</td><td>0</td><td></td></tr> 
+<tr><td> 100611 </td><td>Tritium</td><td>19.96</td><td>16.90</td><td>38438.65</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.91</td><td>0</td><td></td></tr> 
+<tr><td> 100612 </td><td>Tritium</td><td>20.29</td><td>16.99</td><td>37507.11</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.79</td><td>0</td><td></td></tr> 
+<tr><td> 100613 </td><td>Tritium</td><td>20.57</td><td>18.12</td><td>37729.27</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.69</td><td>0</td><td></td></tr> 
+<tr><td> 100614 </td><td>Helium3</td><td>20.54</td><td>19.73</td><td>38660.16</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.66</td><td>0</td><td></td></tr> 
+<tr><td> 100615 </td><td>Helium3</td><td>20.44</td><td>20.26</td><td>37959.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.23</td><td>0</td><td></td></tr> 
+<tr><td> 100616 </td><td>Helium3</td><td>20.17</td><td>16.33</td><td>38486.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.28</td><td>0</td><td></td></tr> 
+<tr><td> 100617 </td><td>Helium3</td><td>20.75</td><td>20.79</td><td>38559.94</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>30.91</td><td>0</td><td></td></tr> 
+<tr><td> 100618 </td><td>Helium3</td><td>20.11</td><td>17.11</td><td>38909.30</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.90</td><td>0</td><td></td></tr> 
+<tr><td> 100619 </td><td>unknown</td><td>20.07</td><td>19.49</td><td>38643.76</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.04</td><td>0</td><td></td></tr> 
+<tr><td> 100620 </td><td>unknown</td><td>20.57</td><td>20.39</td><td>38808.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.72</td><td>0</td><td></td></tr> 
+<tr><td> 100621 </td><td>unknown</td><td>20.72</td><td>17.57</td><td>39045.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.05</td><td>0</td><td></td></tr> 
+<tr><td> 100622 </td><td>unknown</td><td>20.79</td><td>20.49</td><td>38665.70</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.45</td><td>0</td><td></td></tr> 
+<tr><td> 100623 </td><td>Dummy</td><td>20.30</td><td>18.48</td><td>26006.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>23.46</td><td>0</td><td></td></tr> 
+<tr><td> 100624 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.87</td><td>0</td><td></td></tr> 
+<tr><td> 100625 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=500 </td><td>0.00</td><td>42.43</td><td>0</td><td></td></tr> 
+<tr><td> 100627 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>97.19</td><td>0</td><td></td></tr> 
+<tr><td> 100628 </td><td>Carbon Hole</td><td>2.06</td><td>0.10</td><td>331.97</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>54.26</td><td>0</td><td></td></tr> 
+<tr><td> 100629 </td><td>Carbon Hole</td><td>4.54</td><td>3.27</td><td>1177.50</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>6.00</td><td>0</td><td></td></tr> 
+<tr><td> 100630 </td><td>Dummy</td><td>19.29</td><td>15.46</td><td>49802.90</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>53.67</td><td>0</td><td></td></tr> 
+<tr><td> 100631 </td><td>Tritium</td><td>19.59</td><td>15.36</td><td>37740.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.94</td><td>0</td><td></td></tr> 
+<tr><td> 100632 </td><td>Tritium</td><td>19.11</td><td>11.41</td><td>18880.47</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>27.58</td><td>0</td><td></td></tr> 
+<tr><td> 100633 </td><td>Tritium</td><td>20.45</td><td>20.28</td><td>19991.07</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>16.43</td><td>0</td><td></td></tr> 
+<tr><td> 100634 </td><td>Tritium</td><td>20.48</td><td>19.87</td><td>37969.19</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.85</td><td>0</td><td></td></tr> 
+<tr><td> 100635 </td><td>Tritium</td><td>19.54</td><td>7.43</td><td>5703.06</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>12.79</td><td>0</td><td></td></tr> 
+<tr><td> 100637 </td><td>Tritium</td><td>20.97</td><td>21.01</td><td>32200.80</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>25.55</td><td>0</td><td></td></tr> 
+<tr><td> 100638 </td><td>Tritium</td><td>20.74</td><td>20.44</td><td>38265.98</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>31.20</td><td>0</td><td></td></tr> 
+<tr><td> 100639 </td><td>Helium3</td><td>20.67</td><td>19.89</td><td>13960.96</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>11.70</td><td>0</td><td></td></tr> 
+<tr><td> 100640 </td><td>Helium3</td><td>20.40</td><td>20.10</td><td>23950.91</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>19.86</td><td>0</td><td></td></tr> 
+<tr><td> 100641 </td><td>Helium3</td><td>19.97</td><td>17.30</td><td>38720.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.30</td><td>0</td><td></td></tr> 
+<tr><td> 100642 </td><td>Helium3</td><td>20.22</td><td>19.96</td><td>13618.54</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>11.37</td><td>0</td><td></td></tr> 
+<tr><td> 100644 </td><td>unknown</td><td>20.70</td><td>20.75</td><td>249.52</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>0.20</td><td>0</td><td></td></tr> 
+<tr><td> 100645 </td><td>Helium3</td><td>20.31</td><td>19.49</td><td>42082.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.98</td><td>0</td><td></td></tr> 
+<tr><td> 100646 </td><td>Helium3</td><td>20.59</td><td>20.11</td><td>40325.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.42</td><td>0</td><td></td></tr> 
+<tr><td> 100647 </td><td>unknown</td><td>20.16</td><td>17.33</td><td>39438.18</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.92</td><td>0</td><td></td></tr> 
+<tr><td> 100648 </td><td>unknown</td><td>20.66</td><td>20.38</td><td>39950.26</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.68</td><td>0</td><td></td></tr> 
+<tr><td> 100649 </td><td>unknown</td><td>20.13</td><td>16.00</td><td>39805.16</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>41.45</td><td>0</td><td></td></tr> 
+<tr><td> 100650 </td><td>unknown</td><td>20.70</td><td>18.80</td><td>40530.20</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.93</td><td>0</td><td></td></tr> 
+<tr><td> 100651 </td><td>Tritium</td><td>20.63</td><td>19.87</td><td>40664.02</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.10</td><td>0</td><td></td></tr> 
+<tr><td> 100652 </td><td>Tritium</td><td>20.39</td><td>20.02</td><td>39689.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.04</td><td>0</td><td></td></tr> 
+<tr><td> 100653 </td><td>Tritium</td><td>20.74</td><td>19.56</td><td>40325.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.36</td><td>0</td><td></td></tr> 
+<tr><td> 100654 </td><td>Tritium</td><td>21.06</td><td>21.10</td><td>41031.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.41</td><td>0</td><td></td></tr> 
+<tr><td> 100655 </td><td>Tritium</td><td>19.97</td><td>17.18</td><td>39148.57</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.99</td><td>0</td><td></td></tr> 
+<tr><td> 100656 </td><td>Helium3</td><td>20.78</td><td>20.61</td><td>40670.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.89</td><td>0</td><td></td></tr> 
+<tr><td> 100657 </td><td>Helium3</td><td>20.83</td><td>18.63</td><td>39653.12</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>35.48</td><td>0</td><td></td></tr> 
+<tr><td> 100658 </td><td>Helium3</td><td>20.62</td><td>18.04</td><td>42907.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>39.65</td><td>0</td><td></td></tr> 
+<tr><td> 100659 </td><td>Helium3</td><td>20.32</td><td>18.70</td><td>39221.15</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.95</td><td>0</td><td></td></tr> 
+<tr><td> 100660 </td><td>Helium3</td><td>20.83</td><td>18.64</td><td>41553.86</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>37.16</td><td>0</td><td></td></tr> 
+<tr><td> 100661 </td><td>unknown</td><td>20.58</td><td>18.07</td><td>39709.43</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>36.63</td><td>0</td><td></td></tr> 
+<tr><td> 100662 </td><td>unknown</td><td>19.66</td><td>13.55</td><td>27741.93</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.13</td><td>0</td><td></td></tr> 
+<tr><td> 100663 </td><td>unknown</td><td>19.35</td><td>17.85</td><td>36317.88</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>33.92</td><td>0</td><td></td></tr> 
+<tr><td> 100664 </td><td>unknown</td><td>20.33</td><td>20.15</td><td>39493.29</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>32.66</td><td>0</td><td></td></tr> 
+<tr><td> 100665 </td><td>unknown</td><td>20.01</td><td>19.96</td><td>24572.95</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>20.52</td><td>0</td><td></td></tr> 
+<tr><td> 100666 </td><td>Tritium</td><td>19.96</td><td>17.19</td><td>40153.35</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.92</td><td>0</td><td></td></tr> 
+<tr><td> 100667 </td><td>Tritium</td><td>18.06</td><td>10.59</td><td>37501.73</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>59.00</td><td>0</td><td></td></tr> 
+<tr><td> 100668 </td><td>Tritium</td><td>2.63</td><td>0.07</td><td>71.87</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>17.92</td><td>0</td><td></td></tr> 
+<tr><td> 100669 </td><td>Tritium</td><td>19.29</td><td>16.64</td><td>38687.58</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>38.74</td><td>0</td><td></td></tr> 
+<tr><td> 100670 </td><td>Tritium</td><td>18.06</td><td>11.37</td><td>36034.16</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>52.84</td><td>0</td><td></td></tr> 
+<tr><td> 100671 </td><td>Helium3</td><td>19.71</td><td>17.87</td><td>25238.11</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>23.54</td><td>0</td><td></td></tr> 
+<tr><td> 100672 </td><td>Carbon Hole</td><td>20.63</td><td>20.67</td><td>2422.03</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>1.95</td><td>0</td><td></td></tr> 
+<tr><td> 100673 </td><td>Single Carbon Foil</td><td>20.62</td><td>20.10</td><td>22463.42</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>18.62</td><td>0</td><td></td></tr> 
+<tr><td> 100674 </td><td>Multifoils</td><td>20.62</td><td>20.22</td><td>19407.63</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>16.00</td><td>0</td><td></td></tr> 
+<tr><td> 100675 </td><td>Dummy</td><td>20.70</td><td>20.75</td><td>18522.84</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>14.88</td><td>0</td><td></td></tr> 
+<tr><td> 100676 </td><td>Hydrogen</td><td>19.10</td><td>10.08</td><td>37511.67</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>62.03</td><td>0</td><td></td></tr> 
+<tr><td> 100677 </td><td>Hydrogen</td><td>19.73</td><td>13.54</td><td>35956.00</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>44.24</td><td>0</td><td></td></tr> 
+<tr><td> 100678 </td><td>Hydrogen</td><td>19.55</td><td>14.91</td><td>36427.49</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>40.73</td><td>0</td><td></td></tr> 
+<tr><td> 100679 </td><td>Helium3</td><td>18.77</td><td>6.08</td><td>7753.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>21.27</td><td>0</td><td></td></tr> 
+<tr><td> 100680 </td><td>Helium3</td><td>19.56</td><td>12.69</td><td>35144.23</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>46.16</td><td>0</td><td></td></tr> 
+<tr><td> 100681 </td><td>Helium3</td><td>20.14</td><td>18.61</td><td>38445.51</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>34.43</td><td>0</td><td></td></tr> 
+<tr><td> 100682 </td><td>unknown</td><td>20.39</td><td>13.72</td><td>35787.24</td><td>PS4=0 PS5=0 PS6=0 PS8=0 </td><td>0.00</td><td>43.48</td><td>0</td><td></td></tr> 
+<tr><td> 93006 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.17</td><td>105.39</td><td>2422</td><td></td></tr> 
+<tr><td> 93011 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.23</td><td>61.22</td><td>1323</td><td></td></tr> 
+<tr><td> 93012 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.07</td><td>61.12</td><td>1348</td><td></td></tr> 
+<tr><td> 93013 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.64</td><td>20.22</td><td>474</td><td></td></tr> 
+<tr><td> 93014 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>107.15</td><td>2402</td><td></td></tr> 
+<tr><td> 93016 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-2.12</td><td>12.15</td><td>241</td><td></td></tr> 
+<tr><td> 93019 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>57.10</td><td>1296</td><td></td></tr> 
+<tr><td> 93020 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.03</td><td>427.31</td><td>9721</td><td></td></tr> 
+<tr><td> 93021 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>270.24</td><td>6054</td><td></td></tr> 
+<tr><td> 93022 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>422.55</td><td>9572</td><td></td></tr> 
+<tr><td> 93023 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.60</td><td>79.33</td><td>1816</td><td></td></tr> 
+<tr><td> 93024 </td><td>HOME</td><td>3.84</td><td>3.32</td><td>464.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>2.33</td><td>56</td><td></td></tr> 
+<tr><td> 93025 </td><td>Thick Aluminum</td><td>4.77</td><td>4.32</td><td>809.09</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.14</td><td>3.12</td><td>8362</td><td></td></tr> 
+<tr><td> 93026 </td><td>Thick Aluminum</td><td>5.38</td><td>5.39</td><td>479.15</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.71</td><td>1.48</td><td>5014</td><td></td></tr> 
+<tr><td> 93027 </td><td>Thick Aluminum</td><td>6.04</td><td>0.51</td><td>489.10</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>1.43</td><td>15.94</td><td>5658</td><td></td></tr> 
+<tr><td> 93028 </td><td>Carbon Hole</td><td>9.22</td><td>9.23</td><td>2410.65</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.12</td><td>4.35</td><td>1718</td><td></td></tr> 
+<tr><td> 93029 </td><td>Carbon Hole</td><td>8.84</td><td>6.47</td><td>8701.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>22.41</td><td>5211</td><td></td></tr> 
+<tr><td> 93030 </td><td>Single Carbon Foil</td><td>8.38</td><td>6.68</td><td>928.86</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>2.32</td><td>0</td><td></td></tr> 
+<tr><td> 93031 </td><td>Single Carbon Foil</td><td>8.33</td><td>5.33</td><td>1636.64</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.21</td><td>5.12</td><td>1442</td><td></td></tr> 
+<tr><td> 93032 </td><td>Single Carbon Foil</td><td>8.13</td><td>6.76</td><td>12372.40</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>30.52</td><td>11036</td><td></td></tr> 
+<tr><td> 93033 </td><td>Single Carbon Foil</td><td>3.43</td><td>2.76</td><td>573.93</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>3.47</td><td>0</td><td></td></tr> 
+<tr><td> 93034 </td><td>Single Carbon Foil</td><td>6.47</td><td>6.48</td><td>3105.00</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>7.98</td><td>0</td><td></td></tr> 
+<tr><td> 93035 </td><td>Single Carbon Foil</td><td>6.43</td><td>6.44</td><td>510.56</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>1.32</td><td>0</td><td></td></tr> 
+<tr><td> 93036 </td><td>Single Carbon Foil</td><td>6.36</td><td>4.55</td><td>894.55</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>3.28</td><td>0</td><td></td></tr> 
+<tr><td> 93037 </td><td>Single Carbon Foil</td><td>3.55</td><td>0.65</td><td>175.77</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>4.52</td><td>0</td><td></td></tr> 
+<tr><td> 93038 </td><td>Single Carbon Foil</td><td>4.60</td><td>4.61</td><td>1025.89</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>3.71</td><td>0</td><td></td></tr> 
+<tr><td> 93039 </td><td>Single Carbon Foil</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=0 PS5=0 PS6=0 PS8=100 </td><td>0.00</td><td>2.19</td><td>0</td><td></td></tr> 
+<tr><td> 93040 </td><td>Tritium</td><td>1.56</td><td>0.99</td><td>551.29</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>92.81</td><td>9.32</td><td>2840</td><td></td></tr> 
+<tr><td> 93041 </td><td>Tritium</td><td>2.03</td><td>0.73</td><td>1718.31</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.05</td><td>39.07</td><td>2176</td><td></td></tr> 
+<tr><td> 93042 </td><td>Tritium</td><td>20.53</td><td>19.28</td><td>70865.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>61.27</td><td>50282</td><td></td></tr> 
+<tr><td> 93043 </td><td>Helium3</td><td>18.81</td><td>15.08</td><td>53338.56</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>58.93</td><td>30080</td><td></td></tr> 
+<tr><td> 93044 </td><td>Helium3</td><td>20.19</td><td>16.39</td><td>84361.97</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.13</td><td>85.77</td><td>47803</td><td></td></tr> 
+<tr><td> 93045 </td><td>Tritium</td><td>19.38</td><td>11.30</td><td>62554.59</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>92.27</td><td>45468</td><td></td></tr> 
+<tr><td> 93046 </td><td>Empty Cell</td><td>20.54</td><td>17.30</td><td>34379.08</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>33.13</td><td>5782</td><td></td></tr> 
+<tr><td> 93047 </td><td>Hydrogen</td><td>19.02</td><td>13.36</td><td>23011.76</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.18</td><td>28.70</td><td>29241</td><td></td></tr> 
+<tr><td> 93048 </td><td>Single Carbon Foil</td><td>20.34</td><td>6.92</td><td>4855.39</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>-0.02</td><td>11.70</td><td>4312</td><td></td></tr> 
+<tr><td> 93049 </td><td>Carbon Hole</td><td>20.30</td><td>9.73</td><td>8820.05</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>15.11</td><td>3691</td><td></td></tr> 
+<tr><td> 93050 </td><td>Multifoils</td><td>17.65</td><td>13.45</td><td>5666.82</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>7.02</td><td>14467</td><td></td></tr> 
+<tr><td> 93051 </td><td>Tritium</td><td>20.02</td><td>14.77</td><td>52436.74</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>59.18</td><td>38016</td><td></td></tr> 
+<tr><td> 93052 </td><td>Helium3</td><td>21.02</td><td>21.06</td><td>57223.28</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>45.28</td><td>32147</td><td></td></tr> 
+<tr><td> 93053 </td><td>Empty Cell</td><td>20.41</td><td>17.25</td><td>15554.03</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.04</td><td>15.03</td><td>2779</td><td></td></tr> 
+<tr><td> 93054 </td><td>unknown</td><td>18.87</td><td>12.90</td><td>51034.14</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.19</td><td>65.95</td><td>67342</td><td></td></tr> 
+<tr><td> 93055 </td><td>unknown</td><td>20.79</td><td>20.83</td><td>18566.75</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>14.86</td><td>24134</td><td></td></tr> 
+<tr><td> 93056 </td><td>Empty Cell</td><td>19.42</td><td>19.27</td><td>20405.02</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.06</td><td>17.65</td><td>3412</td><td></td></tr> 
+<tr><td> 93057 </td><td>Helium3</td><td>19.39</td><td>17.57</td><td>24100.43</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.15</td><td>22.86</td><td>13604</td><td></td></tr> 
+<tr><td> 93058 </td><td>Tritium</td><td>20.17</td><td>17.29</td><td>16931.95</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.21</td><td>16.32</td><td>12221</td><td></td></tr> 
+<tr><td> 93059 </td><td>Tritium</td><td>19.13</td><td>17.51</td><td>45146.41</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.16</td><td>42.97</td><td>32559</td><td></td></tr> 
+<tr><td> 93060 </td><td>Helium3</td><td>19.94</td><td>19.48</td><td>24313.15</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>20.80</td><td>13716</td><td></td></tr> 
+<tr><td> 93061 </td><td>Empty Cell</td><td>20.28</td><td>20.11</td><td>19116.22</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>15.85</td><td>3393</td><td></td></tr> 
+<tr><td> 93062 </td><td>unknown</td><td>19.95</td><td>19.75</td><td>17761.57</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>14.99</td><td>23113</td><td></td></tr> 
+<tr><td> 93063 </td><td>unknown</td><td>20.57</td><td>20.61</td><td>18382.90</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.21</td><td>14.86</td><td>23417</td><td></td></tr> 
+<tr><td> 93064 </td><td>Helium3</td><td>20.66</td><td>20.70</td><td>12646.45</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.01</td><td>10.18</td><td>6970</td><td></td></tr> 
+<tr><td> 93065 </td><td>Tritium</td><td>17.90</td><td>17.92</td><td>12746.17</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>11.85</td><td>9118</td><td></td></tr> 
+<tr><td> 93067 </td><td>Tritium</td><td>10.89</td><td>6.26</td><td>12080.67</td><td>PS4=1 PS5=1 PS6=1 PS8=2000 </td><td>0.35</td><td>32.15</td><td>9291</td><td></td></tr> 
+<tr><td> 93068 </td><td>Helium3</td><td>11.33</td><td>6.11</td><td>9142.01</td><td>PS4=1 PS5=1 PS6=1 PS8=2000 </td><td>0.33</td><td>24.95</td><td>5694</td><td></td></tr> 
+<tr><td> 93069 </td><td>Multifoils</td><td>12.00</td><td>11.45</td><td>8001.07</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.29</td><td>11.65</td><td>20501</td><td></td></tr> 
+<tr><td> 93070 </td><td>Empty Cell</td><td>11.92</td><td>10.47</td><td>7937.10</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.26</td><td>12.64</td><td>1535</td><td></td></tr> 
+<tr><td> 93071 </td><td>Tritium</td><td>19.73</td><td>17.16</td><td>23542.75</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.08</td><td>22.87</td><td>17149</td><td></td></tr> 
+<tr><td> 93072 </td><td>Helium3</td><td>20.34</td><td>20.21</td><td>24848.63</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.09</td><td>20.49</td><td>14047</td><td></td></tr> 
+<tr><td> 93073 </td><td>Empty Cell</td><td>20.28</td><td>20.33</td><td>20841.21</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.03</td><td>17.08</td><td>3656</td><td></td></tr> 
+<tr><td> 93074 </td><td>Deuterium</td><td>19.61</td><td>19.21</td><td>17524.32</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.12</td><td>15.20</td><td>23211</td><td></td></tr> 
+<tr><td> 93075 </td><td>Empty Cell</td><td>20.64</td><td>20.68</td><td>18164.66</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>14.64</td><td>3221</td><td></td></tr> 
+<tr><td> 93076 </td><td>Helium3</td><td>20.57</td><td>20.62</td><td>24548.35</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>19.84</td><td>13892</td><td></td></tr> 
+<tr><td> 93077 </td><td>unknown</td><td>20.62</td><td>20.67</td><td>18315.74</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.17</td><td>14.77</td><td>24041</td><td></td></tr> 
+<tr><td> 93078 </td><td>Tritium</td><td>20.62</td><td>20.67</td><td>24807.80</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>20.00</td><td>17994</td><td></td></tr> 
+<tr><td> 93079 </td><td>Tritium</td><td>19.91</td><td>19.45</td><td>23642.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>20.25</td><td>17078</td><td></td></tr> 
+<tr><td> 93080 </td><td>Deuterium</td><td>19.39</td><td>18.16</td><td>10366.42</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.27</td><td>9.51</td><td>13708</td><td></td></tr> 
+<tr><td> 93081 </td><td>Deuterium</td><td>18.82</td><td>16.17</td><td>4646.48</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.10</td><td>4.79</td><td>6064</td><td></td></tr> 
+<tr><td> 93082 </td><td>unknown</td><td>15.43</td><td>12.91</td><td>19310.49</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.14</td><td>24.92</td><td>25074</td><td></td></tr> 
+<tr><td> 93083 </td><td>Helium3</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.00</td><td>7.05</td><td>154</td><td></td></tr> 
+<tr><td> 93084 </td><td>Helium3</td><td>17.28</td><td>15.54</td><td>21538.62</td><td>PS4=1 PS5=1 PS6=1 PS8=0 </td><td>0.07</td><td>23.09</td><td>12305</td><td></td></tr> 

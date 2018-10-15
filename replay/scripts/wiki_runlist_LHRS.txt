@@ -1,0 +1,552 @@
+<tr><td> 2302 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=1 PS3=0 PS8=0 </td><td>-0.03</td><td>443.03</td><td>35033</td><td></td></tr> 
+<tr><td> 2303 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>0.29</td><td>0</td><td></td></tr> 
+<tr><td> 2304 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>0.34</td><td>0</td><td></td></tr> 
+<tr><td> 2305 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>0.26</td><td>0</td><td></td></tr> 
+<tr><td> 2306 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>0.23</td><td>0</td><td></td></tr> 
+<tr><td> 2307 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>0.36</td><td>0</td><td></td></tr> 
+<tr><td> 2309 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=1 PS3=0 PS8=0 </td><td>-0.04</td><td>657.02</td><td>42917</td><td></td></tr> 
+<tr><td> 2310 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=1 PS3=0 PS8=0 </td><td>-0.01</td><td>486.56</td><td>15604</td><td></td></tr> 
+<tr><td> 2311 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>0.87</td><td>0</td><td></td></tr> 
+<tr><td> 2312 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>0.06</td><td>0</td><td></td></tr> 
+<tr><td> 2313 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>0.15</td><td>0</td><td></td></tr> 
+<tr><td> 2316 </td><td>Carbon Hole</td><td>5.11</td><td>3.04</td><td>3192.94</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.09</td><td>17.49</td><td>1077</td><td></td></tr> 
+<tr><td> 2317 </td><td>Carbon Hole</td><td>8.98</td><td>6.73</td><td>3581.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.24</td><td>8.86</td><td>1236</td><td></td></tr> 
+<tr><td> 2318 </td><td>Carbon Hole</td><td>9.32</td><td>6.24</td><td>3336.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>8.92</td><td>756</td><td></td></tr> 
+<tr><td> 2319 </td><td>Single Carbon Foil</td><td>8.48</td><td>4.10</td><td>1143.06</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>4.65</td><td>0</td><td></td></tr> 
+<tr><td> 2320 </td><td>Single Carbon Foil</td><td>6.65</td><td>0.63</td><td>80.75</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>2.13</td><td>0</td><td></td></tr> 
+<tr><td> 2321 </td><td>Single Carbon Foil</td><td>9.26</td><td>7.71</td><td>4157.21</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>8.99</td><td>0</td><td></td></tr> 
+<tr><td> 2322 </td><td>Carbon Hole</td><td>9.99</td><td>9.98</td><td>1665.36</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>2.78</td><td>0</td><td></td></tr> 
+<tr><td> 2323 </td><td>Carbon Hole</td><td>10.10</td><td>10.14</td><td>3624.02</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>5.95</td><td>566</td><td></td></tr> 
+<tr><td> 2324 </td><td>Multifoils</td><td>7.77</td><td>2.71</td><td>5383.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.90</td><td>33.08</td><td>15171</td><td></td></tr> 
+<tr><td> 2325 </td><td>Multifoils</td><td>9.03</td><td>5.58</td><td>13417.27</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.12</td><td>40.10</td><td>36387</td><td></td></tr> 
+<tr><td> 2326 </td><td>Multifoils</td><td>9.00</td><td>7.94</td><td>12490.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.07</td><td>26.21</td><td>33207</td><td></td></tr> 
+<tr><td> 2327 </td><td>Multifoils</td><td>8.91</td><td>5.16</td><td>13654.04</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.19</td><td>44.07</td><td>36774</td><td></td></tr> 
+<tr><td> 2328 </td><td>Multifoils</td><td>9.53</td><td>9.21</td><td>14034.11</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.03</td><td>25.40</td><td>37540</td><td></td></tr> 
+<tr><td> 2329 </td><td>Multifoils</td><td>9.63</td><td>7.78</td><td>13970.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.03</td><td>29.92</td><td>36680</td><td></td></tr> 
+<tr><td> 2330 </td><td>Multifoils</td><td>9.43</td><td>6.96</td><td>19028.15</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.17</td><td>45.57</td><td>50770</td><td></td></tr> 
+<tr><td> 2331 </td><td>Multifoils</td><td>8.71</td><td>4.81</td><td>8864.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.14</td><td>30.73</td><td>23933</td><td></td></tr> 
+<tr><td> 2332 </td><td>Multifoils</td><td>9.38</td><td>7.84</td><td>13954.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.16</td><td>29.67</td><td>37582</td><td></td></tr> 
+<tr><td> 2333 </td><td>Multifoils</td><td>8.80</td><td>7.61</td><td>17206.77</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>37.70</td><td>45584</td><td></td></tr> 
+<tr><td> 2334 </td><td>Multifoils</td><td>9.15</td><td>8.86</td><td>17750.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.03</td><td>33.40</td><td>47028</td><td></td></tr> 
+<tr><td> 2335 </td><td>Multifoils</td><td>9.32</td><td>8.88</td><td>11541.99</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.78</td><td>21.66</td><td>32642</td><td></td></tr> 
+<tr><td> 2336 </td><td>Multifoils</td><td>8.41</td><td>6.38</td><td>11966.44</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.56</td><td>31.28</td><td>33796</td><td></td></tr> 
+<tr><td> 2337 </td><td>Multifoils</td><td>8.50</td><td>6.88</td><td>12126.21</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.82</td><td>29.39</td><td>34411</td><td></td></tr> 
+<tr><td> 2338 </td><td>Multifoils</td><td>8.82</td><td>6.50</td><td>10552.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.61</td><td>27.05</td><td>30047</td><td></td></tr> 
+<tr><td> 2339 </td><td>Multifoils</td><td>8.92</td><td>8.12</td><td>10919.18</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.68</td><td>22.41</td><td>30691</td><td></td></tr> 
+<tr><td> 2340 </td><td>Multifoils</td><td>9.20</td><td>7.59</td><td>10320.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.74</td><td>22.66</td><td>29182</td><td></td></tr> 
+<tr><td> 2341 </td><td>Multifoils</td><td>9.51</td><td>9.79</td><td>3274.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.57</td><td>5.57</td><td>12304</td><td></td></tr> 
+<tr><td> 2342 </td><td>Multifoils</td><td>9.08</td><td>2.73</td><td>1466.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.51</td><td>8.94</td><td>5658</td><td></td></tr> 
+<tr><td> 2343 </td><td>Multifoils</td><td>8.29</td><td>4.96</td><td>3537.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.62</td><td>11.90</td><td>13464</td><td></td></tr> 
+<tr><td> 2344 </td><td>Multifoils</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>49.48</td><td>1563</td><td></td></tr> 
+<tr><td> 2345 </td><td>Multifoils</td><td>8.18</td><td>7.47</td><td>6170.29</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.22</td><td>13.77</td><td>23276</td><td></td></tr> 
+<tr><td> 2346 </td><td>Multifoils</td><td>9.53</td><td>9.23</td><td>6099.26</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.47</td><td>11.01</td><td>22668</td><td></td></tr> 
+<tr><td> 2347 </td><td>Multifoils</td><td>8.52</td><td>7.86</td><td>6372.89</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.59</td><td>13.52</td><td>23867</td><td></td></tr> 
+<tr><td> 2348 </td><td>Multifoils</td><td>9.08</td><td>8.67</td><td>6311.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.74</td><td>12.14</td><td>23425</td><td></td></tr> 
+<tr><td> 2349 </td><td>Multifoils</td><td>9.35</td><td>9.41</td><td>6308.67</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.56</td><td>11.18</td><td>23507</td><td></td></tr> 
+<tr><td> 2350 </td><td>Multifoils</td><td>8.14</td><td>7.71</td><td>6784.22</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.80</td><td>14.66</td><td>25059</td><td></td></tr> 
+<tr><td> 2351 </td><td>Multifoils</td><td>7.86</td><td>6.64</td><td>6869.04</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.54</td><td>17.23</td><td>26052</td><td></td></tr> 
+<tr><td> 2352 </td><td>Multifoils</td><td>9.87</td><td>9.86</td><td>7055.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.41</td><td>11.92</td><td>26064</td><td></td></tr> 
+<tr><td> 2353 </td><td>Multifoils</td><td>7.41</td><td>0.22</td><td>101.35</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.12</td><td>7.69</td><td>601</td><td></td></tr> 
+<tr><td> 2354 </td><td>Multifoils</td><td>9.64</td><td>9.62</td><td>7109.72</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.61</td><td>12.31</td><td>26224</td><td></td></tr> 
+<tr><td> 2355 </td><td>Multifoils</td><td>9.28</td><td>5.84</td><td>6222.79</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.62</td><td>17.77</td><td>23584</td><td></td></tr> 
+<tr><td> 2356 </td><td>Single Carbon Foil</td><td>8.84</td><td>6.10</td><td>10952.64</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.06</td><td>29.94</td><td>8615</td><td></td></tr> 
+<tr><td> 2359 </td><td>Multifoils</td><td>9.69</td><td>9.27</td><td>13282.38</td><td>PS1=0 PS2=1 PS3=0 PS8=0 </td><td>0.96</td><td>23.88</td><td>290660</td><td></td></tr> 
+<tr><td> 2361 </td><td>Titanium</td><td>8.78</td><td>6.02</td><td>44084.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.64</td><td>122.11</td><td>74980</td><td></td></tr> 
+<tr><td> 2362 </td><td>Titanium</td><td>9.45</td><td>8.16</td><td>44874.60</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.77</td><td>91.61</td><td>74644</td><td></td></tr> 
+<tr><td> 2363 </td><td>Titanium</td><td>9.70</td><td>8.63</td><td>45156.81</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.14</td><td>87.25</td><td>75466</td><td></td></tr> 
+<tr><td> 2367 </td><td>Multifoils</td><td>9.27</td><td>6.70</td><td>30747.55</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.21</td><td>76.49</td><td>81200</td><td></td></tr> 
+<tr><td> 2369 </td><td>Titanium</td><td>9.63</td><td>7.88</td><td>15108.22</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.07</td><td>31.98</td><td>26932</td><td></td></tr> 
+<tr><td> 2370 </td><td>Titanium</td><td>9.60</td><td>9.17</td><td>37349.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.08</td><td>67.89</td><td>66227</td><td></td></tr> 
+<tr><td> 2371 </td><td>Titanium</td><td>9.49</td><td>8.02</td><td>36062.77</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.03</td><td>74.96</td><td>64393</td><td></td></tr> 
+<tr><td> 2372 </td><td>Titanium</td><td>8.74</td><td>6.54</td><td>9385.70</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.08</td><td>23.91</td><td>16825</td><td></td></tr> 
+<tr><td> 2373 </td><td>Titanium</td><td>9.36</td><td>8.40</td><td>20110.64</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.96</td><td>39.88</td><td>35352</td><td></td></tr> 
+<tr><td> 2374 </td><td>Titanium</td><td>9.89</td><td>8.81</td><td>8633.79</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.11</td><td>16.33</td><td>15284</td><td></td></tr> 
+<tr><td> 2376 </td><td>Titanium</td><td>9.67</td><td>8.22</td><td>48092.70</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.08</td><td>97.55</td><td>86035</td><td></td></tr> 
+<tr><td> 2360 </td><td>Titanium</td><td>9.08</td><td>5.34</td><td>45119.04</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.74</td><td>140.83</td><td>76330</td><td></td></tr> 
+<tr><td> 2364 </td><td>Multifoils</td><td>9.59</td><td>7.27</td><td>28095.28</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.17</td><td>64.40</td><td>74321</td><td></td></tr> 
+<tr><td> 2365 </td><td>Multifoils</td><td>9.39</td><td>6.14</td><td>19432.02</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>52.73</td><td>51301</td><td></td></tr> 
+<tr><td> 2366 </td><td>Multifoils</td><td>9.58</td><td>8.24</td><td>36681.13</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>74.21</td><td>96254</td><td></td></tr> 
+<tr><td> 2368 </td><td>Titanium</td><td>9.47</td><td>7.40</td><td>11416.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.03</td><td>25.73</td><td>20246</td><td></td></tr> 
+<tr><td> 2375 </td><td>Titanium</td><td>9.24</td><td>2.78</td><td>1817.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.32</td><td>10.90</td><td>3360</td><td></td></tr> 
+<tr><td> 2377 </td><td>Titanium</td><td>9.50</td><td>6.57</td><td>46749.10</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.30</td><td>118.65</td><td>112020</td><td></td></tr> 
+<tr><td> 2378 </td><td>Titanium</td><td>9.51</td><td>7.67</td><td>31396.08</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.72</td><td>68.21</td><td>122372</td><td></td></tr> 
+<tr><td> 2379 </td><td>Titanium</td><td>10.10</td><td>10.11</td><td>86.52</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>47.44</td><td>0.14</td><td>637</td><td></td></tr> 
+<tr><td> 2380 </td><td>Titanium</td><td>9.83</td><td>7.96</td><td>9398.10</td><td>PS1=100 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>19.68</td><td>124769</td><td></td></tr> 
+<tr><td> 2381 </td><td>Titanium</td><td>9.57</td><td>8.45</td><td>45711.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.63</td><td>90.21</td><td>73523</td><td></td></tr> 
+<tr><td> 2383 </td><td>Titanium</td><td>9.06</td><td>6.97</td><td>3236.80</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.02</td><td>7.74</td><td>5017</td><td></td></tr> 
+<tr><td> 2384 </td><td>Titanium</td><td>9.58</td><td>6.59</td><td>1202.85</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>6.93</td><td>3.04</td><td>1948</td><td></td></tr> 
+<tr><td> 2385 </td><td>Titanium</td><td>9.78</td><td>9.19</td><td>7817.81</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.19</td><td>14.18</td><td>11506</td><td></td></tr> 
+<tr><td> 2386 </td><td>Titanium</td><td>9.57</td><td>8.51</td><td>6418.39</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.18</td><td>12.57</td><td>9780</td><td></td></tr> 
+<tr><td> 2387 </td><td>Titanium</td><td>10.28</td><td>10.28</td><td>902.76</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.30</td><td>1.46</td><td>1384</td><td></td></tr> 
+<tr><td> 2388 </td><td>Titanium</td><td>9.78</td><td>9.79</td><td>864.03</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.62</td><td>1.47</td><td>1321</td><td></td></tr> 
+<tr><td> 2389 </td><td>Titanium</td><td>9.74</td><td>9.71</td><td>3920.12</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>6.79</td><td>6.73</td><td>6082</td><td></td></tr> 
+<tr><td> 2390 </td><td>Titanium</td><td>10.16</td><td>10.16</td><td>2747.27</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.33</td><td>4.51</td><td>4184</td><td></td></tr> 
+<tr><td> 2391 </td><td>Multifoils</td><td>8.95</td><td>7.05</td><td>2477.55</td><td>PS1=1 PS2=1 PS3=1 PS8=50 </td><td>7.40</td><td>5.86</td><td>6156</td><td></td></tr> 
+<tr><td> 2392 </td><td>Multifoils</td><td>9.89</td><td>9.80</td><td>10868.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.06</td><td>18.49</td><td>28940</td><td></td></tr> 
+<tr><td> 2393 </td><td>Multifoils</td><td>9.43</td><td>7.52</td><td>2898.91</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.26</td><td>6.42</td><td>7622</td><td></td></tr> 
+<tr><td> 2394 </td><td>Multifoils</td><td>9.36</td><td>7.99</td><td>25350.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.16</td><td>52.85</td><td>66878</td><td></td></tr> 
+<tr><td> 2395 </td><td>Multifoils</td><td>8.75</td><td>3.94</td><td>10631.75</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.98</td><td>44.98</td><td>28793</td><td></td></tr> 
+<tr><td> 2396 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.06</td><td>57.70</td><td>1799</td><td></td></tr> 
+<tr><td> 2397 </td><td>Carbon Hole</td><td>2.84</td><td>0.10</td><td>194.46</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>31.67</td><td>1146</td><td></td></tr> 
+<tr><td> 2399 </td><td>Carbon Hole</td><td>8.90</td><td>8.23</td><td>4598.73</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.57</td><td>9.32</td><td>1574</td><td></td></tr> 
+<tr><td> 2400 </td><td>Dummy</td><td>9.24</td><td>7.92</td><td>384.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.37</td><td>0.81</td><td>1993</td><td></td></tr> 
+<tr><td> 2401 </td><td>Dummy</td><td>9.01</td><td>8.94</td><td>1573.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.42</td><td>2.93</td><td>5836</td><td></td></tr> 
+<tr><td> 2402 </td><td>Dummy</td><td>8.42</td><td>4.38</td><td>18835.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.61</td><td>71.64</td><td>72030</td><td></td></tr> 
+<tr><td> 2403 </td><td>Multifoils</td><td>9.44</td><td>6.47</td><td>1183.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.81</td><td>3.05</td><td>3043</td><td></td></tr> 
+<tr><td> 2404 </td><td>Carbon Hole</td><td>8.96</td><td>7.11</td><td>3234.94</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.81</td><td>7.58</td><td>2440</td><td></td></tr> 
+<tr><td> 2405 </td><td>Dummy</td><td>9.33</td><td>7.95</td><td>6553.52</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>50.09</td><td>13.74</td><td>48627</td><td></td></tr> 
+<tr><td> 2406 </td><td>Dummy</td><td>8.85</td><td>6.13</td><td>513.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>49.42</td><td>1.39</td><td>3852</td><td></td></tr> 
+<tr><td> 2407 </td><td>Dummy</td><td>9.52</td><td>8.64</td><td>14979.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>49.84</td><td>28.90</td><td>111610</td><td></td></tr> 
+<tr><td> 2408 </td><td>Dummy</td><td>9.07</td><td>8.53</td><td>4433.92</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>49.27</td><td>8.67</td><td>33632</td><td></td></tr> 
+<tr><td> 2410 </td><td>Dummy</td><td>8.65</td><td>9.64</td><td>190.65</td><td>PS1=1 PS2=1 PS3=1 PS8=100 </td><td>53.20</td><td>0.33</td><td>1336</td><td></td></tr> 
+<tr><td> 2411 </td><td>Dummy</td><td>2.45</td><td>0.07</td><td>11.37</td><td>PS1=2 PS2=2 PS3=2 PS8=0 </td><td>11.11</td><td>2.72</td><td>108</td><td></td></tr> 
+<tr><td> 2412 </td><td>Dummy</td><td>9.65</td><td>9.65</td><td>514.10</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>48.04</td><td>0.89</td><td>3955</td><td></td></tr> 
+<tr><td> 2413 </td><td>Dummy</td><td>9.65</td><td>9.63</td><td>171.12</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>47.04</td><td>0.30</td><td>1340</td><td></td></tr> 
+<tr><td> 2414 </td><td>Dummy</td><td>7.49</td><td>3.57</td><td>1711.31</td><td>PS1=2 PS2=2 PS3=2 PS8=0 </td><td>12.66</td><td>7.98</td><td>11249</td><td></td></tr> 
+<tr><td> 2415 </td><td>Dummy</td><td>8.73</td><td>3.51</td><td>14674.90</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>69.66</td><td>218978</td><td></td></tr> 
+<tr><td> 2416 </td><td>Dummy</td><td>9.10</td><td>7.01</td><td>12242.40</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>1.13</td><td>29.11</td><td>180790</td><td></td></tr> 
+<tr><td> 2417 </td><td>Dummy</td><td>9.21</td><td>6.12</td><td>22801.57</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>0.93</td><td>62.05</td><td>264766</td><td></td></tr> 
+<tr><td> 2418 </td><td>Dummy</td><td>9.04</td><td>8.07</td><td>29787.05</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>0.86</td><td>61.49</td><td>345931</td><td></td></tr> 
+<tr><td> 2419 </td><td>Dummy</td><td>9.40</td><td>7.82</td><td>709.26</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>0.71</td><td>1.51</td><td>5052</td><td></td></tr> 
+<tr><td> 2420 </td><td>Dummy</td><td>8.06</td><td>2.74</td><td>4226.28</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>12.19</td><td>25.67</td><td>27910</td><td></td></tr> 
+<tr><td> 2421 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>8.39</td><td>264</td><td></td></tr> 
+<tr><td> 2422 </td><td>Dummy</td><td>8.59</td><td>6.89</td><td>16670.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>11.87</td><td>40.34</td><td>106958</td><td></td></tr> 
+<tr><td> 2423 </td><td>Dummy</td><td>9.19</td><td>7.47</td><td>31467.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>12.00</td><td>70.25</td><td>202339</td><td></td></tr> 
+<tr><td> 2424 </td><td>Dummy</td><td>9.58</td><td>6.55</td><td>22487.39</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>12.25</td><td>57.25</td><td>144645</td><td></td></tr> 
+<tr><td> 2425 </td><td>Dummy</td><td>9.37</td><td>6.72</td><td>25761.84</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.94</td><td>63.87</td><td>112822</td><td></td></tr> 
+<tr><td> 2426 </td><td>Dummy</td><td>8.98</td><td>5.76</td><td>17312.02</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.85</td><td>50.10</td><td>76299</td><td></td></tr> 
+<tr><td> 2428 </td><td>Hydrogen</td><td>20.93</td><td>16.29</td><td>54515.43</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.38</td><td>55.76</td><td>185190</td><td></td></tr> 
+<tr><td> 2431 </td><td>Carbon Hole</td><td>10.17</td><td>4.53</td><td>1192.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.35</td><td>4.39</td><td>876</td><td></td></tr> 
+<tr><td> 2433 </td><td>HOME</td><td>20.93</td><td>14.88</td><td>51109.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.38</td><td>57.23</td><td>6877</td><td></td></tr> 
+<tr><td> 2434 </td><td>Single Carbon Foil</td><td>19.39</td><td>15.92</td><td>2126.07</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>2.23</td><td>0</td><td></td></tr> 
+<tr><td> 2435 </td><td>Single Carbon Foil</td><td>16.45</td><td>3.89</td><td>9127.06</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.66</td><td>39.13</td><td>12670</td><td></td></tr> 
+<tr><td> 2436 </td><td>Single Carbon Foil</td><td>19.31</td><td>13.41</td><td>20475.25</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.30</td><td>25.45</td><td>26361</td><td></td></tr> 
+<tr><td> 2437 </td><td>unknown</td><td>19.73</td><td>16.68</td><td>28021.86</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.38</td><td>28.00</td><td>98327</td><td></td></tr> 
+<tr><td> 2438 </td><td>unknown</td><td>20.15</td><td>17.48</td><td>29622.90</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.34</td><td>28.24</td><td>103727</td><td></td></tr> 
+<tr><td> 2439 </td><td>unknown</td><td>16.95</td><td>12.84</td><td>23599.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.19</td><td>30.63</td><td>82780</td><td></td></tr> 
+<tr><td> 2440 </td><td>Tritium</td><td>10.32</td><td>1.02</td><td>312.19</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>9.28</td><td>5.09</td><td>1300</td><td></td></tr> 
+<tr><td> 2441 </td><td>Tritium</td><td>17.88</td><td>14.25</td><td>8414.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.36</td><td>9.84</td><td>29903</td><td></td></tr> 
+<tr><td> 2442 </td><td>Tritium</td><td>19.75</td><td>17.60</td><td>26677.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.56</td><td>25.26</td><td>94560</td><td></td></tr> 
+<tr><td> 2443 </td><td>Tritium</td><td>18.20</td><td>16.01</td><td>24826.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>14.38</td><td>25.84</td><td>87769</td><td></td></tr> 
+<tr><td> 2444 </td><td>Tritium</td><td>18.12</td><td>16.05</td><td>27528.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>13.57</td><td>28.58</td><td>97150</td><td></td></tr> 
+<tr><td> 2445 </td><td>unknown</td><td>20.78</td><td>18.01</td><td>23112.60</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>13.94</td><td>21.39</td><td>79008</td><td></td></tr> 
+<tr><td> 2446 </td><td>Empty Cell</td><td>19.62</td><td>16.61</td><td>48316.78</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.74</td><td>48.48</td><td>96439</td><td></td></tr> 
+<tr><td> 2447 </td><td>Helium3</td><td>14.39</td><td>12.92</td><td>47065.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.76</td><td>60.70</td><td>52125</td><td></td></tr> 
+<tr><td> 2448 </td><td>Helium3</td><td>19.58</td><td>16.31</td><td>86750.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.01</td><td>88.66</td><td>94571</td><td></td></tr> 
+<tr><td> 2449 </td><td>Hydrogen</td><td>17.65</td><td>12.34</td><td>51744.12</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.06</td><td>69.87</td><td>76930</td><td></td></tr> 
+<tr><td> 2450 </td><td>Hydrogen</td><td>20.59</td><td>18.22</td><td>88154.86</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.47</td><td>80.63</td><td>130491</td><td></td></tr> 
+<tr><td> 2451 </td><td>unknown</td><td>20.47</td><td>17.04</td><td>67671.15</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.58</td><td>66.20</td><td>102097</td><td></td></tr> 
+<tr><td> 2452 </td><td>unknown</td><td>20.45</td><td>18.31</td><td>69114.11</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.48</td><td>62.91</td><td>104246</td><td></td></tr> 
+<tr><td> 2453 </td><td>Tritium</td><td>16.77</td><td>11.89</td><td>22107.69</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.59</td><td>30.98</td><td>34515</td><td></td></tr> 
+<tr><td> 2454 </td><td>Tritium</td><td>21.05</td><td>20.85</td><td>43948.49</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.62</td><td>35.13</td><td>68468</td><td></td></tr> 
+<tr><td> 2455 </td><td>Tritium</td><td>20.59</td><td>16.29</td><td>24453.15</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.81</td><td>25.01</td><td>38278</td><td></td></tr> 
+<tr><td> 2457 </td><td>Tritium</td><td>18.26</td><td>13.96</td><td>19743.90</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.54</td><td>23.57</td><td>30868</td><td></td></tr> 
+<tr><td> 2458 </td><td>Tritium</td><td>19.11</td><td>12.57</td><td>15706.85</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.69</td><td>20.83</td><td>24505</td><td></td></tr> 
+<tr><td> 2459 </td><td>Tritium</td><td>19.75</td><td>10.60</td><td>2091.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.03</td><td>3.29</td><td>3382</td><td></td></tr> 
+<tr><td> 2460 </td><td>Tritium</td><td>19.71</td><td>14.37</td><td>27405.69</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.72</td><td>31.78</td><td>42968</td><td></td></tr> 
+<tr><td> 2461 </td><td>Empty Cell</td><td>20.07</td><td>18.88</td><td>31480.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.27</td><td>27.79</td><td>27599</td><td></td></tr> 
+<tr><td> 2462 </td><td>Empty Cell</td><td>18.99</td><td>11.48</td><td>25583.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.25</td><td>37.13</td><td>22456</td><td></td></tr> 
+<tr><td> 2464 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-81.14</td><td>8.01</td><td>2190</td><td></td></tr> 
+<tr><td> 2465 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>62.21</td><td>0</td><td></td></tr> 
+<tr><td> 2466 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.04</td><td>221.14</td><td>6923</td><td></td></tr> 
+<tr><td> 2468 </td><td>Carbon Hole</td><td>21.15</td><td>21.33</td><td>3624.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.29</td><td>2.83</td><td>8999</td><td></td></tr> 
+<tr><td> 2469 </td><td>Single Carbon Foil</td><td>20.11</td><td>14.96</td><td>3322.60</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>3.70</td><td>0</td><td></td></tr> 
+<tr><td> 2470 </td><td>unknown</td><td>17.77</td><td>10.83</td><td>6285.14</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.32</td><td>9.67</td><td>96965</td><td></td></tr> 
+<tr><td> 2471 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>1.43</td><td>0</td><td></td></tr> 
+<tr><td> 2472 </td><td>HOME</td><td>11.41</td><td>5.48</td><td>15992.67</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>48.68</td><td>0</td><td></td></tr> 
+<tr><td> 2473 </td><td>Dummy</td><td>21.10</td><td>21.12</td><td>3515.75</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>44.08</td><td>2.77</td><td>84627</td><td></td></tr> 
+<tr><td> 2474 </td><td>Dummy</td><td>21.05</td><td>21.00</td><td>3195.08</td><td>PS1=0 PS2=1 PS3=1 PS8=0 </td><td>3.29</td><td>2.54</td><td>133020</td><td></td></tr> 
+<tr><td> 2475 </td><td>Empty Cell</td><td>19.03</td><td>16.98</td><td>5316.26</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.30</td><td>5.22</td><td>47952</td><td></td></tr> 
+<tr><td> 2476 </td><td>Hydrogen</td><td>20.17</td><td>18.94</td><td>19313.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.46</td><td>17.00</td><td>287304</td><td></td></tr> 
+<tr><td> 2477 </td><td>Hydrogen</td><td>19.69</td><td>14.62</td><td>17867.49</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.45</td><td>20.37</td><td>266682</td><td></td></tr> 
+<tr><td> 2478 </td><td>Hydrogen</td><td>19.96</td><td>15.10</td><td>18277.55</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.42</td><td>20.17</td><td>272828</td><td></td></tr> 
+<tr><td> 2479 </td><td>Hydrogen</td><td>18.60</td><td>4.14</td><td>14443.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.31</td><td>58.10</td><td>217551</td><td></td></tr> 
+<tr><td> 2480 </td><td>Hydrogen</td><td>18.50</td><td>12.55</td><td>5086.46</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.28</td><td>6.76</td><td>76401</td><td></td></tr> 
+<tr><td> 2481 </td><td>Hydrogen</td><td>20.72</td><td>16.55</td><td>9165.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.33</td><td>9.23</td><td>137029</td><td></td></tr> 
+<tr><td> 2482 </td><td>Empty Cell</td><td>9.99</td><td>9.71</td><td>5591.33</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.23</td><td>9.59</td><td>52318</td><td></td></tr> 
+<tr><td> 2483 </td><td>Hydrogen</td><td>10.30</td><td>8.65</td><td>8784.07</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.86</td><td>16.92</td><td>137492</td><td></td></tr> 
+<tr><td> 2484 </td><td>Hydrogen</td><td>10.08</td><td>9.38</td><td>8591.65</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.89</td><td>15.26</td><td>134453</td><td></td></tr> 
+<tr><td> 2485 </td><td>Hydrogen</td><td>10.12</td><td>6.06</td><td>8778.49</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.91</td><td>24.13</td><td>137722</td><td></td></tr> 
+<tr><td> 2486 </td><td>Hydrogen</td><td>10.20</td><td>8.50</td><td>8801.99</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.92</td><td>17.25</td><td>137735</td><td></td></tr> 
+<tr><td> 2487 </td><td>Hydrogen</td><td>9.90</td><td>8.14</td><td>9105.35</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.93</td><td>18.65</td><td>141769</td><td></td></tr> 
+<tr><td> 2488 </td><td>Hydrogen</td><td>10.40</td><td>8.01</td><td>8815.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.90</td><td>18.35</td><td>137659</td><td></td></tr> 
+<tr><td> 2489 </td><td>Hydrogen</td><td>10.52</td><td>9.49</td><td>8796.65</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.93</td><td>15.45</td><td>136988</td><td></td></tr> 
+<tr><td> 2490 </td><td>Hydrogen</td><td>10.11</td><td>8.52</td><td>8772.02</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.95</td><td>17.17</td><td>137185</td><td></td></tr> 
+<tr><td> 2491 </td><td>Empty Cell</td><td>16.06</td><td>6.70</td><td>9255.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.24</td><td>23.03</td><td>84466</td><td></td></tr> 
+<tr><td> 2492 </td><td>unknown</td><td>18.62</td><td>10.36</td><td>23179.91</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.28</td><td>37.31</td><td>357113</td><td></td></tr> 
+<tr><td> 2493 </td><td>unknown</td><td>20.09</td><td>15.00</td><td>20684.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.47</td><td>22.98</td><td>318806</td><td></td></tr> 
+<tr><td> 2494 </td><td>Empty Cell</td><td>10.23</td><td>10.14</td><td>7071.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.22</td><td>11.63</td><td>65515</td><td></td></tr> 
+<tr><td> 2495 </td><td>unknown</td><td>10.40</td><td>8.08</td><td>8035.66</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.55</td><td>16.58</td><td>131037</td><td></td></tr> 
+<tr><td> 2496 </td><td>unknown</td><td>9.92</td><td>6.45</td><td>8604.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.35</td><td>22.23</td><td>140946</td><td></td></tr> 
+<tr><td> 2497 </td><td>unknown</td><td>10.31</td><td>9.86</td><td>9199.28</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.52</td><td>15.55</td><td>149792</td><td></td></tr> 
+<tr><td> 2498 </td><td>unknown</td><td>9.84</td><td>8.20</td><td>8492.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.41</td><td>17.26</td><td>139496</td><td></td></tr> 
+<tr><td> 2499 </td><td>Empty Cell</td><td>12.83</td><td>5.76</td><td>6008.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.71</td><td>17.39</td><td>55795</td><td></td></tr> 
+<tr><td> 2500 </td><td>Tritium</td><td>18.06</td><td>12.54</td><td>8982.67</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.91</td><td>11.94</td><td>143157</td><td></td></tr> 
+<tr><td> 2501 </td><td>Tritium</td><td>20.12</td><td>17.67</td><td>17619.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.30</td><td>16.62</td><td>278253</td><td></td></tr> 
+<tr><td> 2502 </td><td>Tritium</td><td>19.84</td><td>8.14</td><td>12823.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.33</td><td>26.27</td><td>201945</td><td></td></tr> 
+<tr><td> 2503 </td><td>Tritium</td><td>19.26</td><td>13.37</td><td>18806.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.16</td><td>23.44</td><td>297002</td><td></td></tr> 
+<tr><td> 2504 </td><td>Empty Cell</td><td>10.47</td><td>10.35</td><td>4467.92</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.17</td><td>7.20</td><td>40962</td><td></td></tr> 
+<tr><td> 2505 </td><td>Tritium</td><td>9.25</td><td>6.28</td><td>7957.05</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.41</td><td>21.11</td><td>132959</td><td></td></tr> 
+<tr><td> 2506 </td><td>Tritium</td><td>10.55</td><td>10.19</td><td>9748.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.42</td><td>15.95</td><td>161485</td><td></td></tr> 
+<tr><td> 2507 </td><td>Tritium</td><td>10.13</td><td>7.29</td><td>8749.85</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.37</td><td>20.01</td><td>145931</td><td></td></tr> 
+<tr><td> 2508 </td><td>Tritium</td><td>10.29</td><td>7.82</td><td>8409.10</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.42</td><td>17.92</td><td>139298</td><td></td></tr> 
+<tr><td> 2509 </td><td>Tritium</td><td>10.07</td><td>5.37</td><td>10508.29</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.39</td><td>32.59</td><td>175001</td><td></td></tr> 
+<tr><td> 2510 </td><td>Tritium</td><td>9.82</td><td>4.21</td><td>9089.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.45</td><td>36.03</td><td>151825</td><td></td></tr> 
+<tr><td> 2511 </td><td>Tritium</td><td>10.26</td><td>6.65</td><td>7714.89</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.34</td><td>19.35</td><td>128815</td><td></td></tr> 
+<tr><td> 2512 </td><td>Empty Cell</td><td>14.34</td><td>12.17</td><td>6150.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.06</td><td>8.42</td><td>56262</td><td></td></tr> 
+<tr><td> 2513 </td><td>Tritium</td><td>14.68</td><td>11.65</td><td>14274.66</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.27</td><td>20.42</td><td>230617</td><td></td></tr> 
+<tr><td> 2514 </td><td>Tritium</td><td>14.92</td><td>14.32</td><td>14466.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.14</td><td>16.84</td><td>233868</td><td></td></tr> 
+<tr><td> 2515 </td><td>Tritium</td><td>15.05</td><td>5.46</td><td>4931.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.31</td><td>15.06</td><td>79749</td><td></td></tr> 
+<tr><td> 2516 </td><td>Tritium</td><td>13.54</td><td>5.19</td><td>9348.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.13</td><td>30.02</td><td>151684</td><td></td></tr> 
+<tr><td> 2517 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>17.70</td><td>566</td><td></td></tr> 
+<tr><td> 2518 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=100 </td><td>1.98</td><td>3.18</td><td>99</td><td></td></tr> 
+<tr><td> 2519 </td><td>Tritium</td><td>11.46</td><td>6.51</td><td>16158.40</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.82</td><td>41.36</td><td>263523</td><td></td></tr> 
+<tr><td> 2520 </td><td>Tritium</td><td>14.38</td><td>12.40</td><td>15632.43</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.21</td><td>21.01</td><td>252745</td><td></td></tr> 
+<tr><td> 2521 </td><td>Tritium</td><td>12.42</td><td>9.68</td><td>16545.44</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.07</td><td>28.49</td><td>267620</td><td></td></tr> 
+<tr><td> 2522 </td><td>Tritium</td><td>13.48</td><td>11.93</td><td>13517.43</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.21</td><td>18.89</td><td>218826</td><td></td></tr> 
+<tr><td> 2523 </td><td>Empty Cell</td><td>19.39</td><td>0.92</td><td>1064.50</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.39</td><td>19.32</td><td>10465</td><td></td></tr> 
+<tr><td> 2524 </td><td>Empty Cell</td><td>18.88</td><td>17.28</td><td>6805.30</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.17</td><td>6.56</td><td>62527</td><td></td></tr> 
+<tr><td> 2525 </td><td>Helium3</td><td>19.76</td><td>8.98</td><td>13821.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.60</td><td>25.64</td><td>158835</td><td></td></tr> 
+<tr><td> 2526 </td><td>Helium3</td><td>18.71</td><td>12.22</td><td>18031.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.54</td><td>24.59</td><td>207068</td><td></td></tr> 
+<tr><td> 2527 </td><td>Helium3</td><td>17.53</td><td>9.96</td><td>18520.90</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.47</td><td>30.98</td><td>211943</td><td></td></tr> 
+<tr><td> 2528 </td><td>Helium3</td><td>20.21</td><td>17.88</td><td>21991.19</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.64</td><td>20.50</td><td>250613</td><td></td></tr> 
+<tr><td> 2529 </td><td>Helium3</td><td>18.63</td><td>14.90</td><td>17168.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.53</td><td>19.21</td><td>195709</td><td></td></tr> 
+<tr><td> 2530 </td><td>Helium3</td><td>18.70</td><td>12.56</td><td>22963.73</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.62</td><td>30.47</td><td>262912</td><td></td></tr> 
+<tr><td> 2531 </td><td>Helium3</td><td>20.08</td><td>19.52</td><td>30694.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.62</td><td>26.21</td><td>351040</td><td></td></tr> 
+<tr><td> 2532 </td><td>Empty Cell</td><td>9.69</td><td>5.39</td><td>7498.93</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.24</td><td>23.20</td><td>70585</td><td></td></tr> 
+<tr><td> 2533 </td><td>Helium3</td><td>9.70</td><td>9.07</td><td>8549.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.99</td><td>15.72</td><td>100743</td><td></td></tr> 
+<tr><td> 2534 </td><td>Helium3</td><td>10.27</td><td>9.27</td><td>11932.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.99</td><td>21.46</td><td>140829</td><td></td></tr> 
+<tr><td> 2535 </td><td>Helium3</td><td>9.72</td><td>9.08</td><td>10139.12</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.94</td><td>18.62</td><td>119200</td><td></td></tr> 
+<tr><td> 2536 </td><td>Helium3</td><td>10.12</td><td>8.13</td><td>10615.86</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.91</td><td>21.76</td><td>125108</td><td></td></tr> 
+<tr><td> 2537 </td><td>Helium3</td><td>10.23</td><td>10.02</td><td>10008.01</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.96</td><td>16.65</td><td>117454</td><td></td></tr> 
+<tr><td> 2538 </td><td>Helium3</td><td>9.92</td><td>9.71</td><td>9716.27</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.81</td><td>16.68</td><td>114143</td><td></td></tr> 
+<tr><td> 2539 </td><td>Helium3</td><td>9.72</td><td>8.45</td><td>8558.12</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.88</td><td>16.89</td><td>101172</td><td></td></tr> 
+<tr><td> 2540 </td><td>Helium3</td><td>10.00</td><td>9.89</td><td>9236.40</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.96</td><td>15.57</td><td>109048</td><td></td></tr> 
+<tr><td> 2541 </td><td>Helium3</td><td>8.73</td><td>4.70</td><td>7939.23</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.95</td><td>28.17</td><td>93629</td><td></td></tr> 
+<tr><td> 2542 </td><td>Helium3</td><td>9.65</td><td>7.66</td><td>10603.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.94</td><td>23.07</td><td>125005</td><td></td></tr> 
+<tr><td> 2543 </td><td>Helium3</td><td>10.08</td><td>8.69</td><td>10338.46</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.87</td><td>19.82</td><td>122036</td><td></td></tr> 
+<tr><td> 2544 </td><td>Empty Cell</td><td>14.48</td><td>11.19</td><td>8965.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.18</td><td>13.36</td><td>82386</td><td></td></tr> 
+<tr><td> 2545 </td><td>Helium3</td><td>13.27</td><td>2.49</td><td>4737.50</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.99</td><td>31.67</td><td>55820</td><td></td></tr> 
+<tr><td> 2546 </td><td>Helium3</td><td>14.74</td><td>11.57</td><td>16870.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.25</td><td>24.31</td><td>195578</td><td></td></tr> 
+<tr><td> 2547 </td><td>Helium3</td><td>13.16</td><td>10.40</td><td>14238.49</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.21</td><td>22.81</td><td>164588</td><td></td></tr> 
+<tr><td> 2548 </td><td>Helium3</td><td>15.31</td><td>15.31</td><td>14046.78</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.25</td><td>15.29</td><td>162026</td><td></td></tr> 
+<tr><td> 2549 </td><td>Helium3</td><td>14.59</td><td>10.55</td><td>14655.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.08</td><td>23.15</td><td>169954</td><td></td></tr> 
+<tr><td> 2550 </td><td>Helium3</td><td>14.84</td><td>12.65</td><td>14804.39</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.22</td><td>19.51</td><td>171827</td><td></td></tr> 
+<tr><td> 2551 </td><td>Helium3</td><td>14.91</td><td>13.09</td><td>14839.09</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.30</td><td>18.90</td><td>172052</td><td></td></tr> 
+<tr><td> 2552 </td><td>Helium3</td><td>14.62</td><td>11.42</td><td>15056.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.15</td><td>21.97</td><td>174323</td><td></td></tr> 
+<tr><td> 2553 </td><td>Helium3</td><td>14.58</td><td>12.96</td><td>15359.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.18</td><td>19.76</td><td>178289</td><td></td></tr> 
+<tr><td> 2554 </td><td>Helium3</td><td>14.95</td><td>12.80</td><td>15903.25</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.26</td><td>20.71</td><td>183943</td><td></td></tr> 
+<tr><td> 2555 </td><td>Empty Cell</td><td>14.31</td><td>11.06</td><td>11036.99</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.20</td><td>16.63</td><td>101434</td><td></td></tr> 
+<tr><td> 2556 </td><td>Hydrogen</td><td>14.89</td><td>14.64</td><td>15064.14</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.53</td><td>17.15</td><td>230664</td><td></td></tr> 
+<tr><td> 2557 </td><td>Hydrogen</td><td>14.95</td><td>14.93</td><td>15239.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.58</td><td>17.01</td><td>233724</td><td></td></tr> 
+<tr><td> 2558 </td><td>Hydrogen</td><td>14.69</td><td>12.62</td><td>14426.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.52</td><td>19.05</td><td>222546</td><td></td></tr> 
+<tr><td> 2559 </td><td>Hydrogen</td><td>14.83</td><td>14.50</td><td>14043.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.53</td><td>16.14</td><td>215798</td><td></td></tr> 
+<tr><td> 2560 </td><td>Hydrogen</td><td>14.49</td><td>12.20</td><td>13082.38</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.62</td><td>17.87</td><td>199561</td><td></td></tr> 
+<tr><td> 2561 </td><td>Hydrogen</td><td>14.40</td><td>9.63</td><td>18160.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.59</td><td>31.43</td><td>277485</td><td></td></tr> 
+<tr><td> 2562 </td><td>Carbon Hole</td><td>14.29</td><td>10.55</td><td>2897.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.96</td><td>4.58</td><td>7007</td><td></td></tr> 
+<tr><td> 2563 </td><td>Empty Cell</td><td>13.65</td><td>9.14</td><td>12588.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.11</td><td>22.95</td><td>115715</td><td></td></tr> 
+<tr><td> 2564 </td><td>unknown</td><td>12.51</td><td>6.50</td><td>15095.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.11</td><td>38.73</td><td>241261</td><td></td></tr> 
+<tr><td> 2565 </td><td>unknown</td><td>13.81</td><td>6.71</td><td>14638.01</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.26</td><td>36.37</td><td>233013</td><td></td></tr> 
+<tr><td> 2566 </td><td>unknown</td><td>14.31</td><td>7.49</td><td>14925.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.31</td><td>33.23</td><td>237507</td><td></td></tr> 
+<tr><td> 2567 </td><td>unknown</td><td>19.73</td><td>12.77</td><td>13623.78</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.26</td><td>17.78</td><td>8402</td><td></td></tr> 
+<tr><td> 2568 </td><td>Single Carbon Foil</td><td>19.70</td><td>9.86</td><td>6667.63</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.47</td><td>11.27</td><td>9725</td><td></td></tr> 
+<tr><td> 2569 </td><td>Single Carbon Foil</td><td>13.32</td><td>0.89</td><td>152.31</td><td>PS1=1 PS2=1 PS3=1 PS8=10 </td><td>70.40</td><td>2.86</td><td>82</td><td></td></tr> 
+<tr><td> 2570 </td><td>Single Carbon Foil</td><td>18.64</td><td>5.08</td><td>2704.51</td><td>PS1=1 PS2=1 PS3=1 PS8=10 </td><td>74.81</td><td>8.88</td><td>1028</td><td></td></tr> 
+<tr><td> 2571 </td><td>Multifoils</td><td>18.86</td><td>11.61</td><td>7077.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.66</td><td>10.16</td><td>48746</td><td></td></tr> 
+<tr><td> 2572 </td><td>Dummy</td><td>20.58</td><td>19.59</td><td>21081.41</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.74</td><td>17.94</td><td>164095</td><td></td></tr> 
+<tr><td> 2573 </td><td>Empty Cell</td><td>20.64</td><td>13.86</td><td>34780.23</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.81</td><td>41.84</td><td>62201</td><td></td></tr> 
+<tr><td> 2574 </td><td>Helium3</td><td>21.69</td><td>21.45</td><td>39291.55</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.97</td><td>30.52</td><td>93644</td><td></td></tr> 
+<tr><td> 2575 </td><td>Helium3</td><td>21.21</td><td>20.98</td><td>38708.84</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.95</td><td>30.76</td><td>92197</td><td></td></tr> 
+<tr><td> 2576 </td><td>Helium3</td><td>21.46</td><td>21.36</td><td>39718.55</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.01</td><td>31.00</td><td>94534</td><td></td></tr> 
+<tr><td> 2577 </td><td>Tritium</td><td>21.09</td><td>17.56</td><td>35630.89</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.44</td><td>33.83</td><td>118811</td><td></td></tr> 
+<tr><td> 2578 </td><td>Tritium</td><td>21.49</td><td>21.48</td><td>37796.70</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.43</td><td>29.33</td><td>125714</td><td></td></tr> 
+<tr><td> 2579 </td><td>Deuterium</td><td>21.27</td><td>18.83</td><td>38466.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.43</td><td>34.05</td><td>131705</td><td></td></tr> 
+<tr><td> 2580 </td><td>Deuterium</td><td>20.85</td><td>17.32</td><td>40239.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.40</td><td>38.73</td><td>138529</td><td></td></tr> 
+<tr><td> 2581 </td><td>unknown</td><td>21.35</td><td>19.00</td><td>40045.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.30</td><td>35.14</td><td>131780</td><td></td></tr> 
+<tr><td> 2582 </td><td>unknown</td><td>21.08</td><td>20.17</td><td>38142.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.32</td><td>31.52</td><td>124531</td><td></td></tr> 
+<tr><td> 2583 </td><td>unknown</td><td>21.04</td><td>19.72</td><td>36180.11</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.31</td><td>30.58</td><td>118232</td><td></td></tr> 
+<tr><td> 2584 </td><td>Empty Cell</td><td>20.67</td><td>15.85</td><td>41996.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.79</td><td>44.15</td><td>77441</td><td></td></tr> 
+<tr><td> 2585 </td><td>Helium3</td><td>21.16</td><td>8.43</td><td>20592.46</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.98</td><td>40.74</td><td>49627</td><td></td></tr> 
+<tr><td> 2586 </td><td>Carbon Hole</td><td>21.44</td><td>17.14</td><td>7882.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.31</td><td>7.67</td><td>4766</td><td></td></tr> 
+<tr><td> 2587 </td><td>Helium3</td><td>21.02</td><td>18.41</td><td>39068.72</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.92</td><td>35.37</td><td>93161</td><td></td></tr> 
+<tr><td> 2588 </td><td>Helium3</td><td>20.62</td><td>13.15</td><td>38134.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.93</td><td>48.33</td><td>92019</td><td></td></tr> 
+<tr><td> 2589 </td><td>Helium3</td><td>20.95</td><td>18.34</td><td>22393.25</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.98</td><td>20.35</td><td>53383</td><td></td></tr> 
+<tr><td> 2590 </td><td>Tritium</td><td>21.32</td><td>20.03</td><td>40442.50</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.43</td><td>33.65</td><td>135176</td><td></td></tr> 
+<tr><td> 2591 </td><td>Tritium</td><td>20.64</td><td>15.86</td><td>40180.47</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.44</td><td>42.23</td><td>134652</td><td></td></tr> 
+<tr><td> 2592 </td><td>Tritium</td><td>21.14</td><td>20.50</td><td>41359.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.46</td><td>33.63</td><td>138033</td><td></td></tr> 
+<tr><td> 2593 </td><td>Deuterium</td><td>20.17</td><td>14.03</td><td>40507.26</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.44</td><td>48.14</td><td>139631</td><td></td></tr> 
+<tr><td> 2595 </td><td>Carbon Hole</td><td>13.46</td><td>8.66</td><td>9069.01</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>17.46</td><td>5895</td><td></td></tr> 
+<tr><td> 2596 </td><td>Carbon Hole</td><td>11.94</td><td>8.16</td><td>1686.66</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.50</td><td>3.45</td><td>1390</td><td></td></tr> 
+<tr><td> 2597 </td><td>Carbon Hole</td><td>11.10</td><td>5.58</td><td>2707.14</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>8.09</td><td>1731</td><td></td></tr> 
+<tr><td> 2598 </td><td>unknown</td><td>17.31</td><td>11.74</td><td>38452.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.39</td><td>54.60</td><td>133004</td><td></td></tr> 
+<tr><td> 2599 </td><td>unknown</td><td>16.32</td><td>12.08</td><td>39847.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.16</td><td>54.98</td><td>129655</td><td></td></tr> 
+<tr><td> 2600 </td><td>unknown</td><td>19.25</td><td>12.95</td><td>40507.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.24</td><td>52.13</td><td>131796</td><td></td></tr> 
+<tr><td> 2601 </td><td>unknown</td><td>19.37</td><td>14.52</td><td>41087.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.16</td><td>47.15</td><td>133391</td><td></td></tr> 
+<tr><td> 2602 </td><td>unknown</td><td>14.16</td><td>4.79</td><td>5226.09</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.08</td><td>18.18</td><td>17452</td><td></td></tr> 
+<tr><td> 2603 </td><td>Helium3</td><td>17.56</td><td>9.13</td><td>25449.29</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.93</td><td>46.44</td><td>61155</td><td></td></tr> 
+<tr><td> 2606 </td><td>Tritium</td><td>20.72</td><td>20.55</td><td>29864.84</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.47</td><td>24.22</td><td>98368</td><td></td></tr> 
+<tr><td> 2607 </td><td>Empty Cell</td><td>19.25</td><td>13.81</td><td>13671.78</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.78</td><td>16.50</td><td>24698</td><td></td></tr> 
+<tr><td> 2608 </td><td>Carbon Hole</td><td>20.17</td><td>13.79</td><td>10626.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>12.84</td><td>2336</td><td></td></tr> 
+<tr><td> 2609 </td><td>Single Carbon Foil</td><td>15.85</td><td>8.67</td><td>3874.86</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>7.45</td><td>0</td><td></td></tr> 
+<tr><td> 2610 </td><td>Single Carbon Foil</td><td>20.09</td><td>14.88</td><td>7075.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>7.92</td><td>3689</td><td></td></tr> 
+<tr><td> 2611 </td><td>Multifoils</td><td>20.91</td><td>18.96</td><td>7383.28</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.78</td><td>6.49</td><td>17345</td><td></td></tr> 
+<tr><td> 2612 </td><td>Dummy</td><td>20.17</td><td>16.49</td><td>24310.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.20</td><td>24.57</td><td>60978</td><td></td></tr> 
+<tr><td> 2613 </td><td>Helium3</td><td>20.29</td><td>16.52</td><td>36328.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.32</td><td>36.64</td><td>28278</td><td></td></tr> 
+<tr><td> 2614 </td><td>Helium3</td><td>19.66</td><td>14.18</td><td>33883.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.35</td><td>39.83</td><td>26499</td><td></td></tr> 
+<tr><td> 2615 </td><td>Helium3</td><td>20.08</td><td>13.70</td><td>33844.79</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.28</td><td>41.19</td><td>26578</td><td></td></tr> 
+<tr><td> 2616 </td><td>Tritium</td><td>19.75</td><td>16.86</td><td>36964.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.40</td><td>36.55</td><td>39309</td><td></td></tr> 
+<tr><td> 2617 </td><td>Tritium</td><td>20.91</td><td>14.60</td><td>33652.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.37</td><td>38.40</td><td>36268</td><td></td></tr> 
+<tr><td> 2618 </td><td>Tritium</td><td>19.37</td><td>14.30</td><td>42286.85</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.42</td><td>49.30</td><td>45572</td><td></td></tr> 
+<tr><td> 2619 </td><td>Deuterium</td><td>19.65</td><td>12.55</td><td>41202.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.37</td><td>54.74</td><td>48138</td><td></td></tr> 
+<tr><td> 2620 </td><td>Deuterium</td><td>19.93</td><td>13.57</td><td>56159.09</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.41</td><td>68.97</td><td>65282</td><td></td></tr> 
+<tr><td> 2621 </td><td>Empty Cell</td><td>20.25</td><td>17.26</td><td>37849.72</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.26</td><td>36.54</td><td>21096</td><td></td></tr> 
+<tr><td> 2622 </td><td>Empty Cell</td><td>19.61</td><td>13.88</td><td>36780.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.21</td><td>44.15</td><td>20979</td><td></td></tr> 
+<tr><td> 2623 </td><td>Helium3</td><td>20.40</td><td>15.77</td><td>36483.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.32</td><td>38.55</td><td>28586</td><td></td></tr> 
+<tr><td> 2624 </td><td>Helium3</td><td>19.39</td><td>13.90</td><td>46382.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.32</td><td>55.63</td><td>36240</td><td></td></tr> 
+<tr><td> 2625 </td><td>Helium3</td><td>19.96</td><td>17.26</td><td>30912.49</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.25</td><td>29.84</td><td>24148</td><td></td></tr> 
+<tr><td> 2626 </td><td>Tritium</td><td>10.73</td><td>4.29</td><td>13629.50</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.37</td><td>52.93</td><td>15948</td><td></td></tr> 
+<tr><td> 2630 </td><td>Carbon Hole</td><td>19.91</td><td>19.21</td><td>12017.66</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>10.43</td><td>1547</td><td></td></tr> 
+<tr><td> 2631 </td><td>Carbon Hole</td><td>19.72</td><td>17.28</td><td>12019.36</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.06</td><td>11.59</td><td>1564</td><td></td></tr> 
+<tr><td> 2632 </td><td>Single Carbon Foil</td><td>19.59</td><td>14.07</td><td>10194.18</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.23</td><td>12.08</td><td>2984</td><td></td></tr> 
+<tr><td> 2633 </td><td>Single Carbon Foil</td><td>19.61</td><td>16.90</td><td>7687.41</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>7.58</td><td>0</td><td></td></tr> 
+<tr><td> 2634 </td><td>Multifoils</td><td>21.19</td><td>12.15</td><td>7938.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.41</td><td>10.89</td><td>9983</td><td></td></tr> 
+<tr><td> 2635 </td><td>Dummy</td><td>19.51</td><td>16.60</td><td>35628.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.65</td><td>35.78</td><td>47376</td><td></td></tr> 
+<tr><td> 2637 </td><td>Helium3</td><td>19.58</td><td>15.16</td><td>61798.68</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>67.96</td><td>25676</td><td></td></tr> 
+<tr><td> 2638 </td><td>Helium3</td><td>19.57</td><td>16.69</td><td>67823.54</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>67.71</td><td>27998</td><td></td></tr> 
+<tr><td> 2639 </td><td>Tritium</td><td>20.56</td><td>18.15</td><td>71713.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.23</td><td>65.87</td><td>40825</td><td></td></tr> 
+<tr><td> 2640 </td><td>Tritium</td><td>20.43</td><td>17.03</td><td>71653.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.24</td><td>70.13</td><td>40204</td><td></td></tr> 
+<tr><td> 2641 </td><td>Deuterium</td><td>19.78</td><td>15.92</td><td>61222.14</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.23</td><td>64.10</td><td>38075</td><td></td></tr> 
+<tr><td> 2642 </td><td>Deuterium</td><td>20.18</td><td>14.82</td><td>63101.14</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.21</td><td>70.98</td><td>38907</td><td></td></tr> 
+<tr><td> 2643 </td><td>Empty Cell</td><td>19.15</td><td>13.81</td><td>54525.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>65.82</td><td>16767</td><td></td></tr> 
+<tr><td> 2644 </td><td>unknown</td><td>19.40</td><td>14.13</td><td>16589.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>19.57</td><td>10349</td><td></td></tr> 
+<tr><td> 2645 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>96.08</td><td>0.35</td><td>23</td><td></td></tr> 
+<tr><td> 2646 </td><td>Carbon Hole</td><td>1.64</td><td>0.06</td><td>748.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>211.35</td><td>6666</td><td></td></tr> 
+<tr><td> 2647 </td><td>Carbon Hole</td><td>20.41</td><td>16.34</td><td>7582.58</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.10</td><td>7.74</td><td>974</td><td></td></tr> 
+<tr><td> 2648 </td><td>Helium3</td><td>21.20</td><td>20.95</td><td>16995.77</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.27</td><td>13.52</td><td>6973</td><td></td></tr> 
+<tr><td> 2649 </td><td>Helium3</td><td>20.45</td><td>15.79</td><td>63031.67</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.20</td><td>66.55</td><td>26256</td><td></td></tr> 
+<tr><td> 2650 </td><td>Helium3</td><td>19.92</td><td>13.91</td><td>32699.08</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>39.18</td><td>13874</td><td></td></tr> 
+<tr><td> 2652 </td><td>Helium3</td><td>17.84</td><td>10.21</td><td>9126.47</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>14.90</td><td>3927</td><td></td></tr> 
+<tr><td> 2654 </td><td>Tritium</td><td>19.54</td><td>15.01</td><td>73212.25</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.29</td><td>81.31</td><td>41817</td><td></td></tr> 
+<tr><td> 2658 </td><td>Carbon Hole</td><td>21.10</td><td>19.36</td><td>35699.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>30.73</td><td>2872</td><td></td></tr> 
+<tr><td> 2659 </td><td>Single Carbon Foil</td><td>21.12</td><td>21.23</td><td>12709.97</td><td>PS1=0 PS2=0 PS3=0 PS8=10 </td><td>0.00</td><td>9.98</td><td>0</td><td></td></tr> 
+<tr><td> 2660 </td><td>Single Carbon Foil</td><td>6.08</td><td>3.96</td><td>5195.09</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>21.84</td><td>0</td><td></td></tr> 
+<tr><td> 2661 </td><td>Single Carbon Foil</td><td>19.66</td><td>17.64</td><td>25675.36</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>24.26</td><td>4240</td><td></td></tr> 
+<tr><td> 2662 </td><td>Multifoils</td><td>19.54</td><td>17.66</td><td>32938.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.25</td><td>31.09</td><td>23669</td><td></td></tr> 
+<tr><td> 2663 </td><td>Empty Cell</td><td>18.03</td><td>13.53</td><td>12533.07</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>15.44</td><td>2340</td><td></td></tr> 
+<tr><td> 2664 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>3.90</td><td>0</td><td></td></tr> 
+<tr><td> 2666 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>95.47</td><td>1.62</td><td>124</td><td></td></tr> 
+<tr><td> 2667 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.07</td><td>47.01</td><td>1487</td><td></td></tr> 
+<tr><td> 2668 </td><td>Carbon Hole</td><td>19.28</td><td>18.00</td><td>17436.04</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.15</td><td>16.14</td><td>1376</td><td></td></tr> 
+<tr><td> 2669 </td><td>Empty Cell</td><td>20.67</td><td>18.97</td><td>23546.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>20.69</td><td>4141</td><td></td></tr> 
+<tr><td> 2670 </td><td>Helium3</td><td>20.86</td><td>4.63</td><td>8586.79</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>30.90</td><td>2750</td><td></td></tr> 
+<tr><td> 2671 </td><td>Helium3</td><td>19.96</td><td>7.22</td><td>19029.41</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>43.90</td><td>5570</td><td></td></tr> 
+<tr><td> 2674 </td><td>Helium3</td><td>20.16</td><td>4.69</td><td>6448.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.05</td><td>22.91</td><td>2152</td><td></td></tr> 
+<tr><td> 2675 </td><td>Helium3</td><td>20.05</td><td>18.94</td><td>75317.29</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.22</td><td>66.27</td><td>18475</td><td></td></tr> 
+<tr><td> 2676 </td><td>Helium3</td><td>19.60</td><td>18.77</td><td>76768.78</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>68.15</td><td>18937</td><td></td></tr> 
+<tr><td> 2677 </td><td>Tritium</td><td>18.26</td><td>13.91</td><td>76265.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>91.36</td><td>26998</td><td></td></tr> 
+<tr><td> 2678 </td><td>Tritium</td><td>14.61</td><td>7.55</td><td>28199.94</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.15</td><td>62.24</td><td>11027</td><td></td></tr> 
+<tr><td> 2679 </td><td>Tritium</td><td>19.01</td><td>10.86</td><td>18485.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.15</td><td>28.36</td><td>6613</td><td></td></tr> 
+<tr><td> 2680 </td><td>Tritium</td><td>18.45</td><td>8.65</td><td>37492.23</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>72.25</td><td>13932</td><td></td></tr> 
+<tr><td> 2681 </td><td>Tritium</td><td>18.87</td><td>11.69</td><td>88597.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>126.28</td><td>31739</td><td></td></tr> 
+<tr><td> 2682 </td><td>Tritium</td><td>19.87</td><td>13.76</td><td>24740.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>29.97</td><td>8810</td><td></td></tr> 
+<tr><td> 2683 </td><td>Tritium</td><td>18.23</td><td>6.22</td><td>15816.84</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>42.38</td><td>6360</td><td></td></tr> 
+<tr><td> 2684 </td><td>Tritium</td><td>18.68</td><td>2.18</td><td>14912.23</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.08</td><td>114.17</td><td>8354</td><td></td></tr> 
+<tr><td> 2685 </td><td>Tritium</td><td>20.35</td><td>17.42</td><td>58169.20</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.20</td><td>55.64</td><td>19900</td><td></td></tr> 
+<tr><td> 2686 </td><td>Deuterium</td><td>20.74</td><td>19.32</td><td>73709.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>63.58</td><td>27051</td><td></td></tr> 
+<tr><td> 2687 </td><td>Deuterium</td><td>18.73</td><td>15.90</td><td>58551.21</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>61.36</td><td>21828</td><td></td></tr> 
+<tr><td> 2688 </td><td>Deuterium</td><td>18.08</td><td>12.42</td><td>56006.18</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>75.13</td><td>21371</td><td></td></tr> 
+<tr><td> 2689 </td><td>Helium3</td><td>20.70</td><td>11.05</td><td>6164.64</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.06</td><td>9.30</td><td>1594</td><td></td></tr> 
+<tr><td> 2690 </td><td>Helium3</td><td>19.58</td><td>16.90</td><td>78106.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>77.03</td><td>19722</td><td></td></tr> 
+<tr><td> 2691 </td><td>Helium3</td><td>18.21</td><td>13.54</td><td>66164.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>81.44</td><td>17237</td><td></td></tr> 
+<tr><td> 2692 </td><td>Helium3</td><td>15.26</td><td>8.88</td><td>44388.01</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>83.35</td><td>12403</td><td></td></tr> 
+<tr><td> 2693 </td><td>Helium3</td><td>10.06</td><td>5.32</td><td>6524.90</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.05</td><td>20.42</td><td>2095</td><td></td></tr> 
+<tr><td> 2694 </td><td>Helium3</td><td>20.61</td><td>14.76</td><td>100158.55</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>113.12</td><td>25803</td><td></td></tr> 
+<tr><td> 2695 </td><td>Tritium</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>5.11</td><td>164</td><td></td></tr> 
+<tr><td> 2696 </td><td>Tritium</td><td>19.82</td><td>13.80</td><td>15073.18</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>18.21</td><td>5231</td><td></td></tr> 
+<tr><td> 2697 </td><td>Tritium</td><td>19.61</td><td>14.28</td><td>40396.70</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>47.14</td><td>14456</td><td></td></tr> 
+<tr><td> 2698 </td><td>Tritium</td><td>20.80</td><td>16.54</td><td>86796.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>87.45</td><td>30015</td><td></td></tr> 
+<tr><td> 2699 </td><td>Deuterium</td><td>20.43</td><td>14.33</td><td>64059.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.15</td><td>74.49</td><td>24020</td><td></td></tr> 
+<tr><td> 2700 </td><td>Empty Cell</td><td>19.67</td><td>16.81</td><td>68560.60</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>67.99</td><td>12805</td><td></td></tr> 
+<tr><td> 2701 </td><td>Dummy</td><td>14.89</td><td>12.90</td><td>32511.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.37</td><td>41.99</td><td>26944</td><td></td></tr> 
+<tr><td> 2702 </td><td>Carbon Hole</td><td>18.98</td><td>17.68</td><td>9899.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.33</td><td>9.33</td><td>603</td><td></td></tr> 
+<tr><td> 2703 </td><td>Single Carbon Foil</td><td>18.10</td><td>14.34</td><td>34238.53</td><td>PS1=1 PS2=1 PS3=1 PS8=1000 </td><td>0.62</td><td>39.81</td><td>4012</td><td></td></tr> 
+<tr><td> 2704 </td><td>Multifoils</td><td>19.61</td><td>15.21</td><td>33020.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.22</td><td>36.19</td><td>15484</td><td></td></tr> 
+<tr><td> 2705 </td><td>Helium3</td><td>20.62</td><td>17.87</td><td>68792.63</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>64.16</td><td>12043</td><td></td></tr> 
+<tr><td> 2706 </td><td>Helium3</td><td>20.37</td><td>15.92</td><td>86074.06</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>90.10</td><td>15385</td><td></td></tr> 
+<tr><td> 2707 </td><td>Helium3</td><td>20.17</td><td>16.34</td><td>73494.19</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>74.98</td><td>12916</td><td></td></tr> 
+<tr><td> 2708 </td><td>Helium3</td><td>21.02</td><td>18.83</td><td>95088.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>84.16</td><td>16497</td><td></td></tr> 
+<tr><td> 2709 </td><td>Helium3</td><td>21.11</td><td>16.95</td><td>61658.58</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>60.61</td><td>10963</td><td></td></tr> 
+<tr><td> 2710 </td><td>Helium3</td><td>19.92</td><td>13.10</td><td>45912.26</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.06</td><td>58.39</td><td>8500</td><td></td></tr> 
+<tr><td> 2711 </td><td>Helium3</td><td>20.00</td><td>12.72</td><td>61111.83</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>80.10</td><td>11191</td><td></td></tr> 
+<tr><td> 2712 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=500 </td><td>0.00</td><td>1.70</td><td>57</td><td></td></tr> 
+<tr><td> 2713 </td><td>Dummy</td><td>3.48</td><td>2.50</td><td>564.61</td><td>PS1=1 PS2=1 PS3=1 PS8=500 </td><td>0.43</td><td>3.77</td><td>465</td><td></td></tr> 
+<tr><td> 2714 </td><td>Dummy</td><td>5.85</td><td>2.27</td><td>1769.68</td><td>PS1=1 PS2=1 PS3=1 PS8=500 </td><td>0.97</td><td>12.99</td><td>1432</td><td></td></tr> 
+<tr><td> 2715 </td><td>Dummy</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>52.28</td><td>0</td><td></td></tr> 
+<tr><td> 2716 </td><td>Dummy</td><td>5.10</td><td>1.76</td><td>5298.85</td><td>PS1=1 PS2=1 PS3=1 PS8=500 </td><td>0.83</td><td>50.06</td><td>4548</td><td></td></tr> 
+<tr><td> 2717 </td><td>Dummy</td><td>8.51</td><td>1.31</td><td>429.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>5.46</td><td>441</td><td></td></tr> 
+<tr><td> 2719 </td><td>Tritium</td><td>19.70</td><td>16.65</td><td>78700.59</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>78.76</td><td>18853</td><td></td></tr> 
+<tr><td> 2720 </td><td>Tritium</td><td>19.01</td><td>14.17</td><td>73889.05</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>86.89</td><td>18309</td><td></td></tr> 
+<tr><td> 2721 </td><td>Tritium</td><td>19.73</td><td>16.17</td><td>75756.01</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>78.09</td><td>18225</td><td></td></tr> 
+<tr><td> 2722 </td><td>Tritium</td><td>19.04</td><td>15.33</td><td>79201.04</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>86.10</td><td>19517</td><td></td></tr> 
+<tr><td> 2723 </td><td>Tritium</td><td>20.43</td><td>18.75</td><td>93870.94</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.15</td><td>83.43</td><td>22053</td><td></td></tr> 
+<tr><td> 2724 </td><td>Deuterium</td><td>20.77</td><td>19.24</td><td>83443.92</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>72.28</td><td>20589</td><td></td></tr> 
+<tr><td> 2725 </td><td>Deuterium</td><td>20.61</td><td>16.93</td><td>72312.50</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>71.17</td><td>18133</td><td></td></tr> 
+<tr><td> 2726 </td><td>Deuterium</td><td>20.22</td><td>19.75</td><td>83207.08</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>70.23</td><td>20548</td><td></td></tr> 
+<tr><td> 2727 </td><td>Deuterium</td><td>19.76</td><td>17.27</td><td>75016.25</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>72.39</td><td>18738</td><td></td></tr> 
+<tr><td> 2728 </td><td>Helium3</td><td>19.19</td><td>11.19</td><td>45489.69</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>67.78</td><td>8582</td><td></td></tr> 
+<tr><td> 2729 </td><td>Helium3</td><td>20.03</td><td>17.29</td><td>37313.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>35.97</td><td>6543</td><td></td></tr> 
+<tr><td> 2730 </td><td>Helium3</td><td>19.61</td><td>16.52</td><td>69995.60</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>70.62</td><td>12385</td><td></td></tr> 
+<tr><td> 2731 </td><td>Helium3</td><td>20.29</td><td>17.40</td><td>67613.85</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.08</td><td>64.75</td><td>11970</td><td></td></tr> 
+<tr><td> 2732 </td><td>Helium3</td><td>20.66</td><td>16.95</td><td>102841.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>101.12</td><td>18357</td><td></td></tr> 
+<tr><td> 2734 </td><td>Helium3</td><td>19.59</td><td>18.48</td><td>50839.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>45.84</td><td>8926</td><td></td></tr> 
+<tr><td> 2735 </td><td>Tritium</td><td>20.24</td><td>17.36</td><td>81382.44</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>78.12</td><td>19688</td><td></td></tr> 
+<tr><td> 2736 </td><td>Tritium</td><td>20.16</td><td>18.34</td><td>82718.13</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>75.15</td><td>19858</td><td></td></tr> 
+<tr><td> 2737 </td><td>Tritium</td><td>19.75</td><td>17.44</td><td>69343.33</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>66.27</td><td>16700</td><td></td></tr> 
+<tr><td> 2738 </td><td>Tritium</td><td>20.93</td><td>17.81</td><td>82167.22</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>76.89</td><td>19598</td><td></td></tr> 
+<tr><td> 2739 </td><td>Tritium</td><td>19.36</td><td>17.74</td><td>41133.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.25</td><td>38.64</td><td>9994</td><td></td></tr> 
+<tr><td> 2740 </td><td>Deuterium</td><td>19.82</td><td>13.73</td><td>67302.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>81.69</td><td>17370</td><td></td></tr> 
+<tr><td> 2741 </td><td>Deuterium</td><td>21.54</td><td>21.54</td><td>9961.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.13</td><td>7.71</td><td>2385</td><td></td></tr> 
+<tr><td> 2742 </td><td>Dummy</td><td>20.01</td><td>18.95</td><td>68969.52</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.34</td><td>60.66</td><td>39943</td><td></td></tr> 
+<tr><td> 2743 </td><td>Carbon Hole</td><td>21.19</td><td>20.77</td><td>11120.13</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>8.92</td><td>553</td><td></td></tr> 
+<tr><td> 2744 </td><td>Single Carbon Foil</td><td>19.85</td><td>18.67</td><td>32000.79</td><td>PS1=1 PS2=1 PS3=1 PS8=1000 </td><td>0.50</td><td>28.57</td><td>2584</td><td></td></tr> 
+<tr><td> 2745 </td><td>Multifoils</td><td>20.68</td><td>18.54</td><td>34554.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.21</td><td>31.06</td><td>11744</td><td></td></tr> 
+<tr><td> 2746 </td><td>unknown</td><td>20.84</td><td>20.02</td><td>70952.57</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.20</td><td>59.07</td><td>13321</td><td></td></tr> 
+<tr><td> 2747 </td><td>unknown</td><td>20.57</td><td>18.47</td><td>75234.91</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>67.89</td><td>14275</td><td></td></tr> 
+<tr><td> 2748 </td><td>unknown</td><td>20.56</td><td>19.27</td><td>71529.91</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>61.86</td><td>13516</td><td></td></tr> 
+<tr><td> 2749 </td><td>unknown</td><td>20.22</td><td>18.34</td><td>83860.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>76.22</td><td>15963</td><td></td></tr> 
+<tr><td> 2750 </td><td>Tritium</td><td>20.62</td><td>17.73</td><td>77681.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.11</td><td>73.00</td><td>14797</td><td></td></tr> 
+<tr><td> 2751 </td><td>Tritium</td><td>19.65</td><td>16.44</td><td>73916.42</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>74.92</td><td>14366</td><td></td></tr> 
+<tr><td> 2752 </td><td>Tritium</td><td>20.11</td><td>15.69</td><td>68043.99</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>72.27</td><td>13281</td><td></td></tr> 
+<tr><td> 2753 </td><td>Helium3</td><td>20.53</td><td>16.64</td><td>79301.71</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>79.44</td><td>11390</td><td></td></tr> 
+<tr><td> 2754 </td><td>Helium3</td><td>21.01</td><td>16.79</td><td>82379.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>81.76</td><td>11792</td><td></td></tr> 
+<tr><td> 2755 </td><td>Helium3</td><td>21.10</td><td>19.97</td><td>79410.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>66.26</td><td>10825</td><td></td></tr> 
+<tr><td> 2756 </td><td>Helium3</td><td>20.92</td><td>17.44</td><td>56173.90</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>53.67</td><td>7946</td><td></td></tr> 
+<tr><td> 2757 </td><td>Dummy</td><td>11.31</td><td>5.52</td><td>16083.84</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>48.53</td><td>0</td><td></td></tr> 
+<tr><td> 2758 </td><td>Dummy</td><td>20.49</td><td>14.29</td><td>71218.52</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.25</td><td>83.04</td><td>33900</td><td></td></tr> 
+<tr><td> 2759 </td><td>unknown</td><td>20.92</td><td>19.38</td><td>79744.94</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>68.58</td><td>15221</td><td></td></tr> 
+<tr><td> 2760 </td><td>unknown</td><td>20.56</td><td>13.77</td><td>54019.73</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>65.38</td><td>10835</td><td></td></tr> 
+<tr><td> 2761 </td><td>unknown</td><td>20.95</td><td>13.95</td><td>45469.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>54.34</td><td>9196</td><td></td></tr> 
+<tr><td> 2762 </td><td>unknown</td><td>21.15</td><td>14.72</td><td>67428.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>76.35</td><td>13456</td><td></td></tr> 
+<tr><td> 2763 </td><td>unknown</td><td>20.70</td><td>12.85</td><td>79765.36</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>103.42</td><td>16305</td><td></td></tr> 
+<tr><td> 2764 </td><td>Tritium</td><td>20.90</td><td>18.81</td><td>79096.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.11</td><td>70.07</td><td>14808</td><td></td></tr> 
+<tr><td> 2765 </td><td>Tritium</td><td>21.12</td><td>20.62</td><td>78767.97</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.19</td><td>63.68</td><td>14630</td><td></td></tr> 
+<tr><td> 2766 </td><td>Tritium</td><td>21.07</td><td>19.59</td><td>99230.05</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.08</td><td>84.40</td><td>18575</td><td></td></tr> 
+<tr><td> 2767 </td><td>Tritium</td><td>20.68</td><td>16.83</td><td>86604.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>85.79</td><td>16934</td><td></td></tr> 
+<tr><td> 2768 </td><td>Helium3</td><td>20.96</td><td>14.29</td><td>78815.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>91.95</td><td>11453</td><td></td></tr> 
+<tr><td> 2769 </td><td>Helium3</td><td>20.69</td><td>17.45</td><td>79835.64</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>76.26</td><td>11162</td><td></td></tr> 
+<tr><td> 2770 </td><td>Helium3</td><td>20.84</td><td>17.73</td><td>98699.72</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>92.78</td><td>13719</td><td></td></tr> 
+<tr><td> 2771 </td><td>Helium3</td><td>20.64</td><td>16.66</td><td>78593.56</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>78.62</td><td>11103</td><td></td></tr> 
+<tr><td> 2772 </td><td>Helium3</td><td>21.56</td><td>21.45</td><td>21843.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>16.98</td><td>2945</td><td></td></tr> 
+<tr><td> 2773 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.05</td><td>249.41</td><td>7952</td><td></td></tr> 
+<tr><td> 2774 </td><td>Carbon Hole</td><td>21.27</td><td>20.10</td><td>18730.41</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.11</td><td>15.53</td><td>916</td><td></td></tr> 
+<tr><td> 2775 </td><td>Helium3</td><td>20.83</td><td>17.74</td><td>63972.16</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.11</td><td>60.11</td><td>8903</td><td></td></tr> 
+<tr><td> 2776 </td><td>Helium3</td><td>20.90</td><td>16.39</td><td>68840.63</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.12</td><td>69.99</td><td>9740</td><td></td></tr> 
+<tr><td> 2777 </td><td>Helium3</td><td>18.94</td><td>4.34</td><td>8226.32</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>31.58</td><td>1891</td><td></td></tr> 
+<tr><td> 2778 </td><td>Helium3</td><td>20.87</td><td>18.46</td><td>79059.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>71.37</td><td>11099</td><td></td></tr> 
+<tr><td> 2780 </td><td>Helium3</td><td>20.71</td><td>16.01</td><td>11989.76</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>12.48</td><td>1734</td><td></td></tr> 
+<tr><td> 2781 </td><td>Tritium</td><td>20.36</td><td>15.79</td><td>77094.79</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.15</td><td>81.39</td><td>14827</td><td></td></tr> 
+<tr><td> 2782 </td><td>Tritium</td><td>20.79</td><td>17.34</td><td>73720.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>70.86</td><td>14176</td><td></td></tr> 
+<tr><td> 2783 </td><td>Helium3</td><td>20.30</td><td>16.43</td><td>87554.37</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.09</td><td>88.83</td><td>12566</td><td></td></tr> 
+<tr><td> 2784 </td><td>Helium3</td><td>20.46</td><td>14.66</td><td>67050.86</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.17</td><td>76.23</td><td>9817</td><td></td></tr> 
+<tr><td> 2785 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=500 </td><td>0.00</td><td>13.71</td><td>0</td><td></td></tr> 
+<tr><td> 2786 </td><td>Carbon Hole</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.07</td><td>180.18</td><td>5626</td><td></td></tr> 
+<tr><td> 2788 </td><td>Carbon Hole</td><td>12.21</td><td>10.66</td><td>8263.63</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.16</td><td>12.92</td><td>1219</td><td></td></tr> 
+<tr><td> 2789 </td><td>Single Carbon Foil</td><td>19.67</td><td>17.88</td><td>30943.29</td><td>PS1=1 PS2=1 PS3=1 PS8=1000 </td><td>1.38</td><td>28.85</td><td>8851</td><td></td></tr> 
+<tr><td> 2790 </td><td>Tritium</td><td>18.76</td><td>11.76</td><td>40386.66</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.34</td><td>57.26</td><td>32293</td><td></td></tr> 
+<tr><td> 2791 </td><td>Tritium</td><td>11.48</td><td>1.78</td><td>2318.99</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.88</td><td>21.66</td><td>2452</td><td></td></tr> 
+<tr><td> 2792 </td><td>Tritium</td><td>20.29</td><td>16.62</td><td>80971.21</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.59</td><td>81.18</td><td>63787</td><td></td></tr> 
+<tr><td> 2796 </td><td>Tritium</td><td>20.61</td><td>16.98</td><td>75975.31</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.44</td><td>74.56</td><td>59692</td><td></td></tr> 
+<tr><td> 2797 </td><td>Helium3</td><td>19.59</td><td>12.90</td><td>60186.51</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.61</td><td>77.77</td><td>33384</td><td></td></tr> 
+<tr><td> 2798 </td><td>Helium3</td><td>14.86</td><td>3.76</td><td>21113.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.43</td><td>93.68</td><td>13901</td><td></td></tr> 
+<tr><td> 2799 </td><td>Helium3</td><td>19.11</td><td>11.52</td><td>59874.62</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.81</td><td>86.60</td><td>33727</td><td></td></tr> 
+<tr><td> 2800 </td><td>Helium3</td><td>20.91</td><td>13.95</td><td>36167.91</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.71</td><td>43.20</td><td>20049</td><td></td></tr> 
+<tr><td> 2801 </td><td>Helium3</td><td>19.45</td><td>13.50</td><td>19497.43</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.86</td><td>24.07</td><td>10653</td><td></td></tr> 
+<tr><td> 2802 </td><td>Helium3</td><td>11.75</td><td>2.72</td><td>483.72</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.96</td><td>2.96</td><td>351</td><td></td></tr> 
+<tr><td> 2803 </td><td>Helium3</td><td>19.94</td><td>14.83</td><td>84078.26</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.81</td><td>94.49</td><td>46568</td><td></td></tr> 
+<tr><td> 2804 </td><td>Helium3</td><td>21.17</td><td>19.05</td><td>44058.07</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.74</td><td>38.55</td><td>24132</td><td></td></tr> 
+<tr><td> 2805 </td><td>unknown</td><td>21.19</td><td>21.05</td><td>33988.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.45</td><td>26.91</td><td>25149</td><td></td></tr> 
+<tr><td> 2806 </td><td>unknown</td><td>20.58</td><td>16.07</td><td>85763.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>2.36</td><td>88.97</td><td>64625</td><td></td></tr> 
+<tr><td> 2807 </td><td>Dummy</td><td>20.87</td><td>17.35</td><td>39420.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.29</td><td>37.88</td><td>90083</td><td></td></tr> 
+<tr><td> 2808 </td><td>Empty Cell</td><td>20.61</td><td>20.43</td><td>39711.29</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>1.41</td><td>32.40</td><td>17071</td><td></td></tr> 
+<tr><td> 2809 </td><td>Carbon Hole</td><td>19.94</td><td>19.09</td><td>9230.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.24</td><td>8.06</td><td>423</td><td></td></tr> 
+<tr><td> 2810 </td><td>Single Carbon Foil</td><td>20.19</td><td>16.65</td><td>31774.01</td><td>PS1=1 PS2=1 PS3=1 PS8=1000 </td><td>0.54</td><td>31.80</td><td>2744</td><td></td></tr> 
+<tr><td> 2811 </td><td>Tritium</td><td>20.69</td><td>19.09</td><td>77315.34</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.18</td><td>67.51</td><td>14767</td><td></td></tr> 
+<tr><td> 2814 </td><td>Helium3</td><td>20.54</td><td>18.59</td><td>78863.52</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.06</td><td>70.70</td><td>10888</td><td></td></tr> 
+<tr><td> 2815 </td><td>Helium3</td><td>20.61</td><td>19.36</td><td>83667.70</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>72.04</td><td>11285</td><td></td></tr> 
+<tr><td> 2816 </td><td>Helium3</td><td>20.72</td><td>19.18</td><td>40410.88</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.13</td><td>35.11</td><td>5524</td><td></td></tr> 
+<tr><td> 2817 </td><td>Helium3</td><td>19.77</td><td>3.86</td><td>1077.41</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>4.65</td><td>256</td><td></td></tr> 
+<tr><td> 2818 </td><td>Helium3</td><td>21.32</td><td>21.32</td><td>36653.09</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>28.66</td><td>5074</td><td></td></tr> 
+<tr><td> 2819 </td><td>Dummy</td><td>21.09</td><td>20.59</td><td>52854.03</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.29</td><td>42.79</td><td>24644</td><td></td></tr> 
+<tr><td> 2820 </td><td>unknown</td><td>20.41</td><td>19.94</td><td>76553.89</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>63.98</td><td>14415</td><td></td></tr> 
+<tr><td> 2821 </td><td>unknown</td><td>20.93</td><td>18.88</td><td>66440.48</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.11</td><td>58.64</td><td>12726</td><td></td></tr> 
+<tr><td> 2822 </td><td>Tritium</td><td>20.85</td><td>17.24</td><td>64779.07</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.10</td><td>62.62</td><td>12461</td><td></td></tr> 
+<tr><td> 2823 </td><td>Tritium</td><td>21.07</td><td>20.82</td><td>73771.23</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.14</td><td>59.05</td><td>13922</td><td></td></tr> 
+<tr><td> 2824 </td><td>Tritium</td><td>20.45</td><td>17.12</td><td>77023.39</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.11</td><td>74.96</td><td>14801</td><td></td></tr> 
+<tr><td> 3002 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.19</td><td>105.83</td><td>3242</td><td></td></tr> 
+<tr><td> 3003 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.08</td><td>128.86</td><td>3916</td><td></td></tr> 
+<tr><td> 3004 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.12</td><td>26.92</td><td>855</td><td></td></tr> 
+<tr><td> 3005 </td><td> Unkown - Please double check logbook </td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.14</td><td>72.76</td><td>2196</td><td></td></tr> 
+<tr><td> 3006 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.80</td><td>12.63</td><td>378</td><td></td></tr> 
+<tr><td> 3007 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.13</td><td>50.23</td><td>1579</td><td></td></tr> 
+<tr><td> 3010 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.00</td><td>428.26</td><td>13525</td><td></td></tr> 
+<tr><td> 3011 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.03</td><td>275.08</td><td>8591</td><td></td></tr> 
+<tr><td> 3012 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.02</td><td>420.15</td><td>13306</td><td></td></tr> 
+<tr><td> 3013 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>15.36</td><td>38.01</td><td>2948</td><td></td></tr> 
+<tr><td> 3014 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>-0.63</td><td>10.19</td><td>317</td><td></td></tr> 
+<tr><td> 3016 </td><td>HOME</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>0.48</td><td>8.46</td><td>416</td><td></td></tr> 
+<tr><td> 3017 </td><td>HOME</td><td>3.28</td><td>3.20</td><td>490.40</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.03</td><td>2.55</td><td>3666</td><td></td></tr> 
+<tr><td> 3018 </td><td>Thick Aluminum</td><td>4.96</td><td>2.85</td><td>756.68</td><td>PS1=0 PS2=0 PS3=1 PS8=0 </td><td>0.00</td><td>4.42</td><td>0</td><td></td></tr> 
+<tr><td> 3019 </td><td>Thick Aluminum</td><td>4.00</td><td>3.96</td><td>214.86</td><td>PS1=0 PS2=0 PS3=1 PS8=0 </td><td>0.00</td><td>0.91</td><td>0</td><td></td></tr> 
+<tr><td> 3020 </td><td>Thick Aluminum</td><td>7.12</td><td>1.06</td><td>1052.12</td><td>PS1=100 PS2=100 PS3=100 PS8=0 </td><td>2.47</td><td>16.54</td><td>49031</td><td></td></tr> 
+<tr><td> 3022 </td><td>Carbon Hole</td><td>9.14</td><td>9.14</td><td>968.28</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>18.59</td><td>1.77</td><td>297503</td><td></td></tr> 
+<tr><td> 3023 </td><td>Carbon Hole</td><td>9.22</td><td>9.21</td><td>1967.15</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>10.01</td><td>3.56</td><td>585515</td><td></td></tr> 
+<tr><td> 3024 </td><td>Carbon Hole</td><td>8.31</td><td>1.88</td><td>385.95</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.44</td><td>3.42</td><td>99390</td><td></td></tr> 
+<tr><td> 3025 </td><td>Carbon Hole</td><td>9.22</td><td>9.23</td><td>726.07</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.45</td><td>1.31</td><td>187306</td><td></td></tr> 
+<tr><td> 3026 </td><td>Carbon Hole</td><td>9.17</td><td>9.17</td><td>328.30</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.06</td><td>0.60</td><td>79471</td><td></td></tr> 
+<tr><td> 3027 </td><td>Carbon Hole</td><td>8.13</td><td>0.83</td><td>36.85</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.18</td><td>0.74</td><td>9649</td><td></td></tr> 
+<tr><td> 3028 </td><td>Carbon Hole</td><td>8.76</td><td>7.87</td><td>1619.80</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>8.06</td><td>3.43</td><td>384995</td><td></td></tr> 
+<tr><td> 3029 </td><td>Carbon Hole</td><td>9.16</td><td>9.17</td><td>459.98</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.10</td><td>0.84</td><td>82136</td><td></td></tr> 
+<tr><td> 3030 </td><td>Single Carbon Foil</td><td>8.19</td><td>8.10</td><td>1291.36</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>2.66</td><td>0</td><td></td></tr> 
+<tr><td> 3031 </td><td>Single Carbon Foil</td><td>8.46</td><td>6.63</td><td>1724.20</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>12.14</td><td>4.33</td><td>660580</td><td></td></tr> 
+<tr><td> 3032 </td><td>Single Carbon Foil</td><td>8.86</td><td>8.86</td><td>1293.53</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>12.05</td><td>2.43</td><td>492775</td><td></td></tr> 
+<tr><td> 3033 </td><td>Single Carbon Foil</td><td>3.78</td><td>2.91</td><td>601.64</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>3.44</td><td>0</td><td></td></tr> 
+<tr><td> 3034 </td><td>Single Carbon Foil</td><td>6.47</td><td>6.47</td><td>3291.47</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>8.48</td><td>0</td><td></td></tr> 
+<tr><td> 3035 </td><td>Single Carbon Foil</td><td>6.43</td><td>6.43</td><td>472.15</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>1.22</td><td>0</td><td></td></tr> 
+<tr><td> 3036 </td><td>Single Carbon Foil</td><td>6.22</td><td>4.02</td><td>657.78</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>2.73</td><td>0</td><td></td></tr> 
+<tr><td> 3037 </td><td>Single Carbon Foil</td><td>3.80</td><td>0.70</td><td>194.59</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>4.65</td><td>0</td><td></td></tr> 
+<tr><td> 3038 </td><td>Single Carbon Foil</td><td>4.60</td><td>4.60</td><td>785.85</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>2.85</td><td>0</td><td></td></tr> 
+<tr><td> 3039 </td><td>Single Carbon Foil</td><td>-nan</td><td>0.00</td><td>0.00</td><td>PS1=0 PS2=0 PS3=0 PS8=100 </td><td>0.00</td><td>2.17</td><td>0</td><td></td></tr> 
+<tr><td> 3040 </td><td>Tritium</td><td>1.96</td><td>1.38</td><td>531.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>66.28</td><td>6.41</td><td>213623</td><td></td></tr> 
+<tr><td> 3041 </td><td>Tritium</td><td>1.98</td><td>0.73</td><td>1718.31</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>18.70</td><td>39.08</td><td>1657901</td><td></td></tr> 
+<tr><td> 3051 </td><td>Helium3</td><td>19.01</td><td>9.50</td><td>10593.82</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>11.10</td><td>18.58</td><td>1336482</td><td></td></tr> 
+<tr><td> 3052 </td><td>Helium3</td><td>21.04</td><td>21.04</td><td>10491.86</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>11.21</td><td>8.31</td><td>1317710</td><td></td></tr> 
+<tr><td> 3053 </td><td>Helium3</td><td>21.13</td><td>21.14</td><td>9741.24</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>11.30</td><td>7.68</td><td>1222716</td><td></td></tr> 
+<tr><td> 3054 </td><td>Helium3</td><td>19.39</td><td>8.48</td><td>6414.96</td><td>PS1=2 PS2=2 PS3=100 PS8=0 </td><td>10.27</td><td>12.61</td><td>813674</td><td></td></tr> 
+<tr><td> 3055 </td><td>Tritium</td><td>20.48</td><td>19.26</td><td>10062.11</td><td>PS1=2 PS2=2 PS3=100 PS8=0 </td><td>26.74</td><td>8.71</td><td>1361197</td><td></td></tr> 
+<tr><td> 3056 </td><td>Tritium</td><td>18.58</td><td>16.86</td><td>2270.35</td><td>PS1=2 PS2=2 PS3=100 PS8=0 </td><td>25.53</td><td>2.24</td><td>312489</td><td></td></tr> 
+<tr><td> 3058 </td><td>Tritium</td><td>19.63</td><td>10.41</td><td>11280.64</td><td>PS1=3 PS2=3 PS3=100 PS8=0 </td><td>9.28</td><td>18.06</td><td>1260091</td><td></td></tr> 
+<tr><td> 3059 </td><td>Tritium</td><td>17.10</td><td>4.96</td><td>11622.59</td><td>PS1=3 PS2=3 PS3=100 PS8=0 </td><td>9.07</td><td>39.03</td><td>1289688</td><td></td></tr> 
+<tr><td> 3060 </td><td>Tritium</td><td>20.15</td><td>20.11</td><td>10297.39</td><td>PS1=3 PS2=3 PS3=100 PS8=0 </td><td>9.35</td><td>8.53</td><td>1142948</td><td></td></tr> 
+<tr><td> 3061 </td><td>Empty Cell</td><td>20.53</td><td>13.80</td><td>11074.01</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>9.55</td><td>13.38</td><td>1234188</td><td></td></tr> 
+<tr><td> 3062 </td><td>Empty Cell</td><td>20.38</td><td>20.35</td><td>13647.90</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>9.59</td><td>11.18</td><td>1520511</td><td></td></tr> 
+<tr><td> 3063 </td><td>Empty Cell</td><td>20.37</td><td>17.90</td><td>8929.60</td><td>PS1=2 PS2=2 PS3=10 PS8=0 </td><td>9.56</td><td>8.32</td><td>995357</td><td></td></tr> 
+<tr><td> 3064 </td><td>Hydrogen</td><td>20.78</td><td>20.71</td><td>622.89</td><td>PS1=8 PS2=8 PS3=20 PS8=0 </td><td>74.35</td><td>0.50</td><td>63195</td><td></td></tr> 
+<tr><td> 3065 </td><td>Hydrogen</td><td>21.04</td><td>21.04</td><td>2207.98</td><td>PS1=30 PS2=30 PS3=50 PS8=0 </td><td>20.00</td><td>1.75</td><td>185958</td><td></td></tr> 
+<tr><td> 3067 </td><td>Hydrogen</td><td>18.93</td><td>12.59</td><td>19299.80</td><td>PS1=40 PS2=40 PS3=400 PS8=0 </td><td>5.97</td><td>25.54</td><td>1434327</td><td></td></tr> 
+<tr><td> 3068 </td><td>Single Carbon Foil</td><td>20.38</td><td>6.91</td><td>4859.99</td><td>PS1=40 PS2=40 PS3=400 PS8=0 </td><td>0.08</td><td>11.73</td><td>5256</td><td></td></tr> 
+<tr><td> 3069 </td><td>Carbon Hole</td><td>20.24</td><td>9.54</td><td>8658.42</td><td>PS1=40 PS2=40 PS3=400 PS8=0 </td><td>-0.16</td><td>15.13</td><td>4398</td><td></td></tr> 
+<tr><td> 3070 </td><td>Multifoils</td><td>19.11</td><td>13.63</td><td>5920.96</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>13.44</td><td>7.24</td><td>1066807</td><td></td></tr> 
+<tr><td> 3071 </td><td>Tritium</td><td>19.80</td><td>14.96</td><td>31593.82</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.19</td><td>35.19</td><td>2639584</td><td></td></tr> 
+<tr><td> 3072 </td><td>Tritium</td><td>19.52</td><td>14.60</td><td>21696.19</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.20</td><td>24.77</td><td>1815405</td><td></td></tr> 
+<tr><td> 3073 </td><td>Helium3</td><td>21.04</td><td>21.05</td><td>28452.17</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.93</td><td>22.53</td><td>1891999</td><td></td></tr> 
+<tr><td> 3074 </td><td>Helium3</td><td>21.00</td><td>21.00</td><td>27804.06</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>4.91</td><td>22.07</td><td>1847208</td><td></td></tr> 
+<tr><td> 3075 </td><td>Empty Cell</td><td>20.42</td><td>17.21</td><td>15535.09</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>3.66</td><td>15.04</td><td>772969</td><td></td></tr> 
+<tr><td> 3076 </td><td>unknown</td><td>17.81</td><td>9.80</td><td>20517.54</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.54</td><td>34.91</td><td>1826682</td><td></td></tr> 
+<tr><td> 3077 </td><td>unknown</td><td>20.06</td><td>15.18</td><td>22752.10</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.59</td><td>24.98</td><td>2023335</td><td></td></tr> 
+<tr><td> 3078 </td><td>unknown</td><td>20.87</td><td>20.88</td><td>5665.87</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>6.63</td><td>4.52</td><td>503993</td><td></td></tr> 
+<tr><td> 3079 </td><td>unknown</td><td>20.78</td><td>20.78</td><td>12701.24</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>11.12</td><td>10.19</td><td>1928380</td><td></td></tr> 
+<tr><td> 3080 </td><td>unknown</td><td>20.78</td><td>20.74</td><td>4943.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>11.04</td><td>3.97</td><td>749506</td><td></td></tr> 
+<tr><td> 3081 </td><td>Empty Cell</td><td>19.21</td><td>18.83</td><td>20581.35</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>5.13</td><td>18.22</td><td>1487635</td><td></td></tr> 
+<tr><td> 3082 </td><td>Helium3</td><td>19.30</td><td>16.89</td><td>19344.74</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.29</td><td>19.09</td><td>1974180</td><td></td></tr> 
+<tr><td> 3083 </td><td>Helium3</td><td>20.76</td><td>20.81</td><td>3515.61</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>7.34</td><td>2.82</td><td>358689</td><td></td></tr> 
+<tr><td> 3084 </td><td>Tritium</td><td>20.12</td><td>16.88</td><td>14875.20</td><td>PS1=1 PS2=1 PS3=1 PS8=0 </td><td>9.22</td><td>14.69</td><td>1889266</td><td></td></tr> 

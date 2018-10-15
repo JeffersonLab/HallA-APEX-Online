@@ -8,6 +8,7 @@
 map 3800 7 1 ceb10000 ffff0000 3 
 map 3800 7 2 ceb20000 ffff0000 3 
 map 3800 7 3 ceb30000 ffff0000 3 7 103700
+#map 3800 7 3 ceb30000 ffff0000 3 6 1024
 
 
 # variable syntax
@@ -45,6 +46,7 @@ variable 3 13 2  ADC_gate_r  RHRS ADC gate rate
 variable 3 15 1  RF_Time  RF time
 variable 3 15 2  RF_Time_r  RF time rate
 
+
 variable 3 16 1 unser   unser count
 variable 3 16 2 unser_r unser rate
 variable 3 18 1 unew   new bcm upstream count
@@ -61,8 +63,6 @@ variable 3 28 1 d3    bcm x3 downstream count
 variable 3 28 2 d3_r  bcm x3 downstream rate
 variable 3 30 1 d10   bcm x10 downstream count
 variable 3 30 2 d10_r bcm x10 downstream rate 
-
-
 
 variable 2 0  1  S2mL_1   S2m1L
 variable 2 1  1  S2mL_2   S2m2L
@@ -97,7 +97,6 @@ variable 2 29  1  S2mR_14   S2m14R
 variable 2 30  1  S2mR_15   S2m15R
 variable 2 31  1  S2mR_16   S2m16R
 
-
 variable 1 16  1  Cher_1   Cher1
 variable 1 17  1  Cher_2   Cher2
 variable 1 18  1  Cher_3   Cher3
@@ -114,7 +113,6 @@ variable 1 28  1  S0B    S0B
 variable 1 29  1  S0AandB    S0A & S0B
 variable 1 30  1  L1A2    L1A copy 2 from TS RHRS (for F1s)
 variable 1 31  1  S2LandR    S2L & S2R
-
 
 variable 2 0   2  S2mL_1_r   S2m1L rate
 variable 2 1   2  S2mL_2_r   S2m2L rate
@@ -148,7 +146,6 @@ variable 2 28  2  S2mR_13_r   S2m13R rate
 variable 2 29  2  S2mR_14_r   S2m14R rate
 variable 2 30  2  S2mR_15_r   S2m15R rate
 variable 2 31  2  S2mR_16_r   S2m16R rate
-
 
 variable 1 16  2  Cher_1_r   Cher1 rate
 variable 1 17  2  Cher_2_r   Cher2 rate

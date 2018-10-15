@@ -1,0 +1,63 @@
+# On branch master
+# Your branch is behind 'origin/master' by 4 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   ../../replay/LHRS.odef
+#	modified:   ../../replay/LHRS_auto.odef
+#	modified:   ../../replay/scripts/Electron_Count.C
+#	modified:   ../../replay/scripts/SPOT/LeftHRS_Tritium/cuts_rastersize.def
+#	modified:   ../../replay/scripts/SPOT/LeftHRS_Tritium/get_rastersize_L.C
+#	modified:   ../../replay/scripts/TRI_Main.h
+#	modified:   ../../replay/scripts/getinfo.C
+#	modified:   THaDecDict.C
+#	deleted:    THaDecDict.h
+#	modified:   epicsd
+#	modified:   prfact
+#	modified:   tdecex
+#	modified:   tdecpr
+#	modified:   tstio
+#	modified:   ../hana_scaler/THaScalDict.C
+#	deleted:    ../hana_scaler/THaScalDict.h
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../../replay/3H_ytg.pdf
+#	../../replay/90824_pedestals.pdf
+#	../../replay/LHRS.odef.bck
+#	../../replay/c1.jpg
+#	../../replay/c1_n2.pdf
+#	../../replay/diff.diff
+#	../../replay/kin3tritiumcount.eps
+#	../../replay/post_scope_screenshots
+#	../../replay/scripts/Runlist/D2_kin4.dat
+#	../../replay/scripts/Runlist/DM_kin0.dat
+#	../../replay/scripts/Runlist/DMp_kin1.dat
+#	../../replay/scripts/Runlist/DMp_kin2.dat
+#	../../replay/scripts/Runlist/H1_kin4.dat
+#	../../replay/scripts/Runlist/H3_kin4.dat
+#	../../replay/scripts/Runlist/He3_kin4.dat
+#	../../replay/scripts/SPOT/.#spotL.diff
+#	../../replay/scripts/SPOT/LeftHRS_Tritium/cuts1.def
+#	../../replay/scripts/SPOT/LeftHRS_Tritium/cuts_rastersize.def.bck
+#	../../replay/scripts/Time_check/check_L_time_1215.pdf
+#	../../replay/scripts/Time_check/check_L_time_724.pdf
+#	../../replay/scripts/Time_check/check_L_time_789.pdf
+#	../../replay/scripts/Time_check/check_L_time_792.pdf
+#	../../replay/scripts/Time_check/check_time_R_90315.pdf
+#	../../replay/scripts/Time_check/check_time_R_90524.pdf
+#	../../replay/scripts/Time_check/check_time_R_90532.pdf
+#	../../replay/scripts/getinfo-new.C
+#	../../replay/scripts/good_ele
+#	../../replay/scripts/list/#runlist.tex#
+#	../../replay/scripts/wiki_runlist.txt
+#	../../replay/scripts/wiki_runlist_LHRS.txt
+#	../../replay/scripts/wiki_runlist_RHRS.txt
+#	../../replay/spot_upload
+#	../../replay/t2root
+#	status.temp
+no changes added to commit (use "git add" and/or "git commit -a")
