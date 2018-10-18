@@ -737,9 +737,9 @@ vmeDmaConfig(2, 5, 1);
     *dma_dabufp++ = LSWAP(0x14951495);
     *dma_dabufp++ = LSWAP(v1495ClockCountReadCODA());			//32 bit Clock Count
     *dma_dabufp++ = LSWAP((unsigned int)(BCMu_value>>32));		//upper 32 bits of upstream bcm
-    *dma_dabufp++ = LSWAP((unsigned int)(BCMu_value & 0xFFFF));		//lower 32 bits of upstream bcm
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMu_value & 0xFFFFFFFF));		//lower 32 bits of upstream bcm
     *dma_dabufp++ = LSWAP((unsigned int)(BCMd_value>>32));		//upper 32 bits of downstream bcm
-    *dma_dabufp++ = LSWAP((unsigned int)(BCMd_value & 0xFFFF));		//lower 32 bits of downstream bcm
+    *dma_dabufp++ = LSWAP((unsigned int)(BCMd_value & 0xFFFFFFFF));		//lower 32 bits of downstream bcm
     *dma_dabufp++ = LSWAP(0x14950000);
     vmeDmaConfig(2, 5, 1);
   BANKCLOSE;
