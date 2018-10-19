@@ -4,7 +4,7 @@
 # map syntax
 # scaler, type, crate, slot, header, mask, norm slot#
 # after the norm slot#:  clock chan# and clock frequency
-# the rate calculation only work on scaler module with physical slot address >= the norm scaler ( e.g. in the tritium rhrs configuration, norm scaler at slot3, so slot1 and 2 can not get correct rate 
+# the rate calculation only work on scaler module with physical slot address >= the norm scaler ( e.g. in the tritium rhrs configuration, norm scaler at slot3, so slot1 and 2 can not get correct rate -Shujie Li
 
 map 3800 7 1 ceb10000 ffff0000 3 
 map 3800 7 2 ceb20000 ffff0000 3 
