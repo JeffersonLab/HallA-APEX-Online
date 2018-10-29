@@ -27,8 +27,8 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
-#define FADC_WINDOW_WIDTH  55 // was 55
+#define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_WINDOW_WIDTH  79 // was 55
 #define FADC_LATENCY       79
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           55 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -36,7 +36,7 @@
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
 #define chan_mask  0x0000 // chan mask for threshold setting 
-#define WANT_THRESHOLD 0  //whether or not want threshold settings
+#define WANT_THRESHOLD 1  //whether or not want threshold settings
 
 int FA_SLOT;
 /* FADC Library Variables */
