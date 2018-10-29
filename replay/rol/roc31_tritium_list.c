@@ -262,7 +262,7 @@ if(islot==2){
        if(WANT_THRESHOLD)
          if(islot==3||islot==4||islot==5||islot==6||islot==7)
              faSetProcMode(faSlot(islot), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800,1);
-         else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, 2, 15, 1, 15,400,4);
+         else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, 2, 15, 1, 15,400,4);
        else{
          if(islot==3||islot==4||islot==5||islot==6||islot==7)
              faSetProcMode(faSlot(islot), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800,1);

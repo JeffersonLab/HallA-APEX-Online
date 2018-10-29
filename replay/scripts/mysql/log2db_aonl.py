@@ -27,8 +27,10 @@ elif float(runnum)<93000:
   table="MARATHONrunlist"
 elif float(runnum)<100000:
   table="SRCrunlist"
-else:
+elif float(runnum)<101000:
   table="EPrunlist"
+else:
+  table="EKrunlist"
 
 flog = 0
 if len(sys.argv)>2:
