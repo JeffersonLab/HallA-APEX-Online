@@ -62,7 +62,7 @@ void rate_check_R(Int_t flag, TString drawoption=""){
 
   if(flag==4){
     
-    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj (w/ acc, tgy cuts)",1000,0,2,1000,0,5);
+    TH2F *ht4 = new TH2F("ht4","Q2 v.s. xbj (w/ acc, tgy cuts)",1000,0,1,1000,0,5);
     ht4->GetXaxis()->SetTitle("x_bj");ht4->GetXaxis()->CenterTitle();
     ht4->GetYaxis()->SetTitle("Q2");ht4->GetYaxis()->CenterTitle();
     //ht3->SetMarkerStyle(3);ht3->SetMarkerSize(0.75);

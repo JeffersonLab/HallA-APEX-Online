@@ -235,11 +235,11 @@ TH1F RClockInterval 'RHRS Clock Interval' RV1495.ClockInterval 1000 0 70000
 #
 TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 100 0 4
 TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 100 0 4
-TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 0 2
+TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
 TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 10 50
-TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 3.5
+TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 1
 #TH1F EKRTH_Q 'R-arm Virtual photon angle (deg)' EKR.th_q*180./3.14159 60 0 60
-TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 3.5 200 0 4
+TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 1 200 0 4
 
 #-------------------------------------------------------------------------------
 # RIGHT Arm Reaction Vertex Histograms  :

@@ -198,10 +198,10 @@ block Lrb*
 	TH1F EKLNU 'L-arm nu, energy transfer'   EKL.omega 100 0 2
 	TH1F EKLW  'L-arm invariant mass W' sqrt(EKL.W2) 100 0.0 2.0
 	TH1F EKL_TH_E 'L-arm scattering angle (deg)' EKL.angle*180./3.14159 180 10 45
-	TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 3.5
+	TH1F EKLXBJ 'L-arm Bjorken x' EKL.x_bj 100 0 4
 	#TH1F EKLTH_Q 'L-arm Virtual photon angle (deg)' EKL.th_q*180./3.14159 60 0 60
 
-	TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 3.5 100 0 2
+	TH2F EKL_xQ2 'L-arm Q2 vs xbj'  EKL.x_bj EKL.Q2  100 0 3.5 100 0 4
 	#TH2F L_W2Q2  'L-arm Q2 vs W2'       PKL.W2 PKL.Q2    100 0 2 100 0 0.5
 	#TH2F L_thqW2 'L-arm W2 vs theta_q'  PKL.th_q PKL.Q2  100 0 2 100 0 0.5
 
@@ -237,12 +237,12 @@ block Lrb*
 	TH1F rastx2 'Fast Raster 2 X current' Lrb.Raster2.rawcur.x 500 45000 95000 evLeftdnew_r>1000
 	TH1F rasty2 'Fast Raster 2 Y current' Lrb.Raster2.rawcur.y 500 20000 120000 evLeftdnew_r>1000
 
-	TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.x Lrb.Raster.rawcur.y 2000 50000 100000 2000 20000 120000 evLeftdnew_r>1000
-	TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.x Lrb.Raster2.rawcur.y 2000 45000 95000 2000 20000 120000 evLeftdnew_r>1000
-	TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 2000 45000 95000 2000 50000 100000 evLeftdnew_r>1000
-	TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 2000 20000 120000 2000 20000 120000 evLeftdnew_r>1000
-	TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 2000 20000 120000 2000 50000 100000 evLeftdnew_r>1000
-	TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 2000 20000 120000 2000 45000 95000 evLeftdnew_r>1000
+	TH2F rastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.x Lrb.Raster.rawcur.y 2000 50000 100000 2000 20000 120000 L.tr.n==1
+	TH2F rastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.x Lrb.Raster2.rawcur.y 2000 45000 95000 2000 20000 120000 L.tr.n==1
+	TH2F rastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 2000 45000 95000 2000 50000 100000 L.tr.n==1
+	TH2F rasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 2000 20000 120000 2000 20000 120000 L.tr.n==1
+	TH2F rastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 2000 20000 120000 2000 50000 100000 L.tr.n==1
+	TH2F rastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 2000 20000 120000 2000 45000 95000 L.tr.n==1
 
 	TH2F urastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Lrb.Raster.rawcur.x rbax 5000 50000 100000 200 -5. 5. evLeftdnew_r>1000
 TH2F urastraw_bpma_y 'Up Fast Raster Current vs BPMA Y' Lrb.Raster.rawcur.y rbay 5000 20000 120000 200 -5. 5. evLeftdnew_r>1000

@@ -26,8 +26,8 @@ fi
 
 
 while [ $thisrun -le $endrun ]; do
-  # analyzer -b -q "electron_counts.C($thisrun,50)"
-   analyzer -b -q "electron_counts.C($thisrun,150)"
+  analyzer -q  "electron_counts.C($thisrun,50)"
+   analyzer -q  "electron_counts.C($thisrun,150)"
     echo $thisrun
     thisrun=$(($thisrun + 1))
 done
