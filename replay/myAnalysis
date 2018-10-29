@@ -7,3 +7,4 @@ else
 fi
 
 ./haonline_tool -r $RUNNUM -o -y
+python scripts/mysql/log2db_aonl.py $RUNNUM 1
