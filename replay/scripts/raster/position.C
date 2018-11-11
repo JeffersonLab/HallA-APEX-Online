@@ -1,4 +1,5 @@
 void position(Int_t run, Double_t slope1x, Double_t slope1y, Double_t slope2x, Double_t slope2y){
+  TString rpath = "/chafs1/work1/tritium/tmp_data/src_fall";
   Double_t kx, ky;
   kx = 1.;
   ky = -1.;
@@ -11,16 +12,16 @@ void position(Int_t run, Double_t slope1x, Double_t slope1y, Double_t slope2x, D
 
   int i = 1;
 
-  if(!gSystem->AccessPathName(TString::Format("/volatile/halla/triton/Rey/for_Tyler/tritium_%d.root",run),kFileExists)){
-    rootfile->Add(TString::Format("/volatile/halla/triton/Rey/for_Tyler/tritium_%d.root",run));
+  if(!gSystem->AccessPathName(TString::Format("%s/tritium_%d.root",rpath.Data(),run),kFileExists)){
+    rootfile->Add(TString::Format("%s/tritium_%d.root",rpath.Data(),run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
     cout << "Requested run has not been replayed. Exiting." << endl << endl;
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/volatile/halla/triton/Rey/for_Tyler/tritium_%d_%d.root",run,i),kFileExists)){
-    rootfile->Add(TString::Format("/volatile/halla/triton/Rey/for_Tyler/tritium_%d_%d.root",run,i));
+  while(!gSystem->AccessPathName(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run,i),kFileExists)){
+    rootfile->Add(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run,i));
     cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
     i=i+1;
   }                      
@@ -34,11 +35,11 @@ void position(Int_t run, Double_t slope1x, Double_t slope1y, Double_t slope2x, D
 
   TString current;
   if(lr=='R'||lr=='r'){
-    current += "(Right";
+    current += "(evRight";
   }else{
-    current += "(Left";
+    current += "(evLeft";
   }
-  current += "BCM.current_dnew)>21";
+  current += "dnew_r)>21";
 
   //Plot X and Y Position for both BPMs
   TH1F *bpmaxpos = new TH1F("bpmaxpos", "BPM A-X Position (m)", 400, -0.02, 0.02);
