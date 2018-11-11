@@ -32,7 +32,7 @@ void replay_tritium(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Qu
   Bool_t bPhysics  =   kTRUE;
   Bool_t bEloss    =   kFALSE;
   Bool_t bOldTrack =   kFALSE;
-  Bool_t bRaster   =   kFALSE;   
+  Bool_t bRaster   =   kTRUE;   
 
 
   TString rootname;

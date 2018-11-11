@@ -14,6 +14,7 @@
 #include "TString.h"
 
 void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.){
+  TString rpath = "/chafs1/work1/tritium/tmp_data/src_fall";
   Int_t run = r1;
   if(run==0){
     cout << "What run number would you like to calibrate with?    ";
@@ -34,16 +35,16 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
 
   int i = 1;
 
-  if(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d.root",run),kFileExists)){
-    rootfile->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d.root",run));
+  if(!gSystem->AccessPathName(TString::Format("%s/tritium_%d.root",rpath.Data(),run),kFileExists)){
+    rootfile->Add(TString::Format("%s/tritium_%d.root",rpath.Data(),run));
     cout << "Added file: tritium_" << run << ".root" << endl;
   }else{
     cout << "Requested run has not been replayed. Exiting." << endl << endl;
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d_%d.root",run,i),kFileExists)){
-    rootfile->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d_%d.root",run,i));
+  while(!gSystem->AccessPathName(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run,i),kFileExists)){
+    rootfile->Add(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run,i));
     cout << "Added file: tritium_" << run << "_" << i << ".root" << endl;
     i=i+1;
   }                      
@@ -62,7 +63,7 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
   }else if(LEFT_ARM_CONDITION){
     cut += "Left";
   }
-  cut += "dnew_r*0.0003299)>9.5)";
+  cut += "dnew_r*0.0003299)>0)";
   cut += "&&(";
   if(RIGHT_ARM_CONDITION){
     cut += "R";
@@ -83,36 +84,44 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
   }else if(LEFT_ARM_CONDITION){
     cut += "L";
   }
-  cut += ".tr.vz)<0.02)";
+  cut += ".tr.vz)<0.05)";
 
   //Define the fits and the plots
+  //Parameter definitions:
+  //[0] - Approximate signal level outside of carbon hole
+  //[1] - Current to size conversion factor for horizontal raster
+  //[2] - Center of the carbon hole in horizontal raster current
+  //[3] - Current to size conversion factor for vertical raster
+  //[4] - Center of the carbon hole in vertical raster current
+  //[5] - "Hardness" factor for the sigmoid (higher = closer to step function)
+  //[6] - Approximate signal lever inside of carbon hole
 
-  TF2 *ell_fit = new TF2("ell_fit","([0]/(1. + exp(-1. * [5] * ((([1]*([2]-x))^2 + ([3]*([4]-y))^2)-1.)))) + [6]",53000,89000,32000,115000);
+  TF2 *ell_fit = new TF2("ell_fit","([0]/(1. + exp(-1. * [5] * ((([1]*([2]-x))^2 + ([3]*([4]-y))^2)-1.)))) + [6]",65000,95000,65000,95000);
 
   Double_t param[7] = {25,0.000066,70000,0.000027,65000, 1., 1.};
   ell_fit->SetParameters(param);
   ell_fit->SetParLimits(0,0,250);
-  ell_fit->SetParLimits(1,.00006,.0001);
-  ell_fit->SetParLimits(2,65000,80000);
-  ell_fit->SetParLimits(3,.00001,.00005);
-  ell_fit->SetParLimits(4,55000,80000);
+  ell_fit->SetParLimits(1,.00001,.0002);
+  ell_fit->SetParLimits(2,65000,95000);
+  ell_fit->SetParLimits(3,.00001,.0002);
+  ell_fit->SetParLimits(4,65000,95000);
   ell_fit->SetParLimits(5,.5,10);
   ell_fit->SetParLimits(6,0,250);
   
-  TF2 *ell_fit2 = new TF2("ell_fit2","([0]/(1. + exp(-1. * [5] * ((([1]*([2]-x))^2 + ([3]*([4]-y))^2)-1.)))) + [6]",53000,92000,30000,110000);
+  TF2 *ell_fit2 = new TF2("ell_fit2","([0]/(1. + exp(-1. * [5] * ((([1]*([2]-x))^2 + ([3]*([4]-y))^2)-1.)))) + [6]",74500,80500,75500,79500);
 
   Double_t param2[7] = {25,0.000064,70000,0.000023,65000, 1., 1.};
   ell_fit2->SetParameters(param2);
   ell_fit2->SetParLimits(0,0,250);
-  ell_fit2->SetParLimits(1,.00004,.0001);
-  ell_fit2->SetParLimits(2,60000,80000);
-  ell_fit2->SetParLimits(3,.000015,.00005);
-  ell_fit2->SetParLimits(4,60000,80000);
+  ell_fit2->SetParLimits(1,.00001,.0005);
+  ell_fit2->SetParLimits(2,75000,80000);
+  ell_fit2->SetParLimits(3,.00001,.0005);
+  ell_fit2->SetParLimits(4,76000,78000);
   ell_fit2->SetParLimits(5,.5,10);
   ell_fit2->SetParLimits(6,0,250);
 
-  TH2F *R1 = new TH2F("R1","Raster 1 Carbon Hole",60,45000,95000,60,20000,120000);
-  TH2F *R2 = new TH2F("R2","Raster 2 Carbon Hole",60,45000,95000,60,20000,120000);
+  TH2F *R1 = new TH2F("R1","Raster 1 Carbon Hole",60,67000,90000,60,71000,88000);
+  TH2F *R2 = new TH2F("R2","Raster 2 Carbon Hole",60,72000,82000,60,74000,81000);
 
   TCanvas *c1 = new TCanvas();
   TCanvas *c2 = new TCanvas();
@@ -134,16 +143,16 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
   //the same point on the sigmoid.
   //***************************************************************************
   
-  Double_t x_slope = ell_fit->GetParameter(1);
-  Double_t y_slope = ell_fit->GetParameter(3);
+  Double_t x_slope = ell_fit2->GetParameter(1);
+  Double_t y_slope = ell_fit2->GetParameter(3);
   Double_t y_true = ky * y_slope / 1000.;
 
   if(x_true!=0.){
-    Double_t s_pos = 1. / (1. + TMath::Exp(-1. * ell_fit->GetParameter(5) * (TMath::Power(x_slope/(x_true * 1000.),2.) - 1.)));
+    Double_t s_pos = 1. / (1. + TMath::Exp(-1. * ell_fit2->GetParameter(5) * (TMath::Power(x_slope/(x_true * 1000.),2.) - 1.)));
 //    cout << endl << "test " << TMath::Exp(-1. * ell_fit->GetParameter(5) * (TMath::Power(x_slope/x_true,2.) - 1.)) << endl;
     cout << endl << "True position on the sigmoid: " << s_pos << endl << endl;
 
-    y_true = ky * y_slope / TMath::Sqrt((-1. * TMath::Log((1. / s_pos) - 1.) / ell_fit->GetParameter(5)) + 1.) / 1000.;
+    y_true = ky * y_slope / TMath::Sqrt((-1. * TMath::Log((1. / s_pos) - 1.) / ell_fit2->GetParameter(5)) + 1.) / 1000.;
     cout << endl << "True y_slope: " << y_true << endl << endl;
   }else{
     x_true = kx * x_slope / 1000.;
@@ -176,16 +185,16 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
 
   int j = 1;
 
-  if(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d.root",run2),kFileExists)){
-    foilrun->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d.root",run2));
+  if(!gSystem->AccessPathName(TString::Format("%s/tritium_%d.root",rpath.Data(),run2),kFileExists)){
+    foilrun->Add(TString::Format("%s/tritium_%d.root",rpath.Data(),run2));
     cout << "Added file: tritium_" << run2 << ".root" << endl;
   }else{
     cout << "Requested run has not been replayed. Exiting." << endl << endl;
     return;
   }
 
-  while(!gSystem->AccessPathName(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d_%d.root",run2,j),kFileExists)){
-    foilrun->Add(TString::Format("/cache/halla/triton/prod/marathon/pass1_calibration/kin16/tritium_%d_%d.root",run2,j));
+  while(!gSystem->AccessPathName(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run2,j),kFileExists)){
+    foilrun->Add(TString::Format("%s/tritium_%d_%d.root",rpath.Data(),run2,j));
     cout << "Added file: tritium_" << run2 << "_" << j << ".root" << endl;
     j=j+1;
   }                      
@@ -217,11 +226,11 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
   }
   clock += "&&";*/
   if(RIGHT_ARM_CONDITION){
-    clock += "(Right";
+    clock += "(evRight";
   }else if(LEFT_ARM_CONDITION){
-    clock += "(Left";
+    clock += "(evLeft";
   }
-  clock += "BCM.current_dnew)>";
+  clock += "dnew_r)*0.0003297>";
   clock += r2_current;
 
   //Draw the histograms
@@ -317,9 +326,9 @@ void hole_fit(Int_t r1=0, Int_t r2=0, Double_t r2_current=0, Double_t x_true=0.)
 
   cout << arm << ".Raster.raw2posA = " << UbpmAx_offset << " " << UbpmAy_offset << " " << UbpmAx_slope << " " << UbpmAy_slope << " 0.0 0.0" << endl; 
   cout << arm << ".Raster.raw2posB = " << UbpmBx_offset << " " << UbpmBy_offset << " " << UbpmBx_slope << " " << UbpmBy_slope << " 0.0 0.0" << endl; 
-  cout << arm << ".Raster.raw2posT = " << txm-r1xm*x_true << " " << tym-r1ym*y_true << " " << x_true << " " << y_true << " 0.0 0.0" << endl << endl;
+  cout << arm << ".Raster.raw2posT = " << txm-r1xm*kx*ell_fit->GetParameter(1)/1000. << " " << tym-r1ym*ky*ell_fit->GetParameter(3)/1000. << " " << ell_fit->GetParameter(1)*kx/1000. << " " << ell_fit->GetParameter(3)*ky/1000. << " 0.0 0.0" << endl << endl;
 
   cout << arm << ".Raster2.raw2posA = " << DbpmAx_offset << " " << DbpmAy_offset << " " << DbpmAx_slope << " " << DbpmAy_slope << " 0.0 0.0" << endl; 
   cout << arm << ".Raster2.raw2posB = " << DbpmBx_offset << " " << DbpmBy_offset << " " << DbpmBx_slope << " " << DbpmBy_slope << " 0.0 0.0" << endl; 
-  cout << arm << ".Raster2.raw2posT = " << txm-r2xm*kx*ell_fit2->GetParameter(1)/1000. << " " << tym-r2ym*ky*ell_fit2->GetParameter(3)/1000. << " " << ell_fit2->GetParameter(1)*kx/1000. << " " << ell_fit2->GetParameter(3)*ky/1000. << " 0.0 0.0" << endl;
+  cout << arm << ".Raster2.raw2posT = " << txm-r2xm*x_true << " " << tym-r2ym*y_true << " " << x_true << " " << y_true << " 0.0 0.0" << endl;
 }
