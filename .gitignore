@@ -12,6 +12,7 @@ replay/*.jpg
 replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
+replay/#*
 
 **/*~
 **/*.o
