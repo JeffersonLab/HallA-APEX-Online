@@ -135,7 +135,8 @@ echo " HRS_side = $HRS_side "
 
 echo "Running online replay for ${HRS_name} run: ${RUNNUM}"
 
-./onlineReplay $RUNNUM
+echo " ./onlineReplay $RUNNUM -s $SET_UP"
+./onlineReplay $RUNNUM -s $SET_UP
 sleep 1
 # ./onlinePlots $RUNNUM
 
