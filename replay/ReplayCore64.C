@@ -95,7 +95,7 @@ void ReplayCore(
 		Int_t runnumber=0,            //run #
 		Int_t all=0,                  //-1=replay all;0=ask for a number
 		Int_t DefReplayNum=-1,        //default replay event num
-		const char* OutFileFormat="%s/tritium_%d.root", //output file format
+		const char* OutFileFormat="%s/apex_%d.root", //output file format
 		const char* OutDefineFile="HRS.odef",       //out define
 		const char* CutDefineFile="HRS.cdef",       //cut define
 		Bool_t EnableScalar=false,                    //Enable Scalar?
@@ -321,7 +321,7 @@ cout << endl
 
 
   // insert info to msql
-  if (nev<0) mysql_start(runnumber);
+  //  if (nev<0) mysql_start(runnumber);
 
 
 
@@ -423,7 +423,7 @@ cout << endl
 
  
   // insert info to msql
-  if (nev<0) mysql_end(runnumber);
+  // if (nev<0) mysql_end(runnumber);
 
 }
 
