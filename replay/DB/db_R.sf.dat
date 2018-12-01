@@ -1,0 +1,73 @@
+# Adapted for testing the aerogel detector (A1 and A2) at ESB
+
+## Detecor map, format:
+## crate slot start_channel end_channel
+R.sf.detmap =
+## FADC modules        #     Module number that starts at channel 0
+## This map is for the 12 fADC modules used for testing
+## as described in https://logbooks.jlab.org/entry/3480927
+  7    14     0     15   250 #     176
+  7    15     0     15   250 #     176
+  7    16     0     15   250 #     176
+  7    17     0     15   250 #     176
+
+## Channel map from channel to logical channel
+#R.sf.chanmap = 
+#   0   1   2   3   4   5   6   7   8   9  10  11 
+#  12  13  14  15  16  17  18  19  20  21  22  23
+#  23  25  26  26  28  29  30  31  32  33  34  35
+#  36  37  38  39  40  41  42  43  44  45  46  47
+#  48  49  50  51  52  53  54  55  56  57  58  59
+#  60  61  62  63  64  65  66  67  68  69  79  71
+#  72  73  74  75  76  77  78  79  80  81  82  83
+#  84  85  86  87  88  89  90  91  92  93  94  95
+
+
+# Number of channels
+
+R.sf.nch = 64
+
+
+## Positions in [m] where +z is roated by sbs.theta
+R.sf.position = 0 0 0
+
+## HCal is composed of 4 sub-assemblies each of 6x12 (row,col) modules
+
+## Test settings for one sub-assembly
+R.sf.size  =  1.8567  0.9461  1.0000
+
+## HCal is a matrix of with nrows and ncols
+## Numbers below are just a test so that it maches the number of used fADC's
+R.sf.ncols = 4
+R.sf.nrows = 16
+
+## Position of first module
+R.sf.xy    =  0.92835  0.47305
+## Space between modules
+R.sf.dxdy  =  0.00254  0.00254
+
+## Mininum energy  for a cluster center (not really used right now)
+R.sf.emin  = 0.0
+
+## Set the default pedestals
+R.sf.pedestals =
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+
+## Set the default gain (calibration factor)
+R.sf.gains =
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+
+# intially just copied from db_R.cer.dat from tritium
+# parameters of Fadc pedestal calulcations (by fadc itself)
+
+# R.sf.NPED = 15
+# R.sf.NSA = 15
+# R.sf.NSB = 2
+# R.sf.Win = 24
+# R.sf.TFlag = 0
