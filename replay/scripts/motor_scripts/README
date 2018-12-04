@@ -1,0 +1,29 @@
+List of improvements for SciFi GUI;
+
+- Change the show com port/ automatically connect to correct com port
+
+  	 - line 57 ' Application.ser.port = 'COM3'  ' has prior knowledge of relevant port
+	 - either finalise computer (and thus port) used and change this line accordingly 
+	 - or use use print com port or similar command to automatically adjust used com port 
+
+- Convert distances moved to SI units
+
+- have a stop button in the gui that can stop motion of the motor
+
+- A visual indicator of current position - ie a diagram/ animation that shows where SciFi is (along possible length of movement) and a raw number as well as a proportion of whole distance
+
+- Add 2nd motor to gui
+
+- approximate time of movement (not sure how pracitcal this is)
+  	      -  if you put in movement this will say hwo long that movement shold take
+
+- Add motor velocity settings
+
+
+
+- finally, he also said that the micro switches (the ones that the motor should bump into at either end) were not working as expected. He held on to them for a few seconds but the motor wouldn't stop instantly. This may be a misundestanding though you should probably speak to Bogdan.
+	 
+
+	 
+
+	
