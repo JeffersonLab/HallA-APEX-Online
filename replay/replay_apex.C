@@ -149,7 +149,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 		Tritium_THaScaler100EvtHandler* rEndscaler = new Tritium_THaScaler100EvtHandler("EndRight","HA scaler event type 100");
 		gHaEvtHandlers->Add(rEndscaler);
 		// Marco - F1 and VETROC tdcs:
-		gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
+		//gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
 		// Evan - V1495 Clock Counter:
 		gHaEvtHandlers->Add (new ClockCountEvtHandler("RV1495","V1495 RHRS")); //do not change the "RV1495"  word
 	}
@@ -400,6 +400,8 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
     HRSR->AddDetector( new TriFadcCherenkov("a1", "Aerogel counter - FADC" ));
     HRSR->AddDetector( new TriFadcCherenkov("a2", "Aerogel counter - FADC" ));
+    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+
 
 
     // THaHRS* FbusHRSR = new THaHRS("FbusR", "Fastbus RHRS Readout");
@@ -429,7 +431,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
       gHaEvtHandlers->Add(rEndscaler);
 
       // Marco - F1 and VETROC tdcs:
-      gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
+      //gHaEvtHandlers->Add (new TdcDataEvtHandler("RTDC","F1 and VETROC TDCs rHRS")); // do not change the "RTDC" word
       // Evan - V1495 Clock Counter:
       gHaEvtHandlers->Add (new ClockCountEvtHandler("RV1495","V1495 RHRS"));
     }
