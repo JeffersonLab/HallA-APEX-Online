@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 if [ $# -eq 0 ] 
 then
@@ -7,4 +7,32 @@ then
 else
 	RUNNUM=$1
 fi
-analyzer 'replay_tritium.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE)'
+
+if [ $# -ge 2 ] 
+then
+	mode=$2
+else
+	mode=0
+	
+	if [ $RUNNUM -lt 9000 ]
+	then
+		left=1
+		right=0
+	else
+		left=0
+		right=1
+	fi
+fi
+
+if [ $mode -eq 1 ]
+then
+	left=1
+	right=0
+elif [ $mode -eq 2 ]
+then
+	left=0
+	right=1
+fi
+	
+		# run, 	#events,start,Quite,Online,plots,Larm,Rarm	
+analyzer 'replay_apex.C('$RUNNUM',0,0,kTRUE,kTRUE,kTRUE,'${left}','${right}')'
