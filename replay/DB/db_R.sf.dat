@@ -6,10 +6,10 @@ R.sf.detmap =
 ## FADC modules        #     Module number that starts at channel 0
 ## This map is for the 12 fADC modules used for testing
 ## as described in https://logbooks.jlab.org/entry/3480927
-  7    14     0     15   250 #     176
-  7    15     0     15   250 #     176
-  7    16     0     15   250 #     176
-  7    17     0     15   250 #     176
+  20    17     0     15   250 #     176
+  20    18     0     15   250 #     176
+  20    19     0     15   250 #     176
+  20    16     0     15   250 #     176
 
 ## Channel map from channel to logical channel
 #R.sf.chanmap = 
@@ -51,7 +51,7 @@ R.sf.emin  = 0.0
 
 ## Set the default pedestals
 R.sf.pedestals =
-  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  4577.37 3827.67 4350.90 3930.59 4525.93 4577.68 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
   0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
   0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
   0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
@@ -66,8 +66,8 @@ R.sf.gains =
 # intially just copied from db_R.cer.dat from tritium
 # parameters of Fadc pedestal calulcations (by fadc itself)
 
-# R.sf.NPED = 15
-# R.sf.NSA = 15
-# R.sf.NSB = 2
-# R.sf.Win = 24
-# R.sf.TFlag = 0
+R.sf.NPED = 15
+R.sf.NSA = 15
+R.sf.NSB = 2
+R.sf.Win = 35
+R.sf.TFlag = 0
