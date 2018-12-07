@@ -78,7 +78,7 @@ if [[ -n "${LOG_ALL_PLOTS}" ]] ; then
   ONLINE_ONLY=
 fi
 
-DirLoc=${PWD}
+LocDir=${PWD}
 
 echo LOG_ALL_PLOTS     = "${LOG_ALL_PLOTS}"
 echo ONLINE_ONLY PATH  = "${ONLINE_ONLY}"
@@ -119,7 +119,6 @@ echo "Running online replay for ${HRS_name} run: ${RUNNUM}"
 ./onlineReplay $RUNNUM
 sleep 1
 ./onlinePlots $RUNNUM
-
 if [[ -n "${NO_LOG}" ]] ; then
 	echo "Will not uplaod these plots to HALOG"
 	exit
