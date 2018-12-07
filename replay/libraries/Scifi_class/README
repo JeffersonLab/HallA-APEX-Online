@@ -1,6 +1,0 @@
-Files taken from tritium repo: https://github.com/JeffersonLab/HallA-Online-Tritium/tree/master/replay/libraries/TriFadcCherenkov (24/10/18)
-
-
-Commented scripts an attempt at understanding make-up of tritium adc detector scripts (cerenkov judged most similar) in order to reproduce similar class for Scifi detector
-    
-    alias source_scifi 'source /w/halla-scifs17exp/apex/disk1/jwilli/cshrc; source $ROOTSYS/setroot_CUE'
