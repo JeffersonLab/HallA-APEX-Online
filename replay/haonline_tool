@@ -129,72 +129,71 @@ else
     HRS_name="Coinc"
 
 fi
-
-
+dir=$PWD
 echo " HRS_side = $HRS_side "
 
 echo "Running online replay for ${HRS_name} run: ${RUNNUM}"
 
-echo " ./onlineReplay $RUNNUM -s $SET_UP"
-./onlineReplay $RUNNUM -s $SET_UP
+echo " ./onlineReplay $RUNNUM -s $SET_UP" 
+./onlineReplay $RUNNUM -s $SET_UP p
 sleep 1
-# ./onlinePlots $RUNNUM
+./onlinePlots $RUNNUM
 
 # HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf
 # HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf 
 # HRS_online_file=/adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf
 
-# if [[ -n "${NO_LOG}" ]] ; then
-# 	echo "Will not uplaod these plots to HALOG"
-# 	exit
-# elif [[ -n "${LOG_ALL_PLOTS}"  ]] && [[ -n "${YES_LOG}" ]] ; then	
-#   /site/ace/certified/apps/bin/logentry \
-#   --logbook "HALOG" \
-#     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
-#     --tag Analysis \
-#     --tag Autolog \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf \
-#     --caption "Online plots" \
-#     --caption "Detector plots" \
-#     --caption "Physics plots" 
+ if [[ -n "${NO_LOG}" ]] ; then
+ 	echo "Will not uplaod these plots to HALOG"
+ 	exit
+ elif [[ -n "${LOG_ALL_PLOTS}"  ]] && [[ -n "${YES_LOG}" ]] ; then	
+   /site/ace/certified/apps/bin/logentry \
+   --logbook "HALOG" \
+     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+     --tag Analysis \
+     --tag Autolog \
+     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --attach${dir}/summaryfiles/${HRS_side}_detectors_latest.pdf \
+     --attach${dir}/summaryfiles/${HRS_side}_physics_latest.pdf \
+     --caption "Online plots" \
+     --caption "Detector plots" \
+     --caption "Physics plots" 
     
-# elif [[ -n "${ONLINE_ONLY}"  ]] && [[ -n "${YES_LOG}" ]] ; then
-# 	/site/ace/certified/apps/bin/logentry \
-#     --logbook "HALOG" \
-#     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
-#     --tag Analysis \
-#     --tag Autolog \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
-#     --caption "Online plots" 
+ elif [[ -n "${ONLINE_ONLY}"  ]] && [[ -n "${YES_LOG}" ]] ; then
+ 	/site/ace/certified/apps/bin/logentry \
+     --logbook "HALOG" \
+     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+     --tag Analysis \
+     --tag Autolog \
+     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --caption "Online plots" 
 	
-# elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
-#   #  
-#    yes_or_no "Upload these plots to logbook HALOG? " && \ 
-#   /site/ace/certified/apps/bin/logentry \
-#   --logbook "HALOG" \
-#     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
-#     --tag Analysis \
-#     --tag Autolog \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_detectors_latest.pdf \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_physics_latest.pdf \
-#     --caption "Online plots" \
-#     --caption "Detector plots" \
-#     --caption "Physics plots" 
+ elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
+   #  
+    yes_or_no "Upload these plots to logbook HALOG? " && \ 
+   /site/ace/certified/apps/bin/logentry \
+   --logbook "HALOG" \
+     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+     --tag Analysis \
+     --tag Autolog \
+     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --attach${dir}/summaryfiles/${HRS_side}_detectors_latest.pdf \
+     --attach${dir}/summaryfiles/${HRS_side}_physics_latest.pdf \
+     --caption "Online plots" \
+     --caption "Detector plots" \
+     --caption "Physics plots" 
 
-# elif [[ -n "${ONLINE_ONLY}"  ]] ; then
-#   # /site/ace/certified/apps/bin/logentry 
-# 	yes_or_no "Upload these plots to logbook HALOG? " && \
-# 	/site/ace/certified/apps/bin/logentry \
-#     --logbook "HALOG" \
-#     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
-#     --tag Analysis \
-#     --tag Autolog \
-#     --attach /adaqfs/home/a-onl/tritium/replay/summaryfiles/${HRS_side}_online_latest.pdf \
-#     --caption "Online plots" 
-# fi
+ elif [[ -n "${ONLINE_ONLY}"  ]] ; then
+    /site/ace/certified/apps/bin/logentry 
+ 	yes_or_no "Upload these plots to logbook HALOG? " && \
+ 	/site/ace/certified/apps/bin/logentry \
+     --logbook "HALOG" \
+     --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
+     --tag Analysis \
+     --tag Autolog \
+     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --caption "Online plots" 
+ fi
 
 
 
