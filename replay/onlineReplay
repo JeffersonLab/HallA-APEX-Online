@@ -31,8 +31,14 @@ if [ "$2" == "-s" ]
 	fi
 
 fi
+kplots=kFALSE
+if [ "$4" == "p" ]
+then
+	kplots=kTRUE
+fi
+
+echo "analyzer 'replay_apex.C('$RUNNUM',0,0,kTRUE,kTRUE,$kplots,$Left,$Right)'"
 
 
-echo "analyzer 'replay_apex.C('$RUNNUM',0,0,kTRUE,kTRUE,kFALSE,$Left,$Right)'"
-
-analyzer 'replay_apex.C('$RUNNUM',0,0,kTRUE,kTRUE,kFALSE,'$Left','$Right')'
+		 #numofevents,firstevent,quite,online,plots,L,R,auto,skim
+analyzer 'replay_apex.C('$RUNNUM',0,0,kTRUE,kTRUE,'$kplots','$Left','$Right')'
