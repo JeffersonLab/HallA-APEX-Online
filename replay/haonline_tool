@@ -165,7 +165,7 @@ sleep 1
      --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
      --tag Analysis \
      --tag Autolog \
-     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --attach ${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
      --caption "Online plots" 
 	
  elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
@@ -176,9 +176,9 @@ sleep 1
      --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
      --tag Analysis \
      --tag Autolog \
-     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
-     --attach${dir}/summaryfiles/${HRS_side}_detectors_latest.pdf \
-     --attach${dir}/summaryfiles/${HRS_side}_physics_latest.pdf \
+     --attach ${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --attach ${dir}/summaryfiles/${HRS_side}_detectors_latest.pdf \
+     --attach ${dir}/summaryfiles/${HRS_side}_physics_latest.pdf \
      --caption "Online plots" \
      --caption "Detector plots" \
      --caption "Physics plots" 
@@ -191,7 +191,7 @@ sleep 1
      --title "Run ${RUNNUM} Online plots for ${HRS_name}" \
      --tag Analysis \
      --tag Autolog \
-     --attach${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
+     --attach ${dir}/summaryfiles/${HRS_side}_online_latest.pdf \
      --caption "Online plots" 
  fi
 
