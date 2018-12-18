@@ -79,6 +79,8 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSL->AddDetector( new THaShower       ("prl1", "Pre-shower pion rej."   ));
 	HRSL->AddDetector( new THaShower       ("prl2", "Show pion rej."         )); 
 
+	HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+
 	THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
 	FbusHRSL->AutoStandardDetectors(kFALSE);
 	gHaApps->Add(FbusHRSL);
@@ -99,6 +101,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSR->AddDetector( new TriFadcScin     ("s2" , "S2 Scintillator - FADC"       ));
 	HRSR->AddDetector( new THaShower       ("ps" , "Pre-shower pion rej."         ));
 	HRSR->AddDetector( new THaShower       ("sh" , "Show pion rej."               ));
+	HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 	THaHRS* FbusHRSR = new THaHRS("FbusR", "Fastbus RHRS Readout");
 	FbusHRSR->AutoStandardDetectors(kFALSE);
@@ -600,7 +603,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
   
 
     //==================================
-    //  Detectors
+    //  Left Detectors
     //==================================
     //THaHRS *HRSL = new THaHRS("L","Left arm HRS"); //Add vdc,s2...uses s0 for track beta
   
@@ -611,6 +614,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
+    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
     // if(runnumber<3200){
     //   HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
