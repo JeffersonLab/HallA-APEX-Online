@@ -6,6 +6,7 @@ block R.sh.*
 block R.cer.*
 block R.vdc.*
 block R.tr.*
+block R.sf.*
 
 block FbusR.s0.*
 block FbusR.cer.*
@@ -244,6 +245,7 @@ block L.prl2.*
 block L.cer.*
 block L.vdc.*
 block L.tr.*
+block L.sf.*
 
 block FbusL.s0.*
 #block FbusL.s2.* #S2 isn't split to the fastbus
