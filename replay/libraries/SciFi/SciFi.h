@@ -87,13 +87,15 @@ public:
   Int_t* fNhits_arr;           //[fNelem] number of hits for each PMT (taken from TriFadcCherenkov)
   
    
-  // raw mode
+  // raw mode variables
   
   std::vector<Int_t>   fNumSamples; // [fNelem] Number of samples in each ADC/module
-  std::vector<std::vector<Double_t> > fASamples; // [fNumSamples] Raw ADC samples
-  std::vector<std::vector<Double_t> > fASamplesPed; // [fNumSamples] Ped correct ADC samples
-  std::vector<std::vector<Double_t> > fASamplesCal; // [fNumSamples] Calibrated ADC samples
-  std::vector<Float_t> fBsum; // [fNelem] Sum of raw ADC data for each block // MAPC
+  std::vector<std::vector<Double_t> > fA_raw; // [fNumSamples] Raw ADC samples
+  std::vector<std::vector<Double_t> > fA_raw_p; // [fNumSamples] Ped correct ADC samples
+  std::vector<std::vector<Double_t> > fA_raw_c; // [fNumSamples] Calibrated ADC samples
+  std::vector<Float_t> fA_raw_sum; // [fNelem] Sum of raw ADC data for each block // MAPC
+
+  std::vector< std::vector<Int_t> > fChanMap; // Logical channel numbers
 
 
   virtual Int_t  DefineVariables( EMode mode = kDefine );
