@@ -405,7 +405,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
     HRSR->AddDetector( new TriFadcCherenkov("a1", "Aerogel counter - FADC" ));
     HRSR->AddDetector( new TriFadcCherenkov("a2", "Aerogel counter - FADC" ));
-    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+    //HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 
