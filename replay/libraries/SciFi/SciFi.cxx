@@ -63,13 +63,14 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     return err;
   }
 
-  vector<Int_t> detmap;
+  vector<Int_t> detmap, chanmap;
   Int_t nelem;
   Double_t angle = 0.0;
 
   // Read configuration parameters
   DBRequest config_request[] = {
     { "detmap",  &detmap,  kIntV },
+    { "chanmap", &chanmap, kIntV },
     { "nch",    &nelem,   kInt },
     { "angle",   &angle,   kDouble, 0, 1 },
     { 0 }
@@ -100,14 +101,13 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
   // potential change depending on how database is structured 
   // what is difference between channel and logical channel number
 
-  if( !err && FillDetMap(detmap, flags, here) <= 0 ) {
-    err = kInitError;  // Error already printed by FillDetMap
-  }
+  // if( !err && FillDetMap(detmap, flags, here) <= 0 ) {
+  //   err = kInitError;  // Error already printed by FillDetMap
+  // }
 
 
   // Change:: Don't think this is needed
-
-  // if( !err && (nelem = fDetMap->GetTotNumChan()) != 2*fNelem ) {
+ // if( !err && (nelem = fDetMap->GetTotNumChan()) != 2*fNelem ) {
   //   Error( Here(here), "Number of detector map channels (%d) "
   // 	   "inconsistent with 2*number of PMTs (%d)", nelem, 2*fNelem );
   //   err = kInitError;
@@ -193,21 +193,21 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     //2//fClusters = new SBSHCalCluster*[fMaxNClust];
     // fBlocks.clear();
     // fBlocks.resize(fNelem);
-    fASamples.resize(fNelem);
-    fASamplesPed.resize(fNelem);
-    fASamplesCal.resize(fNelem);
+    fA_raw.resize(fNelem);
+    fA_raw_p.resize(fNelem);
+    fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
     for(Int_t i = 0; i < fNelem; i++) {
       // We'll resize the vector now to make sure the data are contained
       // in a contigous part of memory (needed by THaOutput when writing
       // to the ROOT file)
-      fASamples[i].resize(MAX_FADC_SAMPLES);
-      fASamplesPed[i].resize(MAX_FADC_SAMPLES);
-      fASamplesCal[i].resize(MAX_FADC_SAMPLES);
+      fA_raw[i].resize(MAX_FADC_SAMPLES);
+      fA_raw_p[i].resize(MAX_FADC_SAMPLES);
+      fA_raw_c[i].resize(MAX_FADC_SAMPLES);
       //      std::cout << "check for resizing" << std::endl;
 
     }
-    fBsum.resize(fNelem); // MAPC
+    fA_raw_sum.resize(fNelem); // MAPC
     // Yup, hard-coded in because it's only a test
     // TODO: Fix me, don't hard code it in
     //    fMaxNClust = 9;
@@ -233,7 +233,57 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
 
     //    std::cout << " process happened !!!!!!!!!!!!!!!!!!! " << std::endl;
 
-  
+    // Read channel map
+
+
+  if( !err ) {
+    // Clear out the old channel map before reading a new one
+    fChanMap.clear();
+    if( FillDetMap(detmap, flags, here) <= 0 ) {
+      err = kInitError;  // Error already printed by FillDetMap
+    } else if( (nelem = fDetMap->GetTotNumChan()) != fNelem ) {
+      Error( Here(here), "Number of detector map channels (%d) "
+	     "inconsistent with number of blocks (%d)", nelem, fNelem );
+      err = kInitError;
+    }
+  }
+
+  if( !err ) {
+    if( !chanmap.empty() ) {
+      // If a map is found in the database, ensure it has the correct size
+      Int_t cmapsize = chanmap.size();
+      cout << "cmapsize = " << cmapsize ;
+      if( cmapsize != fNelem ) {
+	Error( Here(here), "Channel map size (%d) and number of detector "
+	       "channels (%d) must be equal. Fix database.", cmapsize, fNelem );
+	err = kInitError;
+      }
+    }
+    if( !err ) {
+      // Set up the new channel map
+      Int_t nmodules = fDetMap->GetSize();
+      assert( nmodules > 0 );
+      fChanMap.resize(nmodules);
+      for( Int_t i=0, k=0; i < nmodules && !err; i++ ) {
+	THaDetMap::Module* module = fDetMap->GetModule(i);
+	Int_t nchan = module->hi - module->lo + 1;
+	if( nchan > 0 ) {
+	  fChanMap.at(i).resize(nchan);
+	  for( Int_t j=0; j<nchan; ++j ) {
+	    assert( k < fNelem );
+	    fChanMap.at(i).at(j) = chanmap.empty() ? k+1 : chanmap[k];
+	    ++k;
+	  }
+	} else {
+	  Error( Here(here), "No channels defined for module %d.", i);
+	  fChanMap.clear();
+	  err = kInitError;
+	}
+      }
+    }
+  }
+ 
+     
   fIsInit = true;
   }
 
@@ -255,10 +305,10 @@ Int_t SciFi::DefineVariables( EMode mode )
     // { "t",      "TDC values",                        "fT" },
     // { "t_c",    "Corrected TDC values",              "fT_c" },
     { "A_hitperchannel", "hits per chanel", "fhitsperchannel"},
-    { "A",      "ADC values",                        "fA" },
-    { "A_AHits",      "Number of hits in an ADC",     "fAHits" },
-    { "A_p",    "Ped-subtracted ADC values ",        "fA_p" },
-    { "A_c",    "Corrected ADC values",              "fA_c" },
+    { "a",      "ADC values",                        "fA" },
+    { "a_AHits",      "Number of hits in an ADC",     "fAHits" },
+    { "a_p",    "Ped-subtracted ADC values ",        "fA_p" },
+    { "a_c",    "Corrected ADC values",              "fA_c" },
     { "peak",   "FADC ADC peak values",              "fPeak" },
     { "t_fadc", "FADC TDC values",                   "fT_FADC" },
     { "tc_fadc", "FADC corrected TDC values",        "fT_FADC_c" },
@@ -272,41 +322,52 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
     { "nhits",  "Number of hits for each PMT",       "fNhits" },
+    // raw mode (10) variables
+    // { "a_raw",  "Raw mode ADC values", "fA_raw"},
+    // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
+    // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
+    { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
     { 0 }
   };
-  //  return DefineVarsFromList( vars, mode );
-  Int_t err = DefineVarsFromList(vars, mode);
-  if( err != kOK )
-    return err;
 
-  // raw mode pulse data variables
+  //  gHaVars->Define( "a_raw_c",    "Raw mode Corrected ADC values", fA_raw_c);
+
+
+
+  //return DefineVarsFromList( vars, mode );
+  Int_t err = DefineVarsFromList(vars, mode);
+  if( err != kOK ){
+    return err;
+  }
+
+  //  raw mode pulse data variables
 
   std::vector<VarDef> vars2;
   for(Int_t m = 0; m < fNelem; m++) {
     VarDef v;
     char *name   =  new char[128];
-    char *name_p = new char[128];
-    char *name_c = new char[128];
+    // char *name_p = new char[128];
+    // char *name_c = new char[128];
     sprintf(name,"a_raw%.2d",m);
-    sprintf(name_p,"a_p_m%d",m);
-    sprintf(name_c,"a_c_m%d",m);
+    // sprintf(name_p,"a_p_%.2d",m);
+    // sprintf(name_c,"a_c_%.2d",m);
     char *desc = new char[256];
     sprintf(desc,"Raw ADC samples for Module %d",m);
     v.name = name;
     v.desc = "Raw ADC samples";
     v.type = kDouble;
-    v.size = MAX_FADC_SAMPLES;
-    v.loc  = &(fASamples[m].data()[0]); //JW: location of data
+    v.size = 40;
+    v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
     v.count = &fNumSamples[m];
     vars2.push_back(v);
-    v.name = name_p;
-    v.desc = "Pedestal subtracted ADC samples";
-    v.loc = &(fASamplesPed[m].data()[0]);
-    vars2.push_back(v);
-    v.name = name_c;
-    v.desc = "Pedestal subtracted calibrated ADC samples";
-    v.loc = &(fASamplesCal[m].data()[0]);
-    vars2.push_back(v);
+    // v.name = name_p;
+    // v.desc = "Pedestal subtracted ADC samples";
+    // v.loc = &(fA_raw_p[m].data()[0]);
+    // vars2.push_back(v);
+    // v.name = name_c;
+    // v.desc = "Pedestal subtracted calibrated ADC samples";
+    // v.loc = &(fA_raw_cl[m].data()[0]);
+    // vars2.push_back(v);
   }
   vars2.push_back(VarDef());
   return DefineVarsFromList( vars2.data(), mode );
@@ -332,11 +393,19 @@ void SciFi::DeleteArrays()
 {
   // Delete member arrays. Internal function used by destructor.
 
+  fChanMap.clear();
   delete [] fhitsperchannel; fhitsperchannel = NULL;
   delete [] fA_c;    fA_c    = NULL;
   delete [] fAHits;    fAHits    = NULL;
   delete [] fA_p;    fA_p    = NULL;
   delete [] fA;      fA      = NULL;
+
+  // delete [] fA_raw_c;    fA_raw_c    = NULL;
+  // delete [] fA_raw_p;    fA_raw_p    = NULL;
+  // delete [] fA_raw;      fA_raw      = NULL;
+  
+  
+  
   // delete [] fT_c;    fT_c    = NULL;
   // delete [] fT;      fT      = NULL;
 
@@ -369,6 +438,7 @@ void SciFi::Clear( Option_t* opt )
   for( Int_t i=0; i<fNelem; ++i ) {
     // fT[i] = fT_c[i] = 0.0;
     fA[i] = fA_p[i] = fA_c[i] = 0.0;
+
     fhitsperchannel[i] = 0;
     fPeak[i]=0.0;
     fT_FADC[i]=0.0;
@@ -392,9 +462,9 @@ void SciFi::ClearEvent()
 {
   // Reset all local data to prepare for next event.
   ResetVector(fNumSamples,0);
-  ResetVector(fASamples, 0.0);
-  ResetVector(fASamplesPed,0.0);
-  ResetVector(fASamplesCal,0.0);
+  ResetVector(fA_raw, 0.0);
+  ResetVector(fA_raw_p,0.0);
+  ResetVector(fA_raw_c,0.0);
 
     // fCoarseProcessed = 0;
     // fFineProcessed = 0;
@@ -422,7 +492,7 @@ void SciFi::ClearEvent()
     // fTRX = 0.0;
     // fTRY = 0.0;
   
-    for(size_t i=0; i<fBsum.size(); i++) fBsum[i] = 0.0; // MAPC
+    for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
 
     //2//for (int i=0;i<fNelem;i++) 
         //2//fBlocks[i]->ClearEvent();
@@ -449,10 +519,14 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   
   ClearEvent();
 
+  //  cout << " passed clearvent" << endl;
+
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
 
-    cout << " detmap size is " << fDetMap->GetSize() << endl;
+    //    cout << " detmap size is " << fDetMap->GetSize() << endl;
     THaDetMap::Module* d = fDetMap->GetModule( i );
+    
+    //    cout << " check 1 " << endl;
     bool adc = fDetMap->IsADC(d);
 
 
@@ -487,19 +561,49 @@ Int_t SciFi::Decode( const THaEvData& evdata )
       Int_t chan = evdata.GetNextChan( d->crate, d->slot, j );
       if( chan < d->lo || chan > d->hi ) continue;     // Not one of my channels
 
+      //      cout << " check 2 " << endl;
+
       // Get the detector channel number, starting at 0
       // removed -1 at end, not sure of purpose
-      Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);
+      //      Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);
+      Int_t k = ((d->reverse) ? d->hi - chan : chan - d->lo);
 
       //      fAHits[k] = fFADC->GetNumFadcEvents(chan);
 
       //      std::cout << "Channel number : " << k << "\n" << "Loop number : " << j << std::endl;
 
       // section for processing non-raw mode Fadc output
-
-      if(!raw_mode){
+#ifdef WITH_DEBUG
+	if( k<0 || k>= fNelem ) {
+	  Warning( Here("Decode()"), "Illegal detector channel: %d, chan = %d, hit no = %d,  i = %d", k, chan, j, i );
+	  continue;
+	}
+#endif	
+	// cout << " before chan map" << endl;
 	
-	//	cout << "fAHits[k] [" << k << "] = fFADC->GetNumFadcEvents(chan) =  (" << chan << ") " << fFADC->GetNumFadcEvents(chan) << endl;
+	// cout << " [i][k] = [" << i << "][" << k << "] = " <<  fChanMap[i][k] -1  <<  endl;
+
+	// #ifdef NDEBUG
+	Int_t fibre = fChanMap[i][k] - 1;
+
+       
+	// #else
+	// 	Int_t fibre = fChanMap.at(i).at(k) - 1;
+	// #endif
+	
+	
+	if( fibre<0 || fibre>=fNelem ) {
+	  Error( Here(here), "Bad array index: %d. Your channel map is "
+		 "invalid. Data skipped.", fibre );
+	  continue;
+	}
+	
+	//	cout << " passed this stage" << endl;
+	
+	
+	if(!raw_mode){
+	  
+	  //	cout << "fAHits[k] [" << k << "] = fFADC->GetNumFadcEvents(chan) =  (" << chan << ") " << fFADC->GetNumFadcEvents(chan) << endl;
 
 #ifdef WITH_DEBUG
 	if( k<0 || k>= fNelem ) {
@@ -508,11 +612,26 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	}
 #endif
 	
+#ifdef NDEBUG
+	//	Int_t fibre= fChanMap[i][k] - 1;
+	//	Int_t fibre = k;
+#else
+	//	Int_t fibre = fChanMap.at(i).at(k) - 1;
+	//	Int_t fibre = k;
+#endif
+	
+	if( fibre<0 || fibre>=fNelem ) {
+	  Error( Here(here), "Bad array index: %d. Your channel map is "
+		 "invalid. Data skipped.", fibre );
+	  continue;
+	}
+	//	cout << " check 2 " << endl;	
+	
 	// Get the data. fADCs are assumed to have only single hit (hit=0)
 	Int_t data;
 	Int_t ftime=0;
 	Int_t fpeak=0;
-	Float_t tempPed = fPed[k];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
+	Float_t tempPed = fPed[fibre];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
 	// if(adc){
 	
 	
@@ -532,9 +651,9 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	noevents = fFADC->GetNumFadcEvents(chan);
 	
 	if(fFADC!=NULL){
-	  foverflow[k] = fFADC->GetOverflowBit(chan,0);
-	  funderflow[k] = fFADC->GetUnderflowBit(chan,0);
-	  fpedq[k] = fFADC->GetPedestalQuality(chan,0);
+	  foverflow[fibre] = fFADC->GetOverflowBit(chan,0);
+	  funderflow[fibre] = fFADC->GetUnderflowBit(chan,0);
+	  fpedq[fibre] = fFADC->GetPedestalQuality(chan,0);
 	  
 	  noevents = fFADC->GetNumFadcEvents(chan);
 	  //	fAHits[k] = fFADC->GetNumFadcEvents(chan);
@@ -544,7 +663,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	//	std::cout << " tempped/ fpedq[k] = " << fPed[k] << std::endl;
 	
-	if(fpedq[k]==0) 
+	if(fpedq[fibre]==0) 
 	  {
 	    //	    std::cout << " passed 100000 condition " << std::endl;
 	    if(fTFlag == 1)
@@ -557,7 +676,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	      }
 	  }
 	
-	if(fpedq[k]!=0)
+	if(fpedq[fibre]!=0)
 	  {
 	    printf("\nWARNING: BAD ADC PEDESTAL\n");
 	  }
@@ -566,19 +685,19 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	// Copy the data to the local variables.
 	// if ( adc ) {
-	fA[k]   = data;
+	fA[fibre]   = data;
 	//      fAHits[k] = noevents; 
-	fPeak[k] = static_cast<Float_t>(fpeak);
-	fT_FADC[k]=static_cast<Float_t>(ftime);
-	fT_FADC_c[k]=fT_FADC[k]*0.0625;
-	fA_p[k] = data - tempPed;
-	fhitsperchannel[k] = 10;
-	fA_c[k] = noevents;
+	fPeak[fibre] = static_cast<Float_t>(fpeak);
+	fT_FADC[fibre]=static_cast<Float_t>(ftime);
+	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
+	fA_p[fibre] = data - tempPed;
+	fhitsperchannel[fibre] = 10;
+	fA_c[fibre] = noevents;
 	// only add channels with signals to the sums
-	if( fA_p[k] > 0.0 )
-	  fASUM_p += fA_p[k];
-	if( fA_c[k] > 0.0 )
-	  fASUM_c += fA_c[k];
+	if( fA_p[fibre] > 0.0 )
+	  fASUM_p += fA_p[fibre];
+	if( fA_c[fibre] > 0.0 )
+	  fASUM_c += fA_c[fibre];
 	//      fNAhit++;
 	// } else {
 	// 	// fT[k]   = data;
@@ -639,19 +758,19 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  //	  Double_t John =  fNumSamples[1];
 	  
 	  //	  std::cout << "3rd Check " << std::endl;
-	  fNumSamples[k] = num_samples;
+	  fNumSamples[fibre] = num_samples;
 	  //	  std::cout << "4th Check " << std::endl;
 	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
 	  //	  std::cout << "5th Check " << std::endl;
 	  for(Int_t s = 0; s < num_samples; s++) {
 	  //cout << samples[s] << endl;
 	    //	    std::cout << "In-loop Check " << std::endl;
-	    fASamples[k][s] = samples[s];
+	    fA_raw[fibre][s] = samples[s];
 	    // std::cout << " fASamples[k][s] = " << "fASamples[" << k << "][" << s << "] = sample[s] = " << samples[s] << std::endl;
 	    //	    std::cout << " fASamples[k][s] = " <<  fASamples[k][s] << std::endl;	    
-	    fASamplesPed[k][s] = fASamples[k][s]-fPed[k];
-	    fASamplesCal[k][s] = fASamplesPed[k][s]*fGain[k];
-	    fBsum[k] += samples[s];
+	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
+	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
+	    fA_raw_sum[fibre] += samples[s];
 	    //	    std::cout << " fASamples[k][s] = " << "fASamples[" << k << "][" << s << "] = " << fASamplesCal[k][s] << std::endl;
 	    
 	  }
