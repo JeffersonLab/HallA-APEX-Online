@@ -548,7 +548,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
     // change: removed if condition for fadc (should be only thing present)
     
     Decoder::Module *m = evdata.GetModule(d->crate,d->slot);
-    //Make sure the Module is found!!
+    //Make sure the Module is found!!  BANE!!
     if (m ==nullptr)
     {
 	Error( Here(here), "Can not Get Module crate %d, slot(%d)!!!!",d->crate,d->slot );
