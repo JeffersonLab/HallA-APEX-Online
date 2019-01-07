@@ -551,7 +551,16 @@ Int_t SciFi::Decode( const THaEvData& evdata )
     //Make sure the Module is found!!  BANE!!
     if (m ==nullptr)
     {
-	Error( Here(here), "Can not Get Module crate %d, slot(%d)!!!!",d->crate,d->slot );
+	mod_Err_cnt++;
+	if(mod_Err_cnt<5)
+	{
+		Error( Here(here), "Can not Get Module crate %d, slot(%d)!!!!",d->crate,d->slot );
+	}
+	if(mod_Err_cnt==5)
+	{
+		Error( Here(here), "Can not Get Module crate %d, slot(%d)!!!!",d->crate,d->slot );
+		cout << "Last time this error will display!!!!!!"<<endl;
+	}
 	continue;
     }
    //    Decoder::Fadc250Module *fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
