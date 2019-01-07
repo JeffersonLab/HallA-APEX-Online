@@ -59,6 +59,7 @@ public:
   Int_t    fNSB;         //number of integration samples before threshold crossing
   Int_t    fWin;         //total number of samples in FADC window
   Int_t    fTFlag;       //flag for FADC threshold on vs FADC threshold off
+  Int_t    mod_Err_cnt=0;// Num of err calls for module issue (BANE)
 
   // Changes: getting rid of TDC values
   // Per-event data
