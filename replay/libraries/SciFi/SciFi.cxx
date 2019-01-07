@@ -25,6 +25,8 @@
 
 using namespace std;
 using namespace Decoder;
+const int debug=1;
+
 //_____________________________________________________________________________
 SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus )
 : THaNonTrackingDetector(name,description,apparatus), fPed(0), fGain(0), fA(0),
@@ -76,6 +78,7 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     { 0 }
   };
   err = LoadDB( file, date, config_request, fPrefix );
+
 
   // Sanity checks
   if( !err && nelem <= 0 ) {
@@ -321,7 +324,7 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
     { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
-    { "nhits",  "Number of hits for each PMT",       "fNhits" },
+//    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     // raw mode (10) variables
     // { "a_raw",  "Raw mode ADC values", "fA_raw"},
     // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
@@ -343,6 +346,9 @@ Int_t SciFi::DefineVariables( EMode mode )
   //  raw mode pulse data variables
 
   std::vector<VarDef> vars2;
+
+// Needs to be fixed before adding to the main repo
+/*
   for(Int_t m = 0; m < fNelem; m++) {
     VarDef v;
     char *name   =  new char[128];
@@ -369,8 +375,12 @@ Int_t SciFi::DefineVariables( EMode mode )
     // v.loc = &(fA_raw_cl[m].data()[0]);
     // vars2.push_back(v);
   }
+*/
+
+
   vars2.push_back(VarDef());
   return DefineVarsFromList( vars2.data(), mode );
+
 
 
 
@@ -510,7 +520,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   // entries corresponds to ADCs, and the second half, to TDCs.
 
   // this next loop should go through 4 entries (4 fadc modules with 16 channels apeice)
-
   Int_t noevents = 1000;
 
   
@@ -519,14 +528,11 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   
   ClearEvent();
 
-  //  cout << " passed clearvent" << endl;
 
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
 
-    //    cout << " detmap size is " << fDetMap->GetSize() << endl;
     THaDetMap::Module* d = fDetMap->GetModule( i );
     
-    //    cout << " check 1 " << endl;
     bool adc = fDetMap->IsADC(d);
 
 
@@ -542,8 +548,13 @@ Int_t SciFi::Decode( const THaEvData& evdata )
     // change: removed if condition for fadc (should be only thing present)
     
     Decoder::Module *m = evdata.GetModule(d->crate,d->slot);
-
-    //    Decoder::Fadc250Module *fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
+    //Make sure the Module is found!!
+    if (m ==nullptr)
+    {
+	Error( Here(here), "Can not Get Module crate %d, slot(%d)!!!!",d->crate,d->slot );
+	continue;
+    }
+   //    Decoder::Fadc250Module *fFADC = dynamic_cast <Fadc250Module*> (evdata.GetModule(d->crate, d->slot));
     Decoder::Fadc250Module *fFADC = dynamic_cast<Decoder::Fadc250Module*>(m);
 
     mode = fFADC->GetFadcMode();
@@ -567,7 +578,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
       // removed -1 at end, not sure of purpose
       //      Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);
       Int_t k = ((d->reverse) ? d->hi - chan : chan - d->lo);
-
       //      fAHits[k] = fFADC->GetNumFadcEvents(chan);
 
       //      std::cout << "Channel number : " << k << "\n" << "Loop number : " << j << std::endl;
@@ -579,7 +589,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  continue;
 	}
 #endif	
-	// cout << " before chan map" << endl;
 	
 	// cout << " [i][k] = [" << i << "][" << k << "] = " <<  fChanMap[i][k] -1  <<  endl;
 
@@ -598,12 +607,11 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  continue;
 	}
 	
-	//	cout << " passed this stage" << endl;
 	
 	
 	if(!raw_mode){
 	  
-	  //	cout << "fAHits[k] [" << k << "] = fFADC->GetNumFadcEvents(chan) =  (" << chan << ") " << fFADC->GetNumFadcEvents(chan) << endl;
+//		cout << "fAHits[k] [" << k << "] = fFADC->GetNumFadcEvents(chan) =  (" << chan << ") " << fFADC->GetNumFadcEvents(chan) << endl;
 
 #ifdef WITH_DEBUG
 	if( k<0 || k>= fNelem ) {
@@ -625,7 +633,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 		 "invalid. Data skipped.", fibre );
 	  continue;
 	}
-	//	cout << " check 2 " << endl;	
 	
 	// Get the data. fADCs are assumed to have only single hit (hit=0)
 	Int_t data;
@@ -639,6 +646,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
 	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
 	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
+
 	// }
 	// else{ 
 	//	fNhits_arr[k]=evdata.GetNumHits(d->crate, d->slot, chan);     
@@ -662,7 +670,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	
 	//	std::cout << " tempped/ fpedq[k] = " << fPed[k] << std::endl;
-	
 	if(fpedq[fibre]==0) 
 	  {
 	    //	    std::cout << " passed 100000 condition " << std::endl;
@@ -781,7 +788,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
     }
   }
   
-  //  std::cout << "End of decoding " << noevents <<  std::endl;
+  // std::cout << "End of decoding " << noevents <<  std::endl;
   return noevents;
   // return fNThit;
   //  return fNAhit++;
