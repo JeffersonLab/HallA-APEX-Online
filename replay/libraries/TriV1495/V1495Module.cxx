@@ -31,10 +31,18 @@ V1495Module::V1495Module(Int_t crate, Int_t slot) : VmeModule(crate, slot) {
 
 V1495Module::~V1495Module() {
   if (vCount) delete [] vCount;
+  if (vBCMuh) delete [] vBCMuh;
+  if (vBCMul) delete [] vBCMul;
+  if (vBCMdh) delete [] vBCMdh;
+  if (vBCMdl) delete [] vBCMdl;
 }
 
 void V1495Module::Init() {
   vCount = new UInt_t;
+  vBCMuh = new UInt_t;
+  vBCMul = new UInt_t;
+  vBCMdh = new UInt_t;
+  vBCMdl = new UInt_t;
   fDebugFile=0;
   Clear();
   IsInit = kTRUE;
@@ -53,10 +61,33 @@ Bool_t V1495Module::IsSlot(UInt_t rdata)
 void V1495Module::Clear(const Option_t* opt) {
   VmeModule::Clear(opt);
   memset(vCount, 0, sizeof(UInt_t));
+  memset(vBCMuh, 0, sizeof(UInt_t));
+  memset(vBCMul, 0, sizeof(UInt_t));
+  memset(vBCMdh, 0, sizeof(UInt_t));
+  memset(vBCMdl, 0, sizeof(UInt_t));
 }
 
 UInt_t V1495Module::GetCount() {
   return *vCount;
+}
+
+UInt_t V1495Module::GetBCM(UInt_t selectBCM) {
+  if(selectBCM == 0) {
+    return *vBCMuh;
+  }
+  else if(selectBCM == 1) {
+    return *vBCMul;
+  }
+  else if(selectBCM == 2) {
+    return *vBCMdh;
+  }
+  else if(selectBCM == 3) {
+    return *vBCMdl;
+  }
+  else {
+    cout << "V1495Module Error: Bad BCM selector. Must be 0,1,2,3" << endl;
+    return 0;
+  }
 }
 
 Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len) {
@@ -89,15 +120,30 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 			continue; // this was a BlkHeader, so make sure not to check for event in this word
 		}
 		// Check for Count Trailer and stop decoding
-		if((*loc)==0x14950000) {
+		else if((*loc)==0x14950000) {
 			gotCntHeader=0;
 			break; // Done Decoding, Break out of the while loop
 		}
-		// gotCntHeader true? Store the Clock Count Word
-		if(gotCntHeader) {
+		// gotCntHeader true? Store the Clock Count Word and BCM words
+		else if(gotCntHeader && fWordsSeen==0) {
 			*vCount = (*loc);
-			gotCntHeader=0;
-			fWordsSeen++;	//Not sure if this is actually needed...  -- REM -- 2018-02-01
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==1) {
+			*vBCMuh = (*loc);
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==2) {
+			*vBCMul = (*loc);
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==3) {
+			*vBCMdh = (*loc);
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==4) {
+			*vBCMdl = (*loc);
+			fWordsSeen++;
 		}
 
         loc++;

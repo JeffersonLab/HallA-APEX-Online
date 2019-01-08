@@ -9,6 +9,7 @@
 //   author  Robert Michaels (rom@jlab.org)
 //
 //   modified into ClockCountEvtHandler by Evan McClellan -- 2018-02-01
+//   added BCM readout -- Evan McClellan -- 2019-01-08
 /////////////////////////////////////////////////////////////////////
 
 #include "THaEvtTypeHandler.h"
@@ -37,6 +38,10 @@ private:
    UInt_t V1495ClockCount;
    UInt_t V1495PrevCount;
    UInt_t V1495ClockInterval;
+   UInt_t V1495BCMuh;
+   UInt_t V1495BCMul;
+   UInt_t V1495BCMdh;
+   UInt_t V1495BCMdl;
    std::string nameArm1495;
 
    ClockCountEvtHandler(const ClockCountEvtHandler& fh);
