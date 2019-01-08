@@ -31,7 +31,7 @@ public:
 
    Int_t Decode(const UInt_t *p) { return 0; };
    UInt_t GetCount();
-   UInt_t GetBCM(UInt_t);
+   ULong_t GetBCM(UInt_t);
 
    // Loads slot data for bank structures
    virtual Int_t LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len);
@@ -42,10 +42,8 @@ private:
 
 
    UInt_t *vCount;
-   UInt_t *vBCMuh;
-   UInt_t *vBCMul;
-   UInt_t *vBCMdh;
-   UInt_t *vBCMdl;
+   ULong_t *vBCMu;
+   ULong_t *vBCMd;
 
    Bool_t IsInit;
    static TypeIter_t fgThisType;

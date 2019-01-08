@@ -31,18 +31,14 @@ V1495Module::V1495Module(Int_t crate, Int_t slot) : VmeModule(crate, slot) {
 
 V1495Module::~V1495Module() {
   if (vCount) delete [] vCount;
-  if (vBCMuh) delete [] vBCMuh;
-  if (vBCMul) delete [] vBCMul;
-  if (vBCMdh) delete [] vBCMdh;
-  if (vBCMdl) delete [] vBCMdl;
+  if (vBCMu) delete [] vBCMu;
+  if (vBCMd) delete [] vBCMd;
 }
 
 void V1495Module::Init() {
   vCount = new UInt_t;
-  vBCMuh = new UInt_t;
-  vBCMul = new UInt_t;
-  vBCMdh = new UInt_t;
-  vBCMdl = new UInt_t;
+  vBCMu = new ULong_t;
+  vBCMd = new ULong_t;
   fDebugFile=0;
   Clear();
   IsInit = kTRUE;
@@ -61,31 +57,23 @@ Bool_t V1495Module::IsSlot(UInt_t rdata)
 void V1495Module::Clear(const Option_t* opt) {
   VmeModule::Clear(opt);
   memset(vCount, 0, sizeof(UInt_t));
-  memset(vBCMuh, 0, sizeof(UInt_t));
-  memset(vBCMul, 0, sizeof(UInt_t));
-  memset(vBCMdh, 0, sizeof(UInt_t));
-  memset(vBCMdl, 0, sizeof(UInt_t));
+  memset(vBCMu, 0, sizeof(ULong_t));
+  memset(vBCMd, 0, sizeof(ULong_t));
 }
 
 UInt_t V1495Module::GetCount() {
   return *vCount;
 }
 
-UInt_t V1495Module::GetBCM(UInt_t selectBCM) {
+ULong_t V1495Module::GetBCM(UInt_t selectBCM) {
   if(selectBCM == 0) {
-    return *vBCMuh;
+    return *vBCMu;
   }
   else if(selectBCM == 1) {
-    return *vBCMul;
-  }
-  else if(selectBCM == 2) {
-    return *vBCMdh;
-  }
-  else if(selectBCM == 3) {
-    return *vBCMdl;
+    return *vBCMd;
   }
   else {
-    cout << "V1495Module Error: Bad BCM selector. Must be 0,1,2,3" << endl;
+    cout << "V1495Module Error: Bad BCM selector. Must be 0" << endl;
     return 0;
   }
 }
@@ -109,6 +97,7 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 
    // For checks
    Bool_t gotCntHeader=0;
+   UInt_t vBCMtemp=0;
 
    while ( loc <= pstop ) {
 	cout << "";
@@ -116,6 +105,8 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 		// Check for Count Header to start decoding
 		if((*loc)==0x14951495) {
 			gotCntHeader=1;
+                        *vBCMu = 0;
+                        *vBCMd = 0;
 			loc++;
 			continue; // this was a BlkHeader, so make sure not to check for event in this word
 		}
@@ -129,20 +120,24 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 			*vCount = (*loc);
 			fWordsSeen++;
 		}
-		else if(gotCntHeader && fWordsSeen==1) {
-			*vBCMuh = (*loc);
+		else if(gotCntHeader && fWordsSeen==1) { //upstream high bits
+			vBCMtemp = (*loc);
+                        *vBCMu += ((ULong_t) vBCMtemp) << 32;
 			fWordsSeen++;
 		}
-		else if(gotCntHeader && fWordsSeen==2) {
-			*vBCMul = (*loc);
+		else if(gotCntHeader && fWordsSeen==2) { //upstream low bits
+			vBCMtemp = (*loc);
+                        *vBCMu += (ULong_t) vBCMtemp;
 			fWordsSeen++;
 		}
-		else if(gotCntHeader && fWordsSeen==3) {
-			*vBCMdh = (*loc);
+		else if(gotCntHeader && fWordsSeen==3) { //downstream high bits
+			vBCMtemp = (*loc);
+                        *vBCMd += ((ULong_t) vBCMtemp) << 32;
 			fWordsSeen++;
 		}
-		else if(gotCntHeader && fWordsSeen==4) {
-			*vBCMdl = (*loc);
+		else if(gotCntHeader && fWordsSeen==4) { //downstream low bits
+			vBCMtemp = (*loc);
+                        *vBCMd += (ULong_t) vBCMtemp;
 			fWordsSeen++;
 		}
 
