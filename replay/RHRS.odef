@@ -22,9 +22,8 @@ variable RTDC.F1AllHits_014
 #variable vfFirstHit
 #variable vfAllHits_126
 
-# V1495 Clock Count
-variable RV1495.ClockCount
-variable RV1495.ClockInterval
+# V1495 Clock Count and BCM
+block RV1495.*
 
 # Physics variables
 #block RightBCM*
