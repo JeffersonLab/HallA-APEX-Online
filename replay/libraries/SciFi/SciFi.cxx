@@ -195,7 +195,7 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     //    for (int i=0;i<fNrows;i++) fBlkGrid[i].resize(fNcols);
     //2//fClusters = new SBSHCalCluster*[fMaxNClust];
     // fBlocks.clear();
-    // fBlocks.resize(fNelem);
+    // fBlocks.resize(fNelem); 
     fA_raw.resize(fNelem);
     fA_raw_p.resize(fNelem);
     fA_raw_c.resize(fNelem);
@@ -326,7 +326,7 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
 //    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     // raw mode (10) variables
-    // { "a_raw",  "Raw mode ADC values", "fA_raw"},
+    { "a_raw",  "Raw mode ADC values", "fA_raw"},
     // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
     // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
     { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
@@ -348,7 +348,7 @@ Int_t SciFi::DefineVariables( EMode mode )
   std::vector<VarDef> vars2;
 
 // Needs to be fixed before adding to the main repo
-/*
+
   for(Int_t m = 0; m < fNelem; m++) {
     VarDef v;
     char *name   =  new char[128];
@@ -375,7 +375,6 @@ Int_t SciFi::DefineVariables( EMode mode )
     // v.loc = &(fA_raw_cl[m].data()[0]);
     // vars2.push_back(v);
   }
-*/
 
 
   vars2.push_back(VarDef());
