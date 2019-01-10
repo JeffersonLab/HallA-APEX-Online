@@ -177,6 +177,8 @@ if(V1495!=0){
 	V1495ClockCount = 0;
 	if (fDebug) cout << "Before V1495->GetCount()     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockCount = V1495->GetCount();
+	V1495BCMu = V1495->GetBCM(0); //upstream BCM
+	V1495BCMd = V1495->GetBCM(1); //downstream BCM
 	if (fDebug) cout << "After V1495->GetCount()      V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockInterval = 0;
 	V1495ClockInterval = V1495ClockCount - V1495PrevCount;
@@ -200,6 +202,8 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   // data keys to look for in this fun example
   dataKeys.push_back(nameArm1495 + ".ClockCount");
   dataKeys.push_back(nameArm1495 + ".ClockInterval");
+  dataKeys.push_back(nameArm1495 + ".BCMu");
+  dataKeys.push_back(nameArm1495 + ".BCMd");
 
   // initialize map elements to -1 (means not found yet)
   for (UInt_t i=0; i < dataKeys.size(); i++) {
@@ -229,6 +233,13 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   // for Clock Interval
   V1495ClockInterval = 0;
   gHaVars->DefineByType(dataKeys[numEntries].c_str(), "ClockInterval", &V1495ClockInterval, kUInt, 0);
+  numEntries++;
+  // for BCM
+  V1495BCMu = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMu", &V1495BCMu, kULong, 0);
+  numEntries++;
+  V1495BCMd = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMd", &V1495BCMd, kULong, 0);
   numEntries++;
   
   fStatus = kOK;

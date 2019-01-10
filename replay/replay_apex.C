@@ -25,7 +25,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	    runnumber = nrun;
   }
 
-  
+   
   //Enable modules
   Bool_t bScaler   =   kTRUE;
   Bool_t bHelicity =   kFALSE;
@@ -78,6 +78,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSL->AddDetector( new TriFadcScin     ("s2"  , "S2 Scintillator"        ));
 	HRSL->AddDetector( new THaShower       ("prl1", "Pre-shower pion rej."   ));
 	HRSL->AddDetector( new THaShower       ("prl2", "Show pion rej."         )); 
+	HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 	THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
@@ -613,6 +614,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
+    HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
     // if(runnumber<3200){
     //   HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));

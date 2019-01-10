@@ -83,8 +83,8 @@ block Lrb*
 
 	TH1F Ls2la 'S2 ADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
 	TH1F Ls2ra 'S2 ADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
-	TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1800 L.s2.la_p>-6000.
-	TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1800 L.s2.ra_p>-6000.
+	TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 4800 L.s2.la_p>-6000.
+	TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 4800 L.s2.ra_p>-6000.
 
 	# ------------------------------------------------------------------
 	# LEFT ARM GAS CHERENKOV  ADC and TDC :
