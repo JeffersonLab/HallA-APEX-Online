@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <TSystem.h>
 #include <TGraph.h>
+#include <TStyle.h>
 #include <TString.h>
 #include <TCanvas.h>
 #include <TCut.h>
@@ -42,32 +43,27 @@
 
 //Changed in Feb. 2017 slightly.
 
-/* In order to update this code, please do the following
-	-Update the pedestals
-	-Update the harp results file name and location.
-	-Update the root file location for the rootfiles from the harp scans.
-*/
 
-/* Previosuly used
-//double pedestal[8] = {3510, 3505, 3579, 3662, 3563, 3462, 3330, 3646};//RHRS
-{ 3401,3372,3473,3554,3732,3613,3362,3389}
 
-*/
+
 
 
 using namespace std;
 
-void BPM_calibration (string arm ="R", string harp_date = "", int quiet =0, int ped_run=0){
+void BPM_calibration (string arm ="R", string harp_date = "", int debug =0, int ped_run=0){
+	//get rid of stat box
   	gStyle->SetOptStat(0);
-	char expnr[25];
-	char exppath[200];
-	char codafname[255];
-	char buf[255];
-	char *filestatus;
-	int numofscans=0;
+  	//Predefine some string and other varibles
+  	//numofscans-> number of harp scans in the harp scan result file
+	char expnr[25];	char exppath[200];	char codafname[255];
+	char buf[255];	char *filestatus;	int numofscans=0;
+	TString drawop ="";	if(debug==0)drawop="Q";
+ 	TCanvas *c1[20]; //hard coded the max number of scans to 20... 
+	
 	const char* exp =getenv("EXPERIMENT");
 	const char* file_name=Form("%s_online",exp);
-	const char* root_dir=Form("/chafs1/work1/%s/Rootfiles",exp);//"/adaqfs/home/a-onl/tritium/replay/RootFiles";
+	
+	string root_dir=Form("/chafs1/work1/%s/Rootfiles",exp);
 
 //Use vectors instead of an array, to allow for resizing!
 	//Harp positions!
@@ -82,30 +78,25 @@ void BPM_calibration (string arm ="R", string harp_date = "", int quiet =0, int 
 	int run_number,epics_number;
 	double dum3,dum4,dum5,dum6,dum7,dum8,dum9,dum10,dum11,dum12,dum13,dum14;
 
-
- 	TCanvas *c1[20];
-
 //Position of the four BPM wires
 	double xp, xm, yp, ym;
 //BMP pedestals
-	//char arm = 'L';
-
-
-	//Hard coded peds
+//Hard coded peds
 	double pedestalR[9] = {0,17693,  17654,  17142,  17333, 22495, 21997, 18731, 19852};//Right
 	double pedestalL[9] ={0,17671,  18596,  18139,  19015, 22608, 21631, 18331, 16982};//Left
-
-  TVector pedestal(9);
+//used in pedestal function
+  	TVector pedestal(9);
 
 /////////////////////////////////////////////////////////////////////////
 	if(ped_run!=0)
-  {//Get the pedestals for the 4 channels
-     cout<<endl<<endl<<"Getting pedestals for the BPMs "<<endl<<endl;
+  	{//Get the pedestals for the 4 channels
+     if(debug) cout<<endl<<endl<<"Getting pedestals for the BPMs "<<endl<<endl;
      TChain * t = new TChain("T");
-     t->Add(Form("%s/%s_online_%d.root",root_dir,exp,ped_run));
+     t->Add(Form("%s/%s_online_%d.root",root_dir.c_str(),exp,ped_run));
+     if(t->GetEntries()==0){cout << "pedestal run not found"<<endl;exit(1);}
 
-     TCanvas* c11 = new TCanvas("c11","BPMA(Fbus) Pedestals");
-     TCanvas* c12 = new TCanvas("c12","BPMB(Fbus) Pedestals");
+     TCanvas* c11 = new TCanvas("c11","BPMA Pedestals");
+     TCanvas* c12 = new TCanvas("c12","BPMB Pedestals");
      c11->Divide(2,2);
      c12->Divide(2,2);
      TH1F *H[8];
@@ -126,12 +117,11 @@ void BPM_calibration (string arm ="R", string harp_date = "", int quiet =0, int 
              cout << "Please double check the name of the tree branches. \n";
              cout <<endl<<endl;exit(1);return; }
              f[i]= new TF1(Form("f%d",i), "gaus",0,60000);
-             H[i]->Fit(Form("f%d",i),"Q","",0,60000);
-             pedestal(i)=f[i]->GetParameter("Mean");
-             H[i]->GetXaxis()->SetRangeUser(pedestal(i)-200,pedestal(i)+200);
+             H[i]->Fit(Form("f%d",i),Form("%s",drawop.Data()),"",0,60000);
+             pedestal(i+1)=f[i]->GetParameter("Mean");
+             H[i]->GetXaxis()->SetRangeUser( pedestal(i+1)- 4 * f[i]->GetParameter("Sigma"),pedestal(i+1) + 4 * f[i]->GetParameter("Sigma"));
              c11->Update();}
-             delete c11;
-             delete c12;
+             if(debug==0){delete c11; delete c12; t=nullptr; delete t;}
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -140,8 +130,8 @@ void BPM_calibration (string arm ="R", string harp_date = "", int quiet =0, int 
 //Use predefinded peds.
   if(ped_run==0)
   {
-	   if(arm=='L'){for(int i=0;i<9;i++){pedestal(i)=pedestalL[i];}}
-     if(arm=='R'){for(int i=0;i<9;i++){pedestal(i)=pedestalR[i];}}
+   if(arm=='L'){for(int i=0;i<9;i++){pedestal(i)=pedestalL[i];}}
+   if(arm=='R'){for(int i=0;i<9;i++){pedestal(i)=pedestalR[i];}}
   }
 
 	double BCMcuts[5][2]={{61e6,120E6},{0,10E10},{6E6,42E6},{0,10E10},{45E6,140E6}};
@@ -156,17 +146,16 @@ void BPM_calibration (string arm ="R", string harp_date = "", int quiet =0, int 
 	TH1F *HH[9];
 	TLine *TL[9];
 	TLine *TL2[9];
-//	int min,max;
-//
+
 	double calib = 0.01887;
 
-  //Day of harp runs in hall A
-  char date[256] = {"05032018"};
+
+
 	ifstream fi;
 	char Hresults[256];
 	sprintf(Hresults,"harp_results_%s_%s.txt",arm.c_str(),harp_date.c_str());
 	//if(arm=='R') {sprintf(Hresults,"harp_results_R_%s.txt",date);}
-exit(1);
+
 
 	fi.open(Hresults);
 	TFile *filein;
@@ -179,7 +168,12 @@ exit(1);
 	// Start of input loop for harp_results and BMP Run.
    		fi>>run_number>>epics_number>>dum3>>dum4>>dum5>>dum6>>dum7>>dum8>>dum9>>dum10;
 		if(!fi.good()){break;}
-		cout<<"Will look at run "<< run_number<<endl;
+		filein = TFile::Open(Form("%s/%s_%d.root",root_dir.c_str(),exp,run_number));
+		T =(TTree*) filein->Get("T");
+		if(T==nullptr ) { cout << "Bad root file " <<endl; continue;}
+
+		
+		if(debug)cout<<"Will look at run "<< run_number<<endl;
 
 	//Resize the harp and BMP vectors- add one element to the vector length for each loop, or each harp scan.
 		hax.ResizeTo(numofscans+1); hbx.ResizeTo(numofscans+1);
@@ -192,8 +186,8 @@ exit(1);
 		hbx(numofscans)=dum7*1e-3; hby(numofscans)=dum9*1e-3;
 
 		//Input file from harp scans
-		filein = TFile::Open(Form("%s/%s_%d.root",root_dir,exp,run_number));
-		T =(TTree*) filein->Get("T");
+
+
 
 	//New divided canvas for the BPM locations
  		c1[numofscans] = new TCanvas(Form("c%d",numofscans),Form("Run %d",run_number),500,500,1300,1000);
@@ -202,10 +196,10 @@ exit(1);
 	////Setting up the branches and the histograms to be used!
 	T->SetBranchStatus("*",0);
 	//T->SetBranchStatus("right_clkcount",1);
-	T->SetBranchStatus("*RrbGmp*",1);
-	T->SetBranchStatus("*LrbGmp*",1);
-	T->SetBranchStatus("*Rrb*",1);
-	T->SetBranchStatus("*Lrb*",1);
+//	T->SetBranchStatus("*RrbGmp*",1);
+//	T->SetBranchStatus("*LrbGmp*",1);
+//	T->SetBranchStatus("*Rrb*",1);
+	T->SetBranchStatus(Form("*%srb*",arm.c_str()),1);
 
 	T->SetBranchStatus("hac_bcm_average",1);
 	double BCM_avg;
@@ -224,7 +218,6 @@ exit(1);
 
 	//Event[numofscans]="right_clkcount>=%f&&right_clkcount<=%f",BCMcuts[numofscans][0],BCMcuts[numofscans][1];
 	TCut current = Form("hac_bcm_average>=%f",cur[numofscans]);
-
 
 		///// Calculate the BPM postion from the 4 differrent wire signals, xp,xm,yp,ym!
 		for(int m=1;m<9;m++){c1[numofscans]->cd(m);
@@ -252,8 +245,7 @@ exit(1);
 
 	//Fit the raw BPM signal with a gausian to extract a value for the peak.
 	//
-			TString drawop ="Q";
-			if(quiet==0)drawop="";
+
 			H[m]->Fit("gaus","Q","",peak[m]-600, peak[m]+600);
         	Sigma[m] = H[m]->GetFunction("gaus")->GetParameter(2);
 			H[m]->Fit("gaus",Form("%s",drawop.Data()),"",peak[m]-2.5*Sigma[m], peak[m]+2.5*Sigma[m]);
@@ -274,7 +266,7 @@ exit(1);
         //	TL2[m]->Draw("same");
 
 		 }//end of one run.
-		if(quiet==1){delete c1[numofscans];}
+		if(debug==0){delete c1[numofscans];}
    	//////////////////////////////////////////////
 	cout<<endl;
 
@@ -286,7 +278,7 @@ exit(1);
   		bbx(numofscans)=calib*(signal[5]-signal[6])/(signal[5]+signal[6]);
    		bby(numofscans)=calib*(signal[7]-signal[8])/(signal[7]+signal[8]);
 
-cout << bax(numofscans) << " "<< bay(numofscans) << "  "<<bbx(numofscans) << " "<<bby(numofscans)<<endl;
+		if(debug) cout << bax(numofscans) << " "<< bay(numofscans) << "  "<<bbx(numofscans) << " "<<bby(numofscans)<<endl;
 
  //increase the number of input files
 		numofscans++;
@@ -397,99 +389,23 @@ cout << bax(numofscans) << " "<< bay(numofscans) << "  "<<bbx(numofscans) << " "
 
 //Output results!!!!
 cout<<endl<<endl;
-
+cout<<"Please change the " << arm <<" BPMA pedestals to" <<endl;
+for(int pp=1; pp<5;pp++){cout <<pedestal(pp)<<" ";} cout <<endl;
 cout<<"Please change the " << arm <<" BPMA constants to:"<<endl;
+cout<<solu1(0)<<" "<<solu1(1)<<" "<<solu2(0)<<" "<<solu2(1)<<endl;
+cout<<"Please change the offsets to  :" <<endl;
+cout<<solu1(2)<<" "<<solu2(2)<<endl;
 
-cout<<solu1(0)<<" "<<solu1(1)<<" "<<solu2(0)<<" "<<solu2(1)<<" "<<solu1(2)<<" "<<solu2(2)<<endl;
-
+cout<<endl<<endl;
+cout<<"Please change the " << arm <<" BPMB pedestals to" <<endl;
+for(int pp=5; pp<9;pp++){cout <<pedestal(pp)<<" ";} cout <<endl;
 cout<<"Please change the " << arm <<" BPMB constants to:"<<endl;
 
-cout<<solu3(0)<<" "<<solu3(1)<<" "<<solu4(0)<<" "<<solu4(1)<<" "<<solu3(2)<<" "<<solu4(2)<<endl;
- cout <<"\n\n\n\n";
+cout<<solu3(0)<<" "<<solu3(1)<<" "<<solu4(0)<<" "<<solu4(1)<<" "<<endl;
+cout<<"Please change the offsets to  :" <<endl;
+cout<<solu3(2)<<" "<<solu4(2)<<endl;
+
+cout <<"\n\n\n\n";
 //////////////////////////////////////////////////////////////////
-/*
-//Calibration without offsets
-//For incrementing each varible per harp scan
-	for(Int_t j=0;j<numofscans;j++) {
-	  x11=x11+bax(j)*bax(j);
-	  x12=x12+bax(j)*bay(j);
-	  x1yx=x1yx+bax(j)*hax(j);
-	  x1yy=x1yy+bax(j)*hay(j);
-	  x1=x1+bax(j);
-	  x2=x2+bay(j);
-	  yx=yx+hax(j);
-	  yy=yy+hay(j);
-	  x21=x21+bay(j)*bax(j);
-	  x22=x22+bay(j)*bay(j);
-	  x2yx=x2yx+bay(j)*hax(j);
-	  x2yy=x2yy+bay(j)*hay(j);
-	}
-/////////////////
 
-//Store incremented values in Matrices
-	TMatrix trafotrial(3,3);
-	TVector inhomotrial(3);
-
-	trafotrial(0,0)=x11; trafotrial(1,0)=x21; trafotrial(2,0)=0;
-	trafotrial(0,1)=x12; trafotrial(1,1)=x22; trafotrial(2,1)=0;
-	trafotrial(0,2)=0;  trafotrial(1,2)=0;  trafotrial(2,2)=numofscans;
-	inhomotrial(0)=x1yx; inhomotrial(1)=x2yx; inhomotrial(2)=0;
-////////////////////////////////////////////////
-
-// Make a copy of the transfer matrix
-	TMatrix itrafotrial(trafotrial);
-	//Invert said matrix
-	itrafotrial.Invert();
-	//Multiple the one D vector by the inverted transfer matrix
-	TVector solu1trial(inhomotrial); 	solu1trial*=itrafotrial;
-	//Reset and make the same calcs for BPM the other 3 coif!
-	inhomotrial(0)=x1yy; inhomotrial(1)=x2yy;
-	TVector solu2trial(inhomotrial);
-	solu2trial*=itrafotrial;
-
-//Reset and make the same calcs for BPM B!
-	x11=0.; x12=0.; x1yx=0.; x1yy=0.;
-	x21=0.; x22=0.; x2yx=0.; x2yy=0.;
-	x1=0.;  x2=0.;  yx=0.;   yy=0.;
-
-//For incrementing each varible per harp scan
-	for(Int_t j=0;j<numofscans;j++) {
-	  x11=x11+bbx(j)*bbx(j);
-	  x12=x12+bbx(j)*bby(j);
-	  x1yx=x1yx+bbx(j)*hbx(j);
-	  x1yy=x1yy+bbx(j)*hby(j);
-	  x1=x1+bbx(j);
-	  x2=x2+bby(j);
-	  yx=yx+hbx(j);
-	  yy=yy+hby(j);
-	  x21=x21+bby(j)*bbx(j);
-	  x22=x22+bby(j)*bby(j);
-	  x2yx=x2yx+bby(j)*hbx(j);
-	  x2yy=x2yy+bby(j)*hby(j);
-	}
-
-	trafotrial(0,0)=x11; trafotrial(1,0)=x21;
-	trafotrial(0,1)=x12; trafotrial(1,1)=x22;
-
-	inhomotrial(0)=x1yx; inhomotrial(1)=x2yx;
-
-// Make a copy of the transfer matrix
-	TMatrix itrafo2trial(trafotrial);
-	//Invert said matrix
-	itrafo2trial.Invert();
-	//Multiple the one D vector by the inverted transfer matrix
-	TVector solu3trial(inhomotrial); 	solu3trial*=itrafo2trial;
-	//Reset and make the same calcs for BPM the other 3 coif!
-	inhomotrial(0)=x1yy; inhomotrial(1)=x2yy;
-	TVector solu4trial(inhomotrial); solu4trial*=itrafotrial;
-
-
-
-	cout<<"\n\n\n\n";
-cout<<"Please change the " << arm <<" BPMA constants to:"<<endl;
-cout<<solu1trial(0)<<" "<<solu1trial(1)<<" "<<solu2(0)<<" "<<solu2(1)<<endl;
-cout<<"Please change the " << arm <<" BPMB constants to:"<<endl;
-
-cout<<solu3trial(0)<<" "<<solu3trial(1)<<" "<<solu4trial(0)<<" "<<solu4trial(1)<<endl;
-*/
 }
