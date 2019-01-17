@@ -59,9 +59,9 @@ static const char* PATHS[] = {
    0
 };
 
-static const char* RAW_DATA_FORMAT="%s/triton_%d.dat.%d";
+//static const char* RAW_DATA_FORMAT="%s/triton_%d.dat.%d";
 //need to change when the offical exp swithc happens
-//static const char* RAW_DATA_FORMAT="%s/apex_%d.dat.%d";
+static const char* RAW_DATA_FORMAT="%s/apex_%d.dat.%d";
 
 TString STD_REPLAY_OUTPUT_DIR= TString::Format(ROOTFILE_DIR_PREFIX,"Rootfiles");	//pass1 auto hack
 //TString STD_REPLAY_OUTPUT_DIR= TString::Format("/volatile/halla/triton/Marathon_Rootfiles/pass1_test");	//pass 1 hack
