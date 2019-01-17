@@ -727,7 +727,7 @@ vmeDmaConfig(2, 5, 1);
     //MLU//
     ///////
 
-  //Get Upstream BCM words
+  //Get Upstream BCM sum words
   unsigned short bcmu_0 = v1495BCM_ReadCODAindi(0,0);	//get lowest 16 bits from upstream bcm sum
   unsigned short bcmu_1 = v1495BCM_ReadCODAindi(0,1);
   unsigned short bcmu_2 = v1495BCM_ReadCODAindi(0,2);
@@ -735,7 +735,7 @@ vmeDmaConfig(2, 5, 1);
   unsigned int bcmu_h = (bcmu_3<<16) + bcmu_2;
   unsigned int bcmu_l = (bcmu_1<<16) + bcmu_0;
 
-  //Get Downstream BCM words
+  //Get Downstream BCM sum words
   unsigned short bcmd_0 = v1495BCM_ReadCODAindi(1,0);	//get lowest 16 bits from downstream bcm sum
   unsigned short bcmd_1 = v1495BCM_ReadCODAindi(1,1);
   unsigned short bcmd_2 = v1495BCM_ReadCODAindi(1,2);
@@ -751,6 +751,8 @@ vmeDmaConfig(2, 5, 1);
     *dma_dabufp++ = LSWAP(bcmu_l);		//lower 32 bits of upstream bcm
     *dma_dabufp++ = LSWAP(bcmd_h);		//upper 32 bits of downstream bcm
     *dma_dabufp++ = LSWAP(bcmd_l);		//lower 32 bits of downstream bcm
+    *dma_dabufp++ = LSWAP(v1495BCMcurrent_ReadCODA(0));			//latest upstream BCM current value
+    *dma_dabufp++ = LSWAP(v1495BCMcurrent_ReadCODA(1));			//latest downstream BCM current value
     *dma_dabufp++ = LSWAP(0x14950000);
     vmeDmaConfig(2, 5, 1);
   BANKCLOSE;
