@@ -170,7 +170,8 @@ sleep 1
 	 --tag Autolog \
 	 --attach ${dir}/summaryfiles/left_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/right_online_latest.pdf \
-	 --caption "Online plots" 
+	 --caption "Left online Plots" \
+	 --caption "Right online Plots" 
      
  elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
      #  
