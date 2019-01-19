@@ -948,10 +948,10 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",exp,runnumber,SUM_DIR)); 
 
 
-       SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/"); // not sure why thsi had to be added, but SUM_DIR seem to be redefined otherwise
+       SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/"); // not sure why this had to be added, but SUM_DIR seem to be redefined otherwise
 
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
        gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",exp,runnumber,SUM_DIR));    
        gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_latest.pdf",exp,runnumber,exp));
