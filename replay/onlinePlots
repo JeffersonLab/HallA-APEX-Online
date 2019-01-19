@@ -33,7 +33,7 @@ fi
 
 if [ $Left == 'kTRUE' -a $Right == 'kTRUE' ]     #   COINCIDENCE (BOTH ARMS + COINC PLOTS)
 then
-    echo " coincidence plots"
+    echo "/n coincidence plots"
     
     onlineGUI64/online -f onlineGUI64/LHRS_online.cfg -r $RUNNUM
     onlineGUI64/online -f onlineGUI64/RHRS_online.cfg -r $RUNNUM
