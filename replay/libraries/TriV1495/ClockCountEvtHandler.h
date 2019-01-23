@@ -40,6 +40,12 @@ private:
    UInt_t V1495ClockInterval;
    ULong_t V1495BCMu;
    ULong_t V1495BCMd;
+   ULong_t V1495PrevBCMu;
+   ULong_t V1495PrevBCMd;
+   ULong_t V1495BCMuInterval;
+   ULong_t V1495BCMdInterval;
+   UInt_t V1495BCMuCurrent;
+   UInt_t V1495BCMdCurrent;
    std::string nameArm1495;
 
    ClockCountEvtHandler(const ClockCountEvtHandler& fh);
