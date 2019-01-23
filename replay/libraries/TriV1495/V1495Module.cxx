@@ -33,12 +33,16 @@ V1495Module::~V1495Module() {
   if (vCount) delete [] vCount;
   if (vBCMu) delete [] vBCMu;
   if (vBCMd) delete [] vBCMd;
+  if (vBCMuI) delete [] vBCMuI;
+  if (vBCMdI) delete [] vBCMdI;
 }
 
 void V1495Module::Init() {
   vCount = new UInt_t;
   vBCMu = new ULong_t;
   vBCMd = new ULong_t;
+  vBCMuI = new UInt_t;
+  vBCMdI = new UInt_t;
   fDebugFile=0;
   Clear();
   IsInit = kTRUE;
@@ -59,6 +63,8 @@ void V1495Module::Clear(const Option_t* opt) {
   memset(vCount, 0, sizeof(UInt_t));
   memset(vBCMu, 0, sizeof(ULong_t));
   memset(vBCMd, 0, sizeof(ULong_t));
+  memset(vBCMuI, 0, sizeof(UInt_t));
+  memset(vBCMdI, 0, sizeof(UInt_t));
 }
 
 UInt_t V1495Module::GetCount() {
@@ -73,7 +79,20 @@ ULong_t V1495Module::GetBCM(UInt_t selectBCM) {
     return *vBCMd;
   }
   else {
-    cout << "V1495Module Error: Bad BCM selector. Must be 0" << endl;
+    cout << "V1495Module Error: Bad BCM selector. Must be 0 or 1" << endl;
+    return 0;
+  }
+}
+
+UInt_t V1495Module::GetBCMI(UInt_t selectBCM) {
+  if(selectBCM == 0) {
+    return *vBCMuI;
+  }
+  else if(selectBCM == 1) {
+    return *vBCMdI;
+  }
+  else {
+    cout << "V1495Module Error: Bad BCM selector. Must be 0 or 1" << endl;
     return 0;
   }
 }
@@ -107,6 +126,8 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 			gotCntHeader=1;
                         *vBCMu = 0;
                         *vBCMd = 0;
+                        *vBCMuI = 0;
+                        *vBCMdI = 0;
 			loc++;
 			continue; // this was a BlkHeader, so make sure not to check for event in this word
 		}
@@ -138,6 +159,14 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 		else if(gotCntHeader && fWordsSeen==4) { //downstream low bits
 			vBCMtemp = (*loc);
                         *vBCMd += (ULong_t) vBCMtemp;
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==5) { //upstream BCM current
+			*vBCMuI = (*loc);
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==6) { //downstream BCM current
+			*vBCMdI = (*loc);
 			fWordsSeen++;
 		}
 

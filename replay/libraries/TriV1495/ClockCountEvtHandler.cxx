@@ -174,14 +174,32 @@ if(ldebug) {
 
 if(V1495!=0){
 	V1495PrevCount = V1495ClockCount;
+        V1495PrevBCMu = V1495BCMu;
+        V1495PrevBCMd = V1495BCMd;
 	V1495ClockCount = 0;
 	if (fDebug) cout << "Before V1495->GetCount()     V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockCount = V1495->GetCount();
-	V1495BCMu = V1495->GetBCM(0); //upstream BCM
-	V1495BCMd = V1495->GetBCM(1); //downstream BCM
+	V1495BCMu = V1495->GetBCM(0); //upstream BCM sum
+	V1495BCMd = V1495->GetBCM(1); //downstream BCM sum
+	V1495BCMuCurrent = V1495->GetBCMI(0); //upstream BCM current
+	V1495BCMdCurrent = V1495->GetBCMI(1); //downstream BCM current
 	if (fDebug) cout << "After V1495->GetCount()      V1495ClockCount = " << hex << V1495ClockCount << dec << endl;
 	V1495ClockInterval = 0;
+	V1495BCMuInterval = 0;
+	V1495BCMdInterval = 0;
 	V1495ClockInterval = V1495ClockCount - V1495PrevCount;
+        V1495BCMuInterval = V1495BCMu - V1495PrevBCMu;
+        V1495BCMdInterval = V1495BCMd - V1495PrevBCMd;
+        //cout << "PrevBCMu     : " << hex << V1495PrevBCMu << dec << endl;
+        //cout << "    BCMu     : " << hex << V1495BCMu << dec << endl;
+        //cout << "BCMuInterval : " << hex << V1495BCMuInterval << dec << endl;
+        if(V1495BCMu < V1495PrevBCMu)
+        {
+          cout << "WARNING: BCMu sum got smaller!" << endl;
+          cout << "    V1495BCMu         = 0x" << hex << V1495BCMu << dec << endl;
+          cout << "    V1495PrevBCMu     = 0x" << hex << V1495PrevBCMu << dec << endl;
+          cout << "    V1495BCMuInterval = 0x" << hex << V1495BCMuInterval << dec << endl;
+        }
 }
 
   return 1;
@@ -204,6 +222,10 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   dataKeys.push_back(nameArm1495 + ".ClockInterval");
   dataKeys.push_back(nameArm1495 + ".BCMu");
   dataKeys.push_back(nameArm1495 + ".BCMd");
+  dataKeys.push_back(nameArm1495 + ".BCMuInterval");
+  dataKeys.push_back(nameArm1495 + ".BCMdInterval");
+  dataKeys.push_back(nameArm1495 + ".BCMuCurrent");
+  dataKeys.push_back(nameArm1495 + ".BCMdCurrent");
 
   // initialize map elements to -1 (means not found yet)
   for (UInt_t i=0; i < dataKeys.size(); i++) {
@@ -240,6 +262,18 @@ THaAnalysisObject::EStatus ClockCountEvtHandler::Init(const TDatime& date)
   numEntries++;
   V1495BCMd = 0;
   gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMd", &V1495BCMd, kULong, 0);
+  numEntries++;
+  V1495BCMuInterval = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMuInterval", &V1495BCMuInterval, kULong, 0);
+  numEntries++;
+  V1495BCMdInterval = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMdInterval", &V1495BCMdInterval, kULong, 0);
+  numEntries++;
+  V1495BCMuCurrent = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMuCurrent", &V1495BCMuCurrent, kUInt, 0);
+  numEntries++;
+  V1495BCMdCurrent = 0;
+  gHaVars->DefineByType(dataKeys[numEntries].c_str(), "BCMdCurrent", &V1495BCMdCurrent, kUInt, 0);
   numEntries++;
   
   fStatus = kOK;
