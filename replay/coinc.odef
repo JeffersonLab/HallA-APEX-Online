@@ -99,8 +99,8 @@ TH1F Ls0ra_p 'S0-Top(A) ADC (PedSub)' L.s0.ra_p 1000 -500 4500 L.s0.ra_p>-500.
 # LEFT ARM S2
 #
 
-TH1F Ls2lt 'S2 TDC L-PMT ' L.s2.lt 700 2750 3200 L.s2.lt>0.
-TH1F Ls2rt 'S2 TDC R-PMT ' L.s2.rt 700 2750 3200 L.s2.rt>0.
+TH1F Ls2lt 'S2 TDC L-PMT ' L.s2.lt 700 2500 3000 L.s2.lt>0.
+TH1F Ls2rt 'S2 TDC R-PMT ' L.s2.rt 700 2500 3000 L.s2.rt>0.
 TH1F Ls2ltTAll_ 'S2 TDC w/ T2,T3: L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2ltT3_ 'S2 TDC w/ T3 only: L-PMT' L.s2.lt 500 1300 2300 L.s2.lt>0.&&(DL.evtypebits==8)
 TH1F Ls2rtTAll_ 'S2 TDC w/ T2,T3: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
