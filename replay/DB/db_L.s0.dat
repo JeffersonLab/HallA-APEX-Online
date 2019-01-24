@@ -4,7 +4,7 @@ L.s0.R.ped = 0
 L.s0.NPED = 15
 L.s0.NSA = 15
 L.s0.NSB = 2
-L.s0.Win = 40
+L.s0.Win = 50
 L.s0.TFlag = 1
 
 

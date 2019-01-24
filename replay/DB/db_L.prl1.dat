@@ -2,7 +2,7 @@
 L.prl1.NPED = 15
 L.prl1.NSA = 80
 L.prl1.NSB = 0
-L.prl1.Win = 80
+L.prl1.Win = 50
 L.prl1.TFlag = 0
 
 # delibiratley worn values of NSA and NSB as check (were 40 and 2)
