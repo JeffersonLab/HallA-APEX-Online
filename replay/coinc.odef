@@ -146,10 +146,10 @@ TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 20
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
 #
-TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 300 1100 4600
-TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 300 1100 4600
-TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 300 1100 4600
-TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 300 1100 4600
+TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 300 1500 3500
+TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 300 1500 3500
+TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 300 1500 3500
+TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 300 1500 3500
 
 TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 300 0 3000
 TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 0 3000
