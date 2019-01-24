@@ -1,3 +1,20 @@
+--------[ 2019-01-23 14:20:00 -0500 ]
+
+L.prl2.NPED = 15
+L.prl2.NSA = 40
+L.prl2.NSB = 2
+L.prl2.Win = 80
+L.prl2.TFlag = 0
+
+
+--------[ 2019-01-10 00:00:00 -0500 ]
+
+L.prl2.NPED = 15
+L.prl2.NSA = 15
+L.prl2.NSB = 2
+L.prl2.Win = 80
+L.prl2.TFlag = 1
+
 
 --------[ 2019-01-01 00:00:00 -0500 ]
 L.prl2.pedestals =

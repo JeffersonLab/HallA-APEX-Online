@@ -1,3 +1,13 @@
+--------[ 2019-01-18 00:00:00 -0500 ]
+L.s0.L.ped = 0
+L.s0.R.ped = 0
+L.s0.NPED = 15
+L.s0.NSA = 15
+L.s0.NSB = 2
+L.s0.Win = 40
+L.s0.TFlag = 1
+
+
 --------[ 2018-08-22 00:00:00 -0500 ]
 
 L.s0.NPED = 15
@@ -16,8 +26,8 @@ L.s0.position = -0.14    -0.005   1.731
 L.s0.size =  1.7    0.25   0.01
 L.s0.L.off = 1483.87
 L.s0.R.off = 1500
-L.s0.L.ped = 5187.4
-L.s0.R.ped = 4145.8
+L.s0.L.ped = 0
+L.s0.R.ped = 0
 L.s0.L.gain = 1.02
 L.s0.R.gain = 0.87
 L.s0.avgres = -0.5e-9

@@ -65,5 +65,5 @@ R.sf.gains =
 R.sf.NPED = 15
 R.sf.NSA = 15
 R.sf.NSB = 2
-R.sf.Win = 35
+R.sf.Win = 150   /// altered from 35 for testing on 19/1/2019
 R.sf.TFlag = 0
