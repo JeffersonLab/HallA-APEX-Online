@@ -10,18 +10,41 @@ fi
 echo
 echo
 
-if [ $RUNNUM -le 90000 ]
+Left=kTRUE
+Right=kTRUE
+
+if [ "$2" == "-s" ]
+   echo " -s condition passed"
+
+   then
+        if [ "$3" == "L" -o "$3" == "l" ]
+           then
+            Right=kFALSE
+
+        fi
+
+        if [ "$3" == "R" -o "$3" == "r" ]
+            then
+            Left=kFALSE
+
+        fi
+
+fi
+
+
+if [ $Left == kTRUE ]
 then
 
-echo "Changing the left golden run to $RUNNUM"
+	echo "Changing the left golden run to $RUNNUM"
 
 	unlink /chafs1/work1/${exp}/Rootfiles/${exp}_Left_golden.root
 	ln -s /chafs1/work1/${exp}/Rootfiles/${exp}_online_$RUNNUM.root /chafs1/work1/${exp}/Rootfiles/${exp}_Left_golden.root
 
+fi
+if [ $Right == kTRUE ]
+then
 
-else
-
-echo "Changing the right golden run to $RUNNUM"
+	echo "Changing the right golden run to $RUNNUM"
 
 	unlink /chafs1/work1/${exp}/Rootfiles/${exp}_Right_golden.root
 	ln -s /chafs1/work1/${exp}/Rootfiles/${exp}_online_$RUNNUM.root /chafs1/work1/${exp}/Rootfiles/${exp}_Right_golden.root
