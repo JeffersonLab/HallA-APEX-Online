@@ -15,7 +15,7 @@ block DR.*
 #block OldTrackR.*
 
 # F1tdc and VETROC
-block RTDC.*
+#block RTDC.*
 #variable RTDC.F1nhits
 #variable RTDC.F1Warnings
 #variable RTDC.F1FirstHit
@@ -38,12 +38,12 @@ block exR.*
 block EKR.*
 block EKRc.*
 block EKRx.*
-block EltR.*
-block EKRxe.*
+#block EltR.*
+#block EKRxe.*
 block Rrb.BPMA.rawcur.*
 block Rrb.BPMB.rawcur.*
 
-block Elb.*
+#block Elb.*
 
 block ib.*
 #BPM/Raster Variables
@@ -382,25 +382,25 @@ TH1F RClockInterval 'RHRS Clock Interval' RV1495.ClockInterval 1000 0 70000
 #-------------------------------------------------------------------------------
 # RIGHT Arm Physics Histograms:
 #
-TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 100 0 4
-TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 100 0 4
-TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
-TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 10 50
-TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 1
+#TH1F EKRQ2  'R-arm Q2, 4-momentum transfer'  EKR.Q2 100 0 4
+#TH1F EKRNU 'R-arm nu, energy transfer'   EKR.omega 100 0 4
+#TH1F EKRW  'R-arm invariant mass W' sqrt(EKR.W2) 100 1 4
+#TH1F EKR_TH_E 'R-arm scattering angle (deg)' EKR.angle*180./3.14159 180 10 50
+#TH1F EKRXBJ 'R-arm Bjorken x' EKR.x_bj 100 0 1
 #TH1F EKRTH_Q 'R-arm Virtual photon angle (deg)' EKR.th_q*180./3.14159 60 0 60
-TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 1 200 0 4
+#TH2F EKR_xQ2 'R-arm Q2 vs xbj'  EKR.x_bj EKR.Q2  100 0 1 200 0 4
 
 #-------------------------------------------------------------------------------
 # RIGHT Arm Reaction Vertex Histograms  :
 #
-TH1F reactx 'R-arm Reaction X vertex' rpr.x 200 -.6 .6
-TH1F reacty 'R-arm Reaction Y vertex' rpr.y 200 -.6 .6
-TH1F reactz 'R-arm Reaction Z vertex' rpr.z 200 -.5 .8
+TH1F Rreactx 'R-arm Reaction X vertex' rpr.x 200 -.6 .6
+TH1F Rreacty 'R-arm Reaction Y vertex' rpr.y 200 -.6 .6
+TH1F Rreactz 'R-arm Reaction Z vertex' rpr.z 200 -.5 .8
 
 #-------------------------------------------------------------------------------
 #Beam Information
 #
-TH1F E_p_cut 'E/p with cut' Rep 300 -0.5 1.5 R.cer.asum_c>2000&&R.gold.p<1000000000&&R.gold.p>0
+TH1F R_E_p_cut 'E/p with cut' Rep 300 -0.5 1.5 R.cer.asum_c>2000&&R.gold.p<1000000000&&R.gold.p>0
 
 #-------------------------------------------------------------------------------
 
@@ -416,12 +416,12 @@ variable RightT3
 variable RightT3_r
 variable RightT4
 variable RightT4_r
-variable RightC1
-variable RightC1_r
-variable RightC2
-variable RightC2_r
-variable RightC3
-variable RightC3_r
+#variable RightC1
+#variable RightC1_r
+#variable RightC2
+#variable RightC2_r
+#variable RightC3
+#variable RightC3_r
 variable RightRclock
 variable RightRclock_r
 variable RightLclock
@@ -464,12 +464,12 @@ variable evRightT3
 variable evRightT3_r
 variable evRightT4
 variable evRightT4_r
-variable evRightC1
-variable evRightC1_r
-variable evRightC2
-variable evRightC2_r
-variable evRightC3
-variable evRightC3_r
+#variable evRightC1
+#variable evRightC1_r
+#variable evRightC2
+#variable evRightC2_r
+#variable evRightC3
+#variable evRightC3_r
 variable evRightRclock
 variable evRightRclock_r
 variable evRightLclock
@@ -599,8 +599,8 @@ block exL.*
 block EKL.*
 block EKLc.*
 block EKLx.*
-block EltL.*
-block EKLxe.*
+#block EltL.*
+#block EKLxe.*
 block LeftBCM*
 block LeftBCMev*
 block Lrb.BPMA.rawcur.*
@@ -653,8 +653,8 @@ variable LeftT3
 variable LeftT3_r  
 variable LeftMLU_random
 variable LeftMLU_random_r
-variable LeftFakeCoinc
-variable LeftFakeCoinc_r
+#variable LeftFakeCoinc
+#variable LeftFakeCoinc_r
 variable LeftL1A_R
 variable LeftL1A_R_r  
 variable LeftRclock
@@ -700,8 +700,8 @@ variable evLeftT3
 variable evLeftT3_r
 variable evLeftMLU_random
 variable evLeftMLU_random_r
-variable evLeftFakeCoinc
-variable evLeftFakeCoinc_r
+#variable evLeftFakeCoinc
+#variable evLeftFakeCoinc_r
 variable evLeftL1A_R
 variable evLeftL1A_R_r
 variable evLeftRclock
