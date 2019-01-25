@@ -130,10 +130,10 @@ TH2F Lcer_y  'Cerenkov FADC sum (corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0
 #
 #TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 1000 10 6000 L.prl1.a>0.
 TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.0 20000 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -200 20000 L.prl1.a_p>=-50.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -1000 20000 L.prl1.a_p>=-50.
 TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 1000 1 5000 
 TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0 20000 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -200 20000 L.prl2.a_p>=-50.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -1000 20000 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 5000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
