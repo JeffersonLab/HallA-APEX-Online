@@ -256,8 +256,8 @@ TH1F Rs0ltT6_ 'S0-Top(B) w/ T6 only ' R.s0.lt 500 1500 2500 R.s0.lt>0.&&(DR.evty
 TH1F Rs0rtT4_ 'S0-Bottom(A) w/T5,T6' R.s0.rt 500 1500 2500 R.s0.rt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F Rs0rtT6_ 'S0-Bottom(A) w/ T6 only' R.s0.rt 500 1500 2500 R.s0.rt>0.&&(DR.evtypebits==64)
 
-TH1F Rs0la 'Right arm S0-Top(B) ADC' R.s0.la 2000 0 40000 R.s0.la>0.
-TH1F Rs0ra 'Right arm S0-Bottom(A) ADC' R.s0.ra 2000 0 40000 R.s0.ra>0.
+TH1F Rs0la 'Right arm S0-Top(B) ADC' R.s0.la 200 0 6000 R.s0.la>0.
+TH1F Rs0ra 'Right arm S0-Bottom(A) ADC' R.s0.ra 200 0 6000 R.s0.ra>0.
 TH1F Rs0la_p 'S0-Top(B) ADC (PedSub)' R.s0.la_p 5000 -500 15000 R.s0.la_p>-600.
 TH1F Rs0ra_p 'S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 5000 -500 15000 R.s0.ra_p>-600.
 
