@@ -28,6 +28,7 @@
 
 /*Used in faSetProcMode() */
 #define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE_SCIFI    10
 #define FADC_WINDOW_WIDTH  150 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
 #define FADC_LATENCY       200  // was 65 // was 60  (40 for scifi)
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
@@ -370,13 +371,13 @@ rocDownload()
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,FADC_NSAT); //raster and BPM, no thresholds ever
-            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT); // SciFi
             }
           else
             {
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
+            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);   // SciFi
             if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
