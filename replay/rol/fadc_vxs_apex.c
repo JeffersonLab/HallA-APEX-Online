@@ -422,7 +422,7 @@ if(ifa==2){
        else{
 	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
          if(ifa==0||ifa==1||ifa==2||ifa==3||ifa==4||ifa==5||ifa==6 || ifa==7)
-	   	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,300,2);
+	   	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
          else
 	   //faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WIN_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
