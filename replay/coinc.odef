@@ -266,8 +266,8 @@ TH1F Rs0ra_p 'S0-Bottom(A) ADC (PedSub)' R.s0.ra_p 5000 -500 15000 R.s0.ra_p>-60
 #-------------------------------------------------------------------
 # RIGHT ARM S2
 #
-TH1F Rs2lt 'S2 TDC L-PMT' R.s2.lt 700 0 3500 R.s2.lt>0.
-TH1F Rs2rt 'S2 TDC R-PMT' R.s2.rt 700 0 3500 R.s2.rt>0.
+TH1F Rs2lt 'S2 TDC L-PMT' R.s2.lt 700 1500 3500 R.s2.lt>0.
+TH1F Rs2rt 'S2 TDC R-PMT' R.s2.rt 700 1500 3500 R.s2.rt>0.
 TH1F Rs2ltT4_ 'S2 TDC w/ T5,T6:  L-PMT ' R.s2.lt 500 1500 2500 R.s2.lt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F Rs2ltT6_ 'S2 TDC w/ T6 only: L-PMT ' R.s2.lt 500 1500 2500 R.s2.lt>0.&&(DR.evtypebits==64)
 TH1F Rs2rtT4_ 'S2 TDC w/ T5,T6:  R-PMT ' R.s2.rt 500 1500 2500 R.s2.rt>0.&&((DR.evtypebits==112)||(DR.evtypebits==96))
@@ -275,8 +275,8 @@ TH1F Rs2rtT6_ 'S2 TDC w/ T6 only: R-PMT ' R.s2.rt 500 1500 2500 R.s2.rt>0.&&(DR.
 
 TH1F Rs2la 'S2 ADC L-PMT' R.s2.la 4000 0 40000 R.s2.la>0.
 TH1F Rs2ra 'S2 ADC R-PMT' R.s2.ra 4000 0 40000 R.s2.ra>0.
-TH1F Rs2la_p 'S2 ADC(PedSub) L-PMT ' R.s2.la_p 500 -500 10000 R.s2.la_p>-6000.
-TH1F Rs2ra_p 'S2 ADC(PedSub) L-PMT ' R.s2.la_p 500 -500 10000 R.s2.la_p>-6000.
+TH1F Rs2la_p 'S2 ADC(PedSub) L-PMT ' R.s2.la_p 500 -500 5000 R.s2.la_p>-6000.
+TH1F Rs2ra_p 'S2 ADC(PedSub) L-PMT ' R.s2.la_p 500 -500 5000 R.s2.la_p>-6000.
 
 
 # ------------------------------------------------------------------
