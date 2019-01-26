@@ -417,39 +417,31 @@ if(ifa==2){
 		    320, /* MAXPED */
 		    2);  /* NSAT */
 
-   if(WANT_THRESHOLD)
-     if(ifa==9||ifa==10||ifa==11||ifa==12){
-       faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,400,3);
-     }
-     else if(ifa==4||ifa==5||ifa==6 || ifa==7){
-       faSetProcMode(faSlot(ifa), FADC_MODE_SCIFI, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
-       // SciFi slots
-     }
-     else{
-       faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB,FADC_NSA, FADC_NPULSES, 15,400,3);
-     }
+      if(WANT_THRESHOLD){
+	if(ifa==9||ifa==10||ifa==11||ifa==12){
+	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,400,3);
+	} else if(ifa==4||ifa==5||ifa==6 || ifa==7){
+	  faSetProcMode(faSlot(ifa), FADC_MODE_SCIFI, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
+	  // SciFi slots (4-7)
+	} else{
+	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB,FADC_NSA, FADC_NPULSES, 15,400,3);
+	}
 
-
-       else{
-	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
-         if(ifa==0||ifa==1||ifa==2||ifa==3||ifa==4||ifa==5||ifa==6 || ifa==7){
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
-         // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
-	 }
-         else if(ifa==4||ifa==5||ifa==6 || ifa==7) {
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SCIFI, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
-	   // SciFi slots
-	 }
-	 else{
-	   //faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WIN_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,300, 3);  
-	 }
-	 
-	 
-	 
-       }
-
-
+      }	else{
+	printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
+	if(ifa==0||ifa==1||ifa==2||ifa==3){
+	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
+	  // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
+	} else if(ifa==4||ifa==5||ifa==6 || ifa==7){
+	  faSetProcMode(faSlot(ifa), FADC_MODE_SCIFI, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,380,2);
+	  // SciFi slots (4-7)
+	} else{
+	  //faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WIN_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
+	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,300, 3);  
+	}
+      }
+   
+      
     }
   faGStatus(0);
   
@@ -460,9 +452,9 @@ if(ifa==2){
   sdSetActiveVmeSlots(fadcSlotMask);
   sdStatus(1);
   
-
- v1495InitCODA(MLUbase,0);		// initialize MLU
-
+  
+  v1495InitCODA(MLUbase,0);		// initialize MLU
+  
   printf("%s: User Download Executed\n",
 	 __func__);
 }
