@@ -2,7 +2,7 @@
 //                                                                           //
 // Scifi                                                                     //
 //                                                                           //
-// Class for Scifi detector read out by 4 fadc250 modules wiht 16 channels   //
+// Class for Scifi detector read out by 4 fadc250 modules with 16 channels   //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 //#include "TriFadcCherenkov.h"
@@ -694,6 +694,18 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	if(fpedq[fibre]!=0)
 	  {
 	    printf("\nWARNING: BAD ADC PEDESTAL\n");
+	    // if fadc gives bad pedestal then use 
+	    // give different pedestal based on raw or production mode data (different window sizes)
+
+	    if(fTFlag == 1)
+	      {
+		tempPed = (fNSA+fNSB)*tempPed;
+	      }
+	    else{
+	      tempPed = (fWin)*tempPed;
+	    }
+
+
 	  }
 	
 	// }
@@ -705,7 +717,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fPeak[fibre] = static_cast<Float_t>(fpeak);
 	fT_FADC[fibre]=static_cast<Float_t>(ftime);
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
-	fA_p[fibre] = data - tempPed;
+	fA_p[fibre] = data - Int_t(tempPed);
 	fhitsperchannel[fibre] = 10;
 	fA_c[fibre] = noevents;
 	// only add channels with signals to the sums
@@ -778,19 +790,47 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
 	  //	  std::cout << "5th Check " << std::endl;
 	  for(Int_t s = 0; s < num_samples; s++) {
-	  //cout << samples[s] << endl;
-	    //	    std::cout << "In-loop Check " << std::endl;
+
 	    fA_raw[fibre][s] = samples[s];
-	    // std::cout << " fASamples[k][s] = " << "fASamples[" << k << "][" << s << "] = sample[s] = " << samples[s] << std::endl;
-	    //	    std::cout << " fASamples[k][s] = " <<  fASamples[k][s] << std::endl;	    
 	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
 	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
 	    fA_raw_sum[fibre] += samples[s];
-	    //	    std::cout << " fASamples[k][s] = " << "fASamples[" << k << "][" << s << "] = " << fASamplesCal[k][s] << std::endl;
+
 	    
 	  }
 	  //	  std::cout << "6th Check " << std::endl;
 	}
+
+	////////////////////////////////////////////////////////////
+	////// Also collect raw-mode data in 'normal' format ///////
+	/////            ie fA,fA_p,fA_c etc                 ///////           
+        ////////////////////////////////////////////////////////////
+
+	Int_t data;
+	Int_t ftime=0;
+	Int_t fpeak=0;
+	Float_t tempPed = fPed[fibre];
+
+
+	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
+
+	fA[fibre]   = data;
+	//      fAHits[k] = noevents; 
+	fPeak[fibre] = static_cast<Float_t>(fpeak);
+	fT_FADC[fibre]=static_cast<Float_t>(ftime);
+	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
+	fA_p[fibre] = data - tempPed;
+	fhitsperchannel[fibre] = 10;
+	fA_c[fibre] = noevents;
+	// only add channels with signals to the sums
+	if( fA_p[fibre] > 0.0 )
+	  fASUM_p += fA_p[fibre];
+	if( fA_c[fibre] > 0.0 )
+	  fASUM_c += fA_c[fibre];
+
+
       }
       
     }
