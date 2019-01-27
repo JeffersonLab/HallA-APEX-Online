@@ -11,9 +11,9 @@
 
 
 
-#define MAX_EVENT_POOL     40
+#define MAX_EVENT_POOL     5
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
-#define MAX_EVENT_LENGTH   1024*100      /* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*800      /* Size in Bytes */
 
 
 
@@ -40,7 +40,7 @@ unsigned int blockLevel=  1;
 #define FADC_WINDOW_LAT   205
 #define FADC_WINDOW_WIDTH   40 // was 106
 int FADC_NPULSES =           1;
-#define FADC_MODE           9
+#define FADC_MODE           10
 
 #define FADC_LATENCY       240 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
@@ -422,11 +422,11 @@ if(ifa==2){
        else{
 	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
          if(ifa==0||ifa==1||ifa==2||ifa==3||ifa==4||ifa==5||ifa==6 || ifa==7)
-	   	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,300,2);
+	   	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
          else
 	   //faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WIN_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
-	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,300, 3);  
+	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 10,400, 3);  
 	 
        }
 
@@ -521,7 +521,7 @@ rocGo()
     MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 8);
   else /* FADC_MODE == 10 */
     MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (8 + FADC_WINDOW_WIDTH/2));
-  // MAXFADCWORDS = 100000;
+   MAXFADCWORDS = 100000;
 
   faGEnable(0, 0);
   /* Interrupts/Polling enabled after conclusion of rocGo() */

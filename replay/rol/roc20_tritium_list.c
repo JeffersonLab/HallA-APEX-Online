@@ -27,12 +27,12 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE           9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE           10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_MODE_SCIFI    10
-#define FADC_WINDOW_WIDTH  150 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
-#define FADC_LATENCY       200  // was 65 // was 60  (40 for scifi)
+#define FADC_WINDOW_WIDTH  40 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
+#define FADC_LATENCY       150//200  // was 65 // was 60  (40 for scifi)
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           55 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_NSA           40 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
