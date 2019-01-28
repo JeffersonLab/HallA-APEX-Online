@@ -314,10 +314,10 @@ TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 3000 R.t
 # ------------------------------------------------------------------
 # RIGHT ARM VDC wires and timing  :
 #
-TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 700 1500 3000
-TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 700 1500 3000
-TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 700 1500 3000
-TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 700 1500 3000
+TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 300 1500 3000
+TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 300 1500 3000
+TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 300 1500 3000
+TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 300 1500 3000
 
 TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
 TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
