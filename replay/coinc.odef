@@ -114,7 +114,7 @@ TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
-TH1F Lcert   'Cerenkov TDC PMT ' L.cer.t 700 1000 4500 L.cer.t>0
+TH1F Lcert   'Cerenkov FastBus TDC PMT ' L.cer.t 700 1000 4500 L.cer.t>0
 TH1F LcertTAll_    'Cerenkov TDC w/ T2,T3: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&(DL.evtypebits==8)
 
