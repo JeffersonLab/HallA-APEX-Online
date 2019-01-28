@@ -82,34 +82,34 @@ Variable FbusRrb.y
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
-TH1F Ls0lt 'S0-Bottom(B) TDC' L.s0.lt 700 0 3500 L.s0.lt>0.
-TH1F Ls0rt 'S0-Top(A) TDC' L.s0.rt 700 0 3500 L.s0.rt>0.
+TH1F Ls0lt 'S0-Bottom(B) FastBus TDC' L.s0.lt 700 0 3500 L.s0.lt>0.
+TH1F Ls0rt 'S0-Top(A) FastBus TDC' L.s0.rt 700 0 3500 L.s0.rt>0.
 TH1F Ls0ltTAll 'S0-Bottom(B) TDC w/T2,T3' L.s0.lt 500 1300 2300 L.s0.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls0ltT3   'S0-Bottom(B) TDC w/ T3 only' L.s0.lt 500 1300 2300 L.s0.lt>0.&&(DL.evtypebits==8)
 TH1F Ls0rtTAll 'S0-Top(A) TDC w/ T2,T3' L.s0.rt 500 1300 2300 L.s0.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls0rtT3   'S0-Top(A) TDC w/ T3 only' L.s0.rt 500 1300 2300 L.s0.rt>0.&&(DL.evtypebits==8)
 
-TH1F Ls0la 'S0-Bottom(B) ADC' L.s0.la 12000 0 120000 L.s0.la>0.
-TH1F Ls0ra 'S0-Top(A) ADC' L.s0.ra 12000 0 120000 L.s0.ra>0.
-TH1F Ls0la_p 'S0-Bottom(B) ADC (PedSub)' L.s0.la_p 1000 -500 4500 L.s0.la_p>-500.
-TH1F Ls0ra_p 'S0-Top(A) ADC (PedSub)' L.s0.ra_p 1000 -500 4500 L.s0.ra_p>-500.
+TH1F Ls0la 'S0-Bottom(B) FADC' L.s0.la 12000 0 120000 L.s0.la>0.
+TH1F Ls0ra 'S0-Top(A) FADC' L.s0.ra 12000 0 120000 L.s0.ra>0.
+TH1F Ls0la_p 'S0-Bottom(B) FADC (PedSub)' L.s0.la_p 1000 -500 4500 L.s0.la_p>-500.
+TH1F Ls0ra_p 'S0-Top(A) FADC (PedSub)' L.s0.ra_p 1000 -500 4500 L.s0.ra_p>-500.
 
 
 #-------------------------------------------------------------------
 # LEFT ARM S2
 #
 
-TH1F Ls2lt 'S2 TDC L-PMT ' L.s2.lt 700 2500 3000 L.s2.lt>0.
-TH1F Ls2rt 'S2 TDC R-PMT ' L.s2.rt 700 2500 3000 L.s2.rt>0.
+TH1F Ls2lt 'S2 FastBus TDC L-PMT ' L.s2.lt 700 2500 3000 L.s2.lt>0.
+TH1F Ls2rt 'S2 FastBus TDC R-PMT ' L.s2.rt 700 2500 3000 L.s2.rt>0.
 TH1F Ls2ltTAll_ 'S2 TDC w/ T2,T3: L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2ltT3_ 'S2 TDC w/ T3 only: L-PMT' L.s2.lt 500 1300 2300 L.s2.lt>0.&&(DL.evtypebits==8)
 TH1F Ls2rtTAll_ 'S2 TDC w/ T2,T3: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2rtT3_ 'S2 TDC w/ T3 only: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&(DL.evtypebits==8)
 
-TH1F Ls2la 'S2 ADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
-TH1F Ls2ra 'S2 ADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
-TH1F Ls2la_p 'S2 ADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 2000 L.s2.la_p>-6000.
-TH1F Ls2ra_p 'S2 ADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
+TH1F Ls2la 'S2 FADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
+TH1F Ls2ra 'S2 FADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
+TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 2000 L.s2.la_p>-6000.
+TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
 
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
