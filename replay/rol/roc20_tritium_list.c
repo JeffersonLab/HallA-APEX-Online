@@ -27,11 +27,14 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
-#define FADC_WINDOW_WIDTH  150 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
-#define FADC_LATENCY       200  // was 65 // was 60  (40 for scifi)
+#define FADC_MODE           9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_MODE_SCIFI    10
+#define FADC_LATENCY_SCIFI 50
+#define FADC_WD_SCIFI  40 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
+#define FADC_WINDOW_WIDTH  40 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
+#define FADC_LATENCY       150 //200  // was 65 // was 60  (40 for scifi)
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           55 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_NSA           40 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
@@ -364,25 +367,22 @@ rocDownload()
       //      faSetProcMode(faSlot(islot), 10, 85, 40, 5, 60, 1, 0);
 
       // faSetProcMode(faSlot(islot), 10, 85, 40, 5, 60, 1, 4,250,2);
-          if(WANT_THRESHOLD)
-            {
-            printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
-            if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
-            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
-            if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,FADC_NSAT); //raster and BPM, no thresholds ever
-            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
-            }
-          else
-            {
-            printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
-            if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-            if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-            if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
-	    }
-	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
-
+	if(WANT_THRESHOLD){
+	  printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
+	  if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+	  if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT);
+	  if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,FADC_NSAT); //raster and BPM, no thresholds ever
+	  if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 15,357,FADC_NSAT); // SciFi
+	} else{
+	  printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
+	  if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
+	  if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY_SCIFI, FADC_WD_SCIFI, FADC_NSB, FADC_NSA, 1, 15,357,1);   // SciFi
+	  if(islot==0||islot==1||islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,357,1);
+	}
+	faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
+	
     }
-
+  
 
   faSDC_Status(0);
   faGStatus(0);			//  6/7/2017
