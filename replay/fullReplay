@@ -7,4 +7,38 @@ then
 else
 	RUNNUM=$1
 fi
-analyzer 'replay_tritium.C('$RUNNUM',-1,0,kTRUE,kFALSE,kFALSE)'
+
+
+# conditions added to accept left or right arm only runs
+
+Left=kTRUE
+Right=kTRUE
+
+if [ "$2" == "-s" ]
+   echo " -s condition passed"
+
+   then 
+      	if [ "$3" == "L" -o "$3" == "l" ] 
+	   then
+	    Right=kFALSE
+		   
+	fi	
+
+	if [ "$3" == "R" -o "$3" == "r" ] 
+	    then
+	    Left=kFALSE
+	    
+	fi
+
+fi
+kplots=kFALSE
+if [ "$4" == "p" ]
+then
+	kplots=kTRUE
+fi
+
+echo "analyzer 'replay_apex.C('$RUNNUM',-1,0,kTRUE,kTRUE,$kplots,$Left,$Right)'"
+
+
+		 #numofevents,firstevent,quite,online,plots,L,R,auto,skim
+analyzer 'replay_apex.C('$RUNNUM',-1,0,kTRUE,kTRUE,'$kplots','$Left','$Right')'
