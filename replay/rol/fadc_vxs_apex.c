@@ -40,7 +40,7 @@ unsigned int blockLevel=  1;
 #define FADC_WINDOW_LAT   205
 #define FADC_WINDOW_WIDTH   40 // was 106
 int FADC_NPULSES =           1;
-#define FADC_MODE           10
+#define FADC_MODE           9
 
 #define FADC_LATENCY       240 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
@@ -50,8 +50,9 @@ int FADC_NPULSES =           1;
 #define FADC_SH_THRESHOLD     11 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_LA_SciFi         200 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi         80 // was /// RELEVANT
+#define FADC_MODE_SciFi           10
+#define FADC_LA_SciFi         130 // was 73 //was 78 // was 62 
+#define FADC_WD_SciFi         40 // was /// RELEVANT
 
 
 extern int fadcA32Base;
@@ -421,13 +422,13 @@ if(ifa==2){
          else faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB,FADC_NSA, FADC_NPULSES, 15,400,3);
        else{
 	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
-         if(ifa==0||ifa==1||ifa==2||ifa==3||ifa==4||ifa==5||ifa==6 || ifa==7)
-	   	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
+         if(ifa==0||ifa==1||ifa==2||ifa==3)
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
-         else
-	   //faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WIN_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
-	  faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 10,400, 3);  
-	 
+	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB, FADC_NSA, 1, 15,400,2);	   // SciFi
+         if(ifa==8||ifa==9||ifa==10 || ifa==11)
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 10,400, 3);  // PRLs ( shower detectors )
        }
 
 
