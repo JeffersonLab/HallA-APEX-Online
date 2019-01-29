@@ -449,7 +449,16 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
         fpedq[k]      = fFADC->GetPedestalQuality(chan,0);
       }
       if(fpedq[k]==0) // good quality
-        tempPed    = (fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+	{
+	  if(fTFlag == 1)
+            {
+              tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+            }
+	  else
+            {
+              tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+            }	  	  
+	}
 
       // Copy the data and apply calibrations
       fA[k]   = data;                   // ADC value
