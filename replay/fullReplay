@@ -41,4 +41,4 @@ echo "analyzer 'replay_apex.C('$RUNNUM',-1,0,kTRUE,kTRUE,$kplots,$Left,$Right)'"
 
 
 		 #numofevents,firstevent,quite,online,plots,L,R,auto,skim
-analyzer 'replay_apex.C('$RUNNUM',-1,0,kTRUE,kTRUE,'$kplots','$Left','$Right')'
+analyzer 'replay_apex.C('$RUNNUM',-1,0,kTRUE,kFALSE,'$kplots','$Left','$Right')'
