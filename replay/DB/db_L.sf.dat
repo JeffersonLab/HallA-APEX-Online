@@ -65,5 +65,5 @@ L.sf.gains =
 L.sf.NPED = 15
 L.sf.NSA = 100   # 15
 L.sf.NSB = 2    # 2
-L.sf.Win = 106
+L.sf.Win = 40
 L.sf.TFlag = 0
