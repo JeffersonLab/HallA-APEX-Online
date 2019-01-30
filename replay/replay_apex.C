@@ -188,11 +188,11 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 		TriFadcRasteredBeam* Lrb = new TriFadcRasteredBeam("Lrb", "Rastered beam to LHRS");
 		gHaApps->Add(Lrb);
 
-		THaRasteredBeam* FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to LHRS");
-		FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-		FbusLrb->AddDetector(new THaBPM   ("BPMA", "First BPM"));
-		FbusLrb->AddDetector(new THaBPM   ("BPMB", "Second BPM"));
-		gHaApps->Add(FbusLrb);
+//		THaRasteredBeam* FbusLrb = new THaRasteredBeam("FbusLrb", "Fastbus Rastered beam to LHRS");
+//		FbusLrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+//		FbusLrb->AddDetector(new THaBPM   ("BPMA", "First BPM"));
+//		FbusLrb->AddDetector(new THaBPM   ("BPMB", "Second BPM"));
+//		gHaApps->Add(FbusLrb);
 
 		//==================================
 		// RHRS Beam
