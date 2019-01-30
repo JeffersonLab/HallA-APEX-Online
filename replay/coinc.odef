@@ -674,7 +674,7 @@ block L.vdc.*
 block L.tr.*
 block L.sf.*
 
-block FbusL.s0.*
+#block FbusL.s0.*
 #block FbusL.s2.* #S2 isn't split to the fastbus
 block FbusL.cer.*
 
@@ -720,20 +720,20 @@ Variable Lrb.e
 Variable Lrb.x
 Variable Lrb.y
 
-Variable FbusLrb.Raster.rawcur.x
-Variable FbusLrb.Raster.rawcur.y
-Variable FbusLrb.Raster2.rawcur.x
-Variable FbusLrb.Raster2.rawcur.y
-Variable FbusLrb.BPMA.x
-Variable FbusLrb.BPMA.y
-Variable FbusLrb.BPMB.x
-Variable FbusLrb.BPMB.y
-Variable FbusLrb.dir.x
-Variable FbusLrb.dir.y
-Variable FbusLrb.e
-Variable FbusLrb.x
-Variable FbusLrb.y
-block FbusLrb*
+#Variable FbusLrb.Raster.rawcur.x
+#Variable FbusLrb.Raster.rawcur.y
+#Variable FbusLrb.Raster2.rawcur.x
+#Variable FbusLrb.Raster2.rawcur.y
+#Variable FbusLrb.BPMA.x
+#Variable FbusLrb.BPMA.y
+#Variable FbusLrb.BPMB.x
+#Variable FbusLrb.BPMB.y
+#Variable FbusLrb.dir.x
+#Variable FbusLrb.dir.y
+#Variable FbusLrb.e
+#Variable FbusLrb.x
+#Variable FbusLrb.y
+#block FbusLrb*
 
 # ------------------------------------------------------------------
 # Event type 140 
