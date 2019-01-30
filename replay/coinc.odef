@@ -99,8 +99,8 @@ TH1F Ls0ra_p 'S0-Top(A) FADC (PedSub)' L.s0.ra_p 1000 -500 4500 L.s0.ra_p>-500.
 # LEFT ARM S2
 #
 
-TH1F Ls2lt 'S2 FastBus TDC L-PMT ' L.s2.lt 700 2500 3000 L.s2.lt>0.
-TH1F Ls2rt 'S2 FastBus TDC R-PMT ' L.s2.rt 700 2500 3000 L.s2.rt>0.
+TH1F Ls2lt 'S2 FastBus TDC L-PMT ' L.s2.lt 500 2500 3000 L.s2.lt>0.
+TH1F Ls2rt 'S2 FastBus TDC R-PMT ' L.s2.rt 500 2500 3000 L.s2.rt>0.
 TH1F Ls2ltTAll_ 'S2 TDC w/ T2,T3: L-PMT ' L.s2.lt 500 1300 2300 L.s2.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls2ltT3_ 'S2 TDC w/ T3 only: L-PMT' L.s2.lt 500 1300 2300 L.s2.lt>0.&&(DL.evtypebits==8)
 TH1F Ls2rtTAll_ 'S2 TDC w/ T2,T3: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
@@ -114,7 +114,7 @@ TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
-TH1F Lcert   'Cerenkov FastBus TDC PMT ' L.cer.t 700 1000 4500 L.cer.t>0
+TH1F Lcert   'Cerenkov FastBus TDC PMT ' L.cer.t 700 1000 3500 L.cer.t>0
 TH1F LcertTAll_    'Cerenkov TDC w/ T2,T3: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&(DL.evtypebits==8)
 
@@ -130,31 +130,31 @@ TH2F Lcer_y  'Cerenkov FADC sum (corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0
 #
 #TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 1000 10 6000 L.prl1.a>0.
 TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.0 20000 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -1000 20000 L.prl1.a_p>=-50.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -1000 10000 L.prl1.a_p>=-50.
 TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 1000 1 5000 
 TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0 20000 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -1000 20000 L.prl2.a_p>=-50.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -1000 10000 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 5000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
-TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 3000 L.tr.n>0
-TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 3000 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 3000 L.tr.n>0
-TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 3000 L.tr.n>0
+TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
+TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
+TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
 
 
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
 #
-TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 300 1500 3500
-TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 300 1500 3500
-TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 300 1500 3500
-TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 300 1500 3500
+TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 300 2000 3000
+TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 300 2000 3000
+TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 300 2000 3000
+TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 300 2000 3000
 
-TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 300 0 3000
-TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 0 3000
-TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 300 0 3000
-TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 300 0 3000
+TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 300 2000 3000
+TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 300 2000 3000
+TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 300 2000 3000
+TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 300 2000 3000
 
 TH1F Lvu1w 'L-arm VDC u1 wires' L.vdc.u1.wire 400 0 400
 TH1F Lvu2w 'L-arm VDC u2 wires' L.vdc.u2.wire 400 0 400
