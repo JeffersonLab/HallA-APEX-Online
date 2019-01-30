@@ -76,6 +76,19 @@ Variable FbusRrb.e
 Variable FbusRrb.x
 Variable FbusRrb.y
 
+
+FORMULA Lrbax 1000.*Lrb.BPMA.x
+FORMULA Lrbay 1000.*Lrb.BPMA.y
+FORMULA Lrbbx 1000.*Lrb.BPMB.x
+FORMULA Lrbby 1000.*Lrb.BPMB.y
+FORMULA Lrbx 1000.*Lrb.x
+FORMULA Lrby 1000.*Lrb.y
+FORMULA Lurbx 1000.*Lurb.x
+FORMULA Lurby 1000.*Lurb.y
+FORMULA Lbpmaws Lrb.BPMA.rawcur.1+Lrb.BPMA.rawcur.2+Lrb.BPMA.rawcur.3+Lrb.BPMA.rawcur.4
+FORMULA Lbpmbws Lrb.BPMB.rawcur.1+Lrb.BPMB.rawcur.2+Lrb.BPMB.rawcur.3+Lrb.BPMB.rawcur.4
+
+
 FORMULA Rrbax 1000.*Rrb.BPMA.x
 FORMULA Rrbay 1000.*Rrb.BPMA.y
 FORMULA Rrbbx 1000.*Rrb.BPMB.x
