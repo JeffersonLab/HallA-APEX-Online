@@ -196,21 +196,21 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     //2//fClusters = new SBSHCalCluster*[fMaxNClust];
     // fBlocks.clear();
     // fBlocks.resize(fNelem); 
-    fA_raw.resize(fNelem);
-    fA_raw_p.resize(fNelem);
-    fA_raw_c.resize(fNelem);
+    // fA_raw.resize(fNelem);
+    // fA_raw_p.resize(fNelem);
+    // fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
-    for(Int_t i = 0; i < fNelem; i++) {
-      // We'll resize the vector now to make sure the data are contained
-      // in a contigous part of memory (needed by THaOutput when writing
-      // to the ROOT file)
-      fA_raw[i].resize(MAX_FADC_SAMPLES);
-      fA_raw_p[i].resize(MAX_FADC_SAMPLES);
-      fA_raw_c[i].resize(MAX_FADC_SAMPLES);
-      //      std::cout << "check for resizing" << std::endl;
+    // for(Int_t i = 0; i < fNelem; i++) {
+    //   // We'll resize the vector now to make sure the data are contained
+    //   // in a contigous part of memory (needed by THaOutput when writing
+    //   // to the ROOT file)
+    //   fA_raw[i].resize(MAX_FADC_SAMPLES);
+    //   fA_raw_p[i].resize(MAX_FADC_SAMPLES);
+    //   fA_raw_c[i].resize(MAX_FADC_SAMPLES);
+    //   //      std::cout << "check for resizing" << std::endl;
 
-    }
-    fA_raw_sum.resize(fNelem); // MAPC
+    // }
+    // fA_raw_sum.resize(fNelem); // MAPC
     // Yup, hard-coded in because it's only a test
     // TODO: Fix me, don't hard code it in
     //    fMaxNClust = 9;
@@ -326,10 +326,10 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
 //    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     // raw mode (10) variables
-    { "a_raw",  "Raw mode ADC values", "fA_raw"},
-    // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
-    // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
-    { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
+    // { "a_raw",  "Raw mode ADC values", "fA_raw"},
+    // // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
+    // // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
+    // { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
     { 0 }
   };
 
@@ -337,48 +337,49 @@ Int_t SciFi::DefineVariables( EMode mode )
 
 
 
-  //return DefineVarsFromList( vars, mode );
-  Int_t err = DefineVarsFromList(vars, mode);
-  if( err != kOK ){
-    return err;
-  }
+  return DefineVarsFromList( vars, mode );
+
+  // Int_t err = DefineVarsFromList(vars, mode);
+  // if( err != kOK ){
+  //   return err;
+  // }
 
   //  raw mode pulse data variables
 
-  std::vector<VarDef> vars2;
+//   std::vector<VarDef> vars2;
 
-// Needs to be fixed before adding to the main repo
+// // Needs to be fixed before adding to the main repo
 
-  for(Int_t m = 0; m < fNelem; m++) {
-    VarDef v;
-    char *name   =  new char[128];
-    // char *name_p = new char[128];
-    // char *name_c = new char[128];
-    sprintf(name,"a_raw%.2d",m);
-    // sprintf(name_p,"a_p_%.2d",m);
-    // sprintf(name_c,"a_c_%.2d",m);
-    char *desc = new char[256];
-    sprintf(desc,"Raw ADC samples for Module %d",m);
-    v.name = name;
-    v.desc = "Raw ADC samples";
-    v.type = kDouble;
-    v.size = 40;
-    v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
-    v.count = &fNumSamples[m];
-    vars2.push_back(v);
-    // v.name = name_p;
-    // v.desc = "Pedestal subtracted ADC samples";
-    // v.loc = &(fA_raw_p[m].data()[0]);
-    // vars2.push_back(v);
-    // v.name = name_c;
-    // v.desc = "Pedestal subtracted calibrated ADC samples";
-    // v.loc = &(fA_raw_cl[m].data()[0]);
-    // vars2.push_back(v);
-  }
+//   for(Int_t m = 0; m < fNelem; m++) {
+//     VarDef v;
+//     char *name   =  new char[128];
+//     // char *name_p = new char[128];
+//     // char *name_c = new char[128];
+//     sprintf(name,"a_raw%.2d",m);
+//     // sprintf(name_p,"a_p_%.2d",m);
+//     // sprintf(name_c,"a_c_%.2d",m);
+//     char *desc = new char[256];
+//     sprintf(desc,"Raw ADC samples for Module %d",m);
+//     v.name = name;
+//     v.desc = "Raw ADC samples";
+//     v.type = kDouble;
+//     v.size = 40;
+//     v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
+//     v.count = &fNumSamples[m];
+//     vars2.push_back(v);
+//     // v.name = name_p;
+//     // v.desc = "Pedestal subtracted ADC samples";
+//     // v.loc = &(fA_raw_p[m].data()[0]);
+//     // vars2.push_back(v);
+//     // v.name = name_c;
+//     // v.desc = "Pedestal subtracted calibrated ADC samples";
+//     // v.loc = &(fA_raw_cl[m].data()[0]);
+//     // vars2.push_back(v);
+//   }
 
 
-  vars2.push_back(VarDef());
-  return DefineVarsFromList( vars2.data(), mode );
+//   vars2.push_back(VarDef());
+//   return DefineVarsFromList( vars2.data(), mode );
 
 
 
@@ -471,9 +472,9 @@ void SciFi::ClearEvent()
 {
   // Reset all local data to prepare for next event.
   ResetVector(fNumSamples,0);
-  ResetVector(fA_raw, 0.0);
-  ResetVector(fA_raw_p,0.0);
-  ResetVector(fA_raw_c,0.0);
+  // ResetVector(fA_raw, 0.0);
+  // ResetVector(fA_raw_p,0.0);
+  // ResetVector(fA_raw_c,0.0);
 
     // fCoarseProcessed = 0;
     // fFineProcessed = 0;
@@ -501,7 +502,7 @@ void SciFi::ClearEvent()
     // fTRX = 0.0;
     // fTRY = 0.0;
   
-    for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
+    // for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
 
     //2//for (int i=0;i<fNelem;i++) 
         //2//fBlocks[i]->ClearEvent();
@@ -758,80 +759,80 @@ Int_t SciFi::Decode( const THaEvData& evdata )
       
       // section for processing raw mode
       
-      if (raw_mode){
+      // if (raw_mode){
 	
 	
-	//	Int_t p = fDetMap[i][k] - 1;
-	//  Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);	
+      // 	//	Int_t p = fDetMap[i][k] - 1;
+      // 	//  Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);	
 	
-	//	std::cout << "Entered raw mode" << std::endl;
+      // 	//	std::cout << "Entered raw mode" << std::endl;
 	
 	
-	num_events = fFADC->GetNumFadcEvents(chan);
+      // 	num_events = fFADC->GetNumFadcEvents(chan);
 	
-	//	std::cout << "First Check " << std::endl;
+      // 	//	std::cout << "First Check " << std::endl;
 	
-	num_samples = fFADC->GetNumFadcSamples(chan,0);
+      // 	num_samples = fFADC->GetNumFadcSamples(chan,0);
 
-	//	std::cout << "2nd Check: num_samples =  " << std::endl;
+      // 	//	std::cout << "2nd Check: num_samples =  " << std::endl;
 	
-	if(num_samples > MAX_FADC_SAMPLES || num_samples < 0) {
-	  Error( Here(here),
-		 "Too manu samples in fFADC: %d out of %d MAX",num_samples,
-		 MAX_FADC_SAMPLES);
-	} else {
+      // 	if(num_samples > MAX_FADC_SAMPLES || num_samples < 0) {
+      // 	  Error( Here(here),
+      // 		 "Too manu samples in fFADC: %d out of %d MAX",num_samples,
+      // 		 MAX_FADC_SAMPLES);
+      // 	} else {
 	  
-	  ///	  std::cout << "Bonus Check " << std::endl;
-	  //	  Double_t John =  fNumSamples[1];
+      // 	  ///	  std::cout << "Bonus Check " << std::endl;
+      // 	  //	  Double_t John =  fNumSamples[1];
 	  
-	  //	  std::cout << "3rd Check " << std::endl;
-	  fNumSamples[fibre] = num_samples;
-	  //	  std::cout << "4th Check " << std::endl;
-	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
-	  //	  std::cout << "5th Check " << std::endl;
-	  for(Int_t s = 0; s < num_samples; s++) {
+      // 	  //	  std::cout << "3rd Check " << std::endl;
+      // 	  fNumSamples[fibre] = num_samples;
+      // 	  //	  std::cout << "4th Check " << std::endl;
+      // 	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
+      // 	  //	  std::cout << "5th Check " << std::endl;
+      // 	  for(Int_t s = 0; s < num_samples; s++) {
 
-	    fA_raw[fibre][s] = samples[s];
-	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
-	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
-	    fA_raw_sum[fibre] += samples[s];
+      // 	    fA_raw[fibre][s] = samples[s];
+      // 	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
+      // 	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
+      // 	    fA_raw_sum[fibre] += samples[s];
 
 	    
-	  }
-	  //	  std::cout << "6th Check " << std::endl;
-	}
+      // 	  }
+      // 	  //	  std::cout << "6th Check " << std::endl;
+      // 	}
 
-	////////////////////////////////////////////////////////////
-	////// Also collect raw-mode data in 'normal' format ///////
-	/////            ie fA,fA_p,fA_c etc                 ///////           
-        ////////////////////////////////////////////////////////////
+      // 	////////////////////////////////////////////////////////////
+      // 	////// Also collect raw-mode data in 'normal' format ///////
+      // 	/////            ie fA,fA_p,fA_c etc                 ///////           
+      //   ////////////////////////////////////////////////////////////
 
-	Int_t data;
-	Int_t ftime=0;
-	Int_t fpeak=0;
-	Float_t tempPed = fPed[fibre];
-
-
-	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
-	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
-
-	fA[fibre]   = data;
-	//      fAHits[k] = noevents; 
-	fPeak[fibre] = static_cast<Float_t>(fpeak);
-	fT_FADC[fibre]=static_cast<Float_t>(ftime);
-	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
-	fA_p[fibre] = data - tempPed;
-	fhitsperchannel[fibre] = 10;
-	fA_c[fibre] = noevents;
-	// only add channels with signals to the sums
-	if( fA_p[fibre] > 0.0 )
-	  fASUM_p += fA_p[fibre];
-	if( fA_c[fibre] > 0.0 )
-	  fASUM_c += fA_c[fibre];
+      // 	Int_t data;
+      // 	Int_t ftime=0;
+      // 	Int_t fpeak=0;
+      // 	Float_t tempPed = fPed[fibre];
 
 
-      }
+      // 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
+      // 	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+      // 	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
+
+      // 	fA[fibre]   = data;
+      // 	//      fAHits[k] = noevents; 
+      // 	fPeak[fibre] = static_cast<Float_t>(fpeak);
+      // 	fT_FADC[fibre]=static_cast<Float_t>(ftime);
+      // 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
+      // 	fA_p[fibre] = data - tempPed;
+      // 	fhitsperchannel[fibre] = 10;
+      // 	fA_c[fibre] = noevents;
+      // 	// only add channels with signals to the sums
+      // 	if( fA_p[fibre] > 0.0 )
+      // 	  fASUM_p += fA_p[fibre];
+      // 	if( fA_c[fibre] > 0.0 )
+      // 	  fASUM_c += fA_c[fibre];
+
+
+      // }
       
     }
   }
