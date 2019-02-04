@@ -960,20 +960,31 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        //==================================
        // Both arms combined
        //==================================
-       const char * CONFIGCOINC     = Form( REPLAY_DIR_PREFIX,"onlineGUI64/coinc.cfg"        );
-       //		const char * CONFIGCOINCPHYS = Form( REPLAY_DIR_PREFIX,"onlineGUI64/config_coinc_2018/Coinc_physics.cfg");
+       const char* CONFIGCOINC=Form(REPLAY_DIR_PREFIX,"onlineGUI64/coinc.cfg");
+       // const char* CONFIGCOINCPHYS = Form(REPLAY_DIR_PREFIX,"onlineGUI64/config_coinc_2018/Coinc_physics.cfg");
+
        
+       GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
+       
+       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR,CONFIGCOINC,runnumber));
        // gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINC,runnumber                   ));
-       // gSystem->Exec(Form("mv %stemp_%d.pdf %scoinc_%d.pdf"                             ,SUM_DIR      ,runnumber       ,exp,runnumber));
-       // gSystem->Exec(Form("unlink %scoinc_latest.pdf"                                   ,SUM_DIR                                               ));
-       // gSystem->Exec(Form("ln -s %scoinc_%d.pdf %scoinc_latest.pdf"                     ,exp,runnumber       ,SUM_DIR                ));    
-       // gSystem->Exec(Form("ln -sf %scoinc_%d.pdf %scoinc_latest.pdf"                    ,exp,runnumber       ,exp          ));
+      		
+       SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
        
-       // gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINCPHYS ,runnumber              ));
-       // gSystem->Exec(Form("mv %stemp_%d.pdf %scoinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
-       // gSystem->Exec(Form("unlink %scoinc_physics_latest.pdf"                           ,SUM_DIR                                               ));
-       // gSystem->Exec(Form("ln -s %scoinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
-       // gSystem->Exec(Form("ln -sf %scoinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       
+       gSystem->Exec(Form("unlink %scoinc_latest.pdf",SUM_DIR));
+       
+       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf %scoinc_latest.pdf",exp,runnumber,SUM_DIR));
+          
+       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_latest.pdf",exp,runnumber,exp));
+       
+       
+       //gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINCPHYS ,runnumber              ));
+       //gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
+       //gSystem->Exec(Form("unlink %scoinc_physics_latest.pdf"                           ,SUM_DIR                                               ));
+       //gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
+       //gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
      }
 
        

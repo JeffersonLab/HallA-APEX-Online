@@ -43,10 +43,10 @@ void scin_hit_R(){
   bin=18;
   b1=-1;
   b2=17;
-  TH1F *ns2rt = new TH1F("ns2rt"," Right PMT TDC hits",bin,b1,b2);
-  TH1F *ns2ra = new TH1F("ns2ra"," Right PMT ADC hits",bin,b1,b2);
-  TH1F *ns2la = new TH1F("ns2la"," Left PMT ADC hits",bin,b1,b2);
-  TH1F *ns2lt = new TH1F("ns2lt"," Left PMT TDC hits",bin,b1,b2);
+  TH1F *ns2rt = new TH1F("ns2rt"," Right PMT Fastbus TDC hits",bin,b1,b2);
+  TH1F *ns2ra = new TH1F("ns2ra"," Right PMT FADC hits",bin,b1,b2);
+  TH1F *ns2la = new TH1F("ns2la"," Left PMT FADC hits",bin,b1,b2);
+  TH1F *ns2lt = new TH1F("ns2lt"," Left PMT Fastbus TDC hits",bin,b1,b2);
 
 
   //----------------Get Entry---------------------------
@@ -115,10 +115,10 @@ void scin_hit_R(){
   leg->SetTextFont(60);
     
    //RHRS s0A=s0.r=bottom
-    leg->AddEntry(ns0rt,"Bottom PMT TDC Hits");
-    leg->AddEntry(ns0lt,"Top PMT TDC Hits");
-    leg->AddEntry(ns0ra,"Bottom PMT ADC Hits");
-    leg->AddEntry(ns0la,"Top PMT ADC Hits");
+    leg->AddEntry(ns0rt,"Bottom PMT Fastbus TDC Hits");
+    leg->AddEntry(ns0lt,"Top PMT Fastbus TDC Hits");
+    leg->AddEntry(ns0ra,"Bottom PMT FADC Hits");
+    leg->AddEntry(ns0la,"Top PMT FADC Hits");
 
   leg->Draw();
   ns0la->SetTitle("S0: Number of Hits");
