@@ -63,7 +63,7 @@ R.sf.gains =
 # parameters of Fadc pedestal calulcations (by fadc itself)
 
 R.sf.NPED = 15
-R.sf.NSA = 15
+R.sf.NSA = 10
 R.sf.NSB = 2
 R.sf.Win = 40 
-R.sf.TFlag = 0
+R.sf.TFlag = 1
