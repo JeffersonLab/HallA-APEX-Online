@@ -31,7 +31,8 @@ const int debug=1;
 SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus )
 : THaNonTrackingDetector(name,description,apparatus), fPed(0), fGain(0), fA(0),
   fAHits(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
-  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0)
+  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0),
+  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
 {
   // Constructor
 //  fFADC=NULL;
@@ -40,7 +41,8 @@ SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus
 //_____________________________________________________________________________
 SciFi::SciFi()
 : THaNonTrackingDetector(), fPed(0), fGain(0), fA(0), fAHits(0),
-  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0)
+  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0),
+  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -149,6 +151,11 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     fpedq      = new Int_t[ nval ];
     fNhits_arr     = new Int_t[ nval ];
 
+    fhit_fibre =  new Int_t[ nval ];
+
+
+
+
     //fIsInit = true;
   }
 
@@ -167,6 +174,9 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
   fNSB = 1;  //number of integration samples before threshold crossing
   fWin = 1;  //total number of sample in FADC window
   fTFlag = 1;  //Threshold On: 1, Off: 0
+  
+  fno_x_hits = 0;
+  fno_y_hits = 0;
 
   for( UInt_t i=0; i<nval; ++i ) { fGain[i] = 1.0; }
 
@@ -200,6 +210,9 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     // fA_raw_p.resize(fNelem);
     // fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
+
+    fX_hits.resize(fNelem);
+    fY_hits.resize(fNelem);
     // for(Int_t i = 0; i < fNelem; i++) {
     //   // We'll resize the vector now to make sure the data are contained
     //   // in a contigous part of memory (needed by THaOutput when writing
@@ -322,8 +335,16 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
     { "noverflow",  "overflow bit of FADC pulse",    "foverflow" },
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
-    { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
+    { "nbadped",  "pedestal quality bit of FADC pulse","fpedq" },
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
+    { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
+    { "X_hits",  "X-position of hits",               "fX_hits"},
+    { "Y_hits",  "Y-position of hits",               "fY_hits"},
+    { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
+    { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
+    
+    
+    
 //    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     // raw mode (10) variables
     // { "a_raw",  "Raw mode ADC values", "fA_raw"},
@@ -431,6 +452,9 @@ void SciFi::DeleteArrays()
   delete [] fpedq;      fpedq      = NULL;
   delete [] fNhits_arr;     fNhits_arr     = NULL;
 
+
+  delete [] fhit_fibre; fhit_fibre = NULL;
+
   //  delete []
 }
 
@@ -472,6 +496,10 @@ void SciFi::ClearEvent()
 {
   // Reset all local data to prepare for next event.
   ResetVector(fNumSamples,0);
+
+  ResetVector(fX_hits,0);
+  ResetVector(fY_hits,0);
+
   // ResetVector(fA_raw, 0.0);
   // ResetVector(fA_raw_p,0.0);
   // ResetVector(fA_raw_c,0.0);
@@ -528,7 +556,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   
   ClearEvent();
 
-
+ 
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
 
     THaDetMap::Module* d = fDetMap->GetModule( i );
@@ -648,6 +676,8 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	Int_t ftime=0;
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
+	Float_t gain = fGain[fibre];
+
 	// if(adc){
 	
 	
@@ -720,19 +750,50 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
 	fA_p[fibre] = data - Int_t(tempPed);
 	fhitsperchannel[fibre] = 10;
-	fA_c[fibre] = noevents;
+	fA_c[fibre] = fA_p[fibre]*gain;
 	// only add channels with signals to the sums
 	if( fA_p[fibre] > 0.0 )
 	  fASUM_p += fA_p[fibre];
 	if( fA_c[fibre] > 0.0 )
 	  fASUM_c += fA_c[fibre];
+
+
+	// Decide whether there is a hit or not here 
+
+	
+	if(fA_c[fibre] > 100){	  
+	  cout << " hit if condition started! " << endl;
+	  fhit_X_Y = 1;
+	  fhit_fibre[fibre] = 1;
+
+	  cout << " hit if condition, before x and y loops " << endl;
+	  cout << " fhit_X_Y = "  << fhit_X_Y << ", fibre = " << fibre <<  endl;
+
+
+
+	  if(fibre >= 0 && fibre <=31){
+	    fX_hits[fno_x_hits] = fibre;	    
+	    fno_x_hits++;
+	      }
+	  
+	  if(fibre >= 32 && fibre <=63){
+	    fY_hits[fno_y_hits] = fibre;
+	    fno_y_hits++;
+	      }
+	  
+	  cout << " hit if condition worked! " << endl;
+	}
+
+
+
+
 	//      fNAhit++;
 	// } else {
 	// 	// fT[k]   = data;
 	// 	// fT_c[k] = data - fOff[k];
 	// 	fNThit++;
 	// }
-      }
+	}
     
     
       if ( fDebug > 3 ) {
@@ -753,89 +814,49 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	      break;
 	    }
 	  }
-	printf("\n");
+	  printf("\n");
 	}
       }
       
-      // section for processing raw mode
-      
-      // if (raw_mode){
-	
-	
-      // 	//	Int_t p = fDetMap[i][k] - 1;
-      // 	//  Int_t k = d->first + ((d->reverse) ? d->hi - chan : chan - d->lo);	
-	
-      // 	//	std::cout << "Entered raw mode" << std::endl;
-	
-	
-      // 	num_events = fFADC->GetNumFadcEvents(chan);
-	
-      // 	//	std::cout << "First Check " << std::endl;
-	
-      // 	num_samples = fFADC->GetNumFadcSamples(chan,0);
-
-      // 	//	std::cout << "2nd Check: num_samples =  " << std::endl;
-	
-      // 	if(num_samples > MAX_FADC_SAMPLES || num_samples < 0) {
-      // 	  Error( Here(here),
-      // 		 "Too manu samples in fFADC: %d out of %d MAX",num_samples,
-      // 		 MAX_FADC_SAMPLES);
-      // 	} else {
-	  
-      // 	  ///	  std::cout << "Bonus Check " << std::endl;
-      // 	  //	  Double_t John =  fNumSamples[1];
-	  
-      // 	  //	  std::cout << "3rd Check " << std::endl;
-      // 	  fNumSamples[fibre] = num_samples;
-      // 	  //	  std::cout << "4th Check " << std::endl;
-      // 	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
-      // 	  //	  std::cout << "5th Check " << std::endl;
-      // 	  for(Int_t s = 0; s < num_samples; s++) {
-
-      // 	    fA_raw[fibre][s] = samples[s];
-      // 	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
-      // 	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
-      // 	    fA_raw_sum[fibre] += samples[s];
-
-	    
-      // 	  }
-      // 	  //	  std::cout << "6th Check " << std::endl;
-      // 	}
-
-      // 	////////////////////////////////////////////////////////////
-      // 	////// Also collect raw-mode data in 'normal' format ///////
-      // 	/////            ie fA,fA_p,fA_c etc                 ///////           
-      //   ////////////////////////////////////////////////////////////
-
-      // 	Int_t data;
-      // 	Int_t ftime=0;
-      // 	Int_t fpeak=0;
-      // 	Float_t tempPed = fPed[fibre];
-
-
-      // 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-      // 	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
-      // 	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
-
-      // 	fA[fibre]   = data;
-      // 	//      fAHits[k] = noevents; 
-      // 	fPeak[fibre] = static_cast<Float_t>(fpeak);
-      // 	fT_FADC[fibre]=static_cast<Float_t>(ftime);
-      // 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
-      // 	fA_p[fibre] = data - tempPed;
-      // 	fhitsperchannel[fibre] = 10;
-      // 	fA_c[fibre] = noevents;
-      // 	// only add channels with signals to the sums
-      // 	if( fA_p[fibre] > 0.0 )
-      // 	  fASUM_p += fA_p[fibre];
-      // 	if( fA_c[fibre] > 0.0 )
-      // 	  fASUM_c += fA_c[fibre];
-
-
-      // }
-      
     }
   }
+  
+ 
+
+  // Compute x and y co-ordinates of hits if there are any
+
+  if(!fhit_X_Y){
+    // no hits in any fibre
+  }
+  else{
+   
+    cout << " sorting reached " << endl;
+ 
+    sort(fX_hits.begin(),fX_hits.end());
+    sort(fY_hits.begin(),fY_hits.end());
+
+    cout << " sorting passed " << endl;  
+
+    for( Int_t i =0; i<fno_x_hits; i++){
+      // do x checks 
+ 
+    }
+
+
+    for( Int_t i =0; i<fno_y_hits; i++){
+      
+      // do y-checks
+    }
+
+
+    // Finally process x and y by taking the values of the gain adjusted, pedestal subtracted output
+    // then add timing
+
+
+    
+  }
+
+
   
   // std::cout << "End of decoding " << noevents <<  std::endl;
   return noevents;
