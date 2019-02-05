@@ -78,7 +78,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSL->AddDetector( new TriFadcScin     ("s2"  , "S2 Scintillator"        ));
 	HRSL->AddDetector( new TriFadcShower       ("prl1", "Pre-shower pion rej."   ));
 	HRSL->AddDetector( new TriFadcShower       ("prl2", "Show pion rej."         )); 
-	HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
+	// HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 	THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
@@ -101,7 +101,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSR->AddDetector( new TriFadcScin     ("s2" , "S2 Scintillator - FADC"       ));
 	HRSR->AddDetector( new THaShower       ("ps" , "Pre-shower pion rej."         ));
 	HRSR->AddDetector( new THaShower       ("sh" , "Show pion rej."               ));
-	HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+	// HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 	THaHRS* FbusHRSR = new THaHRS("FbusR", "Fastbus RHRS Readout");
 	FbusHRSR->AutoStandardDetectors(kFALSE);

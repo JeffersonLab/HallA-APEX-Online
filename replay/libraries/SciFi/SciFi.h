@@ -88,6 +88,25 @@ public:
   Int_t* fNhits_arr;           //[fNelem] number of hits for each PMT (taken from TriFadcCherenkov)
   
    
+  // SciFi final output variables
+
+  Int_t fX;                   // X-coordinate of hit
+  Int_t fY;                   // Y-coordinate of hit
+  
+
+  Int_t fTime;                // time of (x,y) hit
+  Int_t fhit_X_Y;             // Bool to show if there was a hit or not in any fibre
+  Int_t* fhit_fibre;          // [fNelem] Bool to show if there was a hit or not in each individual fibre
+  
+  std::vector<Int_t> fX_hits;               // X-cords of hits
+  Int_t fno_x_hits;             // Number of x-hits
+
+  std::vector<Int_t> fY_hits;               // Y-cords of hits
+  Int_t fno_y_hits;            // Number of y-hits
+
+
+
+
   // raw mode variables
   
   std::vector<Int_t>   fNumSamples; // [fNelem] Number of samples in each ADC/module

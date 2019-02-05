@@ -1,1 +1,2 @@
-export DB_DIR=/adaqfs/home/a-onl/apex-work/ranit/HallA-APEX-Online/replay/DB
+curdir=$PWD
+export DB_DIR=$curdir/DB
