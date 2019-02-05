@@ -72,6 +72,7 @@ protected:
   Int_t*   foverflow;         //[fNelem] FADC overflowbit
   Int_t*   funderflow;        //[fNelem] FADC underflowbit
   Int_t*   fpedq;             //[fNelem] FADC pedestal quality bit
+  Int_t*   fFADCped;             //[fNelem] FADC pedestal
   Int_t    fNPED;        //number of samples included in FADC pedestal sum
   Int_t    fNSA;         //number of integrated samples after threshold crossing
   Int_t    fNSB;         //number of integrated samples before threshold crossing
