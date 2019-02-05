@@ -98,11 +98,11 @@ public:
   Int_t fhit_X_Y;             // Bool to show if there was a hit or not in any fibre
   Int_t* fhit_fibre;          // [fNelem] Bool to show if there was a hit or not in each individual fibre
   
-  std::vector<Int_t> fX_hits;               // X-cords of hits
-  Int_t fno_x_hits;             // Number of x-hits
+  std::vector<Int_t> fX_hits; // X-cords of hits
+  Int_t fno_x_hits;           // Number of x-hits
 
-  std::vector<Int_t> fY_hits;               // Y-cords of hits
-  Int_t fno_y_hits;            // Number of y-hits
+  std::vector<Int_t> fY_hits; // Y-cords of hits
+  Int_t fno_y_hits;           // Number of y-hits
 
 
 

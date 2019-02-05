@@ -211,8 +211,8 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     // fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
 
-    fX_hits.resize(fNelem);
-    fY_hits.resize(fNelem);
+    fX_hits.clear();
+    fY_hits.clear();
     // for(Int_t i = 0; i < fNelem; i++) {
     //   // We'll resize the vector now to make sure the data are contained
     //   // in a contigous part of memory (needed by THaOutput when writing
@@ -342,6 +342,7 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "Y_hits",  "Y-position of hits",               "fY_hits"},
     { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
     { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
+    { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
     
     
     
@@ -472,6 +473,7 @@ void SciFi::Clear( Option_t* opt )
   for( Int_t i=0; i<fNelem; ++i ) {
     // fT[i] = fT_c[i] = 0.0;
     fA[i] = fA_p[i] = fA_c[i] = 0.0;
+    fhit_fibre[i] = 0.0;
 
     fhitsperchannel[i] = 0;
     fPeak[i]=0.0;
@@ -480,6 +482,8 @@ void SciFi::Clear( Option_t* opt )
     fAHits[i] = 10;
   }
   fASUM_p = fASUM_c = 0.0;
+
+  fno_x_hits = fno_y_hits = 0.0;
 
   if( !strchr(opt,'I') ) {
     memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
@@ -497,8 +501,13 @@ void SciFi::ClearEvent()
   // Reset all local data to prepare for next event.
   ResetVector(fNumSamples,0);
 
-  ResetVector(fX_hits,0);
-  ResetVector(fY_hits,0);
+  fX_hits.clear();
+  fY_hits.clear();
+  
+  // ResetVector(fX_hits,-1);
+  // ResetVector(fY_hits,-1);
+
+
 
   // ResetVector(fA_raw, 0.0);
   // ResetVector(fA_raw_p,0.0);
@@ -554,8 +563,9 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   Int_t mode, num_events, num_samples;
   Bool_t raw_mode = kFALSE;
   
+  cout << "Pre-clear event" << endl;
   ClearEvent();
-
+  cout << "Post-clear event" << endl;
  
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
 
@@ -772,16 +782,22 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 
 
 	  if(fibre >= 0 && fibre <=31){
-	    fX_hits[fno_x_hits] = fibre;	    
+	    fX_hits.push_back(fibre);
+	    //	    fX_hits[fno_x_hits] = fibre;	    
 	    fno_x_hits++;
 	      }
 	  
 	  if(fibre >= 32 && fibre <=63){
-	    fY_hits[fno_y_hits] = fibre;
+	    fY_hits.push_back(fibre);
+	    //	    fY_hits[fno_y_hits] = fibre;
 	    fno_y_hits++;
 	      }
 	  
 	  cout << " hit if condition worked! " << endl;
+	}
+
+	if (fA_c[fibre] < 100){
+	  cout << "hit condition missed :(" << endl;
 	}
 
 
