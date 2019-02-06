@@ -1,9 +1,16 @@
 #/bin/bash
+#set -x
 exp=$EXPERIMENT
 if [ $# -eq 0 ] 
 then
-	echo "Please enter the run number you would like to make the new golden run?"
+	echo "The current golden runs are...."
+	 ls -l /chafs1/work1/${exp}/Rootfiles/ | grep golden
+	echo "Please enter the run number you would like to make the new golden run or -1 to cancel?"
 	read RUNNUM
+	if [ $RUNNUM -eq -1 ]
+	then
+		exit
+	fi
 else
 	RUNNUM=$1
 fi
