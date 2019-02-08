@@ -62,19 +62,19 @@ Variable Rrb.e
 Variable Rrb.x
 Variable Rrb.y
 
-Variable FbusRrb.Raster.rawcur.x
-Variable FbusRrb.Raster.rawcur.y
-Variable FbusRrb.Raster2.rawcur.x
-Variable FbusRrb.Raster2.rawcur.y
-Variable FbusRrb.BPMA.x
-Variable FbusRrb.BPMA.y
-Variable FbusRrb.BPMB.x
-Variable FbusRrb.BPMB.y
-Variable FbusRrb.dir.x
-Variable FbusRrb.dir.y
-Variable FbusRrb.e
-Variable FbusRrb.x
-Variable FbusRrb.y
+#Variable FbusRrb.Raster.rawcur.x
+#Variable FbusRrb.Raster.rawcur.y
+#Variable FbusRrb.Raster2.rawcur.x
+#Variable FbusRrb.Raster2.rawcur.y
+#Variable FbusRrb.BPMA.x
+#Variable FbusRrb.BPMA.y
+#Variable FbusRrb.BPMB.x
+#Variable FbusRrb.BPMB.y
+#Variable FbusRrb.dir.x
+#Variable FbusRrb.dir.y
+#Variable FbusRrb.e
+#Variable FbusRrb.x
+#Variable FbusRrb.y
 
 
 FORMULA Lrbax 1000.*Lrb.BPMA.x
