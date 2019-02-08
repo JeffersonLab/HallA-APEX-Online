@@ -72,8 +72,9 @@ public:
   Int_t*     fAHits;      // Numbers of hits on each ADC
   Float_t*   fA_p;        // [fNelem] Array of ADC minus pedestal values of chans
   Float_t*   fA_c;        // [fNelem] Array of corrected ADC amplitudes of chans
-  Float_t    fASUM_p;     // Sum of ADC minus pedestal values of channels
+  Float_t    fASUM_p;     // Sum of ADC minus pedestal values of channelso
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
+  Float_t    fASUM;     // Sum of corrected ADC amplitudes of channels
 
   //FADC
   Float_t*   fPeak;         // [fNelem] Array of FADC ADC peak values
@@ -97,6 +98,11 @@ public:
   std::vector<Float_t> fA_raw_sum; // [fNelem] Sum of raw ADC data for each block // MAPC
 
   std::vector< std::vector<Int_t> > fChanMap; // Logical channel numbers
+
+  Int_t fOverall_sum; // Sum of pulse integrals for all channels
+
+  Int_t fNoise; // Flag for noise events
+
 
 
   virtual Int_t  DefineVariables( EMode mode = kDefine );

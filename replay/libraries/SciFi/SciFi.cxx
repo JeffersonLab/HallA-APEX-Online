@@ -31,7 +31,7 @@ const int debug=1;
 SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus )
 : THaNonTrackingDetector(name,description,apparatus), fPed(0), fGain(0), fA(0),
   fAHits(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
-  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0)
+  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0), fNoise(0)
 {
   // Constructor
 //  fFADC=NULL;
@@ -40,7 +40,7 @@ SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus
 //_____________________________________________________________________________
 SciFi::SciFi()
 : THaNonTrackingDetector(), fPed(0), fGain(0), fA(0), fAHits(0),
-  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0)
+  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0), fNoise(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -314,9 +314,10 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "a_c",    "Corrected ADC values",              "fA_c" },
     { "peak",   "FADC ADC peak values",              "fPeak" },
     { "t_fadc", "FADC TDC values",                   "fT_FADC" },
-    { "tc_fadc", "FADC corrected TDC values",        "fT_FADC_c" },
+    { "tc_fadc","FADC corrected TDC values",         "fT_FADC_c" },
     { "Asum_p", "Sum of ADC minus pedestal values",  "fASUM_p" },
     { "Asum_c", "Sum of corrected ADC amplitudes",   "fASUM_c" },
+    { "Asum",   "Sum of ADC amplitudes",             "fASUM" },
     { "trx",    "x-position of track in det plane",  "fTrackProj.THaTrackProj.fX" },
     { "try",    "y-position of track in det plane",  "fTrackProj.THaTrackProj.fY" },
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
@@ -330,6 +331,7 @@ Int_t SciFi::DefineVariables( EMode mode )
     // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
     // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
     { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
+    { "Noise", "Noise present? 0 if not, 1 if yes", "fNoise"},    
     { 0 }
   };
 
@@ -454,7 +456,9 @@ void SciFi::Clear( Option_t* opt )
     fT_FADC_c[i]=0.0;
     fAHits[i] = 10;
   }
-  fASUM_p = fASUM_c = 0.0;
+  fASUM_p = fASUM_c = fASUM = 0.0;
+
+  fNoise = 0;
 
   if( !strchr(opt,'I') ) {
     memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
@@ -495,12 +499,15 @@ void SciFi::ClearEvent()
     //    memset( fMult, 0, lsj );
     fASUM_p = 0.0;
     fASUM_c = 0.0;
+    fASUM = 0.0;
     //    fNclust = 0;
     // memset( fNblk, 0, lsi );
     // memset( fEblk, 0, lsc );
     // fTRX = 0.0;
     // fTRY = 0.0;
   
+      fNoise = 0;
+
     for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
 
     //2//for (int i=0;i<fNelem;i++) 
@@ -668,7 +675,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	if(fFADC!=NULL){
 	  foverflow[fibre] = fFADC->GetOverflowBit(chan,0);
-	  funderflow[fibre] = fFADC->GetUnderflowBit(chan,0);
+ 	  funderflow[fibre] = fFADC->GetUnderflowBit(chan,0);
 	  fpedq[fibre] = fFADC->GetPedestalQuality(chan,0);
 	  
 	  noevents = fFADC->GetNumFadcEvents(chan);
@@ -701,9 +708,10 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	      {
 		tempPed = (fNSA+fNSB)*tempPed;
 	      }
-	    else{
-	      tempPed = (fWin)*tempPed;
-	    }
+	    else
+	      {
+		tempPed = (fWin)*tempPed;
+	      }
 
 
 	  }
@@ -721,6 +729,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fhitsperchannel[fibre] = 10;
 	fA_c[fibre] = noevents;
 	// only add channels with signals to the sums
+	fASUM += fA[fibre];
 	if( fA_p[fibre] > 0.0 )
 	  fASUM_p += fA_p[fibre];
 	if( fA_c[fibre] > 0.0 )
@@ -792,6 +801,11 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  for(Int_t s = 0; s < num_samples; s++) {
 
 	    fA_raw[fibre][s] = samples[s];
+
+	    if(fA_raw[15][s] > 800 || fA_raw[15][s] < 160){    //  for the left
+	      fNoise = 1;
+	    
+	    }
 	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
 	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
 	    fA_raw_sum[fibre] += samples[s];
@@ -811,6 +825,45 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];
 
+	
+	foverflow[fibre] = fFADC->GetOverflowBit(chan,0);
+	funderflow[fibre] = fFADC->GetUnderflowBit(chan,0);
+	fpedq[fibre] = fFADC->GetPedestalQuality(chan,0);
+	  
+	noevents = fFADC->GetNumFadcEvents(chan);
+	
+	if(fpedq[fibre]==0) 
+	  {
+	    //	    std::cout << " passed 100000 condition " << std::endl;
+	    if(fTFlag == 1)
+	      {
+		tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+	      }
+	    else
+	      {
+		tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+	      }
+	  }
+	
+	if(fpedq[fibre]!=0)
+	  {
+	    printf("\nWARNING: BAD ADC PEDESTAL\n");
+	    // if fadc gives bad pedestal then use 
+	    // give different pedestal based on raw or production mode data (different window sizes)
+
+	    if(fTFlag == 1)
+	      {
+		tempPed = (fNSA+fNSB)*tempPed;
+	      }
+	    else
+	      {
+		tempPed = (fWin)*tempPed;
+	      }
+
+
+	  }
+	
+	
 
 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
 	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
@@ -825,6 +878,8 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fhitsperchannel[fibre] = 10;
 	fA_c[fibre] = noevents;
 	// only add channels with signals to the sums
+
+	fASUM += fA[fibre];
 	if( fA_p[fibre] > 0.0 )
 	  fASUM_p += fA_p[fibre];
 	if( fA_c[fibre] > 0.0 )
