@@ -105,8 +105,8 @@ FORMULA Rbpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.r
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
-TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 300 2000 3500 L.s0.lt>0.
-TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 300 2000 3500 L.s0.rt>0.
+TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 700 1000 4500 L.s0.lt>0.
+TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 700 1000 4500 L.s0.rt>0.
 TH1F Ls0ltTAll 'S0-Bottom(B) TDC w/T2,T3' L.s0.lt 500 1300 2300 L.s0.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls0ltT3   'S0-Bottom(B) TDC w/ T3 only' L.s0.lt 500 1300 2300 L.s0.lt>0.&&(DL.evtypebits==8)
 TH1F Ls0rtTAll 'S0-Top(A) TDC w/ T2,T3' L.s0.rt 500 1300 2300 L.s0.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
@@ -118,9 +118,9 @@ TH1F Ls0la_p 'S0-Bottom(B) FADC (PedSub)' L.s0.la_p 1000 -500 4500 L.s0.la_p>-50
 TH1F Ls0ra_p 'S0-Top(A) FADC (PedSub)' L.s0.ra_p 1000 -500 4500 L.s0.ra_p>-500.
 
 TH1F Ls0x 'L-arm S0-X Distribution' L.s0.trx 200 -1.5 1.5
-TH1F Ls0y 'L-arm S0-Y Distribution' L.s0.try 200 -1.5 1.5
+TH1F Ls0y 'L-arm S0-Y Distribution' L.s0.try 200 -0.4 0.4
 
-TH2F Ls0xy 'L-arm S0 x vs. y' L.s0.try L.s0.trx 200 -1.5 1.5 200 -1.5 1.5
+TH2F Ls0xy 'L-arm S0 y vs. x' L.s0.trx L.s0.try 200 -1.5 1.5 200 -0.4 0.4
 
 #-------------------------------------------------------------------
 # LEFT ARM S2
@@ -139,9 +139,9 @@ TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 2000 L.s2.la_p>-6000.
 TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
 
 TH1F Ls2x 'L-arm S2-X Distribution' L.s2.trx 200 -1.5 1.5
-TH1F Ls2y 'L-arm S2-Y Distribution' L.s2.try 200 -1.5 1.5
+TH1F Ls2y 'L-arm S2-Y Distribution' L.s2.try 200 -0.4 0.4
 
-TH2F Ls2xy 'L-arm S2 x vs. y' L.s2.try L.s2.trx 200 -1.5 1.5 200 -1.5 1.5
+TH2F Ls2xy 'L-arm S2 y vs. x' L.s2.trx L.s2.try 200 -1.5 1.5 200 -0.4 0.4
 
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
@@ -158,9 +158,9 @@ TH2F Lcer_x  'Sum of Cerenkov FADC(corrected) vs. X' L.cer.trx L.cer.asum_c  60 
 TH2F Lcer_y  'Sum of Cerenkov FADC(corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
 
 TH1F Lcerx 'L-arm Cerenkov-X Distribution' L.cer.trx 200 -1.5 1.5
-TH1F Lcery 'L-arm Cerenkov-Y Distribution' L.cer.try 200 -1.5 1.5
+TH1F Lcery 'L-arm Cerenkov-Y Distribution' L.cer.try 200 -0.4 0.4
 
-TH2F Lcerxy 'L-arm Cerenkov x vs. y' L.cer.try L.cer.trx 200 -1.5 1.5 200 -1.5 1.5
+TH2F Lcerxy 'L-arm Cerenkov y vs. x' L.cer.trx L.cer.try 200 -1.5 1.5 200 -0.4 0.4
 # ------------------------------------------------------------------
 
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
@@ -180,14 +180,14 @@ TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 20
 TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
 
 TH1F Lprl1x 'L-arm Pion Rejector1-X Distribution' L.prl1.trx 200 -1.5 1.5
-TH1F Lprl1y 'L-arm Pion Rejector1-Y Distribution' L.prl1.try 200 -1.5 1.5
+TH1F Lprl1y 'L-arm Pion Rejector1-Y Distribution' L.prl1.try 200 -0.4 0.4
 
-TH2F Lprl1xy 'L-arm Pion Rejector1 x vs. y' L.prl1.try L.prl1.trx 200 -1.5 1.5 200 -1.5 1.5
+TH2F Lprl1xy 'L-arm Pion Rejector1 y vs. x' L.prl1.try L.prl1.trx 200 -1.5 1.5 200 -0.4 0.4
 
 TH1F Lprl2x 'L-arm Pion Rejector2-X Distribution' L.prl2.trx 200 -1.5 1.5
-TH1F Lprl2y 'L-arm Pion Rejector2-Y Distribution' L.prl2.try 200 -1.5 1.5
+TH1F Lprl2y 'L-arm Pion Rejector2-Y Distribution' L.prl2.try 200 -0.4 0.4
 
-TH2F Lprl2xy 'L-arm Pion Rejector2 x vs. y' L.prl2.try L.prl2.trx 200 -1.5 1.5 200 -1.5 1.5
+TH2F Lprl2xy 'L-arm Pion Rejector2 y vs. x' L.prl2.trx L.prl2.try 200 -1.5 1.5 200 -0.4 0.4
 
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
@@ -222,13 +222,13 @@ TH2F Lvv2nthit 'L-arm VDC v2 TDC hits per channel : wire number' L.vdc.v2.wire L
 #-------------------------------------------------------------------------------
 # LEFT Arm Tracking & Reconstruction Histograms  :
 #
-TH1F Ltry 'L-arm FP Transport y' L.tr.y 200 -.2 .2
-TH1F Ltrx 'L-arm FP Transport x' L.tr.x 200 -1.5 1.5
+TH1F Ltry 'L-arm VDC FP Transport y' L.tr.y 200 -.2 .2
+TH1F Ltrx 'L-arm VDC FP Transport x' L.tr.x 200 -1.5 1.5
 TH1F Ltrph 'L-arm FP Transport phi' L.tr.ph 200 -.2 .2
 TH1F Ltrth 'L-arm FP Transport theta' L.tr.th 200 -.8 .8
 
-TH1F Ltryd 'L-arm FP Detector y' L.tr.d_y 200 -.2 .2
-TH1F Ltrxd 'L-arm FP Detector x' L.tr.d_x 200 -1.5 1.5
+TH1F Ltryd 'L-arm VDC FP Detector y' L.tr.d_y 200 -.2 .2
+TH1F Ltrxd 'L-arm VDC FP Detector x' L.tr.d_x 200 -1.5 1.5
 TH1F Ltrphd 'L-arm FP Detector phi' L.tr.d_ph 200 -.3 .3
 TH1F Ltrthd 'L-arm FP Detector theta' L.tr.d_th 200 0. 2.
 
@@ -237,11 +237,11 @@ TH1F Ltrxr 'L-arm FP Rotated x' L.tr.r_x 200 -1.5 1.5
 TH1F Ltrphr 'L-arm FP Rotated phi' L.tr.r_ph 200 -2. 2.
 TH1F Ltrthr 'L-arm FP Rotated theta' L.tr.r_th 200 -.8 .8
 
-TH2F L_tfpa 'L-arm FP Transport x vs. y' L.tr.y L.tr.x 200 -.2 .2 200 -1.5 1.5 
+TH2F L_tfpa 'L-arm VDC FP Transport y vs. x' L.tr.x L.tr.y 200 -.2 .2 200 -1.5 1.5 
 TH2F L_tfpb 'L-arm FP Transport theta vs. phi' L.tr.ph L.tr.th 200 -.075 .075 200 -.2 .2
 TH2F L_tfpc 'L-arm FP Rotated x vs. y' L.tr.r_y L.tr.r_x 200 -.2 .2 200 -1.5 1.5
 TH2F L_tfpd 'L-arm FP Rotated theta vs. phi' L.tr.r_ph L.tr.r_th 200 -.075 .075 200 -.2 .2
-TH2F L_tfpe 'L-arm FP Detector x vs. y' L.tr.d_y L.tr.d_x 200 -.2 .2 200 -1.5 1.5 
+TH2F L_tfpe 'L-arm VDC FP Detector y vs. x' L.tr.d_x L.tr.d_y 200 -.2 .2 200 -1.5 1.5 
 
 TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_tgth 'L-arm target theta' L.tr.tg_th 200 -.2 .2 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
