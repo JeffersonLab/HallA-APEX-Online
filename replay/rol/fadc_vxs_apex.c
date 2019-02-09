@@ -11,11 +11,13 @@
 
 
 
-#define MAX_EVENT_POOL     5
+#define MAX_EVENT_POOL     128
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
-#define MAX_EVENT_LENGTH   1024*800      /* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*32      /* Size in Bytes */
 
-
+// MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
+//  = 12 *( 2+4+16*(16+25)) =  7944 for 50 samples = 32 KB
+// 
 
 /* Define Interrupt source and address */
 #define TI_MASTER
@@ -31,29 +33,30 @@ extern unsigned int tiTriggerSource;
 
 /* Default block level MUST be 1, for use with TSRev2 */
 unsigned int BLOCKLEVEL = 1;
-#define BUFFERLEVEL 1
+int BUFFERLEVEL=10;
 unsigned int blockLevel=  1;
 
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_LAT   205
-#define FADC_WINDOW_WIDTH   40 // was 106
+#define FADC_WINDOW_LAT   205//190 //205
+#define FADC_WINDOW_WIDTH 40 //  20 // 40 was 106
 int FADC_NPULSES =           1;
 #define FADC_MODE           9
 
 #define FADC_LATENCY       240 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
-#define FADC_WD_Sh         80 // was /// RELEVANT
-#define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           40 //15 // was 60 // # of samples *after* Threshold crossing (TC) to include in sum
-#define FADC_SH_THRESHOLD     11 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
+#define FADC_WD_Sh         50//80 // was /// RELEVANT
+#define FADC_NSB           0  // # of samples *before* Threshold crossing (TC) to include in sum
+#define FADC_NSA           40 // 20//15 // was 60 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_SH_THRESHOLD     9 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_MODE_SciFi           10
+#define FADC_MODE_SciFi       9
 #define FADC_LA_SciFi         130 // was 73 //was 78 // was 62 
 #define FADC_WD_SciFi         40 // was /// RELEVANT
-
+#define FADC_NSB_SciFi        2 
+#define FADC_NSA_SciFi        10 
 
 extern int fadcA32Base;
 extern int nfadc;
@@ -76,11 +79,16 @@ extern int nfadc;
 #include "fadcLib.h"
 #include "sdLib.h"
 
+#include "usrstrutils.c" // utils to pick up CODA ROC config parameter line
 
 //MLU
 #include "v1495.h"
 int MLUbase = 0x00A00000;
 
+int sync_or_unbuff;
+static int buffered;
+static int event_cnt = 0;
+static int icnt = 0;
 
 unsigned int fadcSlotMask=0;
 
@@ -111,6 +119,12 @@ rocDownload()
    *  dataType = 0 (D16)    1 (D32)    2 (BLK32) 3 (MBLK) 4 (2eVME) 5 (2eSST)
    *  sstMode  = 0 (SST160) 1 (SST267) 2 (SST320)
    */
+
+ init_strings();
+  buffered = getflag(BUFFERED);
+  if (!buffered) BUFFERLEVEL=1 ;
+  printf ("Buffer flag : %d\n",buffered);
+
   vmeDmaConfig(2, 5, 1);
   
   /*****************
@@ -183,7 +197,7 @@ rocDownload()
        if(ifa==0)      faSetThreshold(faSlot(ifa), 300+25 , 0xffff);	//GC,SO,Ref
        else if(ifa==1) faSetThreshold(faSlot(ifa), 300+25 , 0xffff);	//S2
        else if(ifa==2) faSetThreshold(faSlot(ifa), 300+25 , 0xffff);	//S2
-       else              faSetThreshold(faSlot(ifa), 1, 0xffff); //raster, BPMs, PRL1, PRL2
+       else              faSetThreshold(faSlot(ifa), 300+50, 0xffff); //raster, BPMs, PRL1, PRL2 // was 1
        }
      else
        {
@@ -412,23 +426,23 @@ if(ifa==2){
 		    1,   /* NSB */
 		    6,   /* NSA */
 		    4,   /* NP */
-		    15,   /* NPED */
+		    1,   /* NPED */
 		    320, /* MAXPED */
 		    2);  /* NSAT */
 
    if(WANT_THRESHOLD)
          if(ifa==9||ifa==10||ifa==11||ifa==12)
              faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,400,3);
-         else faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB,FADC_NSA, FADC_NPULSES, 15,400,3);
+         else faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, FADC_NPULSES, 15,357,2); // nsat was 4
        else{
 	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
          if(ifa==0||ifa==1||ifa==2||ifa==3)
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 15,400,2);
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 1,400,2);
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
 	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB, FADC_NSA, 1, 15,400,2);	   // SciFi
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 1,400,2);	   // SciFi
          if(ifa==8||ifa==9||ifa==10 || ifa==11)
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 10,400, 3);  // PRLs ( shower detectors )
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 1,400, 3);  // PRLs ( shower detectors )
        }
 
 
@@ -519,10 +533,10 @@ rocGo()
   faGSetBlockLevel(blockLevel);
 
   if(FADC_MODE == 9)
-    MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 8);
+    MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 16);
   else /* FADC_MODE == 10 */
-    MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (8 + FADC_WINDOW_WIDTH/2));
-   MAXFADCWORDS = 100000;
+    MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
+ 
 
   faGEnable(0, 0);
   /* Interrupts/Polling enabled after conclusion of rocGo() */
@@ -556,8 +570,12 @@ rocTrigger(int arg)
   int dCnt;
   int ev_type = 0;
   int ifa, stat, nwords;
-  unsigned int datascan, scanmask;
   int roCount = 0, blockError = 0;
+  int rval = OK;
+  int sync_flag = 0, late_fail = 0;
+  unsigned int datascan = 0, scanmask = 0;
+  unsigned int event_ty = 1, event_no = 0;
+  int islot;
  
     roCount = tiGetIntCount();
 
@@ -580,22 +598,33 @@ rocTrigger(int arg)
     }
   else
     {
-      ev_type = tiDecodeTriggerType(dma_dabufp, dCnt, 1);
+      
+  rval = tiDecodeTSrev2Data((volatile unsigned int *) dma_dabufp, dCnt,
+				(int *)&sync_flag, (int *)&late_fail, (int *)&ev_type);
 
-      if ((ev_type <= 0) || (ev_type > 0xF))
+      if(rval == OK)
 	{
-	  printf("%s: ERROR: Invalid event type (%d)\n",
-		 __func__, ev_type);
-	  ev_type = 1;
-	}
+	  if ((ev_type <= 0) || (ev_type > 0xF))
+	    {
+	      printf("%s: ERROR: Invalid event type (%d)\n",
+		     __func__, ev_type);
+	      ev_type = 1;
+	    }
 
-      /* ** Redefine event type in event buffer ** */
-      the_event->type = ev_type;
+	  /* ** Redefine event type in event buffer ** */
+	  the_event->type = ev_type | (sync_flag << 8);
+
+	  /*	  printf("%s: the_event->type = 0x%x\t ev_type = %d  sync_flag = %d\n",
+	    __func__, the_event->type, ev_type, sync_flag); */
+	}
 
       dma_dabufp += dCnt;
     }
 
   BANKCLOSE;
+
+   event_ty = ev_type;
+   event_no = event_cnt;
 
 
  /* fADC250 Readout */
@@ -609,7 +638,7 @@ rocTrigger(int arg)
     
   if(stat) 
     {
-        nwords = faReadBlock(faSlot(0), dma_dabufp, MAXFADCWORDS, 2);
+         nwords = faReadBlock(faSlot(0), dma_dabufp, MAXFADCWORDS, 2);
 
       /* Check for ERROR in block read */
       blockError = faGetBlockError(1);
@@ -675,9 +704,19 @@ rocTrigger(int arg)
   BANKCLOSE;
 
 
-  //  EVENTCLOSE;
-
-  if(tiGetSyncEventFlag() == 1)
+ BANKOPEN(0xfabc,BT_UI4,0);		//Sync checks
+  event_cnt = event_cnt + 1;
+  event_ty = (ev_type&0xf);
+  icnt = icnt + 1;
+  if(icnt > 20000) icnt = 0;
+  *dma_dabufp++ = LSWAP(0xfabc0004);
+  *dma_dabufp++ = LSWAP(event_ty);
+  *dma_dabufp++ = LSWAP(event_cnt);
+  *dma_dabufp++ = LSWAP(icnt);
+  *dma_dabufp++ = LSWAP(syncFlag);
+  *dma_dabufp++ = LSWAP(0xfaaa0001);
+  BANKCLOSE;
+  if(tiGetSyncEventFlag() == 1|| !buffered)
     {
       /* Flush out TI data, if it's there (out of sync) */
       int davail = tiBReady();
@@ -685,19 +724,68 @@ rocTrigger(int arg)
 	{
 	  printf("%s: ERROR: TI Data available (%d) after readout in SYNC event \n",
 		 __func__, davail);
-
+	  
 	  while(tiBReady())
 	    {
 	      vmeDmaFlush(tiGetAdr32());
 	    }
 	}
-
+      
       /* Flush out other modules too, if necessary */
-
+      // flush FADCs
+      scanmask = faScanMask();
+      /* Check scanmask for block ready up to 100 times */
+      datascan = faGBlockReady(scanmask, 100); 
+      stat = (datascan == scanmask);
+      stat =0;
+      if (stat > 0)
+	{
+	  printf("data left in FADC FIFO at sync event\n");
+	  //FADC sync event bank
+	  // nwords = faReadBlock(0, dma_dabufp, 5000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
+	  BANKOPEN(0xbad,BT_UI4,0);
+	  *dma_dabufp++ = LSWAP(0xfadc250);
+	  nwords = faReadBlock(faSlot(0), dma_dabufp, 7200, 2);
+	  // nwords = 0;
+	  // nwords = 0;
+	  if (nwords < 0)
+	    {
+	      printf("ERROR: in transfer (event = %d), nwords = 0x%x\n",
+		     tirGetIntCount(), nwords);
+	        *dma_dabufp++ = LSWAP(0xda000bad);
+	      
+	    }
+	  else
+	    {
+	      dma_dabufp += nwords;
+	    }
+	    BANKCLOSE;
+	  for (islot = 0; islot < nfadc; islot++)	// 5/25/17
+	    faResetToken(faSlot(islot));
+	  for(islot = 0; islot < nfadc; islot++)
+	    {
+	      int davail = faBready(faSlot(islot));
+	      if(davail > 0)
+		{
+		  printf("%s: ERROR: fADC250 Data available after readout in SYNC event \n",
+			 __func__, davail);
+		  
+		  while(faBready(faSlot(islot)))
+		    {
+		      vmeDmaFlush(faGetA32(faSlot(islot)));
+		    }
+		}
+	      
+	    
+	      
+	    }
+	}
+    
     }
-
+  // EVENTCLOSE;
   tiSetOutputPort(0, 0, 0, 0);
 }
+
 
 void
 rocCleanup()
