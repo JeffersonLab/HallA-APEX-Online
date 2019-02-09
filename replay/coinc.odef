@@ -662,7 +662,7 @@ begin epics
   HALLA:p
   HALLA:dpp
 
-  haBDSPOS.VAL 
+  APEXPOS
 
   # ------------------------------
   # LVDT angles and mispointings
@@ -692,6 +692,14 @@ begin epics
   IPM1H04A.YPOS
   IPM1H04E.XPOS
   IPM1H04E.YPOS
+
+# cavity BPMs
+  IPM1H04B.XPOS
+  IPM1H04B.YPOS
+  IPM1H04C.XPOS
+  IPM1H04C.YPOS
+  IPM1H04D.XPOS
+  IPM1H04D.YPOS
 
   FCupsCORRECTED.VAL
 
