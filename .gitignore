@@ -13,6 +13,7 @@ replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
 replay/#*
+replay/scripts/analysis/apex*.pdf
 
 **/*~
 **/*.o
