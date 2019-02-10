@@ -27,7 +27,7 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 
     echo
     # to avoid repeating running. the script cannot be detected by pgrep if run with "source" command
-    echo "Make sure you run the script with command 'bash':"
+    echo "Make sure you run the script with commando 'bash':"
     select yn in "Yes" "No"; do
 	case $yn in
 	    Yes ) break;;
