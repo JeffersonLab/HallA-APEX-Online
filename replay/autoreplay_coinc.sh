@@ -9,7 +9,7 @@
 waittime=0
 counter=0
 RAWDIR=/adaq1/data1
-LOGDIR=${t2root}/log
+LOGDIR=${apexroot}/log
 gstart=0   # start from which event
 gtotal=-1 # replay how many events, -1 = full replay
 ktrue=1
@@ -41,6 +41,19 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
    #	exit 
    #	fi
    # done
+  # check if is running already
+    for pid in $(pgrep -f "bash autoreplay_coinc.sh"); do 
+		if [ $pid != $$ ];then
+	    	echo !!PID $pid ":Process is already running!!"
+	    	echo " Do you still want to start a new session?"
+	    	select yn in "Yes" "No"; do
+			case $yn in
+		    	Yes ) break;;
+		    	No ) exit;;
+			esac
+	    	done
+		fi
+    done
 
     runnum=`cat ~adaq/datafile/rcRunNumberR`
     echo **The current Coincidence run number is $runnum
@@ -55,8 +68,8 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
 	read thisrun
     done
     
-    if [ $thisrun -lt 100000 ]; then
-	echo "Please enter a e'p run number (>100000)!"
+    if [ $thisrun -lt 3000 ]; then
+	echo "Please enter an APEX run number (>3000)!"
 	exit
     fi
     runnum=`cat ~adaq/datafile/rcRunNumberR`
@@ -69,35 +82,30 @@ if [ $pc == "aonl3.jlab.org" ]; then  # to avoid repeating running
     while [ $thisrun -le $runnum ]; do
 	if [ $thisrun -lt $runnum ]; then
 	
-	    if [[ $(find ${RAWDIR}/triton_${thisrun}.dat.0 -type f -size +10000000c 2>/dev/null) ]]; then  # require rawdata > 10 Mbytes
-		echo  ==Found ${RAWDIR}/triton_${thisrun}.dat.0
-		if [ -e ${t2root}/tritium_${thisrun}.root ]; then
+	    if [[ $(find ${RAWDIR}/apex_${thisrun}.dat.0 -type f -size +10000000c 2>/dev/null) ]]; then  # require rawdata > 10 Mbytes
+		echo  ==Found ${RAWDIR}/apex_${thisrun}.dat.0
+		if [ -e ${apexroot}/apex_${thisrun}.root ]; then
 		    
-		    echo !! Can not Overwriting ${t2root}/tritium_${thisrun}.root
+		    echo !! Can not Overwriting ${apexroot}/apex_${thisrun}.root
 	           
            
 		else 
 
   		    echo Start analyzing
-		    analyzer -q "replay_coinc_new.C($thisrun,$gtotal,$gstart,$kfalse,$kfalse,$kfalse,$ktrue)"  >> ${LOGDIR}/${thisrun}.log
+		    analyzer -q "replay_apex.C($thisrun,$gtotal,$gstart,$kfalse,$kfalse,$kfalse,$ktrue)"  >> ${LOGDIR}/${thisrun}.log
 		    echo RUN $thisrun is analyzed
-		   
-		   # running the wiki runlist script to auto add thisrun to the wiki runlist
-		   cd scripts
-		   ./wiki_runlist $thisrun
-		   analyzer -q -b "sql_update.C($thisrun)" >> ${LOGDIR}/${thisrun}_info.log
-		   cd ..
+		  
 		fi
 		
 	    else 
-		echo ${RAWDIR}/triton_${thisrun}.dat.0 less than 10 Mb. Will skip
-		echo  ${RAWDIR}/triton_${thisrun}.dat.0 is skipped >> ${LOGDIR}/${thisrun}.log
+		echo ${RAWDIR}/apex_${thisrun}.dat.0 less than 10 Mb. Will skip
+		echo  ${RAWDIR}/apex_${thisrun}.dat.0 is skipped >> ${LOGDIR}/${thisrun}.log
 	    fi
 	 #   waittime=0
 	    let thisrun=thisrun+1
             waittime=2
 	else
-	    echo Run ${thisrun} is not completed.  Will check again after 10 minutes.
+	    echo Run ${thisrun} is not completed.  Will check again after 2 minutes.
 	    if [ $(($waittime % 5)) -eq 0 ]; then
 		echo **If you want to terminate this program, do ctrl+z, kill %
 	    fi
@@ -119,5 +127,6 @@ else
     exit
 
 fi
+
 
 
