@@ -419,9 +419,9 @@ TH1F Rcert 'Cerenkov Fastbus TDC PMT ' R.cer.t 500 1500 3500 R.cer.t>0
 TH1F RcertT4_   'Cerenkov Fastbus TDC w/ T5,T6: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F RcertT6_   'Cerenkov Fastbus TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(DR.evtypebits==64)
 
-TH1F Rcera 'Fadc Cerenkov'  R.cer.a 500 10000 20000 R.cer.a>0
-TH1F Rcersum 'Sum of Cerenkov FADC (corrected)' R.cer.asum_c 4050 -100 5000 R.cer.asum_c>-1000
-TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 200 -500 5000 R.cer.a_p>-1000
+TH1F Rcera 'Fadc Cerenkov'  R.cer.a 1000 10000 30000 R.cer.a>0
+TH1F Rcersum 'Sum of Cerenkov FADC (corrected)' R.cer.asum_c 8022 -100 10000 R.cer.asum_c>-1000
+TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 381 -500 10000 R.cer.a_p>-1000
 TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 1000 -200 20000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
 TH2F Rcer_x  'Sum of Cerenkov FADC (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 200 -100 5000 R.tr.n>0&&R.cer.asum_c>-1000
 TH2F Rcer_y  'Sum of Cerenkov FADC (corrected) vs. Y' R.cer.try R.cer.asum_c  60 -0.12 0.12 200 -100 5000 R.tr.n>0&&R.cer.asum_c>-1000
