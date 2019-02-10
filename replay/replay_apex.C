@@ -405,7 +405,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
     HRSR->AddDetector( new TriFadcCherenkov("a1", "Aerogel counter - FADC" ));
     HRSR->AddDetector( new TriFadcCherenkov("a2", "Aerogel counter - FADC" ));
-    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+    //    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 
@@ -614,7 +614,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
-    HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
+    //    HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
     // if(runnumber<3200){
     //   HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
