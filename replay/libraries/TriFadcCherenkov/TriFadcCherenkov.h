@@ -60,6 +60,7 @@ protected:
   Int_t* foverflow;         //[fNelem] FADC overflowbit
   Int_t* funderflow;        //[fNelem] FADC underflowbit
   Int_t* fpedq;             //[fNelem] FADC pedestal quality bit
+  Int_t* fpedFADC;          //[fNelem] FADC pedestal quality bit
   Decoder::Fadc250Module *fFADC;     //pointer to FADC250Module class
 
   Int_t* fNhits;           //[fNelem] number of hits for each PMT
