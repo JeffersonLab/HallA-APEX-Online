@@ -1,4 +1,4 @@
-# ignore patterns
+p# ignore patterns
 
 replay/scripts/calibrate/BPM/HarpScans/*
 replay/scripts/calibrate/BPM/harp_results_*
@@ -26,6 +26,8 @@ replay/libraries/TriFadcShower/#*
 replay/onlineGUI64/#*
 
 replay/scripts/analysis/*.pdf
+
+replay/scripts/FADC_decode_apex/results/*
 
 
 **/*~
