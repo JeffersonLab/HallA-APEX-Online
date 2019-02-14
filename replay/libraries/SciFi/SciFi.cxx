@@ -210,9 +210,9 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     //2//fClusters = new SBSHCalCluster*[fMaxNClust];
     // fBlocks.clear();
     // fBlocks.resize(fNelem); 
-    // fA_raw.resize(fNelem);
-    // fA_raw_p.resize(fNelem);
-    // fA_raw_c.resize(fNelem);
+    fA_raw.resize(fNelem);
+    fA_raw_p.resize(fNelem);
+    fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
 
     
@@ -363,10 +363,6 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
     { "Noise", "Noise present? 0 if not, 1 if yes", "fNoise"},    
     { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
-    { "X_hits",  "X-position of hits",               "fX_hits"},
-    { "Y_hits",  "Y-position of hits",               "fY_hits"},
-    { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
-    { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
     { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
 
     { 0 }
