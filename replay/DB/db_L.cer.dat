@@ -1,10 +1,10 @@
 --------[ 2019-02-12 08:00:00 -0500 ]
 
-L.cer.NPED = 15
+L.cer.NPED = 4
 L.cer.NSA = 40
-L.cer.NSB = 2
-L.cer.Win = 40
-L.cer.TFlag = 1
+L.cer.NSB = 1
+L.cer.Win = 23
+L.cer.TFlag = 0
 
 --------[ 2018-08-22 00:00:00 -0500 ]
 
