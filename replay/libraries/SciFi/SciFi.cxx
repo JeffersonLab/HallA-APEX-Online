@@ -31,7 +31,8 @@ const int debug=1;
 SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus )
 : THaNonTrackingDetector(name,description,apparatus), fPed(0), fGain(0), fA(0),
   fAHits(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
-  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0), fNoise(0)
+  foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0), fNoise(0),
+  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
 {
   // Constructor
 //  fFADC=NULL;
@@ -40,7 +41,8 @@ SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus
 //_____________________________________________________________________________
 SciFi::SciFi()
 : THaNonTrackingDetector(), fPed(0), fGain(0), fA(0), fAHits(0),
-  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0), fNoise(0)
+  fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0), fNoise(0),
+  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -149,6 +151,9 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     fpedq      = new Int_t[ nval ];
     fNhits_arr     = new Int_t[ nval ];
 
+    fhit_fibre =  new Int_t[ nval ];
+ 
+
     //fIsInit = true;
   }
 
@@ -167,6 +172,12 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
   fNSB = 1;  //number of integration samples before threshold crossing
   fWin = 1;  //total number of sample in FADC window
   fTFlag = 1;  //Threshold On: 1, Off: 0
+
+  fno_x_hits = 0;
+  fno_y_hits = 0;
+
+
+
 
   for( UInt_t i=0; i<nval; ++i ) { fGain[i] = 1.0; }
 
@@ -211,6 +222,10 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
 
     }
     fA_raw_sum.resize(fNelem); // MAPC
+    fX_hits.clear();
+    fY_hits.clear();
+
+
     // Yup, hard-coded in because it's only a test
     // TODO: Fix me, don't hard code it in
     //    fMaxNClust = 9;
@@ -332,6 +347,12 @@ Int_t SciFi::DefineVariables( EMode mode )
     // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
     { "a_raw_sum", "Raw mode sum of pulse", "fA_raw_sum"},
     { "Noise", "Noise present? 0 if not, 1 if yes", "fNoise"},    
+    { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
+    { "X_hits",  "X-position of hits",               "fX_hits"},
+    { "Y_hits",  "Y-position of hits",               "fY_hits"},
+    { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
+    { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
+    { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
     { 0 }
   };
 
@@ -432,6 +453,9 @@ void SciFi::DeleteArrays()
   delete [] fpedq;      fpedq      = NULL;
   delete [] fNhits_arr;     fNhits_arr     = NULL;
 
+  delete [] fhit_fibre; fhit_fibre = NULL;
+
+
   //  delete []
 }
 
@@ -450,6 +474,9 @@ void SciFi::Clear( Option_t* opt )
     // fT[i] = fT_c[i] = 0.0;
     fA[i] = fA_p[i] = fA_c[i] = 0.0;
 
+    fhit_fibre[i] = 0.0;
+
+
     fhitsperchannel[i] = 0;
     fPeak[i]=0.0;
     fT_FADC[i]=0.0;
@@ -459,6 +486,9 @@ void SciFi::Clear( Option_t* opt )
   fASUM_p = fASUM_c = fASUM = 0.0;
 
   fNoise = 0;
+  fno_x_hits = fno_y_hits = 0.0;
+
+
 
   if( !strchr(opt,'I') ) {
     memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
@@ -478,6 +508,13 @@ void SciFi::ClearEvent()
   ResetVector(fA_raw, 0.0);
   ResetVector(fA_raw_p,0.0);
   ResetVector(fA_raw_c,0.0);
+
+  fX_hits.clear();
+  fY_hits.clear();
+  
+
+
+
 
     // fCoarseProcessed = 0;
     // fFineProcessed = 0;
@@ -506,7 +543,7 @@ void SciFi::ClearEvent()
     // fTRX = 0.0;
     // fTRY = 0.0;
   
-      fNoise = 0;
+    fNoise = 0;
 
     for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
 
@@ -654,6 +691,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	Int_t ftime=0;
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
+	Float_t gain = fGain[fibre];
 	// if(adc){
 	
 	
@@ -727,20 +765,65 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
 	fA_p[fibre] = data - Int_t(tempPed);
 	fhitsperchannel[fibre] = 10;
-	fA_c[fibre] = noevents;
+	fA_c[fibre] = fA_p[fibre]*gain;
 	// only add channels with signals to the sums
 	fASUM += fA[fibre];
 	if( fA_p[fibre] > 0.0 )
 	  fASUM_p += fA_p[fibre];
 	if( fA_c[fibre] > 0.0 )
 	  fASUM_c += fA_c[fibre];
+
+
+	// Decide whether there is a hit or not here 
+
+       
+	if(fA_c[fibre] > 300){    
+	 //       cout << " hit if condition started! " << endl;
+         fhit_X_Y = 1;
+         fhit_fibre[fibre] = 1;
+	 
+         // cout << " hit if condition, before x and y loops " << endl;
+         // cout << " fhit_X_Y = "  << fhit_X_Y << ", fibre = " << fibre <<  endl;
+	 
+	 
+
+         if(fibre >= 0 && fibre <=31){
+           fX_hits.push_back(fibre);
+           //      fX_hits[fno_x_hits] = fibre;            
+           fno_x_hits++;
+	 }
+         
+         if(fibre >= 32 && fibre <=63){
+           fY_hits.push_back(fibre);
+           //      fY_hits[fno_y_hits] = fibre;
+           fno_y_hits++;
+	 }
+         
+	 //       cout << " hit if condition worked! " << endl;
+       
+
+       if (fA_c[fibre] < 100){
+	 //       cout << "hit condition missed :(" << endl;
+       }
+       }	
+	
+
+
+
 	//      fNAhit++;
 	// } else {
 	// 	// fT[k]   = data;
 	// 	// fT_c[k] = data - fOff[k];
 	// 	fNThit++;
 	// }
-      }
+
+	
+
+
+
+
+
+	}
     
     
       if ( fDebug > 3 ) {
@@ -802,9 +885,13 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 
 	    fA_raw[fibre][s] = samples[s];
 
-	    if(fA_raw[15][s] > 800 || fA_raw[15][s] < 160){    //  for the left
-	      fNoise = 1;
+
+	    if( fibre == 15){
+	      if(fA_raw[fibre][s] > 800 || fA_raw[fibre][s] < 160){    //  for the left
+		fNoise = 1;
 	    
+	      }
+
 	    }
 	    // fA_raw_p[k][s] = fA_raw[k][s]-fPed[k];
 	    // fA_raw_c[k][s] = fA_raw_p[k][s]*fGain[k];
@@ -824,6 +911,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	Int_t ftime=0;
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];
+	Float_t gain = fGain[fibre];
 
 	
 	foverflow[fibre] = fFADC->GetOverflowBit(chan,0);
@@ -876,7 +964,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
 	fA_p[fibre] = data - tempPed;
 	fhitsperchannel[fibre] = 10;
-	fA_c[fibre] = noevents;
+	fA_c[fibre] = fA_p[fibre]*gain;
 	// only add channels with signals to the sums
 
 	fASUM += fA[fibre];
@@ -886,13 +974,74 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  fASUM_c += fA_c[fibre];
 
 
+
+       if(fA_c[fibre] > 450){    
+	 //       cout << " hit if condition started! " << endl;
+         fhit_X_Y = 1;
+         fhit_fibre[fibre] = 1;
+	 
+         // cout << " hit if condition, before x and y loops " << endl;
+         // cout << " fhit_X_Y = "  << fhit_X_Y << ", fibre = " << fibre <<  endl;
+	 
+	 
+
+         if(fibre >= 0 && fibre <=31){
+           fX_hits.push_back(fibre);
+           //      fX_hits[fno_x_hits] = fibre;            
+           fno_x_hits++;
+	 }
+         
+         if(fibre >= 32 && fibre <=63){
+           fY_hits.push_back(fibre);
+           //      fY_hits[fno_y_hits] = fibre;
+           fno_y_hits++;
+	 }
+         
+	 //       cout << " hit if condition worked! " << endl;
+       
+
+	 if (fA_c[fibre] < 100){
+	 //       cout << "hit condition missed :(" << endl;
+	 }
+       }	
+       
+
+
+
       }
-      
+     
     }
   }
-  
-  // std::cout << "End of decoding " << noevents <<  std::endl;
-  return noevents;
+
+
+    if(!fhit_X_Y){
+    // no hits in any fibre
+    }
+    else{
+      
+    //    cout << " sorting reached " << endl;
+      
+      sort(fX_hits.begin(),fX_hits.end());
+      sort(fY_hits.begin(),fY_hits.end());
+      
+      
+      //+    cout << " sorting passed " << endl;  
+      
+      
+      for( Int_t i =0; i<fno_x_hits; i++){
+	// do x checks 
+	
+      }
+      
+      
+      for( Int_t i =0; i<fno_y_hits; i++){
+	
+	// do y-checks
+      }
+    }
+    
+    // std::cout << "End of decoding " << noevents <<  std::endl;
+    return noevents;
   // return fNThit;
   //  return fNAhit++;
 }
