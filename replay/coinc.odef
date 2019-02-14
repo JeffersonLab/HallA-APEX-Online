@@ -154,7 +154,7 @@ TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&
 TH1F Lcera   'Cerenkov'  L.cer.a 1000 0 15000 L.cer.a>0
 TH1F Lcersum 'Sum of Cerenkov FADC (corrected)' L.cer.asum_c 1000 -200 10000  L.cer.asum_c>-1000
 TH1F Lcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' L.cer.a_p 1000 -200 10000 L.cer.a_p>-200.&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 1000 -200 5000 L.cer.a_p>-200
+TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 1000 -200 10000 L.cer.a_p>-200
 TH2F Lcer_x  'Sum of Cerenkov FADC(corrected) vs. X' L.cer.trx L.cer.asum_c  60 -1.2 1.2 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
 TH2F Lcer_y  'Sum of Cerenkov FADC(corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
 
@@ -419,10 +419,10 @@ TH1F Rcert 'Cerenkov Fastbus TDC PMT ' R.cer.t 500 1500 3500 R.cer.t>0
 TH1F RcertT4_   'Cerenkov Fastbus TDC w/ T5,T6: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F RcertT6_   'Cerenkov Fastbus TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(DR.evtypebits==64)
 
-TH1F Rcera 'Fadc Cerenkov'  R.cer.a 1000 10000 30000 R.cer.a>0
+TH1F Rcera 'Fadc Cerenkov'  R.cer.a 5000 0 40000 R.cer.a>0
 TH1F Rcersum 'Sum of Cerenkov FADC (corrected)' R.cer.asum_c 8022 -100 10000 R.cer.asum_c>-1000
 
-TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 381 -500 10000 R.cer.a_p>-1000
+TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 381 -100 10000 R.cer.a_p>-1000
 
 TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 1000 -200 20000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
 TH2F Rcer_x  'Sum of Cerenkov FADC (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 8022 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
@@ -468,6 +468,12 @@ TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 400 1800 3200
 TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 400 1800 3200
 TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 400 1800 3200
 TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 400 1800 3200
+
+TH2F Rvu1tn 'R-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 400 1800 3200
+TH2F Rvu2tn 'R-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 400 1800 3200
+TH2F Rvv1tn 'R-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 400 1800 3200
+TH2F Rvv2tn 'R-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 400 1800 3200
+
 
 TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
 TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
@@ -517,7 +523,7 @@ TH1F R_tgy 'R-arm target y' R.tr.tg_y 200 -.1 .1 R.cer.asum_c>2000&&(R.ps.e+R.sh
 TH1F R_trvz 'R-arm vertex z' R.tr.vz 200 -0.2 0.2 R.cer.asum_c>2000&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
 
 TH1F Rtrn_ep  'R-arm number of tracks with ep cut' R.tr.n 20 -0.5 10.5 (R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
-TH1F Rtrn_cer  'L-arm number of tracks with cer cut' R.tr.n 20 -0.5 10.5 R.cer.asum_c>2000
+TH1F Rtrn_cer  'R-arm number of tracks with cer cut' R.tr.n 20 -0.5 10.5 R.cer.asum_c>2000
 
 TH1F R_tr_beta  'R-arm Track Beta' R.tr.beta 100 -2 2 R.tr.n>0  
 TH2F R_tr_betax 'R-arm Track Beta vs. Track X' R.tr.x R.tr.beta 100 -1 1 100 -2 2 R.tr.n>0
