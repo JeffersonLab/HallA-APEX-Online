@@ -152,7 +152,7 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     fNhits_arr     = new Int_t[ nval ];
 
     fhit_fibre =  new Int_t[ nval ];
- 
+
 
     //fIsInit = true;
   }
@@ -172,6 +172,9 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
   fNSB = 1;  //number of integration samples before threshold crossing
   fWin = 1;  //total number of sample in FADC window
   fTFlag = 1;  //Threshold On: 1, Off: 0
+  
+  fno_x_hits = 0;
+  fno_y_hits = 0;
 
   fno_x_hits = 0;
   fno_y_hits = 0;
@@ -207,24 +210,27 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     //2//fClusters = new SBSHCalCluster*[fMaxNClust];
     // fBlocks.clear();
     // fBlocks.resize(fNelem); 
-    fA_raw.resize(fNelem);
-    fA_raw_p.resize(fNelem);
-    fA_raw_c.resize(fNelem);
+    // fA_raw.resize(fNelem);
+    // fA_raw_p.resize(fNelem);
+    // fA_raw_c.resize(fNelem);
     fNumSamples.resize(fNelem);
-    for(Int_t i = 0; i < fNelem; i++) {
-      // We'll resize the vector now to make sure the data are contained
-      // in a contigous part of memory (needed by THaOutput when writing
-      // to the ROOT file)
+
+    
+    for(Int_t i = 0; i < fNelem; i++){
+
       fA_raw[i].resize(MAX_FADC_SAMPLES);
       fA_raw_p[i].resize(MAX_FADC_SAMPLES);
       fA_raw_c[i].resize(MAX_FADC_SAMPLES);
-      //      std::cout << "check for resizing" << std::endl;
+
 
     }
+
+
+
+  
     fA_raw_sum.resize(fNelem); // MAPC
     fX_hits.clear();
     fY_hits.clear();
-
 
     // Yup, hard-coded in because it's only a test
     // TODO: Fix me, don't hard code it in
@@ -303,7 +309,7 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
  
      
   fIsInit = true;
-  }
+}
 
 
   return kOK;
@@ -338,10 +344,19 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "trpath", "TRCS pathlen of track to det plane","fTrackProj.THaTrackProj.fPathl" },
     { "noverflow",  "overflow bit of FADC pulse",    "foverflow" },
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
-    { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
+    { "nbadped",  "pedestal quality bit of FADC pulse","fpedq" },
     { "nhits",  "Number of hits for each PMT",       "fNhits_arr" },
+    { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
+    { "X_hits",  "X-position of hits",               "fX_hits"},
+    { "Y_hits",  "Y-position of hits",               "fY_hits"},
+    { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
+    { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
+    
+    
+    
 //    { "nhits",  "Number of hits for each PMT",       "fNhits" },
     // raw mode (10) variables
+
     { "a_raw",  "Raw mode ADC values", "fA_raw"},
     // { "a_raw_p", "Raw mode Ped-subtracted ADC values", "fA_raw_p"},
     // { "a_raw_c",    "Raw mode Corrected ADC values",  "fA_raw_c" }, 
@@ -353,6 +368,7 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "nX_hits", "Number of X-hits per event",       "fno_x_hits"},
     { "nY_hits", "Number of Y-hits per event",       "fno_y_hits"},
     { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
+
     { 0 }
   };
 
@@ -360,48 +376,49 @@ Int_t SciFi::DefineVariables( EMode mode )
 
 
 
-  //return DefineVarsFromList( vars, mode );
-  Int_t err = DefineVarsFromList(vars, mode);
-  if( err != kOK ){
-    return err;
-  }
+  return DefineVarsFromList( vars, mode );
+
+  // Int_t err = DefineVarsFromList(vars, mode);
+  // if( err != kOK ){
+  //   return err;
+  // }
 
   //  raw mode pulse data variables
 
-  std::vector<VarDef> vars2;
+//   std::vector<VarDef> vars2;
 
-// Needs to be fixed before adding to the main repo
+// // Needs to be fixed before adding to the main repo
 
-  for(Int_t m = 0; m < fNelem; m++) {
-    VarDef v;
-    char *name   =  new char[128];
-    // char *name_p = new char[128];
-    // char *name_c = new char[128];
-    sprintf(name,"a_raw%.2d",m);
-    // sprintf(name_p,"a_p_%.2d",m);
-    // sprintf(name_c,"a_c_%.2d",m);
-    char *desc = new char[256];
-    sprintf(desc,"Raw ADC samples for Module %d",m);
-    v.name = name;
-    v.desc = "Raw ADC samples";
-    v.type = kDouble;
-    v.size = 40;
-    v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
-    v.count = &fNumSamples[m];
-    vars2.push_back(v);
-    // v.name = name_p;
-    // v.desc = "Pedestal subtracted ADC samples";
-    // v.loc = &(fA_raw_p[m].data()[0]);
-    // vars2.push_back(v);
-    // v.name = name_c;
-    // v.desc = "Pedestal subtracted calibrated ADC samples";
-    // v.loc = &(fA_raw_cl[m].data()[0]);
-    // vars2.push_back(v);
-  }
+//   for(Int_t m = 0; m < fNelem; m++) {
+//     VarDef v;
+//     char *name   =  new char[128];
+//     // char *name_p = new char[128];
+//     // char *name_c = new char[128];
+//     sprintf(name,"a_raw%.2d",m);
+//     // sprintf(name_p,"a_p_%.2d",m);
+//     // sprintf(name_c,"a_c_%.2d",m);
+//     char *desc = new char[256];
+//     sprintf(desc,"Raw ADC samples for Module %d",m);
+//     v.name = name;
+//     v.desc = "Raw ADC samples";
+//     v.type = kDouble;
+//     v.size = 40;
+//     v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
+//     v.count = &fNumSamples[m];
+//     vars2.push_back(v);
+//     // v.name = name_p;
+//     // v.desc = "Pedestal subtracted ADC samples";
+//     // v.loc = &(fA_raw_p[m].data()[0]);
+//     // vars2.push_back(v);
+//     // v.name = name_c;
+//     // v.desc = "Pedestal subtracted calibrated ADC samples";
+//     // v.loc = &(fA_raw_cl[m].data()[0]);
+//     // vars2.push_back(v);
+//   }
 
 
-  vars2.push_back(VarDef());
-  return DefineVarsFromList( vars2.data(), mode );
+//   vars2.push_back(VarDef());
+//   return DefineVarsFromList( vars2.data(), mode );
 
 
 
@@ -453,7 +470,9 @@ void SciFi::DeleteArrays()
   delete [] fpedq;      fpedq      = NULL;
   delete [] fNhits_arr;     fNhits_arr     = NULL;
 
+
   delete [] fhit_fibre; fhit_fibre = NULL;
+
 
 
   //  delete []
@@ -505,9 +524,13 @@ void SciFi::ClearEvent()
 {
   // Reset all local data to prepare for next event.
   ResetVector(fNumSamples,0);
-  ResetVector(fA_raw, 0.0);
-  ResetVector(fA_raw_p,0.0);
-  ResetVector(fA_raw_c,0.0);
+
+  ResetVector(fX_hits,0);
+  ResetVector(fY_hits,0);
+
+  // ResetVector(fA_raw, 0.0);
+  // ResetVector(fA_raw_p,0.0);
+  // ResetVector(fA_raw_c,0.0);
 
   fX_hits.clear();
   fY_hits.clear();
@@ -543,9 +566,11 @@ void SciFi::ClearEvent()
     // fTRX = 0.0;
     // fTRY = 0.0;
   
+
     fNoise = 0;
 
     for(size_t i=0; i<fA_raw_sum.size(); i++) fA_raw_sum[i] = 0.0; // MAPC
+
 
     //2//for (int i=0;i<fNelem;i++) 
         //2//fBlocks[i]->ClearEvent();
@@ -571,7 +596,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   
   ClearEvent();
 
-
+ 
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
 
     THaDetMap::Module* d = fDetMap->GetModule( i );
@@ -692,6 +717,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
 	Float_t gain = fGain[fibre];
+
 	// if(adc){
 	
 	
@@ -776,6 +802,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 
 	// Decide whether there is a hit or not here 
 
+
        
 	if(fA_c[fibre] > 300){    
 	 //       cout << " hit if condition started! " << endl;
@@ -817,11 +844,6 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	// 	fNThit++;
 	// }
 
-	
-
-
-
-
 
 	}
     
@@ -844,10 +866,11 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	      break;
 	    }
 	  }
-	printf("\n");
+	  printf("\n");
 	}
       }
       
+
       // section for processing raw mode
       
       if (raw_mode){
@@ -902,10 +925,12 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  //	  std::cout << "6th Check " << std::endl;
 	}
 
-	////////////////////////////////////////////////////////////
-	////// Also collect raw-mode data in 'normal' format ///////
-	/////            ie fA,fA_p,fA_c etc                 ///////           
-        ////////////////////////////////////////////////////////////
+  
+ 
+
+
+  // Compute x and y co-ordinates of hits if there are any
+ 
 
 	Int_t data;
 	Int_t ftime=0;
@@ -1009,11 +1034,19 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 
 
       }
-     
+      
     }
+
+
+    // Finally process x and y by taking the values of the gain adjusted, pedestal subtracted output
+    // then add timing
+
+
+    
   }
 
 
+  
     if(!fhit_X_Y){
     // no hits in any fibre
     }
@@ -1042,6 +1075,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
     
     // std::cout << "End of decoding " << noevents <<  std::endl;
     return noevents;
+
   // return fNThit;
   //  return fNAhit++;
 }

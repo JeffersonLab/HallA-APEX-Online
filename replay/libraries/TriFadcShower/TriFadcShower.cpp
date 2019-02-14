@@ -95,6 +95,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     { "NPED",         &fNPED,   kInt},
     { "NSA",          &fNSA,    kInt},
     { "NSB",          &fNSB,    kInt},
+    { "TFlag",       &fTFlag,    kInt},
     { 0 }
   };
   err = LoadDB( file, date, config_request, fPrefix );
@@ -200,6 +201,7 @@ Int_t TriFadcShower::ReadDatabase( const TDatime& date )
     foverflow  = new Int_t[ nval ]; 
     funderflow = new Int_t[ nval ];
     fpedq      = new Int_t[ nval ];
+    fFADCped      = new Int_t[ nval ];
 
     fIsInit = true;
   }
@@ -292,6 +294,7 @@ Int_t TriFadcShower::DefineVariables( EMode mode )
     { "noverflow",  "overflow bit of FADC pulse",    "foverflow" },
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
     { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
+    { "FADCped",  "pedestal computed by FADC",   "fFADCped" },
     { 0 }
   };
   return DefineVarsFromList( vars, mode );
@@ -330,6 +333,7 @@ void TriFadcShower::DeleteArrays()
   delete [] foverflow; foverflow = 0;
   delete [] funderflow; funderflow = 0;
   delete [] fpedq;    fpedq    = 0;
+  delete [] fFADCped;    fFADCped    = 0;
 }
 
 //_____________________________________________________________________________
@@ -438,7 +442,7 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
       }
  
 
-      Float_t tempPed = fPed[k];
+      Double_t tempPed =0;
       Int_t ftime=0,fpeak=0;
       ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
       fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
@@ -447,21 +451,26 @@ Int_t TriFadcShower::Decode( const THaEvData& evdata )
         foverflow[k]  = fFADC->GetOverflowBit(chan,0);
         funderflow[k] = fFADC->GetUnderflowBit(chan,0);
         fpedq[k]      = fFADC->GetPedestalQuality(chan,0);
+	fFADCped[k]  = evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0);
       }
+      
       if(fpedq[k]==0) // good quality
 	{
 	  if(fTFlag == 1)
             {
-              tempPed=(fNSA+fNSB)*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
+              tempPed=(fNSA+fNSB)*fFADCped[k]/fNPED;
+	      //  cout<<"1: "<< 1.0*(fNSA+fNSB)*fFADCped[k]/fNPED<<" "<<tempPed <<endl;
             }
 	  else
             {
-              tempPed=fWin*(static_cast<Double_t>(evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0)))/fNPED;
-            }	  	  
-	}
+              tempPed=fWin*fFADCped[k]/fNPED;
+            }
 
+	}
+      //   cout << k << " " << tempPed << " " <<	fFADCped[k]  << " "<< fPed[k] <<endl;
       // Copy the data and apply calibrations
       fA[k]   = data;                   // ADC value
+      if (fTFlag == 2 ) tempPed = fPed[k];
       fA_p[k] = data    - tempPed;      // ADC minus ped
       fA_c[k] = fA_p[k] * fGain[k];     // ADC corrected
       if( fA_p[k] > 0.0 )

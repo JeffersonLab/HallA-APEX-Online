@@ -78,7 +78,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSL->AddDetector( new TriFadcScin     ("s2"  , "S2 Scintillator"        ));
 	HRSL->AddDetector( new TriFadcShower       ("prl1", "Pre-shower pion rej."   ));
 	HRSL->AddDetector( new TriFadcShower       ("prl2", "Show pion rej."         )); 
-	HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
+	// HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 	THaHRS* FbusHRSL = new THaHRS("FbusL", "Fastbus LHRS Readout");
@@ -101,7 +101,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 	HRSR->AddDetector( new TriFadcScin     ("s2" , "S2 Scintillator - FADC"       ));
 	HRSR->AddDetector( new THaShower       ("ps" , "Pre-shower pion rej."         ));
 	HRSR->AddDetector( new THaShower       ("sh" , "Show pion rej."               ));
-	HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+	// HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 	THaHRS* FbusHRSR = new THaHRS("FbusR", "Fastbus RHRS Readout");
 	FbusHRSR->AutoStandardDetectors(kFALSE);
@@ -204,11 +204,11 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 		TriFadcRasteredBeam* Rrb = new TriFadcRasteredBeam("Rrb", "Rastered beam to the RHRS");
 		gHaApps->Add(Rrb);
 
-		THaRasteredBeam* FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to RHRS");
-		FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-		FbusRrb->AddDetector(new THaBPM   ("BPMA", "First BPM"));
-		FbusRrb->AddDetector(new THaBPM   ("BPMB", "Second BPM"));
-		gHaApps->Add(FbusRrb);
+//		THaRasteredBeam* FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to RHRS");
+//		FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+//		FbusRrb->AddDetector(new THaBPM   ("BPMA", "First BPM"));
+//		FbusRrb->AddDetector(new THaBPM   ("BPMB", "Second BPM"));
+//		gHaApps->Add(FbusRrb);
 	}
 
 	//=====================================================================================================================
@@ -379,14 +379,21 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
   //==================================
   //  Right Arm Only
   //==================================
-
   if(right && !left){
-    cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
-    ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
-    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
-    if(skim)
-      CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
-    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
+  cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
+  ODEF=Form(REPLAY_DIR_PREFIX,"coinc.odef");
+  if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"coinc_auto.odef");
+  //  if(skim)
+  //    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
+  CUTS=Form(REPLAY_DIR_PREFIX,"coinc.cuts");
+  
+  //if(right && !left){
+  //  cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
+  //  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+  //  if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+  //  if(skim)
+  //    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
+  //  CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
 
   
     //==================================
@@ -405,7 +412,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSR->AddDetector( new THaShower("sh", "Show pion rej." ));
     HRSR->AddDetector( new TriFadcCherenkov("a1", "Aerogel counter - FADC" ));
     HRSR->AddDetector( new TriFadcCherenkov("a2", "Aerogel counter - FADC" ));
-    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
+    //    HRSR->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
 
 
@@ -458,11 +465,11 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
       gHaApps->Add(Rrb);
       TriFadcUnRasteredBeam*  Rurb    = new TriFadcUnRasteredBeam("Rurb", "Unastered beam to the R-HRS");
       gHaApps->Add(Rurb);
-      THaRasteredBeam*        FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
-       FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
-       FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
-       FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
-       gHaApps->Add(FbusRrb);
+//      THaRasteredBeam*      FbusRrb = new THaRasteredBeam("FbusRrb", "Fastbus Rastered beam to R-HRS");
+//       FbusRrb->AddDetector(new THaRaster("Raster2", "Downstream Raster"));
+//       FbusRrb->AddDetector(new THaBPM("BPMA", "First BPM"));
+//       FbusRrb->AddDetector(new THaBPM("BPMB", "Second BPM"));
+//       gHaApps->Add(FbusRrb);
     }
     
     //==================================
@@ -614,7 +621,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
     HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber"));
     HRSL->AddDetector( new TriFadcCherenkov("cer", "Gas Cherenkov counter" ));
     HRSL->AddDetector( new TriFadcScin("s2", "S2 Scintillator" ));
-    HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
+    //    HRSL->AddDetector( new SciFi("sf", "SciFi Detector" ));
 
     // if(runnumber<3200){
     //   HRSL->AddDetector( new THaShower("prl1", "Pre-shower pion rej." ));
@@ -960,20 +967,31 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        //==================================
        // Both arms combined
        //==================================
-       const char * CONFIGCOINC     = Form( REPLAY_DIR_PREFIX,"onlineGUI64/coinc.cfg"        );
-       //		const char * CONFIGCOINCPHYS = Form( REPLAY_DIR_PREFIX,"onlineGUI64/config_coinc_2018/Coinc_physics.cfg");
+       const char* CONFIGCOINC=Form(REPLAY_DIR_PREFIX,"onlineGUI64/coinc.cfg");
+       // const char* CONFIGCOINCPHYS = Form(REPLAY_DIR_PREFIX,"onlineGUI64/config_coinc_2018/Coinc_physics.cfg");
+
        
+       GUI_DIR = Form(REPLAY_DIR_PREFIX,"onlineGUI64/");
+       
+       gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR,CONFIGCOINC,runnumber));
        // gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINC,runnumber                   ));
-       // gSystem->Exec(Form("mv %stemp_%d.pdf %scoinc_%d.pdf"                             ,SUM_DIR      ,runnumber       ,exp,runnumber));
-       // gSystem->Exec(Form("unlink %scoinc_latest.pdf"                                   ,SUM_DIR                                               ));
-       // gSystem->Exec(Form("ln -s %scoinc_%d.pdf %scoinc_latest.pdf"                     ,exp,runnumber       ,SUM_DIR                ));    
-       // gSystem->Exec(Form("ln -sf %scoinc_%d.pdf %scoinc_latest.pdf"                    ,exp,runnumber       ,exp          ));
+      		
+       SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
        
-       // gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINCPHYS ,runnumber              ));
-       // gSystem->Exec(Form("mv %stemp_%d.pdf %scoinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
-       // gSystem->Exec(Form("unlink %scoinc_physics_latest.pdf"                           ,SUM_DIR                                               ));
-       // gSystem->Exec(Form("ln -s %scoinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
-       // gSystem->Exec(Form("ln -sf %scoinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       
+       gSystem->Exec(Form("unlink %scoinc_latest.pdf",SUM_DIR));
+       
+       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf %scoinc_latest.pdf",exp,runnumber,SUM_DIR));
+          
+       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_latest.pdf",exp,runnumber,exp));
+       
+       
+       //gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINCPHYS ,runnumber              ));
+       //gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
+       //gSystem->Exec(Form("unlink %scoinc_physics_latest.pdf"                           ,SUM_DIR                                               ));
+       //gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
+       //gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
      }
 
        

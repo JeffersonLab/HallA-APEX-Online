@@ -19,7 +19,7 @@ DATE 4 1 2019
 
 # directives for Left HRS
 
-xscaler-tabs Left 0:Empty 1:Norm 2:Empty 3:S2m 4:Trig-Cher-S0 5:Empty 6:Empty
+xscaler-tabs Left 0:Empty 1:Norm 2:Empty 3:S2m 4:Trig-Cher-S0 5:Empty 6:Misc
 xscaler-layout Left 0:4x4 1:8x4 2:8x4 3:8x4 4:8x4 5:4x4 6:8x4 
 xscaler-pageslot Left 0:slot0 1:slot1 2:slot2 3:slot3 4:slot4 5:slot5 6:slot6 
 xscaler-pagename Left 0:'L-HRS LeCroy Scaler'
@@ -28,7 +28,7 @@ xscaler-pagename Left 2:'L-HRS '
 xscaler-pagename Left 3:'L-HRS S2m Left and Right (4th physical slot)'
 xscaler-pagename Left 4:'L-HRS Triggers, Gas Cherenkov,and S0 (5th physical slot)'
 xscaler-pagename Left 5:'L-HRS '
-xscaler-pagename Left 6:'L-HRS '
+xscaler-pagename Left 6:'Miscellaneous L-HRS '
 
 xscaler-server Left IP:129.57.192.30 port:5022
 xscaler-clock Left slot:4 chan:7 rate:103700
@@ -73,7 +73,7 @@ xscaler-clock Right slot:1 chan:7 rate:103700
 
 T1              0   8     1     0     1      Trigger 1   
 T2              0   8     1     1     1      Trigger 2
-T3              0   8     1     2     1      Trigger 3
+FloorS3         0   8     1     2     1      Spare 3 from floor
 MLU random      0   8     1     3     1      
 empty           0   8     1     4     1       
 L1A_Remote      0   8     1     5     1      L1A remote signal from RHRS
@@ -165,7 +165,7 @@ S2mR-16         0   8     3     31    1
 
 T1              0   8     4     0     1      Trigger 1
 T2              0   8     4     1     1      Trigger 2
-T3              0   8     4     2     1      Trigger 3
+FloorS3         0   8     4     2     1      Trigger 3
 MLUran          0   8     4     3     1      Randoms from MLU
 empty           0   8     4     4     1      
 L1A_Remote      0   8     4     5     1      L1A remote signal from RHRS
@@ -218,7 +218,7 @@ S2L_and_S2R     0   8     4     31    1
 1               0   8     6     0     1      
 2               0   8     6     1     1      
 3               0   8     6     2     1       
-4               0   8     6     3     1      
+Clock           0   8     6     3     1   103.7 kHz clock   
 5               0   8     6     4     1      
 6               0   8     6     5     1      
 7               0   8     6     6     1      
@@ -238,7 +238,7 @@ S2L_and_S2R     0   8     4     31    1
 21              0   8     6     20    1      
 22              0   8     6     21    1      
 23              0   8     6     22    1    
-24              0   8     6     23    1      
+FloorS3         0   8     6     23    1  S3 scint on Floor near Septum     
 25              0   8     6     24    1      
 26              0   8     6     25    1      
 27              0   8     6     26    1      

@@ -95,6 +95,7 @@ public:
   Int_t fX;                   // X-coordinate of hit
   Int_t fY;                   // Y-coordinate of hit
 
+
   Int_t fTime;                // time of (x,y) hit
   Int_t fhit_X_Y;             // Bool to show if there was a hit or not in any 
   Int_t* fhit_fibre;          // [fNelem] Bool to show if there was a hit or no
@@ -104,6 +105,7 @@ public:
 
   std::vector<Int_t> fY_hits; // Y-cords of hits
   Int_t fno_y_hits;           // Number of y-hits
+
 
 
 

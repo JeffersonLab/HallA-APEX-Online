@@ -127,8 +127,8 @@ then
 
 else
     
-    HRS_side=Coinc
-    HRS_name="Coinc"
+    HRS_side=coinc
+    HRS_name="coinc"
 
 fi
 dir=$PWD
@@ -170,8 +170,10 @@ sleep 1
 	 --tag Autolog \
 	 --attach ${dir}/summaryfiles/left_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/right_online_latest.pdf \
+	 --attach ${dir}/summaryfiles/coinc_latest.pdf \
 	 --caption "Left online Plots" \
-	 --caption "Right online Plots" 
+	 --caption "Right online Plots" \
+	 --caption "Coincidence Plots"
      
  elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
      #  

@@ -1,4 +1,4 @@
-# ignore patterns
+p# ignore patterns
 
 replay/scripts/calibrate/BPM/HarpScans/*
 replay/scripts/calibrate/BPM/harp_results_*
@@ -13,6 +13,27 @@ replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
 replay/#*
+replay/scripts/analysis/apex*.pdf
+replay/libraries/TriFadcCherenkov/#*
+replay/libraries/SciFi/#*
+replay/rol/roc20_tritium_list.c_*
+replay/rol/roc20_tritium_list_*
+replay/rol/fadc_vxs_apex.c_*
+replay/rol/.roc20_*
+replay/rol/.R*
+replay/rol/.*swp
+
+replay/libraries/TriFadcShower/#*
+replay/onlineGUI64/#*
+
+replay/scripts/analysis/*.pdf
+
+replay/scripts/FADC_decode_apex/results/*
+replay/scripts/FADC_decode_apex/FADCcom_main_debug.txt
+
+replay/brash/
+
+replay/replay_apex_old.C
 
 **/*~
 **/*.o
