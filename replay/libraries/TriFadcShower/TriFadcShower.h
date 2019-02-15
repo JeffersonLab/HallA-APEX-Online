@@ -9,6 +9,11 @@
 
 #include "THaPidDetector.h"
 #include "Fadc250Module.h"
+
+//----------------//
+//   C++ StdLib   //
+//----------------//
+#include <map>
 #include <vector>
 
 class TClonesArray;
@@ -83,6 +88,9 @@ protected:
   Float_t*   fT;       // [fNelem] Array of FADC TDC times of channels
   Float_t*   fT_c;     // [fNelem] Array of FADC corrected TDC times of channels
 
+  std::map<std::string,UInt_t> fMessages; // Warning messages & count
+  UInt_t      fNEventsWithWarnings; // Events with warnings
+  
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
   virtual Int_t  DefineVariables( EMode mode = kDefine );

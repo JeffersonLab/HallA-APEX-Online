@@ -1,14 +1,14 @@
 #!/bin/bash
 currentdir=`pwd`
-
+exp=$EXPERIMENT
 
 
 case $1 in 
 "" | "last")
     runnum=`cat ~adaq/datafile/rcRunNumberR`
-    CFILE=/adaq1/data1/triton_$runnum.dat.0
+    CFILE=/adaq1/data1/${exp}_$runnum.dat.0
     if [ ! -f $CFILE ]
-    then  CFILE=/adaq1/data1/triton_$runnum.dat.0
+    then  CFILE=/adaq1/data1/${exp}_$runnum.dat.0
     fi
     
     if [ "$CFILE" = "" ] 
@@ -60,15 +60,9 @@ case $1 in
 * )
 
     runnum=$1
-    CFILE=/adaq1/data1/triton_$1.dat.0
+    CFILE=/adaq1/data1/${exp}_$1.dat.0
     if [ ! -f $CFILE ]
-    then  CFILE=/adaq1/data1/triton_$1.dat.0
-    fi
-	 if [ ! -f $CFILE ]
-	 then CFILE=/chafs2/work1/Ar40/raw/triton_$1.dat.0
-	 fi
-    if [ "$CFILE" = "" ] 
-    then
+    then  CFILE=/adaq1/data1/${exp}_$1.dat.0
        echo "ERROR: no CODA files"
        exit
     fi
@@ -99,27 +93,27 @@ case $1 in
 
 esac
 
-cd /adaqfs/home/a-onl/tritium/replay/scripts/SPOT/RightHRS_Tritium
+cd ${currentdir}/scripts/SPOT/RightHRS_Tritium
 
-export DB_DIR="/adaqfs/home/a-onl/tritium/replay/DB"
+export DB_DIR=$DB_DIR
 
 #rm -f rastersize.root
 
 analyzer -b -q 'get_rastersize_R.C("'$CFILE'","'$runnum'",'$FIRST','$LAST',"rastersize.root")'
 
 RootFILE=R$runnum".root"
-spot_dir="/chafs1/work1/tritium/spot"
+spot_dir="/chafs1/work1/${exp}/spot"
 
 mv rastersize.root ${spot_dir}/$RootFILE
 
-mv FADC_Tritium_$runnum.pdf ${spot_dir}/.
+mv FADC_${exp}_R_$runnum.pdf ${spot_dir}/.
 
 echo =================
 echo DONE. PDFs and ROOTFILE are stored at ${spot_dir}
 echo =================
 cd $currentdir
 
-evince ${spot_dir}/FADC_Tritium_$runnum.pdf &
+evince ${spot_dir}/FADC_${exp}_R_$runnum.pdf &
 
 
 function yes_or_no {
@@ -137,5 +131,5 @@ yes_or_no "Upload these plots to logbook HALOG? " && \
     --logbook "HALOG" \
     --tag Autolog \
     --title "Spot check using Right HRS run ${runnum}" \
-    --attach ${spot_dir}/FADC_Tritium_${runnum}.pdf
+    --attach ${spot_dir}/FADC_${exp}_${runnum}.pdf
 
