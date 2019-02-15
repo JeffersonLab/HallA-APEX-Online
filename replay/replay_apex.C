@@ -38,9 +38,9 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 
   TString rootname;
   if(OnlineReplay){
-    rootname = "%s/apex_online_%d.root";}
+    rootname = "%s/apex_SciFi_online_%d.root";}
   else {
-    rootname = "%s/apex_%d.root";
+    rootname = "%s/apex_SciFi_%d.root";
     if (skim)
       rootname = "%s/skim_%d.root";
   }

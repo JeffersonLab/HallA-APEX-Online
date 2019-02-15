@@ -372,49 +372,49 @@ Int_t SciFi::DefineVariables( EMode mode )
 
 
 
-  return DefineVarsFromList( vars, mode );
+  // return DefineVarsFromList( vars, mode );
 
-  // Int_t err = DefineVarsFromList(vars, mode);
-  // if( err != kOK ){
-  //   return err;
-  // }
+  Int_t err = DefineVarsFromList(vars, mode);
+  if( err != kOK ){
+    return err;
+  }
 
   //  raw mode pulse data variables
 
-//   std::vector<VarDef> vars2;
+  std::vector<VarDef> vars2;
 
 // // Needs to be fixed before adding to the main repo
 
-//   for(Int_t m = 0; m < fNelem; m++) {
-//     VarDef v;
-//     char *name   =  new char[128];
-//     // char *name_p = new char[128];
-//     // char *name_c = new char[128];
-//     sprintf(name,"a_raw%.2d",m);
-//     // sprintf(name_p,"a_p_%.2d",m);
-//     // sprintf(name_c,"a_c_%.2d",m);
-//     char *desc = new char[256];
-//     sprintf(desc,"Raw ADC samples for Module %d",m);
-//     v.name = name;
-//     v.desc = "Raw ADC samples";
-//     v.type = kDouble;
-//     v.size = 40;
-//     v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
-//     v.count = &fNumSamples[m];
-//     vars2.push_back(v);
-//     // v.name = name_p;
-//     // v.desc = "Pedestal subtracted ADC samples";
-//     // v.loc = &(fA_raw_p[m].data()[0]);
-//     // vars2.push_back(v);
-//     // v.name = name_c;
-//     // v.desc = "Pedestal subtracted calibrated ADC samples";
-//     // v.loc = &(fA_raw_cl[m].data()[0]);
-//     // vars2.push_back(v);
-//   }
+  for(Int_t m = 0; m < fNelem; m++) {
+    VarDef v;
+    char *name   =  new char[128];
+    // char *name_p = new char[128];
+    // char *name_c = new char[128];
+    sprintf(name,"a_raw%.2d",m);
+    // sprintf(name_p,"a_p_%.2d",m);
+    // sprintf(name_c,"a_c_%.2d",m);
+    char *desc = new char[256];
+    sprintf(desc,"Raw ADC samples for Module %d",m);
+    v.name = name;
+    v.desc = "Raw ADC samples";
+    v.type = kDouble;
+    v.size = 40;
+    v.loc  = &(fA_raw[m].data()[0]); //JW: location of data
+    v.count = &fNumSamples[m];
+    vars2.push_back(v);
+    // v.name = name_p;
+    // v.desc = "Pedestal subtracted ADC samples";
+    // v.loc = &(fA_raw_p[m].data()[0]);
+    // vars2.push_back(v);
+    // v.name = name_c;
+    // v.desc = "Pedestal subtracted calibrated ADC samples";
+    // v.loc = &(fA_raw_cl[m].data()[0]);
+    // vars2.push_back(v);
+  }
 
 
-//   vars2.push_back(VarDef());
-//   return DefineVarsFromList( vars2.data(), mode );
+  vars2.push_back(VarDef());
+  return DefineVarsFromList( vars2.data(), mode );
 
 
 
@@ -524,9 +524,9 @@ void SciFi::ClearEvent()
   ResetVector(fX_hits,0);
   ResetVector(fY_hits,0);
 
-  // ResetVector(fA_raw, 0.0);
-  // ResetVector(fA_raw_p,0.0);
-  // ResetVector(fA_raw_c,0.0);
+  ResetVector(fA_raw, 0.0);
+  ResetVector(fA_raw_p,0.0);
+  ResetVector(fA_raw_c,0.0);
 
   fX_hits.clear();
   fY_hits.clear();
