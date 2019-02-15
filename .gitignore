@@ -87,3 +87,11 @@ scaler/hana_scaler/tscalroc11
 scaler/hana_scaler/xscaler
 replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*
+
+
+
+replay/scripts/#*
+replay/scripts/analysis/#*
+replay/scripts/.#*
+replay/scripts/beam_rate/#*
+replay/scripts/beam_rate/.#*
