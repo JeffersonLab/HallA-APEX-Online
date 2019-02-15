@@ -105,8 +105,8 @@ FORMULA Rbpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.r
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
-TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 700 1000 4500 L.s0.lt>0.
-TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 700 1000 4500 L.s0.rt>0.
+TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 700 2000 3500 L.s0.lt>0.
+TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 700 2000 3500 L.s0.rt>0.
 TH1F Ls0ltTAll 'S0-Bottom(B) TDC w/T2,T3' L.s0.lt 500 1300 2300 L.s0.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls0ltT3   'S0-Bottom(B) TDC w/ T3 only' L.s0.lt 500 1300 2300 L.s0.lt>0.&&(DL.evtypebits==8)
 TH1F Ls0rtTAll 'S0-Top(A) TDC w/ T2,T3' L.s0.rt 500 1300 2300 L.s0.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
@@ -135,8 +135,8 @@ TH1F Ls2rtT3_ 'S2 TDC w/ T3 only: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&(DL.e
 
 TH1F Ls2la 'S2 FADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
 TH1F Ls2ra 'S2 FADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
-TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 2000 L.s2.la_p>-6000.
-TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
+TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1000 L.s2.la_p>-6000.
+TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1000 L.s2.ra_p>-6000.
 
 TH1F Ls2x 'L-arm S2-X Distribution' L.s2.trx 200 -1.5 1.5
 
@@ -147,14 +147,14 @@ TH2F Ls2xy 'L-arm S2 y vs. x' L.s2.trx L.s2.try 200 -1.5 1.5 54 -0.4 0.4
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
-TH1F Lcert   'Cerenkov FastBus TDC(with 0.5ns channel) PMT' L.cer.t 700 1000 3500 L.cer.t>0
+TH1F Lcert   'Cerenkov FastBus TDC(with 0.5ns channel) PMT' L.cer.t 700 2000 3500 L.cer.t>0
 TH1F LcertTAll_    'Cerenkov TDC w/ T2,T3: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&(DL.evtypebits==8)
 
-TH1F Lcera   'Cerenkov'  L.cer.a 1000 0 15000 L.cer.a>0
-TH1F Lcersum 'Sum of Cerenkov FADC (corrected)' L.cer.asum_c 1000 -200 10000  L.cer.asum_c>-1000
+TH1F Lcera   'Cerenkov'  L.cer.a 6000 0 20000 L.cer.a>0
+TH1F Lcersum 'Sum of Cerenkov FADC (corrected)' L.cer.asum_c 1000 -200 15000  L.cer.asum_c>-1000
 TH1F Lcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' L.cer.a_p 1000 -200 10000 L.cer.a_p>-200.&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 1000 -200 10000 L.cer.a_p>-200
+TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 1000 -200 5000 L.cer.a_p>-200
 TH2F Lcer_x  'Sum of Cerenkov FADC(corrected) vs. X' L.cer.trx L.cer.asum_c  60 -1.2 1.2 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
 TH2F Lcer_y  'Sum of Cerenkov FADC(corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
 
@@ -168,11 +168,11 @@ TH2F Lcerxy 'L-arm Cerenkov y vs. x' L.cer.trx L.cer.try 200 -1.5 1.5 54 -0.4 0.
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
 #
 #TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 1000 10 6000 L.prl1.a>0.
-TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.0 20000 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -1000 10000 L.prl1.a_p>=-50.
+TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 5000 15000 L.prl1.a>0.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -200 6000 L.prl1.a_p>=-50.
 TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 1000 1 5000 
-TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0 20000 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -1000 10000 L.prl2.a_p>=-50.
+TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 5000 16000 L.prl2.a>0.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -200 5000 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 5000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
@@ -263,7 +263,7 @@ TH2F L_tga  'L-arm tgt theta vs. phi' L.tr.tg_ph L.tr.tg_th 200 -0.1 0.1 200 -0.
 TH2F L_tgb  'L-arm tgt delta vs. phi' L.tr.tg_ph L.tr.tg_dp 200 -0.1 0.1 1000 -0.1 0.1
 TH2F L_tgc  'L-arm tgt phi vs. y' L.tr.tg_y L.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 
-#Left Arm Clock Counter and digital BCM
+#Left Arm Clock Counter and digital BC	M
 TH1F LClockInterval 'LHRS Clock Interval' LV1495.ClockInterval 1000 0 70000
 
 #-------------------------------------------------------------------------------
@@ -469,10 +469,10 @@ TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 400 1800 3200
 TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 400 1800 3200
 TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 400 1800 3200
 
-TH2F Rvu1tn 'R-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 400 1800 3200
-TH2F Rvu2tn 'R-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 400 1800 3200
-TH2F Rvv1tn 'R-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 400 1800 3200
-TH2F Rvv2tn 'R-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 400 1800 3200
+TH2F Rvu1tn 'R-arm VDC u1 rawtime : wire number' R.vdc.u1.wire R.vdc.u1.rawtime 400 0 400 400 1800 3200
+TH2F Rvu2tn 'R-arm VDC u2 rawtime : wire number' R.vdc.u2.wire R.vdc.u2.rawtime 400 0 400 400 1800 3200
+TH2F Rvv1tn 'R-arm VDC v1 rawtime : wire number' R.vdc.v1.wire R.vdc.v1.rawtime 400 0 400 400 1800 3200
+TH2F Rvv2tn 'R-arm VDC v2 rawtime : wire number' R.vdc.v2.wire R.vdc.v2.rawtime 400 0 400 400 1800 3200
 
 
 TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
