@@ -1,0 +1,21 @@
+List of items to add or alter in the replay:
+
+
+     Urgent:
+
+
+
+
+
+
+
+
+     Less Urgent:
+
+     - adjust autoreplay_L.sh and autoreplay_R.sh to work for apex (still based on tritium)   -> should be fairly straightforward as autoreplay_coinc.sh has already been updated
+
+
+
+
+
+     Would be nice:
