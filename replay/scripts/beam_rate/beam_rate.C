@@ -11,7 +11,7 @@ void beam_rate(Int_t run_1=0, Int_t run_2=1){
   TString filename;
   Long_t split = 0;
 
-  for(Int_t i = 0; i < (run_2-run_1); i++){
+  for(Int_t i = 0; i <= (run_2-run_1); i++){
 
 
 
