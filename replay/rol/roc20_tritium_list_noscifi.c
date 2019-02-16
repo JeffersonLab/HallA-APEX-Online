@@ -29,10 +29,8 @@
 /*Used in faSetProcMode() */
 #define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  18 // was 55
-
 #define FADC_LATENCY       124//144
 #define FADC_LATENCY_S2m   118//138
-
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           16 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -362,20 +360,16 @@ rocDownload()
           if(WANT_THRESHOLD)
             {
             printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
-            
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH , FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT); //raster and BPM, no thresholds ever
             if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
-            
             }
           else
             {
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
-
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
-
             else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
@@ -466,12 +460,10 @@ rocGo()
   /*  Enable FADC */
 
 
-
-
   taskDelay(1); // taskDelay(int ticks) : # of ticks to delay task. 1 ticks = 16.7 ms
 
   /*  Send Sync Reset to FADC */
-
+ 
 
   taskDelay(1); // taskDelay(int ticks) : # of ticks to delay task. 1 ticks = 16.7 ms
 
@@ -484,7 +476,6 @@ printf("\n\n\n--> faStatus:\n");
   for(ifa=0; ifa < nfadc; ifa++)
     {
       printf("\n  ** BOARD %d **\n",ifa);
-
       //faStatus(faSlot(ifa),0);
             faEnableSyncSrc(faSlot(ifa));
     }
@@ -493,7 +484,6 @@ printf("\n\n\n--> faStatus:\n");
     faGEnable(0, 0);
 
 faGStatus(0);
-
   //*********
   //* VFTDC *
   //*********
@@ -698,10 +688,8 @@ rocTrigger(int arg)
 	{
 	  printf("data left in FADC FIFO at sync event\n");
 	  		//FADC sync event bank
-
 	  *dma_dabufp++ = LSWAP(0xfadc250);
           nwords = faReadBlock(0, dma_dabufp, 5000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
-
 	  //	  nwords = faReadBlock(faSlot(0), dma_dabufp, 25000, 2);
 	  // nwords = 0;
 	  // nwords = 0;
