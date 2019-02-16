@@ -29,6 +29,7 @@
 /*Used in faSetProcMode() */
 #define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  18 // was 55
+
 #define FADC_LATENCY       124//144//118
 #define FADC_LATENCY_S2m   118//138//118
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
@@ -43,7 +44,6 @@
 #define FADC_NSB_SCIFI     2
 #define FADC_NSA_SCIFI     40
 
-
 #define chan_mask  0x0000 // chan mask for threshold setting 
 #define WANT_THRESHOLD 0  //whether or not want threshold settings
 
@@ -52,6 +52,7 @@ int FA_SLOT;
 extern int fadcA32Base;
 extern int nfadc;
 //extern int fadcID[20];
+
 #define NFADC 8
 
 #define FADC_ADDR 0xB01000
@@ -368,16 +369,20 @@ rocDownload()
           if(WANT_THRESHOLD)
             {
             printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
+
             if(islot==0 ||islot==1) faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_LATENCY_S2m, FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT); //raster and BPM, no thresholds ever
             if(islot==1||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
+            
             }
           else
             {
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
+
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
+
             else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
@@ -442,9 +447,11 @@ rocPrestart()
   //tirIntOutput(1<<0 | 1<<1);
   tirIntOutput(0);
 
+
   /* wait for resolution to lock */
   //usleep(50000);
   //f1Status(F1_SLOT,0);
+
 
 
 
@@ -487,6 +494,7 @@ printf("\n\n\n--> faStatus:\n");
       faEnableSyncSrc(faSlot(ifa));
       
     }
+
   faSDC_Sync();
   faGStatus(0);
   faGEnable(0, 0);

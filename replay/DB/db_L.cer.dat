@@ -1,7 +1,16 @@
+--------[ 2019-02-12 08:00:00 -0500 ]
+
+L.cer.NPED = 4
+L.cer.NSA = 40
+L.cer.NSB = 1
+L.cer.Win = 23
+L.cer.TFlag = 0
+
+L.cer.adc.pedestals =   4791  4933 5062 5631 5311 5284 5376 5074 5287 4892
 
 --------[ 2018-08-22 00:00:00 -0500 ]
 
-L.cer.NPED = 15
+L.cer.NPED = 4
 L.cer.NSA = 15
 L.cer.NSB = 2
 L.cer.Win = 40

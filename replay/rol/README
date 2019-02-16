@@ -7,6 +7,18 @@ FOR LHRS:
     cd fadc_mike/BlkRead/
     make fadc_vxs_apex.so
 
+    For SciFi config:
+
+        edit fadc_vxs_apex_scifi.c
+
+    	make on halladaq8:
+
+	    ssh adaq@halladaq8
+	    cd fadc_mike/BlkRead/
+	    make fadc_vxs_apex_scifi.so
+    	
+
+
 
 
 For RHRS:
@@ -18,4 +30,17 @@ For RHRS:
     cd tritium_fadc/BlkRead/	
     make roc20_tritium_list.so
     
+
+
+    For SciFi config:
+
+        edit roc20_tritium_list_scifi.c
+
+    	make on intelha3:
+
+    	ssh adaq@intelha3    
+	cd tritium_fadc/BlkRead/	
+	make roc20_tritium_list_scifi.so
     
+	
+

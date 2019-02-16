@@ -1,10 +1,19 @@
+
+--------[ 2019-02-13 20:27:00 -0500 ]
+
+L.s0.NPED = 4
+L.s0.NSA = 40
+L.s0.NSB = 1
+L.s0.Win = 23
+L.s0.TFlag = 0
+
 --------[ 2019-01-18 00:00:00 -0500 ]
 L.s0.L.ped = 0
 L.s0.R.ped = 0
-L.s0.NPED = 15
-L.s0.NSA = 15
-L.s0.NSB = 2
-L.s0.Win = 40
+L.s0.NPED = 4
+L.s0.NSA = 40
+L.s0.NSB = 1
+L.s0.Win = 20
 L.s0.TFlag = 0
 
 
