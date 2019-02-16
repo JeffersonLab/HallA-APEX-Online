@@ -29,21 +29,13 @@
 /*Used in faSetProcMode() */
 #define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
 #define FADC_WINDOW_WIDTH  18 // was 55
-#define FADC_LATENCY       124//144//118
-#define FADC_LATENCY_S2m   118//138//118
+#define FADC_LATENCY       124//144
+#define FADC_LATENCY_S2m   118//138
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           18 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_NSA           16 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
-
-#define FADC_MODE_SCIFI    10
-#define FADC_LATENCY_SCIFI 124
-#define FADC_WD_SCIFI      124 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
-#define FADC_NSB_SCIFI     2
-#define FADC_NSA_SCIFI     40
-
-
 #define chan_mask  0x0000 // chan mask for threshold setting 
 #define WANT_THRESHOLD 0  //whether or not want threshold settings
 
@@ -52,7 +44,7 @@ int FA_SLOT;
 extern int fadcA32Base;
 extern int nfadc;
 //extern int fadcID[20];
-#define NFADC 8
+#define NFADC 4
 
 #define FADC_ADDR 0xB01000
 #define SDC_ADDR 0xea00
@@ -368,16 +360,16 @@ rocDownload()
           if(WANT_THRESHOLD)
             {
             printf("FADC THRESHOLDS ON! (ProcMode Block)\n");
-            if(islot==0 ||islot==1) faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_LATENCY_S2m, FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT);
-            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
+            if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH , FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT);
+            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
             if(islot==3)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,FADC_NSAT); //raster and BPM, no thresholds ever
-            if(islot==1||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
+            if(islot==4||islot==5||islot==6)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_LATENCY, FADC_NSB, FADC_AERO_NSA, 1, 5,357,FADC_NSAT);
             }
           else
             {
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
-            if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
-            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
+            if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
+            if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
             else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
@@ -466,7 +458,8 @@ rocGo()
   int ifa, if1;
 
   /*  Enable FADC */
- 
+
+
   taskDelay(1); // taskDelay(int ticks) : # of ticks to delay task. 1 ticks = 16.7 ms
 
   /*  Send Sync Reset to FADC */
@@ -482,15 +475,15 @@ rocGo()
 printf("\n\n\n--> faStatus:\n");
   for(ifa=0; ifa < nfadc; ifa++)
     {
-      // printf("\n  ** BOARD %d **\n",ifa);
-      //      faStatus(faSlot(ifa),0);
-      faEnableSyncSrc(faSlot(ifa));
-      
+      printf("\n  ** BOARD %d **\n",ifa);
+      //faStatus(faSlot(ifa),0);
+            faEnableSyncSrc(faSlot(ifa));
     }
-  faSDC_Sync();
-  faGStatus(0);
-  faGEnable(0, 0);
- 
+
+ faSDC_Sync();
+    faGEnable(0, 0);
+
+faGStatus(0);
   //*********
   //* VFTDC *
   //*********
