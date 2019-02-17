@@ -39,7 +39,7 @@
 #define chan_mask  0x0000 // chan mask for threshold setting 
 #define WANT_THRESHOLD 0  //whether or not want threshold settings
 
-#define WANT_THRESHOLD_SCIFI 1
+#define WANT_THRESHOLD_SCIFI 0
 
 
 #define FADC_MODE_SCIFI    10
@@ -276,7 +276,7 @@ rocDownload()
 	       faSetDAC(faSlot(islot), 3031, 0x4000);
 	       faSetDAC(faSlot(islot), 3009, 0x8000);
 	  }
-
+	
         if(islot==4) //A2
 	  {
             faSetDAC(faSlot(islot), 2982, 0x0001); // jumper set to 0.5 V
@@ -297,46 +297,92 @@ rocDownload()
 	    faSetDAC(faSlot(islot), 2979, 0x8000);
 	  }
 
-        if(islot==5) //A1/A2
-          {
-            faSetDAC(faSlot(islot),3312,0x0001);
-	    faSetDAC(faSlot(islot),3298,0x0002);
-	    faSetDAC(faSlot(islot),3303,0x0004);
-	    faSetDAC(faSlot(islot),3335,0x0008);
-	    faSetDAC(faSlot(islot),3315,0x0010);
-	    faSetDAC(faSlot(islot),3321,0x0020);
-	    faSetDAC(faSlot(islot),3321,0x0040);
-	    faSetDAC(faSlot(islot),3315,0x0080);
+	if(islot==4) // SciFi(A)
+	  {
+            faSetDAC(faSlot(islot), 3307, 0x0001);  // 0 // jumper set to 0.5 V
+	    faSetDAC(faSlot(islot), 3289, 0x0002);  // 1
+	    faSetDAC(faSlot(islot), 3302, 0x0004);  // 2
+	    faSetDAC(faSlot(islot), 3260, 0x0008);  // 3
+	    faSetDAC(faSlot(islot), 3267, 0x0010);  // 4
+	    faSetDAC(faSlot(islot), 3320, 0x0020);  // 5
+	    faSetDAC(faSlot(islot), 3300, 0x0040);  // 6
+	    faSetDAC(faSlot(islot), 3333, 0x0080);  // 7 
 
-            faSetDAC(faSlot(islot),2985,0x0100);
-	    faSetDAC(faSlot(islot),2965,0x0200);
-	    faSetDAC(faSlot(islot),2979,0x0400);
-	    faSetDAC(faSlot(islot),2969,0x0800);
-	    faSetDAC(faSlot(islot),2970,0x1000);
-	    faSetDAC(faSlot(islot),2994,0x2000);
-	    faSetDAC(faSlot(islot),2972,0x4000);
-	    faSetDAC(faSlot(islot),2966,0x8000);
+	    faSetDAC(faSlot(islot), 3283, 0x0100);  // 8
+	    faSetDAC(faSlot(islot), 3330, 0x0200);  // 9 
+	    faSetDAC(faSlot(islot), 3283, 0x0400);  // 10 
+	    faSetDAC(faSlot(islot), 3267, 0x0800);  // 11
+	    faSetDAC(faSlot(islot), 3259, 0x1000);  // 12
+	    faSetDAC(faSlot(islot), 3267, 0x2000);  // 13
+	    faSetDAC(faSlot(islot), 3281, 0x4000);  // 14
+	    faSetDAC(faSlot(islot), 3284, 0x8000);  // 15
+	  }
+		
+	if(islot==5) // SciFi(B)
+	  {
+            faSetDAC(faSlot(islot),3301,0x0001);  // 0
+	    faSetDAC(faSlot(islot),3275,0x0002);  // 1
+	    faSetDAC(faSlot(islot),3315,0x0004);  // 2
+	    faSetDAC(faSlot(islot),3310,0x0008);  // 3 
+	    faSetDAC(faSlot(islot),3319,0x0010);  // 4
+	    faSetDAC(faSlot(islot),3310,0x0020);  // 5
+	    faSetDAC(faSlot(islot),3325,0x0040);  // 6
+	    faSetDAC(faSlot(islot),3279,0x0080);  // 7
+
+            faSetDAC(faSlot(islot),3310,0x0100);  // 8 
+	    faSetDAC(faSlot(islot),3279,0x0200);  // 9 
+	    faSetDAC(faSlot(islot),3324,0x0400);  // 10
+	    faSetDAC(faSlot(islot),3295,0x0800);  // 11
+	    faSetDAC(faSlot(islot),3292,0x1000);  // 12
+	    faSetDAC(faSlot(islot),3316,0x2000);  // 13
+	    faSetDAC(faSlot(islot),3294,0x4000);  // 14
+	    faSetDAC(faSlot(islot),3299,0x8000);  // 15
           }
-        if(islot==6) //A1
+
+	if(islot==6) //  SciFi(C)
 	  {
                // DAC values set such that pedestal samples are at 300ch
-            faSetDAC(faSlot(islot), 3205, 0x0001); // jumper set to 0.5 V
-	    faSetDAC(faSlot(islot), 3187, 0x0002);
-	    faSetDAC(faSlot(islot), 3209, 0x0004);
-	    faSetDAC(faSlot(islot), 3219, 0x0008);
-	    faSetDAC(faSlot(islot), 3180, 0x0010);
-	    faSetDAC(faSlot(islot), 3217, 0x0020);
-	    faSetDAC(faSlot(islot), 3201, 0x0040);
-	    faSetDAC(faSlot(islot), 3220, 0x0080);
-	    faSetDAC(faSlot(islot), 3198, 0x0100);
-	    faSetDAC(faSlot(islot), 3227, 0x0200);
-	    faSetDAC(faSlot(islot), 3224, 0x0400);
-	    faSetDAC(faSlot(islot), 3207, 0x0800);
-	    faSetDAC(faSlot(islot), 3338, 0x1000);
-	    faSetDAC(faSlot(islot), 3312, 0x2000);
-	    faSetDAC(faSlot(islot), 3303, 0x4000);
-	    faSetDAC(faSlot(islot), 3331, 0x8000);
+            faSetDAC(faSlot(islot), 3285, 0x0001);  // 0  // jumper set to 0.5 V
+	    faSetDAC(faSlot(islot), 3259, 0x0002);  // 1
+	    faSetDAC(faSlot(islot), 3302, 0x0004);  // 2
+	    faSetDAC(faSlot(islot), 3291, 0x0008);  // 3
+	    faSetDAC(faSlot(islot), 3284, 0x0010);  // 4
+	    faSetDAC(faSlot(islot), 3292, 0x0020);  // 5
+	    faSetDAC(faSlot(islot), 3305, 0x0040);  // 6
+	    faSetDAC(faSlot(islot), 3308, 0x0080);  // 7
+
+	    faSetDAC(faSlot(islot), 3284, 0x0100);  // 8
+	    faSetDAC(faSlot(islot), 3302, 0x0200);  // 9
+	    faSetDAC(faSlot(islot), 3306, 0x0400);  // 10
+	    faSetDAC(faSlot(islot), 3300, 0x0800);  // 11
+	    faSetDAC(faSlot(islot), 3272, 0x1000);  // 12
+	    faSetDAC(faSlot(islot), 3283, 0x2000);  // 13 
+	    faSetDAC(faSlot(islot), 3271, 0x4000);  // 14
+	    faSetDAC(faSlot(islot), 3281, 0x8000);  // 15
 	  }
+
+	if(islot==7) // SciFi (D)
+	  {
+	    
+	    faSetDAC(faSlot(islot),3295,0x0001);        // 0
+            faSetDAC(faSlot(islot),3328,0x0002);        // 1
+            faSetDAC(faSlot(islot),3269,0x0004);        // 2
+            faSetDAC(faSlot(islot),3267,0x0008);        // 3
+            faSetDAC(faSlot(islot),3280,0x0010); // higher base level // 4
+            faSetDAC(faSlot(islot),3337,0x0020);        // 5   //3280
+            faSetDAC(faSlot(islot),3280,0x0040);        // 6
+            faSetDAC(faSlot(islot),3284,0x0080);        // 7
+
+            faSetDAC(faSlot(islot),3292,0x0100);        // 8
+            faSetDAC(faSlot(islot),3309,0x0200);        // 9
+            faSetDAC(faSlot(islot),3266,0x0400);        // 10
+            faSetDAC(faSlot(islot),3266,0x0800);        // 11 
+            faSetDAC(faSlot(islot),3329,0x1000);        // 12
+            faSetDAC(faSlot(islot),3266,0x2000);        // 13 
+            faSetDAC(faSlot(islot),3287,0x4000);        // 14
+            faSetDAC(faSlot(islot),3304,0x8000);        // 15
+          }
+	       
 
 
 
@@ -388,7 +434,7 @@ rocDownload()
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
-	    if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY_SCIFI, FADC_WD_SCIFI, FADC_NSB_SCIFI, FADC_NSA_SCIFI, 15, 15,357,1);   // SciFi
+	    if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY_SCIFI, FADC_WD_SCIFI, FADC_NSB_SCIFI, FADC_NSA_SCIFI, 1, 15,357,1);   // SciFi
 	    else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
