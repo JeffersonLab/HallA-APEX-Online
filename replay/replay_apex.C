@@ -11,7 +11,7 @@ using namespace std;
 // #define RIGHT_ARM_CONDITION runnumber>=20000
 // #define LEFT_ARM_CONDITION  runnumber<20000   //replace purely with given parameter
 
-void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t left = kTRUE, Bool_t right = kTRUE, Bool_t autoreplay = kFALSE, Bool_t skim = kFALSE){
+void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t QuietRun = kFALSE, Bool_t OnlineReplay =kFALSE, Bool_t bPlots = kFALSE, Bool_t left = kTRUE, Bool_t right = kTRUE, Bool_t autoreplay = kFALSE, Bool_t skim = kFALSE, Bool_t coinc_cut = kFALSE){
 
   char buf[300];
   Int_t nrun=0;
@@ -59,6 +59,12 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
   if(right && left){
     ODEF = "coinc.odef";
     CUTS = "coinc.cuts";
+
+    if(coinc_cut){
+      CUTS = "coinc_online.cuts";
+	}
+
+    
     if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"coinc_auto.odef");
 
 	if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"coinc_auto.odef");
