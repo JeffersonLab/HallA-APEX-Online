@@ -1,0 +1,21 @@
+Last edited by Scott Barcus (skbarcus@jlab.org) 10/30/17. 
+
+How to build xscaler executable:
+    -This must be done if any changes are made to the files creating the scaler GUI.
+    -This also needs to be done if the version of ROOT being used is changed.
+
+Step 1 Building libdc_local.a: 
+     -Note: This step is only needed to build libdc.a and place it in the hana_scaler directory as libdc_local.a. If libdc_local.a already exists in the hana_scaler directory this step may be skipped (although it may be needed if the ROOT version changed).
+     -cd to the hana_decode directory.
+     -type "make clean" to remove the old files. 
+     -type "make". This will build libdc.a
+     -cp libdc.a to the hana_scaler directory and rename it libdc_local.a
+
+Step 2 Building xscaler executable:
+     -cd to the hana_scaler directory.
+     -type "make clean" to remove the old files. 
+     -type "make". This will build the xscaler executable.
+     -cp the xscaler executable to the /adaqfs/home/a-onl/tritium/scaler directory.
+
+Step 3 Running the Scaler GUI:
+     -In the /adaqfs/home/a-onl/tritium/scaler directory type "./xscaler LEFT" to open up the scaler GUI for the LHRS or use "./xscaler RIGHT" for the RHRS. 
