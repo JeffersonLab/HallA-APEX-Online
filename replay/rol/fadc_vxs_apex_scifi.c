@@ -11,7 +11,7 @@
 
 
 
-#define MAX_EVENT_POOL     128
+#define MAX_EVENT_POOL     128//128
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
 #define MAX_EVENT_LENGTH   1024*32      /* Size in Bytes */
 
@@ -54,8 +54,8 @@ int FADC_NPULSES =           4;
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
 #define FADC_MODE_SciFi       10
-#define FADC_LA_SciFi         201 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi        100 // was /// RELEVANT
+#define FADC_LA_SciFi         180 // was 73 //was 78 // was 62 
+#define FADC_WD_SciFi        50 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
 #define FADC_NSA_SciFi        40 
 
@@ -71,7 +71,7 @@ extern int nfadc;
 //wether or not to use threshold
 #define WANT_THRESHOLD 0
 
-#define WANT_THRESHOLD_SCIFI 1
+#define WANT_THRESHOLD_SCIFI 0
 
 
 
@@ -544,7 +544,8 @@ rocGo()
     MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 16);
   else /* FADC_MODE == 10 */
     MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
- 
+  //  MAXFADCWORDS = 70000;
+  MAXFADCWORDS = 3500;
 
   faGEnable(0, 0);
   /* Interrupts/Polling enabled after conclusion of rocGo() */

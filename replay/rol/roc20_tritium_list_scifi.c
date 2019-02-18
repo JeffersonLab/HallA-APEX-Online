@@ -8,8 +8,8 @@
 
 
 /* Event Buffer definitions */
-#define MAX_EVENT_POOL     100
-#define MAX_EVENT_LENGTH   1024*40	/* Size in Bytes */
+#define MAX_EVENT_POOL     10
+#define MAX_EVENT_LENGTH   1024*400	/* Size in Bytes */
 
 /* Define Interrupt source and address */
 #define TIR_SOURCE
@@ -39,7 +39,7 @@
 #define chan_mask  0x0000 // chan mask for threshold setting 
 #define WANT_THRESHOLD 0  //whether or not want threshold settings
 
-#define WANT_THRESHOLD_SCIFI 0
+#define WANT_THRESHOLD_SCIFI 1
 
 
 #define FADC_MODE_SCIFI    10
