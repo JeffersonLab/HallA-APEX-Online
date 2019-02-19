@@ -117,6 +117,7 @@ protected:
   Int_t* floverflow;         //[fNelem] FADC overflowbit
   Int_t* flunderflow;        //[fNelem] FADC underflowbit
   Int_t* flpedq;             //[fNelem] FADC pedestal quality bit
+  Int_t* flpedFADC;             //[fNelem] FADC pedestal quality bit
 
   Double_t*   fRPeak;        // [fNelem] Array of right paddles FADC ADC peak value
   Double_t*   fRT_FADC;      // [fNelem] Array of right paddles FADC TDC times (channels)
@@ -124,6 +125,7 @@ protected:
   Int_t* froverflow;         //[fNelem] FADC overflowbit
   Int_t* frunderflow;        //[fNelem] FADC underflowbit
   Int_t* frpedq;             //[fNelem] FADC pedestal quality bit
+  Int_t* frpedFADC;             //[fNelem] FADC pedestal quality bit
 
   Int_t* fLNhits;           //[fNelem] number of hits for each Left PMT
   Int_t* fRNhits;           //[fNelem] number of hits for each Right PMT

@@ -36,8 +36,8 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
     fLTNhit(0), fLT(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_c(0),
     fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
     fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0), 
-    fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),
-    fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0),frunderflow(0),frpedq(0),fLNhits(0),fRNhits(0)
+    fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),flpedFADC(0),
+  fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0),frunderflow(0),frpedq(0),frpedFADC(0),fLNhits(0),fRNhits(0)
 {
   // Constructor
   fFADC = NULL;
@@ -181,6 +181,7 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     floverflow  = new Int_t[ nval ];
     flunderflow = new Int_t[ nval ];
     flpedq      = new Int_t[ nval ];
+    flpedFADC      = new Int_t[ nval ];
 
     fRPeak      = new Double_t[ nval ];
     fRT_FADC    = new Double_t[ nval ];
@@ -188,6 +189,8 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     froverflow  = new Int_t[ nval ];
     frunderflow = new Int_t[ nval ];
     frpedq      = new Int_t[ nval ];
+    frpedFADC      = new Int_t[ nval ];
+   
 
     fLNhits  = new Int_t[ nval ];
     fRNhits  = new Int_t[ nval ]; 
@@ -320,8 +323,10 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "loverflow",  "overflow bit of FADC pulse",    "floverflow" },
     { "lunderflow",  "underflow bit of FADC pulse",  "flunderflow" },
     { "lbadped",  "pedestal quality bit of FADC pulse",   "flpedq" },
+    { "lpedFADC",  "Left FADC pedestal",   "flpedFADC" },
     { "roverflow",  "overflow bit of FADC pulse",    "froverflow" },
     { "runderflow",  "underflow bit of FADC pulse",  "frunderflow" },
+    { "rpedFADC",  "Right FADC pedestal",   "frpedFADC" },
     { "rbadped",  "pedestal quality bit of FADC pulse",   "frpedq" },
     { "lnhits",  "Number of hits for left PMT",   "fLNhits" },
     { "rnhits",  "Number of hits for right PMT",  "fRNhits" },
@@ -382,9 +387,11 @@ void TriFadcScin::DeleteArrays()
   delete [] floverflow;  floverflow  = NULL;
   delete [] flunderflow; flunderflow = NULL;
   delete [] flpedq;      flpedq      = NULL;
+  delete [] flpedFADC;      flpedFADC      = NULL;
   delete [] froverflow;  froverflow  = NULL;
   delete [] frunderflow; frunderflow = NULL;
   delete [] frpedq;      frpedq      = NULL;
+  delete [] frpedFADC;      frpedFADC      = NULL;
   delete [] fLNhits;     fLNhits     = NULL;
   delete [] fRNhits;     fRNhits     = NULL;
 }
@@ -409,9 +416,11 @@ void TriFadcScin::Clear( Option_t* opt )
     memset( floverflow, 0, fNelem*sizeof(floverflow[0]) );
     memset( flunderflow, 0, fNelem*sizeof(flunderflow[0]) );
     memset( flpedq, 0, fNelem*sizeof(flpedq[0]) );
+    memset( flpedFADC, 0, fNelem*sizeof(flpedq[0]) );
     memset( froverflow, 0, fNelem*sizeof(froverflow[0]) );
     memset( frunderflow, 0, fNelem*sizeof(frunderflow[0]) );
     memset( frpedq, 0, fNelem*sizeof(frpedq[0]) );
+    memset( frpedFADC, 0, fNelem*sizeof(frpedq[0]) );
     memset( fLNhits, 0, fNelem*sizeof(fLNhits[0]) );
     memset( fRNhits, 0, fNelem*sizeof(fRNhits[0]) );
   }
@@ -489,6 +498,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
                   floverflow[k] = fFADC->GetOverflowBit(chan,0);
                   flunderflow[k] = fFADC->GetUnderflowBit(chan,0);
                   flpedq[k] = fFADC->GetPedestalQuality(chan,0);
+		  flpedFADC[k] = fFADC->GetPulsePedestalData(chan,0);
                   fLPeak[k]=static_cast<Double_t>(fpeak);
                   fLT_FADC[k]=static_cast<Double_t>(ftime);
 		  fLT_FADC_c[k]=fLT_FADC[k]*0.0625;
@@ -497,6 +507,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
                   froverflow[k]=fFADC->GetOverflowBit(chan,0);
                   frunderflow[k]=fFADC->GetUnderflowBit(chan,0);
                   frpedq[k]=fFADC->GetPedestalQuality(chan,0);
+		  frpedFADC[k]=fFADC->GetPulsePedestalData(chan,0);
                   fRPeak[k]=static_cast<Double_t>(fpeak);
                   fRT_FADC[k]=static_cast<Double_t>(ftime);
 		  fRT_FADC_c[k]=fRT_FADC[k]*0.0625;
