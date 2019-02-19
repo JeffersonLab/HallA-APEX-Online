@@ -160,20 +160,24 @@ sleep 1
      --caption "Online plots" \
      --caption "Detector plots" \
      --caption "Physics plots" 
+ 
     
  elif [[ -n "${ONLINE_ONLY}"  ]] && [[ -n "${YES_LOG}" ]] ; then
      #
      /site/ace/certified/apps/bin/logentry \
 	 --logbook "HALOG" \
-	 --title "Run ${RUNNUM} Online plots for Left and Right arms" \
+	 --title "Run ${RUNNUM} Online plots for Left and Right arms(Test)" \
 	 --tag Analysis \
 	 --tag Autolog \
 	 --attach ${dir}/summaryfiles/left_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/right_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/coinc_latest.pdf \
+	 --attach ${dir}/sourceofanalysis.txt \
 	 --caption "Left online Plots" \
 	 --caption "Right online Plots" \
-	 --caption "Coincidence Plots"
+	 --caption "Coincidence Plots" \
+	 --caption "Source of Analysis"
+ 
      
  elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
      #  
