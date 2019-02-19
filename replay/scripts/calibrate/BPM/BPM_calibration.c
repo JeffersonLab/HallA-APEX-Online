@@ -153,7 +153,7 @@ void BPM_calibration (string arm ="R", string harp_date = "", int debug =0, int 
 
 	ifstream fi;
 	char Hresults[256];
-	sprintf(Hresults,"harp_results_%s_%s.txt",arm.c_str(),harp_date.c_str());
+	sprintf(Hresults,"./harp_results_%s_%s.txt",arm.c_str(),harp_date.c_str());
 	//if(arm=='R') {sprintf(Hresults,"harp_results_R_%s.txt",date);}
 
 
@@ -168,10 +168,11 @@ void BPM_calibration (string arm ="R", string harp_date = "", int debug =0, int 
 	// Start of input loop for harp_results and BMP Run.
    		fi>>run_number>>epics_number>>dum3>>dum4>>dum5>>dum6>>dum7>>dum8>>dum9>>dum10;
 		if(!fi.good()){break;}
+		if(run_number<=0){continue;}
 		filein = TFile::Open(Form("%s/%s_%d.root",root_dir.c_str(),exp,run_number));
 		T =(TTree*) filein->Get("T");
 		if(T==nullptr ) { cout << "Bad root file " <<endl; continue;}
-
+		if(T->GetEntries()<100){continue;}
 		
 		if(debug)cout<<"Will look at run "<< run_number<<endl;
 
@@ -217,7 +218,7 @@ void BPM_calibration (string arm ="R", string harp_date = "", int debug =0, int 
 	c1[numofscans]->cd(1);
 
 	//Event[numofscans]="right_clkcount>=%f&&right_clkcount<=%f",BCMcuts[numofscans][0],BCMcuts[numofscans][1];
-	TCut current = Form("hac_bcm_average>=%f",cur[numofscans]);
+	TCut current = "1";// Form("hac_bcm_average>=%f",cur[numofscans]);
 
 		///// Calculate the BPM postion from the 4 differrent wire signals, xp,xm,yp,ym!
 		for(int m=1;m<9;m++){c1[numofscans]->cd(m);
