@@ -379,21 +379,21 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
   //==================================
   //  Right Arm Only
   //==================================
+  //if(right && !left){
+  //cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
+  //ODEF=Form(REPLAY_DIR_PREFIX,"coinc.odef");
+  //if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"coinc_auto.odef");
+  //if(skim)
+  //    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
+  //CUTS=Form(REPLAY_DIR_PREFIX,"coinc.cuts");
+  
   if(right && !left){
   cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
-  ODEF=Form(REPLAY_DIR_PREFIX,"coinc.odef");
-  if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"coinc_auto.odef");
-  //  if(skim)
-  //    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
-  CUTS=Form(REPLAY_DIR_PREFIX,"coinc.cuts");
-  
-  //if(right && !left){
-  //  cout << "\n \n RIGHT ARM ONLY \n \n" << endl;
-  //  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
-  //  if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
-  //  if(skim)
-  //    CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
-  //  CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
+  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS.odef");
+    if(autoreplay)  ODEF=Form(REPLAY_DIR_PREFIX,"RHRS_auto.odef");
+    if(skim)
+      CUTS=Form(REPLAY_DIR_PREFIX,"RHRS_skim.cuts");
+      CUTS=Form(REPLAY_DIR_PREFIX,"RHRS.cuts");
 
   
     //==================================

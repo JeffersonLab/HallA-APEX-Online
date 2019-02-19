@@ -36,6 +36,7 @@ fi
 
 
 echo "SET_UP equals $SET_UP"
-
+touch sourceofanalysis.txt
+echo $PWD  ./haonline_tool -r $RUNNUM -s $SET_UP -o -y > "sourceofanalysis.txt"
 ./haonline_tool -r $RUNNUM -s $SET_UP -o -y
 # python scripts/mysql/log2db_aonl.py $RUNNUM 1
