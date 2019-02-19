@@ -166,7 +166,7 @@ sleep 1
      #
      /site/ace/certified/apps/bin/logentry \
 	 --logbook "HALOG" \
-	 --title "Run ${RUNNUM} Online plots for Left and Right arms(Test)" \
+	 --title "Run ${RUNNUM} Online plots for Left and Right arms" \
 	 --tag Analysis \
 	 --tag Autolog \
 	 --attach ${dir}/summaryfiles/left_online_latest.pdf \
