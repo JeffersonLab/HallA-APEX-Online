@@ -301,7 +301,7 @@ TH1F Rbeam_rasterx 'x at target (from Rasters) [mm]' Rrbx 4000  -15. 15.
 TH1F Rbeam_rastery 'y at target (from Rasters) [mm]' Rrby 4000  -15. 15.
 TH2F Rbpma_xy 'BPMA y vs x'  Rrbax Rrbay 2000 -15. 15. 2000 -15. 15.
 TH2F Rbpmb_xy 'BPMB y vs x'  Rrbbx Rrbby 2000 -15. 15. 2000 -15. 15.
-TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 15.  200 -15. 15.
+TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 5.  200 -5. 15.
 TH2F Rbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Rurbx Rurby 800 -15. 15.  800 -15. 15.
 
 ##Beam Information LHRS
@@ -328,10 +328,10 @@ TH2F Rurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Rrb.Raster.rawcur.x
 TH2F Rurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Rrb.Raster.rawcur.y Rrbbx 500 20000 120000 200 -5. 5.
 TH2F Rurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x Rrbby 500 50000 100000 200 -5. 5.
 
-TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 50000 100000 200 -5. 5.
-TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 120000 200 -5. 5.
-TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 50000 100000 200 -5. 5.
-TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 120000 200 -5. 5.
+TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 20000 60000 200 -5. 5.
+TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 60000 200 -5. 5.
+TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 20000 60000 200 -5. 5.
+TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 60000 200 -5. 5.
 
 TH2F Rdrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y Rrbax 500 20000 120000 200 -5. 5.
 TH2F Rdrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x Rrbay 500 50000 100000 200 -5. 5.
