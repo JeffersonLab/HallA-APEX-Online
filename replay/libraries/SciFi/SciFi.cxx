@@ -32,7 +32,7 @@ SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus
 : THaNonTrackingDetector(name,description,apparatus), fPed(0), fGain(0), fA(0),
   fAHits(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
   foverflow(0), funderflow(0),fpedq(0), fNhits(0), fNhits_arr(0), fNoise(0),
-  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
+  fX(0),fY(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0),fTime_0(0)
 {
   // Constructor
 //  fFADC=NULL;
@@ -42,7 +42,7 @@ SciFi::SciFi( const char* name, const char* description, THaApparatus* apparatus
 SciFi::SciFi()
 : THaNonTrackingDetector(), fPed(0), fGain(0), fA(0), fAHits(0),
   fA_p(0), fA_c(0),fPeak(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0), fNhits_arr(0), fNoise(0),
-  fX(0),fY(0),fTime(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0)
+  fX(0),fY(0),fhit_X_Y(0),fno_x_hits(0),fno_y_hits(0),fTime_0(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -152,6 +152,15 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     fNhits_arr     = new Int_t[ nval ];
 
     fhit_fibre =  new Int_t[ nval ];
+
+    fAHits_raw = new Int_t[ nval];
+    fPtime_raw = new Double_t[ nval];
+    
+    fTime_0 = new Double_t[ nval];
+    fTime_1 = new Double_t[ nval];
+    fTime_2 = new Double_t[ nval];
+    fTime_3 = new Double_t[ nval];
+    fTime_4 = new Double_t[ nval];
 
 
     //fIsInit = true;
@@ -364,6 +373,14 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "Noise", "Noise present? 0 if not, 1 if yes", "fNoise"},    
     { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
     { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
+    { "a_hits_raw", "Displays number of 'hits' per fibre per event", "fAHits_raw"},
+    { "ptime_raw", "Time of first pulse in event (if applicable)", "fPtime_raw"},
+    { "time_0", "Time of the zeroth pulse in event (if applicable)", "fTime_0"},
+    { "time_1", "Time of the first pulse in event (if applicable)", "fTime_1"},
+    { "time_2", "Time of the second pulse in event (if applicable)", "fTime_2"},
+    { "time_3", "Time of the third pulse in event (if applicable)", "fTime_3"},
+    { "time_4", "Time of the fourth pulse in event (if applicable)", "fTime_4"},
+    
 
     { 0 }
   };
@@ -444,6 +461,13 @@ void SciFi::DeleteArrays()
   delete [] fAHits;    fAHits    = NULL;
   delete [] fA_p;    fA_p    = NULL;
   delete [] fA;      fA      = NULL;
+  delete [] fAHits_raw;  fAHits_raw = NULL;
+  delete [] fPtime_raw;  fPtime_raw = NULL;
+  delete [] fTime_0;  fTime_0 = NULL;
+  delete [] fTime_1;  fTime_1 = NULL;
+  delete [] fTime_2;  fTime_2 = NULL;
+  delete [] fTime_3;  fTime_3 = NULL;
+  delete [] fTime_4;  fTime_4 = NULL;
 
   // delete [] fA_raw_c;    fA_raw_c    = NULL;
   // delete [] fA_raw_p;    fA_raw_p    = NULL;
@@ -493,6 +517,15 @@ void SciFi::Clear( Option_t* opt )
 
 
     fhitsperchannel[i] = 0;
+    fAHits_raw[i] = 0;
+    fPtime_raw[i] = 0;
+
+    fTime_0[i] = 0;
+    fTime_1[i] = 0;
+    fTime_2[i] = 0;
+    fTime_3[i] = 0;
+    fTime_4[i] = 0;
+
     fPeak[i]=0.0;
     fT_FADC[i]=0.0;
     fT_FADC_c[i]=0.0;
@@ -511,6 +544,13 @@ void SciFi::Clear( Option_t* opt )
     memset( fpedq, 0, fNelem*sizeof(fpedq[0]) );
     memset( fNhits_arr, 0, fNelem*sizeof(fNhits_arr[0]) );
     memset( fAHits, 0, fNelem*sizeof(fAHits[0]) );
+    memset( fAHits_raw, 0, fNelem*sizeof(fAHits_raw[0]) );
+    memset( fPtime_raw, 0, fNelem*sizeof(fPtime_raw[0]) );
+    memset( fTime_0, 0, fNelem*sizeof(fTime_0[0]) );
+    memset( fTime_1, 0, fNelem*sizeof(fTime_1[0]) );
+    memset( fTime_2, 0, fNelem*sizeof(fTime_2[0]) );
+    memset( fTime_3, 0, fNelem*sizeof(fTime_3[0]) );
+    memset( fTime_4, 0, fNelem*sizeof(fTime_4[0]) );
   }
 }
 
@@ -562,6 +602,8 @@ void SciFi::ClearEvent()
     // fTRX = 0.0;
     // fTRY = 0.0;
   
+    //    fAHits_raw = 0.0;
+
 
     fNoise = 0;
 
@@ -591,6 +633,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
   Bool_t raw_mode = kFALSE;
   
   ClearEvent();
+  Clear();
 
  
   for( Int_t i = 0; i < fDetMap->GetSize(); i++ ) {
@@ -709,7 +752,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	// Get the data. fADCs are assumed to have only single hit (hit=0)
 	Int_t data;
-	Int_t ftime=0;
+	//	Int_t ftime=0;
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
 	Float_t gain = fGain[fibre];
@@ -719,7 +762,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 	
 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+	//	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
 	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
 
 	// }
@@ -783,7 +826,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	fA[fibre]   = data;
 	//      fAHits[k] = noevents; 
 	fPeak[fibre] = static_cast<Float_t>(fpeak);
-	fT_FADC[fibre]=static_cast<Float_t>(ftime);
+	//	fT_FADC[fibre]=static_cast<Float_t>(ftime);
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
 	fA_p[fibre] = data - Int_t(tempPed);
 	fhitsperchannel[fibre] = 10;
@@ -900,9 +943,63 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	  //	  std::cout << "4th Check " << std::endl;
 	  std::vector<UInt_t> samples = fFADC->GetPulseSamplesVector(chan);
 	  //	  std::cout << "5th Check " << std::endl;
+
+	  first_hit = true;
+
 	  for(Int_t s = 0; s < num_samples; s++) {
 
 	    fA_raw[fibre][s] = samples[s];
+
+
+
+	    // raw-mode analysis
+
+	    if(s == 0 && fA_raw[fibre][s] > 400){
+
+	      // Scondition for first fibre (can't check if previous fibre also had high value)
+	      fAHits_raw[fibre]++;
+	      fPtime_raw[fibre] = (s+1)*4.;
+	      //	      cout << "First condition true!" << endl;
+
+	      first_hit = false;
+	      
+	      fTime_0[fibre] =  (s+1)*4.;
+	      
+
+	    }
+	    
+	    if (s > 0 && fA_raw[fibre][s] > 400 && fA_raw[fibre][s-1] < 400){
+	      
+	      //	      cout << "other condition true!" << endl;
+	      if(fAHits_raw[fibre] == 0){	       
+	      fTime_0[fibre] =  (s+1)*4.;
+		}
+	      if(fAHits_raw[fibre] == 1){	       
+		fTime_1[fibre] =  (s+1)*4.;
+	      }
+	      if(fAHits_raw[fibre] == 2){	       
+		fTime_2[fibre] =  (s+1)*4.;
+	      }
+	      if(fAHits_raw[fibre] == 3){	       
+		fTime_3[fibre] =  (s+1)*4.;
+	      }
+	      if(fAHits_raw[fibre] == 4){	       
+		fTime_4[fibre] =  (s+1)*4.;
+	      }
+
+
+	      fAHits_raw[fibre]++;
+	      fPtime_raw[fibre] = (s+1) * 4.;
+	      first_hit = false;
+	      
+
+
+	    }
+
+
+	    if( fAHits_raw[fibre] != 0){
+	      //	      cout << "fAHits_raw[" << fibre << "] = " << fAHits_raw[fibre] << endl; 
+	    }
 
 
 	    if( fibre == 15){
@@ -929,7 +1026,7 @@ Int_t SciFi::Decode( const THaEvData& evdata )
  
 
 	Int_t data;
-	Int_t ftime=0;
+	//	Int_t ftime=0;
 	Int_t fpeak=0;
 	Float_t tempPed = fPed[fibre];
 	Float_t gain = fGain[fibre];
@@ -975,13 +1072,13 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 	
 
 	data = evdata.GetData(kPulseIntegral,d->crate,d->slot,chan,0);
-	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
+	//	ftime = evdata.GetData(kPulseTime,d->crate,d->slot,chan,0);
 	fpeak = evdata.GetData(kPulsePeak,d->crate,d->slot,chan,0);
 
 	fA[fibre]   = data;
 	//      fAHits[k] = noevents; 
 	fPeak[fibre] = static_cast<Float_t>(fpeak);
-	fT_FADC[fibre]=static_cast<Float_t>(ftime);
+	//	fT_FADC[fibre]=static_cast<Float_t>(ftime);
 	fT_FADC_c[fibre]=fT_FADC[fibre]*0.0625;
 	fA_p[fibre] = data - tempPed;
 	fhitsperchannel[fibre] = 10;
