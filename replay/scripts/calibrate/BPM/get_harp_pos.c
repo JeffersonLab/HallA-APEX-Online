@@ -1,3 +1,5 @@
+//#include <sys/types.h>
+//#include <dirent.h>
 #include <sstream> 
 #include <string>
 #include <cmath>
@@ -19,7 +21,7 @@
 #include <TMath.h>
 #include <TNtuple.h>
 #include <stdlib.h>     //for using the function sleep
-
+#include "./inc.h"
 using namespace std;
 
  /////////////////////////////////////////////////////////
@@ -36,7 +38,7 @@ prev used
 
 
 */
-void get_harp_pos(){
+void get_harp_pos(string scan_date="", string runnums = ""){
 
 TCanvas *C1[2][5];
 
@@ -46,10 +48,89 @@ TCanvas *C1[2][5];
 
 
   //Day of harp runs in hall A
-   char date[256] = {"05032018"};
+   string date = "10302018";
+   if(scan_date=="")
+   { scan_date=Form("%s",date.c_str());}
+	
+   string listname=Form("./HarpScans/%s.txt",scan_date.c_str());
+
+ //open harp run list
+ cout << "Name of harpscan list file " <<listname <<endl;
+
+
+
+  ifstream listfile; 
+  listfile.open(listname);
+
+
+  	vector< string>  TimeStampsA;
+  	vector< string>  TimeStampsB;
+  	vector<string> tmp_vec;
+  	string line;
+	vector <int> run_numbers;
+  	
+  	cout << listfile << endl;
+  	int nscans=0;
+  	int nscansA=0;
+  	int nscansB=0;
+  	while(listfile.good())
+  	{
+		if(!listfile.good())break;
+		
+ 		listfile>>line;
+		if(line=="...")break;
+  		cout << line<<endl;
+  		auto fpos = line.find("4A");
+  		if(fpos!=string::npos)
+  		{
+  			string tmpstring = line.substr(fpos+12);
+  			TimeStampsA.push_back(tmpstring);
+			cout<<"A " << tmpstring <<endl;
+  			nscansA++;
+  		}	
+		fpos = line.find("4B");
+		if(fpos!=string::npos)
+  		{
+  			string tmpstring = line.substr(fpos+12);
+  			TimeStampsB.push_back(tmpstring);
+			cout <<"B "<< tmpstring <<endl;
+  			nscansB++;
+  		
+  		}	
+//  		cout << TimeStampsA[nscansA] << "  "<< TimeStampsB[nscansB] <<endl;
+  		nscans++;
+
+  			
+  	}//end of harp scan list!
+  		
+  	vector< vector<string>> TStamp;
+
+	for(unsigned int i =0;i<TimeStampsA.size();i++)
+	{
+		vector<string> tmp;
+		if(i<TimeStampsB.size())
+		{
+			tmp.push_back(TimeStampsA[i]);
+		tmp.push_back(TimeStampsB[i]);
+		TStamp.push_back(tmp);
+		if(runnums==""){
+			cout << "What run number goes with " <<tmp[0] <<" " <<tmp[1] <<endl;
+			string innum;
+			cin >> innum;
+			run_numbers.push_back(stoi(innum));	
+			}
+		}
+		tmp.clear();
+	}		
+
+	cout << TStamp.size()<<endl;
+
+		if(runnums!=""){run_numbers=parse_int(runnums,',');}
+		cout <<run_numbers.size()<<endl;
 
 //output array;
-	double results[5][10];
+	double	results[6][10];
+
 //CODA run number for harp scans
 	int run_number[5]  ={3033,3034,3035,3036,3038};
 	int logbook_num[5] ={3461814,3461814,3461814,3461814,3461814};	
@@ -57,7 +138,7 @@ TCanvas *C1[2][5];
 //output file named with date of harpscans
 	ofstream out_file;
 	char Hresults[256];
-	sprintf(Hresults,"harp_results_%s.txt",date);
+	sprintf(Hresults,"harp_results_%s.txt",scan_date.c_str());
 	out_file.open(Hresults,ios::out);
 
   //Harp names for the Hall A beamline (in hall, not arc)
@@ -80,11 +161,11 @@ TCanvas *C1[2][5];
 	TF1 *fit_u[2][5];
 	TF1 *fit_x[2][5];
 	TF1 *fit_v[2][5];
-
+	int numofruns = run_numbers.size();
 	int r =0;
 //Loop through both harps, and all scan locations
 	for(harp=0; harp<2;harp++){
-		for(run=0;run<5;run++){r++;//C->cd(r);
+		for(run=0;run<numofruns;run++){r++;//C->cd(r);
 
 		//run=1;harp=1;
 			ifstream myfile;
@@ -92,7 +173,7 @@ TCanvas *C1[2][5];
 			
 
   	//Open file name based on answers above
-	  		sprintf(file_name,"HarpScans/%s.%s_%s",harp_name[harp],date,TimeStamp[harp][run]);
+	  		sprintf(file_name,"HarpScans/%s.%s_%s",harp_name[harp],scan_date.c_str(),TStamp[run][harp].c_str());
 	  		myfile.open(file_name,ios::in);
 	  		string line;
 			cout << endl;	
@@ -166,9 +247,9 @@ TCanvas *C1[2][5];
 					V_wire[i]=tmp2[H];V_cur[i]=tmp3[H];i++;}i=0;
 			for(int H=location[3]-100;H<location[3]+100;H++){
 					X_wire[i]=tmp2[H];X_cur[i]=tmp3[H];i++;}
-			char* AB;
+			string AB;
 			if(harp==0){AB="A";}else{AB="B";}
-			C1[harp][run] = new TCanvas(Form("C%d%d",harp,run),Form("Run %d %s",run_number[run], AB),0,0,1000,900);
+			C1[harp][run] = new TCanvas(Form("C%d%d",harp,run),Form("Run %d %s",run_number[run], AB.c_str()),0,0,1000,900);
 			C1[harp][run]->Divide(1,4);
 						
   			TGraph *Uu = new TGraph(200,U_wire,U_cur);
@@ -311,7 +392,7 @@ TCanvas *D = new TCanvas(Form("D%d%d",harp,run),"Harp Scan",0,0,1100,900);
 	*/
 	
 					
-			if(harp==0){results[run][0]=run_number[run];
+			if(harp==0){results[run][0]=run_numbers[run];
 						results[run][1]=logbook_num[run];
 						results[run][2]=x_pos;
 						results[run][3]=x_sigma;
@@ -328,13 +409,16 @@ TCanvas *D = new TCanvas(Form("D%d%d",harp,run),"Harp Scan",0,0,1100,900);
 			} //run loop
 		}			//harp loop	
 
-	for(int i=0;i<5;i++){
+	for(int i=0;i<numofruns;i++){
 		for(int j=0;j<2;j++){out_file<<setw(10)<< setprecision(10)<<results[i][j]<<" ";}
 		for(int j=2;j<10;j++){
 		out_file<<setw(10)<< setprecision(4)<<results[i][j]<<" ";}out_file<<endl;}
 	
-		for(int i=0;i<5;i++){
-			cout<<run_number[i] <<" " << results[i][2]<<" " << results[i][4]<<" " << results[i][6] <<" " << results[i][8] <<endl;}
+		for(int i=0;i<numofruns;i++){
+			cout<<run_numbers[i] <<" " << results[i][2]<<" " << results[i][4]<<" " << results[i][6] <<" " << results[i][8] <<endl;}
 	
 	out_file.close();
-} 
+}
+
+
+ 

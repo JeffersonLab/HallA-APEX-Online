@@ -363,8 +363,8 @@ int main(int argc, char* argv[])
 
   //output pulse and pedestal quality check results
   int slotmin,slotmax;
-  if(spectrometer=="LHRS") {slotmin=6;slotmax=10;}
-  if(spectrometer=="RHRS") {slotmin=13;slotmax=17;}
+  if(spectrometer=="LHRS") {slotmin=5;slotmax=18;}
+  if(spectrometer=="RHRS") {slotmin=13;slotmax=18;}
   ofstream qualityfile;
   qualityfile.open(Form("results/fadc_quality_%d.txt",runNumber));
   for(int islot=slotmin;islot<slotmax;islot++)

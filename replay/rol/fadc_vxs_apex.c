@@ -39,10 +39,10 @@ unsigned int blockLevel=  1;
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_WIDTH 23 //  20 // 40 was 106
-#define FADC_S2_WINDOW_WIDTH 15 //  20 // 40 was 106
+#define FADC_WINDOW_WIDTH 23 //  23 // 40 was 106
+#define FADC_S2_WINDOW_WIDTH 15 //15   20 // 40 was 106
 int FADC_NPULSES =           4;
-#define FADC_MODE           9
+#define FADC_MODE           10
 
 #define FADC_LATENCY       201 // was 88 
 #define FADC_S2_LATENCY    195 // was 88 
@@ -53,9 +53,9 @@ int FADC_NPULSES =           4;
 #define FADC_SH_THRESHOLD     9 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_MODE_SciFi       9
-#define FADC_LA_SciFi         130 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi         40 // was /// RELEVANT
+#define FADC_MODE_SciFi       10
+#define FADC_LA_SciFi         96 //130 // was 73 //was 78 // was 62 
+#define FADC_WD_SciFi         50 //40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
 #define FADC_NSA_SciFi        10 
 
@@ -443,7 +443,7 @@ if(ifa==2){
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 4,400,2);  // S0 and Cherenkov
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
 	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 1,400,2);	   // SciFi
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 4,400,2);	   // SciFi
          if(ifa==8||ifa==9||ifa==10 || ifa==11)
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 4,400, 3);  // PRLs ( shower detectors )
        }

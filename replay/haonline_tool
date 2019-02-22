@@ -160,6 +160,7 @@ sleep 1
      --caption "Online plots" \
      --caption "Detector plots" \
      --caption "Physics plots" 
+ 
     
  elif [[ -n "${ONLINE_ONLY}"  ]] && [[ -n "${YES_LOG}" ]] ; then
      #
@@ -171,9 +172,12 @@ sleep 1
 	 --attach ${dir}/summaryfiles/left_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/right_online_latest.pdf \
 	 --attach ${dir}/summaryfiles/coinc_latest.pdf \
+	 --attach ${dir}/sourceofanalysis.txt \
 	 --caption "Left online Plots" \
 	 --caption "Right online Plots" \
-	 --caption "Coincidence Plots"
+	 --caption "Coincidence Plots" \
+	 --caption "Source of Analysis"
+ 
      
  elif [[ -n "${LOG_ALL_PLOTS}"  ]] ; then
      #  
