@@ -10,7 +10,17 @@ void Bob_coinc_check(Int_t flag, TString drawoption){
 
 
   TTree *tree = (TTree*)gDirectory->Get("T");
-    if(flag==1){
+  if(flag==1){
+
+  TH1F *ht1 = new TH1F("ht1","DR.rrawt2",200,1600,1800);
+  ht1->GetXaxis()->SetTitle("DR.rrawt2");ht1->GetXaxis()->CenterTitle();
+  tree->Draw("DR.rrawt2>>ht1","fEvtHdr.fEvtType==6","kRED");
+  } else if (flag==2){
+  TH1F *ht2 = new TH1F("ht2","DR.rrawt2 Cut",200,1600,1800);
+  ht2->GetXaxis()->SetTitle("DR.rrawt2");ht2->GetXaxis()->CenterTitle();
+  tree->Draw("DR.rrawt2>>ht2","fEvtHdr.fEvtType==6&&DR.rrawt2>1650","kRED");
+  }
+  else if (flag==3){
 //TCut cut1 = "L.s0.lt>0";
 //TCut cut2 = "L.s0.rt>0";
 
