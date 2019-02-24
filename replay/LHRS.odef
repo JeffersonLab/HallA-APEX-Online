@@ -165,10 +165,10 @@ TH2F Lprl2xy 'L-arm Pion Rejector2 y vs. x' L.prl2.trx L.prl2.try 200 -1.5 1.5 5
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
 #
-TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 400 1800 3200
-TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 400 1800 3200
-TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 400 1800 3200
-TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 400 1800 3200
+TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 200 1800 3200
+TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 200 1800 3200
+TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 200 1800 3200
+TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 200 1800 3200
 
 TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 400 1800 3200
 TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 400 1800 3200
