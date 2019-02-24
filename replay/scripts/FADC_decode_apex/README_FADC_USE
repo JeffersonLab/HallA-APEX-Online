@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////////////////
+///////////// GUIDE ON HOW TO RUN FADCcom command /////////
+//////////////////////////////////////////////////////////////
+
+
+in directory replay/scripts/FADC_decode_apex/
+
+./FADCcom #run_number #maxEvent #spectrometer
+
+
+where:
+
+	#run_number is the number of the run to be replayed (looks for apex files)
+
+	#maxEvents is the number of events to be replayd
+
+	#spectrometer can be: 'LHRS' or 'RHRS' (without quotaion marks)
+		      
+		      this selects ROC31 to be analyzed for 'LHRS' or
+		      ROC20 to be analyzed for 'RHRS'
+
+
+	
+
+This scripts produces differently named output root files for LHRS or RHRS, so 
+you won't delete previous output.
+
+(relevant log entry:  https://logbooks.jlab.org/entry/3644907)
