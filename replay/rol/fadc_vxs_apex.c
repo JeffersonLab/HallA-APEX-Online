@@ -53,7 +53,7 @@ int FADC_NPULSES =           4;
 #define FADC_SH_THRESHOLD     9 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_MODE_SciFi       10
+#define FADC_MODE_SciFi       9
 #define FADC_LA_SciFi         180 //130 // was 73 //was 78 // was 62 
 #define FADC_WD_SciFi         50 //40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 

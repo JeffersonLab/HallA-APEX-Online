@@ -37,7 +37,7 @@
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
 
-#define FADC_MODE_SCIFI    10
+#define FADC_MODE_SCIFI    9
 #define FADC_LATENCY_SCIFI 108
 #define FADC_WD_SCIFI      50 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
 #define FADC_NSB_SCIFI     2
