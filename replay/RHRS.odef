@@ -226,10 +226,10 @@ TH2F Rpsxy 'R-arm Pre-Shower y vs. x' R.ps.trx R.ps.try 200 -1.5 1.5 54 -0.4 0.4
 # ------------------------------------------------------------------
 # RIGHT ARM VDC wires and timing  :
 #
-TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 400 1800 3200
-TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 400 1800 3200
-TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 400 1800 3200
-TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 400 1800 3200
+TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 200 1800 3200
+TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 200 1800 3200
+TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 200 1800 3200
+TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 200 1800 3200
 
 TH2F Rvu1tn 'R-arm VDC u1 rawtime : wire number' R.vdc.u1.wire R.vdc.u1.rawtime 400 0 400 400 1800 3200
 TH2F Rvu2tn 'R-arm VDC u2 rawtime : wire number' R.vdc.u2.wire R.vdc.u2.rawtime 400 0 400 400 1800 3200
