@@ -301,8 +301,8 @@ TH1F Rbeam_rasterx 'x at target (from Rasters) [mm]' Rrbx 4000  -15. 15.
 TH1F Rbeam_rastery 'y at target (from Rasters) [mm]' Rrby 4000  -15. 15.
 TH2F Rbpma_xy 'BPMA y vs x'  Rrbax Rrbay 2000 -15. 15. 2000 -15. 15.
 TH2F Rbpmb_xy 'BPMB y vs x'  Rrbbx Rrbby 2000 -15. 15. 2000 -15. 15.
-TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 5.  200 -5. 15.
-TH2F Rbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Rurbx Rurby 800 -15. 15.  800 -15. 15.
+TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 0.  200 15. 30.
+TH2F Rbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Rurbx Rurby 800  -10. 10.  800 -10. 10.
 
 ##Beam Information LHRS
 ##
@@ -315,7 +315,7 @@ TH1F Lbeam_rasterx 'x at target (from Rasters) [mm]' Lrbx 4000  -15. 15.
 TH1F Lbeam_rastery 'y at target (from Rasters) [mm]' Lrby 4000  -15. 15.
 TH2F Lbpma_xy 'BPMA y vs x'  Lrbax Lrbay 2000 -15. 15. 2000 -15. 15.
 TH2F Lbpmb_xy 'BPMB y vs x'  Lrbbx Lrbby 2000 -15. 15. 2000 -15. 15.
-TH2F Lbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Lrbx Lrby 200 -15. 15.  200 -15. 15.
+TH2F Lbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Lrbx Lrby 200 -15. 15.  200 -30 30
 TH2F Lbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Lurbx Lurby 800 -15. 15.  800 -15. 15.
 
 TH2F Rurastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Rrb.Raster.rawcur.x Rrbax 500 50000 100000 200 -5. 5.
@@ -348,10 +348,10 @@ TH2F Lurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.x
 TH2F Lurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.y Lrbbx 500 20000 120000 200 -5. 5.
 TH2F Lurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.x Lrbby 500 50000 100000 200 -5. 5.
 
-TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 50000 100000 200 -5. 5.
-TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 20000 120000 200 -5. 5.
-TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 50000 100000 200 -5. 5.
-TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 20000 120000 200 -5. 5.
+TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 17000 50000 200 -5. 5.
+TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 17000 50000 200 -5. 5.
+TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 17000 50000 200 -5. 5.
+TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 17000 50000 200 -5. 5.
 
 TH2F Ldrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.y Lrbax 500 20000 120000 200 -5. 5.
 TH2F Ldrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.x Lrbay 500 50000 100000 200 -5. 5.
