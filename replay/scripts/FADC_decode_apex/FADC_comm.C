@@ -33,7 +33,7 @@
 #define NUMSLOTS 22
 #define NADCCHAN 16
 #define NUMRAWEVENTS 5000
-#define NPED 15
+#define NPED 5
 
 using namespace std;
 using namespace Decoder;
@@ -90,7 +90,7 @@ void GeneratePlots(Int_t mode, uint32_t islot, uint32_t chan) {
   // Canvas'
   if (!c_psamp[islot][chan] && ((mode == 1) || (mode == 8) || (mode == 10))) {
     c_psamp[islot][chan] = new TCanvas(Form("c_psamp_slot_%d_chan_%d", islot, chan), Form("c_psamp_slot_%d_chan_%d", islot, chan), 1600, 1600);
-    c_psamp[islot][chan]->Divide(5, 5);
+    c_psamp[islot][chan]->Divide(20, 20);
   }
   // Raw samples directoy & graphs
   if ((mode == 1) || (mode == 8) || (mode == 10)) {   
@@ -337,7 +337,7 @@ int main(int argc, char* argv[])
       // Raw sample plots 
   	if (g_psamp_event[islot][chan][raw_index] != NULL) {
   	  UInt_t rand_int = 1 + rand->Integer(9);  
-  	  hfile->cd(Form("/mode_%d_data/slot_%d/chan_%d/raw_samples", fadc_mode_const, islot, chan));
+  	  hfile->cd(Form("/mode_%d_data/slot_%d/chan_%d/raw_samples", 10, islot, chan));
   	  c_psamp[islot][chan]->cd(raw_index + 1);
   	  g_psamp_event[islot][chan][raw_index]->Draw("ACP");
   	  g_psamp_event[islot][chan][raw_index]->SetTitle(Form("FADC Mode %d Pulse Peak Data Slot %d Channel %d Event %d", fadc_mode_const, islot, chan, raw_index));
@@ -347,13 +347,15 @@ int main(int argc, char* argv[])
   	  g_psamp_event[islot][chan][raw_index]->SetMarkerColor(rand_int);
   	  g_psamp_event[islot][chan][raw_index]->SetMarkerStyle(20);
   	  g_psamp_event[islot][chan][raw_index]->SetDrawOption("ACP");
+  	  //g_psamp_event[islot][chan][raw_index]->Write();
+
   	}  // Graph condition
       }  // Raw event loop
       // Write the canvas to file
       if (c_psamp[islot][chan] != NULL) c_psamp[islot][chan]->Write();
       // Write the multigraphs to file
       if (mg_psamp[islot][chan] != NULL) {
-        hfile->cd(Form("/mode_%d_data/slot_%d/chan_%d", fadc_mode_const, islot, chan));
+        hfile->cd(Form("/mode_%d_data/slot_%d/chan_%d", 10, islot, chan));
         mg_psamp[islot][chan]->Draw("ACP");
         mg_psamp[islot][chan]->SetTitle(Form("%d Raw Events of FADC Mode %d Sample Data Slot %d Channel %d; Sample Number; Sample Value", raw_samp_index[islot][chan], fadc_mode_const, islot, chan));
         mg_psamp[islot][chan]->Write(); 

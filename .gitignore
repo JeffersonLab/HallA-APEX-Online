@@ -95,3 +95,16 @@ replay/scripts/analysis/#*
 replay/scripts/.#*
 replay/scripts/beam_rate/#*
 replay/scripts/beam_rate/.#*
+
+replay/scripts/FADC_decode_apex/FADCcom
+replay/scripts/FADC_decode_apex/epicsd
+replay/scripts/FADC_decode_apex/prfact
+replay/scripts/FADC_decode_apex/tdecex
+replay/scripts/FADC_decode_apex/tdecpr
+replay/scripts/FADC_decode_apex/tst1190
+replay/scripts/FADC_decode_apex/tstf1tdc
+replay/scripts/FADC_decode_apex/tstfadc
+replay/scripts/FADC_decode_apex/tstfadcblk
+replay/scripts/FADC_decode_apex/tstio
+replay/scripts/FADC_decode_apex/tstskel
+replay/scripts/FADC_decode_apex/tstoo
