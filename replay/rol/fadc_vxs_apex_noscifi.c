@@ -39,15 +39,13 @@ unsigned int blockLevel=  1;
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_WIDTH 23 //  20 // 40 was 106
-#define FADC_S2_WINDOW_WIDTH 15 //  20 // 40 was 106
+#define FADC_WINDOW_WIDTH 23//23 //  23 // 40 was 106
+#define FADC_S2_WINDOW_WIDTH 15 //15   20 // 40 was 106
 int FADC_NPULSES =           4;
 #define FADC_MODE           9
 
 #define FADC_LATENCY       201 // was 88 
 #define FADC_S2_LATENCY    195 // was 88 
-//#define FADC_LATENCY       177 // was 88 
-//#define FADC_S2_LATENCY    165 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
 #define FADC_WD_Sh         50//80 // was /// RELEVANT
 #define FADC_NSB           1  // # of samples *before* Threshold crossing (TC) to include in sum
@@ -56,10 +54,10 @@ int FADC_NPULSES =           4;
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
 #define FADC_MODE_SciFi       9
-#define FADC_LA_SciFi         130 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi         40 // was /// RELEVANT
+#define FADC_LA_SciFi         180 //130 // was 73 //was 78 // was 62 
+#define FADC_WD_SciFi         50 //40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
-#define FADC_NSA_SciFi        10 
+#define FADC_NSA_SciFi        50 
 
 extern int fadcA32Base;
 extern int nfadc;
@@ -73,6 +71,7 @@ extern int nfadc;
 //wether or not to use threshold
 #define WANT_THRESHOLD 0
 
+#define WANT_THRESHOLD_SCIFI 0
 
 
 
@@ -206,6 +205,13 @@ rocDownload()
        {
        faSetThreshold(faSlot(ifa), fadc_threshold, 0xffff); //0xffff sets all channels to same threshold
        }
+
+  if(WANT_THRESHOLD_SCIFI){
+    if(ifa==4||ifa==5||ifa==6||ifa==7)
+      faSetThreshold(faSlot(ifa), 300+200, 0xffff);
+  }
+
+
 
 if(ifa==0)      {
         faSetDAC(faSlot(ifa), 3072, 0x0001);   ///S0
@@ -445,7 +451,7 @@ if(ifa==2){
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 4,400,2);  // S0 and Cherenkov
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
 	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 1,400,2);	   // SciFi
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 4,400,2);	   // SciFi
          if(ifa==8||ifa==9||ifa==10 || ifa==11)
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 4,400, 3);  // PRLs ( shower detectors )
        }
@@ -524,10 +530,10 @@ rocGo()
   for(ifa=0;ifa<nfadc;ifa++)
     {
       faChanDisable(faSlot(ifa),0x0);
-      
-      if ((ifa >= 6) && (ifa <= 8)) {
+      if ((ifa >= 5) && (ifa <= 8)) {
 	faChanDisable(faSlot(ifa),0xFFFF);
       }
+    
     }
 
   faGStatus(0);
