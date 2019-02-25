@@ -23,7 +23,7 @@ void pid_det_left(Int_t flag, TString drawoption){
     h1->GetYaxis()->SetTitle("N_{phe}");h1->GetYaxis()->CenterTitle();
     h1->GetXaxis()->SetTitle("E/p");h1->GetXaxis()->CenterTitle();
 
-    tree->Draw("L.cer.asum_c/300.:(L.prl1.e+L.prl2.e)/(1000.*L.tr.p[0])>>h1","L.tr.n==1",drawoption);  
+    tree->Draw("L.cer.asum_c/300.:(L.prl1.e+L.prl2.e)/(430.*L.tr.p[0])>>h1","L.tr.n==1",drawoption);  
 
   }
 }
