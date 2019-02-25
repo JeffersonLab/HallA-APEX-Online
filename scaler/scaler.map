@@ -35,14 +35,14 @@ xscaler-clock Left slot:4 chan:7 rate:103700
 
 #
 # directives for Right HRS
-xscaler-tabs Right 0:Empty 1:Trig-Cher-S0 2:S2m 3:Norm 4:empty 5:empty 6:empty
+xscaler-tabs Right 0:Empty 1:Trig-Cher-S0 2:S2m 3:Norm 4:Alt 5:empty 6:empty
 xscaler-layout Right 0:4x4 1:8x4 2:8x4 3:8x4 4:4x4 5:4x4 6:4x4
 xscaler-pageslot Right 0:slot0 1:slot1 2:slot2 3:slot3 4:slot4 5:slot5 6:slot6
 xscaler-pagename Right 0:'LeCroy Scaler in 1st slot'
 xscaler-pagename Right 1:'R-HRS Triggers, Gas Cherenkov, and s0'
 xscaler-pagename Right 2:'R-HRS S2m Left and Right'
 xscaler-pagename Right 3:'R-HRS Normalization'
-xscaler-pagename Right 4:'BCMs Scalar in 5th slot'
+xscaler-pagename Right 4:'LeCroy Scalar (misc) in 5th slot'
 xscaler-pagename Right 5:'Caen Scalar in 6th slot'
 xscaler-pagename Right 6:'Caen Scalar in 7th slot'
 
@@ -344,6 +344,11 @@ u1            0   7     3     24    1
 d1            0   7     3     26    1
 d3            0   7     3     28    1
 d10           0   7     3     30    1
+
+T2            0   7     4     1    1      LHRS single trigger
+T5            0   7     4     4    1      RHRS single trigger
+T6            0   7     4     5    1      Coincidence triggerfd
+
 
 # ------ September 22, 2018
 
