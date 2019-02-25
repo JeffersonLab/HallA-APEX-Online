@@ -12,11 +12,11 @@ void Bob_coinc_check(Int_t flag, TString drawoption){
   TTree *tree = (TTree*)gDirectory->Get("T");
   if(flag==1){
 
-  TH1F *ht1 = new TH1F("ht1","DR.rrawt2",200,1600,1800);
+  TH1F *ht1 = new TH1F("ht1","DR.rrawt2",145,1600,1745);
   ht1->GetXaxis()->SetTitle("DR.rrawt2");ht1->GetXaxis()->CenterTitle();
   tree->Draw("DR.rrawt2>>ht1","fEvtHdr.fEvtType==6","kRED");
   } else if (flag==2){
-  TH1F *ht2 = new TH1F("ht2","DR.rrawt2 Cut",200,1600,1800);
+  TH1F *ht2 = new TH1F("ht2","DR.rrawt2 Cut",145,1600,1745);
   ht2->GetXaxis()->SetTitle("DR.rrawt2");ht2->GetXaxis()->CenterTitle();
   tree->Draw("DR.rrawt2>>ht2","fEvtHdr.fEvtType==6&&DR.rrawt2>1650","kRED");
   }
@@ -25,8 +25,8 @@ void Bob_coinc_check(Int_t flag, TString drawoption){
 //TCut cut2 = "L.s0.rt>0";
 
 //TCanvas*  c1 = new TCanvas("c1","");
-TH1F *ht1 = new TH1F("ht1","DR.rrawt2 && T6 triggered",130,1630,1760);
-TH1F *ht2 = new TH1F("ht2","DR.rrawt6",10,1660,1670);
+TH1F *ht1 = new TH1F("ht1","DR.rrawt2 && T6 triggered",115,1630,1745);
+TH1F *ht2 = new TH1F("ht2","DR.rrawt6",115,1630,1745);
 //TH1F *ht1 = new TH1F("ht1","DR.rrawt2 && T6 triggered",200,1600,1800);
 //TH1F *ht1 = new TH1F("ht1","DR.rrawt2 && T6 triggered",300,-1000,50000);
 ht1->GetXaxis()->SetTitle("DR.rrawt2 (0.5 ns)");ht1->GetXaxis()->CenterTitle();
@@ -50,7 +50,7 @@ double er_l, er_r;
 gPad->SetLogy();
 
 int bin_min = 1655;
-int bin_max = 1735;
+int bin_max = 1710;
 int bin_gaus_min = 1680;
 int bin_gaus_max = 1700;
 
@@ -59,7 +59,7 @@ f2a->SetLineColorAlpha(3,1.0);
 TF1* f31=new TF1("f31","pol1",bin_min,bin_max);
 f31->SetLineColorAlpha(2,1.0);
 
-TF1* total=new TF1("total","gaus(0)+pol1(3)",1655,1735);
+TF1* total=new TF1("total","gaus(0)+pol1(3)",1655,1710);
 
 total->SetLineColor(1);
 double par[5];
@@ -76,7 +76,7 @@ double par2[5];
 
 total->GetParameters(&par2[0]);
 cout<<"par2 3: "<<par2[3]<<" par2 4: "<<par2[4]<<endl;
-TF1* f32=new TF1("f32","[3] + [4]*x",1655,1735);
+TF1* f32=new TF1("f32","[3] + [4]*x",1655,1710);
 f32->SetParameters(par2);
 f32->SetLineColor(2);
 f32->Draw("SAME");
@@ -128,6 +128,8 @@ leg->AddEntry((TObject*)0,Form("Number of good T2 (T6 trigger) = %0.1f",n_good_c
 leg->AddEntry((TObject*)0,Form("Total T6 triggers = %0.1f",n_total_T6),"");
 leg->AddEntry((TObject*)0,Form("Percent coincidences good = %0.1f",100.0*ratio_good_to_T6),"");
 leg->Draw();
+//c1->Print("plot.pdf","pdf");
+//gSystem->Exec(Form("mv plot.pdf goodcoinc_%d.pdf",runnumber));
 }
   //if(flag==1){
     
