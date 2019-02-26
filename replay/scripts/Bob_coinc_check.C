@@ -49,17 +49,20 @@ double hr0m, hr0s, hr0m1, hr0s1, hr0m2, hr0s2;
 double er_l, er_r;
 gPad->SetLogy();
 
-int bin_min = 1675;
-int bin_max = 1725;
-int bin_gaus_min = 1700;
-int bin_gaus_max = 1715;
-
+int bin_lin_min = 1670;
+int bin_lin_max = 1720;
+int bin_gaus_min = 1690;
+int bin_gaus_max = 1710;
+int bin_fit_min = bin_lin_min;
+int bin_fit_max = bin_lin_max;
+int bin_fit_lin_min = bin_lin_min;
+int bin_fit_lin_max = bin_lin_max;
 TF1* f2a=new TF1("f2a","gaus",bin_gaus_min,bin_gaus_max);
 f2a->SetLineColorAlpha(3,1.0);
-TF1* f31=new TF1("f31","pol1",bin_min,bin_max);
+TF1* f31=new TF1("f31","pol1",bin_lin_min,bin_lin_max);
 f31->SetLineColorAlpha(2,1.0);
 
-TF1* total=new TF1("total","gaus(0)+pol1(3)",1675,1725);
+TF1* total=new TF1("total","gaus(0)+pol1(3)",bin_fit_min,bin_fit_max);
 
 total->SetLineColor(1);
 double par[5];
@@ -76,7 +79,7 @@ double par2[5];
 
 total->GetParameters(&par2[0]);
 cout<<"par2 3: "<<par2[3]<<" par2 4: "<<par2[4]<<endl;
-TF1* f32=new TF1("f32","[3] + [4]*x",1675,1725);
+TF1* f32=new TF1("f32","[3] + [4]*x",bin_fit_lin_min,bin_fit_lin_max);
 f32->SetParameters(par2);
 f32->SetLineColor(2);
 f32->Draw("SAME");
@@ -105,7 +108,7 @@ for ( int j = 0; j < n_binsT6+1;j++ ){
 //cout<<" "<<endl;
 //cout<<"Total number of T6 = "<<n_total_T6<<endl;
 for ( int i = 0; i < n_bins+1 ; i++ ){
-	if (i >ht1->FindBin(bin_min) && i < ht1->FindBin(bin_max)){
+	if (i >ht1->FindBin(bin_lin_min) && i < ht1->FindBin(bin_lin_max)){
 		func = par2[3] + par2[4]*(ht1->GetXaxis()->GetBinCenter(i));
 		n_good_coins+=(ht1->GetBinContent(i)-func);
 		n_subtracted_coins+=func;
