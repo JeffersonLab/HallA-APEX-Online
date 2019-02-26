@@ -19,7 +19,7 @@ DATE 4 1 2019
 
 # directives for Left HRS
 
-xscaler-tabs Left 0:Empty 1:Norm 2:Empty 3:S2m 4:Trig-Cher-S0 5:Empty 6:Misc
+xscaler-tabs Left 0:Empty 1:Norm 2:Empty 3:S2m 4:Trig-Cher-S0 5:Alt 6:Misc
 xscaler-layout Left 0:4x4 1:8x4 2:8x4 3:8x4 4:8x4 5:4x4 6:8x4 
 xscaler-pageslot Left 0:slot0 1:slot1 2:slot2 3:slot3 4:slot4 5:slot5 6:slot6 
 xscaler-pagename Left 0:'L-HRS LeCroy Scaler'
@@ -27,7 +27,7 @@ xscaler-pagename Left 1:'L-HRS Normalization (it is not gated by helicity)'
 xscaler-pagename Left 2:'L-HRS '
 xscaler-pagename Left 3:'L-HRS S2m Left and Right (4th physical slot)'
 xscaler-pagename Left 4:'L-HRS Triggers, Gas Cherenkov,and S0 (5th physical slot)'
-xscaler-pagename Left 5:'L-HRS '
+xscaler-pagename Left 5:'L-HRS misc'
 xscaler-pagename Left 6:'Miscellaneous L-HRS '
 
 xscaler-server Left IP:129.57.192.30 port:5022
@@ -200,7 +200,7 @@ S2L_and_S2R     0   8     4     31    1
 1               0   8     5     0     1      
 2               0   8     5     1     1      
 3               0   8     5     2     1      
-4               0   8     5     3     1      
+ECL_Clock       0   8     5     3     1  ECL copy of clock output (2/26/19)    
 5               0   8     5     4     1      
 6               0   8     5     5     1      
 7               0   8     5     6     1      
