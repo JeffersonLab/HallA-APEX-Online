@@ -39,7 +39,7 @@
 #define chan_mask  0x0000 // chan mask for threshold setting 
 #define WANT_THRESHOLD 0  //whether or not want threshold settings
 
-#define WANT_THRESHOLD_SCIFI 1
+#define WANT_THRESHOLD_SCIFI 0
 
 
 #define FADC_MODE_SCIFI    10
