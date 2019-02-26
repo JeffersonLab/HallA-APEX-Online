@@ -12,13 +12,13 @@ void Bob_coinc_check(Int_t flag, TString drawoption){
   TTree *tree = (TTree*)gDirectory->Get("T");
   if(flag==1){
 
-  TH1F *ht1 = new TH1F("ht1","DR.rrawt2",145,1600,1745);
+  TH1F *ht1 = new TH1F("ht1","DR.rrawt2",115,1630,1745);
   ht1->GetXaxis()->SetTitle("DR.rrawt2");ht1->GetXaxis()->CenterTitle();
   tree->Draw("DR.rrawt2>>ht1","fEvtHdr.fEvtType==6","kRED");
   } else if (flag==2){
-  TH1F *ht2 = new TH1F("ht2","DR.rrawt2 Cut",145,1600,1745);
+  TH1F *ht2 = new TH1F("ht2","DR.rrawt2 Cut",115,1630,1745);
   ht2->GetXaxis()->SetTitle("DR.rrawt2");ht2->GetXaxis()->CenterTitle();
-  tree->Draw("DR.rrawt2>>ht2","fEvtHdr.fEvtType==6&&DR.rrawt2>1650","kRED");
+  tree->Draw("DR.rrawt2>>ht2","fEvtHdr.fEvtType==6&&DR.rrawt2>1680","kRED");
   }
   else if (flag==3){
 //TCut cut1 = "L.s0.lt>0";
@@ -49,17 +49,17 @@ double hr0m, hr0s, hr0m1, hr0s1, hr0m2, hr0s2;
 double er_l, er_r;
 gPad->SetLogy();
 
-int bin_min = 1655;
-int bin_max = 1710;
-int bin_gaus_min = 1680;
-int bin_gaus_max = 1700;
+int bin_min = 1675;
+int bin_max = 1725;
+int bin_gaus_min = 1700;
+int bin_gaus_max = 1715;
 
 TF1* f2a=new TF1("f2a","gaus",bin_gaus_min,bin_gaus_max);
 f2a->SetLineColorAlpha(3,1.0);
 TF1* f31=new TF1("f31","pol1",bin_min,bin_max);
 f31->SetLineColorAlpha(2,1.0);
 
-TF1* total=new TF1("total","gaus(0)+pol1(3)",1655,1710);
+TF1* total=new TF1("total","gaus(0)+pol1(3)",1675,1725);
 
 total->SetLineColor(1);
 double par[5];
@@ -76,7 +76,7 @@ double par2[5];
 
 total->GetParameters(&par2[0]);
 cout<<"par2 3: "<<par2[3]<<" par2 4: "<<par2[4]<<endl;
-TF1* f32=new TF1("f32","[3] + [4]*x",1655,1710);
+TF1* f32=new TF1("f32","[3] + [4]*x",1675,1725);
 f32->SetParameters(par2);
 f32->SetLineColor(2);
 f32->Draw("SAME");
