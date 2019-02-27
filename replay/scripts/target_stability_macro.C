@@ -1,4 +1,6 @@
-void target_stability(Int_t flag, TString drawoption){
+using namespace std;
+#include <iostream>
+void target_stability_macro(Int_t flag, TString drawoption, Int_t runnumber, Int_t n_runs = 0, Int_t online = 0){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
 // I want to know the average singles (T2) rate/current scaler rate vs. run number and vs. time (vs. time in a plot, avg vs. run number as an average to show long time scales)
@@ -8,16 +10,51 @@ void target_stability(Int_t flag, TString drawoption){
 // I want to know the integrated current in coulombs per run (extra)
 
 // by hand
-int runnumber = 0;
-//TString rootfile = Form("/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/rootfiles/apex_online_%d.root",runnumber);
-//TFile *f = TFile::Open(rootfile,"READ");
-//TTree *tree2 = (TTree*)f->Get("evRight");*/
+//int runnumber = 4261;
 
+// Old
+/*TString rootfile = Form("/adaqfs/home/a-onl/apex_work/ranit/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root",runnumber);
+TFile *f = TFile::Open(rootfile,"READ");
+TTree *tree2 = (TTree*)f->Get("evRight");
+*/
+  TChain *tree2 = new TChain("evRight");
+  TString filenamebase;
+  TString filename;
+  Long_t split = 0;
+
+  TString ROOTFILE_DIR;
+
+  for(Int_t i = 0; i <= (n_runs); i++){
+
+    //TString ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+    if (online == 1) {
+        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root";
+    }
+    else {
+        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+
+    }
+    filenamebase = Form(ROOTFILE_DIR,runnumber+i);
+    
+    filename = filenamebase;
+    
+    filenamebase.Remove(filenamebase.Last('.'),5);
+    
+    cout << filename << endl;
+    
+    split = 0;
+    while ( !gSystem->AccessPathName(filename.Data()) ) {
+      cout << "Added root file: " << filename << " to Tree" << endl;
+      tree2->Add(filename);
+    split++;
+    filename = filenamebase + "_" + split + ".root";
+    }
+}
 
 //onlineGUI64
-  gStyle->SetOptStat(0);
-  gPad->SetFillStyle(4000);
-  TTree *tree2 = (TTree*)gDirectory->Get("evRight");
+//  gStyle->SetOptStat(0);
+//  gPad->SetFillStyle(4000);
+//  TTree *tree2 = (TTree*)gDirectory->Get("evRight");
 
 if (flag==1){
 	// histogram current integrating scaler vs. Entry$, grab 5th entry, grab GetEntries()-5, take difference and scale, assign to total integrated charge
@@ -111,6 +148,8 @@ else if (flag==2){
 else if (flag==3){ 
 	ofstream file_out3;
 	file_out3.open("Per_run_target_stability_T2_per_uA.csv",std::ofstream::app);
+	//	file_out3.open("target_stability.csv",std::ofstream::out | std::ofstream::app);
+
 	TH1F *ht3 = new TH1F("ht3","T2 singles rate/current",100000,38200,58700); // should fall at 50 kHz / uA, but give large bins for safety
 	ht3->GetXaxis()->SetTitle("T2 singles/uAmp current on target");ht3->GetXaxis()->CenterTitle();
 	tree2->Draw("(evRightT2_r/(0.00038*evRightdnew_r))>>ht3","evRightT2_r>0","");
