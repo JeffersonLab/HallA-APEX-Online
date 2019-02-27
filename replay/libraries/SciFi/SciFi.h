@@ -80,11 +80,15 @@ public:
   Double_t*   fPtime_raw;   // [fNelem] Array: collects time of first peak (first sample to cross threshold)
 
 
+  Double_t*   fTime_fine_0; // [fNelem] Array: Time of zeroth pulse (refined timing method)
+
   Double_t*   fTime_0;      // [fNelem] Array: Time of zeroth pulse
   Double_t*   fTime_1;      // [fNelem] Array: Time of first pulse
   Double_t*   fTime_2;      // [fNelem] Array: Time of second pulse
   Double_t*   fTime_3;      // [fNelem] Array: Time of third pulse
   Double_t*   fTime_4;      // [fNelem] Array: Time of fourth pulse
+
+  Int_t Threshold = 50;     // Threshold (above pedestal) of raw timing 'hits' when testing raw data
 
 
   //FADC

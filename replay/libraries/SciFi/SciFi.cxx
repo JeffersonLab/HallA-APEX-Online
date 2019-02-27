@@ -156,6 +156,8 @@ Int_t SciFi::ReadDatabase( const TDatime& date )
     fAHits_raw = new Int_t[ nval];
     fPtime_raw = new Double_t[ nval];
     
+    fTime_fine_0 = new Double_t[ nval];
+
     fTime_0 = new Double_t[ nval];
     fTime_1 = new Double_t[ nval];
     fTime_2 = new Double_t[ nval];
@@ -373,15 +375,14 @@ Int_t SciFi::DefineVariables( EMode mode )
     { "Noise", "Noise present? 0 if not, 1 if yes", "fNoise"},    
     { "hit_X_Y",  "Bool showing if there has been any hit",       "fhit_X_Y" },
     { "hit_fibre", "Displays channel hit(1) or no hit(0)",        "fhit_fibre"},
-    { "a_hits_raw", "Displays number of 'hits' per fibre per event", "fAHits_raw"},
+    { "a_hits_raw", "Displays number of 'hits' perS fibre per event", "fAHits_raw"},
     { "ptime_raw", "Time of first pulse in event (if applicable)", "fPtime_raw"},
     { "time_0", "Time of the zeroth pulse in event (if applicable)", "fTime_0"},
     { "time_1", "Time of the first pulse in event (if applicable)", "fTime_1"},
     { "time_2", "Time of the second pulse in event (if applicable)", "fTime_2"},
     { "time_3", "Time of the third pulse in event (if applicable)", "fTime_3"},
     { "time_4", "Time of the fourth pulse in event (if applicable)", "fTime_4"},
-    
-
+    { "fine_time", "Time of the zeroth pulse in event (if applicable), uses refined timing method", "fTime_fine_0"},
     { 0 }
   };
 
@@ -468,6 +469,7 @@ void SciFi::DeleteArrays()
   delete [] fTime_2;  fTime_2 = NULL;
   delete [] fTime_3;  fTime_3 = NULL;
   delete [] fTime_4;  fTime_4 = NULL;
+  delete [] fTime_fine_0;  fTime_fine_0 = NULL;
 
   // delete [] fA_raw_c;    fA_raw_c    = NULL;
   // delete [] fA_raw_p;    fA_raw_p    = NULL;
@@ -526,6 +528,8 @@ void SciFi::Clear( Option_t* opt )
     fTime_3[i] = 0;
     fTime_4[i] = 0;
 
+    fTime_fine_0[i] = 0;
+
     fPeak[i]=0.0;
     fT_FADC[i]=0.0;
     fT_FADC_c[i]=0.0;
@@ -551,6 +555,7 @@ void SciFi::Clear( Option_t* opt )
     memset( fTime_2, 0, fNelem*sizeof(fTime_2[0]) );
     memset( fTime_3, 0, fNelem*sizeof(fTime_3[0]) );
     memset( fTime_4, 0, fNelem*sizeof(fTime_4[0]) );
+    memset( fTime_fine_0, 0, fNelem*sizeof(fTime_fine_0[0]) );
   }
 }
 
@@ -946,34 +951,139 @@ Int_t SciFi::Decode( const THaEvData& evdata )
 
 	  first_hit = true;
 
+	  Int_t max_sample = 0; // value of max sample in pulse
+
+	  Int_t max_value = 0; // sample with max value
+	  
+	  // variables for timing peak of first pulse
+	  Int_t s0 = 0; // sample before halfmax
+	  Int_t s1 = 0; // sample after halfmax
+
+	  Int_t a0 = 0; // value of sample at s0
+	  Int_t a1 = 0; // value of sample at s1
+	  
+	  Double_t halfmax = 0;
+		  
+	  Double_t tfine = 0;
+	  
+	  Double_t final_t = 0;
+
+	  Double_t newped = 0.0;
+     
+
+
 	  for(Int_t s = 0; s < num_samples; s++) {
 
 	    fA_raw[fibre][s] = samples[s];
 
-
+	    max_sample = 0;
+	    max_value = 0;
+	    s0 = 0;
+	    s1 = 0;
+	    halfmax = 0;
+	    tfine = 0;
+	    final_t = 0;
+	    newped = 0.;
 
 	    // raw-mode analysis
 
-	    if(s == 0 && fA_raw[fibre][s] > 400){
+	    // if(s == 0 && fA_raw[fibre][s] > (fPed[fibre] + Threshold) ){
 
-	      // Scondition for first fibre (can't check if previous fibre also had high value)
-	      fAHits_raw[fibre]++;
-	      fPtime_raw[fibre] = (s+1)*4.;
-	      //	      cout << "First condition true!" << endl;
+	    //   // condition for first sample (can't check if previous sample also had high value)
+	    //   fAHits_raw[fibre]++;
+	    //   fPtime_raw[fibre] = (s+1)*4.;
+	    //   //	      cout << "First condition true!" << endl;
 
-	      first_hit = false;
+	    //   first_hit = false;
 	      
-	      fTime_0[fibre] =  (s+1)*4.;
+	    //   fTime_0[fibre] =  (s+1)*4.;
 	      
 
-	    }
+	    // }
 	    
-	    if (s > 0 && fA_raw[fibre][s] > 400 && fA_raw[fibre][s-1] < 400){
+	    if (s > 4 && fA_raw[fibre][s] > (fPed[fibre] + Threshold) && fA_raw[fibre][s-1] <  (fPed[fibre] + Threshold) ){
 	      
-	      //	      cout << "other condition true!" << endl;
+
+	      
+	      // Loop over length of pulse to find maximum sample
+	      // only fo this for the first event
+
 	      if(fAHits_raw[fibre] == 0){	       
-	      fTime_0[fibre] =  (s+1)*4.;
+		
+
+		// calculate a pedestal from the first 4 bins 
+
+		for (Int_t sam3 = 0; sam3 <4; sam3++){
+
+		  newped = newped + fA_raw[fibre][sam3];
+		  
+
 		}
+		//   cout << "newped sum " << newped << endl;
+		newped = newped / 4.;
+
+		for (Int_t sam = 0; sam < min(5,(num_samples -s)) ; sam++){
+		  
+		  if (fA_raw[fibre][sam + s] > max_value){
+		    
+		    max_sample = sam + s;
+		    max_value = fA_raw[fibre][sam + s];
+		    
+		  }		  
+
+		}
+		
+
+		// find sample before halfmax
+		halfmax = (max_value - newped) / 2.0;
+
+		for (Int_t sam1 = 0;  sam1 < min(5,(num_samples -s)) ; sam1++){
+
+		  if((fA_raw[fibre][sam1+s-1]-newped) <= halfmax && (fA_raw[fibre][s + sam1]-newped) > halfmax){
+		    s0 =  sam1+s-1;
+		    break;
+		  }
+		}
+
+		// find sample after halfmax
+
+
+		for (Int_t sam2 = 0;  sam2 < min(5,(num_samples -s)) ; sam2++){
+
+		  if((fA_raw[fibre][s + sam2]-newped) > halfmax && (fA_raw[fibre][s + sam2 + 1]-newped) <= halfmax){
+		    s1 =  s + sam2;
+		    break;
+		  }
+		}
+
+		
+		//	halfmax = (fA_raw[fibre][s1] + fA_raw[fibre][s0]) /2;
+
+		// interpolate time between s0 and s2
+
+		a0 = fA_raw[fibre][s0]-newped;
+		a1 = fA_raw[fibre][s0 +1 ]-newped;
+		//dirty if condition
+		if (a1<a0 || a1==a0) continue;
+		//   cout << "s0 " << s0 << " , a0 " << a0 << " , a1 " << a1 << " halfmax " << halfmax << endl;
+		tfine =  (( ( halfmax - a0)/(a1-a0) * 64.0));
+                //final_t = (s0 << 6) + tfine;
+	       	final_t = 4.0*s0  + tfine*0.0625;
+
+		//	cout << "tfine is " << tfine  << " , and final time is : " << final_t << endl;
+
+
+		fTime_fine_0[fibre] = 	final_t;
+
+
+		// need to convert s0 sample to compatible time
+
+
+		fTime_0[fibre] =  (s+1)*4.;
+	      }
+
+
+
 	      if(fAHits_raw[fibre] == 1){	       
 		fTime_1[fibre] =  (s+1)*4.;
 	      }
