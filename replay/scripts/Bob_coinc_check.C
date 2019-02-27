@@ -3,6 +3,9 @@
 void Bob_coinc_check(Int_t flag, TString drawoption){
 
 
+  int runnumber = 0;
+  TString run = gSystem->Getenv("RUNNUM");
+  runnumber = run.Atoi();
   
   gStyle->SetOptStat(0);
   gPad->SetFillStyle(4000);
@@ -131,8 +134,12 @@ leg->AddEntry((TObject*)0,Form("Number of good T2 (T6 trigger) = %0.1f",n_good_c
 leg->AddEntry((TObject*)0,Form("Total T6 triggers = %0.1f",n_total_T6),"");
 leg->AddEntry((TObject*)0,Form("Percent coincidences good = %0.1f",100.0*ratio_good_to_T6),"");
 leg->Draw();
-//c1->Print("plot.pdf","pdf");
+//gPad->Print("plot.pdf","pdf");
 //gSystem->Exec(Form("mv plot.pdf goodcoinc_%d.pdf",runnumber));
+ofstream file_out1;
+file_out1.open("Per_run_integrated_charge_online.csv",std::ofstream::app);
+file_out1<<runnumber<<","<<100*ratio_good_to_T6<<",0.0"<<std::endl;
+file_out1.close();
 }
   //if(flag==1){
     

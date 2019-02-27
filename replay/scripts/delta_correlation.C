@@ -1,6 +1,6 @@
 using namespace std;
 #include <iostream>
-void delta_correlation(Int_t flag, TString drawoption, Int_t runnumber = 0, Int_t n_runs = 0){
+void delta_correlation(Int_t flag, TString drawoption){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
 // I want to know the average singles (T2) rate/current scaler rate vs. run number and vs. time (vs. time in a plot, avg vs. run number as an average to show long time scales)
@@ -11,6 +11,9 @@ void delta_correlation(Int_t flag, TString drawoption, Int_t runnumber = 0, Int_
 
 // by hand
 //int runnumber = 4261;
+  int runnumber = 0;
+  TString run = gSystem->Getenv("RUNNUM");
+  runnumber = run.Atoi();
 
 // Old
 /*TString rootfile = Form("/adaqfs/home/a-onl/apex_work/ranit/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root",runnumber);

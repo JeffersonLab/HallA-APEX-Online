@@ -1,3 +1,4 @@
+//#include "/adaqfs/apps/analyzer/src/src/THaRun.h"
 void target_stability(Int_t flag, TString drawoption){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
@@ -7,8 +8,14 @@ void target_stability(Int_t flag, TString drawoption){
 // I want to know the production resultant good T6 total counts vs. time and vs. integrated charge (I already can count good T6s with the fit)
 // I want to know the integrated current in coulombs per run (extra)
 
-// by hand
-int runnumber = 0;
+// By Analyzer
+//THaRun* runinfo = (THaRun*)gROOT->FindObject("Run_Data");
+//if(runinfo==NULL) runnumber=0;
+//else runnumber=runinfo->GetNumber();
+// By Hand
+  int runnumber = 0;
+  TString run = gSystem->Getenv("RUNNUM");
+  runnumber = run.Atoi();
 //TString rootfile = Form("/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/rootfiles/apex_online_%d.root",runnumber);
 //TFile *f = TFile::Open(rootfile,"READ");
 //TTree *tree2 = (TTree*)f->Get("evRight");*/
@@ -42,9 +49,9 @@ if (flag==1){
 	tree2->GetEntry(2);
 	rdnew_initial = rdnew;
 	clock_initial = clock;
-	cout<<"initial clock = "<<clock_initial<<endl;
-	cout<<"initial dnew = "<<rdnew_initial<<endl;
-	cout<<"n entries = "<<n_entries<<endl;
+	//cout<<"initial clock = "<<clock_initial<<endl;
+	//cout<<"initial dnew = "<<rdnew_initial<<endl;
+	//cout<<"n entries = "<<n_entries<<endl;
 	tree2->GetEntry(n_entries-1);
 	rdnew_final   = rdnew;
 	clock_final   = clock;
