@@ -59,7 +59,7 @@ c1->Divide(1,2);
 
 if (flag==1){ 
 	ofstream file_out1;
-	file_out1.open("Per_run_delta_correlation.csv",std::ofstream::app);
+	file_out1.open("Per_run_delta_correlation_online.csv",std::ofstream::app);
 	TH2F *ht1 = new TH2F("ht1","L-arm tgt delta p vs R-arm tgt delta p",120,-0.06,0.06,60,-0.06,0.06); // should fall at 50 kHz / uA, but give large bins for safety
 	ht1->GetXaxis()->SetTitle("L-arm tgt delta p");ht1->GetXaxis()->CenterTitle();
 	ht1->GetYaxis()->SetTitle("R-arm tgt delta p");ht1->GetXaxis()->CenterTitle();
@@ -75,7 +75,7 @@ if (flag==1){
 }
 else if (flag==2){
 	ofstream file_out2;
-	file_out2.open("Per_run_delta_correlation_cerenkov_cuts.csv",std::ofstream::app);
+	file_out2.open("Per_run_delta_correlation_cerenkov_cuts_online.csv",std::ofstream::app);
 	TH2F *ht2 = new TH2F("ht2","R-arm tgt delta p vs R-arm tgt delta p, with Cherenkov > 2000 cut, timing cuts 1685 to 1710",120,-0.06,0.06,60,-0.06,0.06); // should fall at 50 kHz / uA, but give large bins for safety
 	ht2->GetXaxis()->SetTitle("L-arm tgt delta p, with timing cuts");ht2->GetXaxis()->CenterTitle();
 	ht2->GetYaxis()->SetTitle("R-arm tgt delta p, with timing cuts");ht2->GetYaxis()->CenterTitle();
@@ -95,7 +95,7 @@ else if (flag==2){
 }
 else if (flag==3){
 	ofstream file_out3;
-	file_out3.open("Per_run_delta_correlation_cerenkov_weaker_cuts.csv",std::ofstream::app);
+	file_out3.open("Per_run_delta_correlation_cerenkov_weaker_cuts_online.csv",std::ofstream::app);
         TH2F *ht3 = new TH2F("ht3","L-arm tgt delta p vs R-arm tgt delta p, with Cherenkov > 1000 cut, timing cuts 1685 to 1710",120,-0.06,0.06,60,-0.06,0.06);
         ht3->GetXaxis()->SetTitle("L-arm tgt delta p, with timing cuts");ht3->GetXaxis()->CenterTitle();
         ht3->GetYaxis()->SetTitle("R-arm tgt delta p, with timing cuts");ht3->GetYaxis()->CenterTitle();

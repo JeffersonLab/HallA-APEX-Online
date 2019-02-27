@@ -26,8 +26,8 @@ if (flag==1){
 	// add avg current for run to legend
 	ofstream file_out1;
 	ofstream file_out1_avg;
-	file_out1.open("Per_run_integrated_charge.csv",std::ofstream::app);
-	file_out1_avg.open("Per_run_avg_current.csv",std::ofstream::app);
+	file_out1.open("Per_run_integrated_charge_online.csv",std::ofstream::app);
+	file_out1_avg.open("Per_run_avg_current_online.csv",std::ofstream::app);
 
 	tree2->Draw("0.00038*evRightdnew_r:Entry$","evRightdnew_r>0","*"); // eyeballed 0.00038 uA/rightDnew scaler rate
 	double rdnew         = 0;
@@ -84,7 +84,7 @@ if (flag==1){
 
 else if (flag==2){
 	ofstream file_out2;
-	file_out2.open("Per_run_target_stability_T6_per_uA.csv",std::ofstream::app);
+	file_out2.open("Per_run_target_stability_T6_per_uA_online.csv",std::ofstream::app);
 	TH1F *ht2 = new TH1F("ht2","T6 coincidences rate/current",1000,0,500); // should fall at 50 kHz / uA, but give large bins for safety
 	ht2->GetXaxis()->SetTitle("T6 coincidences/uAmp current on target");ht2->GetXaxis()->CenterTitle();
 	tree2->Draw("(evRightT6_r/(0.00038*evRightdnew_r))>>ht2","evRightT6_r>0","");
@@ -110,7 +110,7 @@ else if (flag==2){
 
 else if (flag==3){ 
 	ofstream file_out3;
-	file_out3.open("Per_run_target_stability_T2_per_uA.csv",std::ofstream::app);
+	file_out3.open("Per_run_target_stability_T2_per_uA_online.csv",std::ofstream::app);
 	TH1F *ht3 = new TH1F("ht3","T2 singles rate/current",100000,38200,58700); // should fall at 50 kHz / uA, but give large bins for safety
 	ht3->GetXaxis()->SetTitle("T2 singles/uAmp current on target");ht3->GetXaxis()->CenterTitle();
 	tree2->Draw("(evRightT2_r/(0.00038*evRightdnew_r))>>ht3","evRightT2_r>0","");
@@ -136,8 +136,8 @@ else if (flag==3){
 }
 else if (flag==4){ 
 	ofstream file_out4;
-	file_out4.open("Per_run_target_stability_avg_T2.csv",std::ofstream::app);
-	//	file_out4.open("target_stability.csv",std::ofstream::out | std::ofstream::app);
+	file_out4.open("Per_run_target_stability_avg_T2_online.csv",std::ofstream::app);
+	//	file_out4.open("target_stability_online.csv",std::ofstream::out | std::ofstream::app);
 
 	TH1F *ht4 = new TH1F("ht4","T2 singles rate",100000.0,0.0,1e7); // should fall at 50 kHz / uA, but give large bins for safety
 	ht4->GetXaxis()->SetTitle("T2 singles");ht4->GetXaxis()->CenterTitle();
@@ -164,8 +164,8 @@ else if (flag==4){
 }
 else if (flag==5){ 
 	ofstream file_out5;
-	file_out5.open("Per_run_target_stability_avg_T5.csv",std::ofstream::app);
-	//	file_out5.open("target_stability.csv",std::ofstream::out | std::ofstream::app);
+	file_out5.open("Per_run_target_stability_avg_T5_online.csv",std::ofstream::app);
+	//	file_out5.open("target_stability_online.csv",std::ofstream::out | std::ofstream::app);
 
 	TH1F *ht5 = new TH1F("ht5","T5 singles rate",100000.0,0.0,1e5); // should fall at 50 kHz / uA, but give large bins for safety
 	ht5->GetXaxis()->SetTitle("T5 singles");ht5->GetXaxis()->CenterTitle();
@@ -192,8 +192,8 @@ else if (flag==5){
 }
 else if (flag==6){ 
 	ofstream file_out6;
-	file_out6.open("Per_run_target_stability_avg_T6.csv",std::ofstream::app);
-	//	file_out6.open("target_stability.csv",std::ofstream::out | std::ofstream::app);
+	file_out6.open("Per_run_target_stability_avg_T6_online.csv",std::ofstream::app);
+	//	file_out6.open("target_stability_online.csv",std::ofstream::out | std::ofstream::app);
 
 	TH1F *ht6 = new TH1F("ht6","T6 singles rate",100000.0,0.0,1e4); // should fall at 60 kHz / uA, but give large bins for safety
 	ht6->GetXaxis()->SetTitle("T6 singles");ht6->GetXaxis()->CenterTitle();
@@ -221,8 +221,8 @@ else if (flag==6){
 
 else if (flag==7){ 
 	ofstream file_out7;
-	file_out7.open("Per_run_target_stability_avg_T5toT2.csv",std::ofstream::app);
-	//	file_out7.open("target_stability.csv",std::ofstream::out | std::ofstream::app);
+	file_out7.open("Per_run_target_stability_avg_T5toT2_online.csv",std::ofstream::app);
+	//	file_out7.open("target_stability_online.csv",std::ofstream::out | std::ofstream::app);
 
 	TH1F *ht7 = new TH1F("ht7","T5/T2 singles rate",50000.0,0.0,.05); // should fall at 70 kHz / uA, but give large bins for safety
 	ht7->GetXaxis()->SetTitle("T5/T2 singles");ht7->GetXaxis()->CenterTitle();
