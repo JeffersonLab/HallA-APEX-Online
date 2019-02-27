@@ -65,3 +65,6 @@ scaler/hana_scaler/tscalroc11
 scaler/hana_scaler/xscaler
 replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*
+
+replay/scripts/FADC_decode_apex/results/*txt
+replay/scripts/FADC_decode_apex/results/*png
