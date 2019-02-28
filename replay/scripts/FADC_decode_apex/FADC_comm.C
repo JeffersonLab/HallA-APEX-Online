@@ -170,9 +170,9 @@ int main(int argc, char* argv[])
   runFile = Form("/adaq1/data1/apex_%d.dat.0", runNumber);
   // Create file name patterns
   if (spectrometer == "LHRS")
-    rootFile = Form("/chafs1/work1/apex/FADC_rootfiles/fadc_left_%d.root", runNumber);
+    rootFile = Form("/chafs2/work1/APEX/FADC_rootfiles/fadc_left_%d.root", runNumber);
   if (spectrometer == "RHRS")
-      rootFile = Form("/chafs1/work1/apex/FADC_rootfiles/fadc_right_%d.root", runNumber);
+      rootFile = Form("/chafs2/work1/APEX/FADC_rootfiles/fadc_right_%d.root", runNumber);
   // Initialize raw samples index array
   memset(raw_samp_index, 0, sizeof(raw_samp_index));
   memset(noverflow, 0, sizeof(noverflow));
