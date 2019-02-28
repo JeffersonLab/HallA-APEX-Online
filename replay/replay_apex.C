@@ -46,6 +46,7 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
   }
   
   const char* exp=getenv("EXPERIMENT");
+  exp = "APEX"; // short-term fix
 
   const char* RNAME=rootname.Data();
   TString ODEF;
@@ -857,22 +858,22 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        const char* CONFIGFILEPHYS=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_phy.cfg");
 
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf /chafs1/work1/%s/Run_pdfs/right_detectors_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf /chafs2/work1/%s/Run_pdfs/right_detectors_latest.pdf",exp,runnumber,exp));
               
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",exp,runnumber,SUM_DIR));    
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",exp,runnumber,SUM_DIR));    
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf /chafs2/work1/%s/Run_pdfs/right_physics_latest.pdf",exp,runnumber,exp));
                 
        const char* config_online=Form(REPLAY_DIR_PREFIX,"onlineGUI64/RHRS_online.cfg");
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, config_online,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_online_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",exp,runnumber,SUM_DIR)); 
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",exp,runnumber,SUM_DIR)); 
      }
     
      else if(left && !right){ 
@@ -883,22 +884,22 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        cout << "Passed LEFT arm condition for plots" << endl;
        
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILE_L,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf /chafs1/work1/%s/Run_pdfs/left_detectors_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf /chafs2/work1/%s/Run_pdfs/left_detectors_latest.pdf",exp,runnumber,exp));
        
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS_L,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf /chafs1/work1/%s/Run_pdfs/left_physics_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf /chafs2/work1/%s/Run_pdfs/left_physics_latest.pdf",exp,runnumber,exp));
        
        const char* config_online=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_online.cfg");
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, config_online,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_online_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_online_%d.pdf %sleft_online_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_online_%d.pdf %sleft_online_latest.pdf",exp,runnumber,SUM_DIR));
 
 
      }
@@ -915,24 +916,24 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        
        
        gSystem->Exec(Form("%sonline -P -f %s -r %d"                                   ,GUI_DIR      ,CONFIG_L ,runnumber              ));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_detectors_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/left_detectors_%d.pdf /chafs1/work1/%s/Run_pdfs/left_detectors_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf %sleft_detectors_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/left_detectors_%d.pdf /chafs2/work1/%s/Run_pdfs/left_detectors_latest.pdf",exp,runnumber,exp));
        
        
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGPHYS_L,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_physics_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/left_physics_%d.pdf /chafs1/work1/%s/Run_pdfs/left_physics_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf %sleft_physics_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/left_physics_%d.pdf /chafs2/work1/%s/Run_pdfs/left_physics_latest.pdf",exp,runnumber,exp));
        
        const char* config_online=Form(REPLAY_DIR_PREFIX,"onlineGUI64/LHRS_online.cfg");
 
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, config_online,runnumber)); 
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/left_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/left_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sleft_online_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/left_online_%d.pdf %sleft_online_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/left_online_%d.pdf %sleft_online_latest.pdf",exp,runnumber,SUM_DIR));
        
        
        
@@ -945,10 +946,10 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
        
        
        gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGFILE_R ,runnumber              ));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_detectors_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",exp,runnumber,SUM_DIR));
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/right_detectors_%d.pdf /chafs1/work1/%s/Run_pdfs/right_detectors_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf %sright_detectors_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/right_detectors_%d.pdf /chafs2/work1/%s/Run_pdfs/right_detectors_latest.pdf",exp,runnumber,exp));
        
 
 
@@ -956,18 +957,18 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
 
 
        gSystem->Exec(Form("%sonline -P -f %s -r %d", GUI_DIR, config_online,runnumber)); 
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_online_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_online_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",exp,runnumber,SUM_DIR)); 
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_online_%d.pdf %sright_online_latest.pdf",exp,runnumber,SUM_DIR)); 
 
 
        SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/"); // not sure why this had to be added, but SUM_DIR seem to be redefined otherwise
 
        gSystem->Exec(Form("%sonline -P -f %s -r %d",GUI_DIR, CONFIGFILEPHYS,runnumber));
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        gSystem->Exec(Form("unlink %sright_physics_latest.pdf",SUM_DIR));
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",exp,runnumber,SUM_DIR));    
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/right_physics_%d.pdf /chafs1/work1/%s/Run_pdfs/right_physics_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf %sright_physics_latest.pdf",exp,runnumber,SUM_DIR));    
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/right_physics_%d.pdf /chafs2/work1/%s/Run_pdfs/right_physics_latest.pdf",exp,runnumber,exp));
        
 
        //==================================
@@ -984,20 +985,20 @@ void replay_apex(Int_t runnumber=0,Int_t numevents=0,Int_t fstEvt=0,Bool_t Quiet
       		
        SUM_DIR = Form(REPLAY_DIR_PREFIX,"summaryfiles/");
        
-       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
+       gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/coinc_%d.pdf",SUM_DIR,runnumber,exp,runnumber));
        
        gSystem->Exec(Form("unlink %scoinc_latest.pdf",SUM_DIR));
        
-       gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf %scoinc_latest.pdf",exp,runnumber,SUM_DIR));
+       gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/coinc_%d.pdf %scoinc_latest.pdf",exp,runnumber,SUM_DIR));
           
-       gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_latest.pdf",exp,runnumber,exp));
+       gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/coinc_%d.pdf /chafs2/work1/%s/Run_pdfs/coinc_latest.pdf",exp,runnumber,exp));
        
        
        //gSystem->Exec(Form("%sonline -P -f %s -r %d"                                     ,GUI_DIR      ,CONFIGCOINCPHYS ,runnumber              ));
-       //gSystem->Exec(Form("mv %stemp_%d.pdf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
+       //gSystem->Exec(Form("mv %stemp_%d.pdf /chafs2/work1/%s/Run_pdfs/coinc_physics_%d.pdf"                     ,SUM_DIR      ,runnumber       ,exp,runnumber));
        //gSystem->Exec(Form("unlink %scoinc_physics_latest.pdf"                           ,SUM_DIR                                               ));
-       //gSystem->Exec(Form("ln -s /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
-       //gSystem->Exec(Form("ln -sf /chafs1/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
+       //gSystem->Exec(Form("ln -s /chafs2/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"     ,exp,runnumber       ,SUM_DIR                ));    
+       //gSystem->Exec(Form("ln -sf /chafs2/work1/%s/Run_pdfs/coinc_physics_%d.pdf %scoinc_physics_latest.pdf"    ,exp,runnumber       ,exp          ));
      }
 
        
