@@ -176,10 +176,10 @@ TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -200 5000 L.prl2.a_p>=-
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 5000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
-TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
-TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
-TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
+TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 1200 L.tr.n>0
+TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 1200 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 1200 L.tr.n>0
+TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1200 L.tr.n>0
 
 TH1F Lprl1x 'L-arm Pion Rejector1-X Distribution' L.prl1.trx 200 -1.5 1.5
 TH1F Lprl1y 'L-arm Pion Rejector1-Y Distribution' L.prl1.try 54 -0.4 0.4
@@ -328,10 +328,10 @@ TH2F Rurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Rrb.Raster.rawcur.x
 TH2F Rurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Rrb.Raster.rawcur.y Rrbbx 500 20000 120000 200 -5. 5.
 TH2F Rurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x Rrbby 500 50000 100000 200 -5. 5.
 
-TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 20000 60000 200 -5. 5.
-TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 60000 200 -5. 5.
-TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 20000 60000 200 -5. 5.
-TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 60000 200 -5. 5.
+TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 35000 50000 200 -3. 3.
+TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 60000 200 -1. 6.
+TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 35000 50000 200 -3. 3.
+TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 60000 200 -1. 6.
 
 TH2F Rdrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y Rrbax 500 20000 120000 200 -5. 5.
 TH2F Rdrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x Rrbay 500 50000 100000 200 -5. 5.
@@ -348,10 +348,10 @@ TH2F Lurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.x
 TH2F Lurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.y Lrbbx 500 20000 120000 200 -5. 5.
 TH2F Lurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.x Lrbby 500 50000 100000 200 -5. 5.
 
-TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 17000 50000 200 -5. 5.
-TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 17000 50000 200 -5. 5.
-TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 17000 50000 200 -5. 5.
-TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 17000 50000 200 -5. 5.
+TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 25000 35000 200 -2. 2.
+TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 17000 50000 200 -1. 6.
+TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 25000 35000 200 -2. 2.
+TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 17000 50000 200 -1. 6.
 
 TH2F Ldrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.y Lrbax 500 20000 120000 200 -5. 5.
 TH2F Ldrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.x Lrbay 500 50000 100000 200 -5. 5.
@@ -446,10 +446,10 @@ TH1F Rsha_p 'Shower Fastbus ADC (PedSub)' R.sh.a_p 1100 -99.5 2000.5 R.sh.a_p>-5
 TH1F Rshsum  'Shower sum Fastbus ADC' R.sh.asum_c 100 10 3000 
 
 TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 100 1 1500 100 1 3000 
-TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 3000 R.tr.n>0
-TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 5000 R.tr.n>0
-TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
-TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
+TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
 
 TH1F Rshx 'R-arm Shower-X Distribution' R.sh.trx 200 -1.5 1.5
 TH1F Rshy 'R-arm Shower-Y Distribution' R.sh.try 54 -0.4 0.4
