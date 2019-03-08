@@ -14,4 +14,4 @@ LD_LIBRARY_PATH=$ANALYZER/lib:$(unpath $LD_LIBRARY_PATH ~/tritium/replay/analyze
 
 export PATH=$(repath $PATH)
 export LD_LIBRARY_PATH=$(repath $LD_LIBRARY_PATH)
-
+export apexroot=/chafs2/work1/APEX/Rootfiles/
