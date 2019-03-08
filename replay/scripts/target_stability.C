@@ -1,4 +1,7 @@
 //#include "/adaqfs/apps/analyzer/src/src/THaRun.h"
+
+using namespace std;
+
 void target_stability(Int_t flag, TString drawoption){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
@@ -8,10 +11,6 @@ void target_stability(Int_t flag, TString drawoption){
 // I want to know the production resultant good T6 total counts vs. time and vs. integrated charge (I already can count good T6s with the fit)
 // I want to know the integrated current in coulombs per run (extra)
 
-// By Analyzer
-//THaRun* runinfo = (THaRun*)gROOT->FindObject("Run_Data");
-//if(runinfo==NULL) runnumber=0;
-//else runnumber=runinfo->GetNumber();
 // By Hand
   int runnumber = 0;
   TString run = gSystem->Getenv("RUNNUM");

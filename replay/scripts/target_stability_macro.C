@@ -1,6 +1,6 @@
 using namespace std;
 #include <iostream>
-void target_stability_macro(Int_t flag, TString drawoption, Int_t runnumber, Int_t n_runs = 0, Int_t online = 0){
+void target_stability_macro(Int_t flag, TString drawoption, Int_t runnumber = 0, Int_t n_runs = 0, Int_t online = 0){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
 // I want to know the average singles (T2) rate/current scaler rate vs. run number and vs. time (vs. time in a plot, avg vs. run number as an average to show long time scales)
@@ -9,8 +9,10 @@ void target_stability_macro(Int_t flag, TString drawoption, Int_t runnumber, Int
 // I want to know the production resultant good T6 total counts vs. time and vs. integrated charge (I already can count good T6s with the fit)
 // I want to know the integrated current in coulombs per run (extra)
 
-// by hand
-//int runnumber = 4261;
+// Get environment variable run number
+//  TString run = gSystem->Getenv("RUNNUM");
+//  runnumber = run.Atoi();
+
 
 // Old
 /*TString rootfile = Form("/adaqfs/home/a-onl/apex_work/ranit/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root",runnumber);
@@ -28,10 +30,10 @@ TTree *tree2 = (TTree*)f->Get("evRight");
 
     //TString ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
     if (online == 1) {
-        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root";
+        ROOTFILE_DIR = "/chafs1/work1/apex/Rootfiles/apex_online_%d.root";
     }
     else {
-        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+        ROOTFILE_DIR = "/chafs1/work1/apex/Rootfiles/apex_%d.root";
 
     }
     filenamebase = Form(ROOTFILE_DIR,runnumber+i);
