@@ -1,6 +1,6 @@
 using namespace std;
 #include <iostream>
-void delta_correlation_macro(Int_t flag, TString drawoption, Int_t runnumber = 0, Int_t n_runs = 0){
+void delta_correlation_macro(Int_t flag, TString drawoption, Int_t runnumber = 0, Int_t n_runs = 0, Int_t online = 0){
 // Ratio of T2 single arm trigger rate to current scaler rate - stability over time (should be constant) and as a function of current (should be linear)
 
 // I want to know the average singles (T2) rate/current scaler rate vs. run number and vs. time (vs. time in a plot, avg vs. run number as an average to show long time scales)
@@ -11,6 +11,12 @@ void delta_correlation_macro(Int_t flag, TString drawoption, Int_t runnumber = 0
 
 // by hand
 //int runnumber = 4261;
+
+
+// Get environment variable run number
+//  TString run = gSystem->Getenv("RUNNUM");
+//  runnumber = run.Atoi();
+
 
 // Old
 /*TString rootfile = Form("/adaqfs/home/a-onl/apex_work/ranit/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root",runnumber);
@@ -27,7 +33,13 @@ TTree *tree2 = (TTree*)f->Get("evRight");
   for(Int_t i = 0; i <= (n_runs); i++){
 
     //TString ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root";
-    TString ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+    if (online == 1) {
+        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_online_%d.root";
+    }
+    else {
+        ROOTFILE_DIR = "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+
+    }
     filenamebase = Form(ROOTFILE_DIR,runnumber+i);
     
     filename = filenamebase;
