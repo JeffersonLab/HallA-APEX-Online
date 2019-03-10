@@ -75,7 +75,7 @@ ht1->Fit(f31,"R+");
 f2a->GetParameters(&par[0]);
 f31->GetParameters(&par[3]);
 total->SetParameters(par);
-
+float peak = f2a->GetParameter(1);
 ht1->Fit(total,"R"); // redraw and erase previous fit lines
 
 double par2[5];
@@ -133,6 +133,8 @@ leg->AddEntry((TObject*)0,Form("Number of good T2 (T6 trigger) = %0.1f",n_good_c
 //leg->AddEntry((TObject*)0,Form("Total number of T2 triggers = %0.1f",n_total_T2),"");
 leg->AddEntry((TObject*)0,Form("Total T6 triggers = %0.1f",n_total_T6),"");
 leg->AddEntry((TObject*)0,Form("Percent coincidences good = %0.1f",100.0*ratio_good_to_T6),"");
+
+leg->AddEntry((TObject*)0,Form("Peak position = %0.1f",peak),"");
 leg->Draw();
 //gPad->Print("plot.pdf","pdf");
 //gSystem->Exec(Form("mv plot.pdf goodcoinc_%d.pdf",runnumber));
