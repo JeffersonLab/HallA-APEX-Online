@@ -27,7 +27,7 @@ void cerdis(Int_t flag, TString drawoption){
     t1->SetTextColor(kRed);
     t1->SetTextSize(0.04);
     t1->SetTextAlign(21);
-    int i1=hay1->Integral();
+    int i1=hay1->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     t1->DrawLatexNDC(0.2,0.65,Form("Number of Entries: %d",i1));
     
@@ -46,7 +46,7 @@ void cerdis(Int_t flag, TString drawoption){
     t2->SetTextColor(kRed);
     t2->SetTextSize(0.05);
     t2->SetTextAlign(12);
-    int i2=hay2->Integral();
+    int i2=hay2->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     t2->DrawLatexNDC(0.2,0.65,Form("Number of Entries: %d",i2));
   
@@ -54,7 +54,7 @@ void cerdis(Int_t flag, TString drawoption){
     //t->SetTextColor(kRed);
     //t->SetTextSize(0.05);
     //t->SetTextAlign(12);
-    //int i1=ht1ac->Integral();
+    //int i1=ht1ac->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     //t->DrawLatexNDC(0.2,0.65,Form("e+/e- and good coinc. timing: %d",i1));
 
@@ -82,7 +82,7 @@ if(flag==4){
     t4->SetTextColor(kRed);
     t4->SetTextSize(0.04);
     t4->SetTextAlign(21);
-    int i4=hay4->Integral();
+    int i4=hay4->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     t4->DrawLatexNDC(0.2,0.65,Form("Number of Entries: %d",i4));
     
@@ -101,7 +101,7 @@ if(flag==4){
     t5->SetTextColor(kRed);
     t5->SetTextSize(0.05);
     t5->SetTextAlign(12);
-    int i5=hay5->Integral();
+    int i5=hay5->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     t5->DrawLatexNDC(0.2,0.65,Form("Number of Entries: %d",i5));
   
@@ -109,7 +109,7 @@ if(flag==4){
     //t->SetTextColor(kRed);
     //t->SetTextSize(0.05);
     //t->SetTextAlign(12);
-    //int i1=ht1ac->Integral();
+    //int i1=ht1ac->GetEntries();
     //t->DrawLatexNDC(0.2,0.85,Form("good coincidence counts"));
     //t->DrawLatexNDC(0.2,0.65,Form("e+/e- and good coinc. timing: %d",i1));
 
