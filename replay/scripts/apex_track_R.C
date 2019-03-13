@@ -13,16 +13,34 @@ void apex_track_R(Int_t runnum, Int_t entry=1){
   gStyle->SetPaperSize(18,22);
   gStyle->SetOptStat(0);
 
-  // only load the first split of rootfiles
+  //Loads all them splits
+ 
+  TString ROOTFILE_DIR =   "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+
   TChain *t = new TChain("T");
-  TString rootfile = Form("../rootfiles/apex_%d.root",runnum);
-  t->Add(rootfile.Data());
-  if(!t){
-   cout<< "can't find rootfile for run "<<runnum<<endl;
-   exit(0);
-   }
+
+  TString filenamebase = Form(ROOTFILE_DIR,runnum);
+  //  T->Add(Form(ROOTFILE_DIR,run_number));
+  //  T->Add(Form("/chafs1/work1/tritium/Rootfiles/tritium_%d*.root",run_number));
+
+  TString filename = filenamebase;
+
+  filenamebase.Remove(filenamebase.Last('.'),5);
+
+  Long_t split = 0;
+  while ( !gSystem->AccessPathName(filename.Data()) ) {
+    cout << "Added root file: " << filename << " to Tree" << endl;
+    t->Add(filename);
+    split++;
+    filename = filenamebase + "_" + split + ".root";
+  }
+
+
   Int_t nn=t->GetEntries();
-  cout<<"=="<<rootfile<<" loaded, "<<nn<<" events in total==\n";
+
+
+  cout << "Opened Run " << runnum << " with "  << nn << " events and " << split  << " file splits" <<  endl;
+   
 
 
   TCanvas *c1  = new TCanvas("c1","rawtime : wire number",1200,800);
@@ -31,7 +49,7 @@ void apex_track_R(Int_t runnum, Int_t entry=1){
   TH2F    *h3  = new TH2F("h3","u2 rawtime : wire number",400,0,400,200,2200,3000);
   TH2F    *h4  = new TH2F("h4","v2 rawtime : wire number",400,0,400,200,2200,3000);
 
-  c1->Divide(2,2);
+  c1->Divide(1,4);
 
   //--------------------------------
   t->SetBranchStatus("*"       ,0);
