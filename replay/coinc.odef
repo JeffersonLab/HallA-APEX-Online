@@ -404,7 +404,7 @@ TH1F Rs2rtT6_ 'S2 TDC Fastbus w/ T6 only: R-PMT ' R.s2.rt 500 1500 2500 R.s2.rt>
 TH1F Rs2la 'S2 FADC L-PMT' R.s2.la 1000 10000 20000 R.s2.la>0.
 TH1F Rs2ra 'S2 FADC R-PMT' R.s2.ra 1000 10000 20000 R.s2.ra>0.
 TH1F Rs2la_p 'S2 FADC(PedSub) L-PMT ' R.s2.la_p 220 -200 2000 R.s2.la_p>-6000.
-TH1F Rs2ra_p 'S2 FADC(PedSub) L-PMT ' R.s2.la_p 220 -200 2000 R.s2.la_p>-6000.
+TH1F Rs2ra_p 'S2 FADC(PedSub) R-PMT ' R.s2.ra_p 220 -200 2000 R.s2.ra_p>-6000.
 
 TH1F Rs2x 'R-arm S2-X Distribution' R.s2.trx 200 -1.5 1.5
 TH1F Rs2y 'R-arm S2-Y Distribution' R.s2.try 54 -0.4 0.4
