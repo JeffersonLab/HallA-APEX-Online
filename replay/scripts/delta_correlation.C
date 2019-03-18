@@ -59,40 +59,53 @@ c1->Divide(1,2);
   TTree *tree2 = (TTree*)gDirectory->Get("T");
 
 
+TCut cut= "R.cer.asum_c>1000 && L.cer.asum_c>1000 && L.tr.n==1 && R.tr.n==1";
+TCut bit_cut = "DR.bit6>0";
+
+TCut t6_window = "DR.rrawt6[0]>1665 && DR.rrawt6[0]<1679";
+
+TCut t2_window = "DR.rrawt2>1690 && DR.rrawt2<1705";
+
+TCut t2_reduced_window = "DR.rrawt2>1640 && DR.rrawt2<1740";
+
+double t6,good_t6,percent;
+
+
+
 
 if (flag==1){ 
 	ofstream file_out1;
 	file_out1.open("Per_run_delta_correlation_online.csv",std::ofstream::app);
-	TH2F *ht1 = new TH2F("ht1","R-arm tgt delta p vs L-arm tgt delta p with Cherenkov sum >1000 cut",120,-0.06,0.06,60,-0.06,0.06); // should fall at 50 kHz / uA, but give large bins for safety
+	
+	TH2F *ht1 = new TH2F("ht1","R-arm tgt delta p[0] vs L-arm tgt delta p[0] with track cut, reduced T2 and T6 windows, Cherenkov sum >1000 cut",120,-0.06,0.06,60,-0.06,0.06); 
+
+	tree2->Draw("R.tr.tg_dp[0]:L.tr.tg_dp[0]>>ht1",cut && bit_cut && t6_window && t2_reduced_window ,"colz");
+
 	ht1->GetXaxis()->SetTitle("L-arm tgt delta p");ht1->GetXaxis()->CenterTitle();
 	ht1->GetYaxis()->SetTitle("R-arm tgt delta p");ht1->GetXaxis()->CenterTitle();
-	tree2->Draw("R.tr.tg_dp:L.tr.tg_dp>>ht1","R.cer.asum_c>1000 && L.cer.asum_c>1000 && L.tr.n==1 && R.tr.n==1","colz");
-	//cout<<"Entries: "<<ht1->GetEntries()<<endl;
-	//ht1->Draw();
-	//ht2->GetXaxis()->SetRange(ht3->FindFirstBinAbove(0,1)-10,ht3->FindLastBinAbove(0,1)+10);
+
+
 	TLegend* leg1 = new TLegend(0.10,0.90,0.50,0.82);
 	leg1->AddEntry((TObject*)0,Form("Number of entries: %0.1f",ht1->GetEntries()));
 	leg1->Draw();
-	file_out1<<runnumber<<","<<ht1->GetEntries()<<",0.0"<<std::endl;
 	file_out1.close();
 }
 else if (flag==2){
 	ofstream file_out2;
 	file_out2.open("Per_run_delta_correlation_cerenkov_cuts_online.csv",std::ofstream::app);
-	TH2F *ht2 = new TH2F("ht2","R-arm tgt delta p vs L-arm tgt delta p, with Cherenkov sum > 1000 cut, timing cuts 1690 to 1705",120,-0.06,0.06,60,-0.06,0.06); // should fall at 50 kHz / uA, but give large bins for safety
+	
+	TH2F *ht2 = new TH2F("ht2","R-arm tgt delta p[0] vs L-arm tgt delta p[0], with track cut, reduced T2 and T6 window, Cherenkov sum > 1000 cut, rrawt2 cut 1690 to 1705",120,-0.06,0.06,60,-0.06,0.06); // should fall at 50 kHz / uA, but give large bins for safety
+
 	ht2->GetXaxis()->SetTitle("L-arm tgt delta p, with timing cuts");ht2->GetXaxis()->CenterTitle();
 	ht2->GetYaxis()->SetTitle("R-arm tgt delta p, with timing cuts");ht2->GetYaxis()->CenterTitle();
-	tree2->Draw("R.tr.tg_dp:L.tr.tg_dp>>ht2","R.cer.asum_c>1000 && L.cer.asum_c>1000 && L.tr.n==1 && R.tr.n==1 && DR.rrawt2>1690 && DR.rrawt2<1705 && (DR.evtypebits>>6)&1","colz");
-	//cout<<"Cut Entries: "<<ht2->GetEntries()<<endl;
-	//ht2->GetXaxis()->SetRange(ht3->FindFirstBinAbove(0,1)-10,ht3->FindLastBinAbove(0,1)+10);
-	//ht2->Draw();
-	//TH1* ht1_rebin = ht3->Rebin(50,"ht3_rebin");
-	//ht1_rebin->GetXaxis()->SetRange(ht3_rebin->FindFirstBinAbove(0,1)-10,ht3_rebin->FindLastBinAbove(0,1)+10);
-	//ht1_rebin->GetXaxis()->SetTitle("T2 singles/uAmp current on target");ht3_rebin->GetXaxis()->CenterTitle();
-	//ht1_rebin->Draw();
+
+	tree2->Draw("R.tr.tg_dp[0]:L.tr.tg_dp[0]>>ht2",cut && bit_cut && t6_window && t2_window, "colz");
+
+
 	TLegend* leg2 = new TLegend(0.10,0.90,0.50,0.82);
 	leg2->AddEntry((TObject*)0,Form("Number of entries after cuts: %0.1f",ht2->GetEntries()));
 	leg2->Draw();
+
 	file_out2<<runnumber<<","<<ht2->GetEntries()<<",0.0"<<std::endl;
 	file_out2.close();
 }
@@ -113,28 +126,29 @@ else if (flag==3){
 	file_out3.close();
 }
 else if(flag==4){
-	TH1F *ht4 = new TH1F("ht4","Sum of L-arm tgt delta p and R-arm tgt delta p, Cherenkov Sum > 1000",240,-0.12,0.12);
-	ht4->GetXaxis()->SetTitle("L-arm tgt delta p + R-arm tgt delta p");ht4->GetXaxis()->CenterTitle();
+	
+	TH1F *ht4 = new TH1F("ht4","Sum of L-arm tgt delta p[0] and R-arm tgt delta p[0], track cut,reduced T2 and T6 windows, Cherenkov Sum > 1000",240,-0.12,0.12);
+	ht4->GetXaxis()->SetTitle("L-arm tgt delta p[0] + R-arm tgt delta p[0]");ht4->GetXaxis()->CenterTitle();
 	ht4->GetYaxis()->CenterTitle();
-	// ht1->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht1->GetYaxis()->CenterTitle();
-	// ht1->SetMarkerStyle(3);ht1->SetMarkerSize(0.75);
-	// &&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7 &&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7&
-	tree2->Draw("R.tr.tg_dp+L.tr.tg_dp>>ht4","R.cer.asum_c>1000&&R.tr.n==1&&L.cer.asum_c>1000&&L.tr.n==1","COLZ");
+	
+	tree2->Draw("R.tr.tg_dp[0]+L.tr.tg_dp[0]>>ht4",cut && bit_cut && t6_window && t2_reduced_window);
+	
 	TLegend* leg4 = new TLegend(0.10,0.90,0.45,0.80);
 	leg4->AddEntry((TObject*)0,Form("Number of entries after cuts: %0.1f",ht4->GetEntries()));
 	leg4->Draw();
 }
 
 else if(flag==5){
-	TH1F *ht5 = new TH1F("ht5","Sum of L-arm tgt delta p and R-arm tgt delta p, Cherenkov Sum> 1000, timing cuts 1690 to 1705",240,-0.12,0.12);
-	ht5->GetXaxis()->SetTitle("L-arm tgt delta p + R-arm tgt delta p, with timing cuts");ht5->GetXaxis()->CenterTitle();
+	
+	TH1F *ht5 = new TH1F("ht5","Sum of L-arm tgt delta p[0] and R-arm tgt delta p[0], Cherenkov Sum> 1000, reduced T2 and T6 windows, rrawt2 cuts 1690 to 1705",240,-0.12,0.12);
+	ht5->GetXaxis()->SetTitle("L-arm tgt delta p[0] + R-arm tgt delta p[0], with timing cuts");ht5->GetXaxis()->CenterTitle();
 	ht5->GetYaxis()->CenterTitle();
-	// ht1->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht1->GetYaxis()->CenterTitle();
-	// ht1->SetMarkerStyle(3);ht1->SetMarkerSize(0.75);
-	// &&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7 &&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7&
-	tree2->Draw("R.tr.tg_dp+L.tr.tg_dp>>ht5","R.cer.asum_c>1000&&R.tr.n==1&&L.cer.asum_c>1000&&L.tr.n==1&&((DR.rrawt2>1690)&&(DR.rrawt2<1705))&&fEvtHdr.fEvtType==6","COLZ");
+	
+	tree2->Draw("R.tr.tg_dp[0]+L.tr.tg_dp[0]>>ht5",cut && bit_cut && t6_window && t2_window);
+
 	TLegend* leg5 = new TLegend(0.10,0.90,0.45,0.80);
 	leg5->AddEntry((TObject*)0,Form("Number of entries after cuts: %0.1f",ht5->GetEntries()));
 	leg5->Draw();
+
 }
 }
