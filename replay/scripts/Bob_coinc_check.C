@@ -13,6 +13,19 @@ void Bob_coinc_check(Int_t flag, TString drawoption){
 
 
   TTree *tree = (TTree*)gDirectory->Get("T");
+
+
+
+TCut cut= "R.cer.asum_c>1000 && L.cer.asum_c>1000 && L.tr.n==1 && R.tr.n==1";
+TCut bit_cut = "DR.bit6>0";
+
+TCut t6_window = "DR.rrawt6[0]>1665 && DR.rrawt6[0]<1679";
+
+TCut t2_window = "DR.rrawt2>1690 && DR.rrawt2<1705";
+
+TCut t2_reduced_window = "DR.rrawt2>1640 && DR.rrawt2<1740";
+
+double t6,good_t6,percent;
   if(flag==1){
 
   TH1F *ht1 = new TH1F("ht1","DR.rrawt2",115,1630,1745);
@@ -143,16 +156,52 @@ file_out1.open("Per_run_integrated_charge_online.csv",std::ofstream::app);
 file_out1<<runnumber<<","<<100*ratio_good_to_T6<<",0.0"<<std::endl;
 file_out1.close();
 }
-  //if(flag==1){
-    
-    //TH1F *ht1 = new TH1F("ht1","DR.rrawt2",200,1600,1800);
-    //ht1->GetXaxis()->SetTitle("DR.rrawt2");ht1->GetXaxis()->CenterTitle();
-    // ht1->GetYaxis()->SetTitle("Amplitude [ADC Channel]");ht1->GetYaxis()->CenterTitle();
-    // ht1->SetMarkerStyle(3);ht1->SetMarkerSize(0.75);
-    
-    //tree->Draw("DR.rrawt2>>ht1","fEvtHdr.fEvtType==6","kRED");
-  //}
-  
+ 
+if (flag==4){
+
+
+	TH1F *h1 = new TH1F("h1","DR.rrawt6[0] with reduced T2 and T6 windows",115,1630,1745);
+	TH1F *h2 = new TH1F("h2","DR.rrawt6[0] with reduced T2 and T6 windows",115,1630,1745);
+
+	gPad->SetLogy();	
+
+//	c1->Divide(2,1);
+	
+//	c1->cd(1);
+		h1->SetLineColor(2);
+		h2->SetLineColor(1);
+		
+		tree->Draw("DR.rrawt6[0]>>h2",bit_cut && t6_window && t2_reduced_window);
+
+		tree->Draw("DR.rrawt6[0]>>h1",bit_cut && t6_window && t2_window ,"same");
+
+//	c1->cd(2);
+		
+//	tree->Draw("DR.rrawt6>>ht3",bit_cut good_cutgood_cut t2_window good_cutgood_cut t6_window,"same");
+
+	t6 = h2->GetEntries();
+	good_t6 = h1->GetEntries();
+	percent = (100.0*good_t6)/t6;
+
+
+	TLegend* leg = new TLegend(0.95,0.85,0.55,0.55);
+
+	leg->AddEntry(h2,"DR.rrawt6[0]");
+	leg->AddEntry(h1,"DR.rrawt6[0] with rrawt2 cut 1690 to 1705");
+
+	leg->AddEntry((TObject*)0,Form("total T6 entries = %0.1f",t6),"");
+	leg->AddEntry((TObject*)0,Form("total good T6 entries = %0.1f",good_t6),"");
+	leg->AddEntry((TObject*)0,Form("Percent coincidences good = %0.1f percent ",percent),"");
+	leg->Draw();
+
+
+
+
+
+
+
+}
+ 
   
 
 }
