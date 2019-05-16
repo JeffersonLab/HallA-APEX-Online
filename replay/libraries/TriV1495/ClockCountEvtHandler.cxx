@@ -38,7 +38,7 @@
 
 using namespace std;
 
-static const Int_t MAXDATA=20000;
+static const Int_t MAXDATA=200000;
 
 ClockCountEvtHandler::ClockCountEvtHandler(const char *name, const char* description)
   : THaEvtTypeHandler(name,description), dvars(0)
