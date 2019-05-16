@@ -144,8 +144,10 @@ void apex_track(Int_t runnum, Int_t entry=1){
     int index;
     c1->Update();
     cout << "\n--Which event you want to check next ?\n(Please enter an event number. ENTER = next event, -1 to exit) ";
-    if(cin.peek() == '\n')
+    if(cin.peek() == '\n'){
+      cin.ignore();
       entry++;
+    }
     else{
       cin >> index;
       cin.ignore();
