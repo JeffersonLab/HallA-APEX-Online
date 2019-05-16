@@ -39,13 +39,13 @@ unsigned int blockLevel=  1;
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_WIDTH 23//23 //  23 // 40 was 106
-#define FADC_S2_WINDOW_WIDTH 15 //15   20 // 40 was 106
+#define FADC_WINDOW_WIDTH 100//23//23 //  23 // 40 was 106
+#define FADC_S2_WINDOW_WIDTH 100//15 //15   20 // 40 was 106
 int FADC_NPULSES =           4;
-#define FADC_MODE           9
+#define FADC_MODE           10
 
-#define FADC_LATENCY       201 // was 88 
-#define FADC_S2_LATENCY    195 // was 88 
+#define FADC_LATENCY       55//201 // was 88 
+#define FADC_S2_LATENCY    50//195 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
 #define FADC_WD_Sh         50//80 // was /// RELEVANT
 #define FADC_NSB           1  // # of samples *before* Threshold crossing (TC) to include in sum
@@ -62,7 +62,7 @@ int FADC_NPULSES =           4;
 extern int fadcA32Base;
 extern int nfadc;
 
-#define NFADC 14
+#define NFADC 3 //14
 /* Address of first fADC250 */
 #define FADC_ADDR 0x280000
 /* Increment address to find next fADC250 */
@@ -166,6 +166,7 @@ rocDownload()
   
   vmeSetQuietFlag(1);
   faInit(FADC_ADDR, FADC_INCR, NFADC, iFlag);
+  faGDataInsertAdcParameters(1);
   vmeSetQuietFlag(0);
   
   if(nfadc>1)

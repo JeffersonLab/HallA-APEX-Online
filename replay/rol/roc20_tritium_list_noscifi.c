@@ -27,10 +27,10 @@
 /* FADC Defaults/Globals */
 
 /*Used in faSetProcMode() */
-#define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
-#define FADC_WINDOW_WIDTH  32 // was 55
-#define FADC_LATENCY       138//144//118 s0 and Cerenkov
-#define FADC_LATENCY_S2m   130//138//118
+#define FADC_MODE          10  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
+#define FADC_WINDOW_WIDTH  100 // was 55
+#define FADC_LATENCY      40// 138//144//118 s0 and Cerenkov
+#define FADC_LATENCY_S2m   40//130//138//118
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           32 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
@@ -136,6 +136,8 @@ rocDownload()
   printf("iflag = 0x%x\n", iflag);
 
   faInit(FADC_ADDR, 0x1000, NFADC, iflag);
+  faGDataInsertAdcParameters(1);
+
 
    if (nfadc > 1)
    faEnableMultiBlock(0);   //chaned this to 0 for Token Passing via P2     
@@ -728,7 +730,7 @@ rocTrigger(int arg)
   //check if FIFO is empty at sync event or when no buffering
   sync_or_unbuff = syncFlag || !buffered;
   //  printf("sync or unbuff : %d\n",sync_or_unbuff);
-   if (sync_or_unbuff!=0)
+   if (sync_or_unbuff!=0&&0)
     {
       scanmask = faScanMask();
       /* Check scanmask for block ready up to 100 times */

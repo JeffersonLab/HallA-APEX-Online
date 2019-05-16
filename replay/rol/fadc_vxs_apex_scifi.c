@@ -11,9 +11,9 @@
 
 
 
-#define MAX_EVENT_POOL     128//128
+#define MAX_EVENT_POOL     10//128
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
-#define MAX_EVENT_LENGTH   1024*32      /* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*400      /* Size in Bytes */
 
 // MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
 //  = 12 *( 2+4+16*(16+25)) =  7944 for 50 samples = 32 KB
@@ -54,8 +54,9 @@ int FADC_NPULSES =           4;
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
 #define FADC_MODE_SciFi       10
-#define FADC_LA_SciFi         180 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi        50 // was /// RELEVANT
+#define FADC_LA_SciFi         300//192 //200 // was 73 //was 78 // was 62 
+// cosmics latency = 130 (from older runs)
+#define FADC_WD_SciFi         400//40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
 #define FADC_NSA_SciFi        40 
 
@@ -166,6 +167,7 @@ rocDownload()
   
   vmeSetQuietFlag(1);
   faInit(FADC_ADDR, FADC_INCR, NFADC, iFlag);
+  //  faGetInsertAdcParameters(1);  // commented out as causing error
   vmeSetQuietFlag(0);
   
   if(nfadc>1)
@@ -450,7 +452,7 @@ if(ifa==2){
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 4,400,2);  // S0 and Cherenkov
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
 	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 15,400,2);	   // SciFi
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 4,400,2);	   // SciFi
          if(ifa==8||ifa==9||ifa==10 || ifa==11)
 	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 4,400, 3);  // PRLs ( shower detectors )
        }
@@ -544,8 +546,8 @@ rocGo()
     MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 16);
   else /* FADC_MODE == 10 */
     MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
-  //  MAXFADCWORDS = 70000;
-  MAXFADCWORDS = 3500;
+  MAXFADCWORDS = 70000;
+ 
 
   faGEnable(0, 0);
   /* Interrupts/Polling enabled after conclusion of rocGo() */

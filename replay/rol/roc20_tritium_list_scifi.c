@@ -28,11 +28,11 @@
 
 /*Used in faSetProcMode() */
 #define FADC_MODE          9  // 9 - Pulse Parameter (ped, sum, time);  10 - Debug Mode (9 + Raw Samples) 
-#define FADC_WINDOW_WIDTH  18 // was 55
-#define FADC_LATENCY       124//144//118
-#define FADC_LATENCY_S2m   118//138//118
+#define FADC_WINDOW_WIDTH  32 // (Used for Right beam run 18 ) // was 55
+#define FADC_LATENCY       138 // (Used for Right beam run 124)  //144//118
+#define FADC_LATENCY_S2m   130 // (Used for Right beam run 118)  //138//118
 #define FADC_NSB           2  // # of samples *before* Threshold crossing (TC) to include in sum
-#define FADC_NSA           18 // # of samples *after* Threshold crossing (TC) to include in sum
+#define FADC_NSA           32 //18 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_AERO_NSA      15 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
@@ -43,8 +43,9 @@
 
 
 #define FADC_MODE_SCIFI    10
-#define FADC_LATENCY_SCIFI 124
-#define FADC_WD_SCIFI      124 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
+#define FADC_LATENCY_SCIFI 300//150//150//150
+// cosmics latency = 150 (from older runs)
+#define FADC_WD_SCIFI      400//100 // was 50 // was 35 //was 79 //was 55 (40 for scifi)  --  Mar8 changed from 150 to 40
 #define FADC_NSB_SCIFI     2
 #define FADC_NSA_SCIFI     40
 
@@ -136,6 +137,8 @@ rocDownload()
   printf("iflag = 0x%x\n", iflag);
 
   faInit(FADC_ADDR, 0x1000, NFADC, iflag);
+  //  faGetInsertAdcParameters(1); // commented out as causing error
+
 
    if (nfadc > 1)
    faEnableMultiBlock(0);   //chaned this to 0 for Token Passing via P2     
@@ -434,7 +437,7 @@ rocDownload()
             printf("FADC THRESHOLDS OFF! (ProcMode Block)\n");
             if(islot==0||islot==1)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY_S2m, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
             if(islot==2)faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 5,357,1);
-	    if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY_SCIFI, FADC_WD_SCIFI, FADC_NSB_SCIFI, FADC_NSA_SCIFI, 1, 15,357,1);   // SciFi
+	    if(islot==4||islot==5||islot==6||islot==7)faSetProcMode(faSlot(islot), FADC_MODE_SCIFI, FADC_LATENCY_SCIFI, FADC_WD_SCIFI, FADC_NSB_SCIFI, FADC_NSA_SCIFI, 1, 4,357,1);   // SciFi
 	    else faSetProcMode(faSlot(islot), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 4, 5,357,1);
 	    }
 	    faSetTriggerBusyCondition(faSlot(islot),8);		//FIXME DO WE NEED THIS?!?!?!
@@ -532,7 +535,7 @@ rocGo()
   taskDelay(1); // taskDelay(int ticks) : # of ticks to delay task. 1 ticks = 16.7 ms
 
 
-  MAXFADCWORDS = nfadc * (2 + 4 + 1 * (8 + FADC_WINDOW_WIDTH/2));
+  MAXFADCWORDS = nfadc * (2 + 4 + 1 * (16 + FADC_WINDOW_WIDTH/2));
 
 
   // Marco: checking some status
@@ -635,7 +638,7 @@ rocTrigger(int arg)
 
   if (stat > 0)
     {
-       nwords = faReadBlock(0, dma_dabufp, 10000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
+       nwords = faReadBlock(0, dma_dabufp, 45000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
        //  nwords = faReadBlock(faSlot(0), dma_dabufp, 3000, 2);
 
       if (nwords < 0)
@@ -772,7 +775,7 @@ rocTrigger(int arg)
 	    faResetToken(faSlot(islot));
 	  for(islot = 0; islot < nfadc; islot++)
 	    {
-	      int davail = faBready(faSlot(islot));
+ 	      int davail = faBready(faSlot(islot));
 	      if(davail > 0)
 		{
 		  printf("%s: ERROR: fADC250 Data available after readout in SYNC event \n",

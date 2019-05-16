@@ -11,9 +11,9 @@
 
 
 
-#define MAX_EVENT_POOL     128
+#define MAX_EVENT_POOL     10//128
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
-#define MAX_EVENT_LENGTH   1024*32      /* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*400      /* Size in Bytes */
 
 // MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
 //  = 12 *( 2+4+16*(16+25)) =  7944 for 50 samples = 32 KB
@@ -39,8 +39,8 @@ unsigned int blockLevel=  1;
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_WIDTH 23//23 //  23 // 40 was 106
-#define FADC_S2_WINDOW_WIDTH 15 //15   20 // 40 was 106
+#define FADC_WINDOW_WIDTH 23 //  20 // 40 was 106
+#define FADC_S2_WINDOW_WIDTH 15 //  20 // 40 was 106
 int FADC_NPULSES =           4;
 #define FADC_MODE           9
 
@@ -53,11 +53,12 @@ int FADC_NPULSES =           4;
 #define FADC_SH_THRESHOLD     9 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_MODE_SciFi       9
-#define FADC_LA_SciFi         180 //130 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi         50 //40 // was /// RELEVANT
+#define FADC_MODE_SciFi       10
+#define FADC_LA_SciFi         300//192 //200 // was 73 //was 78 // was 62 
+// cosmics latency = 130 (from older runs)
+#define FADC_WD_SciFi         400//40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
-#define FADC_NSA_SciFi        50 
+#define FADC_NSA_SciFi        40 
 
 extern int fadcA32Base;
 extern int nfadc;
@@ -166,6 +167,7 @@ rocDownload()
   
   vmeSetQuietFlag(1);
   faInit(FADC_ADDR, FADC_INCR, NFADC, iFlag);
+  //  faGetInsertAdcParameters(1);  // commented out as causing error
   vmeSetQuietFlag(0);
   
   if(nfadc>1)
@@ -207,10 +209,9 @@ rocDownload()
        }
 
   if(WANT_THRESHOLD_SCIFI){
-    if(ifa==4||ifa==5||ifa==6||ifa==7)
-      faSetThreshold(faSlot(ifa), 300+200, 0xffff);
+	if(ifa==4||ifa==5||ifa==6||ifa==7)
+	  faSetThreshold(faSlot(ifa), 300+200, 0xffff);
   }
-
 
 
 if(ifa==0)      {
@@ -545,6 +546,7 @@ rocGo()
     MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 16);
   else /* FADC_MODE == 10 */
     MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
+  MAXFADCWORDS = 70000;
  
 
   faGEnable(0, 0);

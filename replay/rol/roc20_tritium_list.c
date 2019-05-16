@@ -8,8 +8,8 @@
 
 
 /* Event Buffer definitions */
-#define MAX_EVENT_POOL     100
-#define MAX_EVENT_LENGTH   1024*40	/* Size in Bytes */
+#define MAX_EVENT_POOL     10
+#define MAX_EVENT_LENGTH   1024*400	/* Size in Bytes */
 
 /* Define Interrupt source and address */
 #define TIR_SOURCE
@@ -37,9 +37,9 @@
 #define FADC_THRESHOLD     5
 #define FADC_NSAT          4 //# of consecutive samples over threshold required for pulse
 
-#define FADC_MODE_SCIFI    9
-#define FADC_LATENCY_SCIFI 108
-#define FADC_WD_SCIFI      50 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
+#define FADC_MODE_SCIFI    10
+#define FADC_LATENCY_SCIFI 400
+#define FADC_WD_SCIFI      300 // was 50 // was 35 //was 79 //was 55 (40 for scifi)
 #define FADC_NSB_SCIFI     2
 #define FADC_NSA_SCIFI     40
 
@@ -136,6 +136,8 @@ rocDownload()
   printf("iflag = 0x%x\n", iflag);
 
   faInit(FADC_ADDR, 0x1000, NFADC, iflag);
+  //  faGetInsertAdcParameters(1);
+
 
    if (nfadc > 1)
    faEnableMultiBlock(0);   //chaned this to 0 for Token Passing via P2     
@@ -622,7 +624,7 @@ rocTrigger(int arg)
 
   if (stat > 0)
     {
-       nwords = faReadBlock(0, dma_dabufp, 10000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
+       nwords = faReadBlock(0, dma_dabufp, 85000, 2);	//changed rflag = 2 for Multi Block transfer 5/25/17
        //  nwords = faReadBlock(faSlot(0), dma_dabufp, 3000, 2);
 
       if (nwords < 0)
