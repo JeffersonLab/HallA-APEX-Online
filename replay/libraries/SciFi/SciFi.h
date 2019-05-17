@@ -72,8 +72,24 @@ public:
   Int_t*     fAHits;      // Numbers of hits on each ADC
   Float_t*   fA_p;        // [fNelem] Array of ADC minus pedestal values of chans
   Float_t*   fA_c;        // [fNelem] Array of corrected ADC amplitudes of chans
-  Float_t    fASUM_p;     // Sum of ADC minus pedestal values of channels
+  Float_t    fASUM_p;     // Sum of ADC minus pedestal values of channelso
   Float_t    fASUM_c;     // Sum of corrected ADC amplitudes of channels
+  Float_t    fASUM;     // Sum of corrected ADC amplitudes of channels
+
+  Int_t*      fAHits_raw;      // [fNelem] Array: hits for each channel calculated with raw mode variables
+  Double_t*   fPtime_raw;   // [fNelem] Array: collects time of first peak (first sample to cross threshold)
+
+
+  Double_t*   fTime_fine_0; // [fNelem] Array: Time of zeroth pulse (refined timing method)
+
+  Double_t*   fTime_0;      // [fNelem] Array: Time of zeroth pulse
+  Double_t*   fTime_1;      // [fNelem] Array: Time of first pulse
+  Double_t*   fTime_2;      // [fNelem] Array: Time of second pulse
+  Double_t*   fTime_3;      // [fNelem] Array: Time of third pulse
+  Double_t*   fTime_4;      // [fNelem] Array: Time of fourth pulse
+
+  Int_t Threshold = 50;     // Threshold (above pedestal) of raw timing 'hits' when testing raw data
+
 
   //FADC
   Float_t*   fPeak;         // [fNelem] Array of FADC ADC peak values
@@ -88,34 +104,47 @@ public:
   Int_t* fNhits_arr;           //[fNelem] number of hits for each PMT (taken from TriFadcCherenkov)
   
    
+
   // SciFi final output variables
 
   Int_t fX;                   // X-coordinate of hit
   Int_t fY;                   // Y-coordinate of hit
-  
 
-  Int_t fTime;                // time of (x,y) hit
-  Int_t fhit_X_Y;             // Bool to show if there was a hit or not in any fibre
-  Int_t* fhit_fibre;          // [fNelem] Bool to show if there was a hit or not in each individual fibre
-  
-  std::vector<Int_t> fX_hits;               // X-cords of hits
-  Int_t fno_x_hits;             // Number of x-hits
 
-  std::vector<Int_t> fY_hits;               // Y-cords of hits
-  Int_t fno_y_hits;            // Number of y-hits
+  //  Int_t fTime;                // time of (x,y) hit
+  Int_t fhit_X_Y;             // Bool to show if there was a hit or not in any 
+  Int_t* fhit_fibre;          // [fNelem] Bool to show if there was a hit or no
+  
+  std::vector<Int_t> fX_hits; // X-cords of hits
+  Int_t fno_x_hits;           // Number of x-hits
+
+  std::vector<Int_t> fY_hits; // Y-cords of hits
+  Int_t fno_y_hits;           // Number of y-hits
+
+  Bool_t first_hit;
+
+
 
 
 
 
   // raw mode variables
-  
+   
   std::vector<Int_t>   fNumSamples; // [fNelem] Number of samples in each ADC/module
-  /* std::vector<std::vector<Double_t> > fA_raw; // [fNumSamples] Raw ADC samples */
-  /* std::vector<std::vector<Double_t> > fA_raw_p; // [fNumSamples] Ped correct ADC samples */
-  /* std::vector<std::vector<Double_t> > fA_raw_c; // [fNumSamples] Calibrated ADC samples */
-  /* std::vector<Float_t> fA_raw_sum; // [fNelem] Sum of raw ADC data for each block // MAPC */
+  std::vector<std::vector<Double_t> > fA_raw; // [fNumSamples] Raw ADC samples
+  std::vector<std::vector<Double_t> > fA_raw_p; // [fNumSamples] Ped correct ADC samples
+  std::vector<std::vector<Double_t> > fA_raw_c; // [fNumSamples] Calibrated ADC samples
+  std::vector<Float_t> fA_raw_sum; // [fNelem] Sum of raw ADC data for each block // MAPC
 
   std::vector< std::vector<Int_t> > fChanMap; // Logical channel numbers
+
+  //  std::vector<std::vector<Int_t> > fA_ptime_raw;
+
+
+  Int_t fOverall_sum; // Sum of pulse integrals for all channels
+
+  Int_t fNoise; // Flag for noise events
+
 
 
   virtual Int_t  DefineVariables( EMode mode = kDefine );

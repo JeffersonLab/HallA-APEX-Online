@@ -94,6 +94,13 @@ replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*
 
 
+scripts/FADC_decode_apex/epicsd
+scripts/FADC_decode_apex/prfact
+scripts/FADC_decode_apex/rootfiles
+scripts/FADC_decode_apex/tst*
+scripts/FADC_decode_apex/tdec*
+
+
 replay/scripts/FADC_decode_apex/results/*txt
 replay/scripts/FADC_decode_apex/results/*png
 
@@ -135,4 +142,5 @@ replay/libraries/TriFadcScin/TriFadcScin_changed_02_16_19.cxx
 
 
  
+
 
