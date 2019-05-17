@@ -1,0 +1,69 @@
+# Adapted for testing the aerogel detector (A1 and A2) at ESB
+
+## Detecor map, format:
+## crate slot start_channel end_channel
+L.sf.detmap =
+## FADC modules        #     Module number that starts at channel 0
+## This map is for the 12 fADC modules used for testing
+## as described in https://logbooks.jlab.org/entry/3480927
+  31    9      0     15   250 #     176  (A)
+  31    10     0     15   250 #     176  (B)
+  31    13     0     15   250 #     176  (C)
+  31    14     0     15   250 #     176  (D)
+
+## Channel map from channel to logical channel
+   L.sf.chanmap = 
+    2  10  18  26  34  42  50  58   1 11  17  25  33  41  49  57
+    3   9  19  27  35  43  51  59   5 13  21  29  37  45  53  61
+   63  55  47  39  31  23  15   7  64 56  48  40  32  24  16   8
+   62  54  46  38  30  22  14   6  60 52  44  36  28  20  12   4 
+
+
+# Number of channels
+
+L.sf.nch = 64
+
+
+## Positions in [m] where +z is roated by sbs.theta
+L.sf.position = 0 0 0
+
+## HCal is composed of 4 sub-assemblies each of 6x12 (row,col) modules
+
+## Test settings for one sub-assembly
+L.sf.size  =  1.8567  0.9461  1.0000
+
+## HCal is a matrix of with nrows and ncols
+## Numbers below are just a test so that it maches the number of used fADC's
+L.sf.ncols = 4
+L.sf.nrows = 16
+
+## Position of first module
+L.sf.xy    =  0.92835  0.47305
+## Space between modules
+L.sf.dxdy  =  0.00254  0.00254
+
+## Mininum energy  for a cluster center (not really used right now)
+L.sf.emin  = 0.0
+
+## Set the default pedestals
+L.sf.pedestals =
+  4577.37 3827.67 4350.90 3930.59 4525.93 4577.68 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+  0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+
+## Set the default gain (calibration factor)
+L.sf.gains =
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+  1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+
+# intially just copied from db_R.cer.dat from tritium
+# parameters of Fadc pedestal calulcations (by fadc itself)
+
+L.sf.NPED = 15
+L.sf.NSA = 10   # 15
+L.sf.NSB = 2    # 2
+L.sf.Win = 40
+L.sf.TFlag = 1

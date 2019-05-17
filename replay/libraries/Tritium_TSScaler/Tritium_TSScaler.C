@@ -44,7 +44,7 @@ using namespace THaString;
 static const UInt_t ICOUNT    = 1;
 static const UInt_t IRATE     = 2;
 static const UInt_t MAXCHAN   = 32;
-static const UInt_t MAXTEVT   = 5000;
+static const UInt_t MAXTEVT   = 150000;
 static const UInt_t defaultDT = 4;
 
 Tritium_TSScaler::Tritium_TSScaler(const char *name, const char* description)
@@ -116,6 +116,8 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
   Int_t ndata = evdata->GetEvLength();
   if (ndata >= static_cast<Int_t>(MAXTEVT)) {
     cout << "Tritium_TSScaler:: ERROR: Event length crazy "<<endl;
+    cout << "ndata = " << ndata << endl;
+    cout << "MAXTEVT = " << MAXTEVT << endl;
     ndata = MAXTEVT-1;
   }
 
@@ -146,7 +148,7 @@ Int_t Tritium_TSScaler::Analyze(THaEvData *evdata)
           ifound=1;
       goto found1;}
         p++; 
-       if(itimeout++>5000)
+       if(itimeout++>static_cast<Int_t>(MAXTEVT))
       {cout<<"THa_TS_Scaler:: Cannot find a slot"<<endl;
        goto giveup1;
 

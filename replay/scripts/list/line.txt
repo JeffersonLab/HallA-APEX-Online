@@ -1,5 +1,13 @@
 \addtocounter{run}{1}
-\therun & \phantom{2004-0dd} & \phantom{my timed} &
-\phantom{my timed    } & \phantom{carbdon hole}&\phantom {100d0} &
-\phantom{YES  } & \phantom{YES  }  & \phantom{fddfqlsdkfjqskldfjqslkdfmcommentsmdfsadfsd}\\[2ex]
+\therun & 
+\phantom{Date} & 
+\phantom{Time} &
+\phantom{Time} & 
+\phantom{Target} &
+\phantom{Nevents} &
+\phantom{Decoded} & 
+\phantom{HRSok}  & 
+\phantom{HRSok}  & 
+\phantom{Coinok}  & 
+\phantom{comments}\\[12pt]
 \hline

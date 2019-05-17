@@ -1,0 +1,15 @@
+
+# Cut definitions
+
+Block: RawDecode
+
+
+Block: Decode
+
+evtype6 DL.evtype==6
+
+Decode_master evtype6
+
+Block: Reconstruct
+
+Block: Physics

@@ -52,6 +52,8 @@
 using namespace std;
 
 const char* ROOTPATHS[] = {
+  "/chafs2/work1/APEX/Rootfiles/",
+  "/chafs1/work1/apex/Rootfiles/",
   "/chafs1/work1/tritium/Rootfiles/",
   "/home/shujie/jlab/MyTritium/Rootfiles/",
   "/home/shujie/analyzer/rootfiles/",

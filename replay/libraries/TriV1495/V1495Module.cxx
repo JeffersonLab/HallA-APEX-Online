@@ -31,10 +31,18 @@ V1495Module::V1495Module(Int_t crate, Int_t slot) : VmeModule(crate, slot) {
 
 V1495Module::~V1495Module() {
   if (vCount) delete [] vCount;
+  if (vBCMu) delete [] vBCMu;
+  if (vBCMd) delete [] vBCMd;
+  if (vBCMuI) delete [] vBCMuI;
+  if (vBCMdI) delete [] vBCMdI;
 }
 
 void V1495Module::Init() {
   vCount = new UInt_t;
+  vBCMu = new ULong_t;
+  vBCMd = new ULong_t;
+  vBCMuI = new UInt_t;
+  vBCMdI = new UInt_t;
   fDebugFile=0;
   Clear();
   IsInit = kTRUE;
@@ -53,10 +61,40 @@ Bool_t V1495Module::IsSlot(UInt_t rdata)
 void V1495Module::Clear(const Option_t* opt) {
   VmeModule::Clear(opt);
   memset(vCount, 0, sizeof(UInt_t));
+  memset(vBCMu, 0, sizeof(ULong_t));
+  memset(vBCMd, 0, sizeof(ULong_t));
+  memset(vBCMuI, 0, sizeof(UInt_t));
+  memset(vBCMdI, 0, sizeof(UInt_t));
 }
 
 UInt_t V1495Module::GetCount() {
   return *vCount;
+}
+
+ULong_t V1495Module::GetBCM(UInt_t selectBCM) {
+  if(selectBCM == 0) {
+    return *vBCMu;
+  }
+  else if(selectBCM == 1) {
+    return *vBCMd;
+  }
+  else {
+    cout << "V1495Module Error: Bad BCM selector. Must be 0 or 1" << endl;
+    return 0;
+  }
+}
+
+UInt_t V1495Module::GetBCMI(UInt_t selectBCM) {
+  if(selectBCM == 0) {
+    return *vBCMuI;
+  }
+  else if(selectBCM == 1) {
+    return *vBCMdI;
+  }
+  else {
+    cout << "V1495Module Error: Bad BCM selector. Must be 0 or 1" << endl;
+    return 0;
+  }
 }
 
 Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, Int_t pos, Int_t len) {
@@ -78,6 +116,7 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 
    // For checks
    Bool_t gotCntHeader=0;
+   UInt_t vBCMtemp=0;
 
    while ( loc <= pstop ) {
 	cout << "";
@@ -85,19 +124,50 @@ Int_t V1495Module::LoadSlot(THaSlotData *sldat, const UInt_t *evbuffer, const UI
 		// Check for Count Header to start decoding
 		if((*loc)==0x14951495) {
 			gotCntHeader=1;
+                        *vBCMu = 0;
+                        *vBCMd = 0;
+                        *vBCMuI = 0;
+                        *vBCMdI = 0;
 			loc++;
 			continue; // this was a BlkHeader, so make sure not to check for event in this word
 		}
 		// Check for Count Trailer and stop decoding
-		if((*loc)==0x14950000) {
+		else if((*loc)==0x14950000) {
 			gotCntHeader=0;
 			break; // Done Decoding, Break out of the while loop
 		}
-		// gotCntHeader true? Store the Clock Count Word
-		if(gotCntHeader) {
+		// gotCntHeader true? Store the Clock Count Word and BCM words
+		else if(gotCntHeader && fWordsSeen==0) {
 			*vCount = (*loc);
-			gotCntHeader=0;
-			fWordsSeen++;	//Not sure if this is actually needed...  -- REM -- 2018-02-01
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==1) { //upstream high bits
+			vBCMtemp = (*loc);
+                        *vBCMu += ((ULong_t) vBCMtemp) << 32;
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==2) { //upstream low bits
+			vBCMtemp = (*loc);
+                        *vBCMu += (ULong_t) vBCMtemp;
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==3) { //downstream high bits
+			vBCMtemp = (*loc);
+                        *vBCMd += ((ULong_t) vBCMtemp) << 32;
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==4) { //downstream low bits
+			vBCMtemp = (*loc);
+                        *vBCMd += (ULong_t) vBCMtemp;
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==5) { //upstream BCM current
+			*vBCMuI = (*loc);
+			fWordsSeen++;
+		}
+		else if(gotCntHeader && fWordsSeen==6) { //downstream BCM current
+			*vBCMdI = (*loc);
+			fWordsSeen++;
 		}
 
         loc++;

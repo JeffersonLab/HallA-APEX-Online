@@ -50,6 +50,7 @@
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_ElossCorrection/libTri_ElossCorrection.so")); 
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_Beam_Eloss/libTri_Beam_Eloss.so")); 
     gSystem->Load(Form(replay_dir_prefix,"libraries/Tri_Track_Eloss/libTri_Track_Eloss.so")); 
+    gSystem->Load(Form(replay_dir_prefix,"libraries/SciFi/libSciFi.so")); 
 
   }
 

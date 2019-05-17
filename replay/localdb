@@ -1,0 +1,2 @@
+curdir=$PWD
+export DB_DIR=$curdir/DB

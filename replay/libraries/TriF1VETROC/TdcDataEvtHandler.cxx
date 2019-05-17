@@ -43,7 +43,7 @@ Int_t NCHAN_CAEN=32;
 
 using namespace std;
 
-static const Int_t MAXDATA=20000;
+static const Int_t MAXDATA=200000;
 
 TdcDataEvtHandler::TdcDataEvtHandler(const char *name, const char* description)
   : THaEvtTypeHandler(name,description), dvars(0)

@@ -6,5 +6,39 @@ else
 	RUNNUM=$1
 fi
 
-./haonline_tool -r $RUNNUM -o -y
-python scripts/mysql/log2db_aonl.py $RUNNUM 1
+# adding flag for single arm runs (default with no flag is single arm)
+
+if [ $# -gt 3 ]
+then 
+	echo " "
+	echo  "Should only enter parameters for runnumber and set-up"
+	echo "./myAnalysis RUNNUMBER -s SET_UP"
+	echo "SET_UP can be "L/l" for left-arm only, "R/r" for right arm only."
+	echo "If no parameter is given then both arms are used (coincidence mode)"
+	exit 1
+fi
+
+
+SET_UP=c		
+
+if [ "$2" == "-s" ]
+   echo " -s condition passed"
+
+   then 
+      	if [ "$3" == "L" -o "$3" == "l" -o "$3" == "R" -o "$3" == "r" ] 
+#   	if [ "$3" == L -o "$3" == l ]
+	   then
+		SET_UP=$3	   
+	fi	
+
+
+fi
+
+
+echo "SET_UP equals $SET_UP"
+
+touch sourceofanalysis.txt
+echo $PWD  ./haonline_tool -r $RUNNUM -s $SET_UP -o -y > "sourceofanalysis.txt"
+
+./haonline_tool -r $RUNNUM -s $SET_UP -o -y
+# python scripts/mysql/log2db_aonl.py $RUNNUM 1

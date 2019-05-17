@@ -1,35 +1,65 @@
 #/bin/bash
-
+#set -x
+exp=$EXPERIMENT
 if [ $# -eq 0 ] 
 then
-	echo "Please enter the run number you would like to make the new golden run?"
+	echo "The current golden runs are...."
+	 ls -l /chafs1/work1/${exp}/Rootfiles/ | grep golden
+	echo "Please enter the run number you would like to make the new golden run or -1 to cancel?"
 	read RUNNUM
+	if [ $RUNNUM -eq -1 ]
+	then
+		exit
+	fi
 else
 	RUNNUM=$1
 fi
 echo
 echo
 
-if [ $RUNNUM -le 90000 ]
+Left=kTRUE
+Right=kTRUE
+
+if [ "$2" == "-s" ]
+   echo " -s condition passed"
+
+   then
+        if [ "$3" == "L" -o "$3" == "l" ]
+           then
+            Right=kFALSE
+
+        fi
+
+        if [ "$3" == "R" -o "$3" == "r" ]
+            then
+            Left=kFALSE
+
+        fi
+
+fi
+
+
+if [ $Left == kTRUE ]
 then
 
-echo "Changing the left golden run to $RUNNUM"
+	echo "Changing the left golden run to $RUNNUM"
 
-	unlink /chafs1/work1/tritium/Rootfiles/tritium_Left_golden.root
-	ln -s /chafs1/work1/tritium/Rootfiles/tritium_online_$RUNNUM.root /chafs1/work1/tritium/Rootfiles/tritium_Left_golden.root
+	unlink /chafs1/work1/${exp}/Rootfiles/${exp}_Left_golden.root
+	ln -s /chafs1/work1/${exp}/Rootfiles/${exp}_online_$RUNNUM.root /chafs1/work1/${exp}/Rootfiles/${exp}_Left_golden.root
 
+fi
+if [ $Right == kTRUE ]
+then
 
-else
+	echo "Changing the right golden run to $RUNNUM"
 
-echo "Changing the right golden run to $RUNNUM"
-
-	unlink /chafs1/work1/tritium/Rootfiles/tritium_Right_golden.root
-	ln -s /chafs1/work1/tritium/Rootfiles/tritium_online_$RUNNUM.root /chafs1/work1/tritium/Rootfiles/tritium_Right_golden.root
+	unlink /chafs1/work1/${exp}/Rootfiles/${exp}_Right_golden.root
+	ln -s /chafs1/work1/${exp}/Rootfiles/${exp}_online_$RUNNUM.root /chafs1/work1/${exp}/Rootfiles/${exp}_Right_golden.root
 	
 fi
 
 echo
 echo "The Current Golden Runs are: "
 echo
-ls -l /chafs1/work1/tritium/Rootfiles/ | grep golden
+ls -l /chafs1/work1/${exp}/Rootfiles/ | grep golden
 echo

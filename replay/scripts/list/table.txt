@@ -6,14 +6,15 @@
 %\end{landscape}
 
 \begin{sidewaystable}
+\large
 \begin{center}
-%%%{\Large\bf TRITIUM Run List}\\
-{\Large\bf Tritium Run List}\\
+%%%{\Large\bf APEX Run List}\\
+{\Large\bf APEX Run List}\\
 
 \vspace*{0.5cm}
-\begin{tabular}{|c|c|c|c|c|c|c|c||c||}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c||c|}
 \hline
-Run number & Date &Start time & End time & Target & N. of ev & Decoded? & HRS OK? & Purpose/Comments \\
+Run number & Date & Start time & End time & Target & N. of ev & Decoded? & LHRS OK? & RHRS OK? & Coin OK? & Purpose/Comments \\
 \hline
 \hline
 \input{line.txt}
@@ -37,7 +38,6 @@ Run number & Date &Start time & End time & Target & N. of ev & Decoded? & HRS OK
 \input{line.txt}
 \input{line.txt}
 \input{line.txt}
-
 
 
 

@@ -28,7 +28,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 			    THaApparatus* apparatus )
   : THaPidDetector(name,description,apparatus), fOff(0), fPed(0), fGain(0),
     fNThit(0), fT(0), fT_c(0), fNAhit(0), fA(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),
-    foverflow(0), funderflow(0),fpedq(0),fNhits(0)
+    foverflow(0), funderflow(0),fpedq(0), fpedFADC(0),fNhits(0)
 {
   // Constructor
   fFADC=NULL;
@@ -37,7 +37,7 @@ TriFadcCherenkov::TriFadcCherenkov( const char* name, const char* description,
 //_____________________________________________________________________________
 TriFadcCherenkov::TriFadcCherenkov()
   : THaPidDetector(), fOff(0), fPed(0), fGain(0), fT(0), fT_c(0),
-    fA(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),foverflow(0), funderflow(0),fpedq(0),fNhits(0)
+    fA(0), fA_p(0), fA_c(0),fPeak(0),fT_FADC(0),fT_FADC_c(0),foverflow(0), funderflow(0),fpedq(0), fpedFADC(0), fNhits(0)
 {
   // Default constructor (for ROOT I/O)
 }
@@ -133,6 +133,7 @@ Int_t TriFadcCherenkov::ReadDatabase( const TDatime& date )
     foverflow  = new Int_t[ nval ]; 
     funderflow = new Int_t[ nval ];
     fpedq      = new Int_t[ nval ];
+    fpedFADC   = new Int_t[ nval ];
     fNhits     = new Int_t[ nval ];
 
     fIsInit = true;
@@ -203,6 +204,7 @@ Int_t TriFadcCherenkov::DefineVariables( EMode mode )
     { "noverflow",  "overflow bit of FADC pulse",    "foverflow" },
     { "nunderflow",  "underflow bit of FADC pulse",  "funderflow" },
     { "nbadped",  "pedestal quality bit of FADC pulse",   "fpedq" },
+    { "pedFADC",  "FADC pedestal",   "fpedFADC" },
     { "nhits",  "Number of hits for each PMT",       "fNhits" },
     { 0 }
   };
@@ -242,6 +244,7 @@ void TriFadcCherenkov::DeleteArrays()
   delete [] foverflow;  foverflow  = NULL;
   delete [] funderflow; funderflow = NULL;
   delete [] fpedq;      fpedq      = NULL;
+  delete [] fpedFADC;   fpedFADC   = NULL;
   delete [] fNhits;     fNhits     = NULL;
 }
 
@@ -264,6 +267,7 @@ void TriFadcCherenkov::Clear( Option_t* opt )
     memset( foverflow, 0, fNelem*sizeof(foverflow[0]) );
     memset( funderflow, 0, fNelem*sizeof(funderflow[0]) );
     memset( fpedq, 0, fNelem*sizeof(fpedq[0]) );
+    memset( fpedFADC, 0, fNelem*sizeof(fpedFADC[0]) );
     memset( fNhits, 0, fNelem*sizeof(fNhits[0]) );
   }
 }
@@ -319,6 +323,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
                foverflow[k] = fFADC->GetOverflowBit(chan,0);
                funderflow[k] = fFADC->GetUnderflowBit(chan,0);
                fpedq[k] = fFADC->GetPedestalQuality(chan,0);
+               fpedFADC[k] = evdata.GetData(kPulsePedestal,d->crate,d->slot,chan,0); 
         //       if(foverflow[k]+funderflow[k]+fpedq[k] != 0) printf("Bad Quality: (over, under, ped)= (%i,%i,%i)\n",foverflow[k],funderflow[k],fpedq[k]);
           }
           if(fpedq[k]==0)
@@ -344,6 +349,7 @@ Int_t TriFadcCherenkov::Decode( const THaEvData& evdata )
         fPeak[k] = static_cast<Float_t>(fpeak);
         fT_FADC[k]=static_cast<Float_t>(ftime);
         fT_FADC_c[k]=fT_FADC[k]*0.0625;
+    if (fTFlag == 2) tempPed = fPed[k];             // Dont overwrite DB pedestal value!!! -- REM -- 2018-08-21
 	fA_p[k] = data - tempPed;
 	fA_c[k] = fA_p[k] * fGain[k];
 	// only add channels with signals to the sums
