@@ -9,6 +9,7 @@ block R.vdc.*
 block R.tr.*
 block R.a1.*
 block R.a2.*
+block R.sf.*
 
 block DR.*
 

@@ -197,6 +197,7 @@ Int_t TriSpectrometer::DefineVariables( EMode mode )
     { "tr.r_y",  "Rotated y coordinate (m)",     "fTracks.TriTrack.fRY" },
     { "tr.r_th", "Rotated tangent of theta",     "fTracks.TriTrack.fRTheta" },
     { "tr.r_ph", "Rotated tangent of phi",       "fTracks.TriTrack.fRPhi" },
+    { "tr.tg_x", "Target x coordinate",          "fTracks.TriTrack.fTX"},
     { "tr.tg_y", "Target y coordinate",          "fTracks.TriTrack.fTY"},
     { "tr.tg_th", "Tangent of target theta angle", "fTracks.TriTrack.fTTheta"},
     { "tr.tg_ph", "Tangent of target phi angle",   "fTracks.TriTrack.fTPhi"},    

@@ -9,6 +9,11 @@
 
 #include "THaPidDetector.h"
 #include "Fadc250Module.h"
+
+//----------------//
+//   C++ StdLib   //
+//----------------//
+#include <map>
 #include <vector>
 
 class TClonesArray;
@@ -72,13 +77,20 @@ protected:
   Int_t*   foverflow;         //[fNelem] FADC overflowbit
   Int_t*   funderflow;        //[fNelem] FADC underflowbit
   Int_t*   fpedq;             //[fNelem] FADC pedestal quality bit
+  Int_t*   fFADCped;             //[fNelem] FADC pedestal
   Int_t    fNPED;        //number of samples included in FADC pedestal sum
   Int_t    fNSA;         //number of integrated samples after threshold crossing
   Int_t    fNSB;         //number of integrated samples before threshold crossing
+  Int_t    fWin;         //total number of samples in FADC window
+  Int_t    fTFlag;       //flag for FADC threshold on vs FADC threshold off
+
   Float_t*   fPeak;         // [fNelem] Array of FADC ADC peak values
   Float_t*   fT;       // [fNelem] Array of FADC TDC times of channels
   Float_t*   fT_c;     // [fNelem] Array of FADC corrected TDC times of channels
 
+  std::map<std::string,UInt_t> fMessages; // Warning messages & count
+  UInt_t      fNEventsWithWarnings; // Events with warnings
+  
   void           DeleteArrays();
   virtual Int_t  ReadDatabase( const TDatime& date );
   virtual Int_t  DefineVariables( EMode mode = kDefine );

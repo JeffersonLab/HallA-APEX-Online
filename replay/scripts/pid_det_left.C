@@ -8,7 +8,7 @@ void pid_det_left(Int_t flag, TString drawoption){
 
   if(flag ==1){
     
-    TH2F *h = new TH2F("h","Pion-Rej 2 E/p vs. Pion-Rej 1 E/p",200,0,6000,200,0,6000);
+    TH2F *h = new TH2F("h","Pion-Rej 2 E/p vs. Pion-Rej 1 E/p",150,0,1200,150,0,1000);
     h->GetXaxis()->SetTitle("Layer 1 adc_sum");h->GetYaxis()->CenterTitle();
     h->GetYaxis()->SetTitle("Layer 2 adc_sum");h->GetXaxis()->CenterTitle();
     
@@ -23,7 +23,7 @@ void pid_det_left(Int_t flag, TString drawoption){
     h1->GetYaxis()->SetTitle("N_{phe}");h1->GetYaxis()->CenterTitle();
     h1->GetXaxis()->SetTitle("E/p");h1->GetXaxis()->CenterTitle();
 
-    tree->Draw("L.cer.asum_c/300.:(L.prl1.e+L.prl2.e)/(1000.*L.tr.p[0])>>h1","L.tr.n==1",drawoption);  
+    tree->Draw("L.cer.asum_c/300.:(L.prl1.e+L.prl2.e)/(430.*L.tr.p[0])>>h1","L.tr.n==1",drawoption);  
 
   }
 }

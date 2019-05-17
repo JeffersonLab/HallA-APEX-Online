@@ -3,10 +3,15 @@ R__LOAD_LIBRARY(../../../libraries/TriFadcCherenkov/libTriFadcCherenkov.so)
 R__LOAD_LIBRARY(../../../libraries/TriBCM/libTriBCM.so)
 R__LOAD_LIBRARY(../../../libraries/Tritium_TSScaler/libTritium_TSScaler.so)
 
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
 
 Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
 {
+
+   string exp= getenv("EXPERIMENT");
 
   // 
   //
@@ -55,7 +60,6 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
 
 
-
   // Set up the event layout for the output file
   
   THaEvent* event = new THaEvent;
@@ -72,7 +76,7 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   cout << "Loading spot's private libBeam ..."<<endl;
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
-  THaApparatus* FbusLrb = new THaRasteredBeam("FbusLrb","Raster Beamline"); 
+//  THaApparatus* FbusLrb = new THaRasteredBeam("FbusLrb","Raster Beamline"); 
   
   THaHRS* HRSL = new THaHRS("L","Left arm HRS");
   HRSL->AddDetector( new THaVDC("vdc", "Vertical Drift Chamber" ));
@@ -81,15 +85,15 @@ Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t la
   gHaApps->Add( HRSL );
 
 
-  FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
-  FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
-  FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
+  //FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
+ // FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
+ // FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
   
    THaApparatus* decL = new THaDecData("DL","Misc. Decoder Data");
    gHaApps->Add( decL );
   
   THaApparatus* Lrb = new TriFadcRasteredBeam("Lrb","Raster Beamline for FADC ");
-  gHaApps->Add( FbusLrb );
+ // gHaApps->Add( FbusLrb );
   gHaApps->Add(Lrb);
 
     Tritium_TSScaler* levscaler = new Tritium_TSScaler("evLeft","HA scaler event type 1-14 on L-HRS");
@@ -466,15 +470,15 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
    // name3.Append(runNo);
    // name3.Append(".pdf]");
  
-    TString name4=Form("FADC_Tritium_");
+    TString name4=Form("FADC_%s_",exp.c_str());
    name4.Append(runNo);
    name4.Append(".pdf[");
 
-   TString name5=Form("FADC_Tritium_");
+   TString name5=Form("FADC_%s_",exp.c_str());
    name5.Append(runNo);
    name5.Append(".pdf");
 
-   TString name6=Form("FADC_Tritium_");
+   TString name6=Form("FADC_%s_",exp.c_str());
    name6.Append(runNo);
    name6.Append(".pdf]");
 

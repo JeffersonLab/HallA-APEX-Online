@@ -1,7 +1,12 @@
 R__LOAD_LIBRARY(../../../libraries/TriFadcRasteredBeam/libTriFadcRasteredBeam.so)
 
+using namespace std;
+
+
 Int_t get_rastersize_R(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
 {
+
+  string exp = getenv("EXPERIMENT");
 
   // 
   //
@@ -62,11 +67,11 @@ Int_t get_rastersize_R(TString codafname,TString runNo, Int_t firsteve, Int_t la
   cout << "Loading spot's private libBeam ..."<<endl;
 
  // THaApparatus* BEAM1 = new THaUnRasteredBeam("Lurb","Unraster Beamline");
-  THaApparatus* FbusLrb = new THaRasteredBeam("FbusRrb","Raster Beamline"); 
-  FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
-  FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
-  FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
-  THaApparatus* Lrb = new TriFadcRasteredBeam("Rrb","Raster Beamline for FADC ");
+//  THaApparatus* FbusLrb = new THaRasteredBeam("FbusRrb","Raster Beamline"); 
+//  FbusLrb->AddDetector( new THaRaster("Raster2","Downstream raster") );
+//  FbusLrb->AddDetector( new THaBPM("BPMA","bpmA for raster beam"));
+//  FbusLrb->AddDetector( new THaBPM("BPMB","bpmB for raster beam"));
+  THaApparatus* Rrb = new TriFadcRasteredBeam("Rrb","Raster Beamline for FADC ");
     THaHRS* HRSR = new THaHRS("R","Right arm HRS");
     HRSR->AutoStandardDetectors(kFALSE);
     gHaApps->Add( HRSR );
@@ -76,8 +81,8 @@ Int_t get_rastersize_R(TString codafname,TString runNo, Int_t firsteve, Int_t la
 
 
 
-  gHaApps->Add( FbusLrb );
-  gHaApps->Add(Lrb);
+//  gHaApps->Add( FbusLrb );
+  gHaApps->Add(Rrb);
 
   analyzer->SetEvent( event );
   analyzer->SetOutFile( rootfname );
@@ -222,8 +227,8 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   //fhaxis->Draw();
   frastxy1->Draw("colz");
   frastxy1->SetTitle("FADC Upstream Raster X vs.Y");
-  frastxy1->SetAxisRange(65000, 75000,"Y");
-  frastxy1->SetAxisRange(65000, 75000,"X");
+  frastxy1->SetAxisRange(20000, 30000,"Y");
+  frastxy1->SetAxisRange(20000, 30000,"X");
   frastxy1->GetXaxis()->SetLabelSize(.04);
   frastxy1->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
@@ -242,8 +247,8 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   // fhaxis2->Draw();
   frastxy2->Draw("colz");
   frastxy2->SetTitle("FADC Downstream Raster X vs.Y");
-  frastxy2->SetAxisRange(65000, 75000,"Y");
-  frastxy2->SetAxisRange(65000, 75000,"X");
+  frastxy2->SetAxisRange(10000, 30000,"Y");
+  frastxy2->SetAxisRange(10000, 30000,"X");
   frastxy2->GetXaxis()->SetLabelSize(.04);
   frastxy2->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
@@ -386,15 +391,15 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   cout<<"type .q when you are done"<<endl;
   
  
-    TString name4=Form("FADC_Tritium_");
+    TString name4=Form("FADC_%s_R_",exp.c_str());
    name4.Append(runNo);
    name4.Append(".pdf[");
 
-   TString name5=Form("FADC_Tritium_");
+   TString name5=Form("FADC_%s_R_",exp.c_str());
    name5.Append(runNo);
    name5.Append(".pdf");
 
-   TString name6=Form("FADC_Tritium_");
+   TString name6=Form("FADC_%s_R_",exp.c_str());
    name6.Append(runNo);
    name6.Append(".pdf]");
 

@@ -53,7 +53,8 @@
 #define ROOT_REPLAY_CORE
 
 
-#include "def_tritium.h"
+#include "def_apex.h"
+//#include "def_tritium.h"
 
 
 #include <cstdio>
@@ -83,7 +84,7 @@
 #include "TSQLServer.h"
 #endif//#ifdef __CINT__
 
-#define ALLOW_ROOTFILE_OVERWRITE false
+#define ALLOW_ROOTFILE_OVERWRITE true 
 
 Bool_t IsFileExist(const Char_t * fname);
 void mysql_start(Int_t runnumber);
@@ -95,7 +96,7 @@ void ReplayCore(
 		Int_t runnumber=0,            //run #
 		Int_t all=0,                  //-1=replay all;0=ask for a number
 		Int_t DefReplayNum=-1,        //default replay event num
-		const char* OutFileFormat="%s/tritium_%d.root", //output file format
+		const char* OutFileFormat="%s/apex_%d.root", //output file format
 		const char* OutDefineFile="HRS.odef",       //out define
 		const char* CutDefineFile="HRS.cdef",       //cut define
 		Bool_t EnableScalar=false,                    //Enable Scalar?
@@ -271,6 +272,7 @@ void ReplayCore(
 		  TString rootfilebase = outname, rootfilename = outname;
 		  rootfilebase.Remove(rootfilebase.Last('.'),5);
 		  Long_t split = 0;
+		  cout << "Overwriting old files!" << endl;
 		  while ( !gSystem->AccessPathName(rootfilename.Data()) ) {
 			  cout << "Removing old ROOT file " << rootfilename.Data() << endl;
 			  gSystem->Exec(Form("rm %s",rootfilename.Data()));
@@ -321,7 +323,7 @@ cout << endl
 
 
   // insert info to msql
-  if (nev<0) mysql_start(runnumber);
+  //  if (nev<0) mysql_start(runnumber);
 
 
 
@@ -423,7 +425,7 @@ cout << endl
 
  
   // insert info to msql
-  if (nev<0) mysql_end(runnumber);
+  // if (nev<0) mysql_end(runnumber);
 
 }
 
