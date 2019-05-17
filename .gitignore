@@ -12,6 +12,9 @@ replay/*.jpg
 replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
+replay/scripts/*.csv
+replay/scripts/*.pdf
+replay/scripts/Per_run_avg_current.csv
 replay/#*
 replay/scripts/analysis/apex*.pdf
 replay/libraries/TriFadcCherenkov/#*
@@ -35,6 +38,7 @@ replay/brash/
 
 replay/replay_apex_old.C
 
+**/*.tar
 **/*~
 **/*.o
 **/*.a
@@ -49,6 +53,7 @@ replay/replay_apex_old.C
 **/*.aux
 **/*.log
 **/*.out
+replay/*.gif
 #**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
 **/.nfs*
 #replay/*.0
@@ -108,3 +113,21 @@ replay/scripts/FADC_decode_apex/tstfadcblk
 replay/scripts/FADC_decode_apex/tstio
 replay/scripts/FADC_decode_apex/tstskel
 replay/scripts/FADC_decode_apex/tstoo
+
+
+replay/Per*
+
+replay/scripts/Per_run_target_stability_T2_per_uA.csv
+
+
+replay/scripts/list/runlist.tex
+
+replay/Results_per_run_scripts/*
+
+  
+
+replay/libraries/TriFadcScin/TriFadcScin_02_16_19.h
+replay/libraries/TriFadcScin/TriFadcScin_changed_02_16_19.cxx
+
+
+ 
