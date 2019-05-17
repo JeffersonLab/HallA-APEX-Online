@@ -11,9 +11,9 @@
 
 
 
-#define MAX_EVENT_POOL     128
+#define MAX_EVENT_POOL     10//128
 #define MAX_EVENT_LENGTH   (66000<<2)      /* Size in Bytes */
-#define MAX_EVENT_LENGTH   1024*32      /* Size in Bytes */
+#define MAX_EVENT_LENGTH   1024*400      /* Size in Bytes */
 
 // MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
 //  = 12 *( 2+4+16*(16+25)) =  7944 for 50 samples = 32 KB
@@ -39,24 +39,26 @@ unsigned int blockLevel=  1;
 /* FADC Defaults/Globals */
 #define FADC_DAC_LEVEL    3100
 #define FADC_THRESHOLD    1  
-#define FADC_WINDOW_LAT   205//190 //205
-#define FADC_WINDOW_WIDTH 40 //  20 // 40 was 106
-int FADC_NPULSES =           1;
+#define FADC_WINDOW_WIDTH 23 //  20 // 40 was 106
+#define FADC_S2_WINDOW_WIDTH 15 //  20 // 40 was 106
+int FADC_NPULSES =           4;
 #define FADC_MODE           9
 
-#define FADC_LATENCY       240 // was 88 
+#define FADC_LATENCY       201 // was 88 
+#define FADC_S2_LATENCY    195 // was 88 
 #define FADC_LA_Sh         200 // was 73 //was 78 // was 62 
 #define FADC_WD_Sh         50//80 // was /// RELEVANT
-#define FADC_NSB           0  // # of samples *before* Threshold crossing (TC) to include in sum
+#define FADC_NSB           1  // # of samples *before* Threshold crossing (TC) to include in sum
 #define FADC_NSA           40 // 20//15 // was 60 // # of samples *after* Threshold crossing (TC) to include in sum
 #define FADC_SH_THRESHOLD     9 // changed 8/6/2017 from 300 : cosmic signals are not large enough to be above threshold
 #define chan_mask  0x0000 // chan mask for threshold setting 
 
-#define FADC_MODE_SciFi       9
-#define FADC_LA_SciFi         130 // was 73 //was 78 // was 62 
-#define FADC_WD_SciFi         40 // was /// RELEVANT
+#define FADC_MODE_SciFi       10
+#define FADC_LA_SciFi         300//192 //200 // was 73 //was 78 // was 62 
+// cosmics latency = 130 (from older runs)
+#define FADC_WD_SciFi         400//40 // was /// RELEVANT
 #define FADC_NSB_SciFi        2 
-#define FADC_NSA_SciFi        10 
+#define FADC_NSA_SciFi        40 
 
 extern int fadcA32Base;
 extern int nfadc;
@@ -70,6 +72,7 @@ extern int nfadc;
 //wether or not to use threshold
 #define WANT_THRESHOLD 0
 
+#define WANT_THRESHOLD_SCIFI 0
 
 
 
@@ -96,7 +99,7 @@ unsigned int fadcSlotMask=0;
 unsigned int MAXFADCWORDS=0;
 
 unsigned int fadc_threshold=FADC_THRESHOLD;
-unsigned int fadc_window_lat=FADC_WINDOW_LAT, fadc_window_width=FADC_WINDOW_WIDTH;
+unsigned int fadc_window_lat=FADC_LATENCY, fadc_window_width=FADC_WINDOW_WIDTH;
 
 
 int tsCrate=1;
@@ -164,6 +167,7 @@ rocDownload()
   
   vmeSetQuietFlag(1);
   faInit(FADC_ADDR, FADC_INCR, NFADC, iFlag);
+  //  faGetInsertAdcParameters(1);  // commented out as causing error
   vmeSetQuietFlag(0);
   
   if(nfadc>1)
@@ -203,6 +207,12 @@ rocDownload()
        {
        faSetThreshold(faSlot(ifa), fadc_threshold, 0xffff); //0xffff sets all channels to same threshold
        }
+
+  if(WANT_THRESHOLD_SCIFI){
+	if(ifa==4||ifa==5||ifa==6||ifa==7)
+	  faSetThreshold(faSlot(ifa), 300+200, 0xffff);
+  }
+
 
 if(ifa==0)      {
         faSetDAC(faSlot(ifa), 3072, 0x0001);   ///S0
@@ -421,12 +431,12 @@ if(ifa==2){
        */
       faSetProcMode(faSlot(ifa),
 		    FADC_MODE,
-		    FADC_WINDOW_LAT,
+		    FADC_LATENCY,
 		    FADC_WINDOW_WIDTH,
 		    1,   /* NSB */
 		    6,   /* NSA */
 		    4,   /* NP */
-		    1,   /* NPED */
+		    4,   /* NPED */
 		    320, /* MAXPED */
 		    2);  /* NSAT */
 
@@ -434,19 +444,19 @@ if(ifa==2){
          if(ifa==9||ifa==10||ifa==11||ifa==12)
              faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 15,400,3);
          else faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, FADC_NPULSES, 15,357,2); // nsat was 4
-       else{
+   else{
 	 printf("\n=================== \n else statement executed, ifa = %d \n",ifa);	 
-         if(ifa==0||ifa==1||ifa==2||ifa==3)
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_WINDOW_LAT, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 1,400,2);
+         if(ifa==1||ifa==2)
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_S2_LATENCY, FADC_S2_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 4,400,2); // S2
+         if(ifa==0||ifa==3)
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LATENCY, FADC_WINDOW_WIDTH, FADC_NSB, FADC_NSA, 1, 4,400,2);  // S0 and Cherenkov
          // faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, 1, 15,800, 1);
 	 if(ifa==4||ifa==5||ifa==6 || ifa==7)
-	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 1,400,2);	   // SciFi
+	   faSetProcMode(faSlot(ifa), FADC_MODE_SciFi, FADC_LA_SciFi, FADC_WD_SciFi, FADC_NSB_SciFi, FADC_NSA_SciFi, 1, 4,400,2);	   // SciFi
          if(ifa==8||ifa==9||ifa==10 || ifa==11)
-	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 1,400, 3);  // PRLs ( shower detectors )
+	   faSetProcMode(faSlot(ifa), FADC_MODE, FADC_LA_Sh, FADC_WD_Sh, FADC_NSB, FADC_NSA, FADC_NPULSES, 4,400, 3);  // PRLs ( shower detectors )
        }
-
-
-    }
+  }
   faGStatus(0);
   
   /*****************
@@ -536,6 +546,7 @@ rocGo()
     MAXFADCWORDS = nfadc * (2 + 4 + 16* blockLevel * 16);
   else /* FADC_MODE == 10 */
     MAXFADCWORDS = nfadc * (2 + 4 + 16 * blockLevel * (16 + FADC_WINDOW_WIDTH/2));
+  MAXFADCWORDS = 70000;
  
 
   faGEnable(0, 0);

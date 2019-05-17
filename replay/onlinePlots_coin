@@ -1,0 +1,68 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] 
+then
+	echo "Please enter run number"
+	read RUNNUM
+else
+	RUNNUM=$1
+fi
+
+
+Left="kTRUE"
+Right="kTRUE"
+
+if [ "$2" == "-s" ]
+   echo " -s condition passed"
+
+   then 
+      	if [ "$3" == "L" -o "$3" == "l" ] 
+	   then
+	    Right="kFALSE"
+		   
+	fi	
+
+	if [ "$3" == "R" -o "$3" == "r" ] 
+	    then
+	    Left="kFALSE"
+	    
+	fi
+
+fi
+
+
+if [ $Left == 'kTRUE' -a $Right == 'kTRUE' ]     #   COINCIDENCE (BOTH ARMS + COINC PLOTS)
+then
+    echo "/n coincidence plots"
+    
+    onlineGUI64/online -f onlineGUI64/LHRS_coin.cfg -r $RUNNUM
+    onlineGUI64/online -f onlineGUI64/RHRS_coin.cfg -r $RUNNUM
+    onlineGUI64/online -f onlineGUI64/coinc.cfg -r $RUNNUM
+    #onlineGUI64/online -f onlineGUI64/LHRS_phy.cfg -r $RUNNUM38
+
+    
+elif [ $Left == 'kTRUE' -a $Right == 'kFALSE' ]     # LEFT ARM ONLY
+then
+    echo " LEFT arm plots only"
+    onlineGUI64/online -f onlineGUI64/LHRS_coin.cfg -r $RUNNUM
+    
+    #onlineGUI64/online -f onlineGUI64/LHRS_phy.cfg -r $RUNNUM
+
+
+elif [ $Left == 'kFALSE' -a $Right == 'kTRUE' ]       # RIGHT ARM ONLY
+then
+    echo " RIGHT arm plots only"
+
+  	onlineGUI64/online -f onlineGUI64/RHRS_coin.cfg -r $RUNNUM
+
+  	#onlineGUI64/online -f onlineGUI64/RHRS_phy.cfg -r $RUNNUM
+
+else
+
+    echo " Input parameters incompatible with any plotting option"
+    echo " ./onlinePots $RUNNUM -s $SET_UP"
+
+fi
+
+
+

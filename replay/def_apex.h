@@ -56,6 +56,7 @@ static const char* PATHS[] = {
   "/adaq1/data1",
   "/cache/halla/apex/raw",
   "/cache/halla/triton/raw",
+  "/cache/mss/halla/apex/raw",
    0
 };
 

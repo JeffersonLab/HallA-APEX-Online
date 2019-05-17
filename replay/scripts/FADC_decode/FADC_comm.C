@@ -159,9 +159,9 @@ int main(int argc, char* argv[])
 
   // Create file name patterns
   if (spectrometer == "LHRS")
-    runFile = Form("/adaq1/data1/triton_%d.dat.0", runNumber);
+    runFile = Form("/adaq1/data1/apex_%d.dat.0", runNumber);
   if (spectrometer == "RHRS")
-    runFile = Form("/adaq1/data1/triton_%d.dat.0", runNumber);
+    runFile = Form("/adaq1/data1/apex_%d.dat.0", runNumber);
   rootFile = Form("/chafs1/work1/tritium/FADC_rootfiles/fadc_%d.root", runNumber);
 
   // Initialize raw samples index array
@@ -198,6 +198,22 @@ int main(int argc, char* argv[])
   // Initialize root and output
   //TROOT fadcana("tstfadcroot", "Hall C analysis");
   hfile = new TFile("fadc_data.root", "RECREATE", "fadc module data");
+
+  //setup TTree output
+//  TFile fTree("fadc_tree.root", "recreate");
+  TTree tree1("tree1", "fadc analyzed raw sample data");
+  Int_t treeMaxNpulses = 5;
+  Int_t treeCrate, treeSlot, treeChan, treeEvent, treePed, treeNpulses, treeTime[treeMaxNpulses], treeAmp[treeMaxNpulses], treeInt[treeMaxNpulses];
+  tree1.Branch("crate",&treeCrate,"crate/I");
+  tree1.Branch("slot",&treeSlot,"slot/I");
+  tree1.Branch("chan",&treeChan,"chan/I");
+  tree1.Branch("event",&treeEvent,"event/I");
+  tree1.Branch("ped",&treePed,"ped/I");
+  tree1.Branch("npulses",&treeNpulses,"npulses/I");
+  tree1.Branch("maxNpulses",&treeMaxNpulses,"maxNpulses/I");
+  tree1.Branch("time",treeTime,"time[maxNpulses]/I");
+  tree1.Branch("amp",treeAmp,"amp[maxNpulses]/I");
+  tree1.Branch("int",treeInt,"int[maxNpulses]/I");
  
   // Set the number of event to be analyzed
   uint32_t iievent;
@@ -292,6 +308,50 @@ int main(int argc, char* argv[])
 	      	    if (debugfile) *debugfile << "NUM FADC SAMPLES = " << num_fadc_samples << endl;
 		    // Acquire the raw samples vector and populate graphs
 		    raw_samples_vector[islot][chan] = fadc->GetPulseSamplesVector(chan);
+
+                    //BEGIN ANALYSIS OF PULSES FROM RAW SAMPLES -- REM -- 2019-02-25
+                    //These will be stored in a TTree. NOTE: THE TREE HAS MANY ENTRIES PER EVENT
+                    //Int_t treeCrate, treeSlot, treeChan, treeEvent, treePed, treeTime_pulse1, treeAmp_pulse1, treeInt_pulse1;
+                    Int_t treeThreshold = 50;
+                    Int_t treeNSA = 10;
+                    Int_t treeNSB = 2;
+                    Int_t treeNped = 4;
+                    treeCrate = crateNumber;
+                    treeSlot = islot;
+                    treeChan = chan;
+                    treeEvent = jevent;
+                    treePed = 0;
+                    treeNpulses = 0;
+                    for(Int_t pi=0; pi<treeMaxNpulses; pi++)
+                    {
+                      treeTime[pi] = 0;
+                      treeAmp[pi] = 0;
+                      treeInt[pi] = 0;
+                    }
+                    for(Int_t si=0; si<treeNped; si++) treePed += raw_samples_vector[islot][chan][si];
+                    treePed = treePed / treeNped;
+                    //iterate over samples, ignoring regions where NSB or NSA would go beyond the range of the window
+                    //(This is slightly different than the way the FADC firmware would do it...)
+		    for (Int_t isamp = treeNSB; isamp < -treeNSA + Int_t (raw_samples_vector[islot][chan].size()); isamp++)
+                    {
+                      if(Int_t(raw_samples_vector[islot][chan][isamp])>treePed+treeThreshold && Int_t(raw_samples_vector[islot][chan][isamp-1])<=treePed+treeThreshold && treeNpulses<treeMaxNpulses)
+                      {
+                        treeTime[treeNpulses] = isamp;
+                        for(Int_t jsamp = isamp-treeNSB; jsamp<isamp+treeNSA; jsamp++)
+                        {
+                          //store pulse amplitude (largest sample between NSB->NSA)
+                          if(Int_t(raw_samples_vector[islot][chan][jsamp]) > treeAmp[treeNpulses]) treeAmp[treeNpulses] = Int_t(raw_samples_vector[islot][chan][jsamp]);
+                          //calculate pulse integral (sum of all samples from NSB->NSA)
+                          treeInt[treeNpulses] += Int_t(raw_samples_vector[islot][chan][jsamp]);
+                        }
+                        treeAmp[treeNpulses] = treeAmp[treeNpulses] - treePed;	//subtract pedestal from pulse amplitude
+                        treeInt[treeNpulses] = treeInt[treeNpulses] - (treeNSA+treeNSB)*treePed;  //subtract pedestal from pulse integral
+                        treeNpulses++;
+                      }
+                    }
+                    tree1.Fill();
+                    //END ANALYSIS OF PULSES FROM RAW SAMPLES -- REM -- 2019-02-25
+
 		    if (raw_samp_index[islot][chan] < NUMRAWEVENTS) {
 		      for (Int_t sample_num = 0; sample_num < Int_t (raw_samples_vector[islot][chan].size()); sample_num++)
 			g_psamp_event[islot][chan][raw_samp_index[islot][chan]]->SetPoint(sample_num, sample_num + 1, Int_t (raw_samples_vector[islot][chan][sample_num]));
@@ -387,6 +447,7 @@ int main(int argc, char* argv[])
   cout << iievent - 1 << " events were processed" << endl;
   cout << "***************************************" << endl;
   
+  tree1.Write();
   // Write and clode the data file
   hfile->Write();
   hfile->Close();

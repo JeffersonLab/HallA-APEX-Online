@@ -105,8 +105,8 @@ FORMULA Rbpmbws Rrb.BPMB.rawcur.1+Rrb.BPMB.rawcur.2+Rrb.BPMB.rawcur.3+Rrb.BPMB.r
 formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
-TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 700 1000 4500 L.s0.lt>0.
-TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 700 1000 4500 L.s0.rt>0.
+TH1F Ls0lt 'S0-Bottom(B) FastBus TDC(with 0.5ns channel)' L.s0.lt 700 2000 3500 L.s0.lt>0.
+TH1F Ls0rt 'S0-Top(A) FastBus TDC(with 0.5ns channel)' L.s0.rt 700 2000 3500 L.s0.rt>0.
 TH1F Ls0ltTAll 'S0-Bottom(B) TDC w/T2,T3' L.s0.lt 500 1300 2300 L.s0.lt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F Ls0ltT3   'S0-Bottom(B) TDC w/ T3 only' L.s0.lt 500 1300 2300 L.s0.lt>0.&&(DL.evtypebits==8)
 TH1F Ls0rtTAll 'S0-Top(A) TDC w/ T2,T3' L.s0.rt 500 1300 2300 L.s0.rt>0.&&((DL.evtypebits==12)||(DL.evtypebits==14))
@@ -135,8 +135,8 @@ TH1F Ls2rtT3_ 'S2 TDC w/ T3 only: R-PMT' L.s2.rt 500 1300 2300 L.s2.rt>0.&&(DL.e
 
 TH1F Ls2la 'S2 FADC L-PMT ' L.s2.la 4000 0 40000 L.s2.la>0.
 TH1F Ls2ra 'S2 FADC R-PMT ' L.s2.ra 4000 0 40000 L.s2.ra>0.
-TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 2000 L.s2.la_p>-6000.
-TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 2000 L.s2.ra_p>-6000.
+TH1F Ls2la_p 'S2 FADC(PedSub) L-PMT ' L.s2.la_p 1000 -200 1000 L.s2.la_p>-6000.
+TH1F Ls2ra_p 'S2 FADC(PedSub) R-PMT ' L.s2.ra_p 1000 -200 1000 L.s2.ra_p>-6000.
 
 TH1F Ls2x 'L-arm S2-X Distribution' L.s2.trx 200 -1.5 1.5
 
@@ -147,16 +147,16 @@ TH2F Ls2xy 'L-arm S2 y vs. x' L.s2.trx L.s2.try 200 -1.5 1.5 54 -0.4 0.4
 # ------------------------------------------------------------------
 # LEFT ARM GAS CHERENKOV  ADC and TDC :
 #
-TH1F Lcert   'Cerenkov FastBus TDC(with 0.5ns channel) PMT' L.cer.t 700 1000 3500 L.cer.t>0
+TH1F Lcert   'Cerenkov FastBus TDC(with 0.5ns channel) PMT' L.cer.t 700 2000 3500 L.cer.t>0
 TH1F LcertTAll_    'Cerenkov TDC w/ T2,T3: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&((DL.evtypebits==12)||(DL.evtypebits==14))
 TH1F LcertT3_      'Cerenkov TDC w/ T6 only: PMT ' L.cer.t 500 0 2500 L.cer.t>0&&(DL.evtypebits==8)
 
-TH1F Lcera   'Cerenkov'  L.cer.a 1000 0 15000 L.cer.a>0
-TH1F Lcersum 'Sum of Cerenkov FADC (corrected)' L.cer.asum_c 1000 -200 10000  L.cer.asum_c>-1000
+TH1F Lcera   'Cerenkov'  L.cer.a 6000 0 20000 L.cer.a>0
+TH1F Lcersum 'Sum of Cerenkov FADC (corrected)' L.cer.asum_c 1000 -200 15000  L.cer.asum_c>-1000
 TH1F Lcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' L.cer.a_p 1000 -200 10000 L.cer.a_p>-200.&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 1000 -200 5000 L.cer.a_p>-200
-TH2F Lcer_x  'Sum of Cerenkov FADC(corrected) vs. X' L.cer.trx L.cer.asum_c  60 -1.2 1.2 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
-TH2F Lcer_y  'Sum of Cerenkov FADC(corrected) vs. Y' L.cer.try L.cer.asum_c  60 -0.12 0.12 10100 -100 15000 L.tr.n>0&&L.cer.asum_c>-1000
+TH1F Lcera_p 'Cerenkov FADC(PedSub) PMT' L.cer.a_p 300 -500 12000 R.cer.a_p>-1000
+TH2F Lcer_x  'Sum of Cerenkov FADC(corrected) vs. X' L.cer.trx L.cer.asum_c  120 -1.2 1.2 101 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
+TH2F Lcer_y  'Sum of Cerenkov FADC(corrected) vs. Y' L.cer.trx L.cer.asum_c  120 -1.2 1.2 101 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
 
 TH1F Lcerx 'L-arm Cerenkov-X Distribution' L.cer.trx 200 -1.5 1.5
 
@@ -168,18 +168,18 @@ TH2F Lcerxy 'L-arm Cerenkov y vs. x' L.cer.trx L.cer.try 200 -1.5 1.5 54 -0.4 0.
 # LEFT ARM Pion Rejector 1,2 (Preshower/Shower):
 #
 #TH1F Lpsa  'PionRejector1 ADC' L.prl1.a 1000 10 6000 L.prl1.a>0.
-TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 0.0 20000 L.prl1.a>0.
-TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -1000 10000 L.prl1.a_p>=-50.
+TH1F Lpsa   'PionRejector1 ADC' L.prl1.a 1000 5000 15000 L.prl1.a>0.
+TH1F Lpsa_p 'PionRejector1 ADC(PedSub)' L.prl1.a_p 1000 -200 6000 L.prl1.a_p>=-50.
 TH1F Lpssum 'PionRejector1 sum' L.prl1.asum_c 1000 1 5000 
-TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 0 20000 L.prl2.a>0.
-TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -1000 10000 L.prl2.a_p>=-50.
+TH1F Lsha   'PionRejector2 ADC' L.prl2.a 1000 5000 16000 L.prl2.a>0.
+TH1F Lsha_p 'PionRejector2 ADC(PedS1ub)' L.prl2.a_p 1000 -200 5000 L.prl2.a_p>=-50.
 TH1F Lshsum 'PionRejector2 sum' L.prl2.asum_c 1000 10 5000
 
 TH2F Lpr1_2 'Pion Rejector1 sum vs. 1PR_2 sum' L.prl2.asum_c L.prl1.asum_c 200 30 3000 200 30 3000
-TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
-TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 1500 L.tr.n>0
-TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
-TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1500 L.tr.n>0
+TH2F Lp1sumx 'Pion Rejector1 sum vs. x' L.prl1.trx L.prl1.asum_c 200 -1.2 1.2 200 30 1200 L.tr.n>0
+TH2F Lp2sumx 'Pion Rejector2 sum vs. x' L.prl2.trx L.prl2.asum_c 200 -1.2 1.2 200 30 1200 L.tr.n>0
+TH2F Lp1sumy 'Pion Rejector1 sum vs. y' L.prl1.try L.prl1.asum_c 200 -0.2 0.2 200 30 1200 L.tr.n>0
+TH2F Lp2sumy 'Pion Rejector2 sum vs. y' L.prl2.try L.prl2.asum_c 200 -0.2 0.2 200 30 1200 L.tr.n>0
 
 TH1F Lprl1x 'L-arm Pion Rejector1-X Distribution' L.prl1.trx 200 -1.5 1.5
 TH1F Lprl1y 'L-arm Pion Rejector1-Y Distribution' L.prl1.try 54 -0.4 0.4
@@ -190,20 +190,20 @@ TH1F Lprl2x 'L-arm Pion Rejector2-X Distribution' L.prl2.trx 200 -1.5 1.5
 TH1F Lprl2y 'L-arm Pion Rejector2-Y Distribution' L.prl2.try 54 -0.4 0.4
 
 TH2F Lprl2xy 'L-arm Pion Rejector2 y vs. x' L.prl2.trx L.prl2.try 200 -1.5 1.5 54 -0.4 0.4
->>>>>>> FETCH_HEAD
+
 
 # ------------------------------------------------------------------
 # LEFT ARM VDC wires and timing  :
 #
-TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 400 1800 3200
-TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 400 1800 3200
-TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 400 1800 3200
-TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 400 1800 3200
+TH1F Lvu1t 'L-arm VDC u1 rawtime' L.vdc.u1.rawtime 200 1900 3300
+TH1F Lvu2t 'L-arm VDC u2 rawtime' L.vdc.u2.rawtime 200 1900 3300
+TH1F Lvv1t 'L-arm VDC v1 rawtime' L.vdc.v1.rawtime 200 1900 3300
+TH1F Lvv2t 'L-arm VDC v2 rawtime' L.vdc.v2.rawtime 200 1900 3300
 
-TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 400 1800 3200
-TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 400 1800 3200
-TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 400 1800 3200
-TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 400 1800 3200
+TH2F Lvu1tn 'L-arm VDC u1 rawtime : wire number' L.vdc.u1.wire L.vdc.u1.rawtime 400 0 400 200 1900 3300
+TH2F Lvu2tn 'L-arm VDC u2 rawtime : wire number' L.vdc.u2.wire L.vdc.u2.rawtime 400 0 400 200 1900 3300
+TH2F Lvv1tn 'L-arm VDC v1 rawtime : wire number' L.vdc.v1.wire L.vdc.v1.rawtime 400 0 400 200 1900 3300
+TH2F Lvv2tn 'L-arm VDC v2 rawtime : wire number' L.vdc.v2.wire L.vdc.v2.rawtime 400 0 400 200 1900 3300
 
 TH1F Lvu1w 'L-arm VDC u1 wires' L.vdc.u1.wire 400 0 400
 TH1F Lvu2w 'L-arm VDC u2 wires' L.vdc.u2.wire 400 0 400
@@ -246,9 +246,9 @@ TH2F L_tfpc 'L-arm FP Rotated x vs. y' L.tr.r_y L.tr.r_x 200 -.2 .2 200 -1.5 1.5
 TH2F L_tfpd 'L-arm FP Rotated theta vs. phi' L.tr.r_ph L.tr.r_th 200 -.075 .075 200 -.2 .2
 TH2F L_tfpe 'L-arm FP Detector VDC y vs. x' L.tr.d_x L.tr.d_y 200 -1.5 1.5 200 -0.2 0.2 
 
-TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F L_tgth 'L-arm target theta' L.tr.tg_th 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
-TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
+TH1F L_dp 'L-arm delta' L.tr.tg_dp 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1
+TH1F L_tgth 'L-arm target theta' L.tr.tg_th 100 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1
+TH1F L_tgph 'L-arm target phi' L.tr.tg_ph 200 -.1 .1 L.cer.asum_c>2000&&L.tr.n==1
 TH1F L_tgy 'L-arm target y' L.tr.tg_y 200 -.1 .1 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 TH1F L_trvz 'L-arm vertex z' L.tr.vz 200 -0.2 0.2 L.cer.asum_c>2000&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7
 
@@ -263,7 +263,7 @@ TH2F L_tga  'L-arm tgt theta vs. phi' L.tr.tg_ph L.tr.tg_th 200 -0.1 0.1 200 -0.
 TH2F L_tgb  'L-arm tgt delta vs. phi' L.tr.tg_ph L.tr.tg_dp 200 -0.1 0.1 1000 -0.1 0.1
 TH2F L_tgc  'L-arm tgt phi vs. y' L.tr.tg_y L.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 
-#Left Arm Clock Counter and digital BCM
+#Left Arm Clock Counter and digital BC	M
 TH1F LClockInterval 'LHRS Clock Interval' LV1495.ClockInterval 1000 0 70000
 
 #-------------------------------------------------------------------------------
@@ -301,8 +301,8 @@ TH1F Rbeam_rasterx 'x at target (from Rasters) [mm]' Rrbx 4000  -15. 15.
 TH1F Rbeam_rastery 'y at target (from Rasters) [mm]' Rrby 4000  -15. 15.
 TH2F Rbpma_xy 'BPMA y vs x'  Rrbax Rrbay 2000 -15. 15. 2000 -15. 15.
 TH2F Rbpmb_xy 'BPMB y vs x'  Rrbbx Rrbby 2000 -15. 15. 2000 -15. 15.
-TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 15.  200 -15. 15.
-TH2F Rbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Rurbx Rurby 800 -15. 15.  800 -15. 15.
+TH2F Rbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Rrbx Rrby 200 -15. 0.  200 15. 30.
+TH2F Rbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Rurbx Rurby 800  -10. 10.  800 -10. 10.
 
 ##Beam Information LHRS
 ##
@@ -315,7 +315,7 @@ TH1F Lbeam_rasterx 'x at target (from Rasters) [mm]' Lrbx 4000  -15. 15.
 TH1F Lbeam_rastery 'y at target (from Rasters) [mm]' Lrby 4000  -15. 15.
 TH2F Lbpma_xy 'BPMA y vs x'  Lrbax Lrbay 2000 -15. 15. 2000 -15. 15.
 TH2F Lbpmb_xy 'BPMB y vs x'  Lrbbx Lrbby 2000 -15. 15. 2000 -15. 15.
-TH2F Lbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Lrbx Lrby 200 -15. 15.  200 -15. 15.
+TH2F Lbeam_rasterxy 'Beam at target y vs x (from Rasters)'  Lrbx Lrby 200 -15. 15.  200 -30 30
 TH2F Lbeam_unrasterxy 'Beam at target y vs x (unrastered)'  Lurbx Lurby 800 -15. 15.  800 -15. 15.
 
 TH2F Rurastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Rrb.Raster.rawcur.x Rrbax 500 50000 100000 200 -5. 5.
@@ -328,10 +328,10 @@ TH2F Rurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Rrb.Raster.rawcur.x
 TH2F Rurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Rrb.Raster.rawcur.y Rrbbx 500 20000 120000 200 -5. 5.
 TH2F Rurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Rrb.Raster.rawcur.x Rrbby 500 50000 100000 200 -5. 5.
 
-TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 50000 100000 200 -5. 5.
-TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 120000 200 -5. 5.
-TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 50000 100000 200 -5. 5.
-TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 120000 200 -5. 5.
+TH2F Rdrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Rrb.Raster2.rawcur.x Rrbax 500 35000 50000 200 -3. 3.
+TH2F Rdrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Rrb.Raster2.rawcur.y Rrbay 500 20000 60000 200 -1. 6.
+TH2F Rdrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Rrb.Raster2.rawcur.x Rrbbx 500 35000 50000 200 -3. 3.
+TH2F Rdrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Rrb.Raster2.rawcur.y Rrbby 500 20000 60000 200 -1. 6.
 
 TH2F Rdrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Rrb.Raster2.rawcur.y Rrbax 500 20000 120000 200 -5. 5.
 TH2F Rdrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Rrb.Raster2.rawcur.x Rrbay 500 50000 100000 200 -5. 5.
@@ -348,10 +348,10 @@ TH2F Lurastraw_x_bpma_y 'Up Fast Raster Current X vs BPMA Y' Lrb.Raster.rawcur.x
 TH2F Lurastraw_y_bpmb_x 'Up Fast Raster Current Y vs BPMB X' Lrb.Raster.rawcur.y Lrbbx 500 20000 120000 200 -5. 5.
 TH2F Lurastraw_x_bpmb_y 'Up Fast Raster Current X vs BPMB Y' Lrb.Raster.rawcur.x Lrbby 500 50000 100000 200 -5. 5.
 
-TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 50000 100000 200 -5. 5.
-TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 20000 120000 200 -5. 5.
-TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 50000 100000 200 -5. 5.
-TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 20000 120000 200 -5. 5.
+TH2F Ldrastraw_bpma_x 'Down Fast Raster Current vs BPMA X' Lrb.Raster2.rawcur.x Lrbax 500 25000 35000 200 -2. 2.
+TH2F Ldrastraw_bpma_y 'Down Fast Raster Current vs BPMA Y' Lrb.Raster2.rawcur.y Lrbay 500 17000 50000 200 -1. 6.
+TH2F Ldrastraw_bpmb_x 'Down Fast Raster Current vs BPMB X' Lrb.Raster2.rawcur.x Lrbbx 500 25000 35000 200 -2. 2.
+TH2F Ldrastraw_bpmb_y 'Down Fast Raster Current vs BPMB Y' Lrb.Raster2.rawcur.y Lrbby 500 17000 50000 200 -1. 6.
 
 TH2F Ldrastraw_y_bpma_x 'Down Fast Raster Current Y vs BPMA X' Lrb.Raster2.rawcur.y Lrbax 500 20000 120000 200 -5. 5.
 TH2F Ldrastraw_x_bpma_y 'Down Fast Raster Current X vs BPMA Y' Lrb.Raster2.rawcur.x Lrbay 500 50000 100000 200 -5. 5.
@@ -385,7 +385,7 @@ TH1F Rs0la_p 'S0-Top(B) FADC (PedSub)' R.s0.la_p 388 -500 12000 R.s0.la_p>-600.
 TH1F Rs0ra_p 'S0-Bottom(A) FADC (PedSub)' R.s0.ra_p 200 -500 6000 R.s0.ra_p>-600.
 
 TH1F Rs0x 'R-arm S0-X Distribution' R.s0.trx 200 -1.5 1.5
-TH1F Rs0y 'R-arm S0-Y Distribution' R.s0.try 54 -0.4 0.4
+TH1F Rs0y 'R-arm S0-Y Distribution' R.s0.try 50 -0.2 0.2
 
 TH2F Rs0xy 'R-arm S0 y vs. x' R.s0.trx R.s0.try 200 -1.5 1.5 54 -0.4 0.4
 
@@ -404,7 +404,7 @@ TH1F Rs2rtT6_ 'S2 TDC Fastbus w/ T6 only: R-PMT ' R.s2.rt 500 1500 2500 R.s2.rt>
 TH1F Rs2la 'S2 FADC L-PMT' R.s2.la 1000 10000 20000 R.s2.la>0.
 TH1F Rs2ra 'S2 FADC R-PMT' R.s2.ra 1000 10000 20000 R.s2.ra>0.
 TH1F Rs2la_p 'S2 FADC(PedSub) L-PMT ' R.s2.la_p 220 -200 2000 R.s2.la_p>-6000.
-TH1F Rs2ra_p 'S2 FADC(PedSub) L-PMT ' R.s2.la_p 220 -200 2000 R.s2.la_p>-6000.
+TH1F Rs2ra_p 'S2 FADC(PedSub) R-PMT ' R.s2.ra_p 220 -200 2000 R.s2.ra_p>-6000.
 
 TH1F Rs2x 'R-arm S2-X Distribution' R.s2.trx 200 -1.5 1.5
 TH1F Rs2y 'R-arm S2-Y Distribution' R.s2.try 54 -0.4 0.4
@@ -415,18 +415,18 @@ TH2F Rs2xy 'R-arm S2 y vs. x' R.s2.trx R.s2.try 200 -1.5 1.5 54 -0.4 0.4
 # ------------------------------------------------------------------
 # RIGHT ARM GAS CHERENKOV  ADC and TDC :
 #
-TH1F Rcert 'Cerenkov Fastbus TDC PMT ' R.cer.t 500 1500 3500 R.cer.t>0
+TH1F Rcert 'Cerenkov Fastbus TDC PMT ' R.cer.t 350 1800 3200 R.cer.t>0
 TH1F RcertT4_   'Cerenkov Fastbus TDC w/ T5,T6: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&((DR.evtypebits==112)||(DR.evtypebits==96))
 TH1F RcertT6_   'Cerenkov Fastbus TDC w/ T6 only: PMT ' R.cer.t 500 0 2500 R.cer.t>0&&(DR.evtypebits==64)
 
-TH1F Rcera 'Fadc Cerenkov'  R.cer.a 1000 10000 30000 R.cer.a>0
+TH1F Rcera 'Fadc Cerenkov'  R.cer.a 3125 0 25000 R.cer.a>0
 TH1F Rcersum 'Sum of Cerenkov FADC (corrected)' R.cer.asum_c 8022 -100 10000 R.cer.asum_c>-1000
 
-TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 381 -500 10000 R.cer.a_p>-1000
+TH1F Rcera_p 'Cerenkov FADC(PedSub) PMT ' R.cer.a_p 300 -500 12000 R.cer.a_p>-1000
 
 TH1F Rcera_p_cut 'Cerenkov FADC(PedSub) PMT w cut' R.cer.a_p 1000 -200 20000 R.cer.a_p>-200.&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
-TH2F Rcer_x  'Sum of Cerenkov FADC (corrected) vs. X' R.cer.trx R.cer.asum_c  60 -1.2 1.2 8022 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
-TH2F Rcer_y  'Sum of Cerenkov FADC (corrected) vs. Y' R.cer.try R.cer.asum_c  100 -0.2 0.2 8022 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
+TH2F Rcer_x  'Sum of Cerenkov FADC (corrected) vs. X' R.cer.trx R.cer.asum_c  120 -1.2 1.2 101 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
+TH2F Rcer_y  'Sum of Cerenkov FADC (corrected) vs. Y' R.cer.try R.cer.asum_c  120 -0.2 0.2 101 -100 10000 R.tr.n>0&&R.cer.asum_c>-1000
 #TH2F Rcerfadcvfbus 'Cerenkov Fastbus ADC(PedSub) vs FADC, PMT  ' R.cer.a_p FbusR.cer.a_p 5000 0 10000 5000 0 10000 R.cer.a_p>0
 
 TH1F Rcerx 'R-arm Cerenkov-X Distribution' R.cer.trx 200 -1.5 1.5
@@ -446,10 +446,10 @@ TH1F Rsha_p 'Shower Fastbus ADC (PedSub)' R.sh.a_p 1100 -99.5 2000.5 R.sh.a_p>-5
 TH1F Rshsum  'Shower sum Fastbus ADC' R.sh.asum_c 100 10 3000 
 
 TH2F Rpr1_2 'Preshower vs. Shower' R.sh.asum_c R.ps.asum_c 100 1 1500 100 1 3000 
-TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 3000 R.tr.n>0
-TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 5000 R.tr.n>0
-TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
-TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 3000 R.tr.n>0
+TH2F Rp1sumx 'Preshower sum vs. x' R.ps.trx R.ps.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumx 'Shower sum vs. x' R.sh.trx R.sh.asum_c 200 -1.2 1.2 100 1 1000 R.tr.n>0
+TH2F Rp1sumy 'Preshower sum vs. y' R.ps.try R.ps.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
+TH2F Rp2sumy 'Shower sum vs. y' R.sh.try R.sh.asum_c 200 -0.2 0.2 100 1 1000 R.tr.n>0
 
 TH1F Rshx 'R-arm Shower-X Distribution' R.sh.trx 200 -1.5 1.5
 TH1F Rshy 'R-arm Shower-Y Distribution' R.sh.try 54 -0.4 0.4
@@ -464,10 +464,16 @@ TH2F Rpsxy 'R-arm Pre-Shower y vs. x' R.ps.trx R.ps.try 200 -1.5 1.5 54 -0.4 0.4
 # ------------------------------------------------------------------
 # RIGHT ARM VDC wires and timing  :
 #
-TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 400 1800 3200
-TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 400 1800 3200
-TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 400 1800 3200
-TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 400 1800 3200
+TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 200 1800 3200
+TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 200 1800 3200
+TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 200 1800 3200
+TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 200 1800 3200
+
+TH2F Rvu1tn 'R-arm VDC u1 rawtime : wire number' R.vdc.u1.wire R.vdc.u1.rawtime 400 0 400 400 1800 3200
+TH2F Rvu2tn 'R-arm VDC u2 rawtime : wire number' R.vdc.u2.wire R.vdc.u2.rawtime 400 0 400 400 1800 3200
+TH2F Rvv1tn 'R-arm VDC v1 rawtime : wire number' R.vdc.v1.wire R.vdc.v1.rawtime 400 0 400 400 1800 3200
+TH2F Rvv2tn 'R-arm VDC v2 rawtime : wire number' R.vdc.v2.wire R.vdc.v2.rawtime 400 0 400 400 1800 3200
+
 
 TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 0 400
 TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 0 400
@@ -517,7 +523,7 @@ TH1F R_tgy 'R-arm target y' R.tr.tg_y 200 -.1 .1 R.cer.asum_c>2000&&(R.ps.e+R.sh
 TH1F R_trvz 'R-arm vertex z' R.tr.vz 200 -0.2 0.2 R.cer.asum_c>2000&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
 
 TH1F Rtrn_ep  'R-arm number of tracks with ep cut' R.tr.n 20 -0.5 10.5 (R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7
-TH1F Rtrn_cer  'L-arm number of tracks with cer cut' R.tr.n 20 -0.5 10.5 R.cer.asum_c>2000
+TH1F Rtrn_cer  'R-arm number of tracks with cer cut' R.tr.n 20 -0.5 10.5 R.cer.asum_c>2000
 
 TH1F R_tr_beta  'R-arm Track Beta' R.tr.beta 100 -2 2 R.tr.n>0  
 TH2F R_tr_betax 'R-arm Track Beta vs. Track X' R.tr.x R.tr.beta 100 -1 1 100 -2 2 R.tr.n>0
@@ -527,6 +533,11 @@ TH2F R_tga  'R-arm tgt theta vs. phi' R.tr.tg_ph R.tr.tg_th 200 -0.1 0.1 200 -0.
 TH2F R_tgb  'R-arm tgt delta vs. phi' R.tr.tg_ph R.tr.tg_dp 200 -0.1 0.1 200 -0.1 0.1
 TH2F R_tgc  'R-arm tgt phi vs. tgt y' R.tr.tg_y R.tr.tg_ph 200 -0.1 0.1 200 -0.1 0.1
 
+TH2F LR_dp	'L-arm tgt delta vs R-arm tgt delta' R.tr.tg_dp L.tr.tg_dp 120 -0.06 0.06 60 -0.06 0.06 R.cer.asum_c>2000&&R.tr.n==1&&L.cer.asum_c>2000&&L.tr.n==1
+
+#TH2F LR_dpcut	'L-arm tgt delta vs R-arm tgt delta' R.tr.tg_dp L.tr.tg_dp 200 -0.1 0.1 100 -0.1 0.1 R.cer.asum_c>2000&&R.tr.n==1&&(R.ps.e+R.sh.e)/(R.gold.p*1000)>0.7&&L.cer.asum_c>2000&&L.tr.n==1&&(L.prl1.e+L.prl2.e)/(L.gold.p*1000)>0.7&&((DR.rrawt2[1]>1680)&&(DR.rrawt2[1]<1700))
+
+#&&DR.rrawt2>1680&&DR.rrawt2<1700
 #Right Arm Clock Counter and digital BCM
 TH1F RClockInterval 'RHRS Clock Interval' RV1495.ClockInterval 1000 0 70000
 

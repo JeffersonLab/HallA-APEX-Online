@@ -1,7 +1,34 @@
---------[ 2019-02-06 00:00:00 -0500 ]
-.cer.NSA = 40
+--------[ 2019-02-22 04:28:00 -0500 ]
+R.cer.NSA = 32
 R.cer.NSB = 2
-R.cer.Win =40
+R.cer.Win = 32
+ R.cer.NPED = 5
+R.cer.TFlag = 0
+R.cer.adc.pedestals =  4791  4933 5062 5631 5311 5284 5376 5074 5287 4892
+
+
+--------[ 2019-02-17 21:28:00 -0500 ]
+R.cer.NSA = 18
+R.cer.NSB = 2
+R.cer.Win = 18
+ R.cer.NPED = 5
+R.cer.TFlag = 0
+R.cer.adc.pedestals =  4791  4933 5062 5631 5311 5284 5376 5074 5287 4892
+
+
+
+--------[ 2019-02-13 21:28:00 -0500 ]
+R.cer.NSA = 16
+R.cer.NSB = 2
+R.cer.Win = 16
+R.cer.NPED = 5
+R.cer.TFlag = 2
+R.cer.adc.pedestals =  4791  4933 5062 5631 5311 5284 5376 5074 5287 4892
+
+--------[ 2019-02-06 00:00:00 -0500 ]
+R.cer.NSA = 40
+R.cer.NSB = 2
+R.cer.Win = 40
 
 --------[ 2019-01-23 16:42:00 -0500 ]
 R.cer.NSA = 55

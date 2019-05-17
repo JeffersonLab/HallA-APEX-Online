@@ -84,7 +84,7 @@
 #include "TSQLServer.h"
 #endif//#ifdef __CINT__
 
-#define ALLOW_ROOTFILE_OVERWRITE false
+#define ALLOW_ROOTFILE_OVERWRITE true 
 
 Bool_t IsFileExist(const Char_t * fname);
 void mysql_start(Int_t runnumber);
@@ -272,6 +272,7 @@ void ReplayCore(
 		  TString rootfilebase = outname, rootfilename = outname;
 		  rootfilebase.Remove(rootfilebase.Last('.'),5);
 		  Long_t split = 0;
+		  cout << "Overwriting old files!" << endl;
 		  while ( !gSystem->AccessPathName(rootfilename.Data()) ) {
 			  cout << "Removing old ROOT file " << rootfilename.Data() << endl;
 			  gSystem->Exec(Form("rm %s",rootfilename.Data()));

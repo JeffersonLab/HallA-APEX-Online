@@ -32,8 +32,8 @@
 #define SLOTMIN 1
 #define NUMSLOTS 22
 #define NADCCHAN 16
-#define NUMRAWEVENTS 5000
-#define NPED 15
+#define NUMRAWEVENTS 10000
+#define NPED 5
 
 using namespace std;
 using namespace Decoder;
@@ -90,7 +90,8 @@ void GeneratePlots(Int_t mode, uint32_t islot, uint32_t chan) {
   // Canvas'
   if (!c_psamp[islot][chan] && ((mode == 1) || (mode == 8) || (mode == 10))) {
     c_psamp[islot][chan] = new TCanvas(Form("c_psamp_slot_%d_chan_%d", islot, chan), Form("c_psamp_slot_%d_chan_%d", islot, chan), 1600, 1600);
-    c_psamp[islot][chan]->Divide(5, 5);
+
+    c_psamp[islot][chan]->Divide(10, 10);
   }
   // Raw samples directoy & graphs
   if ((mode == 1) || (mode == 8) || (mode == 10)) {   
@@ -170,9 +171,9 @@ int main(int argc, char* argv[])
   runFile = Form("/adaq1/data1/apex_%d.dat.0", runNumber);
   // Create file name patterns
   if (spectrometer == "LHRS")
-    rootFile = Form("/chafs1/work1/apex/FADC_rootfiles/fadc_left_%d.root", runNumber);
+    rootFile = Form("/chafs2/work1/APEX/FADC_rootfiles/fadc_left_%d.root", runNumber);
   if (spectrometer == "RHRS")
-      rootFile = Form("/chafs1/work1/apex/FADC_rootfiles/fadc_right_%d.root", runNumber);
+      rootFile = Form("/chafs2/work1/APEX/FADC_rootfiles/fadc_right_%d.root", runNumber);
   // Initialize raw samples index array
   memset(raw_samp_index, 0, sizeof(raw_samp_index));
   memset(noverflow, 0, sizeof(noverflow));
@@ -338,6 +339,7 @@ int main(int argc, char* argv[])
   	if (g_psamp_event[islot][chan][raw_index] != NULL) {
   	  UInt_t rand_int = 1 + rand->Integer(9);  
   	  hfile->cd(Form("/mode_%d_data/slot_%d/chan_%d/raw_samples", fadc_mode_const, islot, chan));
+
   	  c_psamp[islot][chan]->cd(raw_index + 1);
   	  g_psamp_event[islot][chan][raw_index]->Draw("ACP");
   	  g_psamp_event[islot][chan][raw_index]->SetTitle(Form("FADC Mode %d Pulse Peak Data Slot %d Channel %d Event %d", fadc_mode_const, islot, chan, raw_index));
@@ -347,6 +349,8 @@ int main(int argc, char* argv[])
   	  g_psamp_event[islot][chan][raw_index]->SetMarkerColor(rand_int);
   	  g_psamp_event[islot][chan][raw_index]->SetMarkerStyle(20);
   	  g_psamp_event[islot][chan][raw_index]->SetDrawOption("ACP");
+
+
   	}  // Graph condition
       }  // Raw event loop
       // Write the canvas to file
@@ -363,8 +367,8 @@ int main(int argc, char* argv[])
 
   //output pulse and pedestal quality check results
   int slotmin,slotmax;
-  if(spectrometer=="LHRS") {slotmin=6;slotmax=10;}
-  if(spectrometer=="RHRS") {slotmin=13;slotmax=17;}
+  if(spectrometer=="LHRS") {slotmin=5;slotmax=18;}
+  if(spectrometer=="RHRS") {slotmin=13;slotmax=18;}
   ofstream qualityfile;
   qualityfile.open(Form("results/fadc_quality_%d.txt",runNumber));
   for(int islot=slotmin;islot<slotmax;islot++)

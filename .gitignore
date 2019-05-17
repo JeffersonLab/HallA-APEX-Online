@@ -1,4 +1,4 @@
-p# ignore patterns
+# ignore patterns
 
 replay/scripts/calibrate/BPM/HarpScans/*
 replay/scripts/calibrate/BPM/harp_results_*
@@ -12,6 +12,9 @@ replay/*.jpg
 replay/Time_check/*.pdf
 replay/scripts/FADC_decode/*
 replay/scripts/list/*.pdf
+replay/scripts/*.csv
+replay/scripts/*.pdf
+replay/scripts/Per_run_avg_current.csv
 replay/#*
 replay/scripts/analysis/apex*.pdf
 replay/libraries/TriFadcCherenkov/#*
@@ -35,6 +38,7 @@ replay/brash/
 
 replay/replay_apex_old.C
 
+**/*.tar
 **/*~
 **/*.o
 **/*.a
@@ -49,6 +53,7 @@ replay/replay_apex_old.C
 **/*.aux
 **/*.log
 **/*.out
+replay/*.gif
 #**/*LinkDef.*    Not a compiled file, don't ignore. Oops.
 **/.nfs*
 #replay/*.0
@@ -88,8 +93,54 @@ scaler/hana_scaler/xscaler
 replay/scripts/calibrate/BPM/Rootfiles
 replay/libs/*
 
+
 scripts/FADC_decode_apex/epicsd
 scripts/FADC_decode_apex/prfact
 scripts/FADC_decode_apex/rootfiles
 scripts/FADC_decode_apex/tst*
 scripts/FADC_decode_apex/tdec*
+
+
+replay/scripts/FADC_decode_apex/results/*txt
+replay/scripts/FADC_decode_apex/results/*png
+
+
+
+replay/scripts/#*
+replay/scripts/analysis/#*
+replay/scripts/.#*
+replay/scripts/beam_rate/#*
+replay/scripts/beam_rate/.#*
+
+replay/scripts/FADC_decode_apex/FADCcom
+replay/scripts/FADC_decode_apex/epicsd
+replay/scripts/FADC_decode_apex/prfact
+replay/scripts/FADC_decode_apex/tdecex
+replay/scripts/FADC_decode_apex/tdecpr
+replay/scripts/FADC_decode_apex/tst1190
+replay/scripts/FADC_decode_apex/tstf1tdc
+replay/scripts/FADC_decode_apex/tstfadc
+replay/scripts/FADC_decode_apex/tstfadcblk
+replay/scripts/FADC_decode_apex/tstio
+replay/scripts/FADC_decode_apex/tstskel
+replay/scripts/FADC_decode_apex/tstoo
+
+
+replay/Per*
+
+replay/scripts/Per_run_target_stability_T2_per_uA.csv
+
+
+replay/scripts/list/runlist.tex
+
+replay/Results_per_run_scripts/*
+
+  
+
+replay/libraries/TriFadcScin/TriFadcScin_02_16_19.h
+replay/libraries/TriFadcScin/TriFadcScin_changed_02_16_19.cxx
+
+
+ 
+
+

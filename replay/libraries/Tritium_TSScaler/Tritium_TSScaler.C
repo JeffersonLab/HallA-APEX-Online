@@ -44,7 +44,7 @@ using namespace THaString;
 static const UInt_t ICOUNT    = 1;
 static const UInt_t IRATE     = 2;
 static const UInt_t MAXCHAN   = 32;
-static const UInt_t MAXTEVT   = 15000;
+static const UInt_t MAXTEVT   = 150000;
 static const UInt_t defaultDT = 4;
 
 Tritium_TSScaler::Tritium_TSScaler(const char *name, const char* description)

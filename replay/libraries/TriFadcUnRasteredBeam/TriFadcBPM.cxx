@@ -177,7 +177,7 @@ Int_t TriFadcBPM::Decode( const THaEvData& evdata )
   }
 
   if (fNfired!=NCHAN) {
-    Warning( Here(here), "Number of fired Channels out of range. "
+    Warning( Here(here), "Number of fired Channels out of fPositionrange. "
 	     "Setting beam position to nominal values");
   }
   else {
