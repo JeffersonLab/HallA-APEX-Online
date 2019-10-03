@@ -7,6 +7,9 @@ Rurb.BPMA.pedestals = 6259 6280 5144 5179
 Rurb.BPMA.rotmatrix = -0.648085 0.791951 0.683964 0.79902
 Rurb.BPMA.offsets =  0.00188 0.00001509
 
+Rurb.BPMA.detmap =
+      20   16     4     7     1  250
+
 
 --------[ 2018-05-03 00:00:00 -0500 ]
 Rurb.BPMA.pedestals =  17693  17654  17142  17333
