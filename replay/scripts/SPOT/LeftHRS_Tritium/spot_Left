@@ -1,17 +1,21 @@
 #!/bin/bash
 currentdir=$PWD
 
-exp=$EXPERIMENT
+#exp=$EXPERIMENT
+exp="APEX"
 
 
 
 case $1 in 
 "" | "last")
-    runnum=`cat ~adaq/datafile/rcRunNumberL`
-    CFILE=/adaq1/data1/${exp}_$runnum.dat.0
+	#    runnum=`cat ~adaq/datafile/rcRunNumberL`
+    # CFILE=/adaq1/data1/${exp}_$runnum.dat.0
+    CFILE=/w/work3/home/johnw/raw/apex_4668.dat.0
+    echo "tits"
     if [ ! -f $CFILE ]
     then
 	echo "ERROR: no CODA files"
+	echo $CFILE
 	exit
     fi
     
@@ -58,7 +62,12 @@ case $1 in
 * )
 
     runnum=$1
-    CFILE=/adaq1/data1/${exp}_$1.dat.0
+    #    CFILE=/adaq1/data1/${exp}_$1.dat.0
+
+    #    CFILE=/w/work3/home/johnw/raw/apex_4668.dat.0
+    CFILE=/w/work3/home/johnw/raw/apex_4768.dat.0
+    
+    
     if [ ! -f $CFILE ]
     then
        echo "ERROR: no CODA files"
@@ -100,8 +109,12 @@ export DB_DIR=$DB_DIR
 
 analyzer -b -q 'get_rastersize_L.C("'$CFILE'","'$runnum'",'$FIRST','$LAST',"rastersize.root")'
 
+
+echo "Reached post get_rastesize()"
+
 RootFILE=L$runnum".root"
-spot_dir="/chafs1/work1/${exp}/spot"
+#spot_dir="/chafs1/work1/${exp}/spot"
+spot_dir="/w/work3/home/johnw/Rootfiles/spot"
 
 mv rastersize.root ${spot_dir}/$RootFILE
 #mv Tritium_$runnum.pdf ${spot_dir}/.

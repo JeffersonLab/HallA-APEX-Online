@@ -28,29 +28,29 @@ TH2F fbeam_xy 'beam at target y vs x'  frbx frby 100 -25. 25.  100 -25. 25.
 
 TH2F frastxy1 'Fast Raster 1 X vs Y (current)' Lrb.Raster.rawcur.y Lrb.Raster.rawcur.x     500 10000 120000 500 10000 120000 L.tr.n==1
 TH2F frastxy2 'Fast Raster 2 X vs Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster2.rawcur.x   500 10000 120000 500 10000 120000 L.tr.n==1
-TH2F frastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 500 10000 120000 500 10000 120000 L.tr.n==1
-TH2F frasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 500 10000 120000 500 10000 120000 L.tr.n==1
+TH2F frastx1x2 'Fast Raster 1 X vs 2 X (current)' Lrb.Raster2.rawcur.x Lrb.Raster.rawcur.x 500 20000 40000 500 25000 35000 L.tr.n==1
+TH2F frasty1y2 'Fast Raster 1 Y vs 2 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.y 500 10000 50000 500 25000 35000 L.tr.n==1
 TH2F frastx1y2 'Fast Raster 1 X vs 2 Y (current)' Lrb.Raster.rawcur.y Lrb.Raster2.rawcur.x 500 10000 120000 500 10000 120000 L.tr.n==1 
 TH2F frastx2y1 'Fast Raster 2 X vs 1 Y (current)' Lrb.Raster2.rawcur.y Lrb.Raster.rawcur.x 400 10000 120000 500 10000 120000 L.tr.n==1
 
-TH1F fbpmaraw1 'BPMA Antenna 1' Lrb.BPMA.rawcur.1 15000 12000 57000
-TH1F fbpmaraw2 'BPMA Antenna 2' Lrb.BPMA.rawcur.2 15000 12000 57000
-TH1F fbpmaraw3 'BPMA Antenna 3' Lrb.BPMA.rawcur.3 15000 12000 57000
-TH1F fbpmaraw4 'BPMA Antenna 4' Lrb.BPMA.rawcur.4 15000 12000 57000
-TH1F fbpmbraw1 'BPMB Antenna 1' Lrb.BPMB.rawcur.1 15000 12000 57000
-TH1F fbpmbraw2 'BPMB Antenna 2' Lrb.BPMB.rawcur.2 15000 12000 57000
-TH1F fbpmbraw3 'BPMB Antenna 3' Lrb.BPMB.rawcur.3 15000 12000 57000
-TH1F fbpmbraw4 'BPMB Antenna 4' Lrb.BPMB.rawcur.4 15000 12000 57000
+TH1F fbpmaraw1 'BPMA Antenna 1' Lrb.BPMA.rawcur.1 15000 12000 40000
+TH1F fbpmaraw2 'BPMA Antenna 2' Lrb.BPMA.rawcur.2 15000 12000 40000
+TH1F fbpmaraw3 'BPMA Antenna 3' Lrb.BPMA.rawcur.3 15000 12000 40000
+TH1F fbpmaraw4 'BPMA Antenna 4' Lrb.BPMA.rawcur.4 15000 12000 40000
+TH1F fbpmbraw1 'BPMB Antenna 1' Lrb.BPMB.rawcur.1 15000 12000 40000
+TH1F fbpmbraw2 'BPMB Antenna 2' Lrb.BPMB.rawcur.2 15000 12000 40000
+TH1F fbpmbraw3 'BPMB Antenna 3' Lrb.BPMB.rawcur.3 15000 12000 40000
+TH1F fbpmbraw4 'BPMB Antenna 4' Lrb.BPMB.rawcur.4 15000 12000 40000
 
 
 TH1F fbpmaraws 'BPMA Raw Sum' fbpmaws 5000 260000 300000
 TH1F fbpmbraws 'BPMA Raw Sum' fbpmbws 5000 260000 300000
 
 #Note that rawcur1.y refers to the current for the magnetic field in the y-direction (but electron deflection in x-direction!!!)
-TH1F fURastX 'Upstream Raster X' Lrb.Raster.rawcur.y 5000 10000 120000
-TH1F fURastY 'Upstream Raster Y' Lrb.Raster.rawcur.x 5000 10000 120000
-TH1F fDRastX 'Downstream Raster X' Lrb.Raster2.rawcur.y 5000 10000 120000
-TH1F fDRastY 'Downstream Raster Y' Lrb.Raster2.rawcur.x 5000 10000 120000
+TH1F fURastX 'Upstream Raster X' Lrb.Raster.rawcur.y 5000 25000 35000
+TH1F fURastY 'Upstream Raster Y' Lrb.Raster.rawcur.x 5000 25000 35000
+TH1F fDRastX 'Downstream Raster X' Lrb.Raster2.rawcur.y 5000 10000 50000
+TH1F fDRastY 'Downstream Raster Y' Lrb.Raster2.rawcur.x 5000 10000 50000
 
 
 TH2F furastraw_bpma_x 'Up Fast Raster Current vs BPMA X' Lrb.Raster.rawcur.y frbax 500 60000 70000 200 -5. 5.
