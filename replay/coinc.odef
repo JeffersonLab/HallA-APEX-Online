@@ -46,21 +46,34 @@ block Rrb.BPMB.rawcur.*
 #block Elb.*
 
 block ib.*
+
 #BPM/Raster Variables
 
 Variable Rrb.Raster.rawcur.x
 Variable Rrb.Raster.rawcur.y
-Variable Rrb.Raster2.rawcur.x
-Variable Rrb.Raster2.rawcur.y
+block Rrb.Raster2.*
+# Variable Rrb.Raster2.rawcur.x
+# Variable Rrb.Raster2.rawcur.y
 Variable Rrb.BPMA.x
 Variable Rrb.BPMA.y
 Variable Rrb.BPMB.x
 Variable Rrb.BPMB.y
 Variable Rrb.dir.x
 Variable Rrb.dir.y
+Variable Rrb.dir.z
 Variable Rrb.e
 Variable Rrb.x
 Variable Rrb.y
+Variable Rrb.z
+
+
+#BPM/UnRastered Variables
+Variable Rurb.BPMA.x
+Variable Rurb.BPMA.y
+Variable Rurb.BPMB.x
+Variable Rurb.BPMB.y
+
+
 
 #Variable FbusRrb.Raster.rawcur.x
 #Variable FbusRrb.Raster.rawcur.y
@@ -781,8 +794,9 @@ block Lrb.BPMB.rawcur.*
 
 Variable Lrb.Raster.rawcur.x
 Variable Lrb.Raster.rawcur.y
-Variable Lrb.Raster2.rawcur.x
-Variable Lrb.Raster2.rawcur.y
+block Lrb.Raster2.*
+# Variable Lrb.Raster2.rawcur.x
+# Variable Lrb.Raster2.rawcur.y
 Variable Lrb.BPMA.x
 Variable Lrb.BPMA.y
 Variable Lrb.BPMB.y
@@ -790,9 +804,18 @@ Variable Lrb.BPMB.x
 Variable Lrb.BPMB.y
 Variable Lrb.dir.x
 Variable Lrb.dir.y
+Variable Lrb.dir.z
 Variable Lrb.e
 Variable Lrb.x
 Variable Lrb.y
+Variable Lrb.z
+
+#BPM/UnRastered Variables
+# Variable Lurb.BPMA.x
+# Variable Lurb.BPMA.y
+# Variable Lurb.BPMB.x
+# Variable Lurb.BPMB.y
+block Lurb.*
 
 #Variable FbusLrb.Raster.rawcur.x
 #Variable FbusLrb.Raster.rawcur.y
