@@ -1,0 +1,75 @@
+
+#block Elb.*
+
+block ib.*
+
+#BPM/Raster Variables
+
+
+#-------------------------------------------------------------------
+#
+formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
+# LEFT ARM S0
+#
+
+# Left HRS
+block L.s2.*
+block L.s0.*
+block L.prl1.*
+block L.prl2.*
+block L.cer.*
+block L.vdc.*
+block L.tr.*
+block L.sf.*
+
+
+#block FbusL.s0.*
+#block FbusL.s2.* #S2 isn't split to the fastbus
+
+# Physics variables
+block L.gold.*
+block rpl.*
+block exL.*
+block EKL.*
+block EKLc.*
+block EKLx.*
+#block EltL.*
+#block EKLxe.*
+block LeftBCM*
+block LeftBCMev*
+block Lrb.BPMA.rawcur.*
+block Lrb.BPMB.rawcur.*
+
+
+#BPM/Raster Variables
+
+Variable Lrb.Raster.rawcur.x
+Variable Lrb.Raster.rawcur.y
+block Lrb.Raster2.*
+# Variable Lrb.Raster2.rawcur.x
+# Variable Lrb.Raster2.rawcur.y
+Variable Lrb.BPMA.x
+Variable Lrb.BPMA.y
+Variable Lrb.BPMB.y
+Variable Lrb.BPMB.x
+Variable Lrb.BPMB.y
+Variable Lrb.dir.x
+Variable Lrb.dir.y
+Variable Lrb.dir.z
+Variable Lrb.e
+Variable Lrb.x
+Variable Lrb.y
+Variable Lrb.z
+
+#BPM/UnRastered Variables
+# Variable Lurb.BPMA.x
+# Variable Lurb.BPMA.y
+# Variable Lurb.BPMB.x
+# Variable Lurb.BPMB.y
+block Lurb.*
+
+# ------------------------------------------------------------------
+# Event type 140 
+
+#begin scalers Left
+
