@@ -11,7 +11,8 @@ using namespace std;
 Int_t get_rastersize_L(TString codafname,TString runNo, Int_t firsteve, Int_t lasteve, TString rootfname)
 {
 
-   string exp= getenv("EXPERIMENT");
+  //   string exp= getenv("EXPERIMENT");
+  string exp= "APEX";
 
   // 
   //
@@ -297,8 +298,8 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   frastxy1->SetStats(0); 
   frastxy1->Draw("colz");
   frastxy1->SetTitle("FADC Upstream Raster X vs.Y");
-  frastxy1->SetAxisRange(10000, 150000,"Y");
-  frastxy1->SetAxisRange(10000, 150000,"X");
+  frastxy1->SetAxisRange(25000, 35000,"Y");
+  frastxy1->SetAxisRange(25000, 35000,"X");
   frastxy1->GetXaxis()->SetLabelSize(.04);
   frastxy1->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
@@ -318,8 +319,8 @@ TH2F *fdrastraw_x_bpmb_y; TritiumSpot->GetObject("fdrastraw_x_bpmb_y", fdrastraw
   frastxy2->SetStats(0);  
   frastxy2->Draw("colz");
   frastxy2->SetTitle("FADC Downstream Raster X vs.Y");
-  frastxy2->SetAxisRange(10000, 150000,"Y");
-  frastxy2->SetAxisRange(10000, 150000,"X");
+  frastxy2->SetAxisRange(20000, 40000,"Y");
+  frastxy2->SetAxisRange(10000, 50000,"X");
   frastxy2->GetXaxis()->SetLabelSize(.04);
   frastxy2->GetYaxis()->SetLabelSize(.03);
   gPad->SetGrid(1,1);
