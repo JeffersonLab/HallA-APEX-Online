@@ -1,8 +1,14 @@
+--------[ 2019-03-09 00:00:00 ]
+
+R.cer.adc.pedestals =  9580 9511 9456 9639 9687 9510 9596 9562 9614 9557
+
+R.cer.adc.gains =   1.26261 0.74341 0.91738 0.92050 0.97449 0.91988 0.92250 0.90806 0.87771 0.92004
+
 --------[ 2019-02-22 04:28:00 -0500 ]
 R.cer.NSA = 32
 R.cer.NSB = 2
 R.cer.Win = 32
- R.cer.NPED = 5
+R.cer.NPED = 5
 R.cer.TFlag = 2
 
 
@@ -12,7 +18,7 @@ R.cer.TFlag = 2
 R.cer.NSA = 18
 R.cer.NSB = 2
 R.cer.Win = 18
- R.cer.NPED = 5
+R.cer.NPED = 5
 R.cer.TFlag = 2
 
 
