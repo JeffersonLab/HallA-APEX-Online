@@ -12,6 +12,8 @@ formula Lep (L.prl1.e+L.prl2.e)/(L.gold.p*1000)
 # LEFT ARM S0
 #
 
+block DL.*
+
 # Left HRS
 block L.s2.*
 block L.s0.*
