@@ -66,7 +66,6 @@ replay/onlineGUI64/*.pdf
 replay/scripts/SPOT/**/*.pdf
 replay/scripts/Time_check/*.pdf
 
-replay/DB/*
 replay/RootFiles
 replay/RootFiles_chafs
 replay/ScratchRootFiles
