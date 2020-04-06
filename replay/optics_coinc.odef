@@ -68,6 +68,69 @@ Variable Lrb.z
 # Variable Lurb.BPMB.y
 block Lurb.*
 
+
+
+
+#-------------------------------------------------------------------
+#
+formula Rep (R.ps.e+R.sh.e)/(R.gold.p*1000)
+# RIGHT ARM S0
+#
+
+block DR.*
+ 
+# Right HRS
+block R.s2.*
+block R.s0.*
+block R.ps.*
+block R.sh.*
+block R.cer.*
+block R.vdc.*
+block R.tr.*
+block R.sf.*
+
+
+
+# Physics variables
+block R.gold.*
+
+# block LeftBCM*
+# block LeftBCMev*
+block Rrb.BPMA.rawcur.*
+block Rrb.BPMB.rawcur.*
+
+
+#BPM/Raster Variables
+
+Variable Rrb.Raster.rawcur.x
+Variable Rrb.Raster.rawcur.y
+block Rrb.Raster2.*
+# Variable Lrb.Raster2.rawcur.x
+# Variable Rrb.Raster2.rawcur.y
+Variable Rrb.BPMA.x
+Variable Rrb.BPMA.y
+Variable Rrb.BPMB.y
+Variable Rrb.BPMB.x
+Variable Rrb.BPMB.y
+Variable Rrb.dir.x
+Variable Rrb.dir.y
+Variable Rrb.dir.z
+Variable Rrb.e
+Variable Rrb.x
+Variable Rrb.y
+Variable Rrb.z
+
+#BPM/UnRastered Variables
+# Variable Rurb.BPMA.x
+# Variable Rurb.BPMA.y
+# Variable Rurb.BPMB.x
+# Variable Rurb.BPMB.y
+block Rurb.*
+
+
+
+
+
 # ------------------------------------------------------------------
 # Event type 140 
 
