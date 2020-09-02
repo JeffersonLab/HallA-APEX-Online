@@ -26,6 +26,9 @@ replay/rol/.roc20_*
 replay/rol/.R*
 replay/rol/.*swp
 
+replay/calibrations/*
+
+
 replay/libraries/TriFadcShower/#*
 replay/onlineGUI64/#*
 
