@@ -4,12 +4,14 @@
 
 using namespace std;
 
-void Load_more_rootfile(Int_t runnum_1=3000,Int_t runnum_2= 3001, Bool_t Scifi_flag=false){
+TChain* Load_more_rootfile(Int_t runnum_1=3000,Int_t runnum_2= -1, Bool_t Scifi_flag=false){
 
   //  TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject(Form("apex_%d.root",runnum));
 
 
-  TString ROOTFILE_DIR =   "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+   TString ROOTFILE_DIR =   "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+
+  
 
   if (Scifi_flag){
     // for SciFi replays
@@ -25,7 +27,19 @@ void Load_more_rootfile(Int_t runnum_1=3000,Int_t runnum_2= 3001, Bool_t Scifi_f
 
   Long_t split = 0;
 
-  for(Int_t i = 0; i< (runnum_2-runnum_1)+1; i++){
+
+  Int_t No_of_runs = 0;
+
+  if( runnum_2 == -1){
+    No_of_runs = 0;
+  }
+  else{
+    No_of_runs = runnum_2-runnum_1;
+  }
+  
+
+
+  for(Int_t i = 0; i< No_of_runs+1; i++){
     
 
 
@@ -57,5 +71,7 @@ void Load_more_rootfile(Int_t runnum_1=3000,Int_t runnum_2= 3001, Bool_t Scifi_f
   //   cout << "open line" << endl;
   // }
 
+
+  return T;
 
 }

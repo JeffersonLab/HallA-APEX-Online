@@ -3,6 +3,8 @@
 // shujie, 2019.3.7
 // -------------------
 
+#include "Load_more_rootfiles.C"
+
 void apex_track(Int_t runnum, Int_t entry=1){
 
 
@@ -13,33 +15,37 @@ void apex_track(Int_t runnum, Int_t entry=1){
   gStyle->SetPaperSize(18,22);
   gStyle->SetOptStat(0);
 
+
+  TChain *t = Load_more_rootfile(runnum);
+
+  
   //Loads all them splits
  
-  TString ROOTFILE_DIR =   "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
+  //  TString ROOTFILE_DIR =   "/adaqfs/home/a-onl/apex/HallA-APEX-Online/replay/apex_root/Rootfiles/apex_%d.root";
 
-  TChain *t = new TChain("T");
+  // TChain *t = new TChain("T");
 
-  TString filenamebase = Form(ROOTFILE_DIR,runnum);
-  //  T->Add(Form(ROOTFILE_DIR,run_number));
-  //  T->Add(Form("/chafs1/work1/tritium/Rootfiles/tritium_%d*.root",run_number));
+  // TString filenamebase = Form(ROOTFILE_DIR,runnum);
+  // //  T->Add(Form(ROOTFILE_DIR,run_number));
+  // //  T->Add(Form("/chafs1/work1/tritium/Rootfiles/tritium_%d*.root",run_number));
 
-  TString filename = filenamebase;
+  // TString filename = filenamebase;
 
-  filenamebase.Remove(filenamebase.Last('.'),5);
+  // filenamebase.Remove(filenamebase.Last('.'),5);
 
-  Long_t split = 0;
-  while ( !gSystem->AccessPathName(filename.Data()) ) {
-    cout << "Added root file: " << filename << " to Tree" << endl;
-    t->Add(filename);
-    split++;
-    filename = filenamebase + "_" + split + ".root";
-  }
+  // Long_t split = 0;
+  // while ( !gSystem->AccessPathName(filename.Data()) ) {
+  //   cout << "Added root file: " << filename << " to Tree" << endl;
+  //   t->Add(filename);
+  //   split++;
+  //   filename = filenamebase + "_" + split + ".root";
+  // }
 
 
   Int_t nn=t->GetEntries();
 
 
-  cout << "Opened Run " << runnum << " with "  << nn << " events and " << split  << " file splits" <<  endl;
+  // cout << "Opened Run " << runnum << " with "  << nn << " events and " << split  << " file splits" <<  endl;
    
 
 
@@ -95,6 +101,7 @@ void apex_track(Int_t runnum, Int_t entry=1){
     //t->Project("h3","L.vdc.u2.rawtime:L.vdc.u2.wire",Form("Entry$==%d",entry));
     //t->Project("h4","L.vdc.v2.rawtime:L.vdc.v2.wire",Form("Entry$==%d",entry));
     c1->cd(1);t->Draw("L.vdc.u1.rawtime:L.vdc.u1.wire>>h1",Form("Entry$==%d",entry),"box");
+    cout<<"Drawn c1 plot"<<endl;
     tex.SetTextColor(kRed);
     tex.DrawLatexNDC(0.12,0.85,Form("Run %d, event #%d",runnum,entry));
     // cout<<Form("%g track, %g clusters found:",ntrk, nclust1)<<endl;
