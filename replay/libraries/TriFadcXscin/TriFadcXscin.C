@@ -52,7 +52,7 @@ TriFadcXscin::TriFadcXscin( ) :
   fTWalkPar = NULL;
   fTrackProj = NULL;
   fRA_c = fRA_p = fRA = fLA_c = fLA_p = fLA = fDownA_c = fDownA_p = fDownA = fUpA_c = fUpA_p = fUpA = NULL;
-  fRT_c = fRT = fLT_c = fLT = fDownT_c = fDownT = fUpT_c = fUpT = NULL;
+  fRT_c = fRTW = fRT_o = fR_off = fRT_t = fRT = fLT_c = fLTW = fLT_o = fL_off = fLT_t = fLT = fDownT_c = fDownT = fUpT_c = fUpT = NULL;
   fRGain = fLGain = fRPed = fLPed = fROff = fLOff = NULL;
   fTrigOff = fTime = fdTime = fXt = fXa = NULL;
   fHitPad = NULL;
@@ -84,8 +84,8 @@ THaAnalysisObject::EStatus TriFadcXscin::Init( const TDatime& date )
     return fStatus;
 //fDownT, fDownT_c, fDownA, fDownA_p, fDownA_c , fUpT, fUpT_c, fUpA, fUpA_p, fUpA_c 
   const DataDest tmp[NDEST] = {
-    { &fRTNhit, &fRANhit, fRT, fRT_c, fRA, fRA_p, fRA_c, fROff, fRPed, fRGain },
-    { &fLTNhit, &fLANhit, fLT, fLT_c, fLA, fLA_p, fLA_c, fLOff, fLPed, fLGain }
+    { &fRTNhit, &fRANhit, fRT, fRT_o, fRTW, fRT_c, fRA, fRA_p, fRA_c, fROff, fRPed, fRGain },
+    { &fLTNhit, &fLANhit, fLT, fLT_o, fLTW, fLT_c, fLA, fLA_p, fLA_c, fLOff, fLPed, fLGain }
   };
 
 
@@ -180,8 +180,16 @@ Int_t TriFadcXscin::ReadDatabase( const TDatime& date )
 
     // Per-event data
     fLT   = new Double_t[ nval ];
+    fLT_t   = new Double_t[ nval ];
+    fL_off   = new Double_t[ nval ];
+    fLT_o = new Double_t[ nval ];
+    fLTW = new Double_t[ nval ];
     fLT_c = new Double_t[ nval ];
     fRT   = new Double_t[ nval ];
+    fRT_t   = new Double_t[ nval ];
+    fR_off   = new Double_t[ nval ];
+    fRT_o = new Double_t[ nval ];
+    fRTW = new Double_t[ nval ];
     fRT_c = new Double_t[ nval ];
     fLA   = new Double_t[ nval ];
     fLA_p = new Double_t[ nval ];
@@ -326,8 +334,16 @@ Int_t TriFadcXscin::DefineVariables( EMode mode )
     { "nlahit", "Number of Left paddles ADCs amps",  "fLANhit" },
     { "nrahit", "Number of Right paddles ADCs amps", "fRANhit" },
     { "lt",     "TDC values left side",              "fLT" },
+    { "lt_t",     "Time values left side (with no timewalk or offset correction)",              "fLT_t" },
+    { "l_off",     "Offset values left side",              "fL_off" },
+    { "lt_o",     "Corrected TDC values left side without timewalk correction",              "fLT_o" },
+    { "l_tw",     "Timewalk corrections",              "fLTW" },
     { "lt_c",   "Corrected times left side",         "fLT_c" },
     { "rt",     "TDC values right side",             "fRT" },
+    { "rt_t",     "Time values right side (with no timewalk or offset correction)",              "fRT_t" },
+    { "r_off",     "Offset values right side",              "fR_off" },
+    { "rt_o",     "Corrected TDC values right side without timewalk correction",              "fRT_o" },
+    { "r_tw",     "Timewalk corrections",              "fRTW" },
     { "rt_c",   "Corrected times right side",        "fRT_c" },
     { "la",     "ADC values left side",              "fLA" },
     { "la_p",   "Corrected ADC values left side",    "fLA_p" },
@@ -405,8 +421,16 @@ void TriFadcXscin::DeleteArrays()
   delete [] fLA_p;    fLA_p    = NULL;
   delete [] fLA;      fLA      = NULL;
   delete [] fRT_c;    fRT_c    = NULL;
+  delete [] fRTW;    fRTW    = NULL;
+  delete [] fRT_o;    fRT_o    = NULL;
+  delete [] fR_off;    fR_off    = NULL;
+  delete [] fRT_t;    fRT_t    = NULL;
   delete [] fRT;      fRT      = NULL;
   delete [] fLT_c;    fLT_c    = NULL;
+  delete [] fLTW;    fLTW    = NULL;
+  delete [] fLT_o;    fLT_o    = NULL;
+  delete [] fL_off;    fL_off    = NULL;
+  delete [] fLT_t;    fLT_t    = NULL;
   delete [] fLT;      fLT      = NULL;
   delete [] fDownA_c;    fDownA_c    = NULL;
   delete [] fDownA_p;    fDownA_p    = NULL;
@@ -460,9 +484,17 @@ void TriFadcXscin::ClearEvent()
   const int lf = fNelem*sizeof(Double_t);
   fLTNhit = 0;                            // Number of Left paddles TDC times
   memset( fLT, 0, lf );                   // Left paddles TDCs
+  memset( fLT_t, 0, lf );                 // Left paddles times (no TW or offset correction)
+  memset( fL_off, 0, lf );               // Left paddles offset correction
+  memset( fLT_o, 0, lf );                 // Left paddles TDCs with offsets correction
+  memset( fLTW, 0, lf );                  // Left paddles timewalk correction
   memset( fLT_c, 0, lf );                 // Left paddles corrected times
   fRTNhit = 0;                            // Number of Right paddles TDC times
   memset( fRT, 0, lf );                   // Right paddles TDCs
+  memset( fRT_t, 0, lf );                 // Right paddles times (no TW or offset correction)
+  memset( fR_off, 0, lf );               // Right paddles offset correction
+  memset( fRT_o, 0, lf );                 // Right paddles TDCs with offsets correction
+  memset( fRTW, 0, lf );                  // Right paddles timewalk correction
   memset( fRT_c, 0, lf );                 // Right paddles corrected times
   fLANhit = 0;                            // Number of Left paddles ADC amps
   memset( fLA, 0, lf );                   // Left paddles ADCs
@@ -663,10 +695,18 @@ Int_t TriFadcXscin::ApplyCorrections( void )
       nra++;
     }
     if (fLT[i] != 0.) {
+      fLT_t[i] = (fLT[i])*fTdc2T;
+      fL_off[i] = fLOff[i];
+      fLT_o[i] = (fLT[i] - fLOff[i])*fTdc2T;
+      fLTW[i] = TimeWalkCorrection(i,kLeft);
       fLT_c[i] = (fLT[i] - fLOff[i])*fTdc2T - TimeWalkCorrection(i,kLeft);
       nlt++;
     }
     if (fRT[i] != 0.) {
+      fRT_t[i] = (fRT[i])*fTdc2T;
+      fR_off[i] = fROff[i];
+      fRT_o[i] = (fRT[i] - fROff[i])*fTdc2T;
+      fRTW[i] = TimeWalkCorrection(i,kRight);
       fRT_c[i] = (fRT[i] - fROff[i])*fTdc2T - TimeWalkCorrection(i,kRight);
       nrt++;
     }
@@ -731,7 +771,8 @@ Double_t TriFadcXscin::TimeWalkCorrection(const Int_t& paddle,
   tw = par[0]*pow(adc,-.5);
   tw_ref = par[0]*pow(ref,-.5);
 
-  return (tw-tw_ref)/(1e+09);
+
+   return (tw-tw_ref)/(2e+09);
 }
 
 //_____________________________________________________________________________

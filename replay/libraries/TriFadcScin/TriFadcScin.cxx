@@ -33,7 +33,7 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
   : THaNonTrackingDetector(name,description,apparatus),
     fLOff(0), fROff(0), fLPed(0), fRPed(0), fLGain(0), fRGain(0),
     fNTWalkPar(0), fTWalkPar(0), fTrigOff(0),
-    fLTNhit(0), fLT(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_c(0),
+    fLTNhit(0), fLT(0), fLT_c(0), fLT_o(0), fLT_t(0), fLTW(0), fL_off(0), fRTNhit(0), fRT(0), fRT_c(0), fRT_o(0), fRT_t(0), fRTW(0), fR_off(0),
     fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
     fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0), 
     fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),flpedFADC(0),
@@ -47,7 +47,7 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
 TriFadcScin::TriFadcScin()
   : THaNonTrackingDetector(), fLOff(0), fROff(0), fLPed(0), fRPed(0),
     fLGain(0), fRGain(0), fTWalkPar(0), fAdcMIP(0), fTrigOff(0),
-    fLT(0), fLT_c(0), fRT(0), fRT_c(0), fLA(0), fLA_p(0), fLA_c(0),
+    fLT(0), fLT_c(0), fLT_o(0), fLT_t(0), fLTW(0), fL_off(0), fRT(0), fRT_c(0), fRT_o(0), fRT_t(0), fRTW(0), fR_off(0), fLA(0), fLA_p(0), fLA_c(0), 
     fRA(0), fRA_p(0), fRA_c(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0),
     fYt(0), fYa(0),fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),
     fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0), frunderflow(0),frpedq(0),
@@ -155,8 +155,16 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
 
     // Per-event data
     fLT   = new Double_t[ nval ];
+    fLT_t   = new Double_t[ nval ];
+    fL_off   = new Double_t[ nval ];
+    fLT_o = new Double_t[ nval ];
+    fLTW = new Double_t[ nval ];
     fLT_c = new Double_t[ nval ];
     fRT   = new Double_t[ nval ];
+    fRT_t   = new Double_t[ nval ];
+    fR_off   = new Double_t[ nval ];
+    fRT_o = new Double_t[ nval ];
+    fRTW = new Double_t[ nval ];
     fRT_c = new Double_t[ nval ];
     fLA   = new Double_t[ nval ];
     fLA_p = new Double_t[ nval ];
@@ -259,6 +267,7 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
 
   // If doing debugging, print the calibration parameters we've just read
   if ( fDebug > 1 ) {
+    //if ( 4      > 3 ) {
     cout << '\n' << GetPrefix() << " calibration parameters: " << endl;;
     for ( DBRequest *li = calib_request; li->name; li++ ) {
       cout << "  " << li->name;
@@ -291,8 +300,16 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "nlahit", "Number of Left paddles ADCs amps",  "fLANhit" },
     { "nrahit", "Number of Right paddles ADCs amps", "fRANhit" },
     { "lt",     "TDC values left side",              "fLT" },
+    { "lt_t",     "Time values left side (with no timewalk or offset correction)",              "fLT_t" },
+    { "l_off",     "Offset values left side",              "fL_off" },
+    { "lt_o",     "Corrected TDC values left side without timewalk correction",              "fLT_o" },
+    { "l_tw",     "Timewalk corrections",              "fLTW" },
     { "lt_c",   "Corrected times left side",         "fLT_c" },
     { "rt",     "TDC values right side",             "fRT" },
+    { "rt_t",     "Time values right side (with no timewalk or offset correction)",              "fRT_t" },
+    { "r_off",     "Offset values right side",              "fR_off" },
+    { "rt_o",     "Corrected TDC values right side without timewalk correction",              "fRT_o" },
+    { "r_tw",     "Timewalk corrections",              "fRTW" },
     { "rt_c",   "Corrected times right side",        "fRT_c" },
     { "la",     "ADC values left side",              "fLA" },
     { "la_p",   "Corrected ADC values left side",    "fLA_p" },
@@ -358,8 +375,16 @@ void TriFadcScin::DeleteArrays()
   delete [] fLA_p;    fLA_p    = NULL;
   delete [] fLA;      fLA      = NULL;
   delete [] fRT_c;    fRT_c    = NULL;
+  delete [] fRTW;    fRTW    = NULL;
+  delete [] fRT_o;    fRT_o    = NULL;
+  delete [] fR_off;    fR_off    = NULL;
+  delete [] fRT_t;    fRT_t    = NULL;
   delete [] fRT;      fRT      = NULL;
   delete [] fLT_c;    fLT_c    = NULL;
+  delete [] fLTW;    fLTW    = NULL;
+  delete [] fLT_o;    fLT_o    = NULL;
+  delete [] fL_off;    fL_off    = NULL;
+  delete [] fLT_t;    fLT_t    = NULL;
   delete [] fLT;      fLT      = NULL;
 
   delete [] fRGain;   fRGain   = NULL;
@@ -404,7 +429,7 @@ void TriFadcScin::Clear( Option_t* opt )
   fNhit = fLTNhit = fRTNhit = fLANhit = fRANhit = 0;
   assert(fIsInit);
   for( Int_t i=0; i<fNelem; ++i ) {
-    fLT[i] = fLT_c[i] = fRT[i] = fRT_c[i] = 0;
+    fLT[i] =  fLTW[i] = fLT_o[i] = fLT_t[i] = fLT_c[i] = fL_off[i] = fRT[i] = fRTW[i] = fRT_o[i] = fRT_t[i] = fRT_c[i] = fR_off[i] = 0;
     fLT_FADC[i] = fLT_FADC_c[i] = fRT_FADC[i] = fRT_FADC_c[i] = 0;
     fLPeak[i] = fRPeak[i] = 0;
     fLA[i] = fLA_p[i] = fLA_c[i] = fRA[i] = fRA_p[i] = fRA_c[i] = 0;
@@ -540,6 +565,7 @@ Int_t TriFadcScin::Decode( const THaEvData& evdata )
     }
   }
   if ( fDebug > 3 ) {
+    //if ( 4      > 3 ) {
     printf("\n\nEvent %d   Trigger %d Scintillator %s\n:",
 	   evdata.GetEvNum(), evdata.GetEvType(), GetPrefix() );
     printf("   paddle  Left(TDC    ADC   ADC_p)   Right(TDC   ADC   ADC_p)\n");
@@ -577,12 +603,20 @@ Int_t TriFadcScin::ApplyCorrections()
       nra++;
     }
     if (fLT[i] != 0.) {
+      fLT_t[i] = (fLT[i])*fTdc2T;
+      fLT_o[i] = (fLT[i] - fLOff[i])*fTdc2T;
+      fLTW[i] = TimeWalkCorrection(i,kLeft);
       fLT_c[i] = (fLT[i] - fLOff[i])*fTdc2T - TimeWalkCorrection(i,kLeft);
+      fL_off[i] = fLOff[i]; // record offser as tree variable
      //if(i==5) cout<<"offset="<<fLOff[i]<<endl;
       nlt++;
     }
     if (fRT[i] != 0.) {
+      fRT_t[i] = (fRT[i])*fTdc2T;
+      fRT_o[i] = (fRT[i] - fROff[i])*fTdc2T;
+      fRTW[i] = TimeWalkCorrection(i,kRight);
       fRT_c[i] = (fRT[i] - fROff[i])*fTdc2T - TimeWalkCorrection(i,kRight);
+      fR_off[i] = fROff[i]; // record offser as tree variable
       nrt++;
     }
   }
@@ -620,7 +654,8 @@ Double_t TriFadcScin::TimeWalkCorrection( const Int_t& paddle,
   tw = par[0]*pow(adc,-.5);
   tw_ref = par[0]*pow(ref,-.5);
 
-  return tw-tw_ref;
+  // return (tw-tw_ref)/(1e+09);
+  return (tw-tw_ref)/(2e+09);
 }
 
 //_____________________________________________________________________________
