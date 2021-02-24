@@ -75,9 +75,17 @@ protected:
   // Per-event data
   Int_t       fLTNhit;     // Number of Left paddles TDC times
   Double_t*   fLT;         // [fNelem] Array of Left paddles TDC times (channels)
+  Double_t*   fLT_t;         // [fNelem] Array of Left PMT times without corrections (s)
+  Double_t*   fL_off;         // [fNelem] Array of Left offset corrections
+  Double_t*   fLT_o;         // [fNelem] Array of Left PMT corrected TDC times without timewalk corrections (s)
+  Double_t*   fLTW;         // [fNelem] Array of Left paddle TW corrections (s)
   Double_t*   fLT_c;       // [fNelem] Array of Left PMT corrected TDC times (s)
   Int_t       fRTNhit;     // Number of Right paddles TDC times
   Double_t*   fRT;         // [fNelem] Array of Right paddles TDC times (channels)
+  Double_t*   fRT_t;         // [fNelem] Array of Left PMT times without corrections (s)
+  Double_t*   fR_off;         // [fNelem] Array of Left offset corrections
+  Double_t*   fRT_o;         // [fNelem] Array of Right PMT corrected TDC times without timewalk corrections (s)
+  Double_t*   fRTW;         // [fNelem] Array of Right paddle TW corrections (s)
   Double_t*   fRT_c;       // [fNelem] Array of Right PMT corrected TDC times (s)
   Int_t       fLANhit;     // Number of Left paddles ADC amplitudes
   Double_t*   fLA;         // [fNelem] Array of Left paddles ADC amplitudes
@@ -145,6 +153,8 @@ protected:
     Int_t*    nthit;
     Int_t*    nahit;
     Double_t*  tdc;
+    Double_t*  tdc_o;
+    Double_t*  tw;
     Double_t*  tdc_c;
     Double_t*  adc;
     Double_t*  adc_p;
