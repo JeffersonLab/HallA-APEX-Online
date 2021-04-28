@@ -1,6 +1,9 @@
 
 --------[ 2019-01-01 00:00:00 -0500 ]
 
+L.vdc.only_fastest_hit =
+0
+
 L.vdc.u1.driftvel =
 50192.7
 
