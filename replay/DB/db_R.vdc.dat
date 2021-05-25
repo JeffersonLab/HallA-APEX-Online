@@ -959,9 +959,7 @@ R.vdc.v2.tdc.offsets=
 
 --------[ 2019-01-01 00:00:00 -0500 ]
 
-R.vdc.u2.position = 0  0  0.3084
 
-R.vdc.v2.position = 0  0  0.3344
 
 --------[ 2019-01-01 00:00:00 -0500 ]
 #rough by-eye calibration before APEX run
