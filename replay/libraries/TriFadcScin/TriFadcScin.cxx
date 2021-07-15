@@ -33,9 +33,9 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
   : THaNonTrackingDetector(name,description,apparatus),
     fLOff(0), fROff(0), fLPed(0), fRPed(0), fLGain(0), fRGain(0),
     fNTWalkPar(0), fTWalkPar(0), fTrigOff(0),
-    fLTNhit(0), fLT(0), fLT_c(0), fLT_o(0), fLT_t(0), fLTW(0), fL_off(0), fRTNhit(0), fRT(0), fRT_c(0), fRT_o(0), fRT_t(0), fRTW(0), fR_off(0),
+    fLTNhit(0), fLT(0), fLT_t(0), fL_off(0), fLT_o(0), fLTW(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_t(0), fR_off(0), fRT_o(0), fRTW(0), fRT_c(0),
     fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
-    fNhit(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0), fYt(0), fYa(0), 
+    fNhit(0), fHitPad(0), fHitMatches(0), fTime(0), fdTime(0), fT_pl(0), fMatches(0),fAmpl(0), fYt(0), fYa(0), 
     fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),flpedFADC(0),
   fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0),frunderflow(0),frpedq(0),frpedFADC(0),fLNhits(0),fRNhits(0)
 {
@@ -45,13 +45,14 @@ TriFadcScin::TriFadcScin( const char* name, const char* description,
 
 //_____________________________________________________________________________
 TriFadcScin::TriFadcScin()
-  : THaNonTrackingDetector(), fLOff(0), fROff(0), fLPed(0), fRPed(0),
-    fLGain(0), fRGain(0), fTWalkPar(0), fAdcMIP(0), fTrigOff(0),
-    fLT(0), fLT_c(0), fLT_o(0), fLT_t(0), fLTW(0), fL_off(0), fRT(0), fRT_c(0), fRT_o(0), fRT_t(0), fRTW(0), fR_off(0), fLA(0), fLA_p(0), fLA_c(0), 
-    fRA(0), fRA_p(0), fRA_c(0), fHitPad(0), fTime(0), fdTime(0), fAmpl(0),
-    fYt(0), fYa(0),fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),
-    fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0), frunderflow(0),frpedq(0),
-    fLNhits(0),fRNhits(0)
+  : THaNonTrackingDetector(),
+    fLOff(0), fROff(0), fLPed(0), fRPed(0), fLGain(0), fRGain(0),
+    fNTWalkPar(0), fTWalkPar(0), fTrigOff(0),
+    fLTNhit(0), fLT(0), fLT_t(0), fL_off(0), fLT_o(0), fLTW(0), fLT_c(0), fRTNhit(0), fRT(0), fRT_t(0), fR_off(0), fRT_o(0), fRTW(0), fRT_c(0),
+    fLANhit(0), fLA(0), fLA_p(0), fLA_c(0), fRANhit(0), fRA(0), fRA_p(0), fRA_c(0),
+    fNhit(0), fHitPad(0), fHitMatches(0), fTime(0), fdTime(0), fT_pl(0), fMatches(0),fAmpl(0), fYt(0), fYa(0), 
+    fLPeak(0),fLT_FADC(0),fLT_FADC_c(0),floverflow(0), flunderflow(0),flpedq(0),flpedFADC(0),
+  fRPeak(0),fRT_FADC(0),fRT_FADC_c(0),froverflow(0),frunderflow(0),frpedq(0),frpedFADC(0),fLNhits(0),fRNhits(0)
 {
   // Default constructor (for ROOT I/O)
 
@@ -176,8 +177,11 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     fTWalkPar = new Double_t[ nval_twalk ];
 
     fHitPad = new Int_t[ nval ];
+    fHitMatches = new Int_t[ nval ];
     fTime   = new Double_t[ nval ]; // analysis indexed by paddle (yes, inefficient)
     fdTime  = new Double_t[ nval ];
+    fT_pl   = new Double_t[ nval ];
+    fMatches   = new Int_t[ nval ];
     fAmpl   = new Double_t[ nval ];
 
     fYt     = new Double_t[ nval ];
@@ -229,6 +233,12 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
   fWin = 1;  //total number of sample in FADC window
   fTFlag = 1;  //Threshold On: 1, Off: 0
 
+  // set default pl corrections to zero (no pl correction)
+  fXCorr = 0.0;
+  fThCorr = 0.0;
+  fPhCorr = 0.0;
+  
+
   // Default TDC offsets (0), ADC pedestals (0) and ADC gains (1)
   memset( fLOff, 0, nval*sizeof(fLOff[0]) );
   memset( fROff, 0, nval*sizeof(fROff[0]) );
@@ -247,6 +257,9 @@ Int_t TriFadcScin::ReadDatabase( const TDatime& date )
     { "Cn",               &fCn,          kDouble },
     { "MIP",              &fAdcMIP,      kDouble, 0, 1 },
     { "timewalk_params",  fTWalkPar,     kDouble, nval_twalk, 1 },
+    { "pl_xcorr",         &fXCorr,       kDouble, 0, 1 },
+    { "pl_thcorr",        &fThCorr,      kDouble, 0, 1 },
+    { "pl_phcorr",        &fPhCorr,      kDouble, 0, 1 },
     { "retiming_offsets", fTrigOff,      kDouble, nval, 1 },
     { "avgres",           &fResolution,  kDouble, 0, 1 },
     { "atten",            &fAttenuation, kDouble, 0, 1 },
@@ -303,13 +316,13 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "lt_t",     "Time values left side (with no timewalk or offset correction)",              "fLT_t" },
     { "l_off",     "Offset values left side",              "fL_off" },
     { "lt_o",     "Corrected TDC values left side without timewalk correction",              "fLT_o" },
-    { "l_tw",     "Timewalk corrections",              "fLTW" },
+    { "l_tw",     "Timewalk corrections",            "fLTW" },
     { "lt_c",   "Corrected times left side",         "fLT_c" },
     { "rt",     "TDC values right side",             "fRT" },
     { "rt_t",     "Time values right side (with no timewalk or offset correction)",              "fRT_t" },
-    { "r_off",     "Offset values right side",              "fR_off" },
+    { "r_off",     "Offset values right side",       "fR_off" },
     { "rt_o",     "Corrected TDC values right side without timewalk correction",              "fRT_o" },
-    { "r_tw",     "Timewalk corrections",              "fRTW" },
+    { "r_tw",     "Timewalk corrections",            "fRTW" },
     { "rt_c",   "Corrected times right side",        "fRT_c" },
     { "la",     "ADC values left side",              "fLA" },
     { "la_p",   "Corrected ADC values left side",    "fLA_p" },
@@ -323,6 +336,8 @@ Int_t TriFadcScin::DefineVariables( EMode mode )
     { "y_adc",  "y-position from amplitudes (m)",    "fYa" },
     { "time",   "Time of hit at plane (s)",          "fTime" },
     { "dtime",  "Est. uncertainty of time (s)",      "fdTime" },
+    { "pl_corr",  "Path Length correction (s)",      "fT_pl" },
+    { "tr_Matches",  "Number of track matches",      "fMatches" },
     { "dedx",   "dEdX-like deposited in paddle",     "fAmpl" },
     { "troff",  "Trigger offset for paddles",        "fTrigOff"},
     { "trn",    "Number of tracks for hits",         "GetNTracks()" },
@@ -397,8 +412,11 @@ void TriFadcScin::DeleteArrays()
   delete [] fTrigOff; fTrigOff = NULL;
 
   delete [] fHitPad;  fHitPad  = NULL;
+  delete [] fHitMatches;  fHitMatches  = NULL;
   delete [] fTime;    fTime    = NULL;
   delete [] fdTime;   fdTime   = NULL;
+  delete [] fT_pl;    fT_pl    = NULL;
+  delete [] fMatches; fMatches    = NULL;
   delete [] fAmpl;    fAmpl    = NULL;
   delete [] fYt;      fYt      = NULL;
   delete [] fYa;      fYa      = NULL;
@@ -433,9 +451,10 @@ void TriFadcScin::Clear( Option_t* opt )
     fLT_FADC[i] = fLT_FADC_c[i] = fRT_FADC[i] = fRT_FADC_c[i] = 0;
     fLPeak[i] = fRPeak[i] = 0;
     fLA[i] = fLA_p[i] = fLA_c[i] = fRA[i] = fRA_p[i] = fRA_c[i] = 0;
-    fTime[i] = fdTime[i] = fAmpl[i] = fYt[i] = fYa[i] = 0;
+    fTime[i] = fdTime[i] = fT_pl[i] = fMatches[i] = fAmpl[i] = fYt[i] = fYa[i] = 0;
   }
   memset( fHitPad, 0, fNelem*sizeof(fHitPad[0]) );
+  memset( fHitMatches, 0, fNelem*sizeof(fHitMatches[0]) );
 
   if( !strchr(opt,'I') ) {
     memset( floverflow, 0, fNelem*sizeof(floverflow[0]) );
@@ -607,7 +626,7 @@ Int_t TriFadcScin::ApplyCorrections()
       fLT_o[i] = (fLT[i] - fLOff[i])*fTdc2T;
       fLTW[i] = TimeWalkCorrection(i,kLeft);
       fLT_c[i] = (fLT[i] - fLOff[i])*fTdc2T - TimeWalkCorrection(i,kLeft);
-      fL_off[i] = fLOff[i]; // record offser as tree variable
+      fL_off[i] = fLOff[i]; // record offset as tree variable
      //if(i==5) cout<<"offset="<<fLOff[i]<<endl;
       nlt++;
     }
@@ -744,6 +763,65 @@ Int_t TriFadcScin::FineProcess( TClonesArray& tracks )
     }
   }
 
+  
+  // perform corrections to timing based on path-length corrections
+  
+  
+  if( n_cross > 0 ) {
+    for( Int_t i=0; i<fTrackProj->GetLast()+1; i++ ) {
+
+      THaTrackProj* proj = static_cast<THaTrackProj*>( fTrackProj->At(i) );
+      assert( proj );
+
+      if( !proj->IsOK() )
+	continue;
+
+      Double_t dpadx = fSize[0]/fNelem;      // 1/2 width of a paddle
+      
+      if(abs(proj->GetdX()) <= dpadx){
+	
+	for(Int_t j = 0; j<fNhit; j++){
+
+
+	  if(fHitPad[j] == proj->GetChannel()){
+
+	    fHitMatches[j]++;
+	    fMatches[proj->GetChannel()]++;
+	    
+	    // condition here is for case if two tracks both project to the same paddle
+	    // in this case no path-length correction is made (as there would be multiple possible)
+	    if(fHitMatches[j] < 2){
+	      
+	      
+	      THaTrack* theTrack = static_cast<THaTrack*>( tracks.At(i) );
+	      assert( theTrack );  // else logic error in tracking detector
+	      	      
+	      fT_pl[proj->GetChannel()] = fTdc2T*(theTrack->GetRX()*fXCorr + theTrack->GetRTheta()*fThCorr + theTrack->GetRPhi()*fPhCorr);	      
+	    }
+	  }	  	  
+	}		
+	
+      }
+      
+    }
+
+
+    for(Int_t j = 0; j<fNhit; j++){
+
+      if(fHitMatches[j] < 2){
+	fTime[fHitPad[j]] -= fT_pl[fHitPad[j]];
+
+      }
+	      
+
+    }
+    
+  }
+  
+  
+  
+
+  
   return 0;
 }
 
