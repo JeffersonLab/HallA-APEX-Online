@@ -275,6 +275,7 @@ Int_t TriFadcShower::DefineVariables( EMode mode )
     { "nhit",   "Number of hits",                     "fNhits" },
     { "a",      "Raw ADC amplitudes",                 "fA" },
     { "a_p",    "Ped-subtracted ADC amplitudes",      "fA_p" },
+    { "ped",    "Pedestals",                          "fPed" },
     { "a_c",    "Calibrated ADC amplitudes",          "fA_c" },
     { "asum_p", "Sum of ped-subtracted ADCs",         "fAsum_p" },
     { "asum_c", "Sum of calibrated ADCs",             "fAsum_c" },
