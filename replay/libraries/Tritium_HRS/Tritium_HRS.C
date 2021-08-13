@@ -51,7 +51,9 @@ Tritium_HRS::Tritium_HRS( const char* name, const char* description ) :
 {
   // Constructor
 
-  SetTrSorting(kFALSE);
+  
+  
+  //  SetTrSorting(kFALSE);
   AutoStandardDetectors(kTRUE); // for backward compatibility
 }
 
@@ -60,6 +62,55 @@ Tritium_HRS::~Tritium_HRS()
 {
   // Destructor
 }
+
+
+
+//_____________________________________________________________________________
+Int_t Tritium_HRS::ReadDatabase( const TDatime& date )
+{
+  // Load parameters from database
+
+  // const char * to load vdc DB 
+  std::string DBPref = fPrefix;
+  DBPref += "vdc";  
+  
+  const char *DBPrefix = DBPref.c_str();
+  
+  FILE* file = OpenFile(DBPrefix, date);
+  if( !file ) return kFileError;
+  
+  DBRequest request[] = {
+    { "ttd.FitMode",      &fFitMode,      kInt,  0, 0, 1 },
+    { "ttd.ConvMode",      &fConvMode,      kInt,  0, 0, 1 },
+    { 0 }
+  };
+
+  
+  // new char * to search for correct string in DB file
+  DBPref += ".";
+  const char *DBfind = DBPref.c_str();
+  
+  Int_t err = LoadDB( file, date, request, DBfind );
+  fclose(file);
+  if( err )
+    return err;
+
+
+  cout << "fFitMode = " << fFitMode << endl;
+  
+  if(fFitMode == 0 && fConvMode == 0){ // 2P fitting so do not resort tracks by timing offset
+    SetTrSorting(kFALSE);
+  }
+  else{ // 3P (or 2PA) fitting so do resort tracks by timing offset
+    SetTrSorting(kTRUE);
+  }
+  
+  
+  fIsInit = true;
+  return kOK;
+  
+}
+
 
 //_____________________________________________________________________________
 Bool_t Tritium_HRS::SetTrSorting( Bool_t set )

@@ -144,5 +144,8 @@ replay/libraries/TriFadcScin/TriFadcScin_changed_02_16_19.cxx
 
 
  
-
+replay/DB/db_L.vdc.dat_*
+replay/DB/db_R.vdc.dat_*
+replay/DB/db_L.s2.dat_*
+replay/DB/db_R.s2.dat_*
 

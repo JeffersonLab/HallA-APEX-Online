@@ -26,6 +26,8 @@ public:
 
   THaNonTrackingDetector* GetRefDet() const { return fRefDet; }
 
+  Int_t ReadDatabase( const TDatime& date );
+  
   Bool_t GetTrSorting() const;
   Bool_t SetTrSorting( Bool_t set = kFALSE );
   Bool_t AutoStandardDetectors( Bool_t set = kTRUE );
@@ -35,6 +37,10 @@ public:
 protected:
   THaNonTrackingDetector* fRefDet;  // calculate time track hits this plane
 
+
+  Int_t fFitMode = 0; // read in FitMode from DB
+  Int_t fConvMode = 0; // read in ConvMode from DB
+  
   // Bit flags
   enum {
     kSortTracks   = BIT(14), // Tracks are to be sorted by chi2
