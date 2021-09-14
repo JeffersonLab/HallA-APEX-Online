@@ -78,10 +78,15 @@ Int_t Tritium_HRS::ReadDatabase( const TDatime& date )
   
   FILE* file = OpenFile(DBPrefix, date);
   if( !file ) return kFileError;
+
+  Double_t th = 0.0;
+
   
   DBRequest request[] = {
     { "ttd.FitMode",      &fFitMode,      kInt,  0, 0, 1 },
-    { "ttd.ConvMode",      &fConvMode,      kInt,  0, 0, 1 },
+    { "ttd.ConvMode",     &fConvMode,     kInt,  0, 0, 1 },
+    { "theta",            &th,            kDouble,  0, 1},
+    { "SeptB",            &fSeptum,       kInt,  0, 1},
     { 0 }
   };
 
@@ -95,8 +100,16 @@ Int_t Tritium_HRS::ReadDatabase( const TDatime& date )
   if( err )
     return err;
 
-
-  cout << "fFitMode = " << fFitMode << endl;
+  
+  if(fSeptum){
+    //    cout << fPrefix << ": setting central theta to " << th << endl;
+    SetCentralAngles( th, fPhiGeo/TMath::DegToRad(), false );      
+  }
+  else{
+    //    cout << fPrefix << ": fSeptum = " << fSeptum << endl;    
+  }
+      
+  // cout << "fFitMode = " << fFitMode << endl;
   
   if(fFitMode == 0 && fConvMode == 0){ // 2P fitting so do not resort tracks by timing offset
     SetTrSorting(kFALSE);

@@ -40,6 +40,7 @@ protected:
 
   Int_t fFitMode = 0; // read in FitMode from DB
   Int_t fConvMode = 0; // read in ConvMode from DB
+  Int_t fSeptum = 0; // read in ConvMode from DB
   
   // Bit flags
   enum {
